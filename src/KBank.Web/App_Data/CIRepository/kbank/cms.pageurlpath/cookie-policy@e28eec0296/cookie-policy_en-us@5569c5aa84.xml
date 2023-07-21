@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.pageurlpath>
+  <PageUrlPathCulture>en-US</PageUrlPathCulture>
+  <PageUrlPathGUID>38db0298-0e86-47f8-93f4-c4ec191b10da</PageUrlPathGUID>
+  <PageUrlPathNodeID>
+    <CodeName>/Cookie-Policy</CodeName>
+    <GUID>10837f11-c459-4bf6-b707-783adcb34c0d</GUID>
+    <ObjectType>cms.node</ObjectType>
+    <Site>
+      <CodeName>KBank</CodeName>
+      <GUID>ee71668e-9013-4bce-81f2-c1e91a2bca73</GUID>
+      <ObjectType>cms.site</ObjectType>
+    </Site>
+  </PageUrlPathNodeID>
+  <PageUrlPathSiteID>
+    <CodeName>KBank</CodeName>
+    <GUID>ee71668e-9013-4bce-81f2-c1e91a2bca73</GUID>
+    <ObjectType>cms.site</ObjectType>
+  </PageUrlPathSiteID>
+  <PageUrlPathUrlPath>Cookie-Policy</PageUrlPathUrlPath>
+  <PageUrlPathUrlPathHash>
+    <![CDATA[FA420277850C547009B83BFCEABDAC9AE8B9FD781E301264D60CF708F17D6D76]]>
+  </PageUrlPathUrlPathHash>
+</cms.pageurlpath>

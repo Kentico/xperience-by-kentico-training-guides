@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.role>
+  <RoleDescription>
+    <![CDATA[A sample role with an oversight of all digital marketing applications. Responsible for defining the customer journey as well as managing, analyzing, and releasing assets to their target marketing channels. This role also has oversight of all customer data management applications.]]>
+  </RoleDescription>
+  <RoleDisplayName>Digital Channel Manager</RoleDisplayName>
+  <RoleGUID>93fb8806-31ba-4548-8a3b-24dbbeec6e3d</RoleGUID>
+  <RoleName>DigitalChannelManager</RoleName>
+  <SiteID>
+    <CodeName>KBank</CodeName>
+    <GUID>ee71668e-9013-4bce-81f2-c1e91a2bca73</GUID>
+    <ObjectType>cms.site</ObjectType>
+  </SiteID>
+</cms.role>

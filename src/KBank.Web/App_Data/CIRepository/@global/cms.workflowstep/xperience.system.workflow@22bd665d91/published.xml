@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.workflowstep>
+  <StepActionParameters />
+  <StepAllowPublish>False</StepAllowPublish>
+  <StepAllowReject>True</StepAllowReject>
+  <StepDefinition>
+    <Step xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <TimeoutEnabled>false</TimeoutEnabled>
+      <TimeoutTarget>00000000-0000-0000-0000-000000000000</TimeoutTarget>
+      <SourcePoints>
+        <SourcePoint Guid="83c56779-68b7-4203-a592-be0147aa0a1f">
+          <Label>Default</Label>
+          <Type>0</Type>
+          <StepRolesSecurity>0</StepRolesSecurity>
+          <StepUsersSecurity>0</StepUsersSecurity>
+        </SourcePoint>
+      </SourcePoints>
+      <Position>
+        <X>-1</X>
+        <Y>-1</Y>
+      </Position>
+    </Step>
+  </StepDefinition>
+  <StepDisplayName>Published</StepDisplayName>
+  <StepGUID>35013ded-c188-441b-941d-3a57c6b1400c</StepGUID>
+  <StepName>published</StepName>
+  <StepOrder>2</StepOrder>
+  <StepRolesSecurity>0</StepRolesSecurity>
+  <StepType>100</StepType>
+  <StepUsersSecurity>0</StepUsersSecurity>
+  <StepWorkflowID>
+    <CodeName>xperience.system.workflow</CodeName>
+    <GUID>81ad3bd8-1b58-4e19-ac2e-c759d9f588f1</GUID>
+    <ObjectType>cms.workflow</ObjectType>
+  </StepWorkflowID>
+  <StepWorkflowType>0</StepWorkflowType>
+</cms.workflowstep>

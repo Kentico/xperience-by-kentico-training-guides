@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- This is a CI serialization file for Home -->
+<cms.documentlocalization>
+  <DocumentContent />
+  <DocumentCreatedByUserID>
+    <CodeName>administrator</CodeName>
+    <GUID>6415b8ce-8072-4bcd-8e48-9d7178b826b7</GUID>
+    <ObjectType>cms.user</ObjectType>
+  </DocumentCreatedByUserID>
+  <DocumentCreatedWhen>2023-02-28 16:25:52Z</DocumentCreatedWhen>
+  <DocumentCulture>en-US</DocumentCulture>
+  <DocumentGUID>905af5cc-f19d-4148-8e58-604d8907929d</DocumentGUID>
+  <DocumentModifiedByUserID>
+    <CodeName>administrator</CodeName>
+    <GUID>6415b8ce-8072-4bcd-8e48-9d7178b826b7</GUID>
+    <ObjectType>cms.user</ObjectType>
+  </DocumentModifiedByUserID>
+  <DocumentModifiedWhen>2023-07-12 15:06:37Z</DocumentModifiedWhen>
+  <DocumentName>Home</DocumentName>
+  <DocumentNodeID>
+    <CodeName>/Home</CodeName>
+    <GUID>35300842-7670-4d39-a5a9-8b8313b4a2ca</GUID>
+    <ObjectType>cms.node</ObjectType>
+    <Site>
+      <CodeName>KBank</CodeName>
+      <GUID>ee71668e-9013-4bce-81f2-c1e91a2bca73</GUID>
+      <ObjectType>cms.site</ObjectType>
+    </Site>
+  </DocumentNodeID>
+  <DocumentPageBuilderWidgets>
+    <![CDATA[{"editableAreas":[{"identifier":"areaMain","sections":[{"identifier":"f76d8e73-3f04-4737-a9c3-63015452b934","type":"KBank.FormColumnSection","properties":{"sectionAnchor":null},"zones":[{"identifier":"ffa89805-01c6-44d4-a613-1eaa84685503","widgets":[{"identifier":"4b77b17c-34da-40fa-8b1a-b1c25a647b1d","type":"Kentico.Widget.RichText","variants":[{"identifier":"c9d1b5e6-738a-4c0c-85b2-da828097e565","properties":{"content":"<p id=\"isPasted\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis nunc id efficitur porttitor. In magna nunc, mollis ac sem in, scelerisque lobortis leo. Suspendisse convallis et leo sed fermentum. Donec sagittis ante et nisl tincidunt cursus. Etiam scelerisque ligula sed justo consectetur, vitae lobortis sem tempus. Aenean vitae euismod velit. Integer dignissim bibendum egestas. Maecenas quis elit ac arcu suscipit venenatis. Fusce ac sapien efficitur, molestie augue vel, hendrerit velit. Suspendisse a hendrerit elit. Sed ac mollis augue. Sed faucibus eu mi nec tincidunt.</p><p>Vivamus dui eros, mattis ut dapibus ac, sollicitudin nec magna. Mauris accumsan consectetur ligula in fringilla. Nullam rutrum ligula ac venenatis cursus. Duis scelerisque tincidunt mauris id venenatis. Vivamus at urna nibh. Sed velit neque, ornare at finibus nec, pulvinar sollicitudin eros. In accumsan lobortis orci, non iaculis nisl malesuada nec. Morbi venenatis pharetra maximus. Phasellus consequat lacinia libero, ut tincidunt urna venenatis eget. Pellentesque suscipit pellentesque est nec mattis.</p>"},"fieldIdentifiers":{"content":"96db5d93-46e6-45f3-94fc-532899cc594e"}}]}]}],"fieldIdentifiers":{"sectionAnchor":"b609bf17-f5e3-4847-b4de-067408cfbb38"}}]}]}]]>
+  </DocumentPageBuilderWidgets>
+</cms.documentlocalization>

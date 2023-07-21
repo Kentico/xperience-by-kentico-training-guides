@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.formclass>
+  <ClassContactMapping>
+    <form />
+  </ClassContactMapping>
+  <ClassContactOverwriteEnabled>False</ClassContactOverwriteEnabled>
+  <ClassDisplayName>Test Consent Form</ClassDisplayName>
+  <ClassFormDefinition>
+    <form>
+      <field column="Form_2023_05_11_15_12ID" columntype="integer" enabled="true" guid="e9ac973d-4a48-4c97-bfb2-09e69bc84348" isPK="true">
+        <properties>
+          <fieldcaption>Form_2023_05_11_15_12ID</fieldcaption>
+        </properties>
+      </field>
+      <field column="FormInserted" columnprecision="7" columntype="datetime" enabled="true" guid="95dbff7d-b831-4d63-8c44-cda038eaa8c2" system="true">
+        <properties>
+          <fieldcaption>Form inserted</fieldcaption>
+        </properties>
+      </field>
+      <field column="FormUpdated" columnprecision="7" columntype="datetime" enabled="true" guid="0480570a-1bec-4d0c-b12a-88a3bc6ea9ff" system="true">
+        <properties>
+          <fieldcaption>Form updated</fieldcaption>
+        </properties>
+      </field>
+      <field allowempty="true" column="ConsentAgreement" columntype="guid" enabled="true" guid="b41ab1f7-dced-482f-8125-b9922874ec62" visible="true">
+        <properties>
+          <fieldcaption>Consent agreement</fieldcaption>
+          <smart>False</smart>
+        </properties>
+        <settings>
+          <componentidentifier>Kentico.ConsentAgreement</componentidentifier>
+          <ConsentCodeName>TestConsent</ConsentCodeName>
+        </settings>
+      </field>
+    </form>
+  </ClassFormDefinition>
+  <ClassGUID>b832908f-5e3a-4664-baf8-314a60b8e608</ClassGUID>
+  <ClassHasMetadata>False</ClassHasMetadata>
+  <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
+  <ClassHasURL>False</ClassHasURL>
+  <ClassIsCoupledClass>True</ClassIsCoupledClass>
+  <ClassIsCustomTable>False</ClassIsCustomTable>
+  <ClassIsDocumentType>False</ClassIsDocumentType>
+  <ClassIsForm>True</ClassIsForm>
+  <ClassIsPage>False</ClassIsPage>
+  <ClassName>BizForm.TestConsentForm</ClassName>
+  <ClassNodeNameSource />
+  <ClassSearchCreationDateColumn>FormInserted</ClassSearchCreationDateColumn>
+  <ClassSearchEnabled>True</ClassSearchEnabled>
+  <ClassSearchSettings>
+    <search>
+      <item content="False" id="01e66d63-286c-44bb-a657-17c41d30bbe8" name="FormUpdated" searchable="True" tokenized="False" updatetrigger="True" />
+      <item content="False" id="03153d39-4d8c-4ee6-8cd5-dcf7f9eb1fca" name="Form_2023_05_11_15_12ID" searchable="True" tokenized="False" updatetrigger="True" />
+      <item content="False" id="c9f60684-59f4-46d9-8387-92b125c34f98" name="FormInserted" searchable="True" tokenized="False" updatetrigger="True" />
+    </search>
+  </ClassSearchSettings>
+  <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
+  <ClassTableName>Form_KBank_Form_2023_05_11_15_12</ClassTableName>
+  <ClassUsesPageBuilder>False</ClassUsesPageBuilder>
+  <ClassXmlSchema>
+<![CDATA[
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+  <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Form_KBank_Form_2023_05_11_15_12">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Form_2023_05_11_15_12ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" type="xs:int" />
+              <xs:element name="FormInserted" type="xs:dateTime" />
+              <xs:element name="FormUpdated" type="xs:dateTime" />
+              <xs:element name="ConsentAgreement" msdata:DataType="System.Guid, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//Form_KBank_Form_2023_05_11_15_12" />
+      <xs:field xpath="Form_2023_05_11_15_12ID" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>
+]]>
+  </ClassXmlSchema>
+</cms.formclass>

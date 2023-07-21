@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.classsite>
+  <Parent>
+    <CodeName>Kentico.HomePage</CodeName>
+    <GUID>1f0696ad-4489-42e6-bada-e612b8d963ea</GUID>
+    <ObjectType>cms.documenttype</ObjectType>
+  </Parent>
+  <Bindings>
+    <Binding id="KBank">
+      <SiteID>
+        <CodeName>KBank</CodeName>
+        <GUID>ee71668e-9013-4bce-81f2-c1e91a2bca73</GUID>
+        <ObjectType>cms.site</ObjectType>
+      </SiteID>
+    </Binding>
+  </Bindings>
+</cms.classsite>

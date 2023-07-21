@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- This is a CI serialization file for /Home -->
+<cms.node>
+  <NodeAlias>Home</NodeAlias>
+  <NodeClassID>
+    <CodeName>Kentico.HomePage</CodeName>
+    <GUID>1f0696ad-4489-42e6-bada-e612b8d963ea</GUID>
+    <ObjectType>cms.documenttype</ObjectType>
+  </NodeClassID>
+  <NodeGUID>35300842-7670-4d39-a5a9-8b8313b4a2ca</NodeGUID>
+  <NodeIsPage>True</NodeIsPage>
+  <NodeName>Home</NodeName>
+  <NodeOrder>1</NodeOrder>
+  <NodeOwner>
+    <CodeName>administrator</CodeName>
+    <GUID>6415b8ce-8072-4bcd-8e48-9d7178b826b7</GUID>
+    <ObjectType>cms.user</ObjectType>
+  </NodeOwner>
+  <NodeParentID>
+    <CodeName>/</CodeName>
+    <GUID>acdd2058-bde0-4c9d-8332-45f417220571</GUID>
+    <ObjectType>cms.node</ObjectType>
+    <Site>
+      <CodeName>KBank</CodeName>
+      <GUID>ee71668e-9013-4bce-81f2-c1e91a2bca73</GUID>
+      <ObjectType>cms.site</ObjectType>
+    </Site>
+  </NodeParentID>
+  <NodeSiteID>
+    <CodeName>KBank</CodeName>
+    <GUID>ee71668e-9013-4bce-81f2-c1e91a2bca73</GUID>
+    <ObjectType>cms.site</ObjectType>
+  </NodeSiteID>
+</cms.node>

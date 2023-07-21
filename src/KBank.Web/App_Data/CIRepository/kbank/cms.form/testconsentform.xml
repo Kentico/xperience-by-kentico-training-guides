@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.form>
+  <FormAfterSubmitMode>message</FormAfterSubmitMode>
+  <FormAfterSubmitRelatedValue>
+    <![CDATA[Thanks! We'll get back to you soon.]]>
+  </FormAfterSubmitRelatedValue>
+  <FormBuilderLayout>
+<![CDATA[
+{
+  "editableAreas": [
+    {
+      "identifier": "DefaultFormBuilderArea",
+      "sections": [
+        {
+          "identifier": "00000000-0000-0000-0000-000000000000",
+          "type": "Kentico.DefaultSection",
+          "zones": [
+            {
+              "identifier": "f5019cbc-eb7f-41c6-95d3-098118198c9f",
+              "formComponents": [
+                {
+                  "identifier": "b41ab1f7-dced-482f-8125-b9922874ec62"
+                }
+              ]
+            }
+          ],
+          "properties": null
+        }
+      ]
+    }
+  ]
+}
+]]>
+  </FormBuilderLayout>
+  <FormClassID>
+    <CodeName>BizForm.TestConsentForm</CodeName>
+    <GUID>b832908f-5e3a-4664-baf8-314a60b8e608</GUID>
+    <ObjectType>cms.formclass</ObjectType>
+  </FormClassID>
+  <FormDisplayName>Test Consent Form</FormDisplayName>
+  <FormGUID>226bf759-11ee-4389-a746-ba7a0c72368d</FormGUID>
+  <FormItems>2</FormItems>
+  <FormLogActivity>True</FormLogActivity>
+  <FormName>TestConsentForm</FormName>
+  <FormSiteID>
+    <CodeName>KBank</CodeName>
+    <GUID>ee71668e-9013-4bce-81f2-c1e91a2bca73</GUID>
+    <ObjectType>cms.site</ObjectType>
+  </FormSiteID>
+</cms.form>

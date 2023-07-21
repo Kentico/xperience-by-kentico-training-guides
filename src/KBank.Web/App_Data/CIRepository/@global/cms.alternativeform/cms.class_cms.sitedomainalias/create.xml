@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.alternativeform>
+  <FormClassID>
+    <CodeName>cms.sitedomainalias</CodeName>
+    <GUID>a72f9763-8c28-4314-981e-6247776f8134</GUID>
+    <ObjectType>cms.class</ObjectType>
+  </FormClassID>
+  <FormCustomizedColumns />
+  <FormDefinition>
+    <form>
+      <field column="SiteDomainAliasID" guid="97dd2de6-e021-4be6-afc0-98bb257c2697" />
+      <field column="SiteDomainAliasName" columnprecision="0" enabled="true" guid="0128ef2c-a751-404e-a4ca-e635da780b90" visible="true" allowempty="">
+        <settings>
+          <controlname>Kentico.Administration.TextInput</controlname>
+        </settings>
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>{$base.sites.edit.domainName$}</fieldcaption>
+          <fielddescription>{$base.sites.edit.domainName.description$}</fielddescription>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+      </field>
+      <field column="SiteID" guid="6bcc14c5-26c8-4219-95fa-b17014252d3a" />
+      <field column="SiteDefaultVisitorCulture" guid="a69982ab-2f9e-4c9d-a11a-caa1bee222aa" />
+      <field column="SiteDomainGUID" guid="9f8ec7b9-bd18-4c2f-aa37-86cc2e848fa7" />
+      <field column="SiteDomainLastModified" guid="9ddf6eaa-3970-4615-9000-e40513eaa8c3" />
+    </form>
+  </FormDefinition>
+  <FormDisplayName>Create</FormDisplayName>
+  <FormGUID>19998532-b679-42cc-8fb7-03598ca915db</FormGUID>
+  <FormHideNewParentFields>True</FormHideNewParentFields>
+  <FormIsCustom>False</FormIsCustom>
+  <FormName>Create</FormName>
+</cms.alternativeform>

@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.macrorulemacrorulecategory>
+  <Parent>
+    <CodeName>EmailActivity</CodeName>
+    <GUID>7666cd72-d1d8-460b-b162-8e232baa73ed</GUID>
+    <ObjectType>cms.macrorulecategory</ObjectType>
+  </Parent>
+  <Bindings>
+    <Binding id="cms.macrorule_CMSContactHasClickedALinkInNewsletterInTheLastXDays">
+      <MacroRuleID>
+        <CodeName>CMSContactHasClickedALinkInNewsletterInTheLastXDays</CodeName>
+        <GUID>a99cc193-134d-4efb-8f6f-3986b9bab17e</GUID>
+        <ObjectType>cms.macrorule</ObjectType>
+      </MacroRuleID>
+    </Binding>
+    <Binding id="cms.macrorule_CMSContactHasClickedALinkInNewsletterIssue">
+      <MacroRuleID>
+        <CodeName>CMSContactHasClickedALinkInNewsletterIssue</CodeName>
+        <GUID>a2f1e889-d12f-482f-a1fd-3ea4834e6bc4</GUID>
+        <ObjectType>cms.macrorule</ObjectType>
+      </MacroRuleID>
+    </Binding>
+    <Binding id="cms.macrorule_CMSContactHasClickedALinkInNewsletterIssueInLastXDays">
+      <MacroRuleID>
+        <CodeName>CMSContactHasClickedALinkInNewsletterIssueInLastXDays</CodeName>
+        <GUID>f15ab50d-c0e2-4e39-a406-4b8493dd0801</GUID>
+        <ObjectType>cms.macrorule</ObjectType>
+      </MacroRuleID>
+    </Binding>
+    <Binding id="cms.macrorule_CMSContactHasOpenedSpecifiedNewsletterInTheLastXDays">
+      <MacroRuleID>
+        <CodeName>CMSContactHasOpenedSpecifiedNewsletterInTheLastXDays</CodeName>
+        <GUID>84be6fde-8146-4822-93d3-f987b8e1188f</GUID>
+        <ObjectType>cms.macrorule</ObjectType>
+      </MacroRuleID>
+    </Binding>
+    <Binding id="cms.macrorule_CMSContactHasOpenedSpecifiedNewsletterIssue">
+      <MacroRuleID>
+        <CodeName>CMSContactHasOpenedSpecifiedNewsletterIssue</CodeName>
+        <GUID>f10bd718-a8ed-461f-95ac-a9554e7ee7e4</GUID>
+        <ObjectType>cms.macrorule</ObjectType>
+      </MacroRuleID>
+    </Binding>
+    <Binding id="cms.macrorule_CMSContactHasOpenedSpecifiedNewsletterIssueInTheLastXDays">
+      <MacroRuleID>
+        <CodeName>CMSContactHasOpenedSpecifiedNewsletterIssueInTheLastXDays</CodeName>
+        <GUID>a1ec3d51-4dc9-4300-88fc-6e03eff3f101</GUID>
+        <ObjectType>cms.macrorule</ObjectType>
+      </MacroRuleID>
+    </Binding>
+    <Binding id="cms.macrorule_CMSContactHasUnsubscribedFromAllEmailsInTheLastXDays">
+      <MacroRuleID>
+        <CodeName>CMSContactHasUnsubscribedFromAllEmailsInTheLastXDays</CodeName>
+        <GUID>02b12520-8fd5-49a8-8b94-ae56c3436eff</GUID>
+        <ObjectType>cms.macrorule</ObjectType>
+      </MacroRuleID>
+    </Binding>
+    <Binding id="cms.macrorule_CMSContactIsSubscribedToSpecifiedNewsletter">
+      <MacroRuleID>
+        <CodeName>CMSContactIsSubscribedToSpecifiedNewsletter</CodeName>
+        <GUID>5246ecce-2ca4-408a-b183-38d2fed172b6</GUID>
+        <ObjectType>cms.macrorule</ObjectType>
+      </MacroRuleID>
+    </Binding>
+    <Binding id="cms.macrorule_CMSSatisfiesMacroCondition">
+      <MacroRuleID>
+        <CodeName>CMSSatisfiesMacroCondition</CodeName>
+        <GUID>33e07d27-6277-4470-8bff-1b07aafd1802</GUID>
+        <ObjectType>cms.macrorule</ObjectType>
+      </MacroRuleID>
+    </Binding>
+  </Bindings>
+</cms.macrorulemacrorulecategory>

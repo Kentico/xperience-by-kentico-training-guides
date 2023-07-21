@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.class>
+  <ClassConnectionString>CMSConnectionString</ClassConnectionString>
+  <ClassContactOverwriteEnabled>False</ClassContactOverwriteEnabled>
+  <ClassCustomizedColumns />
+  <ClassDisplayName>Search index site</ClassDisplayName>
+  <ClassFormDefinition>
+    <form>
+      <field column="IndexID" columntype="integer" guid="92bfdd7c-ff31-494f-aeb8-40bc60b27098" isPK="true" refobjtype="cms.searchindex" reftype="Binding" system="true">
+        <properties>
+          <fieldcaption>IndexID</fieldcaption>
+        </properties>
+      </field>
+      <field column="IndexSiteID" columntype="integer" guid="f6c6fe0a-45e8-45cf-9266-5a214dbdd6ae" refobjtype="cms.site" reftype="Binding" system="true">
+        <properties>
+          <fieldcaption>IndexSiteID</fieldcaption>
+        </properties>
+      </field>
+    </form>
+  </ClassFormDefinition>
+  <ClassGUID>edd838a8-13e8-4195-9ba8-092da8b0680f</ClassGUID>
+  <ClassHasMetadata>False</ClassHasMetadata>
+  <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
+  <ClassHasURL>False</ClassHasURL>
+  <ClassIsCoupledClass>True</ClassIsCoupledClass>
+  <ClassIsCustomTable>False</ClassIsCustomTable>
+  <ClassIsDocumentType>False</ClassIsDocumentType>
+  <ClassIsForm>False</ClassIsForm>
+  <ClassIsPage>False</ClassIsPage>
+  <ClassName>cms.SearchIndexSite</ClassName>
+  <ClassNodeAliasSource />
+  <ClassNodeNameSource />
+  <ClassResourceID>
+    <CodeName>CMS.Search</CodeName>
+    <GUID>7a137c8e-394d-4013-a707-ffd1ca1029c7</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ClassResourceID>
+  <ClassSearchContentColumn />
+  <ClassSearchCreationDateColumn />
+  <ClassSearchEnabled>False</ClassSearchEnabled>
+  <ClassSearchImageColumn />
+  <ClassSearchSettings>
+    <search />
+  </ClassSearchSettings>
+  <ClassSearchTitleColumn />
+  <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
+  <ClassShowColumns />
+  <ClassShowTemplateSelection>False</ClassShowTemplateSelection>
+  <ClassTableName>CMS_SearchIndexSite</ClassTableName>
+  <ClassUsePublishFromTo>False</ClassUsePublishFromTo>
+  <ClassUsesPageBuilder>False</ClassUsesPageBuilder>
+</cms.class>

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.scheduledtask>
+  <TaskAssemblyName>CMS.DocumentEngine</TaskAssemblyName>
+  <TaskClass>
+    <![CDATA[CMS.DocumentEngine.ContentItemFilesRemoveTemporaryTask]]>
+  </TaskClass>
+  <TaskData />
+  <TaskDisplayName>Remove temporary files</TaskDisplayName>
+  <TaskEnabled>True</TaskEnabled>
+  <TaskGUID>51bb352d-8a3d-4688-bd16-3aff156e7a53</TaskGUID>
+  <TaskInterval>
+    <![CDATA[hour;10/27/2022 12:00:00 AM;1;00:00:00;23:59:00;Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday]]>
+  </TaskInterval>
+  <TaskName>ContentItemsRemoveTemporaryFiles</TaskName>
+  <TaskRunInSeparateThread>True</TaskRunInSeparateThread>
+</cms.scheduledtask>

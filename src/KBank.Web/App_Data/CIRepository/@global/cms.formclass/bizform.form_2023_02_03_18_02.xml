@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.formclass>
+  <ClassDisplayName>Form (2023-02-03_18:02)</ClassDisplayName>
+  <ClassFormDefinition>
+    <form>
+      <field column="Form_2023_02_03_18_02ID" columntype="integer" enabled="true" guid="ad63d742-b213-4474-bcee-db4229de60ba" isPK="true">
+        <properties>
+          <fieldcaption>Form_2023_02_03_18_02ID</fieldcaption>
+        </properties>
+      </field>
+      <field column="FormInserted" columnprecision="7" columntype="datetime" enabled="true" guid="c18dc477-0133-4f79-9698-b7e123680964" system="true">
+        <properties>
+          <fieldcaption>Form inserted</fieldcaption>
+        </properties>
+      </field>
+      <field column="FormUpdated" columnprecision="7" columntype="datetime" enabled="true" guid="84f22787-9750-4041-a74b-fc610ee8fb8c" system="true">
+        <properties>
+          <fieldcaption>Form updated</fieldcaption>
+        </properties>
+      </field>
+    </form>
+  </ClassFormDefinition>
+  <ClassGUID>9232f93f-49ae-4031-a6a1-16230cbfef90</ClassGUID>
+  <ClassHasMetadata>False</ClassHasMetadata>
+  <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
+  <ClassHasURL>False</ClassHasURL>
+  <ClassIsCoupledClass>True</ClassIsCoupledClass>
+  <ClassIsCustomTable>False</ClassIsCustomTable>
+  <ClassIsDocumentType>False</ClassIsDocumentType>
+  <ClassIsForm>True</ClassIsForm>
+  <ClassIsPage>False</ClassIsPage>
+  <ClassName>BizForm.Form_2023_02_03_18_02</ClassName>
+  <ClassNodeNameSource />
+  <ClassSearchCreationDateColumn>FormInserted</ClassSearchCreationDateColumn>
+  <ClassSearchEnabled>True</ClassSearchEnabled>
+  <ClassSearchSettings>
+    <search>
+      <item content="False" id="402e0ee9-30e9-46ae-a660-8e1148fcbd14" name="FormUpdated" searchable="True" tokenized="False" updatetrigger="True" />
+      <item content="False" id="804145b9-52e0-40c3-bd90-04e0c6d6bf83" name="FormInserted" searchable="True" tokenized="False" updatetrigger="True" />
+      <item content="False" id="ede257d3-b845-4a4c-81b9-6a89c4dfffe0" name="Form_2023_02_03_18_02ID" searchable="True" tokenized="False" updatetrigger="True" />
+    </search>
+  </ClassSearchSettings>
+  <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
+  <ClassTableName>Form_KBank_Form_2023_02_03_18_02</ClassTableName>
+  <ClassUsesPageBuilder>False</ClassUsesPageBuilder>
+  <ClassXmlSchema>
+<![CDATA[
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+  <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Form_KBank_Form_2023_02_03_18_02">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Form_2023_02_03_18_02ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" type="xs:int" />
+              <xs:element name="FormInserted" type="xs:dateTime" />
+              <xs:element name="FormUpdated" type="xs:dateTime" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//Form_KBank_Form_2023_02_03_18_02" />
+      <xs:field xpath="Form_2023_02_03_18_02ID" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>
+]]>
+  </ClassXmlSchema>
+</cms.formclass>

@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.class>
+  <ClassConnectionString>CMSConnectionString</ClassConnectionString>
+  <ClassContactOverwriteEnabled>False</ClassContactOverwriteEnabled>
+  <ClassCustomizedColumns />
+  <ClassDisplayName>Page</ClassDisplayName>
+  <ClassFormDefinition>
+    <form>
+      <field column="DocumentID" columntype="integer" guid="04c53ea8-89c6-45fe-b9f8-11c869742937" isPK="true" system="true">
+        <properties>
+          <fieldcaption>DocumentID</fieldcaption>
+        </properties>
+      </field>
+      <field allowempty="true" column="DocumentGUID" columntype="guid" guid="b0dc7e57-96dd-4e5b-829a-4ba9bd84ac0f" system="true" />
+      <field column="DocumentName" columnsize="100" columntype="text" guid="1e0f27f5-f59a-4fa1-871f-5c2d946453ca" system="true">
+        <properties>
+          <fieldcaption>DocumentName</fieldcaption>
+        </properties>
+      </field>
+      <field allowempty="true" column="DocumentModifiedWhen" columntype="datetime" guid="d86fd91f-9650-459d-a6a9-f101ec936cdf" system="true">
+        <properties>
+          <fieldcaption>DocumentModifiedWhen</fieldcaption>
+        </properties>
+      </field>
+      <field allowempty="true" column="DocumentModifiedByUserID" columntype="integer" guid="3db3f1c9-02b4-4d37-abd5-1298a9068ac1" system="true">
+        <properties>
+          <fieldcaption>DocumentModifiedByUserID</fieldcaption>
+        </properties>
+      </field>
+      <field allowempty="true" column="DocumentForeignKeyValue" columntype="integer" guid="1ab4dfd9-6e8c-4b4d-9526-528890bc9c47" system="true">
+        <properties>
+          <fieldcaption>DocumentForeignKeyValue</fieldcaption>
+        </properties>
+      </field>
+      <field allowempty="true" column="DocumentCreatedByUserID" columntype="integer" guid="89690d5f-2c54-4788-8926-b38692719e0e" system="true">
+        <properties>
+          <fieldcaption>DocumentCreatedByUserID</fieldcaption>
+        </properties>
+      </field>
+      <field allowempty="true" column="DocumentCreatedWhen" columntype="datetime" guid="82f0e9c1-9dfa-42a1-9b4a-a0090bbfad73" system="true">
+        <properties>
+          <fieldcaption>DocumentCreatedWhen</fieldcaption>
+        </properties>
+      </field>
+      <field allowempty="true" column="DocumentCheckedOutByUserID" columntype="integer" guid="d561f437-cf47-4681-a94e-085d9632b926" system="true">
+        <properties>
+          <fieldcaption>DocumentCheckedOutByUserID</fieldcaption>
+        </properties>
+      </field>
+      <field allowempty="true" column="DocumentCheckedOutWhen" columntype="datetime" guid="65160c58-f425-4370-baf6-b47dc987611d" system="true">
+        <properties>
+          <fieldcaption>DocumentCheckedOutWhen</fieldcaption>
+        </properties>
+      </field>
+      <field allowempty="true" column="DocumentCheckedOutVersionHistoryID" columntype="integer" guid="31bf940c-d22c-4bf8-a430-776b6d4488c7" system="true">
+        <properties>
+          <fieldcaption>DocumentCheckedOutVersionHistoryID</fieldcaption>
+        </properties>
+      </field>
+      <field allowempty="true" column="DocumentPublishedVersionHistoryID" columntype="integer" guid="8229ebd2-c4d2-43bd-82e9-ae9af6146c97" system="true">
+        <properties>
+          <fieldcaption>DocumentPublishedVersionHistoryID</fieldcaption>
+        </properties>
+      </field>
+      <field allowempty="true" column="DocumentWorkflowStepID" columntype="integer" guid="b7238cf1-94ac-4c59-87f4-f472f78245b2" system="true">
+        <properties>
+          <fieldcaption>DocumentWorkflowStepID</fieldcaption>
+        </properties>
+      </field>
+      <field allowempty="true" column="DocumentPublishFrom" columntype="datetime" guid="5998e7fe-a503-4c5a-8711-9a4cbe77d8a3" system="true">
+        <properties>
+          <fieldcaption>DocumentPublishFrom</fieldcaption>
+        </properties>
+      </field>
+      <field allowempty="true" column="DocumentPublishTo" columntype="datetime" guid="75b22166-d757-485f-901a-6636cabe930e" system="true">
+        <properties>
+          <fieldcaption>DocumentPublishTo</fieldcaption>
+        </properties>
+      </field>
+      <field column="DocumentCulture" columnsize="50" columntype="text" guid="e123ee40-049c-48b6-9dd8-a51b1e7da6b1" system="true">
+        <properties>
+          <fieldcaption>DocumentCulture</fieldcaption>
+        </properties>
+      </field>
+      <field column="DocumentNodeID" columntype="integer" guid="3bc79b36-ba8f-4fea-85a4-c72fdbc315d2" system="true">
+        <properties>
+          <fieldcaption>DocumentNodeID</fieldcaption>
+        </properties>
+      </field>
+      <field allowempty="true" column="DocumentContent" columntype="longtext" guid="7cc90d0b-19c9-49fa-a7ce-14104dd32586" system="true">
+        <properties>
+          <fieldcaption>DocumentContent</fieldcaption>
+        </properties>
+      </field>
+      <field allowempty="true" column="DocumentCustomData" columntype="longtext" guid="8c76cc14-a486-44f9-a1f2-1947192ca6a2" system="true">
+        <properties>
+          <fieldcaption>DocumentCustomData</fieldcaption>
+        </properties>
+      </field>
+      <field allowempty="true" column="DocumentLastPublished" columntype="datetime" guid="834785f6-f532-435f-b76f-c20dfd9399f6" system="true">
+        <properties>
+          <fieldcaption>DocumentLastPublished</fieldcaption>
+        </properties>
+      </field>
+      <field allowempty="true" column="DocumentSearchExcluded" columntype="boolean" guid="05110f5f-a8dd-4e30-828c-ef767cfdb1e4" system="true">
+        <properties>
+          <defaultvalue>false</defaultvalue>
+          <fieldcaption>Page search excluded</fieldcaption>
+        </properties>
+      </field>
+      <field allowempty="true" column="DocumentLastVersionNumber" columnsize="50" columntype="text" guid="88338d99-7f91-4c20-8c84-a3dd97cb53a1" system="true" />
+      <field allowempty="true" column="DocumentIsArchived" columntype="boolean" guid="41cad1db-9aa7-4818-ae85-a9651578e554" system="true">
+        <properties>
+          <defaultvalue>false</defaultvalue>
+          <fieldcaption>DocumentID</fieldcaption>
+        </properties>
+      </field>
+      <field allowempty="true" column="DocumentWorkflowCycleGUID" columntype="guid" guid="7a8dbf8e-a387-4068-b255-247eff08351a" system="true" />
+      <field allowempty="true" column="DocumentWorkflowActionStatus" columnsize="450" columntype="text" guid="11d7b5dd-fae8-4f61-af02-ca3a196abcb3" system="true">
+        <properties>
+          <fieldcaption>DocumentWorkflowActionStatus</fieldcaption>
+        </properties>
+      </field>
+      <field column="DocumentCanBePublished" columntype="boolean" guid="8d5d0089-266a-4f9d-9810-05cdb52f8cde" system="true">
+        <properties>
+          <defaultvalue>True</defaultvalue>
+        </properties>
+      </field>
+      <field allowempty="true" column="DocumentPageBuilderWidgets" columntype="longtext" guid="b3a3768e-3dfa-4f7c-9e62-de84dd322812" system="true" />
+      <field allowempty="true" column="DocumentPageTemplateConfiguration" columntype="longtext" guid="27ca67f3-bdeb-491e-b96b-8d52bac7d57a" system="true" />
+      <field allowempty="true" column="DocumentABTestConfiguration" columntype="longtext" guid="639cb356-b9c0-4714-99a8-faf4924d06da" system="true" />
+    </form>
+  </ClassFormDefinition>
+  <ClassGUID>4d58a766-f13b-48fe-950b-63dbc2aeca69</ClassGUID>
+  <ClassHasMetadata>False</ClassHasMetadata>
+  <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
+  <ClassHasURL>False</ClassHasURL>
+  <ClassIsCoupledClass>True</ClassIsCoupledClass>
+  <ClassIsCustomTable>False</ClassIsCustomTable>
+  <ClassIsDocumentType>False</ClassIsDocumentType>
+  <ClassIsForm>False</ClassIsForm>
+  <ClassIsPage>False</ClassIsPage>
+  <ClassName>cms.document</ClassName>
+  <ClassNodeAliasSource />
+  <ClassNodeNameSource />
+  <ClassResourceID>
+    <CodeName>CMS.DocumentEngine</CodeName>
+    <GUID>83ff58cf-d7ed-4567-a68c-439daf7e85cf</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ClassResourceID>
+  <ClassSearchContentColumn>DocumentContent</ClassSearchContentColumn>
+  <ClassSearchCreationDateColumn>DocumentCreatedWhen</ClassSearchCreationDateColumn>
+  <ClassSearchEnabled>True</ClassSearchEnabled>
+  <ClassSearchImageColumn />
+  <ClassSearchSettings>
+    <search>
+      <item azurecontent="False" azurefacetable="False" azurefilterable="False" azureretrievable="False" azuresearchable="False" azuresortable="False" content="False" id="0325c6b3-d194-44cc-a574-6e764ec6af32" name="DocumentGUID" searchable="False" tokenized="False" updatetrigger="False" />
+      <item azurecontent="False" azurefacetable="False" azurefilterable="False" azureretrievable="True" azuresearchable="False" azuresortable="False" content="False" id="05c20f85-7283-4fcd-b946-df0f824f49aa" name="DocumentLastPublished" searchable="True" tokenized="False" updatetrigger="True" />
+      <item azurecontent="False" azurefacetable="False" azurefilterable="False" azureretrievable="True" azuresearchable="False" azuresortable="False" content="False" id="177d279c-5648-40de-a531-1cb1e26249a7" name="NodeParentID" searchable="True" tokenized="False" updatetrigger="True" />
+      <item azurecontent="False" azurefacetable="False" azurefilterable="False" azureretrievable="True" azuresearchable="False" azuresortable="False" content="False" id="1b21baf5-0ef6-450c-8fb6-ebc5eff6d903" name="NodeOwner" searchable="True" tokenized="False" updatetrigger="True" />
+      <item azurecontent="False" azurefacetable="False" azurefilterable="False" azureretrievable="True" azuresearchable="False" azuresortable="False" content="False" id="1e9d6b2f-0315-4584-87e6-65c23d6a8d8c" name="DocumentCreatedWhen" searchable="True" tokenized="False" updatetrigger="True" />
+      <item azurecontent="False" azurefacetable="False" azurefilterable="False" azureretrievable="False" azuresearchable="False" azuresortable="False" content="False" id="241e5e2d-3bdb-46c2-aa22-981d2c248604" name="NodeHasChildren" searchable="False" tokenized="False" updatetrigger="False" />
+      <item azurecontent="False" azurefacetable="False" azurefilterable="False" azureretrievable="False" azuresearchable="False" azuresortable="False" content="False" id="28ddd9c9-233b-4241-9881-fdd2e565b117" name="DocumentCheckedOutVersionHistoryID" searchable="False" tokenized="False" updatetrigger="False" />
+      <item azurecontent="False" azurefacetable="False" azurefilterable="False" azureretrievable="False" azuresearchable="False" azuresortable="False" content="False" id="2e750254-277c-4200-9496-b5975a823df4" name="DocumentPageBuilderWidgets" searchable="False" tokenized="False" updatetrigger="True" />
+      <item azurecontent="False" azurefacetable="False" azurefilterable="False" azureretrievable="False" azuresearchable="False" azuresortable="False" content="False" id="352adc36-2fd8-41bd-98b3-cc089d283bbc" name="NodeLinkedNodeSiteID" searchable="False" tokenized="False" updatetrigger="False" />
+      <item azurecontent="True" azurefacetable="False" azurefilterable="False" azureretrievable="False" azuresearchable="True" azuresortable="False" content="True" id="39d13da9-82b3-47e8-990f-990d01b55d66" name="NodeCustomData" searchable="False" tokenized="True" updatetrigger="True" />
+      <item azurecontent="False" azurefacetable="False" azurefilterable="False" azureretrievable="False" azuresearchable="False" azuresortable="False" content="False" id="4967a750-b268-4b8f-9e1a-b6ef4816aaa0" name="DocumentWorkflowCycleGUID" searchable="False" tokenized="False" updatetrigger="False" />
+      <item azurecontent="False" azurefacetable="False" azurefilterable="False" azureretrievable="True" azuresearchable="False" azuresortable="False" content="False" id="4a558b79-f4e8-4a38-8d49-21c049a8477f" name="NodeClassID" searchable="True" tokenized="False" updatetrigger="True" />
+      <item azurecontent="False" azurefacetable="False" azurefilterable="False" azureretrievable="True" azuresearchable="False" azuresortable="False" content="False" id="5880691d-0716-4aaf-8232-14d6ddfe1b83" name="DocumentCreatedByUserID" searchable="True" tokenized="False" updatetrigger="True" />
+      <item azurecontent="False" azurefacetable="False" azurefilterable="False" azureretrievable="False" azuresearchable="False" azuresortable="False" content="False" id="58932d8d-e3a5-4bb3-84a2-cc7a55a49650" name="DocumentIsArchived" searchable="False" tokenized="False" updatetrigger="False" />
+      <item azurecontent="False" azurefacetable="False" azurefilterable="False" azureretrievable="False" azuresearchable="False" azuresortable="False" content="False" id="58fae381-7dca-418f-b043-f5d0fbe6a5b5" name="DocumentWorkflowStepID" searchable="False" tokenized="False" updatetrigger="False" />
+      <item azurecontent="False" azurefacetable="False" azurefilterable="True" azureretrievable="True" azuresearchable="False" azuresortable="False" content="False" id="5930175a-83bc-4f12-bcd9-7b372a664e8f" name="NodeID" searchable="True" tokenized="False" updatetrigger="True" />
+      <item azurecontent="True" azurefacetable="False" azurefilterable="False" azureretrievable="False" azuresearchable="True" azuresortable="False" content="True" id="59673b90-ea77-46c3-843e-b81166b8c7d7" name="NodeName" searchable="False" tokenized="True" updatetrigger="True" />
+      <item azurecontent="False" azurefacetable="False" azurefilterable="False" azureretrievable="False" azuresearchable="False" azuresortable="False" content="False" id="5e16ea49-6e58-4d7c-849e-9256fdea6941" name="DocumentLastVersionNumber" searchable="False" tokenized="False" updatetrigger="False" />
+      <item azurecontent="False" azurefacetable="False" azurefilterable="False" azureretrievable="True" azuresearchable="False" azuresortable="False" content="False" id="6a0f859c-e0d4-4574-b769-50df12a7dd13" name="NodeLevel" searchable="True" tokenized="False" updatetrigger="True" />
+      <item azurecontent="False" azurefacetable="False" azurefilterable="False" azureretrievable="False" azuresearchable="False" azuresortable="False" content="False" id="6afc7dd9-f115-4b82-acdd-1f185c5d4132" name="DocumentWorkflowActionStatus" searchable="False" tokenized="False" updatetrigger="False" />
+      <item azurecontent="True" azurefacetable="False" azurefilterable="False" azureretrievable="False" azuresearchable="True" azuresortable="False" content="True" id="6d999348-8f8c-40ea-8900-b5e7787bc2dc" name="NodeAlias" searchable="False" tokenized="True" updatetrigger="True" />
+      <item azurecontent="False" azurefacetable="False" azurefilterable="False" azureretrievable="True" azuresearchable="True" azuresortable="False" content="False" id="6fec5897-024a-42dd-8b87-85c146f24afe" name="DocumentCulture" searchable="True" tokenized="True" updatetrigger="True" />
+      <item azurecontent="False" azurefacetable="False" azurefilterable="False" azureretrievable="True" azuresearchable="False" azuresortable="False" content="False" id="7677e13f-9d37-4626-bf1a-a8441d2cb112" name="NodeGUID" searchable="True" tokenized="False" updatetrigger="True" />
+      <item azurecontent="False" azurefacetable="False" azurefilterable="False" azureretrievable="True" azuresearchable="False" azuresortable="False" content="False" id="77f14e5b-af6c-4a39-898e-25c4a5f27a03" name="DocumentNodeID" searchable="True" tokenized="False" updatetrigger="True" />
+      <item azurecontent="False" azurefacetable="False" azurefilterable="False" azureretrievable="True" azuresearchable="False" azuresortable="False" content="False" id="77f38e40-012e-42b0-8c27-510d8fb896da" name="IsSecuredNode" searchable="True" tokenized="False" updatetrigger="True" />
+      <item azurecontent="False" azurefacetable="False" azurefilterable="True" azureretrievable="True" azuresearchable="False" azuresortable="False" content="False" id="79f1c993-af05-4317-b5f8-69e3b25f0182" name="NodeAliasPath" searchable="True" tokenized="False" updatetrigger="True" />
+      <item azurecontent="False" azurefacetable="False" azurefilterable="False" azureretrievable="False" azuresearchable="False" azuresortable="False" content="False" id="807c9187-231c-4fe3-80a0-2e01897a0ce5" name="DocumentCheckedOutWhen" searchable="False" tokenized="False" updatetrigger="False" />
+      <item azurecontent="False" azurefacetable="False" azurefilterable="False" azureretrievable="False" azuresearchable="False" azuresortable="False" content="False" id="8396ba4f-84de-4498-916c-69d930a83382" name="DocumentPublishedVersionHistoryID" searchable="False" tokenized="False" updatetrigger="False" />
+      <item azurecontent="False" azurefacetable="False" azurefilterable="False" azureretrievable="False" azuresearchable="False" azuresortable="False" content="False" id="883db0d9-d71b-4262-a6a1-a1d14b4f0994" name="NodeHasLinks" searchable="False" tokenized="False" updatetrigger="False" />
+      <item azurecontent="False" azurefacetable="False" azurefilterable="False" azureretrievable="False" azuresearchable="False" azuresortable="False" content="False" id="92240017-35fc-4212-963e-b4de983c4305" name="DocumentModifiedWhen" searchable="False" tokenized="False" updatetrigger="False" />
+      <item azurecontent="True" azurefacetable="False" azurefilterable="False" azureretrievable="False" azuresearchable="True" azuresortable="False" content="True" id="9b1cacfb-fbe8-4f1a-bd11-9b407c61d82e" name="DocumentName" searchable="False" tokenized="True" updatetrigger="True" />
+      <item azurecontent="False" azurefacetable="False" azurefilterable="False" azureretrievable="False" azuresearchable="False" azuresortable="False" content="False" id="9b46dc04-d51c-4b45-a51c-2e9a8346b67f" name="DocumentABTestConfiguration" searchable="False" tokenized="False" updatetrigger="False" />
+      <item azurecontent="False" azurefacetable="False" azurefilterable="False" azureretrievable="True" azuresearchable="False" azuresortable="False" content="False" id="9c281449-4762-4d13-a2cb-8eab772af205" name="NodeOrder" searchable="True" tokenized="False" updatetrigger="True" />
+      <item azurecontent="False" azurefacetable="False" azurefilterable="False" azureretrievable="True" azuresearchable="False" azuresortable="False" content="False" id="a0066448-ced6-4698-bb09-ff9f71a851b6" name="NodeSiteID" searchable="True" tokenized="False" updatetrigger="True" />
+      <item azurecontent="False" azurefacetable="False" azurefilterable="False" azureretrievable="True" azuresearchable="False" azuresortable="False" content="False" id="a05dfe5d-c1cf-426b-8561-9a2498f0c0db" name="DocumentPublishTo" searchable="True" tokenized="False" updatetrigger="True" />
+      <item azurecontent="False" azurefacetable="False" azurefilterable="False" azureretrievable="False" azuresearchable="False" azuresortable="False" content="False" id="a5988e87-43c8-4b85-ae0c-484950795a8b" name="DocumentCanBePublished" searchable="False" tokenized="False" updatetrigger="False" />
+      <item azurecontent="False" azurefacetable="False" azurefilterable="False" azureretrievable="False" azuresearchable="False" azuresortable="False" content="False" id="a88e8c28-11b0-4177-a64e-36b32e381183" name="DocumentPageTemplateConfiguration" searchable="False" tokenized="False" updatetrigger="False" />
+      <item azurecontent="False" azurefacetable="False" azurefilterable="False" azureretrievable="False" azuresearchable="False" azuresortable="False" content="False" id="b3dba69b-14c1-4deb-950f-b8ead728832c" name="DocumentCheckedOutByUserID" searchable="False" tokenized="False" updatetrigger="False" />
+      <item azurecontent="False" azurefacetable="False" azurefilterable="False" azureretrievable="True" azuresearchable="False" azuresortable="False" content="False" id="b79745a3-e895-4e90-9c79-ed02fa14ac9c" name="DocumentSearchExcluded" searchable="True" tokenized="False" updatetrigger="True" />
+      <item azurecontent="False" azurefacetable="False" azurefilterable="False" azureretrievable="True" azuresearchable="False" azuresortable="False" content="False" id="bdee2172-7ec1-4fda-8f4b-26e6aee04580" name="DocumentForeignKeyValue" searchable="True" tokenized="False" updatetrigger="True" />
+      <item azurecontent="False" azurefacetable="False" azurefilterable="True" azureretrievable="True" azuresearchable="False" azuresortable="False" content="False" id="c5b1f4b4-7b8a-4756-9b92-9fde8a4464ae" name="DocumentID" searchable="True" tokenized="False" updatetrigger="True" />
+      <item azurecontent="False" azurefacetable="False" azurefilterable="False" azureretrievable="False" azuresearchable="False" azuresortable="False" content="False" id="c9618d8e-fbb1-43d4-a495-c896465e04cb" name="NodeOriginalNodeID" searchable="False" tokenized="False" updatetrigger="False" />
+      <item azurecontent="False" azurefacetable="False" azurefilterable="True" azureretrievable="True" azuresearchable="False" azuresortable="False" content="False" id="d3d99f72-7006-4172-a626-6a5158517651" name="NodeLinkedNodeID" searchable="True" tokenized="False" updatetrigger="True" />
+      <item azurecontent="False" azurefacetable="False" azurefilterable="False" azureretrievable="True" azuresearchable="False" azuresortable="False" content="False" id="d6d7d917-d227-4152-b345-a64dd9a75ad0" name="DocumentPublishFrom" searchable="True" tokenized="False" updatetrigger="True" />
+      <item azurecontent="False" azurefacetable="False" azurefilterable="False" azureretrievable="False" azuresearchable="False" azuresortable="False" content="False" id="ef4e23e9-2163-4146-8bee-947117a6c8ae" name="DocumentCustomData" searchable="False" tokenized="False" updatetrigger="False" />
+      <item azurecontent="True" azurefacetable="False" azurefilterable="False" azureretrievable="False" azuresearchable="True" azuresortable="False" content="True" id="f8dac096-16ee-4d5f-b70b-0e03ee9c88ab" name="DocumentContent" searchable="False" tokenized="True" updatetrigger="True" />
+      <item azurecontent="False" azurefacetable="False" azurefilterable="False" azureretrievable="True" azuresearchable="False" azuresortable="False" content="False" id="f963eeca-c615-4e63-bfc4-bb18bdac20b2" name="DocumentModifiedByUserID" searchable="True" tokenized="False" updatetrigger="True" />
+    </search>
+  </ClassSearchSettings>
+  <ClassSearchTitleColumn>DocumentName</ClassSearchTitleColumn>
+  <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
+  <ClassShowColumns />
+  <ClassShowTemplateSelection>False</ClassShowTemplateSelection>
+  <ClassTableName>CMS_Document</ClassTableName>
+  <ClassUsePublishFromTo>False</ClassUsePublishFromTo>
+  <ClassUsesPageBuilder>False</ClassUsesPageBuilder>
+</cms.class>

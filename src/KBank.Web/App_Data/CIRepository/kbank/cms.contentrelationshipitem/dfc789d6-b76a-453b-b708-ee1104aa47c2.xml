@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentrelationshipitem>
+  <ContentRelationshipItemGUID>dfc789d6-b76a-453b-b708-ee1104aa47c2</ContentRelationshipItemGUID>
+  <ContentRelationshipItemObjectID>
+    <CodeName>/Contact-Us</CodeName>
+    <GUID>7da83a78-bd6f-4904-a750-3b0221b4296b</GUID>
+    <ObjectType>cms.node</ObjectType>
+    <Site>
+      <CodeName>KBank</CodeName>
+      <GUID>ee71668e-9013-4bce-81f2-c1e91a2bca73</GUID>
+      <ObjectType>cms.site</ObjectType>
+    </Site>
+  </ContentRelationshipItemObjectID>
+  <ContentRelationshipItemObjectType>cms.node</ContentRelationshipItemObjectType>
+  <ContentRelationshipItemSiteID>
+    <CodeName>KBank</CodeName>
+    <GUID>ee71668e-9013-4bce-81f2-c1e91a2bca73</GUID>
+    <ObjectType>cms.site</ObjectType>
+  </ContentRelationshipItemSiteID>
+</cms.contentrelationshipitem>

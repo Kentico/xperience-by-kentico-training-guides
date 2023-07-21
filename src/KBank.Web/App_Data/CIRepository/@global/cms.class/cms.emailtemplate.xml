@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.class>
+  <ClassConnectionString>CMSConnectionString</ClassConnectionString>
+  <ClassContactOverwriteEnabled>False</ClassContactOverwriteEnabled>
+  <ClassCustomizedColumns />
+  <ClassDisplayName>Email template</ClassDisplayName>
+  <ClassFormDefinition>
+    <form>
+      <field column="EmailTemplateID" columntype="integer" guid="ada65d2f-9f6f-4cac-b7b4-380a13ba6a53" isPK="true" isunique="true" system="true">
+        <properties>
+          <fieldcaption>EmailTemplateID</fieldcaption>
+        </properties>
+      </field>
+      <field column="EmailTemplateDisplayName" columnsize="200" columntype="text" guid="4c80ea4a-4e2f-4f4e-b524-9ec6acb2290b" system="true">
+        <properties>
+          <enabledmacro ismacro="true">
+            <![CDATA[{%QueryString["editonlycode"] != "1" || FormMode == FormModeEnum.Insert|(user)administrator|(hash)306312eaf95f584486fe1b0167b5dbf9f1d8a9bdc487b7336da273360a99b8e0%}]]>
+          </enabledmacro>
+          <fieldcaption>{$general.displayname$}</fieldcaption>
+          <validationerrormessage>{$EmailTemplate_Edit.FillDisplayNameField$}</validationerrormessage>
+        </properties>
+      </field>
+      <field column="EmailTemplateName" columnsize="200" columntype="text" guid="db77f0cf-12cf-43e6-be0a-28c1c97fb026" system="true">
+        <properties>
+          <enabledmacro ismacro="true">
+            <![CDATA[{%QueryString["editonlycode"] != "1" || FormMode == FormModeEnum.Insert|(user)administrator|(hash)306312eaf95f584486fe1b0167b5dbf9f1d8a9bdc487b7336da273360a99b8e0%}]]>
+          </enabledmacro>
+          <fieldcaption>{$general.codename$}</fieldcaption>
+          <validationerrormessage>{$EmailTemplate_Edit.FillCodeNameField$}</validationerrormessage>
+        </properties>
+      </field>
+      <field allowempty="true" column="EmailTemplateDescription" columntype="longtext" guid="012709cf-663c-4b8e-b8b6-0435aea7d4da" system="true">
+        <properties>
+          <fieldcaption>{$general.description$}</fieldcaption>
+        </properties>
+      </field>
+      <field allowempty="true" column="EmailTemplateType" columnsize="100" columntype="text" guid="3c94ab49-0c7e-4546-9528-a2ded8babc29" system="true">
+        <properties>
+          <defaultvalue ismacro="true">{?templatetype?}</defaultvalue>
+          <enabledmacro ismacro="true">
+            <![CDATA[{%QueryString["editonlycode"] != "1"|(user)administrator|(hash)c6cd528769191f953d844a498997a03e8c5debe9916109add6377b0f518baa06%}]]>
+          </enabledmacro>
+          <fieldcaption>{$emailtemplate_edit.emailtype$}</fieldcaption>
+        </properties>
+      </field>
+      <field allowempty="true" column="EmailTemplateFrom" columnsize="254" columntype="text" guid="515d919e-b186-4bc4-9064-c086fd34715c" system="true">
+        <properties>
+          <fieldcaption>{$general.fromemail$}</fieldcaption>
+          <fielddescription>{$emailtemplate_edit.from.tooltip$}</fielddescription>
+        </properties>
+      </field>
+      <field allowempty="true" column="EmailTemplateCc" columnsize="998" columntype="text" guid="43b52be1-a0d2-4af5-9ae4-5e80ca589396" system="true">
+        <properties>
+          <fieldcaption>{$emailtemplate_edit.cc$}</fieldcaption>
+          <fielddescription>{$emailtemplate_edit.cc.tooltip$}</fielddescription>
+        </properties>
+      </field>
+      <field allowempty="true" column="EmailTemplateBcc" columnsize="998" columntype="text" guid="f0fafbef-3dd5-40d8-923c-091f692e7664" system="true">
+        <properties>
+          <fieldcaption>{$emailtemplate_edit.bcc$}</fieldcaption>
+          <fielddescription>{$emailtemplate_edit.bcc.tooltip$}</fielddescription>
+        </properties>
+      </field>
+      <field allowempty="true" column="EmailTemplateReplyTo" columnsize="254" columntype="text" guid="6ab43f4b-6bb7-4d02-8df2-fee707e97adc" system="true">
+        <properties>
+          <fieldcaption>{$emailtemplate_edit.replyto$}</fieldcaption>
+          <fielddescription>{$emailtemplate_edit.replyto.tooltip$}</fielddescription>
+        </properties>
+      </field>
+      <field allowempty="true" column="EmailTemplateSubject" columnsize="250" columntype="text" guid="31f6996b-5f0e-4350-bfb7-4857e4b89bb0" system="true">
+        <properties>
+          <fieldcaption>{$general.subject$}</fieldcaption>
+        </properties>
+      </field>
+      <field allowempty="true" column="EmailTemplateText" columntype="longtext" guid="7cb8a717-2b0c-4b92-9e38-2530185dcafb" system="true">
+        <properties>
+          <captioncellcssclass>sr-only</captioncellcssclass>
+          <controlcellcssclass>textarea-full-width editing-form-value-cell</controlcellcssclass>
+          <fieldcaption>{$emailtemplate_edit.htmlversion$}</fieldcaption>
+        </properties>
+      </field>
+      <field allowempty="true" column="EmailTemplatePlainText" columntype="longtext" guid="6c25debb-1332-41eb-a77c-a69f93b3111c" system="true">
+        <properties>
+          <captioncellcssclass>sr-only</captioncellcssclass>
+          <controlcellcssclass>textarea-full-width editing-form-value-cell</controlcellcssclass>
+          <fieldcaption>{$emailtemplate_edit.plaintextversion$}</fieldcaption>
+        </properties>
+      </field>
+      <field allowempty="true" column="EmailTemplateSiteID" columntype="integer" guid="152ad89f-51ae-42f3-a7cd-b28794ebbb73" system="true">
+        <properties>
+          <fieldcaption>Site</fieldcaption>
+        </properties>
+      </field>
+      <field column="EmailTemplateGUID" columntype="guid" guid="42373ea6-c944-44c2-9a3f-95c5bdc78012" system="true">
+        <properties>
+          <fieldcaption>EmailTemplateGUID</fieldcaption>
+        </properties>
+      </field>
+      <field column="EmailTemplateLastModified" columntype="datetime" guid="513a454c-2061-4083-88bb-12b92bdf2a5e" system="true">
+        <properties>
+          <fieldcaption>EmailTemplateLastModified</fieldcaption>
+        </properties>
+      </field>
+    </form>
+  </ClassFormDefinition>
+  <ClassGUID>f54a32bf-6218-46cc-802c-89efad7a5740</ClassGUID>
+  <ClassHasMetadata>False</ClassHasMetadata>
+  <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
+  <ClassHasURL>False</ClassHasURL>
+  <ClassIsCoupledClass>True</ClassIsCoupledClass>
+  <ClassIsCustomTable>False</ClassIsCustomTable>
+  <ClassIsDocumentType>False</ClassIsDocumentType>
+  <ClassIsForm>False</ClassIsForm>
+  <ClassIsPage>False</ClassIsPage>
+  <ClassName>cms.emailtemplate</ClassName>
+  <ClassNodeAliasSource />
+  <ClassNodeNameSource />
+  <ClassResourceID>
+    <CodeName>CMS.EmailEngine</CodeName>
+    <GUID>7675c4a8-a792-4d4c-b83e-38ed24b64eab</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ClassResourceID>
+  <ClassSearchContentColumn>EmailTemplateText</ClassSearchContentColumn>
+  <ClassSearchCreationDateColumn>EmailTemplateLastModified</ClassSearchCreationDateColumn>
+  <ClassSearchEnabled>False</ClassSearchEnabled>
+  <ClassSearchImageColumn />
+  <ClassSearchSettings>
+    <search>
+      <item content="False" id="2c76041b-5e91-4448-903a-f55c8ae61331" name="EmailTemplateGUID" searchable="False" tokenized="False" />
+      <item azureretrievable="True" content="False" id="331544d4-253f-46cb-86d0-70e533097950" name="EmailTemplateID" searchable="True" tokenized="False" />
+      <item azureretrievable="True" content="False" id="4600d382-b9ba-4411-bfb9-c0ad5085853c" name="EmailTemplateSiteID" searchable="True" tokenized="False" />
+      <item azurecontent="True" azuresearchable="True" content="True" id="60af94e7-e451-4549-a0f8-f4f1562d91b3" name="EmailTemplateFrom" searchable="False" tokenized="True" />
+      <item azureretrievable="True" content="False" id="7b088452-797d-4e8b-93ae-16bea28891b9" name="EmailTemplateLastModified" searchable="True" tokenized="False" />
+      <item azurecontent="True" azuresearchable="True" content="True" id="7fedb62e-d9e9-4f53-b45c-10cb82e0f9d4" name="EmailTemplateBcc" searchable="False" tokenized="True" />
+      <item azurecontent="True" azuresearchable="True" content="True" id="8913291b-5a63-490e-8e49-eee2bd1aae8b" name="EmailTemplateName" searchable="False" tokenized="True" />
+      <item azurecontent="True" azuresearchable="True" content="True" id="8a635d8b-f9cc-45f0-8fcf-bcc596d42aa9" name="EmailTemplateDisplayName" searchable="False" tokenized="True" />
+      <item azurecontent="True" azuresearchable="True" content="True" id="928dccdc-014c-41c7-846b-a1ebc26f6bca" name="EmailTemplateText" searchable="False" tokenized="True" />
+      <item azurecontent="True" azuresearchable="True" content="True" id="98bc077f-c21c-4e09-b8f4-fe1771ebbf4c" name="EmailTemplatePlainText" searchable="False" tokenized="True" />
+      <item azurecontent="True" azuresearchable="True" content="True" id="a1cf4a97-d5c3-4d97-8974-aa89fd47fad8" name="EmailTemplateCc" searchable="False" tokenized="True" />
+      <item azurecontent="True" azuresearchable="True" content="True" id="ef3f97b2-f6cc-4bf4-8288-1a25d70269f1" name="EmailTemplateSubject" searchable="False" tokenized="True" />
+    </search>
+  </ClassSearchSettings>
+  <ClassSearchTitleColumn>EmailTemplateDisplayName</ClassSearchTitleColumn>
+  <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
+  <ClassShowColumns />
+  <ClassShowTemplateSelection>False</ClassShowTemplateSelection>
+  <ClassTableName>CMS_EmailTemplate</ClassTableName>
+  <ClassUsePublishFromTo>False</ClassUsePublishFromTo>
+  <ClassUsesPageBuilder>False</ClassUsesPageBuilder>
+</cms.class>

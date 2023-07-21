@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- This is a CI serialization file for /Cookie-Policy -->
+<cms.node>
+  <NodeAlias>Cookie-Policy</NodeAlias>
+  <NodeClassID>
+    <CodeName>Kentico.PlainPage</CodeName>
+    <GUID>b4ccafd9-1bcb-474a-b8cc-9e7d714f7127</GUID>
+    <ObjectType>cms.documenttype</ObjectType>
+  </NodeClassID>
+  <NodeGUID>10837f11-c459-4bf6-b707-783adcb34c0d</NodeGUID>
+  <NodeIsPage>True</NodeIsPage>
+  <NodeName>Cookie Policy</NodeName>
+  <NodeOrder>3</NodeOrder>
+  <NodeOwner>
+    <CodeName>administrator</CodeName>
+    <GUID>6415b8ce-8072-4bcd-8e48-9d7178b826b7</GUID>
+    <ObjectType>cms.user</ObjectType>
+  </NodeOwner>
+  <NodeParentID>
+    <CodeName>/</CodeName>
+    <GUID>acdd2058-bde0-4c9d-8332-45f417220571</GUID>
+    <ObjectType>cms.node</ObjectType>
+    <Site>
+      <CodeName>KBank</CodeName>
+      <GUID>ee71668e-9013-4bce-81f2-c1e91a2bca73</GUID>
+      <ObjectType>cms.site</ObjectType>
+    </Site>
+  </NodeParentID>
+  <NodeSiteID>
+    <CodeName>KBank</CodeName>
+    <GUID>ee71668e-9013-4bce-81f2-c1e91a2bca73</GUID>
+    <ObjectType>cms.site</ObjectType>
+  </NodeSiteID>
+</cms.node>

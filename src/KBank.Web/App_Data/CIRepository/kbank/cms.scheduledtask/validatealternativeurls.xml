@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.scheduledtask>
+  <TaskAssemblyName>CMS.DocumentEngine</TaskAssemblyName>
+  <TaskClass>CMS.DocumentEngine.AlternativeUrlValidatorTask</TaskClass>
+  <TaskCondition />
+  <TaskData />
+  <TaskDeleteAfterLastRun>False</TaskDeleteAfterLastRun>
+  <TaskDisplayName>Validate alternative URLs</TaskDisplayName>
+  <TaskEnabled>True</TaskEnabled>
+  <TaskGUID>18cf58a4-4b3b-4801-b365-fd264d8818a3</TaskGUID>
+  <TaskInterval>
+    <![CDATA[day;5/15/2019 3:00:00 AM;1;Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday]]>
+  </TaskInterval>
+  <TaskName>ValidateAlternativeURLs</TaskName>
+  <TaskRunIndividually>False</TaskRunIndividually>
+  <TaskRunInSeparateThread>True</TaskRunInSeparateThread>
+  <TaskServerName />
+  <TaskSiteID>
+    <CodeName>KBank</CodeName>
+    <GUID>ee71668e-9013-4bce-81f2-c1e91a2bca73</GUID>
+    <ObjectType>cms.site</ObjectType>
+  </TaskSiteID>
+</cms.scheduledtask>

@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.form>
+  <FormAfterSubmitMode>message</FormAfterSubmitMode>
+  <FormAfterSubmitRelatedValue>
+    <![CDATA[Thanks! We'll get back to you soon.]]>
+  </FormAfterSubmitRelatedValue>
+  <FormBuilderLayout>
+<![CDATA[
+{
+  "editableAreas": [
+    {
+      "identifier": "DefaultFormBuilderArea",
+      "sections": [
+        {
+          "identifier": "00000000-0000-0000-0000-000000000000",
+          "type": "Kentico.DefaultSection",
+          "zones": [
+            {
+              "identifier": "aaefd21e-4933-4c17-8d40-3c4952cc9bf7",
+              "formComponents": [
+                {
+                  "identifier": "f1652627-a60a-4a5a-8920-28f62a4faf2f"
+                },
+                {
+                  "identifier": "5d79de3b-9904-45ba-89a6-8ec737534bbb"
+                }
+              ]
+            }
+          ],
+          "properties": null
+        }
+      ]
+    }
+  ]
+}
+]]>
+  </FormBuilderLayout>
+  <FormClassID>
+    <CodeName>BizForm.Subscription</CodeName>
+    <GUID>29f61b01-f24a-4845-b778-aac4b9630d8f</GUID>
+    <ObjectType>cms.formclass</ObjectType>
+  </FormClassID>
+  <FormDisplayName>Subscription</FormDisplayName>
+  <FormGUID>11084006-de66-4518-98af-a2c978236d23</FormGUID>
+  <FormItems>0</FormItems>
+  <FormLogActivity>True</FormLogActivity>
+  <FormName>Subscription</FormName>
+  <FormSiteID>
+    <CodeName>KBank</CodeName>
+    <GUID>ee71668e-9013-4bce-81f2-c1e91a2bca73</GUID>
+    <ObjectType>cms.site</ObjectType>
+  </FormSiteID>
+</cms.form>

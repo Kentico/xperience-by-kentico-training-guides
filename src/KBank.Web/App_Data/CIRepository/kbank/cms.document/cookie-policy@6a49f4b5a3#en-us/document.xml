@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- This is a CI serialization file for Cookie Policy -->
+<cms.documentlocalization>
+  <DocumentContent />
+  <DocumentCreatedByUserID>
+    <CodeName>administrator</CodeName>
+    <GUID>6415b8ce-8072-4bcd-8e48-9d7178b826b7</GUID>
+    <ObjectType>cms.user</ObjectType>
+  </DocumentCreatedByUserID>
+  <DocumentCreatedWhen>2023-06-08 18:13:48Z</DocumentCreatedWhen>
+  <DocumentCulture>en-US</DocumentCulture>
+  <DocumentGUID>30c8317e-1a44-464e-b85d-bbc918f7fbe4</DocumentGUID>
+  <DocumentModifiedByUserID>
+    <CodeName>administrator</CodeName>
+    <GUID>6415b8ce-8072-4bcd-8e48-9d7178b826b7</GUID>
+    <ObjectType>cms.user</ObjectType>
+  </DocumentModifiedByUserID>
+  <DocumentModifiedWhen>2023-07-12 15:07:01Z</DocumentModifiedWhen>
+  <DocumentName>Cookie Policy</DocumentName>
+  <DocumentNodeID>
+    <CodeName>/Cookie-Policy</CodeName>
+    <GUID>10837f11-c459-4bf6-b707-783adcb34c0d</GUID>
+    <ObjectType>cms.node</ObjectType>
+    <Site>
+      <CodeName>KBank</CodeName>
+      <GUID>ee71668e-9013-4bce-81f2-c1e91a2bca73</GUID>
+      <ObjectType>cms.site</ObjectType>
+    </Site>
+  </DocumentNodeID>
+  <DocumentPageBuilderWidgets>
+    <![CDATA[{"editableAreas":[{"identifier":"areaMain","sections":[{"identifier":"ea0651f2-36e6-47cc-8203-d79899396932","type":"Kentico.DefaultSection","properties":null,"zones":[{"identifier":"927db70f-eefe-4824-8133-fe9a0b71ac69","widgets":[]}],"fieldIdentifiers":{}}]}]}]]>
+  </DocumentPageBuilderWidgets>
+</cms.documentlocalization>

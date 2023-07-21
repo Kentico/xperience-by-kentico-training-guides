@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ma.automationaction>
+  <ActionAllowedObjects>;om.contact;</ActionAllowedObjects>
+  <ActionAssemblyName>CMS.Newsletters</ActionAssemblyName>
+  <ActionClass>CMS.Newsletters.SendNewsletterIssueAction</ActionClass>
+  <ActionDataProviderAssemblyName>CMS.Newsletters.Web.UI</ActionDataProviderAssemblyName>
+  <ActionDataProviderClass>
+    <![CDATA[CMS.Newsletters.Web.UI.SendNewsletterIssueActionDataProvider]]>
+  </ActionDataProviderClass>
+  <ActionDescription>
+    <![CDATA[Using this step, you can send a marketing email to a contact automatically within the automation process.]]>
+  </ActionDescription>
+  <ActionDisplayName>Send marketing email</ActionDisplayName>
+  <ActionEnabled>True</ActionEnabled>
+  <ActionGUID>b33d5c68-235d-406e-89d7-4f1714078940</ActionGUID>
+  <ActionIconClass>icon-message</ActionIconClass>
+  <ActionName>Send_newsletter_issue</ActionName>
+  <ActionParameters>
+    <form>
+      <field column="Site" columnsize="200" columntype="text" guid="32ab6762-e2a4-4750-b61a-7d91ff18f677" visible="true">
+        <properties>
+          <fieldcaption>{$general.site$}</fieldcaption>
+          <fielddescription>{$siteselect.selectitem$}</fielddescription>
+        </properties>
+        <settings>
+          <AddGlobalObjectNamePrefix>False</AddGlobalObjectNamePrefix>
+          <AddGlobalObjectSuffix>False</AddGlobalObjectSuffix>
+          <AdditionalColumns ismacro="true">
+            <![CDATA[(CASE WHEN [SiteID] = {% SiteContext.CurrentSiteID |(identity)GlobalAdministrator|(hash)129ae4cd000cff1513d6bf56d808bc67d7d0e008613c230e29aefb7dcfd0d71c%} THEN 1 ELSE 0 END) AS [IsCurrent]]]>
+          </AdditionalColumns>
+          <AllowAll>False</AllowAll>
+          <AllowDefault>False</AllowDefault>
+          <AllowEditTextBox>False</AllowEditTextBox>
+          <AllowEmpty>False</AllowEmpty>
+          <controlname>Uni_selector</controlname>
+          <DialogWindowName>SelectionDialog</DialogWindowName>
+          <EditDialogWindowHeight>700</EditDialogWindowHeight>
+          <EditDialogWindowWidth>1000</EditDialogWindowWidth>
+          <EditWindowName>EditWindow</EditWindowName>
+          <EncodeOutput>True</EncodeOutput>
+          <GlobalObjectSuffix ismacro="true">{$general.global$}</GlobalObjectSuffix>
+          <ItemsPerPage>25</ItemsPerPage>
+          <LocalizeItems>True</LocalizeItems>
+          <MaxDisplayedItems>25</MaxDisplayedItems>
+          <MaxDisplayedTotalItems>50</MaxDisplayedTotalItems>
+          <ObjectType>cms.site</ObjectType>
+          <OrderBy>[IsCurrent] DESC, [SiteName] ASC</OrderBy>
+          <RemoveMultipleCommas>False</RemoveMultipleCommas>
+          <ReturnColumnName>SiteName</ReturnColumnName>
+          <ReturnColumnType>id</ReturnColumnType>
+          <SelectionMode>1</SelectionMode>
+          <UseDefaultNameFilter>True</UseDefaultNameFilter>
+          <ValuesSeparator>;</ValuesSeparator>
+        </settings>
+      </field>
+      <field column="Newsletter" columntype="guid" guid="4e59d0d5-d8b1-4199-a5c7-acb476cd4755" visible="true">
+        <properties>
+          <fieldcaption>{$objecttype.newsletter_newsletter$}</fieldcaption>
+          <fielddescription>{$newsletterselect.selectSingleItem$}</fielddescription>
+        </properties>
+        <settings>
+          <AddGlobalObjectNamePrefix>False</AddGlobalObjectNamePrefix>
+          <AddGlobalObjectSuffix>False</AddGlobalObjectSuffix>
+          <AllowAll>False</AllowAll>
+          <AllowDefault>False</AllowDefault>
+          <AllowEditTextBox>False</AllowEditTextBox>
+          <AllowEmpty>False</AllowEmpty>
+          <controlname>Uni_selector</controlname>
+          <DialogWindowName>SelectionDialog</DialogWindowName>
+          <EditDialogWindowHeight>700</EditDialogWindowHeight>
+          <EditDialogWindowWidth>1000</EditDialogWindowWidth>
+          <EditWindowName>EditWindow</EditWindowName>
+          <EncodeOutput>True</EncodeOutput>
+          <GlobalObjectSuffix ismacro="true">{$general.global$}</GlobalObjectSuffix>
+          <ItemsPerPage>25</ItemsPerPage>
+          <LocalizeItems>True</LocalizeItems>
+          <MaxDisplayedItems>25</MaxDisplayedItems>
+          <MaxDisplayedTotalItems>50</MaxDisplayedTotalItems>
+          <ObjectSiteName ismacro="true">
+            <![CDATA[{% Site.Value |(identity)GlobalAdministrator|(hash)6655257e0b197ab59a613b1d1eb9043894e5b2bf463a876957f01b49bc0c2990%}]]>
+          </ObjectSiteName>
+          <ObjectType>newsletter.newsletter</ObjectType>
+          <RemoveMultipleCommas>False</RemoveMultipleCommas>
+          <ReturnColumnName>NewsletterGUID</ReturnColumnName>
+          <ReturnColumnType>id</ReturnColumnType>
+          <SelectionMode>1</SelectionMode>
+          <SpecialFields>;{$general.pleaseselect$}</SpecialFields>
+          <UseDefaultNameFilter>True</UseDefaultNameFilter>
+          <ValuesSeparator>;</ValuesSeparator>
+        </settings>
+      </field>
+      <field column="NewsletterIssue" columntype="guid" guid="db1323bc-9e95-4b45-a8d9-3f11e3616530" visible="true">
+        <properties>
+          <controlcssclass>doublebutton-input</controlcssclass>
+          <enabledmacro ismacro="true">{%Newsletter != null%}</enabledmacro>
+          <fieldcaption>{$newslettertemplate_list.issue$}</fieldcaption>
+          <fielddescription>{$ma.action.newsletterissue.description$}</fielddescription>
+        </properties>
+        <settings>
+          <AddGlobalObjectNamePrefix>False</AddGlobalObjectNamePrefix>
+          <AddGlobalObjectSuffix>False</AddGlobalObjectSuffix>
+          <AdditionalColumns>IssueIsABTest</AdditionalColumns>
+          <AdditionalUrlParameters>
+            <![CDATA[&parentobjectguid={% Newsletter.Value |(identity)GlobalAdministrator|(hash)b005f154b71dc1d03c4edc7a7fbf91c0e8ad78282f0b85c7b6754705dab9ac34%}&isinautomation=true]]>
+          </AdditionalUrlParameters>
+          <AllowAll>False</AllowAll>
+          <AllowDefault>False</AllowDefault>
+          <AllowEditTextBox>False</AllowEditTextBox>
+          <AllowEmpty>False</AllowEmpty>
+          <controlname>Uni_selector</controlname>
+          <DialogWindowName>SelectionDialog</DialogWindowName>
+          <DisplayNameFormat>
+            <![CDATA[{% IssueDisplayName + (IssueIsABTest ? " (" + GetResourceString("unigrid.newsletter_issue.abtesticontooltip") + ")" : "") |(identity)GlobalAdministrator|(hash)0734d8da7ae82faec70b1c2de0a74073c9e72fe69a432927c576400b6639dba7%}]]>
+          </DisplayNameFormat>
+          <EditDialogWindowOpenInFullscreen>True</EditDialogWindowOpenInFullscreen>
+          <EditItemElementName ismacro="true">
+            <![CDATA[{% Fields["Site"].Value == CurrentSite.SiteName ? "EditIssueProperties" : "" |(identity)GlobalAdministrator|(hash)aa7433e1669ccf14b023ba70797ea3499b1f2d540b24265811b9a631118b05a4%}]]>
+          </EditItemElementName>
+          <ElementResourceName>CMS.Newsletter</ElementResourceName>
+          <FilterControl>~/CMSFormControls/Filters/ObjectFilter.ascx</FilterControl>
+          <GlobalObjectSuffix>(global)</GlobalObjectSuffix>
+          <ItemsPerPage>25</ItemsPerPage>
+          <LocalizeItems>True</LocalizeItems>
+          <MaxDisplayedItems>25</MaxDisplayedItems>
+          <MaxDisplayedTotalItems>50</MaxDisplayedTotalItems>
+          <NewItemElementName ismacro="true">
+            <![CDATA[{% Fields["Site"].Value == CurrentSite.SiteName ? "NewIssue" : "" |(identity)GlobalAdministrator|(hash)889a491211159ac07466c1885e9680ae5991a6c7d24bf065799083adf197574c%}]]>
+          </NewItemElementName>
+          <ObjectSiteName ismacro="true">
+            <![CDATA[{% Site.Value |(identity)GlobalAdministrator|(hash)6655257e0b197ab59a613b1d1eb9043894e5b2bf463a876957f01b49bc0c2990%}]]>
+          </ObjectSiteName>
+          <ObjectType>newsletter.issue</ObjectType>
+          <RemoveMultipleCommas>False</RemoveMultipleCommas>
+          <ResourcePrefix>newsletter.issue</ResourcePrefix>
+          <ReturnColumnName>IssueGUID</ReturnColumnName>
+          <ReturnColumnType>id</ReturnColumnType>
+          <SelectionMode>1</SelectionMode>
+          <SpecialFields>;{$general.pleaseselect$}</SpecialFields>
+          <UseDefaultNameFilter>True</UseDefaultNameFilter>
+          <ValuesSeparator>;</ValuesSeparator>
+          <WhereCondition ismacro="true">
+<![CDATA[
+IssueVariantOfIssueID is NULL AND
+IssueForAutomation = 1 AND
+IssueNewsletterID IN 
+(
+    Select NewsletterID FROM Newsletter_Newsletter 
+    WHERE NewsletterGUID =  N'{% Newsletter.Value.ToGuid()|(handlesqlinjection) |(identity)GlobalAdministrator|(hash)7bcffb86f20e0974235f61770c013acdf7dd074d12c1a478f6d37d295b5b6886%}'
+)
+]]>
+          </WhereCondition>
+        </settings>
+      </field>
+    </form>
+  </ActionParameters>
+  <ActionThumbnailClass>icon-message</ActionThumbnailClass>
+  <ActionWorkflowType>3</ActionWorkflowType>
+</ma.automationaction>

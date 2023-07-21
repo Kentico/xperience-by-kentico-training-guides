@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.class>
+  <ClassConnectionString>CMSConnectionString</ClassConnectionString>
+  <ClassContactOverwriteEnabled>False</ClassContactOverwriteEnabled>
+  <ClassCustomizedColumns />
+  <ClassDisplayName>Membership role</ClassDisplayName>
+  <ClassFormDefinition>
+    <form>
+      <field column="MembershipID" columntype="integer" guid="9ce96cb6-f5b4-467a-82c5-496a13769f1c" isPK="true" refobjtype="cms.membership" reftype="Binding" system="true">
+        <properties>
+          <fieldcaption>MembershipID</fieldcaption>
+        </properties>
+      </field>
+      <field column="RoleID" columntype="integer" guid="7ddde3cc-0118-43fc-b93d-c65d59924398" isPK="true" refobjtype="cms.role" reftype="Binding" system="true" />
+    </form>
+  </ClassFormDefinition>
+  <ClassGUID>63e61e6f-db2f-45c5-b958-25d1c1dcde2f</ClassGUID>
+  <ClassHasMetadata>False</ClassHasMetadata>
+  <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
+  <ClassHasURL>False</ClassHasURL>
+  <ClassIsCoupledClass>True</ClassIsCoupledClass>
+  <ClassIsCustomTable>False</ClassIsCustomTable>
+  <ClassIsDocumentType>False</ClassIsDocumentType>
+  <ClassIsForm>False</ClassIsForm>
+  <ClassIsPage>False</ClassIsPage>
+  <ClassName>CMS.MembershipRole</ClassName>
+  <ClassNodeAliasSource />
+  <ClassNodeNameSource />
+  <ClassResourceID>
+    <CodeName>CMS.Membership</CodeName>
+    <GUID>d4b7561a-f188-420c-8f68-63b5c573b2bf</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ClassResourceID>
+  <ClassSearchContentColumn />
+  <ClassSearchCreationDateColumn />
+  <ClassSearchEnabled>False</ClassSearchEnabled>
+  <ClassSearchImageColumn />
+  <ClassSearchSettings>
+    <search />
+  </ClassSearchSettings>
+  <ClassSearchTitleColumn />
+  <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
+  <ClassShowColumns />
+  <ClassShowTemplateSelection>False</ClassShowTemplateSelection>
+  <ClassTableName>CMS_MembershipRole</ClassTableName>
+  <ClassUsePublishFromTo>False</ClassUsePublishFromTo>
+  <ClassUsesPageBuilder>False</ClassUsesPageBuilder>
+</cms.class>

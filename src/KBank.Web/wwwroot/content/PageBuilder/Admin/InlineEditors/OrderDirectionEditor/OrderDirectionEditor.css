@@ -1,0 +1,22 @@
+﻿.listing-inline-editor .listing-property-editor .order-direction-radios .order-direction-option + .order-direction-option {
+    margin-top: 0.5em;
+}
+
+.listing-inline-editor .listing-property-editor .order-direction-radios {
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.listing-inline-editor .listing-property-editor .listing-property-label .order-direction-label {
+    margin-bottom: auto;
+}
+
+.listing-inline-editor form {
+    margin: 0;
+    text-align: left;
+}
+
+.listing-inline-editor form label {
+    margin-right: 0;
+}

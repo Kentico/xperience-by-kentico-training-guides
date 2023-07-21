@@ -1,0 +1,10 @@
+﻿@using KBank.Web.Components.Sections
+@model Kentico.PageBuilder.Web.Mvc.ComponentViewModel<KBank.Web.Components.Sections.SingleColumnSectionProperties>
+
+@{
+    var sectionAnchor = !string.IsNullOrWhiteSpace(Model.Properties.SectionAnchor) ? $"id={Model.Properties.SectionAnchor}" : "";
+}
+
+<section @sectionAnchor>
+    <widget-zone />
+</section>

@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.class>
+  <ClassConnectionString>CMSConnectionString</ClassConnectionString>
+  <ClassContactOverwriteEnabled>False</ClassContactOverwriteEnabled>
+  <ClassCustomizedColumns />
+  <ClassDefaultObjectType />
+  <ClassDisplayName>Transformation</ClassDisplayName>
+  <ClassFormDefinition>
+    <form>
+      <field column="TransformationID" columntype="integer" guid="15f5489f-158e-434c-b8a8-3b246917aa3a" isPK="true" system="true">
+        <properties>
+          <fieldcaption>TransformationID</fieldcaption>
+        </properties>
+      </field>
+      <field column="TransformationName" columnsize="100" columntype="text" guid="8f32aaee-ed30-464d-b321-d5b1f8779039" system="true">
+        <properties>
+          <fieldcaption>TransformationName</fieldcaption>
+          <validationerrormessage>{$documenttype_edit.transformationnameformat$}</validationerrormessage>
+        </properties>
+      </field>
+      <field column="TransformationCode" columntype="longtext" guid="87c280d1-e998-451b-9dfb-8cbbd2891b0a" system="true">
+        <properties>
+          <fieldcaption>Transformation code</fieldcaption>
+        </properties>
+      </field>
+      <field column="TransformationType" columnsize="50" columntype="text" guid="12c4729c-16f6-4565-8509-2db6af52df99" system="true">
+        <properties>
+          <fieldcaption>Transformation type</fieldcaption>
+        </properties>
+      </field>
+      <field column="TransformationClassID" columntype="integer" guid="72b254ff-a179-46f9-851e-c968e8324328" system="true">
+        <properties>
+          <fieldcaption>TransformationClassID</fieldcaption>
+        </properties>
+      </field>
+      <field column="TransformationGUID" columntype="guid" guid="6a375a9a-04d7-4592-8df8-acc1f5127249" system="true">
+        <properties>
+          <fieldcaption>TransformationGUID</fieldcaption>
+        </properties>
+      </field>
+      <field column="TransformationLastModified" columntype="datetime" guid="c19c9cd6-60e5-40de-b547-dd045a32c3de" system="true">
+        <properties>
+          <fieldcaption>TransformationLastModified</fieldcaption>
+        </properties>
+      </field>
+    </form>
+  </ClassFormDefinition>
+  <ClassGUID>719c71f8-4dcd-4ab5-8d4e-84e6a60fe7be</ClassGUID>
+  <ClassHasMetadata>False</ClassHasMetadata>
+  <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
+  <ClassHasURL>False</ClassHasURL>
+  <ClassIsCoupledClass>True</ClassIsCoupledClass>
+  <ClassIsCustomTable>False</ClassIsCustomTable>
+  <ClassIsDocumentType>False</ClassIsDocumentType>
+  <ClassIsForm>False</ClassIsForm>
+  <ClassIsPage>False</ClassIsPage>
+  <ClassName>cms.transformation</ClassName>
+  <ClassNodeAliasSource />
+  <ClassNodeNameSource />
+  <ClassResourceID>
+    <CodeName>CMS.Design</CodeName>
+    <GUID>b755e8fc-a06f-421a-b749-f2d31d1f2570</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ClassResourceID>
+  <ClassSearchContentColumn />
+  <ClassSearchCreationDateColumn />
+  <ClassSearchEnabled>False</ClassSearchEnabled>
+  <ClassSearchImageColumn />
+  <ClassSearchSettings>
+    <search />
+  </ClassSearchSettings>
+  <ClassSearchTitleColumn />
+  <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
+  <ClassShowColumns />
+  <ClassShowTemplateSelection>False</ClassShowTemplateSelection>
+  <ClassTableName>CMS_Transformation</ClassTableName>
+  <ClassUsePublishFromTo>False</ClassUsePublishFromTo>
+  <ClassUsesPageBuilder>False</ClassUsesPageBuilder>
+</cms.class>

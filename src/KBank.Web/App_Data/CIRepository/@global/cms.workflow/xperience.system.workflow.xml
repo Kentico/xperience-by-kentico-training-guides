@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.workflow>
+  <WorkflowAutoPublishChanges>False</WorkflowAutoPublishChanges>
+  <WorkflowDisplayName>System workflow</WorkflowDisplayName>
+  <WorkflowEnabled>True</WorkflowEnabled>
+  <WorkflowGUID>81ad3bd8-1b58-4e19-ac2e-c759d9f588f1</WorkflowGUID>
+  <WorkflowName>xperience.system.workflow</WorkflowName>
+  <WorkflowSendApproveEmails>True</WorkflowSendApproveEmails>
+  <WorkflowSendArchiveEmails>True</WorkflowSendArchiveEmails>
+  <WorkflowSendPublishEmails>True</WorkflowSendPublishEmails>
+  <WorkflowSendReadyForApprovalEmails>True</WorkflowSendReadyForApprovalEmails>
+  <WorkflowSendRejectEmails>True</WorkflowSendRejectEmails>
+  <WorkflowType>0</WorkflowType>
+  <WorkflowUseCheckinCheckout>False</WorkflowUseCheckinCheckout>
+</cms.workflow>
