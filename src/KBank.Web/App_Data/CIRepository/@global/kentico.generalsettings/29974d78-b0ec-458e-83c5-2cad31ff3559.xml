@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<kentico.generalsettings>
+  <CookiesBannerAcceptButtonText>Accept all</CookiesBannerAcceptButtonText>
+  <CookiesBannerConfigureButtonText>Configure</CookiesBannerConfigureButtonText>
+  <CookiesBannerConfigureUrl>/privacy-policy</CookiesBannerConfigureUrl>
+  <CookiesBannerHeader>Privacy policy</CookiesBannerHeader>
+  <CookiesBannerMessage>
+    <![CDATA[<p>We use cookies to improve your user experience. To process some of them, we need your consent. You can "Accept all" or review cookies individually by selecting "Configure."</p>]]>
+  </CookiesBannerMessage>
+  <FooterText>
+<![CDATA[
+<div class="row mt-5">
+            <div class="col-12 col-md-12">
+                <p class="c-note text-dark m-12 text-start">
+                   <strong>Xperience by Kentico demo website.</strong> Developed in cooperation with <a href="https://nittin.cz/" target="_blank" style="text-decoration: none" class="text-dark">Nittin</a>. Copyright © 2023 Kentico Software. All rights reserved.
+                </p>
+            </div>
+            <div class="col-7 col-md-8">
+                <nav>
+                    <ul class="nav>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+]]>
+  </FooterText>
+  <GeneralSettingsGUID>29974d78-b0ec-458e-83c5-2cad31ff3559</GeneralSettingsGUID>
+  <NotFoundTemplate>
+    <![CDATA[<div class="content-wrapper"><main><section class="c-section error-hero error404" style="background-image: url(&quot;/assets/img/error404-bg.svg&quot;)"><div class="container"><h1 class="text-center">404<span class="text-primary">.</span></h1></div></section><section class="c-section default text-center"><div class="container"><div class="row justify-content-center"><div class="col-sm-10 col-md-8 col-lg-6 col-xl-5"><h2 class="fs-md-6">This page doesn't exist.</h2><p class="mt-md-3">Shh... there's nothing for you to do here. We have no idea how you got here, but get back to the beginning. Because in 30 seconds, something would happen that none of us want to happen, and there would be no coming back from this page. Run!</p><div class="d-grid gap-2 d-sm-flex justify-content-sm-center my-3 my-md-5 pt-2"><a class="btn btn-primary btn-lg" href="~/">BACK TO HOME</a></div></div></div></div></section></main></div>]]>
+  </NotFoundTemplate>
+  <Robots>
+<![CDATA[
+Disallow: /special-pages/
+User-agent: *
+]]>
+  </Robots>
+</kentico.generalsettings>

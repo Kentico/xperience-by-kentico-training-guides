@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<kentico.websitetemplate>
+  <Name>Ecology 2</Name>
+  <Variables>
+<![CDATA[
+/* Ecology - 2 */
+:root {
+  --k-body-bg: #fff;
+  --k-body-color: #222021;
+  --k-primary: #2231a4;
+  --k-secondary: #0b8791;
+  --k-border-radius: 2.5rem 1.5rem;
+  --k-border-radius-2: 1.5rem;
+  --k-hero-color: #fff;
+  --k-card-bg:  #33c34a;
+  --k-mock-bg-left: #0c8895;
+  --k-mock-bg-right: #33c34a;
+  --k-pricelist-color: var(--k-hero-color);
+  --k-pricelist-bg: #0c858d;
+  --k-pricelist-table-bg: #b8ffc5;
+  --k-faq-color: var(--k-hero-color);
+  --k-faq-bg: #3ab94e;
+  --k-faq-accordion-bg: var(--k-pricelist-table-bg); }
+
+.svg-color, .svg-color path, .svg-color rect, .svg-color circle, .svg-color .cls-1{
+stroke: var(--k-secondary) !important;
+}
+
+/*# sourceMappingURL=variables.css.map */
+]]>
+  </Variables>
+  <WebsiteTemplateGUID>44d0c407-ce47-40db-b377-2d649313e6fe</WebsiteTemplateGUID>
+</kentico.websitetemplate>

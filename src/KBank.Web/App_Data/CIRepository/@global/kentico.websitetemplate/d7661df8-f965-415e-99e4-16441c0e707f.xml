@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<kentico.websitetemplate>
+  <Name>Emotive</Name>
+  <Variables>
+<![CDATA[
+/* Emotive */
+:root {
+  --k-body-bg: #fff;
+  --k-body-color: #244145;
+  --k-primary: #e34ea0;
+  --k-secondary: #eca647;
+  --k-border-radius: 2.5rem 1.5rem;
+  --k-border-radius-2: 1.5rem;
+  --k-hero-color: var(--k-body-color);
+  --k-mock-bg-left: #1f3b3e;
+  --k-mock-bg-right: var(--k-primary);
+  --k-pricelist-color: var(--k-body-color);
+  --k-pricelist-bg: var(--k-secondary);
+  --k-pricelist-table-bg: #ebddda;
+  --k-faq-color: var(--k-body-color);
+  --k-faq-bg: var(--k-primary);
+  --k-faq-accordion-bg: var(--k-pricelist-table-bg); }
+
+.svg-color, .svg-color path, .svg-color rect, .svg-color circle, .svg-color .cls-1{
+stroke: var(--k-secondary) !important;
+}
+
+/*# sourceMappingURL=variables.css.map */
+]]>
+  </Variables>
+  <WebsiteTemplateGUID>d7661df8-f965-415e-99e4-16441c0e707f</WebsiteTemplateGUID>
+</kentico.websitetemplate>

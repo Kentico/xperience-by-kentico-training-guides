@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<kentico.navigationitem>
+  <Caption>Privacy policy</Caption>
+  <IsHeaderNavigation>False</IsHeaderNavigation>
+  <NavigationItemGUID>1ac0132f-6c87-490a-bb58-4ec65b939fff</NavigationItemGUID>
+  <NodeGuid />
+  <OpenInNewTab>False</OpenInNewTab>
+  <OrderNumber>1</OrderNumber>
+  <Url>~/privacy-policy</Url>
+</kentico.navigationitem>

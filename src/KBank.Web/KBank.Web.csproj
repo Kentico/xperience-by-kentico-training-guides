@@ -3,12 +3,6 @@
     <TargetFramework>net6.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Remove="Helpers\**" />
-    <Content Remove="Helpers\**" />
-    <EmbeddedResource Remove="Helpers\**" />
-    <None Remove="Helpers\**" />
-  </ItemGroup>
-  <ItemGroup>
     <PackageReference Include="AspNetCore.Unobtrusive.Ajax" Version="2.0.0" />
     <PackageReference Include="kentico.xperience.admin" Version="25.0.0" />
     <PackageReference Include="kentico.xperience.azurestorage" Version="25.0.0" />
@@ -16,6 +10,7 @@
     <PackageReference Include="kentico.xperience.webapp" Version="25.0.0" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\KBank.Admin\KBank.Admin.csproj" />
     <ProjectReference Include="..\KBank.Entities\KBank.Entities.csproj" />
   </ItemGroup>
 </Project>

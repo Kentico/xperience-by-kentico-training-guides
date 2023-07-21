@@ -11,11 +11,11 @@
   <DocumentCulture>en-US</DocumentCulture>
   <DocumentGUID>2a791a03-cfd7-4033-af5c-e01b9088265c</DocumentGUID>
   <DocumentModifiedByUserID>
-    <CodeName>administrator</CodeName>
-    <GUID>6415b8ce-8072-4bcd-8e48-9d7178b826b7</GUID>
+    <CodeName>public</CodeName>
+    <GUID>3758b9b5-045c-4b7d-b020-80f9b068d990</GUID>
     <ObjectType>cms.user</ObjectType>
   </DocumentModifiedByUserID>
-  <DocumentModifiedWhen>2023-07-12 15:07:08Z</DocumentModifiedWhen>
+  <DocumentModifiedWhen>2023-06-30 20:24:00Z</DocumentModifiedWhen>
   <DocumentName>Contact Us</DocumentName>
   <DocumentNodeID>
     <CodeName>/Contact-Us</CodeName>
@@ -28,6 +28,6 @@
     </Site>
   </DocumentNodeID>
   <DocumentPageBuilderWidgets>
-    <![CDATA[{"editableAreas":[{"identifier":"areaMain","sections":[{"identifier":"f9c9f2bf-fc07-421a-af02-d289ddb6a4dd","type":"Kentico.DefaultSection","properties":null,"zones":[{"identifier":"c5cc5e68-2527-43d4-927d-700a2d5a1d03","widgets":[]}],"fieldIdentifiers":{}}]}]}]]>
+    <![CDATA[{"editableAreas":[{"identifier":"areaMain","sections":[{"identifier":"8a003d82-b742-4c91-8d34-78fe71b8b3c2","type":"KBank.FormColumnSection","properties":{"sectionAnchor":null},"zones":[{"identifier":"dd19f695-6ae3-46ff-bce7-3f3df921c011","widgets":[{"identifier":"ef7022f8-d639-4a1d-89b1-34dea52d5e0b","type":"Kentico.FormWidget","variants":[{"identifier":"226d3a2e-e773-42ef-a1d8-9ce3cec9ed00","properties":{"selectedForm":[{"objectGuid":null,"objectCodeName":"Contact"}]},"fieldIdentifiers":{"selectedForm":"ddd00008-1338-491d-baac-5de064bac94b"}}]}]}],"fieldIdentifiers":{"sectionAnchor":"6d8888fd-92c8-4229-8b1b-5c376511fc2c"}}]}]}]]>
   </DocumentPageBuilderWidgets>
 </cms.documentlocalization>

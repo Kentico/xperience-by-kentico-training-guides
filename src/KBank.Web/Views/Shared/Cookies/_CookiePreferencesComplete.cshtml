@@ -1,0 +1,11 @@
+﻿@using KBank.Web.Helpers.Cookies
+@{
+    Layout = null;
+
+    // Set acceptance cookie
+    CookieHelper.SetValue(CookieNames.COOKIE_ACCEPTANCE, "true", null, DateTime.Now.AddYears(1), false);
+}
+
+<div class="cookies__message">
+    Cookie preferences have been successfully updated.
+</div>

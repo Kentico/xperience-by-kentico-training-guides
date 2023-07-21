@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.class>
+  <ClassCodeGenerationSettings>
+    <Data>
+      <ObjectType>KBank.CookieLevelConsentMapping</ObjectType>
+      <UseGuidHashtable>False</UseGuidHashtable>
+      <UseIdHashtable>False</UseIdHashtable>
+      <UseNameHashtable>False</UseNameHashtable>
+    </Data>
+  </ClassCodeGenerationSettings>
+  <ClassDisplayName>Cookie level consent mapping</ClassDisplayName>
+  <ClassFormDefinition>
+    <form>
+      <field column="CookieLevelConsentMappingID" columntype="integer" enabled="true" guid="a4971860-949c-4cb7-92d0-98a2b3ca202e" isPK="true">
+        <properties>
+          <fieldcaption>CookieLevelConsentMappingID</fieldcaption>
+        </properties>
+      </field>
+      <field allowempty="true" column="PreferenceConsentCodeName" columnprecision="0" columntype="objectcodenames" enabled="true" guid="a1bf9a68-3e61-4d0b-93a7-e03f7b44c90b" />
+      <field allowempty="true" column="AnalyticalConsentCodeName" columnprecision="0" columntype="objectcodenames" enabled="true" guid="8b8e802c-72c7-4c6a-824c-bbfa79a1c15e" />
+      <field allowempty="true" column="MarketingConsentCodeName" columnprecision="0" columntype="objectcodenames" enabled="true" guid="a0838aaa-21f9-4e8f-8a83-65204e9c37b1" />
+    </form>
+  </ClassFormDefinition>
+  <ClassGUID>f22ad084-8e83-4cb3-9532-3fe144a692c2</ClassGUID>
+  <ClassHasMetadata>False</ClassHasMetadata>
+  <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
+  <ClassHasURL>False</ClassHasURL>
+  <ClassIsCoupledClass>True</ClassIsCoupledClass>
+  <ClassIsCustomTable>False</ClassIsCustomTable>
+  <ClassIsDocumentType>False</ClassIsDocumentType>
+  <ClassIsForm>False</ClassIsForm>
+  <ClassIsPage>False</ClassIsPage>
+  <ClassName>KBank.CookieLevelConsentMapping</ClassName>
+  <ClassNodeNameSource />
+  <ClassResourceID>
+    <CodeName>KBank.Admin</CodeName>
+    <GUID>69fa2d87-24b7-4c29-9625-887d6f0da903</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ClassResourceID>
+  <ClassSearchSettings>
+    <search />
+  </ClassSearchSettings>
+  <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
+  <ClassTableName>Kentico_CookieLevelConsentMapping</ClassTableName>
+  <ClassUsesPageBuilder>False</ClassUsesPageBuilder>
+</cms.class>

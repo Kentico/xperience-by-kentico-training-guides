@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<kentico.navigationitem>
+  <Caption>Xperience Adopters Program</Caption>
+  <IsHeaderNavigation>False</IsHeaderNavigation>
+  <NavigationItemGUID>c6720dc3-3781-4bb2-a9b8-fc08265583df</NavigationItemGUID>
+  <OpenInNewTab>True</OpenInNewTab>
+  <OrderNumber>1</OrderNumber>
+  <Url>https://www.kentico.com/platform/xap</Url>
+</kentico.navigationitem>

@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.resource>
+  <ResourceDisplayName>Admin</ResourceDisplayName>
+  <ResourceGUID>69fa2d87-24b7-4c29-9625-887d6f0da903</ResourceGUID>
+  <ResourceHasFiles>False</ResourceHasFiles>
+  <ResourceIsInDevelopment>False</ResourceIsInDevelopment>
+  <ResourceName>Kentico.Admin</ResourceName>
+  <ShowInDevelopment>False</ShowInDevelopment>
+</cms.resource>

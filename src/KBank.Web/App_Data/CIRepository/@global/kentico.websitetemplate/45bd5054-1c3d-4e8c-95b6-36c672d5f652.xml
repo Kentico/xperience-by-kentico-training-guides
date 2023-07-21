@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<kentico.websitetemplate>
+  <Name>Concrete</Name>
+  <Variables>
+<![CDATA[
+/* Concrete */
+:root {
+  --k-body-bg: #efefef;
+  --k-body-color: #777777;
+  --k-primary: #89d2d8;
+  --k-secondary: #89d2d8;
+  --k-border-radius: 2.5rem 1.5rem;
+  --k-border-radius-2: 1.5rem;
+  --k-hero-color: var(--k-body-color);
+  --k-hero-color-light: #fff;
+  --k-mock-bg-left: #cfcfcf;
+  --k-mock-bg-right: #9f9f9f;
+  --k-pricelist-color: #000;
+  --k-pricelist-bg: #cfcfcf;
+  --k-pricelist-table-bg: #85cacf;
+  --k-faq-color: var(--k-body-color);
+  --k-faq-bg: var(--k-primary);
+  --k-faq-accordion-bg: var(--k-pricelist-table-bg); }
+
+.svg-color, .svg-color path, .svg-color rect, .svg-color circle, .svg-color .cls-1{
+stroke: var(--k-secondary) !important;
+}
+
+/*# sourceMappingURL=variables.css.map */
+]]>
+  </Variables>
+  <WebsiteTemplateGUID>45bd5054-1c3d-4e8c-95b6-36c672d5f652</WebsiteTemplateGUID>
+</kentico.websitetemplate>

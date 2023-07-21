@@ -1,3 +1,4 @@
+using AspNetCore.Unobtrusive.Ajax;
 using Kentico.Content.Web.Mvc.Routing;
 using KBank.Web.Extensions;
 using Kentico.PageBuilder.Web.Mvc;
@@ -28,6 +29,8 @@ builder.Services.AddKentico(features =>
 });
 
 builder.Services.AddAuthentication();
+
+builder.Services.AddUnobtrusiveAjax();
 
 builder.Services.AddKBankServices();
 

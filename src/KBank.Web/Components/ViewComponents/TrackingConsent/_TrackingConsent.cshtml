@@ -1,0 +1,54 @@
+﻿@using CMS.DocumentEngine;
+@using Kentico.Content.Web.Mvc;
+@using KBank.Web.Models
+@using Kentico.Web.Mvc
+@using KBank.Web.Extensions;
+
+@model TrackingConsentViewModel
+
+@inject IPageDataContextRetriever pageDataContextRetriever
+
+@{
+    // Gets the page's current URL
+    var baseUrl = Context.Request.GetBaseUrl();
+    var messageId = "BannerMessage";
+}
+
+@* Displays content only if the current contact has not yet given a tracking consent agreement, or chosen only essential cookies. *@
+@if (!Model.IsAgreed && !Model.CookieAccepted)
+{
+
+
+
+    @using (Html.AjaxBeginForm("CookieBanner", "cookiebannersubmit", new AjaxOptions
+    {
+        HttpMethod = "POST",
+        InsertionMode = InsertionMode.Replace,
+        UpdateTargetId = messageId
+    }, new { action = $"{baseUrl}/cookies/cookiebannersubmit" }))
+    {
+
+        <div class="xpcookiebanner js-xpcookiebanner is-active">
+            <input id="ConsentMapping" name="ConsentMapping" type="hidden"  value="@Model.ConsentMapping" />
+            <div class="xpcookiebanner__inner container">
+                <h5 class="xpcookiebanner__header"> @Html.Raw(Model.CookieHeader)</h5>
+                @Html.Raw(Model.CookieMessage)
+                <div class="xpcookiebanner__ctas">
+                    @if (!string.IsNullOrWhiteSpace(Model.AcceptMessage))
+                    {
+                        <button type="submit" value="4" name="CookieLevelSelected" class="btn btn-primary text-uppercase xpcookiebanner__cta js-close-cookie" data-tracking-code="CookieBar_Accept">
+                            @Model.AcceptMessage
+                        </button>
+                    }
+                    @if (!string.IsNullOrWhiteSpace(Model.RedirectUrl) && !string.IsNullOrWhiteSpace(Model.ConfigureMessage))
+                    {
+                        <a href="@string.Format("{0}{1}", baseUrl, Model.RedirectUrl)" class="xpcookiebanner__cta" data-tracking-code="CookieBar_More">
+                            @Model.ConfigureMessage
+                        </a>
+                    }
+                </div>
+            </div>
+            <div id="@messageId" class="xpcookiebanner__message"></div>
+        </div>
+    }
+}

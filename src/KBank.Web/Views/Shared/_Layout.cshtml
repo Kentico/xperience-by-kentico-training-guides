@@ -1,4 +1,5 @@
 ﻿@using KBank.Web.Components.ViewComponents.Header
+@using KBank.Web.Components.ViewComponents.TrackingConsent
 @{
     var title = $"{ViewBag.Title} - Kentico kBank";
     var baseUrl = $"{Context.Request.Scheme}://{Context.Request.Host + (string.IsNullOrWhiteSpace(Context.Request.PathBase) ? string.Empty : Context.Request.PathBase)}";
@@ -27,6 +28,7 @@
 <body class="p-hp t-default">
     <div class="page-wrapper">
         <vc:header />
+        <vc:tracking-consent/>
         <div class="content-wrapper">
             @RenderBody()
         </div>
