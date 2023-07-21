@@ -1,7 +1,7 @@
 # Xperience by Kentico Quick Guide starter repository
 This repository is the starting point for the [Xperience by Kentico technical quick start guides](https://docs.xperience.io/tutorial/quickstart-guides). Use this branch to follow along with the trainings.
 
-To see the end result, check the [finished branch]().
+To see the end result, check the [finished branch](https://github.com/Kentico/xperience-by-kentico-quickguides/tree/finished).
 
 ## Getting started
 1. Clone or download this repository to your development environment
