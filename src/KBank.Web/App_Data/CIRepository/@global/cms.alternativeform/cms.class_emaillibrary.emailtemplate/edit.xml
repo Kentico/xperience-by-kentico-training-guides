@@ -61,7 +61,6 @@
   </FormDefinition>
   <FormDisplayName>Edit</FormDisplayName>
   <FormGUID>95ef1dfb-5bc0-46cb-b86c-660483ca681d</FormGUID>
-  <FormHideNewParentFields>False</FormHideNewParentFields>
   <FormIsCustom>False</FormIsCustom>
   <FormName>edit</FormName>
 </cms.alternativeform>

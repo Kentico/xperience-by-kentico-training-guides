@@ -32,12 +32,6 @@
           <fieldcaption>FormDefinition</fieldcaption>
         </properties>
       </field>
-      <field allowempty="true" column="FormHideNewParentFields" columntype="boolean" guid="3e2d0dfd-7f60-4454-a871-6a3af6df4281" system="true">
-        <properties>
-          <defaultvalue>false</defaultvalue>
-          <fieldcaption>Hide new parent fields</fieldcaption>
-        </properties>
-      </field>
       <field column="FormGUID" columntype="guid" guid="b1ff5048-0f5d-462f-818a-b6c582e45db1" system="true">
         <properties>
           <fieldcaption>FormGUID</fieldcaption>
@@ -66,7 +60,6 @@
   <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
   <ClassHasURL>False</ClassHasURL>
   <ClassIsCoupledClass>True</ClassIsCoupledClass>
-  <ClassIsCustomTable>False</ClassIsCustomTable>
   <ClassIsDocumentType>False</ClassIsDocumentType>
   <ClassIsForm>False</ClassIsForm>
   <ClassIsPage>False</ClassIsPage>
@@ -78,14 +71,6 @@
     <GUID>385e528a-e013-4a84-bad9-d5956408741a</GUID>
     <ObjectType>cms.resource</ObjectType>
   </ClassResourceID>
-  <ClassSearchContentColumn />
-  <ClassSearchCreationDateColumn />
-  <ClassSearchEnabled>False</ClassSearchEnabled>
-  <ClassSearchImageColumn />
-  <ClassSearchSettings>
-    <search />
-  </ClassSearchSettings>
-  <ClassSearchTitleColumn />
   <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
   <ClassShowColumns />
   <ClassShowTemplateSelection>False</ClassShowTemplateSelection>

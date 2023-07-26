@@ -23,17 +23,9 @@
       <field column="ClassNodeAliasSource" guid="9db135ca-2256-4812-96d3-c9bbc1b458d1" />
       <field column="ClassLastModified" guid="b0efc357-062e-4db3-a772-4761673faa81" />
       <field column="ClassGUID" guid="155ef725-c6a5-434f-90e6-f9a91f70d6cb" />
-      <field column="ClassIsCustomTable" guid="9d94c00d-128b-4ebb-b019-05c591605f79" />
       <field column="ClassShowColumns" guid="95ac260b-5d66-4bf5-a16b-af7313b642e0" />
-      <field column="ClassSearchTitleColumn" guid="0ca33adc-5951-43e0-883b-2900618012f6" />
-      <field column="ClassSearchContentColumn" guid="c01c8c30-6ad8-4e78-89ff-4444f30a39f2" />
-      <field column="ClassSearchImageColumn" guid="bc7d25ab-93cf-4613-ab30-1ed8fd2fb380" />
-      <field column="ClassSearchCreationDateColumn" guid="9e93f0c7-0ca3-427c-9fcd-0b268d042848" />
-      <field column="ClassSearchIndexDataSource" guid="263618d8-1a6a-47f4-82a4-5fd4ccc5dec5" />
-      <field column="ClassSearchSettings" guid="b9ce15ef-d968-4341-b39b-569fe442cb54" />
       <field column="ClassInheritsFromClassID" guid="794296ec-5b04-40a2-a9ea-a802629e6839" />
       <field column="ClassConnectionString" guid="81f850e0-0dbd-4298-aebf-3a73bdc3b8e4" />
-      <field column="ClassSearchEnabled" guid="befeb58a-0af5-4775-8f92-b1a35b2a4917" />
       <field column="ClassContactMapping" guid="fa0aa943-e3ef-42a0-ade2-179a27fc184b" />
       <field column="ClassContactOverwriteEnabled" guid="04b3aee9-b470-45b2-9c5e-90932d09cc19" />
       <field column="ClassDefaultObjectType" guid="87954ccc-9d86-4dcc-8e05-90dc7bbdfeb6" />
@@ -68,7 +60,13 @@
           <fielddescriptionashtml>False</fielddescriptionashtml>
         </properties>
       </field>
-      <field column="ClassUsesPageBuilder" columnprecision="0" enabled="true" guid="2462fa2a-d236-4a96-8b1e-a8b72d645290" visible="true">
+      <field column="ClassFormLayout" guid="32425d42-712b-48ad-92f2-ca7be3493456" order="29" />
+      <field column="ClassFormLayoutType" guid="1197ae53-0087-4e94-9b62-b8d4f3c46919" order="30" />
+      <field column="ClassVersionGUID" guid="f27eb613-419e-48d4-9046-6828e5d8caab" order="31" />
+      <field column="ClassHasMetadata" guid="31ebdec9-9b2c-4d09-bd01-437195b27654" order="32" />
+      <field column="ClassHasUnmanagedDbSchema" guid="cfeb12da-2006-4f45-aa24-919142788451" order="33" />
+      <field column="ClassIsNavigationItem" guid="21ad165c-3970-4270-9fbc-f8ec98c2d3c2" order="34" />
+      <field column="ClassUsesPageBuilder" columnprecision="0" enabled="true" guid="2462fa2a-d236-4a96-8b1e-a8b72d645290" visible="true" order="35">
         <settings>
           <controlname>Kentico.Administration.Checkbox</controlname>
         </settings>
@@ -84,17 +82,10 @@
           <fielddescriptionashtml>False</fielddescriptionashtml>
         </properties>
       </field>
-      <field column="ClassFormLayout" guid="32425d42-712b-48ad-92f2-ca7be3493456" order="38" />
-      <field column="ClassFormLayoutType" guid="1197ae53-0087-4e94-9b62-b8d4f3c46919" order="39" />
-      <field column="ClassVersionGUID" guid="f27eb613-419e-48d4-9046-6828e5d8caab" order="40" />
-      <field column="ClassHasMetadata" guid="31ebdec9-9b2c-4d09-bd01-437195b27654" order="41" />
-      <field column="ClassHasUnmanagedDbSchema" guid="cfeb12da-2006-4f45-aa24-919142788451" order="42" />
-      <field column="ClassIsNavigationItem" guid="21ad165c-3970-4270-9fbc-f8ec98c2d3c2" order="43" />
     </form>
   </FormDefinition>
   <FormDisplayName>Content Type Features</FormDisplayName>
   <FormGUID>953fc282-3893-4859-b066-be7974a33661</FormGUID>
-  <FormHideNewParentFields>False</FormHideNewParentFields>
   <FormIsCustom>False</FormIsCustom>
   <FormName>ContentTypeFeatures</FormName>
 </cms.alternativeform>

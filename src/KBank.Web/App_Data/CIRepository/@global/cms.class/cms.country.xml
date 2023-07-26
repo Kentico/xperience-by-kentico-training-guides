@@ -56,7 +56,6 @@
   <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
   <ClassHasURL>False</ClassHasURL>
   <ClassIsCoupledClass>True</ClassIsCoupledClass>
-  <ClassIsCustomTable>False</ClassIsCustomTable>
   <ClassIsDocumentType>False</ClassIsDocumentType>
   <ClassIsForm>False</ClassIsForm>
   <ClassIsPage>False</ClassIsPage>
@@ -68,20 +67,6 @@
     <GUID>c171949b-8edd-4bcd-95c2-0d6a0dd5cbbb</GUID>
     <ObjectType>cms.resource</ObjectType>
   </ClassResourceID>
-  <ClassSearchContentColumn>0</ClassSearchContentColumn>
-  <ClassSearchCreationDateColumn>CountryLastModified</ClassSearchCreationDateColumn>
-  <ClassSearchEnabled>False</ClassSearchEnabled>
-  <ClassSearchImageColumn />
-  <ClassSearchSettings>
-    <search>
-      <item azurecontent="True" azuresearchable="True" content="True" id="64ded574-2084-420d-9348-18be85becc4c" name="CountryDisplayName" searchable="False" tokenized="True" />
-      <item azurecontent="True" azuresearchable="True" content="True" id="84980a47-1ee7-4a79-ae61-0487f25db40e" name="CountryName" searchable="False" tokenized="True" />
-      <item content="False" id="a021a032-aba1-4edf-8f18-4ec0e1972374" name="CountryGUID" searchable="False" tokenized="False" />
-      <item azureretrievable="True" content="False" id="c08c858f-ac1c-4f8c-a8ed-aa91d8f6a11f" name="CountryID" searchable="True" tokenized="False" />
-      <item azureretrievable="True" content="False" id="ebdbe945-da05-4c45-a31f-e7a6be2ec9b0" name="CountryLastModified" searchable="True" tokenized="False" />
-    </search>
-  </ClassSearchSettings>
-  <ClassSearchTitleColumn>CountryDisplayName</ClassSearchTitleColumn>
   <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
   <ClassShowColumns />
   <ClassShowTemplateSelection>False</ClassShowTemplateSelection>

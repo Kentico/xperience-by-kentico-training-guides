@@ -5,17 +5,13 @@
     <ObjectType>cms.settingscategory</ObjectType>
   </KeyCategoryID>
   <KeyDefaultValue>True</KeyDefaultValue>
-  <KeyDescription>
-    <![CDATA[{$base.settings.settingskey.cmsgeneratethumbnails.description$}]]>
-  </KeyDescription>
-  <KeyDisplayName>
-    <![CDATA[{$base.settings.settingskey.cmsgeneratethumbnails$}]]>
-  </KeyDisplayName>
+  <KeyDescription />
+  <KeyDisplayName />
   <KeyExplanationText />
   <KeyGUID>ebc09d3e-b768-4235-bf1a-147a5bca46bc</KeyGUID>
   <KeyIsCustom>False</KeyIsCustom>
   <KeyIsGlobal>False</KeyIsGlobal>
-  <KeyIsHidden>False</KeyIsHidden>
+  <KeyIsHidden>True</KeyIsHidden>
   <KeyName>CMSGenerateThumbnails</KeyName>
   <KeyOrder>4</KeyOrder>
   <KeyType>boolean</KeyType>

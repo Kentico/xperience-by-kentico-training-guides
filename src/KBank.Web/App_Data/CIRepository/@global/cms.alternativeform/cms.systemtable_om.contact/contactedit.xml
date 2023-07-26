@@ -169,7 +169,6 @@
   </FormDefinition>
   <FormDisplayName>Contact edit</FormDisplayName>
   <FormGUID>64f7c90b-3661-40fa-b770-6eb4b1a54193</FormGUID>
-  <FormHideNewParentFields>False</FormHideNewParentFields>
   <FormIsCustom>False</FormIsCustom>
   <FormName>ContactEdit</FormName>
 </cms.alternativeform>

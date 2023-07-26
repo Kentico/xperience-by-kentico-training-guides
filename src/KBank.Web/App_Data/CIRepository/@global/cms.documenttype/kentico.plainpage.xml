@@ -26,16 +26,11 @@
   <ClassHasURL>True</ClassHasURL>
   <ClassIconClass>xp-book-opened</ClassIconClass>
   <ClassIsCoupledClass>True</ClassIsCoupledClass>
-  <ClassIsCustomTable>False</ClassIsCustomTable>
   <ClassIsDocumentType>True</ClassIsDocumentType>
   <ClassIsForm>False</ClassIsForm>
   <ClassIsPage>True</ClassIsPage>
   <ClassName>Kentico.PlainPage</ClassName>
   <ClassNodeNameSource />
-  <ClassSearchEnabled>False</ClassSearchEnabled>
-  <ClassSearchSettings>
-    <search />
-  </ClassSearchSettings>
   <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
   <ClassTableName>Kentico_PlainPage</ClassTableName>
   <ClassUsesPageBuilder>True</ClassUsesPageBuilder>

@@ -56,11 +56,6 @@
           <fieldcaption>NodeOrder</fieldcaption>
         </properties>
       </field>
-      <field allowempty="true" column="IsSecuredNode" columntype="boolean" guid="c51e1a5c-09dd-4a1b-b707-9a1bbb428108" system="true">
-        <properties>
-          <fieldcaption>IsSecuredNode</fieldcaption>
-        </properties>
-      </field>
       <field allowempty="true" column="NodeHasChildren" columntype="boolean" guid="c4849227-946b-4b1f-8ef3-d659addc26b6" system="true">
         <properties>
           <defaultvalue>false</defaultvalue>
@@ -99,6 +94,7 @@
           <defaultvalue>False</defaultvalue>
         </properties>
       </field>
+      <field column="NodeIsSecured" columnprecision="0" columntype="boolean" enabled="true" guid="b4138d4a-1245-4dea-be0b-d871b7ab2f9f" system="true" />
     </form>
   </ClassFormDefinition>
   <ClassGUID>6d418504-6c8b-44f5-853b-10759216a050</ClassGUID>
@@ -106,7 +102,6 @@
   <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
   <ClassHasURL>False</ClassHasURL>
   <ClassIsCoupledClass>True</ClassIsCoupledClass>
-  <ClassIsCustomTable>False</ClassIsCustomTable>
   <ClassIsDocumentType>False</ClassIsDocumentType>
   <ClassIsForm>False</ClassIsForm>
   <ClassIsPage>False</ClassIsPage>
@@ -118,14 +113,6 @@
     <GUID>83ff58cf-d7ed-4567-a68c-439daf7e85cf</GUID>
     <ObjectType>cms.resource</ObjectType>
   </ClassResourceID>
-  <ClassSearchContentColumn />
-  <ClassSearchCreationDateColumn />
-  <ClassSearchEnabled>False</ClassSearchEnabled>
-  <ClassSearchImageColumn />
-  <ClassSearchSettings>
-    <search />
-  </ClassSearchSettings>
-  <ClassSearchTitleColumn />
   <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
   <ClassShowColumns />
   <ClassShowTemplateSelection>False</ClassShowTemplateSelection>

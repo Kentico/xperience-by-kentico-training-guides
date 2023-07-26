@@ -92,7 +92,6 @@
   <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
   <ClassHasURL>False</ClassHasURL>
   <ClassIsCoupledClass>True</ClassIsCoupledClass>
-  <ClassIsCustomTable>False</ClassIsCustomTable>
   <ClassIsDocumentType>False</ClassIsDocumentType>
   <ClassIsForm>False</ClassIsForm>
   <ClassIsPage>False</ClassIsPage>
@@ -104,26 +103,6 @@
     <GUID>f23e944e-1a51-46f0-8a2e-75bcfc2a70ea</GUID>
     <ObjectType>cms.resource</ObjectType>
   </ClassResourceID>
-  <ClassSearchContentColumn>ABTestDescription</ClassSearchContentColumn>
-  <ClassSearchCreationDateColumn>ABTestLastModified</ClassSearchCreationDateColumn>
-  <ClassSearchEnabled>False</ClassSearchEnabled>
-  <ClassSearchImageColumn />
-  <ClassSearchSettings>
-    <search>
-      <item azurecontent="True" azuresearchable="True" content="True" id="0899d7ad-8e06-4a8e-b777-59efbae24fef" name="ABTestOriginalPage" searchable="False" tokenized="True" />
-      <item azureretrievable="True" content="False" id="1120c699-df7e-4111-9896-ef6721a8fb60" name="ABTestOpenFrom" searchable="True" tokenized="False" />
-      <item azureretrievable="True" content="False" id="155b919e-ff98-4f61-8071-f283bbb8641b" name="ABTestLastModified" searchable="True" tokenized="False" />
-      <item azureretrievable="True" content="False" id="46726b7a-439b-4eb3-9046-dc7fb951f2d9" name="ABTestOpenTo" searchable="True" tokenized="False" />
-      <item azureretrievable="True" content="False" id="932b7100-3798-4971-aba2-6f093923bdf2" name="ABTestID" searchable="True" tokenized="False" />
-      <item azureretrievable="True" content="False" id="98ab51c7-57b4-46d4-8584-6bee9e28aa82" name="ABTestSiteID" searchable="True" tokenized="False" />
-      <item azurecontent="True" azuresearchable="True" content="True" id="9ee9eace-eb48-40e2-8730-e13d45602156" name="ABTestDescription" searchable="False" tokenized="True" />
-      <item azurecontent="True" azuresearchable="True" content="True" id="b661d86c-3511-4c5c-9384-62baa82d05b5" name="ABTestName" searchable="False" tokenized="True" />
-      <item azureretrievable="True" content="False" id="ccff2f28-5d51-401a-b7ed-af3530557270" name="ABTestConversions" searchable="True" tokenized="False" />
-      <item azurecontent="True" azuresearchable="True" content="True" id="ddcc0a5e-8cf4-4145-b252-4fc394d3f1fb" name="ABTestCulture" searchable="False" tokenized="True" />
-      <item content="False" id="e5c64709-2c08-4b4d-b7f4-89eed22d1867" name="ABTestGUID" searchable="False" tokenized="False" />
-    </search>
-  </ClassSearchSettings>
-  <ClassSearchTitleColumn>ABTestName</ClassSearchTitleColumn>
   <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
   <ClassShowColumns />
   <ClassShowTemplateSelection>False</ClassShowTemplateSelection>

@@ -70,7 +70,6 @@
   </FormDefinition>
   <FormDisplayName>Edit basic properties</FormDisplayName>
   <FormGUID>d06e56c1-7029-47ce-bf74-764afbcc6f53</FormGUID>
-  <FormHideNewParentFields>False</FormHideNewParentFields>
   <FormIsCustom>False</FormIsCustom>
   <FormName>editbasic</FormName>
 </cms.alternativeform>

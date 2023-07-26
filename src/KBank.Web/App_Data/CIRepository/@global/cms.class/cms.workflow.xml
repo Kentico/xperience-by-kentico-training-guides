@@ -138,7 +138,6 @@
   <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
   <ClassHasURL>False</ClassHasURL>
   <ClassIsCoupledClass>True</ClassIsCoupledClass>
-  <ClassIsCustomTable>False</ClassIsCustomTable>
   <ClassIsDocumentType>False</ClassIsDocumentType>
   <ClassIsForm>False</ClassIsForm>
   <ClassIsPage>False</ClassIsPage>
@@ -150,22 +149,6 @@
     <GUID>2b67f370-3df4-4a4d-8734-1974639c5b69</GUID>
     <ObjectType>cms.resource</ObjectType>
   </ClassResourceID>
-  <ClassSearchContentColumn>0</ClassSearchContentColumn>
-  <ClassSearchCreationDateColumn>WorkflowLastModified</ClassSearchCreationDateColumn>
-  <ClassSearchEnabled>False</ClassSearchEnabled>
-  <ClassSearchImageColumn />
-  <ClassSearchSettings>
-    <search>
-      <item azureretrievable="True" content="False" id="56cb66ec-4f6a-4ed2-ad94-32fcbe88385c" name="WorkflowLastModified" searchable="True" tokenized="False" />
-      <item content="False" id="8d65e12e-beb6-44c2-84dc-e914c0fbed2d" name="WorkflowGUID" searchable="False" tokenized="False" />
-      <item azureretrievable="True" content="False" id="9a90c5ca-53ce-4a84-a9ba-60eb4dce5b03" name="WorkflowUseCheckinCheckout" searchable="True" tokenized="False" />
-      <item azurecontent="True" azuresearchable="True" content="True" id="c84f56c2-6381-4de9-a0a4-23364863ad50" name="WorkflowName" searchable="False" tokenized="True" />
-      <item azurecontent="True" azuresearchable="True" content="True" id="d6d7c536-2469-4a12-b20d-3978ff14e7c2" name="WorkflowDisplayName" searchable="False" tokenized="True" />
-      <item azureretrievable="True" content="False" id="e0278c57-1956-4017-8fcc-b00c05e3c351" name="WorkflowID" searchable="True" tokenized="False" />
-      <item azureretrievable="True" content="False" id="fa9d7121-6d35-43ed-b55a-7f4d0ab8e373" name="WorkflowAutoPublishChanges" searchable="True" tokenized="False" />
-    </search>
-  </ClassSearchSettings>
-  <ClassSearchTitleColumn>WorkflowDisplayName</ClassSearchTitleColumn>
   <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
   <ClassShowColumns />
   <ClassShowTemplateSelection>False</ClassShowTemplateSelection>

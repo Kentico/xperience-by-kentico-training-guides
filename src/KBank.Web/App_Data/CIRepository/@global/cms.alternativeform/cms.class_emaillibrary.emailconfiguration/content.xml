@@ -70,7 +70,6 @@
   </FormDefinition>
   <FormDisplayName>content</FormDisplayName>
   <FormGUID>f718c42a-04f3-4fb8-b8eb-53d064b7dc58</FormGUID>
-  <FormHideNewParentFields>False</FormHideNewParentFields>
   <FormIsCustom>False</FormIsCustom>
   <FormName>content</FormName>
 </cms.alternativeform>

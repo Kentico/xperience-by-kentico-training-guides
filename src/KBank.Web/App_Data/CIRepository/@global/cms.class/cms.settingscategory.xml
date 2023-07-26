@@ -29,18 +29,12 @@
       <field allowempty="true" column="CategoryParentID" columntype="integer" guid="7b67a457-09bf-4075-a07f-d9f6cd52e16f" system="true">
         <properties>
           <fieldcaption>{$settings.parentcategoryname$}</fieldcaption>
-          <visiblemacro ismacro="true">
-            <![CDATA[{%FormMode == FormModeEnum.Update|(user)administrator|(hash)2beeeaf2f457f70249c5e48d624c830dfed7aeb246a242ca663fd9a7500cb0fa%}]]>
-          </visiblemacro>
         </properties>
       </field>
       <field allowempty="true" column="CategoryIsCustom" columntype="boolean" guid="0825124a-b2cb-44d2-bcb8-1ed956c537f4" system="true">
         <properties>
           <defaultvalue>false</defaultvalue>
           <fieldcaption>{$settings.iscustom$}</fieldcaption>
-          <visiblemacro ismacro="true">
-            <![CDATA[{%QueryString.treeroot != "customsettings"|(user)administrator|(hash)557bb26a87a80e6537ebc06ee31925bada0acd4d84f9a8827bc05355ef4be39c%}]]>
-          </visiblemacro>
         </properties>
       </field>
       <field allowempty="true" column="CategoryResourceID" columntype="integer" guid="f1f1f495-bd5e-48a5-9c2b-60dab90ba70f" system="true" />
@@ -77,7 +71,6 @@
   <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
   <ClassHasURL>False</ClassHasURL>
   <ClassIsCoupledClass>True</ClassIsCoupledClass>
-  <ClassIsCustomTable>False</ClassIsCustomTable>
   <ClassIsDocumentType>False</ClassIsDocumentType>
   <ClassIsForm>False</ClassIsForm>
   <ClassIsPage>False</ClassIsPage>
@@ -89,14 +82,6 @@
     <GUID>ce1a65a0-80dc-4c53-b0e7-bdecf0aa8c02</GUID>
     <ObjectType>cms.resource</ObjectType>
   </ClassResourceID>
-  <ClassSearchContentColumn />
-  <ClassSearchCreationDateColumn />
-  <ClassSearchEnabled>False</ClassSearchEnabled>
-  <ClassSearchImageColumn />
-  <ClassSearchSettings>
-    <search />
-  </ClassSearchSettings>
-  <ClassSearchTitleColumn />
   <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
   <ClassShowColumns />
   <ClassShowTemplateSelection>False</ClassShowTemplateSelection>

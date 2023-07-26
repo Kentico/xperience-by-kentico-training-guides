@@ -99,21 +99,11 @@
   <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
   <ClassHasURL>False</ClassHasURL>
   <ClassIsCoupledClass>True</ClassIsCoupledClass>
-  <ClassIsCustomTable>False</ClassIsCustomTable>
   <ClassIsDocumentType>False</ClassIsDocumentType>
   <ClassIsForm>True</ClassIsForm>
   <ClassIsPage>False</ClassIsPage>
   <ClassName>BizForm.Contact</ClassName>
   <ClassNodeNameSource />
-  <ClassSearchCreationDateColumn>FormInserted</ClassSearchCreationDateColumn>
-  <ClassSearchEnabled>True</ClassSearchEnabled>
-  <ClassSearchSettings>
-    <search>
-      <item content="False" id="4017e6b4-648b-4c02-b162-c1ff446e42aa" name="FormUpdated" searchable="True" tokenized="False" updatetrigger="True" />
-      <item content="False" id="ed75397e-14a2-4185-9f78-b0405dd7e6f2" name="Form_2023_06_20_13_47ID" searchable="True" tokenized="False" updatetrigger="True" />
-      <item content="False" id="fdc59f47-b12e-411b-95d9-47812861c305" name="FormInserted" searchable="True" tokenized="False" updatetrigger="True" />
-    </search>
-  </ClassSearchSettings>
   <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
   <ClassTableName>Form_KBank_Form_2023_06_20_13_47</ClassTableName>
   <ClassUsesPageBuilder>False</ClassUsesPageBuilder>

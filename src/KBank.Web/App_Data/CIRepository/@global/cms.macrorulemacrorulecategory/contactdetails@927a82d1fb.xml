@@ -76,24 +76,10 @@
         <ObjectType>cms.macrorule</ObjectType>
       </MacroRuleID>
     </Binding>
-    <Binding id="cms.macrorule_CMSContactIsInRole">
-      <MacroRuleID>
-        <CodeName>CMSContactIsInRole</CodeName>
-        <GUID>b0a36af7-5dc2-4b6c-bc27-2f20c97b6be9</GUID>
-        <ObjectType>cms.macrorule</ObjectType>
-      </MacroRuleID>
-    </Binding>
     <Binding id="cms.macrorule_CMSContactIsMale">
       <MacroRuleID>
         <CodeName>CMSContactIsMale</CodeName>
         <GUID>ce39a78c-339c-4be8-b355-70bd42eec51a</GUID>
-        <ObjectType>cms.macrorule</ObjectType>
-      </MacroRuleID>
-    </Binding>
-    <Binding id="cms.macrorule_CMSContactIsRegisteredAsAUser">
-      <MacroRuleID>
-        <CodeName>CMSContactIsRegisteredAsAUser</CodeName>
-        <GUID>625c2375-5644-49cb-ae6d-a82db4f60934</GUID>
         <ObjectType>cms.macrorule</ObjectType>
       </MacroRuleID>
     </Binding>

@@ -29,7 +29,6 @@
   <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
   <ClassHasURL>False</ClassHasURL>
   <ClassIsCoupledClass>True</ClassIsCoupledClass>
-  <ClassIsCustomTable>False</ClassIsCustomTable>
   <ClassIsDocumentType>False</ClassIsDocumentType>
   <ClassIsPage>False</ClassIsPage>
   <ClassName>CMS.ResourceString</ClassName>
@@ -40,18 +39,6 @@
     <GUID>4387e6da-cc0f-4a9d-9604-b8dd78234882</GUID>
     <ObjectType>cms.resource</ObjectType>
   </ClassResourceID>
-  <ClassSearchContentColumn>0</ClassSearchContentColumn>
-  <ClassSearchCreationDateColumn>0</ClassSearchCreationDateColumn>
-  <ClassSearchEnabled>False</ClassSearchEnabled>
-  <ClassSearchImageColumn />
-  <ClassSearchSettings>
-    <search>
-      <item azureretrievable="True" content="False" id="0845a732-4140-47f8-8594-234324a94fe5" name="StringID" searchable="True" tokenized="False" />
-      <item azureretrievable="True" content="False" id="099678e2-bb6f-48d7-a46b-ea7031377836" name="StringIsCustom" searchable="True" tokenized="False" />
-      <item azurecontent="True" azuresearchable="True" content="True" id="a35b3a90-fa73-4147-9804-c7368b48aad7" name="StringKey" searchable="False" tokenized="True" />
-    </search>
-  </ClassSearchSettings>
-  <ClassSearchTitleColumn>StringKey</ClassSearchTitleColumn>
   <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
   <ClassShowColumns />
   <ClassShowTemplateSelection>False</ClassShowTemplateSelection>

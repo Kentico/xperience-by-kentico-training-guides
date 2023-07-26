@@ -3,10 +3,5 @@
   <ResourceDescription />
   <ResourceDisplayName>Contact management</ResourceDisplayName>
   <ResourceGUID>0e4beef1-989c-4687-80ca-ae21fec09734</ResourceGUID>
-  <ResourceHasFiles>True</ResourceHasFiles>
-  <ResourceInstallationState />
-  <ResourceInstalledVersion />
   <ResourceName>CMS.ContactManagement</ResourceName>
-  <ResourceURL />
-  <ShowInDevelopment>False</ShowInDevelopment>
 </cms.resource>

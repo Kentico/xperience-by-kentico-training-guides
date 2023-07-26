@@ -2,6 +2,7 @@
 <cms.formfeaturedfield>
   <FormFeaturedFieldDescription>Featured last name</FormFeaturedFieldDescription>
   <FormFeaturedFieldDisplayName>Last name</FormFeaturedFieldDisplayName>
+  <FormFeaturedFieldEnabled>True</FormFeaturedFieldEnabled>
   <FormFeaturedFieldFormDefinition>
     <form version="2">
       <field allowempty="true" column="LastName" columnsize="500" columntype="text" visible="true">

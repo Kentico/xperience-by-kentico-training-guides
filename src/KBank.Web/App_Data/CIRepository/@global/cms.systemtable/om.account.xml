@@ -97,33 +97,21 @@
       <field allowempty="true" column="AccountPrimaryContactID" columntype="integer" guid="1bede702-e61d-47a9-aefe-02b5fb9065ac" system="true">
         <properties>
           <fieldcaption>{$om.account.primarycontact$}</fieldcaption>
-          <visiblemacro ismacro="true">
-            <![CDATA[{%AccountPrimaryContactID.Visible|(user)administrator|(hash)0d84f6aad950767aa4b368e784c654c41266af03b0f53d423b9e42af2debef5a%}]]>
-          </visiblemacro>
         </properties>
       </field>
       <field allowempty="true" column="AccountPrimaryContactRoleID" columntype="integer" dummy="mainform" guid="28e35579-b1db-49a5-a4ff-ca344da67aa6" system="true">
         <properties>
           <fieldcaption>{$edituserroles.role$}</fieldcaption>
-          <visiblemacro ismacro="true">
-            <![CDATA[{%AccountPrimaryContactID.Visible|(user)administrator|(hash)0d84f6aad950767aa4b368e784c654c41266af03b0f53d423b9e42af2debef5a%}]]>
-          </visiblemacro>
         </properties>
       </field>
       <field allowempty="true" column="AccountSecondaryContactID" columntype="integer" guid="8d9118e3-dc00-4e5f-8a2c-c6bc16361e52" system="true">
         <properties>
           <fieldcaption>{$om.account.secondarycontact$}</fieldcaption>
-          <visiblemacro ismacro="true">
-            <![CDATA[{%AccountPrimaryContactID.Visible|(user)administrator|(hash)0d84f6aad950767aa4b368e784c654c41266af03b0f53d423b9e42af2debef5a%}]]>
-          </visiblemacro>
         </properties>
       </field>
       <field allowempty="true" column="AccountSecondaryContactRoleID" columntype="integer" dummy="mainform" guid="290200c8-62b3-4a63-953b-9af376af1bf2" system="true">
         <properties>
           <fieldcaption>{$edituserroles.role$}</fieldcaption>
-          <visiblemacro ismacro="true">
-            <![CDATA[{%AccountPrimaryContactID.Visible|(user)administrator|(hash)0d84f6aad950767aa4b368e784c654c41266af03b0f53d423b9e42af2debef5a%}]]>
-          </visiblemacro>
         </properties>
       </field>
       <field allowempty="true" column="AccountNotes" columntype="longtext" guid="751d92e0-d2f5-4a36-aa19-5740b1044704" system="true">
@@ -156,7 +144,6 @@
   <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
   <ClassHasURL>False</ClassHasURL>
   <ClassIsCoupledClass>True</ClassIsCoupledClass>
-  <ClassIsCustomTable>False</ClassIsCustomTable>
   <ClassIsDocumentType>False</ClassIsDocumentType>
   <ClassIsForm>False</ClassIsForm>
   <ClassIsPage>False</ClassIsPage>
@@ -168,36 +155,6 @@
     <GUID>0e4beef1-989c-4687-80ca-ae21fec09734</GUID>
     <ObjectType>cms.resource</ObjectType>
   </ClassResourceID>
-  <ClassSearchContentColumn />
-  <ClassSearchCreationDateColumn />
-  <ClassSearchEnabled>True</ClassSearchEnabled>
-  <ClassSearchImageColumn />
-  <ClassSearchSettings>
-    <search>
-      <item id="07386758-fcf0-45fc-bddd-406c82c15f85" name="AccountStateID" />
-      <item id="1e7fce74-f027-4c0c-91d0-fcba95cc47fb" name="AccountSubsidiaryOfID" />
-      <item id="381e5139-f923-467f-b7aa-0c693e758fc7" name="AccountEmail" />
-      <item id="396bc0a9-0f07-4986-b300-4ced6dda84f1" name="AccountZIP" />
-      <item id="60028a13-abc2-4a61-9990-5b3408bbaa20" name="AccountID" />
-      <item id="65f79709-a114-4982-81ec-62a4d92137d9" name="AccountFax" />
-      <item id="6e439904-0da7-4362-bb2e-c165fc4e1481" name="AccountStatusID" />
-      <item id="7390a4ff-bddb-4e43-9c60-21250025a3b3" name="AccountCity" />
-      <item id="914e0d55-d9ed-4ebd-856f-d3484e73a446" name="AccountNotes" />
-      <item id="92ca2cdf-7544-4ac4-becb-a54241f68576" name="AccountCreated" />
-      <item id="9de7567e-c9fe-4d69-b8c3-9f6d4ebb7e72" name="AccountCountryID" />
-      <item id="afe9bba4-8c2a-4763-9689-b55f1d7ea21a" name="AccountWebSite" />
-      <item id="b42c9e1c-a25b-4e92-960a-ee75d7283145" name="AccountGUID" />
-      <item id="b9e547d7-b6e1-4b17-a909-3283a905edc3" name="AccountPhone" />
-      <item id="be9583a9-9dd2-451b-b44b-529c44ea7548" name="AccountOwnerUserID" />
-      <item id="c6c2f39f-b0f2-492e-b954-434fe9954faf" name="AccountAddress2" />
-      <item id="ca93db5c-728b-4bb9-999e-fb704c8a6c72" name="AccountLastModified" />
-      <item id="d607d603-fa85-424e-8a9f-9d6295097729" name="AccountPrimaryContactID" />
-      <item id="ddfd53bc-7740-402b-9a78-d065e1e37ec0" name="AccountAddress1" />
-      <item id="f966f0de-4abc-48a6-a4a4-3c9ba2122dfa" name="AccountName" />
-      <item id="fbec9ff6-fc9a-4182-afdb-55e25b7d76a8" name="AccountSecondaryContactID" />
-    </search>
-  </ClassSearchSettings>
-  <ClassSearchTitleColumn />
   <ClassShowAsSystemTable>True</ClassShowAsSystemTable>
   <ClassShowColumns />
   <ClassShowTemplateSelection>False</ClassShowTemplateSelection>

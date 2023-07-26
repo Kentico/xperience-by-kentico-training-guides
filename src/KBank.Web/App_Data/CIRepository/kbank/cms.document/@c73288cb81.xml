@@ -9,6 +9,7 @@
   </NodeClassID>
   <NodeGUID>acdd2058-bde0-4c9d-8332-45f417220571</NodeGUID>
   <NodeIsPage>True</NodeIsPage>
+  <NodeIsSecured>False</NodeIsSecured>
   <NodeName />
   <NodeOwner>
     <CodeName>public</CodeName>

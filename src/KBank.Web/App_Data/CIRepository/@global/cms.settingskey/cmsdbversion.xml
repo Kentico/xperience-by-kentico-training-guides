@@ -4,7 +4,7 @@
     <CodeName>CMS.System.General</CodeName>
     <ObjectType>cms.settingscategory</ObjectType>
   </KeyCategoryID>
-  <KeyDefaultValue>25.0.0</KeyDefaultValue>
+  <KeyDefaultValue>26.4.0</KeyDefaultValue>
   <KeyDescription>{$settingskey.cmsdbversion.description$}</KeyDescription>
   <KeyDisplayName>{$settingskey.cmsdbversion$}</KeyDisplayName>
   <KeyExplanationText />
@@ -15,5 +15,5 @@
   <KeyName>CMSDBVersion</KeyName>
   <KeyOrder>2</KeyOrder>
   <KeyType>string</KeyType>
-  <KeyValue>25.0.0</KeyValue>
+  <KeyValue>26.4.0</KeyValue>
 </cms.settingskey>

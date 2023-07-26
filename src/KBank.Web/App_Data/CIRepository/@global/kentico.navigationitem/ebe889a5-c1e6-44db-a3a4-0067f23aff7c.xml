@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<kentico.navigationitem>
-  <Caption>kentico.com</Caption>
-  <IsHeaderNavigation>False</IsHeaderNavigation>
-  <NavigationItemGUID>ebe889a5-c1e6-44db-a3a4-0067f23aff7c</NavigationItemGUID>
-  <OpenInNewTab>True</OpenInNewTab>
-  <OrderNumber>2</OrderNumber>
-  <Url>https://www.kentico.com/</Url>
-</kentico.navigationitem>

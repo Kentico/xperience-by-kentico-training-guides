@@ -13,13 +13,7 @@
       <field allowempty="true" column="LibraryTeaserGUID" columntype="guid" guid="1cf86270-1d15-4a07-a3fb-4d97ba972c46" system="true" />
       <field column="LibraryFolder" columnsize="250" columntype="text" guid="06f6b6a9-08ca-4735-8732-20cc75d11802" system="true" />
       <field allowempty="true" column="LibraryAccess" columntype="integer" guid="720d2865-0be4-43d3-8ed8-412b269b1d00" system="true" />
-      <field column="LibrarySiteID" columntype="integer" guid="99746a1e-3514-4c13-b878-7bb7b39ddb3d" system="true">
-        <properties>
-          <defaultvalue ismacro="true">
-            <![CDATA[{%CurrentSite.SiteID|(user)administrator|(hash)f1f36b57555be68f4a774a617ef7f4b296d321c24bd971a578ae7443c86b1480%}]]>
-          </defaultvalue>
-        </properties>
-      </field>
+      <field column="LibrarySiteID" columntype="integer" guid="99746a1e-3514-4c13-b878-7bb7b39ddb3d" system="true" />
       <field allowempty="true" column="LibraryGUID" columntype="guid" guid="512c11dd-a325-4bf2-b1be-4f7c54397132" system="true" />
       <field allowempty="true" column="LibraryLastModified" columntype="datetime" guid="54f9c352-5ac2-4e4b-ab98-65d41240e9e4" system="true" />
       <field allowempty="true" column="LibraryTeaserPath" columnsize="450" columntype="text" guid="5de9f8d9-3e2d-4d83-8a63-6c2bdfb76629" system="true" />
@@ -31,7 +25,6 @@
   <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
   <ClassHasURL>False</ClassHasURL>
   <ClassIsCoupledClass>True</ClassIsCoupledClass>
-  <ClassIsCustomTable>False</ClassIsCustomTable>
   <ClassIsDocumentType>False</ClassIsDocumentType>
   <ClassIsForm>False</ClassIsForm>
   <ClassIsPage>False</ClassIsPage>
@@ -43,26 +36,6 @@
     <GUID>f1ae7bb7-e5e2-4944-b0a6-c92be4f95982</GUID>
     <ObjectType>cms.resource</ObjectType>
   </ClassResourceID>
-  <ClassSearchContentColumn>LibraryDescription</ClassSearchContentColumn>
-  <ClassSearchCreationDateColumn>LibraryLastModified</ClassSearchCreationDateColumn>
-  <ClassSearchEnabled>True</ClassSearchEnabled>
-  <ClassSearchImageColumn>LibraryTeaserPath</ClassSearchImageColumn>
-  <ClassSearchSettings>
-    <search>
-      <item azurecontent="True" azuresearchable="True" content="True" id="09c6435a-5dbb-458c-acea-60eb51e0fb64" name="LibraryFolder" searchable="False" tokenized="True" />
-      <item azureretrievable="True" content="False" id="0cc88a04-062d-4d77-adde-c91e88f20565" name="LibraryLastModified" searchable="True" tokenized="False" />
-      <item azureretrievable="True" content="False" id="248545b9-04ea-41dd-be81-0e67b356893b" name="LibraryAccess" searchable="True" tokenized="False" />
-      <item content="False" id="3164e87f-eb64-4b29-b1e8-1fdd451344be" name="LibraryGUID" searchable="False" tokenized="False" />
-      <item azurecontent="True" azuresearchable="True" content="True" id="4a9038c6-c30d-411d-85a2-82e44861aa09" name="LibraryName" searchable="False" tokenized="True" />
-      <item azurecontent="True" azuresearchable="True" content="True" id="61fc89d0-264b-4b13-b329-6c51a65f262c" name="LibraryDisplayName" searchable="False" tokenized="True" />
-      <item azureretrievable="True" content="False" id="62f643ab-fb54-47c8-bac6-c76b2c8fae4b" name="LibraryID" searchable="True" tokenized="False" />
-      <item azurecontent="True" azuresearchable="True" content="True" id="c671060b-3381-4023-bfbd-cc0702dadb5f" name="LibraryTeaserPath" searchable="False" tokenized="True" />
-      <item azurecontent="True" azuresearchable="True" content="True" id="ca0eceb9-3678-43bb-a372-e820e0aca68f" name="LibraryDescription" searchable="False" tokenized="True" />
-      <item id="e4d13a9d-7d48-4265-a0c6-56a2a5ca9f8d" name="LibraryTeaserGUID" />
-      <item azureretrievable="True" content="False" id="fa214b77-24ed-4e41-a32d-d879b02b5e0c" name="LibrarySiteID" searchable="True" tokenized="False" />
-    </search>
-  </ClassSearchSettings>
-  <ClassSearchTitleColumn>LibraryDisplayName</ClassSearchTitleColumn>
   <ClassShowAsSystemTable>True</ClassShowAsSystemTable>
   <ClassShowColumns />
   <ClassShowTemplateSelection>False</ClassShowTemplateSelection>

@@ -46,7 +46,6 @@
   <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
   <ClassHasURL>False</ClassHasURL>
   <ClassIsCoupledClass>True</ClassIsCoupledClass>
-  <ClassIsCustomTable>False</ClassIsCustomTable>
   <ClassIsDocumentType>False</ClassIsDocumentType>
   <ClassIsForm>False</ClassIsForm>
   <ClassIsPage>False</ClassIsPage>
@@ -58,21 +57,6 @@
     <GUID>b8cebc73-6fe5-4428-b522-8c7841d89af8</GUID>
     <ObjectType>cms.resource</ObjectType>
   </ClassResourceID>
-  <ClassSearchContentColumn>0</ClassSearchContentColumn>
-  <ClassSearchCreationDateColumn>ServerLastModified</ClassSearchCreationDateColumn>
-  <ClassSearchEnabled>False</ClassSearchEnabled>
-  <ClassSearchImageColumn />
-  <ClassSearchSettings>
-    <search>
-      <item azurecontent="True" azuresearchable="True" content="True" id="001c185f-bd67-4114-b6d0-28cd04ae2fca" name="ServerName" searchable="False" tokenized="True" />
-      <item azureretrievable="True" content="False" id="71b26851-b68f-43b1-a327-252253c37fd0" name="ServerID" searchable="True" tokenized="False" />
-      <item azureretrievable="True" content="False" id="d3495bd1-2ecc-4088-91fc-bc02b6d00956" name="ServerLastModified" searchable="True" tokenized="False" />
-      <item azurecontent="True" azuresearchable="True" content="True" id="dbe591f8-e7ff-4df4-b838-c0b8bc332fd1" name="ServerDisplayName" searchable="False" tokenized="True" />
-      <item content="False" id="dd0e9a1e-d279-4464-b614-fd678eb2cf67" name="ServerGUID" searchable="False" tokenized="False" />
-      <item azureretrievable="True" content="False" id="fe4321ee-ad8b-420a-87a0-6d7285500dba" name="ServerEnabled" searchable="True" tokenized="False" />
-    </search>
-  </ClassSearchSettings>
-  <ClassSearchTitleColumn>ServerDisplayName</ClassSearchTitleColumn>
   <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
   <ClassShowColumns />
   <ClassShowTemplateSelection>False</ClassShowTemplateSelection>

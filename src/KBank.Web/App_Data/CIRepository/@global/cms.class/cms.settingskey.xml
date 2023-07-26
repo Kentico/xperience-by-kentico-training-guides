@@ -56,9 +56,6 @@
         <properties>
           <defaultvalue>false</defaultvalue>
           <fieldcaption>{$settings.keyishidden$}</fieldcaption>
-          <visiblemacro ismacro="true">
-            <![CDATA[{%QueryString.treeroot != "customsettings"|(user)administrator|(hash)557bb26a87a80e6537ebc06ee31925bada0acd4d84f9a8827bc05355ef4be39c%}]]>
-          </visiblemacro>
         </properties>
       </field>
       <field allowempty="true" column="KeyCategoryID" columntype="integer" guid="5bf162ea-b507-4da2-b6a3-bb47f825c2a5" system="true">
@@ -109,7 +106,6 @@
   <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
   <ClassHasURL>False</ClassHasURL>
   <ClassIsCoupledClass>True</ClassIsCoupledClass>
-  <ClassIsCustomTable>False</ClassIsCustomTable>
   <ClassIsDocumentType>False</ClassIsDocumentType>
   <ClassIsForm>False</ClassIsForm>
   <ClassIsPage>False</ClassIsPage>
@@ -121,31 +117,6 @@
     <GUID>ce1a65a0-80dc-4c53-b0e7-bdecf0aa8c02</GUID>
     <ObjectType>cms.resource</ObjectType>
   </ClassResourceID>
-  <ClassSearchContentColumn>KeyDescription</ClassSearchContentColumn>
-  <ClassSearchCreationDateColumn>KeyLastModified</ClassSearchCreationDateColumn>
-  <ClassSearchEnabled>False</ClassSearchEnabled>
-  <ClassSearchImageColumn />
-  <ClassSearchSettings>
-    <search>
-      <item azurecontent="True" azuresearchable="True" content="True" id="0121b5f4-25ed-4fea-af3d-4f7355e78dc3" name="KeyDefaultValue" searchable="False" tokenized="True" />
-      <item azurecontent="True" azuresearchable="True" content="True" id="0282aa5f-f2a9-4378-8188-bf543e02fbaf" name="KeyDescription" searchable="False" tokenized="True" />
-      <item azureretrievable="True" content="False" id="235a9a34-aedb-47f8-8908-401ac3bd83a8" name="KeyIsHidden" searchable="True" tokenized="False" />
-      <item content="False" id="76d1193f-e3ba-4255-a82b-4f5143864f8f" name="KeyGUID" searchable="False" tokenized="False" />
-      <item azureretrievable="True" content="False" id="85d3e944-8bbf-4dec-83c6-f476dbe6b199" name="KeyIsGlobal" searchable="True" tokenized="False" />
-      <item azurecontent="True" azuresearchable="True" content="True" id="8c1fb729-a0a8-44a3-aec3-c72dad4e653d" name="KeyValidation" searchable="False" tokenized="True" />
-      <item azureretrievable="True" content="False" id="b94c34f5-9a83-4a94-9bdc-082ae7edef2c" name="KeyOrder" searchable="True" tokenized="False" />
-      <item azureretrievable="True" content="False" id="bb0d854d-40c5-4ebc-a375-761e7ce155ba" name="KeyCategoryID" searchable="True" tokenized="False" />
-      <item azureretrievable="True" content="False" id="c52b93b9-1406-4381-ba08-4547d078bdc1" name="KeyLastModified" searchable="True" tokenized="False" />
-      <item azureretrievable="True" content="False" id="c53c7c59-bc80-49ee-ad36-a058c5d9c389" name="KeyIsCustom" searchable="True" tokenized="False" />
-      <item azureretrievable="True" content="False" id="c614e4fa-0394-45fa-8b48-fe681adfa7d3" name="SiteID" searchable="True" tokenized="False" />
-      <item azurecontent="True" azuresearchable="True" content="True" id="cc0a89f7-3c30-47b9-ba3e-f40c28e9aac1" name="KeyType" searchable="False" tokenized="True" />
-      <item azurecontent="True" azuresearchable="True" content="True" id="d7580b81-3642-4f26-94ce-d7e0eb99c894" name="KeyValue" searchable="False" tokenized="True" />
-      <item azurecontent="True" azuresearchable="True" content="True" id="e7d07185-3c93-49fc-b37d-be57ee9aa31f" name="KeyName" searchable="False" tokenized="True" />
-      <item azurecontent="True" azuresearchable="True" content="True" id="ee5906bb-d968-4236-805d-785ae19189c3" name="KeyDisplayName" searchable="False" tokenized="True" />
-      <item azureretrievable="True" content="False" id="ef5d40ef-6c30-49f0-bec8-0838d434ddfa" name="KeyID" searchable="True" tokenized="False" />
-    </search>
-  </ClassSearchSettings>
-  <ClassSearchTitleColumn>KeyDisplayName</ClassSearchTitleColumn>
   <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
   <ClassShowColumns />
   <ClassShowTemplateSelection>False</ClassShowTemplateSelection>

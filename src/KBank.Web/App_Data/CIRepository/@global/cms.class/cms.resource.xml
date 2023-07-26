@@ -29,63 +29,7 @@
           </fielddescription>
         </properties>
       </field>
-      <field allowempty="true" column="ResourceHasFiles" columntype="boolean" guid="68c72084-2a1d-406a-94a7-a4c3109817de" system="true">
-        <properties>
-          <defaultvalue>False</defaultvalue>
-          <fieldcaption>{$Administration-Module_New.ModuleHasFiles$}</fieldcaption>
-          <visiblemacro ismacro="true">
-            <![CDATA[{%SystemContext.DevelopmentMode|(user)administrator|(hash)9d5aef00e78af976219eee317532514dce97ccbc516bdae9462d00e4a702f46d%}]]>
-          </visiblemacro>
-        </properties>
-      </field>
-      <field allowempty="true" column="ResourceVersion" columnsize="200" columntype="text" guid="fe952147-e48d-487c-bee5-2eb152d7fdf5" system="true">
-        <properties>
-          <enabledmacro ismacro="true">
-            <![CDATA[{%UIContext.EditedObject.ResourceIsInDevelopment|(user)administrator|(hash)896fdf8083d0f4e9beabecb4fdf96c86ddf48d5cff91cac5952f81625df8ae69%}]]>
-          </enabledmacro>
-          <explanationtext>
-            <![CDATA[{$Administration-Module_New.ModuleVersion.Explanation$}]]>
-          </explanationtext>
-          <fieldcaption>{$Administration-Module_New.ModuleVersion$}</fieldcaption>
-          <fielddescription>
-            <![CDATA[{$Administration-Module_New.ModuleVersion.Description$}]]>
-          </fielddescription>
-          <validationerrormessage>
-            <![CDATA[{$Administration-Module_New.ModuleVersion.FormatValidationError$}]]>
-          </validationerrormessage>
-          <visiblemacro ismacro="true">
-            <![CDATA[{%!UIContext.EditedObject.ResourceName.Equals("cms.customsystemmodule", true)|(user)administrator|(hash)ff79f811c835afa61d4307e2c3ca8621516b5c8e11e8df52fc6c38cbd2599d68%}]]>
-          </visiblemacro>
-        </properties>
-      </field>
-      <field allowempty="true" column="ResourceAuthor" columnsize="200" columntype="text" guid="24b711ac-4c5d-4f7a-9d47-c6dba033d7f2" system="true">
-        <properties>
-          <enabledmacro ismacro="true">
-            <![CDATA[{%UIContext.EditedObject.ResourceIsInDevelopment|(user)administrator|(hash)896fdf8083d0f4e9beabecb4fdf96c86ddf48d5cff91cac5952f81625df8ae69%}]]>
-          </enabledmacro>
-          <fieldcaption>{$Administration-Module_New.ModuleAuthor$}</fieldcaption>
-          <fielddescription>
-            <![CDATA[{$Administration-Module_New.ModuleAuthor.Description$}]]>
-          </fielddescription>
-          <visiblemacro ismacro="true">
-            <![CDATA[{%!UIContext.EditedObject.ResourceName.Equals("cms.customsystemmodule", true)|(user)administrator|(hash)ff79f811c835afa61d4307e2c3ca8621516b5c8e11e8df52fc6c38cbd2599d68%}]]>
-          </visiblemacro>
-        </properties>
-      </field>
-      <field allowempty="true" column="ResourceInstallationState" columnsize="50" columntype="text" guid="340482a0-5a8f-461b-8433-6214fe9dfd9c" system="true" />
-      <field allowempty="true" column="ResourceInstalledVersion" columnsize="50" columntype="text" guid="d1a7d5c0-6345-4e92-90f3-48feeb059cde" system="true" />
       <field allowempty="true" column="ResourceIsInDevelopment" columntype="boolean" guid="787c2b57-e5e4-48c4-a865-321f8d90b4e9" system="true" />
-      <field allowempty="true" column="ShowInDevelopment" columntype="boolean" guid="b8fdc63e-35c2-400f-af7f-9b04b39c4b2f" system="true">
-        <properties>
-          <defaultvalue>false</defaultvalue>
-          <fieldcaption>ShowInDevelopment</fieldcaption>
-        </properties>
-      </field>
-      <field allowempty="true" column="ResourceURL" columnsize="1000" columntype="text" guid="5585f8e7-88f5-4b0e-88ec-3c695822530c" system="true">
-        <properties>
-          <fieldcaption>ResourceURL</fieldcaption>
-        </properties>
-      </field>
       <field column="ResourceGUID" columntype="guid" guid="2389fed5-9c07-45e7-88db-4e56ec0c2889" system="true">
         <properties>
           <fieldcaption>ResourceGUID</fieldcaption>
@@ -103,7 +47,6 @@
   <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
   <ClassHasURL>False</ClassHasURL>
   <ClassIsCoupledClass>True</ClassIsCoupledClass>
-  <ClassIsCustomTable>False</ClassIsCustomTable>
   <ClassIsDocumentType>False</ClassIsDocumentType>
   <ClassIsForm>False</ClassIsForm>
   <ClassIsPage>False</ClassIsPage>
@@ -115,23 +58,6 @@
     <GUID>ce1a65a0-80dc-4c53-b0e7-bdecf0aa8c02</GUID>
     <ObjectType>cms.resource</ObjectType>
   </ClassResourceID>
-  <ClassSearchContentColumn>ResourceDescription</ClassSearchContentColumn>
-  <ClassSearchCreationDateColumn>ResourceLastModified</ClassSearchCreationDateColumn>
-  <ClassSearchEnabled>False</ClassSearchEnabled>
-  <ClassSearchImageColumn />
-  <ClassSearchSettings>
-    <search>
-      <item azurecontent="True" azuresearchable="True" content="True" id="25ffd74c-ae3d-4ea5-b91a-0665b186dcd8" name="ResourceName" searchable="False" tokenized="True" />
-      <item azurecontent="True" azuresearchable="True" content="True" id="2f274a66-9fbc-49c2-a137-b481edc7a656" name="ResourceURL" searchable="False" tokenized="True" />
-      <item azurecontent="True" azuresearchable="True" content="True" id="4dcae158-1288-490f-95d4-db532558bb34" name="ResourceDisplayName" searchable="False" tokenized="True" />
-      <item azureretrievable="True" content="False" id="6428f209-375b-429c-b205-37362ae56d96" name="ShowInDevelopment" searchable="True" tokenized="False" />
-      <item content="False" id="828dfcfd-03d3-42c7-b761-71dbdbf197c3" name="ResourceGUID" searchable="False" tokenized="False" />
-      <item azureretrievable="True" content="False" id="8c81ce3e-d2ad-4047-a9de-5fa9ecb68f9c" name="ResourceID" searchable="True" tokenized="False" />
-      <item azureretrievable="True" content="False" id="ac1a1a28-22b7-4a99-9c94-3cc7fd7ff012" name="ResourceLastModified" searchable="True" tokenized="False" />
-      <item azurecontent="True" azuresearchable="True" content="True" id="c139de5a-615f-4806-b2f7-162daf3d1e18" name="ResourceDescription" searchable="False" tokenized="True" />
-    </search>
-  </ClassSearchSettings>
-  <ClassSearchTitleColumn>ResourceDisplayName</ClassSearchTitleColumn>
   <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
   <ClassShowColumns />
   <ClassShowTemplateSelection>False</ClassShowTemplateSelection>

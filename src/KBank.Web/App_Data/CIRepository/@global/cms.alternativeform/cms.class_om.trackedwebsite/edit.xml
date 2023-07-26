@@ -82,7 +82,7 @@
         scriptElement.src = e.replace(/\/+$/, '') + '/Kentico.Resource/CrossSiteTracking/Logger.js';
         scriptSection.parentNode.insertBefore(scriptElement, scriptSection);
         w[n]('init', { mainSiteUrl: e, document: d, window: w });
-    })(window, document, 'script', '{% "https://" + CurrentSite.SiteDomainName |(identity)GlobalAdministrator|(hash)54775f23693e139293ade598e3ab66972a76d3a0ac9fbbb2c928af7e4b726187%}', 'kxt');
+    })(window, document, 'script', 'https://{% CurrentDomainName %}', 'kxt');
     kxt('pagevisit');
 </script>
 ]]>
@@ -95,13 +95,12 @@
             <![CDATA[{$digitalmarketing.trackedwebsite.edit.codesnippet$}]]>
           </fieldcaption>
           <fielddescriptionashtml>False</fielddescriptionashtml>
-          <visiblemacro ismacro="true">
-            <![CDATA[{%EditedObject.TrackedWebsiteURL = TrackedWebsiteURL.Value|(identity)GlobalAdministrator|(hash)f903d3c8201805a64ebe809bed511ca7067eb01e0567151fae39da44fa38b36d%}]]>
-          </visiblemacro>
         </properties>
         <settings>
           <controlname>Kentico.Administration.TextArea</controlname>
           <CopyButtonVisible>True</CopyButtonVisible>
+          <MaxRowsNumber>15</MaxRowsNumber>
+          <MinRowsNumber>3</MinRowsNumber>
         </settings>
       </field>
       <field column="TrackedWebsiteSiteID" guid="e0b7bc00-6e9a-4f17-8bc6-8cd1d5db3834" order="8" />
@@ -110,7 +109,6 @@
   </FormDefinition>
   <FormDisplayName>Edit</FormDisplayName>
   <FormGUID>4034b562-7d50-4570-8f5b-0b430d764d37</FormGUID>
-  <FormHideNewParentFields>False</FormHideNewParentFields>
   <FormIsCustom>False</FormIsCustom>
   <FormName>edit</FormName>
 </cms.alternativeform>

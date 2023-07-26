@@ -41,16 +41,9 @@
           <fielddescriptionashtml>False</fielddescriptionashtml>
         </properties>
       </field>
-      <field column="ResourceHasFiles" guid="68c72084-2a1d-406a-94a7-a4c3109817de" />
-      <field column="ResourceInstallationState" guid="340482a0-5a8f-461b-8433-6214fe9dfd9c" order="5" />
-      <field column="ResourceInstalledVersion" guid="d1a7d5c0-6345-4e92-90f3-48feeb059cde" order="6" />
-      <field column="ShowInDevelopment" guid="b8fdc63e-35c2-400f-af7f-9b04b39c4b2f" order="7" />
-      <field column="ResourceURL" guid="5585f8e7-88f5-4b0e-88ec-3c695822530c" order="8" />
-      <field column="ResourceGUID" guid="2389fed5-9c07-45e7-88db-4e56ec0c2889" order="9" />
-      <field column="ResourceLastModified" guid="a43d2cef-9fdc-43a8-8cd8-37b161ef4582" order="10" />
-      <field column="ResourceAuthor" guid="24b711ac-4c5d-4f7a-9d47-c6dba033d7f2" order="11" />
-      <field column="ResourceVersion" guid="fe952147-e48d-487c-bee5-2eb152d7fdf5" order="12" />
-      <field column="ResourceIsInDevelopment" columnprecision="0" enabled="true" guid="787c2b57-e5e4-48c4-a865-321f8d90b4e9" visible="true" order="13">
+      <field column="ResourceGUID" guid="2389fed5-9c07-45e7-88db-4e56ec0c2889" order="4" />
+      <field column="ResourceLastModified" guid="a43d2cef-9fdc-43a8-8cd8-37b161ef4582" order="5" />
+      <field column="ResourceIsInDevelopment" columnprecision="0" enabled="true" guid="787c2b57-e5e4-48c4-a865-321f8d90b4e9" visible="true" order="6">
         <settings>
           <controlname>Kentico.Administration.Checkbox</controlname>
         </settings>
@@ -64,7 +57,6 @@
   </FormDefinition>
   <FormDisplayName>edit</FormDisplayName>
   <FormGUID>28d9dd30-3643-43c6-8fc8-0713943b19cb</FormGUID>
-  <FormHideNewParentFields>False</FormHideNewParentFields>
   <FormIsCustom>False</FormIsCustom>
   <FormName>edit</FormName>
 </cms.alternativeform>

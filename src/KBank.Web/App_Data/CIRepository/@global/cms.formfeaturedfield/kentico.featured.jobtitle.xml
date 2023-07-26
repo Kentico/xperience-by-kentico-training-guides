@@ -2,6 +2,7 @@
 <cms.formfeaturedfield>
   <FormFeaturedFieldDescription>Featured job title</FormFeaturedFieldDescription>
   <FormFeaturedFieldDisplayName>Job title</FormFeaturedFieldDisplayName>
+  <FormFeaturedFieldEnabled>True</FormFeaturedFieldEnabled>
   <FormFeaturedFieldFormDefinition>
     <form version="2">
       <field allowempty="true" column="JobTitle" columnsize="500" columntype="text" visible="true">

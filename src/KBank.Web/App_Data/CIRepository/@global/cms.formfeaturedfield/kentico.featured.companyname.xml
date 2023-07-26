@@ -2,6 +2,7 @@
 <cms.formfeaturedfield>
   <FormFeaturedFieldDescription>Featured company name</FormFeaturedFieldDescription>
   <FormFeaturedFieldDisplayName>Company</FormFeaturedFieldDisplayName>
+  <FormFeaturedFieldEnabled>True</FormFeaturedFieldEnabled>
   <FormFeaturedFieldFormDefinition>
     <form version="2">
       <field allowempty="true" column="Company" columnsize="500" columntype="text" visible="true">

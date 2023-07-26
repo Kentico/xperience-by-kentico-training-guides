@@ -51,26 +51,7 @@
       <field column="ContactGroupLastModified" guid="b6dff322-4c32-46ec-a06b-2b096a148658" />
       <field column="ContactGroupGUID" guid="affe9d0f-3c70-4a67-90f8-d61075eb1b55" />
       <field column="ContactGroupStatus" guid="8c338293-e30c-4b0c-bae3-58eea2993f58" />
-      <field column="ContactGroupIsRecipientList" columnsize="1" columntype="text" enabled="true" guid="ddca40fe-9ef4-4c98-9afc-fd00072b2db5" visible="true" order="8">
-        <settings>
-          <controlname>Kentico.Administration.RadioGroup</controlname>
-          <Inline>True</Inline>
-          <Options>
-<![CDATA[
-0;{$digitalmarketing.contactgroup.type.contactgroup$}
-1;{$digitalmarketing.contactgroup.type.recipientlist$}
-]]>
-          </Options>
-        </settings>
-        <properties>
-          <defaultvalue>0</defaultvalue>
-          <explanationtextashtml>False</explanationtextashtml>
-          <fieldcaption>{$digitalmarketing.contactgroup.type$}</fieldcaption>
-          <fielddescription>{$digitalmarketing.contactgroup.type.description$}</fielddescription>
-          <fielddescriptionashtml>True</fielddescriptionashtml>
-        </properties>
-      </field>
-      <field column="ContactGroupDynamicCondition" enabled="true" guid="fd9391ed-bfab-4753-bc4d-a98e0457ce1a" visible="true" order="9">
+      <field column="ContactGroupDynamicCondition" enabled="true" guid="fd9391ed-bfab-4753-bc4d-a98e0457ce1a" visible="true">
         <settings>
           <AddDataMacroBrackets>True</AddDataMacroBrackets>
           <controlname>ConditionBuilder</controlname>
@@ -90,11 +71,8 @@
           </fielddescription>
         </properties>
       </field>
-      <field allowempty="true" column="ContactGroupIsAutomaticallyRebuilt" columnprecision="0" columntype="boolean" dummy="altform" enabled="true" guid="8719b7fa-eb2f-4cc3-a3c0-eb96c1aec317" system="true" visible="true" order="10">
+      <field allowempty="true" column="ContactGroupIsAutomaticallyRebuilt" columnprecision="0" columntype="boolean" dummy="altform" enabled="true" guid="8719b7fa-eb2f-4cc3-a3c0-eb96c1aec317" system="true" visible="true" order="9">
         <properties>
-          <defaultvalue ismacro="true">
-            <![CDATA[{% EditedObject.IsRebuildScheduled |(identity)GlobalAdministrator|(hash)e2a10461917f2ab1baed5f2db3743deb9c872f7e654ea2e98cafb87c050cb4a9%}]]>
-          </defaultvalue>
           <explanationtextashtml>False</explanationtextashtml>
           <fieldcaption>{$digitalmarketing.contactgroup.schedule$}</fieldcaption>
           <fielddescription>
@@ -106,119 +84,11 @@
           <controlname>Kentico.Administration.Checkbox</controlname>
         </settings>
       </field>
-      <category name="digitalmarketing_contactgroup_approvalsettings" order="11">
-        <properties>
-          <caption>{$digitalmarketing.contactgroup.approvalsettings$}</caption>
-          <visible>true</visible>
-        </properties>
-      </category>
-      <field column="ContactGroupRecipientListThankYouPage" columnprecision="0" columntype="pages" dummy="altform" enabled="true" guid="8e189ae3-5cda-438a-b96a-2bdc967cd40f" system="true" visible="true" order="12">
-        <properties>
-          <explanationtext>
-            <![CDATA[{$digitalmarketing.contactgroup.thankyoupage.explanationtext$}]]>
-          </explanationtext>
-          <fieldcaption>{$digitalmarketing.contactgroup.thankyoupage$}</fieldcaption>
-        </properties>
-        <settings>
-          <controlname>Kentico.Administration.PageSelector</controlname>
-          <MaximumPages>1</MaximumPages>
-          <RootPath>/</RootPath>
-          <Sortable>False</Sortable>
-        </settings>
-      </field>
-      <field allowempty="true" column="ContactGroupRecipientListSendSubscriptionConfirmation" columnprecision="0" columntype="boolean" dummy="altform" enabled="true" guid="5421dffb-bc5a-4287-b4f6-c95fa4b50220" system="true" visible="true" order="13">
-        <properties>
-          <explanationtextashtml>False</explanationtextashtml>
-          <fieldcaption>
-            <![CDATA[{$digitalmarketing.contactgroup.sendsubscriptionconfirmation$}]]>
-          </fieldcaption>
-          <fielddescription>
-            <![CDATA[{$digitalmarketing.contactgroup.sendsubscriptionconfirmation.tooltip$}]]>
-          </fielddescription>
-          <fielddescriptionashtml>False</fielddescriptionashtml>
-        </properties>
-        <settings>
-          <controlname>Kentico.Administration.Checkbox</controlname>
-        </settings>
-      </field>
-      <field column="ContactGroupRecipientListSubscriptionConfirmationEmail" columnprecision="0" columntype="objectids" dummy="altform" enabled="true" guid="646f70e5-c4f9-4a94-8059-f03ded9429c0" system="true" visible="true" order="14">
-        <properties>
-          <explanationtextashtml>False</explanationtextashtml>
-          <fieldcaption>
-            <![CDATA[{$digitalmarketing.contactgroup.subscriptionconfirmationemail$}]]>
-          </fieldcaption>
-          <fielddescription>
-            <![CDATA[{$digitalmarketing.contactgroup.subscriptionconfirmationemail.tooltip$}]]>
-          </fielddescription>
-          <fielddescriptionashtml>False</fielddescriptionashtml>
-        </properties>
-        <settings>
-          <controlname>Kentico.Administration.ObjectIdSelector</controlname>
-          <MaximumItems>1</MaximumItems>
-          <ObjectType>emaillibrary.emailconfiguration</ObjectType>
-          <Placeholder>{$digitalmarketing.contactgroup.chooseemail$}</Placeholder>
-        </settings>
-      </field>
-      <category name="digitalmarketing_contactgroup_unsubscribesettings" order="15">
-        <properties>
-          <caption>
-            <![CDATA[{$digitalmarketing.contactgroup.unsubscribesettings$}]]>
-          </caption>
-          <visible>true</visible>
-        </properties>
-      </category>
-      <field column="ContactGroupRecipientListGoodByePage" columnprecision="0" columntype="pages" dummy="altform" enabled="true" guid="23c70395-906f-409f-a3fd-704aa16f01d4" system="true" visible="true" order="16">
-        <properties>
-          <explanationtext>
-            <![CDATA[{$digitalmarketing.contactgroup.goodbyepage.explanationtext$}]]>
-          </explanationtext>
-          <fieldcaption>{$digitalmarketing.contactgroup.goodbyepage$}</fieldcaption>
-        </properties>
-        <settings>
-          <controlname>Kentico.Administration.PageSelector</controlname>
-          <MaximumPages>1</MaximumPages>
-          <RootPath>/</RootPath>
-          <Sortable>False</Sortable>
-        </settings>
-      </field>
-      <field allowempty="true" column="ContactGroupRecipientListSendUnsubscriptionConfirmation" columnprecision="0" columntype="boolean" dummy="altform" enabled="true" guid="2f1db074-3c76-4aea-9b2d-9fb41591dd3b" system="true" visible="true" order="17">
-        <properties>
-          <explanationtextashtml>False</explanationtextashtml>
-          <fieldcaption>
-            <![CDATA[{$digitalmarketing.contactgroup.sendunsubscriptionconfirmation$}]]>
-          </fieldcaption>
-          <fielddescription>
-            <![CDATA[{$digitalmarketing.contactgroup.sendunsubscriptionconfirmation.tooltip$}]]>
-          </fielddescription>
-          <fielddescriptionashtml>False</fielddescriptionashtml>
-        </properties>
-        <settings>
-          <controlname>Kentico.Administration.Checkbox</controlname>
-        </settings>
-      </field>
-      <field column="ContactGroupRecipientListUnsubscriptionConfirmationEmail" columnprecision="0" columntype="objectids" dummy="altform" enabled="true" guid="b675e9db-73c4-44a9-8cb9-c158a891d3e6" system="true" visible="true" order="18">
-        <properties>
-          <explanationtextashtml>False</explanationtextashtml>
-          <fieldcaption>
-            <![CDATA[{$digitalmarketing.contactgroup.unsubscriptionconfirmationemail$}]]>
-          </fieldcaption>
-          <fielddescription>
-            <![CDATA[{$digitalmarketing.contactgroup.unsubscriptionconfirmationemail.tooltip$}]]>
-          </fielddescription>
-          <fielddescriptionashtml>False</fielddescriptionashtml>
-        </properties>
-        <settings>
-          <controlname>Kentico.Administration.ObjectIdSelector</controlname>
-          <MaximumItems>1</MaximumItems>
-          <ObjectType>emaillibrary.emailconfiguration</ObjectType>
-          <Placeholder>{$digitalmarketing.contactgroup.chooseemail$}</Placeholder>
-        </settings>
-      </field>
+      <field column="ContactGroupIsRecipientList" guid="ddca40fe-9ef4-4c98-9afc-fd00072b2db5" order="10" />
     </form>
   </FormDefinition>
   <FormDisplayName>Create</FormDisplayName>
   <FormGUID>2a9f1f4b-ed49-48ce-a091-0ebe1c7e7ab8</FormGUID>
-  <FormHideNewParentFields>False</FormHideNewParentFields>
   <FormIsCustom>False</FormIsCustom>
   <FormName>create</FormName>
 </cms.alternativeform>

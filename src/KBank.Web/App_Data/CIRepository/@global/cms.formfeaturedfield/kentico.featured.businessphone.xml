@@ -2,6 +2,7 @@
 <cms.formfeaturedfield>
   <FormFeaturedFieldDescription>Featured business phone</FormFeaturedFieldDescription>
   <FormFeaturedFieldDisplayName>Business phone</FormFeaturedFieldDisplayName>
+  <FormFeaturedFieldEnabled>True</FormFeaturedFieldEnabled>
   <FormFeaturedFieldFormDefinition>
     <form version="2">
       <field allowempty="true" column="BusinessPhone" columnsize="500" columntype="text" visible="true">

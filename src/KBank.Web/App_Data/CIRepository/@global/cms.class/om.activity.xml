@@ -41,12 +41,6 @@
           <fieldcaption>{$om.activity.activitytime$}</fieldcaption>
         </properties>
       </field>
-      <field column="ActivityURLHash" columntype="longinteger" guid="73d39f1c-771e-4a23-b73c-d3ed910cf78d" system="true">
-        <properties>
-          <defaultvalue>0</defaultvalue>
-          <fieldcaption>ActivityUrlHash</fieldcaption>
-        </properties>
-      </field>
       <field allowempty="true" column="ActivityNodeID" columntype="integer" guid="a103a7a6-e54e-412b-a361-8af46626f133" system="true">
         <properties>
           <fieldcaption>{$om.scoring.page$}</fieldcaption>
@@ -114,7 +108,6 @@
   <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
   <ClassHasURL>False</ClassHasURL>
   <ClassIsCoupledClass>True</ClassIsCoupledClass>
-  <ClassIsCustomTable>False</ClassIsCustomTable>
   <ClassIsDocumentType>False</ClassIsDocumentType>
   <ClassIsForm>False</ClassIsForm>
   <ClassIsPage>False</ClassIsPage>
@@ -126,34 +119,6 @@
     <GUID>f26ac0e2-0658-4598-bae8-4cc628758550</GUID>
     <ObjectType>cms.resource</ObjectType>
   </ClassResourceID>
-  <ClassSearchContentColumn />
-  <ClassSearchCreationDateColumn />
-  <ClassSearchEnabled>True</ClassSearchEnabled>
-  <ClassSearchImageColumn />
-  <ClassSearchSettings>
-    <search>
-      <item id="07014549-288b-4c61-b40f-c29217674981" name="ActivityItemID" />
-      <item id="1c593dbd-9cd7-4da1-86ad-5d046ace8490" name="ActivityURL" />
-      <item id="1dbae6ad-bb89-4955-a3c9-1fcf652fd23e" name="ActivityUTMSource" />
-      <item id="1fa4097c-8b9c-4e25-8c92-aff2c740372e" name="ActivityItemDetailID" />
-      <item id="2045ac36-ab61-4b28-9640-15b9fb565136" name="ActivityType" />
-      <item id="24c04474-8f09-4d33-9c67-b7d86babaed9" name="ActivityABVariantName" />
-      <item id="391619f7-141f-4caa-85fa-2a0e07618e7d" name="ActivitySiteID" />
-      <item id="5355d047-c74c-4371-af18-d35c11e32ac5" name="ActivityContactID" />
-      <item id="5ca76892-e9c0-4d28-b911-298e45011816" name="ActivityURLHash" />
-      <item id="789ed38b-74bd-4d04-ac45-e8e120138fb4" name="ActivityID" />
-      <item id="81ceaeec-de83-45f3-940e-b4dde8889a1e" name="ActivityCreated" />
-      <item id="89f18478-c14e-4594-8238-7b10b961e33d" name="ActivityComment" />
-      <item id="a79d6db9-e3c3-46c4-85cc-e234728dfdb0" name="ActivityValue" />
-      <item id="a826cd91-9502-4200-a119-1872d4f8a6f6" name="ActivityTitle" />
-      <item id="a8a30504-0a78-44b3-aa84-d5f88b15127e" name="ActivityNodeID" />
-      <item id="bcb1703f-3b95-4e1f-82ac-0187d2ca291e" name="ActivityUTMContent" />
-      <item id="c4d24aa2-3709-4ab5-bc13-b37eb74c2f21" name="ActivityCulture" />
-      <item id="e456bb83-75d6-469d-8e70-c1f5b31252eb" name="ActivityCampaign" />
-      <item id="f01074b1-647d-47be-8108-deb51048e0b3" name="ActivityURLReferrer" />
-    </search>
-  </ClassSearchSettings>
-  <ClassSearchTitleColumn />
   <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
   <ClassShowColumns />
   <ClassShowTemplateSelection>False</ClassShowTemplateSelection>
