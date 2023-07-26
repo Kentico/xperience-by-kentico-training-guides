@@ -9,11 +9,8 @@
           <fieldcaption>MacroIdentityID</fieldcaption>
         </properties>
       </field>
-      <field column="MacroIdentityName" columnsize="200" columntype="text" guid="2a5d530e-3416-42fa-b3eb-2f19becc675d" isunique="true" system="true">
+      <field column="MacroIdentityName" columnprecision="0" columnsize="200" columntype="text" guid="2a5d530e-3416-42fa-b3eb-2f19becc675d" isunique="true" system="true">
         <properties>
-          <enabledmacro ismacro="true">
-            <![CDATA[{%EditedObject.ID == 0|(user)administrator|(hash)79f1b87e442f42ca74111ddcef0434280676da2605b0a19528a7b6cc2016916d%}]]>
-          </enabledmacro>
           <fieldcaption>{$macroengine.macroidentity.name$}</fieldcaption>
           <fielddescription>{$macroengine.macroidentity.name.description$}</fielddescription>
         </properties>
@@ -40,7 +37,6 @@
   <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
   <ClassHasURL>False</ClassHasURL>
   <ClassIsCoupledClass>True</ClassIsCoupledClass>
-  <ClassIsCustomTable>False</ClassIsCustomTable>
   <ClassIsDocumentType>False</ClassIsDocumentType>
   <ClassIsForm>False</ClassIsForm>
   <ClassIsPage>False</ClassIsPage>
@@ -51,9 +47,6 @@
     <GUID>313656bc-0d27-4911-80fb-00a69012ba46</GUID>
     <ObjectType>cms.resource</ObjectType>
   </ClassResourceID>
-  <ClassSearchSettings>
-    <search />
-  </ClassSearchSettings>
   <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
   <ClassShowTemplateSelection>False</ClassShowTemplateSelection>
   <ClassTableName>CMS_MacroIdentity</ClassTableName>

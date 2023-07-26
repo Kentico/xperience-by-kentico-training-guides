@@ -141,7 +141,6 @@
   </FormDefinition>
   <FormDisplayName>view</FormDisplayName>
   <FormGUID>b2518cf5-38dc-40c6-836f-baf456b10ed9</FormGUID>
-  <FormHideNewParentFields>False</FormHideNewParentFields>
   <FormIsCustom>False</FormIsCustom>
   <FormName>View</FormName>
 </cms.alternativeform>

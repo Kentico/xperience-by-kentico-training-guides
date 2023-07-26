@@ -18,7 +18,6 @@
   <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
   <ClassHasURL>False</ClassHasURL>
   <ClassIsCoupledClass>True</ClassIsCoupledClass>
-  <ClassIsCustomTable>False</ClassIsCustomTable>
   <ClassIsDocumentType>False</ClassIsDocumentType>
   <ClassIsPage>False</ClassIsPage>
   <ClassName>staging.TaskGroupUser</ClassName>
@@ -28,9 +27,6 @@
     <GUID>b1640241-8905-4845-ac9a-0301cb60cb63</GUID>
     <ObjectType>cms.resource</ObjectType>
   </ClassResourceID>
-  <ClassSearchSettings>
-    <search />
-  </ClassSearchSettings>
   <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
   <ClassShowTemplateSelection>False</ClassShowTemplateSelection>
   <ClassTableName>staging_TaskGroupUser</ClassTableName>

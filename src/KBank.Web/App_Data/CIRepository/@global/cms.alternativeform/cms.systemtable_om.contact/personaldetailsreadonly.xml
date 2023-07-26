@@ -161,7 +161,6 @@
   </FormDefinition>
   <FormDisplayName>Personal details - read only</FormDisplayName>
   <FormGUID>c16238a5-4c4b-44dd-84ad-1259b0a11ace</FormGUID>
-  <FormHideNewParentFields>False</FormHideNewParentFields>
   <FormIsCustom>False</FormIsCustom>
   <FormName>PersonalDetailsReadOnly</FormName>
 </cms.alternativeform>

@@ -55,6 +55,13 @@
         <ObjectType>cms.macrorule</ObjectType>
       </MacroRuleID>
     </Binding>
+    <Binding id="cms.macrorule_CMSContactHasPerformedActivityWithValueInTheLastXDays">
+      <MacroRuleID>
+        <CodeName>CMSContactHasPerformedActivityWithValueInTheLastXDays</CodeName>
+        <GUID>5ce28857-add7-422d-b2c6-1569a021d9d0</GUID>
+        <ObjectType>cms.macrorule</ObjectType>
+      </MacroRuleID>
+    </Binding>
     <Binding id="cms.macrorule_CMSContactHasSearchedForSpecifiedKeywordsInLastXDays">
       <MacroRuleID>
         <CodeName>CMSContactHasSearchedForSpecifiedKeywordsInLastXDays</CodeName>

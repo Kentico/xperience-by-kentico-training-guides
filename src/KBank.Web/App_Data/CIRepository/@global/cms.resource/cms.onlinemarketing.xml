@@ -2,10 +2,5 @@
 <cms.resource>
   <ResourceDisplayName>Online marketing</ResourceDisplayName>
   <ResourceGUID>bd03e629-e677-42a6-8b12-5277fa04add7</ResourceGUID>
-  <ResourceHasFiles>True</ResourceHasFiles>
-  <ResourceInstallationState />
-  <ResourceInstalledVersion />
   <ResourceName>CMS.OnlineMarketing</ResourceName>
-  <ResourceURL />
-  <ShowInDevelopment>False</ShowInDevelopment>
 </cms.resource>

@@ -38,7 +38,6 @@
   </FormDefinition>
   <FormDisplayName>edit plain text</FormDisplayName>
   <FormGUID>4cecb16f-e45f-4bb0-b648-5e5fe9c02e4f</FormGUID>
-  <FormHideNewParentFields>False</FormHideNewParentFields>
   <FormIsCustom>False</FormIsCustom>
   <FormName>editplaintext</FormName>
 </cms.alternativeform>

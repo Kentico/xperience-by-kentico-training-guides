@@ -43,7 +43,6 @@
   <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
   <ClassHasURL>False</ClassHasURL>
   <ClassIsCoupledClass>True</ClassIsCoupledClass>
-  <ClassIsCustomTable>False</ClassIsCustomTable>
   <ClassIsDocumentType>False</ClassIsDocumentType>
   <ClassIsForm>False</ClassIsForm>
   <ClassIsPage>False</ClassIsPage>
@@ -55,14 +54,6 @@
     <GUID>0d650be6-b050-46c5-8a4c-b1e8afe2b052</GUID>
     <ObjectType>cms.resource</ObjectType>
   </ClassResourceID>
-  <ClassSearchContentColumn />
-  <ClassSearchCreationDateColumn />
-  <ClassSearchEnabled>False</ClassSearchEnabled>
-  <ClassSearchImageColumn />
-  <ClassSearchSettings>
-    <search />
-  </ClassSearchSettings>
-  <ClassSearchTitleColumn />
   <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
   <ClassShowColumns />
   <ClassShowTemplateSelection>False</ClassShowTemplateSelection>

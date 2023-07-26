@@ -75,7 +75,6 @@
   <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
   <ClassHasURL>False</ClassHasURL>
   <ClassIsCoupledClass>True</ClassIsCoupledClass>
-  <ClassIsCustomTable>False</ClassIsCustomTable>
   <ClassIsDocumentType>False</ClassIsDocumentType>
   <ClassIsForm>False</ClassIsForm>
   <ClassIsPage>False</ClassIsPage>
@@ -87,23 +86,6 @@
     <GUID>2b67f370-3df4-4a4d-8734-1974639c5b69</GUID>
     <ObjectType>cms.resource</ObjectType>
   </ClassResourceID>
-  <ClassSearchContentColumn>0</ClassSearchContentColumn>
-  <ClassSearchCreationDateColumn>ScopeLastModified</ClassSearchCreationDateColumn>
-  <ClassSearchEnabled>False</ClassSearchEnabled>
-  <ClassSearchImageColumn />
-  <ClassSearchSettings>
-    <search>
-      <item azureretrievable="True" content="False" id="10e3f770-b6ae-415e-b997-e386858265ff" name="ScopeID" searchable="True" tokenized="False" />
-      <item azureretrievable="True" content="False" id="301e0569-9057-4c76-ab1d-40f8386cfbc4" name="ScopeSiteID" searchable="True" tokenized="False" />
-      <item content="False" id="6d647006-b642-4947-aea9-b30e93b048e2" name="ScopeGUID" searchable="False" tokenized="False" />
-      <item azureretrievable="True" content="False" id="8768d1a8-dfed-4571-98e3-b1dc28151ff2" name="ScopeCultureID" searchable="True" tokenized="False" />
-      <item azureretrievable="True" content="False" id="b0f0ddc1-202c-4bd7-879a-996c6ce84962" name="ScopeLastModified" searchable="True" tokenized="False" />
-      <item azureretrievable="True" content="False" id="c3bc06a7-86e3-4a71-ad72-e52df1a1643f" name="ScopeWorkflowID" searchable="True" tokenized="False" />
-      <item azureretrievable="True" content="False" id="f7b938fd-f791-460d-98a1-17291995129b" name="ScopeClassID" searchable="True" tokenized="False" />
-      <item azurecontent="True" azuresearchable="True" content="True" id="fc697fc4-9f43-4fff-9c7d-6670e403c1c1" name="ScopeStartingPath" searchable="False" tokenized="True" />
-    </search>
-  </ClassSearchSettings>
-  <ClassSearchTitleColumn>ScopeStartingPath</ClassSearchTitleColumn>
   <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
   <ClassShowColumns />
   <ClassShowTemplateSelection>False</ClassShowTemplateSelection>

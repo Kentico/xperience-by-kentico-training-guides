@@ -57,9 +57,6 @@
           <controlname>Kentico.Administration.TextInput</controlname>
         </settings>
         <properties>
-          <enabledmacro ismacro="true">
-            <![CDATA[{%FormMode == FormModeEnum.Insert|(user)administrator|(hash)0a89b968eb862d72bdc749e4095716028feb4b47d8cca3d195452ef627679385%}]]>
-          </enabledmacro>
           <explanationtextashtml>False</explanationtextashtml>
           <fieldcaption>{$general.foldername$}</fieldcaption>
           <fielddescription>{$content.medialibraries.folder.description$}</fielddescription>
@@ -86,7 +83,6 @@
   </FormDefinition>
   <FormDisplayName>Create</FormDisplayName>
   <FormGUID>6b232938-0c19-4be2-830f-5c002a30b600</FormGUID>
-  <FormHideNewParentFields>False</FormHideNewParentFields>
   <FormIsCustom>False</FormIsCustom>
   <FormName>create</FormName>
 </cms.alternativeform>

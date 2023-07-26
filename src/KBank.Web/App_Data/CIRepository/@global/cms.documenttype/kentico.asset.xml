@@ -61,16 +61,11 @@
   <ClassHasURL>False</ClassHasURL>
   <ClassIconClass>xp-picture</ClassIconClass>
   <ClassIsCoupledClass>True</ClassIsCoupledClass>
-  <ClassIsCustomTable>False</ClassIsCustomTable>
   <ClassIsDocumentType>True</ClassIsDocumentType>
   <ClassIsForm>False</ClassIsForm>
   <ClassIsPage>False</ClassIsPage>
   <ClassName>Kentico.Asset</ClassName>
   <ClassNodeNameSource />
-  <ClassSearchEnabled>False</ClassSearchEnabled>
-  <ClassSearchSettings>
-    <search />
-  </ClassSearchSettings>
   <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
   <ClassTableName>Kentico_Asset</ClassTableName>
   <ClassUsesPageBuilder>False</ClassUsesPageBuilder>

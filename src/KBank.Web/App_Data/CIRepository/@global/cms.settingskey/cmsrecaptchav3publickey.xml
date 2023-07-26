@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.settingskey>
+  <KeyCategoryID>
+    <CodeName>CMS.Security.reCAPTCHAV3</CodeName>
+    <ObjectType>cms.settingscategory</ObjectType>
+  </KeyCategoryID>
+  <KeyDescription>
+    <![CDATA[{$base.settings.settingskey.ReCAPTCHAV3PublicAPIKey.Description$}]]>
+  </KeyDescription>
+  <KeyDisplayName>
+    <![CDATA[{$base.settings.settingskey.ReCAPTCHAV3PublicAPIKey$}]]>
+  </KeyDisplayName>
+  <KeyExplanationText />
+  <KeyGUID>5c0ee499-a407-4f78-ad4d-73b431c6a252</KeyGUID>
+  <KeyIsCustom>False</KeyIsCustom>
+  <KeyIsGlobal>False</KeyIsGlobal>
+  <KeyIsHidden>False</KeyIsHidden>
+  <KeyName>CMSRecaptchaV3PublicKey</KeyName>
+  <KeyOrder>1</KeyOrder>
+  <KeyType>string</KeyType>
+</cms.settingskey>

@@ -70,21 +70,11 @@
   <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
   <ClassHasURL>False</ClassHasURL>
   <ClassIsCoupledClass>True</ClassIsCoupledClass>
-  <ClassIsCustomTable>False</ClassIsCustomTable>
   <ClassIsDocumentType>False</ClassIsDocumentType>
   <ClassIsForm>True</ClassIsForm>
   <ClassIsPage>False</ClassIsPage>
   <ClassName>BizForm.Subscription</ClassName>
   <ClassNodeNameSource />
-  <ClassSearchCreationDateColumn>FormInserted</ClassSearchCreationDateColumn>
-  <ClassSearchEnabled>True</ClassSearchEnabled>
-  <ClassSearchSettings>
-    <search>
-      <item content="False" id="76e8daf8-6ad4-46f3-9fe6-10763726b57a" name="FormInserted" searchable="True" tokenized="False" updatetrigger="True" />
-      <item content="False" id="89c5cd88-c987-4e99-bf1e-44844215b906" name="FormUpdated" searchable="True" tokenized="False" updatetrigger="True" />
-      <item content="False" id="92bc4f0c-0fb7-49bc-a25f-439112c96e3e" name="Form_2023_05_11_13_16ID" searchable="True" tokenized="False" updatetrigger="True" />
-    </search>
-  </ClassSearchSettings>
   <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
   <ClassTableName>Form_KBank_Form_2023_05_11_13_16</ClassTableName>
   <ClassUsesPageBuilder>False</ClassUsesPageBuilder>

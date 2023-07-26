@@ -22,7 +22,6 @@
   <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
   <ClassHasURL>False</ClassHasURL>
   <ClassIsCoupledClass>True</ClassIsCoupledClass>
-  <ClassIsCustomTable>False</ClassIsCustomTable>
   <ClassIsDocumentType>False</ClassIsDocumentType>
   <ClassIsForm>False</ClassIsForm>
   <ClassIsPage>False</ClassIsPage>
@@ -34,24 +33,6 @@
     <GUID>ce1a65a0-80dc-4c53-b0e7-bdecf0aa8c02</GUID>
     <ObjectType>cms.resource</ObjectType>
   </ClassResourceID>
-  <ClassSearchContentColumn />
-  <ClassSearchCreationDateColumn />
-  <ClassSearchEnabled>True</ClassSearchEnabled>
-  <ClassSearchImageColumn />
-  <ClassSearchSettings>
-    <search>
-      <item id="02660e38-0bcb-4997-8bb2-07a7eb4bca3f" name="SiteDescription" />
-      <item id="096cc329-9d69-420f-be5c-502dd90497ee" name="SiteLastModified" />
-      <item id="526b74b4-85bf-40c1-8dfe-0559fc179ef2" name="SiteStatus" />
-      <item id="6b192c2d-fdec-4717-8dc8-ed82e0477adf" name="SiteDefaultVisitorCulture" />
-      <item id="73c33607-22ff-4004-bd60-e97ec165e783" name="SiteGUID" />
-      <item id="83f9a4a0-e60c-4cb6-bc70-0d760a13830d" name="SiteID" />
-      <item id="9af207f3-bb45-4054-9da2-2d0288ff53ee" name="SiteDisplayName" />
-      <item id="a5784bdc-3a2f-4163-9731-34ab1658f5a1" name="SiteName" />
-      <item id="b9abba49-3a00-46ed-9c59-b0ba33949ddc" name="SiteDomainName" />
-    </search>
-  </ClassSearchSettings>
-  <ClassSearchTitleColumn />
   <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
   <ClassShowColumns />
   <ClassShowTemplateSelection>False</ClassShowTemplateSelection>

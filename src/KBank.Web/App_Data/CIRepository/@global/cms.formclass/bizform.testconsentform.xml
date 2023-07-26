@@ -39,21 +39,11 @@
   <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
   <ClassHasURL>False</ClassHasURL>
   <ClassIsCoupledClass>True</ClassIsCoupledClass>
-  <ClassIsCustomTable>False</ClassIsCustomTable>
   <ClassIsDocumentType>False</ClassIsDocumentType>
   <ClassIsForm>True</ClassIsForm>
   <ClassIsPage>False</ClassIsPage>
   <ClassName>BizForm.TestConsentForm</ClassName>
   <ClassNodeNameSource />
-  <ClassSearchCreationDateColumn>FormInserted</ClassSearchCreationDateColumn>
-  <ClassSearchEnabled>True</ClassSearchEnabled>
-  <ClassSearchSettings>
-    <search>
-      <item content="False" id="01e66d63-286c-44bb-a657-17c41d30bbe8" name="FormUpdated" searchable="True" tokenized="False" updatetrigger="True" />
-      <item content="False" id="03153d39-4d8c-4ee6-8cd5-dcf7f9eb1fca" name="Form_2023_05_11_15_12ID" searchable="True" tokenized="False" updatetrigger="True" />
-      <item content="False" id="c9f60684-59f4-46d9-8387-92b125c34f98" name="FormInserted" searchable="True" tokenized="False" updatetrigger="True" />
-    </search>
-  </ClassSearchSettings>
   <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
   <ClassTableName>Form_KBank_Form_2023_05_11_15_12</ClassTableName>
   <ClassUsesPageBuilder>False</ClassUsesPageBuilder>

@@ -50,7 +50,6 @@
   </FormDefinition>
   <FormDisplayName>View texts</FormDisplayName>
   <FormGUID>1c0c8c62-f982-4e86-b5df-0bee91a8ba4b</FormGUID>
-  <FormHideNewParentFields>False</FormHideNewParentFields>
   <FormIsCustom>False</FormIsCustom>
   <FormName>viewtexts</FormName>
 </cms.alternativeform>

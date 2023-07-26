@@ -20,30 +20,22 @@
       <field column="ClassNodeAliasSource" guid="9db135ca-2256-4812-96d3-c9bbc1b458d1" order="9" />
       <field column="ClassLastModified" guid="b0efc357-062e-4db3-a772-4761673faa81" order="10" />
       <field column="ClassGUID" guid="155ef725-c6a5-434f-90e6-f9a91f70d6cb" order="11" />
-      <field column="ClassIsCustomTable" guid="9d94c00d-128b-4ebb-b019-05c591605f79" order="12" />
-      <field column="ClassShowColumns" guid="95ac260b-5d66-4bf5-a16b-af7313b642e0" order="13" />
-      <field column="ClassSearchTitleColumn" guid="0ca33adc-5951-43e0-883b-2900618012f6" order="14" />
-      <field column="ClassSearchContentColumn" guid="c01c8c30-6ad8-4e78-89ff-4444f30a39f2" order="15" />
-      <field column="ClassSearchImageColumn" guid="bc7d25ab-93cf-4613-ab30-1ed8fd2fb380" order="16" />
-      <field column="ClassSearchCreationDateColumn" guid="9e93f0c7-0ca3-427c-9fcd-0b268d042848" order="17" />
-      <field column="ClassSearchIndexDataSource" guid="263618d8-1a6a-47f4-82a4-5fd4ccc5dec5" order="18" />
-      <field column="ClassSearchSettings" guid="b9ce15ef-d968-4341-b39b-569fe442cb54" order="19" />
-      <field column="ClassInheritsFromClassID" guid="794296ec-5b04-40a2-a9ea-a802629e6839" order="20" />
-      <field column="ClassConnectionString" guid="81f850e0-0dbd-4298-aebf-3a73bdc3b8e4" order="21" />
-      <field column="ClassSearchEnabled" guid="befeb58a-0af5-4775-8f92-b1a35b2a4917" order="22" />
-      <field column="ClassContactMapping" guid="fa0aa943-e3ef-42a0-ade2-179a27fc184b" order="23" />
-      <field column="ClassContactOverwriteEnabled" guid="04b3aee9-b470-45b2-9c5e-90932d09cc19" order="24" />
-      <field column="ClassDefaultObjectType" guid="87954ccc-9d86-4dcc-8e05-90dc7bbdfeb6" order="25" />
-      <field column="ClassIsForm" guid="1dd5c069-4856-48dd-9938-030db613fe0b" order="26" />
-      <field column="ClassResourceID" guid="e8581cf4-a56e-4daf-9dd4-ee3f0d8a15b2" order="27" />
-      <field column="ClassCustomizedColumns" guid="aac1c1dd-6965-49a8-8e30-05a652fbbbe7" order="28" />
-      <field column="ClassCodeGenerationSettings" guid="5a8428f9-3212-4ad6-be4e-7fd96928f699" order="29" />
-      <field column="ClassIconClass" guid="6db7bd4c-3a91-4f98-8540-a82a070677ff" order="30" />
-      <field column="ClassURLPattern" guid="00c00c0d-1627-4bab-864c-1a6b371b8636" order="31" />
-      <field column="ClassUsesPageBuilder" guid="2462fa2a-d236-4a96-8b1e-a8b72d645290" order="32" />
-      <field column="ClassHasURL" guid="38ca89b0-abfb-482e-a0d7-be1ee50de0f9" order="33" />
-      <field column="ClassHasMetadata" guid="31ebdec9-9b2c-4d09-bd01-437195b27654" order="34" />
-      <field column="ClassDisplayName" columnprecision="0" enabled="true" guid="b622e4bc-00e4-4ddd-bc24-952579b9812a" visible="true" order="35">
+      <field column="ClassShowColumns" guid="95ac260b-5d66-4bf5-a16b-af7313b642e0" order="12" />
+      <field column="ClassInheritsFromClassID" guid="794296ec-5b04-40a2-a9ea-a802629e6839" order="13" />
+      <field column="ClassConnectionString" guid="81f850e0-0dbd-4298-aebf-3a73bdc3b8e4" order="14" />
+      <field column="ClassContactMapping" guid="fa0aa943-e3ef-42a0-ade2-179a27fc184b" order="15" />
+      <field column="ClassContactOverwriteEnabled" guid="04b3aee9-b470-45b2-9c5e-90932d09cc19" order="16" />
+      <field column="ClassDefaultObjectType" guid="87954ccc-9d86-4dcc-8e05-90dc7bbdfeb6" order="17" />
+      <field column="ClassIsForm" guid="1dd5c069-4856-48dd-9938-030db613fe0b" order="18" />
+      <field column="ClassResourceID" guid="e8581cf4-a56e-4daf-9dd4-ee3f0d8a15b2" order="19" />
+      <field column="ClassCustomizedColumns" guid="aac1c1dd-6965-49a8-8e30-05a652fbbbe7" order="20" />
+      <field column="ClassCodeGenerationSettings" guid="5a8428f9-3212-4ad6-be4e-7fd96928f699" order="21" />
+      <field column="ClassIconClass" guid="6db7bd4c-3a91-4f98-8540-a82a070677ff" order="22" />
+      <field column="ClassURLPattern" guid="00c00c0d-1627-4bab-864c-1a6b371b8636" order="23" />
+      <field column="ClassUsesPageBuilder" guid="2462fa2a-d236-4a96-8b1e-a8b72d645290" order="24" />
+      <field column="ClassHasURL" guid="38ca89b0-abfb-482e-a0d7-be1ee50de0f9" order="25" />
+      <field column="ClassHasMetadata" guid="31ebdec9-9b2c-4d09-bd01-437195b27654" order="26" />
+      <field column="ClassDisplayName" columnprecision="0" enabled="true" guid="b622e4bc-00e4-4ddd-bc24-952579b9812a" visible="true" order="27">
         <settings>
           <controlname>Kentico.Administration.TextInput</controlname>
         </settings>
@@ -53,7 +45,7 @@
           <fielddescriptionashtml>False</fielddescriptionashtml>
         </properties>
       </field>
-      <field column="ClassName" columnprecision="0" enabled="true" guid="11b3b0bd-6161-4ea6-b714-2249e4710ff3" visible="true" isunique="" order="36">
+      <field column="ClassName" columnprecision="0" enabled="true" guid="11b3b0bd-6161-4ea6-b714-2249e4710ff3" visible="true" isunique="" order="28">
         <settings>
           <controlname>Kentico.Administration.NamespaceCodeName</controlname>
         </settings>
@@ -63,7 +55,7 @@
           <fielddescriptionashtml>False</fielddescriptionashtml>
         </properties>
       </field>
-      <field column="ClassTableName" columnprecision="0" guid="b211147b-2e77-4f0d-9546-e18990108532" visible="true" order="37">
+      <field column="ClassTableName" columnprecision="0" guid="b211147b-2e77-4f0d-9546-e18990108532" visible="true" order="29">
         <settings>
           <controlname>Kentico.Administration.TextInput</controlname>
         </settings>
@@ -74,13 +66,12 @@
           <fielddescriptionashtml>False</fielddescriptionashtml>
         </properties>
       </field>
-      <field column="ClassIsPage" guid="f00f5a2c-c8de-4824-b9b2-2d51b39e84dd" order="38" />
+      <field column="ClassIsPage" guid="f00f5a2c-c8de-4824-b9b2-2d51b39e84dd" order="30" />
       <field column="ClassHasUnmanagedDbSchema" guid="cfeb12da-2006-4f45-aa24-919142788451" />
     </form>
   </FormDefinition>
   <FormDisplayName>ClassCreate</FormDisplayName>
   <FormGUID>45276cb0-c842-4b4e-a67a-25ab72359001</FormGUID>
-  <FormHideNewParentFields>False</FormHideNewParentFields>
   <FormIsCustom>False</FormIsCustom>
   <FormName>ClassCreate</FormName>
 </cms.alternativeform>

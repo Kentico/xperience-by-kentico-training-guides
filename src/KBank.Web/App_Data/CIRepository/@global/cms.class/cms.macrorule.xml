@@ -96,7 +96,6 @@
   <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
   <ClassHasURL>False</ClassHasURL>
   <ClassIsCoupledClass>True</ClassIsCoupledClass>
-  <ClassIsCustomTable>False</ClassIsCustomTable>
   <ClassIsDocumentType>False</ClassIsDocumentType>
   <ClassIsForm>False</ClassIsForm>
   <ClassIsPage>False</ClassIsPage>
@@ -108,29 +107,6 @@
     <GUID>ce1a65a0-80dc-4c53-b0e7-bdecf0aa8c02</GUID>
     <ObjectType>cms.resource</ObjectType>
   </ClassResourceID>
-  <ClassSearchContentColumn />
-  <ClassSearchCreationDateColumn />
-  <ClassSearchEnabled>True</ClassSearchEnabled>
-  <ClassSearchImageColumn />
-  <ClassSearchSettings>
-    <search>
-      <item id="1c0efe6d-c787-4b6e-9133-dd2c270188b1" name="MacroRuleIsCustom" />
-      <item id="1db06dab-731b-4aa1-8862-76a2b1436842" name="MacroRuleText" />
-      <item id="2498111b-9b2a-4488-a258-ad00a6e6ad06" name="MacroRuleDescription" />
-      <item id="437cfb69-42ca-4e50-a25e-7453cdd61d8e" name="MacroRuleLastModified" />
-      <item id="43911c76-b113-46fb-8681-088d8c46a103" name="MacroRuleParameters" />
-      <item id="4e4eae57-842d-4dd7-9965-e2f529ae9522" name="MacroRuleGUID" />
-      <item id="87c417e2-9b05-4467-aa38-4f462bfe662d" name="MacroRuleID" />
-      <item id="8efc25bf-d7aa-409e-8050-3ce26882fd52" name="MacroRuleResourceName" />
-      <item id="9c5ff99c-f582-4eba-b77e-48f873aa66f3" name="MacroRuleName" />
-      <item id="a836f472-5a3e-4f8a-9c93-6871217820e4" name="MacroRuleRequiresContext" />
-      <item id="b4e2dbfe-a2d4-460b-9364-581d09dd40d0" name="MacroRuleDisplayName" />
-      <item id="eb57f06a-51be-40a7-9e89-9b006b57eb59" name="MacroRuleCondition" />
-      <item id="fad2e73a-6e06-4f38-aa0f-db0259a26a54" name="MacroRuleRequiredData" />
-      <item id="ff36da5b-e4ae-42d6-9ad3-1b98e110af2b" name="MacroRuleEnabled" />
-    </search>
-  </ClassSearchSettings>
-  <ClassSearchTitleColumn />
   <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
   <ClassShowColumns />
   <ClassShowTemplateSelection>False</ClassShowTemplateSelection>

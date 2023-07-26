@@ -58,7 +58,6 @@
   <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
   <ClassHasURL>False</ClassHasURL>
   <ClassIsCoupledClass>True</ClassIsCoupledClass>
-  <ClassIsCustomTable>False</ClassIsCustomTable>
   <ClassIsDocumentType>False</ClassIsDocumentType>
   <ClassIsForm>False</ClassIsForm>
   <ClassIsPage>False</ClassIsPage>
@@ -70,22 +69,6 @@
     <GUID>4387e6da-cc0f-4a9d-9604-b8dd78234882</GUID>
     <ObjectType>cms.resource</ObjectType>
   </ClassResourceID>
-  <ClassSearchContentColumn>0</ClassSearchContentColumn>
-  <ClassSearchCreationDateColumn>CultureLastModified</ClassSearchCreationDateColumn>
-  <ClassSearchEnabled>False</ClassSearchEnabled>
-  <ClassSearchImageColumn />
-  <ClassSearchSettings>
-    <search>
-      <item azurecontent="True" azuresearchable="True" content="True" id="2e3906db-73cc-4009-9b6a-6bab52ccdb88" name="CultureName" searchable="False" tokenized="True" />
-      <item azurecontent="True" azuresearchable="True" content="True" id="564de803-d7d7-46e0-8cde-7b676d78dfa0" name="CultureAlias" searchable="False" tokenized="True" />
-      <item azureretrievable="True" content="False" id="57080a99-a409-4b59-bbed-42f0aa2fd14a" name="CultureID" searchable="True" tokenized="False" />
-      <item content="False" id="60df829a-fdb0-4e9e-951a-8976d2da034f" name="CultureGUID" searchable="False" tokenized="False" />
-      <item azurecontent="True" azuresearchable="True" content="True" id="74078f24-ef01-40a2-8b85-278ad6ff0d82" name="CultureShortName" searchable="False" tokenized="True" />
-      <item azureretrievable="True" content="False" id="b01264eb-deba-4e77-9fad-2265784c0747" name="CultureLastModified" searchable="True" tokenized="False" />
-      <item azurecontent="True" azuresearchable="True" content="True" id="b9bac9ed-fb4f-4459-9a5a-5589a0540d94" name="CultureCode" searchable="False" tokenized="True" />
-    </search>
-  </ClassSearchSettings>
-  <ClassSearchTitleColumn>CultureName</ClassSearchTitleColumn>
   <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
   <ClassShowColumns />
   <ClassShowTemplateSelection>False</ClassShowTemplateSelection>

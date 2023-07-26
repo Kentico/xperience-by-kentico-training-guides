@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.applicationpermission>
+  <ApplicationName>Kentico.Xperience.Application.EmailLibrary</ApplicationName>
+  <ApplicationPermissionGuid>8ec88e6e-843b-49cf-b8a7-cdf751d672b5</ApplicationPermissionGuid>
+  <PermissionName>SendEmail</PermissionName>
+  <RoleID>
+    <CodeName>DigitalChannelManager</CodeName>
+    <GUID>93fb8806-31ba-4548-8a3b-24dbbeec6e3d</GUID>
+    <ObjectType>cms.role</ObjectType>
+    <Site>
+      <CodeName>KBank</CodeName>
+      <GUID>ee71668e-9013-4bce-81f2-c1e91a2bca73</GUID>
+      <ObjectType>cms.site</ObjectType>
+    </Site>
+  </RoleID>
+</cms.applicationpermission>

@@ -77,7 +77,6 @@
   <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
   <ClassHasURL>False</ClassHasURL>
   <ClassIsCoupledClass>True</ClassIsCoupledClass>
-  <ClassIsCustomTable>False</ClassIsCustomTable>
   <ClassIsDocumentType>False</ClassIsDocumentType>
   <ClassIsForm>False</ClassIsForm>
   <ClassIsPage>False</ClassIsPage>
@@ -89,24 +88,6 @@
     <GUID>c171949b-8edd-4bcd-95c2-0d6a0dd5cbbb</GUID>
     <ObjectType>cms.resource</ObjectType>
   </ClassResourceID>
-  <ClassSearchContentColumn>0</ClassSearchContentColumn>
-  <ClassSearchCreationDateColumn>0</ClassSearchCreationDateColumn>
-  <ClassSearchEnabled>False</ClassSearchEnabled>
-  <ClassSearchImageColumn />
-  <ClassSearchSettings>
-    <search>
-      <item azureretrievable="True" content="False" id="6698b050-78ca-446c-bf7d-bc408221e6b0" name="TimeZoneID" searchable="True" tokenized="False" />
-      <item azureretrievable="True" content="False" id="83dbc72d-b41b-4fd8-9eb6-30b041e4d2c8" name="TimeZoneDaylight" searchable="True" tokenized="False" />
-      <item azurecontent="True" azuresearchable="True" content="True" id="8b871ba5-87a0-4723-9e9a-63afae47d925" name="TimeZoneRuleStartRule" searchable="False" tokenized="True" />
-      <item azurecontent="True" azuresearchable="True" content="True" id="a0db70a0-a1dd-425e-b604-b84ebe9d5a72" name="TimeZoneRuleEndRule" searchable="False" tokenized="True" />
-      <item azureretrievable="True" content="False" id="a7a17462-243d-4a9a-a496-8a9903d5ef01" name="TimeZoneRuleStartIn" searchable="True" tokenized="False" />
-      <item azurecontent="True" azuresearchable="True" content="True" id="b86120c5-57ab-43e3-b728-c162d26e6100" name="TimeZoneDisplayName" searchable="False" tokenized="True" />
-      <item azurecontent="True" azuresearchable="True" content="True" id="dea6156f-296d-4b59-88e1-e7bf53887bdf" name="TimeZoneName" searchable="False" tokenized="True" />
-      <item azureretrievable="True" content="False" id="e3e19887-74a2-49d1-81b1-1f5e501a7e36" name="TimeZoneGMT" searchable="True" tokenized="False" />
-      <item azureretrievable="True" content="False" id="e4ce22e7-1496-46a0-8155-998eacc18f04" name="TimeZoneRuleEndIn" searchable="True" tokenized="False" />
-    </search>
-  </ClassSearchSettings>
-  <ClassSearchTitleColumn>TimeZoneDisplayName</ClassSearchTitleColumn>
   <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
   <ClassShowColumns />
   <ClassShowTemplateSelection>False</ClassShowTemplateSelection>

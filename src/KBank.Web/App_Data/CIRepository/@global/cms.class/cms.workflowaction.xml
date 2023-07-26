@@ -40,9 +40,6 @@
       <field allowempty="true" column="ActionResourceID" columntype="integer" guid="c9fc7426-e682-4cf0-bd8e-0d13cc66ad6d" system="true">
         <properties>
           <fieldcaption>{$general.module$}</fieldcaption>
-          <visiblemacro ismacro="true">
-            <![CDATA[{%SystemContext.DevelopmentMode|(identity)GlobalAdministrator|(hash)00f2a8c185555d0c53c60081b77f478117efced613d6a914187e8f7933975e4e%}]]>
-          </visiblemacro>
         </properties>
       </field>
       <field allowempty="true" column="ActionIconGUID" columntype="guid" guid="96628928-6402-40fb-b9b2-407b0fe537f9" system="true">
@@ -79,13 +76,7 @@
           <fieldcaption>ActionLastModified</fieldcaption>
         </properties>
       </field>
-      <field allowempty="true" column="ActionWorkflowType" columntype="integer" guid="ed6b7241-0a4b-4ae0-a1ba-bdc07ce3756f" system="true">
-        <properties>
-          <defaultvalue ismacro="true">
-            <![CDATA[{% Enums.WorkflowTypeEnum.Approval |(identity)GlobalAdministrator|(hash)9d06153d5a5dcd77ddc47720ed347163c9426e10e7813d4ef7adb69110743fc4%}]]>
-          </defaultvalue>
-        </properties>
-      </field>
+      <field allowempty="true" column="ActionWorkflowType" columnprecision="0" columntype="integer" guid="ed6b7241-0a4b-4ae0-a1ba-bdc07ce3756f" system="true" />
       <field allowempty="true" column="ActionAllowedObjects" columntype="longtext" guid="712791be-558b-4ddf-b9cb-d7c698ca8e20" system="true">
         <properties>
           <fieldcaption>Action allowed objects</fieldcaption>
@@ -98,7 +89,6 @@
   <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
   <ClassHasURL>False</ClassHasURL>
   <ClassIsCoupledClass>True</ClassIsCoupledClass>
-  <ClassIsCustomTable>False</ClassIsCustomTable>
   <ClassIsDocumentType>False</ClassIsDocumentType>
   <ClassIsForm>False</ClassIsForm>
   <ClassIsPage>False</ClassIsPage>
@@ -110,14 +100,6 @@
     <GUID>2b67f370-3df4-4a4d-8734-1974639c5b69</GUID>
     <ObjectType>cms.resource</ObjectType>
   </ClassResourceID>
-  <ClassSearchContentColumn />
-  <ClassSearchCreationDateColumn />
-  <ClassSearchEnabled>False</ClassSearchEnabled>
-  <ClassSearchImageColumn />
-  <ClassSearchSettings>
-    <search />
-  </ClassSearchSettings>
-  <ClassSearchTitleColumn />
   <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
   <ClassShowColumns />
   <ClassShowTemplateSelection>False</ClassShowTemplateSelection>

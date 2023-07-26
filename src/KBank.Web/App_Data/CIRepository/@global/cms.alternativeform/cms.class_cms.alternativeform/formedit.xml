@@ -31,7 +31,6 @@
       </field>
       <field column="FormClassID" guid="5a4749e1-d4b8-4753-9b2e-298433d675c6" />
       <field column="FormDefinition" guid="a1307cae-635b-48b5-a291-e992f746fc9e" />
-      <field column="FormHideNewParentFields" guid="3e2d0dfd-7f60-4454-a871-6a3af6df4281" />
       <field column="FormGUID" guid="b1ff5048-0f5d-462f-818a-b6c582e45db1" />
       <field column="FormLastModified" columnprecision="7" guid="12a04abb-af1c-493c-9350-c8c08f5736ff" />
       <field column="FormCoupledClassID" guid="b9cb787e-87b6-4ebe-86ba-71470ae3e698" />
@@ -41,7 +40,6 @@
   </FormDefinition>
   <FormDisplayName>FormEdit</FormDisplayName>
   <FormGUID>0a4c1c76-35e4-431d-86a9-bc1ed1f310f8</FormGUID>
-  <FormHideNewParentFields>True</FormHideNewParentFields>
   <FormIsCustom>False</FormIsCustom>
   <FormName>FormEdit</FormName>
 </cms.alternativeform>

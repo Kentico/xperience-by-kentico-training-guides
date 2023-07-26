@@ -124,7 +124,6 @@
   </FormDefinition>
   <FormDisplayName>view</FormDisplayName>
   <FormGUID>b2fd87ae-4c2d-423f-bc0e-9a637d468865</FormGUID>
-  <FormHideNewParentFields>False</FormHideNewParentFields>
   <FormIsCustom>False</FormIsCustom>
   <FormName>View</FormName>
 </cms.alternativeform>

@@ -13,13 +13,7 @@
       </field>
       <field allowempty="true" column="StepType" columntype="integer" guid="00492fa3-f303-4d73-b232-06002242544e" system="true">
         <properties>
-          <defaultvalue ismacro="true">
-            <![CDATA[{% Convert.ToInt(WorkflowStepTypeEnum.Standard, 0)|(user)administrator|(hash)2cf5867df0f8a38267611e990cbe012aa471151e8f7caa74cfbf5b6e969de894%}]]>
-          </defaultvalue>
           <fieldcaption>{$graph.stepType$}</fieldcaption>
-          <visiblemacro ismacro="true">
-            <![CDATA[{%!ParentObject.IsBasic|(user)administrator|(hash)be36e608cf4f787d0f3af65c258ce8eb94109787714b8345c7341ab912b8db25%}]]>
-          </visiblemacro>
         </properties>
       </field>
       <field column="StepDisplayName" columnsize="450" columntype="text" guid="9a698a96-f6c6-4814-bf15-d1f010a30df4" system="true">
@@ -57,12 +51,6 @@
       <field allowempty="true" column="StepAllowReject" columntype="boolean" guid="7ed14742-d6ad-4b42-872e-5c62268eac2d" system="true">
         <properties>
           <defaultvalue>true</defaultvalue>
-          <fieldcaption ismacro="true">
-            <![CDATA[{%!ParentObject.IsAutomation ? GetResourceString("WorkflowStep.AllowReject") : GetResourceString("WorkflowStep.AllowMoveToPrevious") |(user)administrator|(hash)879fa8653c2244b271099e6fee867cf21cca35053574e1e9b619ae5065b8b932%}]]>
-          </fieldcaption>
-          <visiblemacro ismacro="true">
-            <![CDATA[{%!EditedObject.StepIsArchived && !EditedObject.StepIsEdit && !EditedObject.StepIsStart && !EditedObject.StepIsAction|(user)administrator|(hash)ba6da75238a25e98879dafcbff59af2d34459c1cd74262606c936c6df238712e%}]]>
-          </visiblemacro>
         </properties>
       </field>
       <field allowempty="true" column="StepAllowPublish" columntype="boolean" guid="c25d48eb-2d42-4ccd-a3a8-16599234c964" system="true">
@@ -70,9 +58,6 @@
           <defaultvalue>false</defaultvalue>
           <fieldcaption>{$WorkflowStep.AllowPublish$}</fieldcaption>
           <validationerrormessage>{$Development-Workflow_New.RequiresCodeName$}</validationerrormessage>
-          <visiblemacro ismacro="true">
-            <![CDATA[{%!ParentObject.IsAutomation && ((EditedObject.StepType == WorkflowStepTypeEnum.Standard) || EditedObject.StepIsEdit || EditedObject.StepIsStart || (EditedObject.StepType == WorkflowStepTypeEnum.Wait))|(user)administrator|(hash)c4ccab8a9a232682020f3147d22c1cc41951b93e0979466fd8301b010f599214%}]]>
-          </visiblemacro>
         </properties>
       </field>
       <field allowempty="true" column="StepDefinition" columntype="longtext" guid="37e735b7-45a1-4ce8-a941-c5b60a2134a1" system="true">
@@ -131,7 +116,6 @@
   <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
   <ClassHasURL>False</ClassHasURL>
   <ClassIsCoupledClass>True</ClassIsCoupledClass>
-  <ClassIsCustomTable>False</ClassIsCustomTable>
   <ClassIsDocumentType>False</ClassIsDocumentType>
   <ClassIsForm>False</ClassIsForm>
   <ClassIsPage>False</ClassIsPage>
@@ -143,14 +127,6 @@
     <GUID>2b67f370-3df4-4a4d-8734-1974639c5b69</GUID>
     <ObjectType>cms.resource</ObjectType>
   </ClassResourceID>
-  <ClassSearchContentColumn />
-  <ClassSearchCreationDateColumn />
-  <ClassSearchEnabled>False</ClassSearchEnabled>
-  <ClassSearchImageColumn />
-  <ClassSearchSettings>
-    <search />
-  </ClassSearchSettings>
-  <ClassSearchTitleColumn />
   <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
   <ClassShowColumns />
   <ClassShowTemplateSelection>False</ClassShowTemplateSelection>

@@ -2,6 +2,7 @@
 <cms.formfeaturedfield>
   <FormFeaturedFieldDescription>Featured first name</FormFeaturedFieldDescription>
   <FormFeaturedFieldDisplayName>First name</FormFeaturedFieldDisplayName>
+  <FormFeaturedFieldEnabled>True</FormFeaturedFieldEnabled>
   <FormFeaturedFieldFormDefinition>
     <form version="2">
       <field allowempty="true" column="FirstName" columnsize="500" columntype="text" visible="true">

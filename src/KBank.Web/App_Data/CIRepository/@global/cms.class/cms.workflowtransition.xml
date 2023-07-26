@@ -48,7 +48,6 @@
   <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
   <ClassHasURL>False</ClassHasURL>
   <ClassIsCoupledClass>True</ClassIsCoupledClass>
-  <ClassIsCustomTable>False</ClassIsCustomTable>
   <ClassIsDocumentType>False</ClassIsDocumentType>
   <ClassIsForm>False</ClassIsForm>
   <ClassIsPage>False</ClassIsPage>
@@ -60,22 +59,6 @@
     <GUID>2b67f370-3df4-4a4d-8734-1974639c5b69</GUID>
     <ObjectType>cms.resource</ObjectType>
   </ClassResourceID>
-  <ClassSearchContentColumn />
-  <ClassSearchCreationDateColumn />
-  <ClassSearchEnabled>True</ClassSearchEnabled>
-  <ClassSearchImageColumn />
-  <ClassSearchSettings>
-    <search>
-      <item id="45e6eb61-55fc-49fc-b12a-8637496d34ea" name="TransitionType" />
-      <item id="54e4961c-f8d9-4f5f-9b70-fc291a3b8e2b" name="TransitionEndStepID" />
-      <item id="670bc61c-eb7c-4b67-bfb7-f42e49cfd7d6" name="TransitionID" />
-      <item id="8488bccb-a741-4519-8ee0-1a89a378716a" name="TransitionStartStepID" />
-      <item id="8a356643-559a-4810-ba65-677bd77dcfed" name="TransitionLastModified" />
-      <item id="ba294dbd-46aa-4a28-a98f-81267e40964a" name="TransitionSourcePointGUID" />
-      <item id="d533cee0-8f53-46fd-96c8-8e873d13e1c7" name="TransitionWorkflowID" />
-    </search>
-  </ClassSearchSettings>
-  <ClassSearchTitleColumn />
   <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
   <ClassShowColumns />
   <ClassShowTemplateSelection>False</ClassShowTemplateSelection>

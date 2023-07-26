@@ -41,41 +41,13 @@
           <fielddescriptionashtml>True</fielddescriptionashtml>
         </properties>
       </field>
-      <field column="EmailConfigurationSenderName" enabled="true" guid="9d3685cc-62fa-4b64-95a5-2d9aae829c49" visible="true" order="3">
-        <settings>
-          <controlname>Kentico.Administration.TextInput</controlname>
-        </settings>
-        <properties>
-          <explanationtextashtml>False</explanationtextashtml>
-          <fieldcaption>{$base.emails.edit.sendername$}</fieldcaption>
-          <fielddescriptionashtml>False</fielddescriptionashtml>
-        </properties>
-      </field>
-      <field column="EmailConfigurationSenderEmail" enabled="true" guid="d085547d-b28d-4730-a7be-8f26fbe23227" visible="true" order="4">
-        <settings>
-          <controlname>Kentico.Administration.TextInput</controlname>
-        </settings>
-        <validationrulesdata>
-          <ValidationRuleConfiguration>
-            <ValidationRuleIdentifier>Kentico.Administration.Email</ValidationRuleIdentifier>
-            <RuleValues>
-              <AllowMultipleAddresses>false</AllowMultipleAddresses>
-            </RuleValues>
-          </ValidationRuleConfiguration>
-        </validationrulesdata>
-        <properties>
-          <explanationtextashtml>False</explanationtextashtml>
-          <fieldcaption>{$base.emails.edit.senderemail$}</fieldcaption>
-          <fielddescriptionashtml>False</fielddescriptionashtml>
-        </properties>
-      </field>
-      <field column="EmailConfigurationEmailTemplateID" guid="97e6ec4d-fb60-444d-b8b1-a999b6aece0a" order="5" />
-      <field column="EmailConfigurationID" guid="19f1fe12-e72d-4990-8952-9aabb9fe39f6" order="6" />
-      <field column="EmailConfigurationContent" guid="06f44d01-c9ce-4fd6-922a-786c759b48e4" />
-      <field column="EmailConfigurationSiteID" guid="aac55dfb-da92-4f0c-a857-ba9367f69989" />
-      <field column="EmailConfigurationGUID" guid="88516da6-3f5e-4f3e-8e02-9ddc4980ab86" />
-      <field column="EmailConfigurationLastModified" guid="59e39d5a-8d6c-406d-850e-401c78e17d05" />
-      <field column="EmailConfigurationEmailTemplateName" columnprecision="0" columntype="objectcodenames" dummy="altform" enabled="true" guid="9fd556d3-8079-40c4-92a1-4f229fad1bd5" system="true" visible="true" order="11">
+      <field column="EmailConfigurationEmailTemplateID" guid="97e6ec4d-fb60-444d-b8b1-a999b6aece0a" order="3" />
+      <field column="EmailConfigurationID" guid="19f1fe12-e72d-4990-8952-9aabb9fe39f6" order="4" />
+      <field column="EmailConfigurationContent" guid="06f44d01-c9ce-4fd6-922a-786c759b48e4" order="5" />
+      <field column="EmailConfigurationSiteID" guid="aac55dfb-da92-4f0c-a857-ba9367f69989" order="6" />
+      <field column="EmailConfigurationGUID" guid="88516da6-3f5e-4f3e-8e02-9ddc4980ab86" order="7" />
+      <field column="EmailConfigurationLastModified" guid="59e39d5a-8d6c-406d-850e-401c78e17d05" order="8" />
+      <field column="EmailConfigurationEmailTemplateName" columnprecision="0" columntype="objectcodenames" dummy="altform" enabled="true" guid="9fd556d3-8079-40c4-92a1-4f229fad1bd5" system="true" visible="true" order="9">
         <properties>
           <explanationtextashtml>False</explanationtextashtml>
           <fieldcaption>{$base.emails.edit.template$}</fieldcaption>
@@ -94,14 +66,15 @@
           </ValidationRuleConfiguration>
         </validationrulesdata>
       </field>
-      <field column="EmailConfigurationPlainText" guid="729bd013-b661-4c7b-82d9-8f437e19368e" order="12" />
-      <field column="EmailConfigurationSubject" guid="efdc9dad-0993-4d4a-9f35-08f35bb45634" order="13" />
-      <field column="EmailConfigurationPreheader" guid="6d758537-2c5f-40da-abbc-ec057ae8d53d" enabled="" order="14" />
+      <field column="EmailConfigurationPlainText" guid="729bd013-b661-4c7b-82d9-8f437e19368e" order="10" />
+      <field column="EmailConfigurationSubject" guid="efdc9dad-0993-4d4a-9f35-08f35bb45634" order="11" />
+      <field column="EmailConfigurationPreheader" guid="6d758537-2c5f-40da-abbc-ec057ae8d53d" enabled="" />
+      <field column="EmailConfigurationSenderEmail" guid="d085547d-b28d-4730-a7be-8f26fbe23227" order="13" />
+      <field column="EmailConfigurationSenderName" guid="9d3685cc-62fa-4b64-95a5-2d9aae829c49" order="14" />
     </form>
   </FormDefinition>
   <FormDisplayName>create</FormDisplayName>
   <FormGUID>3ca4d002-a8cf-4a69-9be7-351d49fc8b39</FormGUID>
-  <FormHideNewParentFields>False</FormHideNewParentFields>
   <FormIsCustom>False</FormIsCustom>
   <FormName>create</FormName>
 </cms.alternativeform>

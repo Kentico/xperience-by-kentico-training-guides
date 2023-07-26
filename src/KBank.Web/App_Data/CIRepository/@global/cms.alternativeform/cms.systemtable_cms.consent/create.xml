@@ -39,7 +39,6 @@
   </FormDefinition>
   <FormDisplayName>Create</FormDisplayName>
   <FormGUID>b9d0697a-6e52-496d-b613-a5c75bef5131</FormGUID>
-  <FormHideNewParentFields>False</FormHideNewParentFields>
   <FormIsCustom>False</FormIsCustom>
   <FormName>create</FormName>
 </cms.alternativeform>

@@ -36,7 +36,6 @@
   <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
   <ClassHasURL>False</ClassHasURL>
   <ClassIsCoupledClass>True</ClassIsCoupledClass>
-  <ClassIsCustomTable>False</ClassIsCustomTable>
   <ClassIsDocumentType>False</ClassIsDocumentType>
   <ClassIsForm>False</ClassIsForm>
   <ClassIsPage>False</ClassIsPage>
@@ -48,19 +47,6 @@
     <GUID>0e4beef1-989c-4687-80ca-ae21fec09734</GUID>
     <ObjectType>cms.resource</ObjectType>
   </ClassResourceID>
-  <ClassSearchContentColumn />
-  <ClassSearchCreationDateColumn />
-  <ClassSearchEnabled>True</ClassSearchEnabled>
-  <ClassSearchImageColumn />
-  <ClassSearchSettings>
-    <search>
-      <item id="33cad9e1-8863-4834-88a3-fe75072b695f" name="ContactStatusID" />
-      <item id="7055852d-977f-45f6-bbdf-3a66257f2fda" name="ContactStatusDisplayName" />
-      <item id="8b125f7a-4da1-4ec7-a0de-52b4ccb64199" name="ContactStatusName" />
-      <item id="d93d41fa-5623-4591-b060-d0275da55a53" name="ContactStatusDescription" />
-    </search>
-  </ClassSearchSettings>
-  <ClassSearchTitleColumn />
   <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
   <ClassShowColumns />
   <ClassShowTemplateSelection>False</ClassShowTemplateSelection>

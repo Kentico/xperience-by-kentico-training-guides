@@ -147,7 +147,6 @@
   <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
   <ClassHasURL>False</ClassHasURL>
   <ClassIsCoupledClass>True</ClassIsCoupledClass>
-  <ClassIsCustomTable>False</ClassIsCustomTable>
   <ClassIsDocumentType>False</ClassIsDocumentType>
   <ClassIsPage>False</ClassIsPage>
   <ClassName>cms.ScheduledTask</ClassName>
@@ -158,43 +157,6 @@
     <GUID>1017a016-7671-4bca-a5b0-8ea84dae01fa</GUID>
     <ObjectType>cms.resource</ObjectType>
   </ClassResourceID>
-  <ClassSearchContentColumn>TaskLastResult</ClassSearchContentColumn>
-  <ClassSearchCreationDateColumn>TaskLastModified</ClassSearchCreationDateColumn>
-  <ClassSearchEnabled>True</ClassSearchEnabled>
-  <ClassSearchImageColumn />
-  <ClassSearchSettings>
-    <search>
-      <item id="090bc25c-84c3-46eb-a16b-ce1822d121e0" name="TaskUserID" />
-      <item azureretrievable="True" content="False" id="1946ce8b-0b08-462f-a862-4d199ea83c56" name="TaskLastModified" searchable="True" tokenized="False" />
-      <item azurecontent="True" azuresearchable="True" content="True" id="2a03db10-cf81-4a98-beed-09cfa7326f4a" name="TaskAssemblyName" searchable="False" tokenized="True" />
-      <item id="2dc006e1-8d34-480c-a627-39b5856a8a46" name="TaskCondition" />
-      <item azureretrievable="True" content="False" id="2e454b83-3c7b-40f2-b45a-a2b25c1cc668" name="TaskNextRunTime" searchable="True" tokenized="False" />
-      <item id="343a8564-2b11-4491-b0ca-4214a3110fdf" name="TaskObjectID" />
-      <item azureretrievable="True" content="False" id="3c91f106-984c-40b9-bb4d-d475753b3035" name="TaskResourceID" searchable="True" tokenized="False" />
-      <item azureretrievable="True" content="False" id="523a9bba-eade-4eaa-806c-68a8a2b73eae" name="TaskRunInSeparateThread" searchable="True" tokenized="False" />
-      <item azurecontent="True" azuresearchable="True" content="True" id="5fc63baa-40a0-4002-9b7b-7904a46c2b45" name="TaskServerName" searchable="False" tokenized="True" />
-      <item azurecontent="True" azuresearchable="True" content="True" id="62617973-7fb4-4ab2-bddc-a6278bf9ec17" name="TaskDisplayName" searchable="False" tokenized="True" />
-      <item azureretrievable="True" content="False" id="66084509-9776-4df6-8bf7-97eb148454d1" name="TaskExecutions" searchable="True" tokenized="False" />
-      <item id="6c81239c-4f9e-4e5f-98de-5d4f4317992f" name="TaskLastExecutionReset" />
-      <item id="6ec510ba-d19b-4699-a6ec-9b084275ea6d" name="TaskType" />
-      <item azureretrievable="True" content="False" id="76b69056-d0ef-4d75-9ff8-0c75f2750e31" name="TaskLastRunTime" searchable="True" tokenized="False" />
-      <item id="8ca50105-abeb-4764-8b7a-37f2206a259b" name="TaskExecutingServerName" />
-      <item azureretrievable="True" content="False" id="9a015d0a-6757-4929-97b9-e570caa80bf3" name="TaskDeleteAfterLastRun" searchable="True" tokenized="False" />
-      <item azureretrievable="True" content="False" id="a0dd8f64-9aec-48c2-88db-5b1280e5df16" name="TaskID" searchable="True" tokenized="False" />
-      <item id="a11db4b8-564e-44cd-8b20-e7e1e32fcc91" name="TaskObjectType" />
-      <item content="False" id="a6468b94-cd2f-4046-b5a0-36a9d69ea768" name="TaskGUID" searchable="False" tokenized="False" />
-      <item id="b132f0d5-458b-4465-918b-06f30680a69a" name="TaskIsRunning" />
-      <item azurecontent="True" azuresearchable="True" content="True" id="b5add5c9-e188-4957-b02b-30f4cf526ad1" name="TaskClass" searchable="False" tokenized="True" />
-      <item azurecontent="True" azuresearchable="True" content="True" id="b5c34645-676b-468e-83bf-d388c7018c7d" name="TaskData" searchable="False" tokenized="True" />
-      <item azurecontent="True" azuresearchable="True" content="True" id="c13b1a3b-d832-4f00-b2e0-47ce7b6e907f" name="TaskInterval" searchable="False" tokenized="True" />
-      <item azurecontent="True" azuresearchable="True" content="True" id="c9fe6ee6-fb5d-4777-a51a-e6b2aa04fbca" name="TaskName" searchable="False" tokenized="True" />
-      <item id="d565f8a4-255a-4e5d-9c87-75ecf4ece52b" name="TaskEnabled" />
-      <item azurecontent="True" azuresearchable="True" content="True" id="d744b40d-ec9c-469b-b7e7-283155fa51a1" name="TaskLastResult" searchable="False" tokenized="True" />
-      <item azureretrievable="True" content="False" id="d856e820-b3dd-432c-94cd-47ff810670c5" name="TaskSiteID" searchable="True" tokenized="False" />
-      <item id="fac51917-701e-4600-89e6-a5c71a954379" name="TaskRunIndividually" />
-    </search>
-  </ClassSearchSettings>
-  <ClassSearchTitleColumn>TaskDisplayName</ClassSearchTitleColumn>
   <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
   <ClassShowColumns />
   <ClassShowTemplateSelection>False</ClassShowTemplateSelection>

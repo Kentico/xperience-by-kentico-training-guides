@@ -59,7 +59,6 @@
   <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
   <ClassHasURL>False</ClassHasURL>
   <ClassIsCoupledClass>True</ClassIsCoupledClass>
-  <ClassIsCustomTable>False</ClassIsCustomTable>
   <ClassIsDocumentType>False</ClassIsDocumentType>
   <ClassIsForm>False</ClassIsForm>
   <ClassIsPage>False</ClassIsPage>
@@ -71,45 +70,6 @@
     <GUID>0e4beef1-989c-4687-80ca-ae21fec09734</GUID>
     <ObjectType>cms.resource</ObjectType>
   </ClassResourceID>
-  <ClassSearchContentColumn />
-  <ClassSearchCreationDateColumn />
-  <ClassSearchEnabled>True</ClassSearchEnabled>
-  <ClassSearchImageColumn />
-  <ClassSearchSettings>
-    <search>
-      <item id="04f5eca6-dfa7-4412-be7a-fe5a7e2840b3" name="ContactBirthday" />
-      <item id="07af64ed-2b75-47af-9fef-443d5ab43276" name="ContactSalesForceLeadReplicationRequired" />
-      <item id="1d07973c-faa8-4a44-ae8f-2537fb3dd7ad" name="ContactSalesForceLeadReplicationDateTime" />
-      <item id="1d8392a3-4164-4dc0-aeb0-4db9cddd76a7" name="ContactNotes" />
-      <item id="21ecf799-e587-43a5-8abe-fa914e666708" name="ContactFirstName" />
-      <item id="22a51e3a-8d33-42a5-9a6e-18688d8061dc" name="ContactBounces" />
-      <item id="2d325269-8732-400f-aae7-4804b6875277" name="ContactEmail" />
-      <item id="2f8a74f2-9951-480c-ac25-dc3c9297af1a" name="ContactCountryID" />
-      <item id="32d5c86a-92fe-4873-88b5-4dca4f4497bd" name="ContactMiddleName" />
-      <item id="36f5059f-01a4-456a-8e55-507b48bf69c2" name="ContactOwnerUserID" />
-      <item id="3c040541-ec45-40ec-a22b-53a04f936edc" name="ContactBusinessPhone" />
-      <item id="3fbf73e2-d2ec-4896-83d8-41ffadee346a" name="ContactJobTitle" />
-      <item id="46b8f4a2-bbc4-4cfc-9c1a-89f09d8e7b2f" name="ContactCampaign" />
-      <item id="48b2b1cc-524e-4830-97ad-1ba24abf3d7c" name="ContactID" />
-      <item id="501a2d96-e4e1-43f7-9043-e3c18cb45609" name="ContactMonitored" />
-      <item id="69e7570f-4073-4794-87cb-e5fe3c2c736f" name="ContactGender" />
-      <item id="757a9807-cb77-4616-8a0b-ca26aa872087" name="ContactLastModified" />
-      <item id="7f81708a-a8ff-4204-b474-db9542d9bc82" name="ContactSalesForceLeadReplicationSuspensionDateTime" />
-      <item id="8ecff5ba-2f7d-482b-aaac-88cfc01f8679" name="ContactZIP" />
-      <item id="96f5f9d5-e8c7-4ebb-8c0f-432feec6f372" name="ContactStateID" />
-      <item id="aeacaf68-8e4f-403e-977e-69254da1b19b" name="ContactCompanyName" />
-      <item id="b0bee20f-9bf1-410a-a2a2-b236640a027a" name="ContactCity" />
-      <item id="c0a79b28-053e-4b74-8a0d-8c887eae8793" name="ContactSalesForceLeadID" />
-      <item id="c3594d93-25fc-47f3-a49b-c47f0149c2cc" name="ContactSalesForceLeadReplicationDisabled" />
-      <item id="c936583a-6bf8-4a41-934c-09d6016b2653" name="ContactAddress1" />
-      <item id="d164e5cf-c237-4b99-bd7d-aaa36da31268" name="ContactStatusID" />
-      <item id="e4e9672d-c031-437d-b732-e09f6a2ba39e" name="ContactCreated" />
-      <item id="e65fc806-6a34-4b5c-8748-1a6f0963652c" name="ContactGUID" />
-      <item id="efe96423-7a2e-4b4d-bc99-fc03da4d68aa" name="ContactMobilePhone" />
-      <item id="ff617ed6-4f7a-4210-bd24-e9c8c4929dde" name="ContactLastName" />
-    </search>
-  </ClassSearchSettings>
-  <ClassSearchTitleColumn />
   <ClassShowAsSystemTable>True</ClassShowAsSystemTable>
   <ClassShowColumns />
   <ClassShowTemplateSelection>False</ClassShowTemplateSelection>
