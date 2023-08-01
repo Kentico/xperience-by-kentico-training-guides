@@ -3,7 +3,7 @@ using Kentico.Xperience.Admin.Base;
 using Kentico.Xperience.Admin.Base.Forms;
 using Kentico.Xperience.Admin.DigitalMarketing.UIPages;
 
-[assembly: UIPage(typeof(DataProtectionApplication), "cookielevelconsentmapping", typeof(CookieLevelConsentMappingPage), "Cookie Level Consent Mapping",
+[assembly: UIPage(typeof(DataProtectionApplication), "cookielevelconsentmapping", typeof(CookieLevelConsentMappingPage), "Cookie level consent mapping",
     TemplateNames.EDIT, UIPageOrder.First + 1)]
 namespace KBank.Admin.Pages
 {
