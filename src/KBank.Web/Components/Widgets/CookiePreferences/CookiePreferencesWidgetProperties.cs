@@ -20,7 +20,7 @@ namespace KBank.Web.Components.Widgets.CookiePreferences
         /// <summary>
         /// Button text.
         /// </summary>
-        [TextInputComponent(Label = "Button text", Order = 6)]
+        [TextInputComponent(Label = "Button text", Order = 3)]
         public string ButtonText { get; set; }
     }
 }
