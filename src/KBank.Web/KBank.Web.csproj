@@ -13,4 +13,7 @@
     <ProjectReference Include="..\KBank.Admin\KBank.Admin.csproj" />
     <ProjectReference Include="..\KBank.Entities\KBank.Entities.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\CIRepository\%40migrations\" />
+  </ItemGroup>
 </Project>
