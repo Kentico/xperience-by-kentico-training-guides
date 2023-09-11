@@ -1,4 +1,4 @@
-﻿using CMS.DocumentEngine.Types.Kentico;
+﻿using CMS.DocumentEngine.Types.KBank;
 
 namespace KBank.Web.Models;
 

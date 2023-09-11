@@ -16,11 +16,11 @@ using CMS.Base;
 using CMS.Helpers;
 using CMS.DataEngine;
 using CMS.DocumentEngine;
-using CMS.DocumentEngine.Types.Kentico;
+using CMS.DocumentEngine.Types.KBank;
 
 [assembly: RegisterDocumentType(HomePage.CLASS_NAME, typeof(HomePage))]
 
-namespace CMS.DocumentEngine.Types.Kentico
+namespace CMS.DocumentEngine.Types.KBank
 {
 	/// <summary>
 	/// Represents a content item of type HomePage.
@@ -32,7 +32,7 @@ namespace CMS.DocumentEngine.Types.Kentico
 		/// <summary>
 		/// The name of the data class.
 		/// </summary>
-		public const string CLASS_NAME = "Kentico.HomePage";
+		public const string CLASS_NAME = "KBank.HomePage";
 
 
 		/// <summary>

@@ -3,7 +3,7 @@
 <cms.node>
   <NodeAlias>Contact-Us</NodeAlias>
   <NodeClassID>
-    <CodeName>Kentico.PlainPage</CodeName>
+    <CodeName>KBank.PlainPage</CodeName>
     <GUID>b4ccafd9-1bcb-474a-b8cc-9e7d714f7127</GUID>
     <ObjectType>cms.documenttype</ObjectType>
   </NodeClassID>

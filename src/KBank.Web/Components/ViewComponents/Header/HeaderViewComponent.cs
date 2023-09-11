@@ -1,5 +1,5 @@
 ﻿using CMS.DocumentEngine;
-using CMS.DocumentEngine.Types.Kentico;
+using CMS.DocumentEngine.Types.KBank;
 
 using Kentico.Content.Web.Mvc;
 using KBank.Web.Models;

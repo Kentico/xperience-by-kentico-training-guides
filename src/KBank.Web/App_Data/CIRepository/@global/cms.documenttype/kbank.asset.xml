@@ -64,7 +64,7 @@
   <ClassIsDocumentType>True</ClassIsDocumentType>
   <ClassIsForm>False</ClassIsForm>
   <ClassIsPage>False</ClassIsPage>
-  <ClassName>Kentico.Asset</ClassName>
+  <ClassName>KBank.Asset</ClassName>
   <ClassNodeNameSource />
   <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
   <ClassTableName>Kentico_Asset</ClassTableName>
