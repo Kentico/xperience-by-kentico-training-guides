@@ -3,7 +3,7 @@
 <cms.node>
   <NodeAlias>Home</NodeAlias>
   <NodeClassID>
-    <CodeName>Kentico.HomePage</CodeName>
+    <CodeName>KBank.HomePage</CodeName>
     <GUID>1f0696ad-4489-42e6-bada-e612b8d963ea</GUID>
     <ObjectType>cms.documenttype</ObjectType>
   </NodeClassID>

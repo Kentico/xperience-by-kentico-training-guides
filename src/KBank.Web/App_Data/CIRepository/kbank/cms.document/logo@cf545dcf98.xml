@@ -3,7 +3,7 @@
 <cms.node>
   <NodeAlias>Logo</NodeAlias>
   <NodeClassID>
-    <CodeName>Kentico.Asset</CodeName>
+    <CodeName>KBank.Asset</CodeName>
     <GUID>6cfccfc8-d1a3-4822-b432-1b0239228385</GUID>
     <ObjectType>cms.documenttype</ObjectType>
   </NodeClassID>

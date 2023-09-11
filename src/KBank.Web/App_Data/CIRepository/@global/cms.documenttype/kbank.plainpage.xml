@@ -1,17 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.documenttype>
-  <ClassDisplayName>Home Page</ClassDisplayName>
+  <ClassDisplayName>Plain page</ClassDisplayName>
   <ClassFormDefinition>
     <form>
-      <field column="HomePageID" columntype="integer" enabled="true" guid="6677d104-4ad7-4215-a1b7-8eb2f33956f1" isPK="true">
+      <field column="PlainPageID" columntype="integer" enabled="true" guid="eaaeb901-04ee-4b32-ba9c-791144e292f4" isPK="true">
         <properties>
-          <fieldcaption>HomePageID</fieldcaption>
+          <fieldcaption>PlainPageID</fieldcaption>
         </properties>
       </field>
-      <field column="HomePageMessage" columnprecision="0" columnsize="200" columntype="text" enabled="true" guid="f4401571-ffe5-4aab-a4a7-5d9d4ff1b761" visible="true">
+      <field allowempty="true" column="PlainPageNotes" columnprecision="0" columnsize="200" columntype="text" enabled="true" guid="061ea1e2-3816-4719-ac9c-011d172730dd" visible="true">
         <properties>
           <explanationtextashtml>False</explanationtextashtml>
-          <fieldcaption>Message</fieldcaption>
+          <fieldcaption>Notes</fieldcaption>
           <fielddescriptionashtml>False</fielddescriptionashtml>
         </properties>
         <settings>
@@ -20,18 +20,18 @@
       </field>
     </form>
   </ClassFormDefinition>
-  <ClassGUID>1f0696ad-4489-42e6-bada-e612b8d963ea</ClassGUID>
+  <ClassGUID>b4ccafd9-1bcb-474a-b8cc-9e7d714f7127</ClassGUID>
   <ClassHasMetadata>False</ClassHasMetadata>
   <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
   <ClassHasURL>True</ClassHasURL>
-  <ClassIconClass>xp-market</ClassIconClass>
+  <ClassIconClass>xp-book-opened</ClassIconClass>
   <ClassIsCoupledClass>True</ClassIsCoupledClass>
   <ClassIsDocumentType>True</ClassIsDocumentType>
   <ClassIsForm>False</ClassIsForm>
   <ClassIsPage>True</ClassIsPage>
-  <ClassName>Kentico.HomePage</ClassName>
+  <ClassName>KBank.PlainPage</ClassName>
   <ClassNodeNameSource />
   <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
-  <ClassTableName>Kentico_HomePage</ClassTableName>
+  <ClassTableName>Kentico_PlainPage</ClassTableName>
   <ClassUsesPageBuilder>True</ClassUsesPageBuilder>
 </cms.documenttype>
