@@ -87,11 +87,13 @@ if($readyToUpdate){
 
     if ($LASTEXITCODE -ne 0) {
         Write-Error  "Update failed."
+        Read-Host -Prompt "Press any key to exit"
         exit 1
     }
 }
 else{
     Write-Error 'Unable to disable continuous integration to perform the update.'
+    Read-Host -Prompt "Press any key to exit"
     exit 1
 }
 
@@ -102,6 +104,7 @@ if($isUsingCD -eq 'True'){
     
     if(-not $commandResult){
         Write-Error 'Unable to re-enable continuous integration.'
+        Read-Host -Prompt "Press any key to exit"
         exit 1
     }
 }

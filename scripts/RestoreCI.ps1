@@ -177,6 +177,7 @@ function Run-Restore {
 	# Executes migration scripts before the restore
 	if (!(Run-MigrationList $connectionString $beforeList)) {
 		Write-Error "Database migrations before the restore failed."
+        Read-Host -Prompt "Press any key to exit"
 		exit 1
 	}
 	
@@ -190,12 +191,14 @@ function Run-Restore {
 	dotnet run --project $Path --no-build -c "$configuration" -- --kxp-ci-restore
 	if ($LASTEXITCODE -ne 0) {
 		Write-Error "Restore failed."
+        Read-Host -Prompt "Press any key to exit"
 		exit 1
 	}
 
 	# Executes migration scripts after the restore
 	if (!(Run-MigrationList $connectionString $afterList)) {
 		Write-Error "Database migrations after the restore failed."
+        Read-Host -Prompt "Press any key to exit"
 		exit 1
 	}
 

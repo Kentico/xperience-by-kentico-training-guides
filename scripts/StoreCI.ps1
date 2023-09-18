@@ -13,6 +13,7 @@ dotnet run --no-build --kxp-ci-store
 
 if ($LASTEXITCODE -ne 0) {
     Write-Error "CI store failed."
+    Read-Host -Prompt "Press any key to exit"
     exit 1
 }
 else{

@@ -24,6 +24,7 @@ Invoke-Expression $publishCommand
 
 if ($LASTEXITCODE -ne 0) {
     Write-Error "Publishing the website failed."
+    Read-Host -Prompt "Press any key to exit"
     exit 1
 }
 

@@ -10,6 +10,7 @@ dotnet run --no-build -- --kxp-codegen --type "All" --location "../KBank.Entitie
 
 if ($LASTEXITCODE -ne 0) {
     Write-Error "Code generation failed."
+    Read-Host -Prompt "Press any key to exit"
     exit 1
 }
 else{
