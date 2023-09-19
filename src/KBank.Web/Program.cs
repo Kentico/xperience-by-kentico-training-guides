@@ -33,6 +33,7 @@ builder.Services.AddAuthentication();
 builder.Services.AddUnobtrusiveAjax();
 
 builder.Services.AddKBankServices();
+builder.Services.AddKBankPageTemplateServices();
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddMvc().AddMvcLocalization();

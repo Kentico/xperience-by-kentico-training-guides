@@ -9,4 +9,9 @@ public static class ServiceCollectionExtensions
     {
         services.AddSingleton<IStringEncryptionService,AesEncryptionService>();
     }
+	
+	public static void AddKBankPageTemplateServices(this IServiceCollection services)
+    {
+        services.AddSingleton<HeadingAndSubPageTemplateService>();
+    }
 }
