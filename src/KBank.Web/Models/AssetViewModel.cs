@@ -4,6 +4,7 @@ namespace KBank.Web.Models;
 
 public class AssetViewModel
 {
+    public string Title { get; set; }
     public string Description { get; set; }
     public string AltText { get; set; }
     public bool UseInternalOnly { get; set; }
@@ -13,6 +14,7 @@ public class AssetViewModel
     {
         return new AssetViewModel()
         {
+            Title = asset.DocumentName,
             Description = asset.Description,
             AltText = asset.AltText,
             UseInternalOnly = asset.UseInternalOnly,
