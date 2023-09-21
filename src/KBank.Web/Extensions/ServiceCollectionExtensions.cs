@@ -1,5 +1,5 @@
 ﻿using KBank.Web.DataProtection;
-using KBank.Web.PageTemplates;
+using KBank.Web.Components.PageTemplates;
 using KBank.Web.Services.Cryptography;
 using Microsoft.Extensions.DependencyInjection;
 

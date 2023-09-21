@@ -1,7 +1,7 @@
 ﻿using Kentico.PageBuilder.Web.Mvc.PageTemplates;
 using Kentico.Xperience.Admin.Base.FormAnnotations;
 
-namespace KBank.Web.PageTemplates;
+namespace KBank.Web.Components.PageTemplates;
 
 public class HomePageTemplateProperties : IPageTemplateProperties
 {

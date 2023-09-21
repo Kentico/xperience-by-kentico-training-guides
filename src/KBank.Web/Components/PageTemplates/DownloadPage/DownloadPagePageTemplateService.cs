@@ -1,7 +1,7 @@
 ﻿using CMS.DocumentEngine.Types.KBank;
 using Kentico.Content.Web.Mvc;
 
-namespace KBank.Web.PageTemplates;
+namespace KBank.Web.Components.PageTemplates;
 
 public class DownloadPagePageTemplateService
 {
