@@ -6,6 +6,7 @@ using Kentico.Web.Mvc;
 
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
+using Kentico.Activities.Web.Mvc;
 
 var KenticoOrigins = "_kenticoOrigins";
 
@@ -25,6 +26,7 @@ builder.Services.AddCors(options =>
 builder.Services.AddKentico(features =>
 {
     features.UsePageBuilder();
+    features.UseActivityTracking();
     features.UsePageRouting();
 });
 

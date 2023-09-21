@@ -261,5 +261,23 @@ namespace KBank.Web.Helpers.Cookies
 
             return currentMapping.FirstOrDefault();
         }
+
+
+        /// <summary>
+        /// Checks if the current contact's CMSCookieLevel is Visitor or higher
+        /// </summary>
+        /// <returns>True if CMSCookieLevel is greather than or equal to 200, false otherwise</returns>
+        public static bool CurrentContactIsVisitorOrHigher()
+        {
+            bool isVisitorOrHigher = false;
+            string cookieLevelString = CookieHelper.GetValue("CMSCookieLevel");
+
+            if (int.TryParse(cookieLevelString, out int cookieLevel))
+            {
+                isVisitorOrHigher = (cookieLevel >= 200);
+            }
+
+            return isVisitorOrHigher;
+        }
     }
 }

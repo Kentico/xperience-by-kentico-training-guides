@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<om.activitytype>
+  <ActivityTypeDescription>The visitor downloaded a file.</ActivityTypeDescription>
+  <ActivityTypeDisplayName>File Download</ActivityTypeDisplayName>
+  <ActivityTypeEnabled>True</ActivityTypeEnabled>
+  <ActivityTypeIsCustom>True</ActivityTypeIsCustom>
+  <ActivityTypeManualCreationAllowed>False</ActivityTypeManualCreationAllowed>
+  <ActivityTypeName>filedownload</ActivityTypeName>
+</om.activitytype>

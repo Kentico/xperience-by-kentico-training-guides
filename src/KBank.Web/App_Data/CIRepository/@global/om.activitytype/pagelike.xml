@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<om.activitytype>
+  <ActivityTypeDescription>The visitor clicked a like button on a page.</ActivityTypeDescription>
+  <ActivityTypeDisplayName>Page like</ActivityTypeDisplayName>
+  <ActivityTypeEnabled>True</ActivityTypeEnabled>
+  <ActivityTypeIsCustom>True</ActivityTypeIsCustom>
+  <ActivityTypeManualCreationAllowed>False</ActivityTypeManualCreationAllowed>
+  <ActivityTypeName>pagelike</ActivityTypeName>
+</om.activitytype>
