@@ -23,11 +23,11 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <link rel="stylesheet" type="text/css" href="@baseUrl/assets/css/style.css?v=1.0.0">
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    @RenderSection("styles", required: false)
     
     <meta data-hid="apple-mobile-web-app-title" name="apple-mobile-web-app-title" content="@title">
     <meta data-hid="mobile-web-app-capable" name="mobile-web-app-capable" content="yes">
     <meta data-hid="author" name="author" content="Kentico software s.r.o.">
-    <page-builder-styles />
     @Html.Kentico().ActivityLoggingAPI()
 </head>
 <body class="p-hp t-default">
@@ -61,8 +61,6 @@
             </div>
         </footer>
     </div>
-
-    <page-builder-scripts />
 
     @RenderSection("scripts", required: false)
 
