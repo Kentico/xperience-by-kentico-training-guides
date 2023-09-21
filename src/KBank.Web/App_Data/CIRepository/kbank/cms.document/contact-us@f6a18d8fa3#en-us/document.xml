@@ -30,4 +30,7 @@
   <DocumentPageBuilderWidgets>
     <![CDATA[{"editableAreas":[{"identifier":"areaMain","sections":[{"identifier":"f9c9f2bf-fc07-421a-af02-d289ddb6a4dd","type":"Kentico.DefaultSection","properties":null,"zones":[{"identifier":"c5cc5e68-2527-43d4-927d-700a2d5a1d03","widgets":[]}],"fieldIdentifiers":{}}]}]}]]>
   </DocumentPageBuilderWidgets>
+  <DocumentPageTemplateConfiguration>
+    <![CDATA[{"identifier":"KBank.SingleZoneGeneric","properties":null,"fieldIdentifiers":null}]]>
+  </DocumentPageTemplateConfiguration>
 </cms.documentlocalization>

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<!-- This is a CI serialization file for Cookie Policy -->
+<!-- This is a CI serialization file for Downloads -->
 <cms.documentlocalization>
   <DocumentContent />
   <DocumentCreatedByUserID>
@@ -7,19 +7,19 @@
     <GUID>6415b8ce-8072-4bcd-8e48-9d7178b826b7</GUID>
     <ObjectType>cms.user</ObjectType>
   </DocumentCreatedByUserID>
-  <DocumentCreatedWhen>2023-06-08 18:13:48Z</DocumentCreatedWhen>
+  <DocumentCreatedWhen>2023-09-18 19:54:55Z</DocumentCreatedWhen>
   <DocumentCulture>en-US</DocumentCulture>
-  <DocumentGUID>30c8317e-1a44-464e-b85d-bbc918f7fbe4</DocumentGUID>
+  <DocumentGUID>beb3062e-ce30-422e-88cb-b69bf35b535a</DocumentGUID>
   <DocumentModifiedByUserID>
     <CodeName>administrator</CodeName>
     <GUID>6415b8ce-8072-4bcd-8e48-9d7178b826b7</GUID>
     <ObjectType>cms.user</ObjectType>
   </DocumentModifiedByUserID>
-  <DocumentModifiedWhen>2023-07-12 15:07:01Z</DocumentModifiedWhen>
-  <DocumentName>Cookie Policy</DocumentName>
+  <DocumentModifiedWhen>2023-09-18 19:57:30Z</DocumentModifiedWhen>
+  <DocumentName>Downloads</DocumentName>
   <DocumentNodeID>
-    <CodeName>/Cookie-Policy</CodeName>
-    <GUID>10837f11-c459-4bf6-b707-783adcb34c0d</GUID>
+    <CodeName>/Downloads</CodeName>
+    <GUID>7d0114c7-7b12-4139-b986-aa59a72ac3fd</GUID>
     <ObjectType>cms.node</ObjectType>
     <Site>
       <CodeName>KBank</CodeName>
@@ -28,9 +28,9 @@
     </Site>
   </DocumentNodeID>
   <DocumentPageBuilderWidgets>
-    <![CDATA[{"editableAreas":[{"identifier":"areaMain","sections":[{"identifier":"ea0651f2-36e6-47cc-8203-d79899396932","type":"Kentico.DefaultSection","properties":null,"zones":[{"identifier":"927db70f-eefe-4824-8133-fe9a0b71ac69","widgets":[]}],"fieldIdentifiers":{}}]}]}]]>
+    <![CDATA[{"editableAreas":[]}]]>
   </DocumentPageBuilderWidgets>
   <DocumentPageTemplateConfiguration>
-    <![CDATA[{"identifier":"KBank.SingleZoneGeneric","properties":null,"fieldIdentifiers":null}]]>
+    <![CDATA[{"identifier":"KBank.DownloadPage","properties":null,"fieldIdentifiers":{}}]]>
   </DocumentPageTemplateConfiguration>
 </cms.documentlocalization>

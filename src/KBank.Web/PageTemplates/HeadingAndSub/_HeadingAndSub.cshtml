@@ -1,0 +1,17 @@
+﻿@model ComponentViewModel
+
+@inject HeadingAndSubPageTemplateService Service
+
+@{
+    var templateModel = Service.GetTemplateModel();
+    ViewBag.Title = templateModel.Heading;
+}
+
+<div>
+    <h1>
+        @templateModel.Heading
+    </h1>
+    <h2>
+        @templateModel.Subheading
+    </h2>
+</div>

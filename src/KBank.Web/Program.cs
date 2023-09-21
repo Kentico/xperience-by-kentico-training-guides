@@ -30,6 +30,7 @@ builder.Services.AddKentico(features =>
 builder.Services.AddAuthentication();
 
 builder.Services.AddKBankServices();
+builder.Services.AddKBankPageTemplateServices();
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddMvc().AddMvcLocalization();

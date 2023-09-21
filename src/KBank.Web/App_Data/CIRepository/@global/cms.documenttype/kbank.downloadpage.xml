@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.documenttype>
-  <ClassDisplayName>Heading And Sub</ClassDisplayName>
+  <ClassDisplayName>Download Page</ClassDisplayName>
   <ClassFormDefinition>
     <form>
-      <field column="HeadingAndSubID" columntype="integer" enabled="true" guid="568a6b43-9a06-4e1c-b0c5-ed3d3a9e0133" isPK="true">
+      <field column="DownloadPageID" columntype="integer" enabled="true" guid="09d93a62-64a9-4652-90aa-f7d77a2b28dc" isPK="true">
         <properties>
-          <fieldcaption>HeadingAndSubID</fieldcaption>
+          <fieldcaption>DownloadPageID</fieldcaption>
         </properties>
       </field>
-      <field column="Heading" columnprecision="0" columnsize="200" columntype="text" enabled="true" guid="019c33bd-a3fc-488f-81b5-bfe52a20187e" visible="true">
+      <field column="Heading" columnprecision="0" columnsize="200" columntype="text" enabled="true" guid="2dd451d7-1e4a-4fe3-b7ba-492455d33767" visible="true">
         <properties>
           <explanationtextashtml>False</explanationtextashtml>
           <fieldcaption>Heading</fieldcaption>
@@ -18,30 +18,33 @@
           <controlname>Kentico.Administration.TextInput</controlname>
         </settings>
       </field>
-      <field allowempty="true" column="Subheading" columnprecision="0" columnsize="200" columntype="text" enabled="true" guid="5e7aa2c9-577e-49c5-a7b3-7effa3483e41" visible="true">
+      <field column="Assets" columnprecision="0" columntype="contentitems" enabled="true" guid="5931c850-00f6-4123-9089-d3afb15487ca" visible="true">
         <properties>
           <explanationtextashtml>False</explanationtextashtml>
-          <fieldcaption>Subheading</fieldcaption>
+          <fieldcaption>Downloadable Assets</fieldcaption>
           <fielddescriptionashtml>False</fielddescriptionashtml>
         </properties>
         <settings>
-          <controlname>Kentico.Administration.TextInput</controlname>
+          <AllowedContentItemTypeIdentifiers>
+            <![CDATA[["6cfccfc8-d1a3-4822-b432-1b0239228385"]]]>
+          </AllowedContentItemTypeIdentifiers>
+          <controlname>Kentico.Administration.ContentItemSelector</controlname>
         </settings>
       </field>
     </form>
   </ClassFormDefinition>
-  <ClassGUID>9b695249-b365-427c-ba8b-370e020f67ca</ClassGUID>
+  <ClassGUID>cb86c925-fb6c-4d93-89be-92822908bfc8</ClassGUID>
   <ClassHasMetadata>False</ClassHasMetadata>
   <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
   <ClassHasURL>True</ClassHasURL>
-  <ClassIconClass>xp-a-lowercase</ClassIconClass>
+  <ClassIconClass>xp-arrow-down-line</ClassIconClass>
   <ClassIsCoupledClass>True</ClassIsCoupledClass>
   <ClassIsDocumentType>True</ClassIsDocumentType>
   <ClassIsForm>False</ClassIsForm>
   <ClassIsPage>True</ClassIsPage>
-  <ClassName>KBank.HeadingAndSub</ClassName>
+  <ClassName>KBank.DownloadPage</ClassName>
   <ClassNodeNameSource />
   <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
-  <ClassTableName>KBank_HeadingAndSub</ClassTableName>
+  <ClassTableName>KBank_DownloadPage</ClassTableName>
   <ClassUsesPageBuilder>True</ClassUsesPageBuilder>
 </cms.documenttype>

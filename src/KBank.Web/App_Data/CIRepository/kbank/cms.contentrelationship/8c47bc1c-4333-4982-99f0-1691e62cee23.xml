@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentrelationship>
+  <ContentRelationshipGroupGUID>5931c850-00f6-4123-9089-d3afb15487ca</ContentRelationshipGroupGUID>
+  <ContentRelationshipGUID>8c47bc1c-4333-4982-99f0-1691e62cee23</ContentRelationshipGUID>
+  <ContentRelationshipSiteID>
+    <CodeName>KBank</CodeName>
+    <GUID>ee71668e-9013-4bce-81f2-c1e91a2bca73</GUID>
+    <ObjectType>cms.site</ObjectType>
+  </ContentRelationshipSiteID>
+  <ContentRelationshipSourceObjectID>
+    <CodeName>/Downloads</CodeName>
+    <GUID>7d0114c7-7b12-4139-b986-aa59a72ac3fd</GUID>
+    <ObjectType>cms.node</ObjectType>
+    <Site>
+      <CodeName>KBank</CodeName>
+      <GUID>ee71668e-9013-4bce-81f2-c1e91a2bca73</GUID>
+      <ObjectType>cms.site</ObjectType>
+    </Site>
+  </ContentRelationshipSourceObjectID>
+  <ContentRelationshipSourceObjectType>cms.node</ContentRelationshipSourceObjectType>
+  <ContentRelationshipTargetObjectID>
+    <CodeName>Mission-Statement</CodeName>
+    <GUID>41437148-71da-4350-9366-e972fbbcf8df</GUID>
+    <ObjectType>cms.node</ObjectType>
+    <Site>
+      <CodeName>KBank</CodeName>
+      <GUID>ee71668e-9013-4bce-81f2-c1e91a2bca73</GUID>
+      <ObjectType>cms.site</ObjectType>
+    </Site>
+  </ContentRelationshipTargetObjectID>
+  <ContentRelationshipTargetObjectType>cms.node</ContentRelationshipTargetObjectType>
+</cms.contentrelationship>
