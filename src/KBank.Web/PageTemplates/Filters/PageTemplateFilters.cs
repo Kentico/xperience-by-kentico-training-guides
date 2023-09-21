@@ -24,5 +24,6 @@ public class PageTemplateFilters : Module
     {
         PageBuilderFilters.PageTemplates.Add(new HeadingAndSubPageTemplatesFilter());
         PageBuilderFilters.PageTemplates.Add(new DownloadPagePageTemplatesFilter());
+        PageBuilderFilters.PageTemplates.Add(new HomePagePageTemplatesFilter());
     }
 }
