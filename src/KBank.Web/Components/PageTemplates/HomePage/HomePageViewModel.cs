@@ -3,7 +3,7 @@ using KBank.Web.Models;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace KBank.Web.PageTemplates;
+namespace KBank.Web.Components.PageTemplates;
 
 public class HomePageViewModel
 {

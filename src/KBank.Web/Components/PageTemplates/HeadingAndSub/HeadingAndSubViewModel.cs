@@ -1,6 +1,6 @@
 ﻿using CMS.DocumentEngine.Types.KBank;
 
-namespace KBank.Web.PageTemplates;
+namespace KBank.Web.Components.PageTemplates;
 
 public class HeadingAndSubViewModel
 {

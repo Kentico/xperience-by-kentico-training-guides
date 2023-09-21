@@ -1,7 +1,7 @@
 ﻿using CMS;
 using CMS.DataEngine;
 
-using KBank.Web.PageTemplates.Filters;
+using KBank.Web.Components.PageTemplates.Filters;
 
 using Kentico.PageBuilder.Web.Mvc;
 

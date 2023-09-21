@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 
 using CMS.DocumentEngine.Types.KBank;
-
+using KBank.Web.Components;
 using Kentico.PageBuilder.Web.Mvc.PageTemplates;
 
-namespace KBank.Web.PageTemplates.Filters;
+namespace KBank.Web.Components.PageTemplates.Filters;
 
 public class HomePagePageTemplatesFilter : IPageTemplateFilter
 {
@@ -19,5 +19,5 @@ public class HomePagePageTemplatesFilter : IPageTemplateFilter
         return pageTemplates.Where(t => !GetHomePageTemplates().Contains(t.Identifier));
     }
 
-    public IEnumerable<string> GetHomePageTemplates() => new string[] { PageTemplateIdentifiers.HOME_PAGE_TEMPLATE };
+    public IEnumerable<string> GetHomePageTemplates() => new string[] { ComponentIdentifiers.HOME_PAGE_TEMPLATE };
 }

@@ -1,7 +1,7 @@
 ﻿using Kentico.Content.Web.Mvc;
 using CMS.DocumentEngine.Types.KBank;
 
-namespace KBank.Web.PageTemplates;
+namespace KBank.Web.Components.PageTemplates;
 
 public class HeadingAndSubPageTemplateService
 {
