@@ -7,6 +7,7 @@
 @{
     var title = $"{ViewBag.Title} - Kentico kBank";
     var baseUrl = $"{Context.Request.Scheme}://{Context.Request.Host + (string.IsNullOrWhiteSpace(Context.Request.PathBase) ? string.Empty : Context.Request.PathBase)}";
+    var isTrackable = trackingService.CurrentContactIsTrackable();
 }
 <!DOCTYPE html>
 
@@ -28,8 +29,12 @@
     <meta data-hid="apple-mobile-web-app-title" name="apple-mobile-web-app-title" content="@title">
     <meta data-hid="mobile-web-app-capable" name="mobile-web-app-capable" content="yes">
     <meta data-hid="author" name="author" content="Kentico software s.r.o.">
-    @Html.Kentico().ActivityLoggingAPI()
-    @Html.Kentico().ActivityLoggingScript()
+
+    @if (isTrackable)
+    {
+      @Html.Kentico().ActivityLoggingAPI()
+      @Html.Kentico().ActivityLoggingScript()  
+    }
 </head>
 <body class="p-hp t-default">
     <div class="page-wrapper">
@@ -68,7 +73,7 @@
     <script src="~/scripts/jquery-3.6.4.min.js"></script>
     <script src="~/scripts/jquery.unobtrusive-ajax.min.js"></script>
 
-    @if (trackingService.CurrentContactIsTrackable())
+    @if (isTrackable)
     {
         <script src="~/scripts/FileDownloadActivityLogger.js"></script>
     }
