@@ -41,6 +41,6 @@
     <ObjectType>cms.resource</ObjectType>
   </ClassResourceID>
   <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
-  <ClassTableName>Kentico_CookieLevelConsentMapping</ClassTableName>
+  <ClassTableName>KBank_CookieLevelConsentMapping</ClassTableName>
   <ClassUsesPageBuilder>False</ClassUsesPageBuilder>
 </cms.class>
