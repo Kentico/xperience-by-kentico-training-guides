@@ -8,7 +8,7 @@
     }
 }
 
-function handleClick(event) {
+function handleClick() {
     kxt('customactivity', {
         type: 'filedownload',
         value: window.location.pathname,
