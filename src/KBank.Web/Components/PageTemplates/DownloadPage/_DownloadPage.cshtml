@@ -13,7 +13,7 @@
         @foreach(var asset in templateModel.Assets)
         {
             <li>
-                <a href="@Url.Content(asset.FilePath)" alt="@asset.AltText" download="true">@asset.Title</a>
+                <a href="@Url.Content(asset.FilePath)" alt="@asset.AltText" download>@asset.Title</a>
             </li>
         }
     </ul>
