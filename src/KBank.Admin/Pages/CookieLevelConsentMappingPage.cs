@@ -44,6 +44,7 @@ namespace KBank.Admin.Pages
             if (item == null)
             {
                 item = new CookieLevelConsentMappingInfo();
+                item.CookieLevelConsentMappingGuid = Guid.NewGuid();
                 _cookieLevelConsentMappingInfoProvider.Set(item);
             }
 

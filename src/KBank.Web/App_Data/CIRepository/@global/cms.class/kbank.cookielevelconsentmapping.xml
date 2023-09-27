@@ -2,6 +2,9 @@
 <cms.class>
   <ClassCodeGenerationSettings>
     <Data>
+      <CodeNameColumn>CookieLevelConsentMappingGuid</CodeNameColumn>
+      <DisplayNameColumn>CookieLevelConsentMappingID</DisplayNameColumn>
+      <GUIDColumn>CookieLevelConsentMappingGuid</GUIDColumn>
       <ObjectType>KBank.CookieLevelConsentMapping</ObjectType>
       <UseGuidHashtable>False</UseGuidHashtable>
       <UseIdHashtable>False</UseIdHashtable>
@@ -19,6 +22,7 @@
       <field allowempty="true" column="PreferenceConsentCodeName" columnprecision="0" columntype="objectcodenames" enabled="true" guid="a1bf9a68-3e61-4d0b-93a7-e03f7b44c90b" />
       <field allowempty="true" column="AnalyticalConsentCodeName" columnprecision="0" columntype="objectcodenames" enabled="true" guid="8b8e802c-72c7-4c6a-824c-bbfa79a1c15e" />
       <field allowempty="true" column="MarketingConsentCodeName" columnprecision="0" columntype="objectcodenames" enabled="true" guid="a0838aaa-21f9-4e8f-8a83-65204e9c37b1" />
+      <field column="CookieLevelConsentMappingGuid" columnprecision="0" columntype="guid" enabled="true" guid="46c8e96e-1f4b-494d-acd6-0c45da929aa6" />
     </form>
   </ClassFormDefinition>
   <ClassGUID>f22ad084-8e83-4cb3-9532-3fe144a692c2</ClassGUID>

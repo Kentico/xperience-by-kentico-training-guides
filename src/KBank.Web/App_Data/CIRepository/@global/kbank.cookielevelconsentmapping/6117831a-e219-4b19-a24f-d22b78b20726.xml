@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<kbank.cookielevelconsentmapping>
+  <AnalyticalConsentCodeName>
+    <![CDATA[["analytical.cookies.consent"]]]>
+  </AnalyticalConsentCodeName>
+  <CookieLevelConsentMappingGuid>6117831a-e219-4b19-a24f-d22b78b20726</CookieLevelConsentMappingGuid>
+  <MarketingConsentCodeName>
+    <![CDATA[["marketing.cookies.consent"]]]>
+  </MarketingConsentCodeName>
+  <PreferenceConsentCodeName>
+    <![CDATA[["preference.cookies.consent"]]]>
+  </PreferenceConsentCodeName>
+</kbank.cookielevelconsentmapping>

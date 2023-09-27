@@ -27,10 +27,13 @@ namespace KBank.Admin
         /// <summary>
         /// Type information.
         /// </summary>
-        public static readonly ObjectTypeInfo TYPEINFO = new ObjectTypeInfo(typeof(CookieLevelConsentMappingInfoProvider), OBJECT_TYPE, "KBank.CookieLevelConsentMapping", "CookieLevelConsentMappingID", null, null, null, null, null, null, null, null)
+        public static readonly ObjectTypeInfo TYPEINFO = new ObjectTypeInfo(typeof(CookieLevelConsentMappingInfoProvider), OBJECT_TYPE, "KBank.CookieLevelConsentMapping", "CookieLevelConsentMappingID", null, "CookieLevelConsentMappingGuid", "CookieLevelConsentMappingGuid", "CookieLevelConsentMappingID", null, null, null, null)
         {
             ModuleName = "KBank.Admin",
             TouchCacheDependencies = true,
+            DependsOn = new List<ObjectDependency>()
+            {
+            },
         };
 
 
@@ -63,7 +66,7 @@ namespace KBank.Admin
             }
             set
             {
-                SetValue("PreferenceConsentCodeName", value);
+                SetValue("PreferenceConsentCodeName", value, String.Empty);
             }
         }
 
@@ -92,7 +95,7 @@ namespace KBank.Admin
             }
             set
             {
-                SetValue("AnalyticalConsentCodeName", value);
+                SetValue("AnalyticalConsentCodeName", value, String.Empty);
             }
         }
 
@@ -121,7 +124,7 @@ namespace KBank.Admin
             }
             set
             {
-                SetValue("MarketingConsentCodeName", value);
+                SetValue("MarketingConsentCodeName", value, String.Empty);
             }
         }
 
@@ -134,6 +137,23 @@ namespace KBank.Admin
             get 
             {
                 return global::CMS.DataEngine.Internal.JsonDataTypeConverter.ConvertToModels<string>(mMarketingConsentCodeName);
+            }
+        }
+
+
+        /// <summary>
+        /// Cookie level consent mapping guid.
+        /// </summary>
+        [DatabaseField]
+        public virtual Guid CookieLevelConsentMappingGuid
+        {
+            get
+            {
+                return ValidationHelper.GetGuid(GetValue("CookieLevelConsentMappingGuid"), Guid.Empty);
+            }
+            set
+            {
+                SetValue("CookieLevelConsentMappingGuid", value);
             }
         }
 

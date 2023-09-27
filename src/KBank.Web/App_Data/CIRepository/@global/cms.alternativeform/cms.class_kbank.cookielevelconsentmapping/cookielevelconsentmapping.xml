@@ -47,6 +47,7 @@
           <fielddescriptionashtml>False</fielddescriptionashtml>
         </properties>
       </field>
+      <field column="CookieLevelConsentMappingGuid" guid="46c8e96e-1f4b-494d-acd6-0c45da929aa6" enabled="" />
     </form>
   </FormDefinition>
   <FormDisplayName>Cookie level consent mapping</FormDisplayName>
