@@ -33,6 +33,6 @@
   <ClassName>KBank.PlainPage</ClassName>
   <ClassNodeNameSource />
   <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
-  <ClassTableName>Kentico_PlainPage</ClassTableName>
+  <ClassTableName>KBank_PlainPage</ClassTableName>
   <ClassUsesPageBuilder>True</ClassUsesPageBuilder>
 </cms.documenttype>

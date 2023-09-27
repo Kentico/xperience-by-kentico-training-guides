@@ -32,6 +32,6 @@
   <ClassName>KBank.HomePage</ClassName>
   <ClassNodeNameSource />
   <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
-  <ClassTableName>Kentico_HomePage</ClassTableName>
+  <ClassTableName>KBank_HomePage</ClassTableName>
   <ClassUsesPageBuilder>True</ClassUsesPageBuilder>
 </cms.documenttype>
