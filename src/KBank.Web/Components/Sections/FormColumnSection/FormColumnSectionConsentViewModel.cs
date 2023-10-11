@@ -1,8 +1,7 @@
-﻿namespace KBank.Web.Components.Sections
+﻿namespace KBank.Web.Components.Sections;
+
+public class FormColumnSectionConsentViewModel
 {
-    public class FormColumnSectionConsentViewModel
-    {
-        public bool ShowContents { get; set; }
-        public string SectionAnchor { get; set; }
-    }
+    public bool ShowContents { get; set; }
+    public string SectionAnchor { get; set; }
 }

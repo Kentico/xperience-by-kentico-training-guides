@@ -1,11 +1,10 @@
 ﻿@using KBank.Web.Components.Sections
 @model FormColumnSectionConsentViewModel
 
-@{
-    var sectionAnchor = !string.IsNullOrWhiteSpace(Model.SectionAnchor) ? $"id={Model.SectionAnchor}" : "";
-}
-@if(Model.ShowContents)
+@if(Model.ShowContents || Context.Kentico().Preview().Enabled)
 {
+    var sectionAnchor = !string.IsNullOrWhiteSpace(Model.SectionAnchor) ? $"id={Model.SectionAnchor}" : "";
+
     <section class="c-section form" @sectionAnchor>
         <div class="container">
             <div class="row justify-content-center">

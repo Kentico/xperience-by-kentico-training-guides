@@ -17,7 +17,7 @@ public class PageLikeWidgetViewComponent : ViewComponent
 {
     private readonly IActivityInfoProvider _activityInfoProvider;
 
-    public const string IDENTIFIER = "KBank.PageLiike";
+    public const string IDENTIFIER = "KBank.PageLike";
     public const string ACTIVITY_IDENTIFIER = "pagelike";
 
     public PageLikeWidgetViewComponent(IActivityInfoProvider activityInfoProvider)
