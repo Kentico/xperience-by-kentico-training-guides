@@ -6,18 +6,8 @@ using Kentico.Web.Mvc;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 
-var KenticoOrigins = "_kenticoOrigins";
 
 var builder = WebApplication.CreateBuilder(args);
-
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy(name: KenticoOrigins,
-        policy =>
-        {
-            policy.WithOrigins("https://download.kentico.com");
-        });
-});
 
 
 // Enable desired Kentico Xperience features
@@ -49,7 +39,5 @@ app.UseCookiePolicy();
 app.UseAuthentication();
 
 app.Kentico().MapRoutes();
-
-app.UseCors(KenticoOrigins);
 
 app.Run();
