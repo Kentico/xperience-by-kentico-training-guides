@@ -1,4 +1,4 @@
-﻿using KBank.Web.PageTemplates;
+﻿using KBank.Web.Components.PageTemplates;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace KBank.Web.Extensions;
