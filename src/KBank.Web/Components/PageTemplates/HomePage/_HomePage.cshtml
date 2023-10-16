@@ -1,0 +1,25 @@
+﻿@model ComponentViewModel<HomePageTemplateProperties>
+
+@inject HomePagePageTemplateService Service
+
+@{
+    var templateModel = Service.GetTemplateModel();
+    ViewBag.Title = templateModel.Message;
+    string tagText = Service.GetSafeTagText(Model.Properties.MessageType);
+    string openingTag = $"<{tagText}>";
+    string closingTag = $"</{tagText}>";
+}
+
+@Html.Raw(openingTag)
+    @templateModel.Message
+@Html.Raw(closingTag)
+
+
+<editable-area area-identifier="areaMain" />
+
+@section styles {
+    <page-builder-styles/>
+}
+@section scripts {
+    <page-builder-scripts/>
+}

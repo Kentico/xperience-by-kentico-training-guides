@@ -15,7 +15,7 @@
     <GUID>6415b8ce-8072-4bcd-8e48-9d7178b826b7</GUID>
     <ObjectType>cms.user</ObjectType>
   </DocumentModifiedByUserID>
-  <DocumentModifiedWhen>2023-07-12 15:06:37Z</DocumentModifiedWhen>
+  <DocumentModifiedWhen>2023-09-19 18:27:30Z</DocumentModifiedWhen>
   <DocumentName>Home</DocumentName>
   <DocumentNodeID>
     <CodeName>/Home</CodeName>
@@ -30,4 +30,7 @@
   <DocumentPageBuilderWidgets>
     <![CDATA[{"editableAreas":[{"identifier":"areaMain","sections":[{"identifier":"f76d8e73-3f04-4737-a9c3-63015452b934","type":"KBank.FormColumnSection","properties":{"sectionAnchor":null},"zones":[{"identifier":"ffa89805-01c6-44d4-a613-1eaa84685503","widgets":[{"identifier":"4b77b17c-34da-40fa-8b1a-b1c25a647b1d","type":"Kentico.Widget.RichText","variants":[{"identifier":"c9d1b5e6-738a-4c0c-85b2-da828097e565","properties":{"content":"<p id=\"isPasted\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis nunc id efficitur porttitor. In magna nunc, mollis ac sem in, scelerisque lobortis leo. Suspendisse convallis et leo sed fermentum. Donec sagittis ante et nisl tincidunt cursus. Etiam scelerisque ligula sed justo consectetur, vitae lobortis sem tempus. Aenean vitae euismod velit. Integer dignissim bibendum egestas. Maecenas quis elit ac arcu suscipit venenatis. Fusce ac sapien efficitur, molestie augue vel, hendrerit velit. Suspendisse a hendrerit elit. Sed ac mollis augue. Sed faucibus eu mi nec tincidunt.</p><p>Vivamus dui eros, mattis ut dapibus ac, sollicitudin nec magna. Mauris accumsan consectetur ligula in fringilla. Nullam rutrum ligula ac venenatis cursus. Duis scelerisque tincidunt mauris id venenatis. Vivamus at urna nibh. Sed velit neque, ornare at finibus nec, pulvinar sollicitudin eros. In accumsan lobortis orci, non iaculis nisl malesuada nec. Morbi venenatis pharetra maximus. Phasellus consequat lacinia libero, ut tincidunt urna venenatis eget. Pellentesque suscipit pellentesque est nec mattis.</p>"},"fieldIdentifiers":{"content":"96db5d93-46e6-45f3-94fc-532899cc594e"}}]}]}],"fieldIdentifiers":{"sectionAnchor":"b609bf17-f5e3-4847-b4de-067408cfbb38"}}]}]}]]>
   </DocumentPageBuilderWidgets>
+  <DocumentPageTemplateConfiguration>
+    <![CDATA[{"identifier":"KBank.HomePage","properties":{"messageType":"h3"},"fieldIdentifiers":{"messageType":"e7ea4158-d620-4285-ae2b-340c95e05125"}}]]>
+  </DocumentPageTemplateConfiguration>
 </cms.documentlocalization>

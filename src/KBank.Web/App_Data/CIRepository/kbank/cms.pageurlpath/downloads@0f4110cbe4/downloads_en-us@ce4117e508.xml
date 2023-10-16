@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.pageurlpath>
+  <PageUrlPathCulture>en-US</PageUrlPathCulture>
+  <PageUrlPathGUID>59b64014-ace8-46c4-9d78-fa25040b7bc9</PageUrlPathGUID>
+  <PageUrlPathNodeID>
+    <CodeName>/Downloads</CodeName>
+    <GUID>7d0114c7-7b12-4139-b986-aa59a72ac3fd</GUID>
+    <ObjectType>cms.node</ObjectType>
+    <Site>
+      <CodeName>KBank</CodeName>
+      <GUID>ee71668e-9013-4bce-81f2-c1e91a2bca73</GUID>
+      <ObjectType>cms.site</ObjectType>
+    </Site>
+  </PageUrlPathNodeID>
+  <PageUrlPathSiteID>
+    <CodeName>KBank</CodeName>
+    <GUID>ee71668e-9013-4bce-81f2-c1e91a2bca73</GUID>
+    <ObjectType>cms.site</ObjectType>
+  </PageUrlPathSiteID>
+  <PageUrlPathUrlPath>Downloads</PageUrlPathUrlPath>
+  <PageUrlPathUrlPathHash>
+    <![CDATA[120F595B02972228DEEE77911CDF01EA9B968AFCFD3C86DBBF4AD94FBCFBDD47]]>
+  </PageUrlPathUrlPathHash>
+</cms.pageurlpath>

@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentrelationshipitem>
+  <ContentRelationshipItemGUID>9459ce35-684f-4c6b-8b64-ff80cfe8f129</ContentRelationshipItemGUID>
+  <ContentRelationshipItemObjectID>
+    <CodeName>/KBank</CodeName>
+    <GUID>6481a5ab-3792-4198-85e3-968465995c87</GUID>
+    <ObjectType>cms.node</ObjectType>
+    <Site>
+      <CodeName>KBank</CodeName>
+      <GUID>ee71668e-9013-4bce-81f2-c1e91a2bca73</GUID>
+      <ObjectType>cms.site</ObjectType>
+    </Site>
+  </ContentRelationshipItemObjectID>
+  <ContentRelationshipItemObjectType>cms.node</ContentRelationshipItemObjectType>
+  <ContentRelationshipItemSiteID>
+    <CodeName>KBank</CodeName>
+    <GUID>ee71668e-9013-4bce-81f2-c1e91a2bca73</GUID>
+    <ObjectType>cms.site</ObjectType>
+  </ContentRelationshipItemSiteID>
+</cms.contentrelationshipitem>

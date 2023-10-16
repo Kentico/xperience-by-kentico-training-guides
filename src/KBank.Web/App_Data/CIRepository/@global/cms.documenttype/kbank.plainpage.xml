@@ -10,6 +10,7 @@
       </field>
       <field allowempty="true" column="PlainPageNotes" columnprecision="0" columnsize="200" columntype="text" enabled="true" guid="061ea1e2-3816-4719-ac9c-011d172730dd" visible="true">
         <properties>
+          <explanationtext>Not displayed on live site.</explanationtext>
           <explanationtextashtml>False</explanationtextashtml>
           <fieldcaption>Notes</fieldcaption>
           <fielddescriptionashtml>False</fielddescriptionashtml>
@@ -32,6 +33,6 @@
   <ClassName>KBank.PlainPage</ClassName>
   <ClassNodeNameSource />
   <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
-  <ClassTableName>Kentico_PlainPage</ClassTableName>
+  <ClassTableName>KBank_PlainPage</ClassTableName>
   <ClassUsesPageBuilder>True</ClassUsesPageBuilder>
 </cms.documenttype>

@@ -8,7 +8,7 @@
           <fieldcaption>HomePageID</fieldcaption>
         </properties>
       </field>
-      <field column="HomePageMessage" columnprecision="0" columnsize="200" columntype="text" enabled="true" guid="f4401571-ffe5-4aab-a4a7-5d9d4ff1b761" visible="true">
+      <field allowempty="true" column="HomePageMessage" columnprecision="0" columnsize="200" columntype="text" enabled="true" guid="f4401571-ffe5-4aab-a4a7-5d9d4ff1b761" visible="true">
         <properties>
           <explanationtextashtml>False</explanationtextashtml>
           <fieldcaption>Message</fieldcaption>
@@ -32,6 +32,6 @@
   <ClassName>KBank.HomePage</ClassName>
   <ClassNodeNameSource />
   <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
-  <ClassTableName>Kentico_HomePage</ClassTableName>
+  <ClassTableName>KBank_HomePage</ClassTableName>
   <ClassUsesPageBuilder>True</ClassUsesPageBuilder>
 </cms.documenttype>
