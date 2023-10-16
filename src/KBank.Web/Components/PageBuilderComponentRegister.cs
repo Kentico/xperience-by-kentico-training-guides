@@ -10,7 +10,7 @@ using KBank.Web.Components.PageTemplates;
 
 
 //Page templates
-[assembly: RegisterPageTemplate(ComponentIdentifiers.HEADING_AND_SUB_TEMPLATE, "Heading and subheading content type template", customViewName: "~/Components/PageTemplates/HeadingAndSub/_HeadingAndSub.cshtml", IconClass = "xp-a-lowercase")]
-[assembly: RegisterPageTemplate(ComponentIdentifiers.DOWNLOAD_PAGE_TEMPLATE, "Download page content type template", customViewName: "~/Components/PageTemplates/DownloadPage/_DownloadPage.cshtml", IconClass = "xp-arrow-down-line")]
-[assembly: RegisterPageTemplate(ComponentIdentifiers.HOME_PAGE_TEMPLATE, "Home page content type template", typeof(HomePageTemplateProperties), customViewName: "~/Components/PageTemplates/HomePage/_HomePage.cshtml", IconClass = "xp-market")]
-[assembly: RegisterPageTemplate(ComponentIdentifiers.SINGLE_ZONE_GENERIC_TEMPLATE, "Single editable zone template", customViewName: "~/Components/PageTemplates/SingleZoneGeneric/_SingleZoneGeneric.cshtml", IconClass = "xp-box")]
+[assembly: RegisterPageTemplate(ComponentIdentifiers.ARTICLE_PAGE_TEMPLATE, "Article page content type template", customViewName: "~/Components/PageTemplates/ArticlePage/_ArticlePage.cshtml", IconClass = "xp-a-lowercase")]
+[assembly: RegisterPageTemplate(ComponentIdentifiers.DOWNLOADS_PAGE_TEMPLATE, "Downloads page content type template", customViewName: "~/Components/PageTemplates/DownloadsPage/_DownloadsPage.cshtml", IconClass = "xp-arrow-down-line")]
+[assembly: RegisterPageTemplate(ComponentIdentifiers.LANDING_PAGE_TEMPLATE, "Landing page content type template", typeof(LandingPageTemplateProperties), customViewName: "~/Components/PageTemplates/LandingPage/_LandingPage.cshtml", IconClass = "xp-market")]
+

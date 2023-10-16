@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contenttypechannel>
+  <Parent>
+    <CodeName>KBank.EmptyPage</CodeName>
+    <GUID>58018c9d-5b6c-4251-b3a8-8c1a6d124780</GUID>
+    <ObjectType>cms.contenttype</ObjectType>
+  </Parent>
+  <Bindings>
+    <Binding id="cms.channel_KBankPages">
+      <ContentTypeChannelChannelID>
+        <CodeName>KBankPages</CodeName>
+        <GUID>5ba9c1e8-b61e-4570-b666-87a9b92bbe3b</GUID>
+        <ObjectType>cms.channel</ObjectType>
+      </ContentTypeChannelChannelID>
+    </Binding>
+  </Bindings>
+</cms.contenttypechannel>

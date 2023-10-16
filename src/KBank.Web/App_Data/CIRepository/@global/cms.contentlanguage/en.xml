@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentlanguage>
+  <ContentLanguageCultureFormat>en-US</ContentLanguageCultureFormat>
+  <ContentLanguageDisplayName>English</ContentLanguageDisplayName>
+  <ContentLanguageGUID>e81b5172-f240-4041-88b1-653089984e29</ContentLanguageGUID>
+  <ContentLanguageIsDefault>True</ContentLanguageIsDefault>
+  <ContentLanguageName>en</ContentLanguageName>
+</cms.contentlanguage>

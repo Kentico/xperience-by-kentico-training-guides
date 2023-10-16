@@ -3,19 +3,59 @@
     <TargetFramework>net6.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Remove="Components\**" />
     <Compile Remove="Helpers\**" />
+    <Compile Remove="Resources\**" />
+    <Content Remove="Components\**" />
     <Content Remove="Helpers\**" />
+    <Content Remove="Resources\**" />
+    <EmbeddedResource Remove="Components\**" />
     <EmbeddedResource Remove="Helpers\**" />
+    <EmbeddedResource Remove="Resources\**" />
+    <None Remove="Components\**" />
     <None Remove="Helpers\**" />
+    <None Remove="Resources\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Components\ComponentIdentifiers.cs" />
+    <Compile Include="Components\PageBuilderComponentRegister.cs" />
+    <Compile Include="Components\PageTemplates\DownloadsPage\DownloadsPagePageTemplateService.cs" />
+    <Compile Include="Components\PageTemplates\DownloadsPage\DownloadsPageViewModel.cs" />
+    <Compile Include="Components\PageTemplates\Filters\DownloadsPagePageTemplatesFilter.cs" />
+    <Compile Include="Components\PageTemplates\Filters\ArticlePagePageTemplatesFilter.cs" />
+    <Compile Include="Components\PageTemplates\Filters\LandingPagePageTemplatesFilter.cs" />
+    <Compile Include="Components\PageTemplates\Filters\PageTemplateFilters.cs" />
+    <Compile Include="Components\PageTemplates\ArticlePage\ArticlePagePageTemplateService.cs" />
+    <Compile Include="Components\PageTemplates\ArticlePage\ArticlePageViewModel.cs" />
+    <Compile Include="Components\PageTemplates\LandingPage\LandingPagePageTemplateService.cs" />
+    <Compile Include="Components\PageTemplates\LandingPage\LandingPageTemplateProperties.cs" />
+    <Compile Include="Components\PageTemplates\LandingPage\LandingPageViewModel.cs" />
+    <Compile Include="Components\Sections\FormColumnSection\FormColumnSectionProperties.cs" />
+    <Compile Include="Components\Sections\SingleColumnSection\SingleColumnSectionProperties.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Components\PageTemplates\DownloadsPage\_DownloadsPage.cshtml" />
+    <None Include="Components\PageTemplates\ArticlePage\_ArticlePage.cshtml" />
+    <None Include="Components\PageTemplates\LandingPage\_LandingPage.cshtml" />
+    <None Include="Components\PageTemplates\_ViewImports.cshtml" />
+    <None Include="Components\PageTemplates\_ViewStart.cshtml" />
+    <None Include="Components\Sections\FormColumnSection\_KBank_FormColumnSection.cshtml" />
+    <None Include="Components\Sections\SingleColumnSection\_KBank_SingleColumnSection.cshtml" />
+    <None Include="Views\Shared\_Layout.cshtml" />
+    <None Include="Views\_ViewImports.cshtml" />
+    <None Include="Views\_ViewStart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="AspNetCore.Unobtrusive.Ajax" Version="2.0.0" />
-    <PackageReference Include="kentico.xperience.admin" Version="26.4.0" />
-    <PackageReference Include="kentico.xperience.azurestorage" Version="26.4.0" />
-    <PackageReference Include="kentico.xperience.imageprocessing" Version="26.4.0" />
-    <PackageReference Include="kentico.xperience.webapp" Version="26.4.0" />
+    <PackageReference Include="kentico.xperience.admin" Version="27.0.0" />
+    <PackageReference Include="kentico.xperience.azurestorage" Version="27.0.0" />
+    <PackageReference Include="kentico.xperience.imageprocessing" Version="27.0.0" />
+    <PackageReference Include="kentico.xperience.webapp" Version="27.0.0" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\KBank.Entities\KBank.Entities.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Components\ViewComponents\" />
   </ItemGroup>
 </Project>

@@ -12,8 +12,8 @@ public static class ServiceCollectionExtensions
 	
 	public static void AddKBankPageTemplateServices(this IServiceCollection services)
     {
-        services.AddSingleton<HeadingAndSubPageTemplateService>();
-        services.AddSingleton<DownloadPagePageTemplateService>();
-        services.AddSingleton<HomePagePageTemplateService>();
+        //services.AddSingleton<HeadingAndSubPageTemplateService>();
+        services.AddSingleton<DownloadsPagePageTemplateService>();
+        //services.AddSingleton<HomePagePageTemplateService>();
     }
 }

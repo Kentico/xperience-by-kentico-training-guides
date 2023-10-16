@@ -1,0 +1,21 @@
+﻿@model ComponentViewModel
+
+@inject DownloadsPagePageTemplateService Service
+
+@{
+    var templateModel = Service.GetTemplateModel();
+    ViewBag.Title = templateModel.Heading;
+}
+
+<h2>@templateModel.Heading</h2>
+<div>
+    <ul>
+        @foreach(var asset in templateModel.Assets)
+        {
+            <li>
+                <a href="@Url.Content(asset.FilePath)" alt="@asset.AltText" download="true">@asset.Title</a>
+            </li>
+        }
+    </ul>
+
+</div>

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentitem>
+  <ContentItemContentTypeID>
+    <CodeName>KBank.Asset</CodeName>
+    <GUID>9ecde825-735e-4967-a995-cc97b55adb0f</GUID>
+    <ObjectType>cms.contenttype</ObjectType>
+  </ContentItemContentTypeID>
+  <ContentItemGUID>13d1466b-a95c-4bee-8e8e-52385821cf68</ContentItemGUID>
+  <ContentItemIsReusable>True</ContentItemIsReusable>
+  <ContentItemIsSecured>False</ContentItemIsSecured>
+  <ContentItemName>KBankMissionStatement-zv0e6nj8</ContentItemName>
+</cms.contentitem>

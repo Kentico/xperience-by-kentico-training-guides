@@ -22,8 +22,8 @@ public class PageTemplateFilters : Module
 
     private void RegisterPageTemplateFilters()
     {
-        PageBuilderFilters.PageTemplates.Add(new HeadingAndSubPageTemplatesFilter());
-        PageBuilderFilters.PageTemplates.Add(new DownloadPagePageTemplatesFilter());
-        PageBuilderFilters.PageTemplates.Add(new HomePagePageTemplatesFilter());
+        PageBuilderFilters.PageTemplates.Add(new ArticlePagePageTemplatesFilter());
+        PageBuilderFilters.PageTemplates.Add(new DownloadsPagePageTemplatesFilter());
+        PageBuilderFilters.PageTemplates.Add(new LandingPagePageTemplatesFilter());
     }
 }

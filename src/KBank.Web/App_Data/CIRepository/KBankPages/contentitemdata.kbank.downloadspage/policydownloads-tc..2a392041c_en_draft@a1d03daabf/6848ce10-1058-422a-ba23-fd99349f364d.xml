@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.kbank.downloadspage>
+  <ContentItemDataCommonDataID>
+    <GUID>0f1284c6-67ae-4178-8717-b882a392041c</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>PolicyDownloads-tc2e2nbn</CodeName>
+      <GUID>75ec73f3-e291-4f82-81e3-af05533e0863</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>6848ce10-1058-422a-ba23-fd99349f364d</ContentItemDataGUID>
+  <DownloadsPageContent>
+    <![CDATA[[{"Identifier":"95970fc9-b7e6-4b67-9f83-7d8869ca6351"}]]]>
+  </DownloadsPageContent>
+</contentitemdata.kbank.downloadspage>

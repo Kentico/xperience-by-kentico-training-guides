@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentitemreference>
+  <Parent>
+    <GUID>a7ebe195-565b-466e-a569-1e32459af163</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>Home-6ccqwohp</CodeName>
+      <GUID>94b03e7b-c124-4e53-8ce5-8a3ee29f4de2</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </Parent>
+  <Bindings>
+    <Binding id="cms.contentitem_Home-76v71kdp">
+      <ContentItemReferenceGroupGUID>133d8674-12ff-40b6-b552-560e01989c56</ContentItemReferenceGroupGUID>
+      <ContentItemReferenceGUID>9acce219-eaf8-49a6-ba1d-84a25b4d65ce</ContentItemReferenceGUID>
+      <ContentItemReferenceTargetItemID>
+        <CodeName>Home-76v71kdp</CodeName>
+        <GUID>9f511d9e-8620-4e25-afaa-9afed5b99084</GUID>
+        <ObjectType>cms.contentitem</ObjectType>
+      </ContentItemReferenceTargetItemID>
+    </Binding>
+  </Bindings>
+</cms.contentitemreference>

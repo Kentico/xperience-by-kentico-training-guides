@@ -1,5 +1,5 @@
-using Kentico.Content.Web.Mvc.Routing;
-using KBank.Web.Extensions;
+//using Kentico.Content.Web.Mvc.Routing;
+//using KBank.Web.Extensions;
 using Kentico.PageBuilder.Web.Mvc;
 using Kentico.Web.Mvc;
 
@@ -14,13 +14,13 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddKentico(features =>
 {
     features.UsePageBuilder();
-    features.UsePageRouting();
+    //features.UsePageRouting();
 });
 
 builder.Services.AddAuthentication();
 
-builder.Services.AddKBankServices();
-builder.Services.AddKBankPageTemplateServices();
+//builder.Services.AddKBankServices();
+//builder.Services.AddKBankPageTemplateServices();
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddMvc().AddMvcLocalization();
