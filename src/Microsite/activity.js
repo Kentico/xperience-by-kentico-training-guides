@@ -48,8 +48,8 @@ function logLinkClick() {
 function logDownload() {
     kxt('customactivity', {
         type: 'filedownload',
-        value: window.location.pathname,
-        title: 'File downloaded - ' + this.getAttribute("alt")
+        value: this.getAttribute('alt') + ', '  + window.location.pathname,
+        title: 'File download'
     });
 }
 
