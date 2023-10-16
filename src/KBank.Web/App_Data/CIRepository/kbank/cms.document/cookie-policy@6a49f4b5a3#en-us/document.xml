@@ -11,11 +11,11 @@
   <DocumentCulture>en-US</DocumentCulture>
   <DocumentGUID>30c8317e-1a44-464e-b85d-bbc918f7fbe4</DocumentGUID>
   <DocumentModifiedByUserID>
-    <CodeName>public</CodeName>
-    <GUID>3758b9b5-045c-4b7d-b020-80f9b068d990</GUID>
+    <CodeName>administrator</CodeName>
+    <GUID>6415b8ce-8072-4bcd-8e48-9d7178b826b7</GUID>
     <ObjectType>cms.user</ObjectType>
   </DocumentModifiedByUserID>
-  <DocumentModifiedWhen>2023-06-30 20:24:00Z</DocumentModifiedWhen>
+  <DocumentModifiedWhen>2023-09-20 15:52:29Z</DocumentModifiedWhen>
   <DocumentName>Cookie Policy</DocumentName>
   <DocumentNodeID>
     <CodeName>/Cookie-Policy</CodeName>
@@ -28,6 +28,9 @@
     </Site>
   </DocumentNodeID>
   <DocumentPageBuilderWidgets>
-    <![CDATA[{"editableAreas":[{"identifier":"areaMain","sections":[{"identifier":"ea0651f2-36e6-47cc-8203-d79899396932","type":"Kentico.DefaultSection","properties":null,"zones":[{"identifier":"927db70f-eefe-4824-8133-fe9a0b71ac69","widgets":[{"identifier":"5e246bbc-8056-4874-ac89-1342b7aa45a0","type":"KBank.CookiePreferences","variants":[{"identifier":"e4c6f389-4f25-48e5-a86c-8c939a74cf71","properties":{"essentialHeader":"Essential cookies","essentialDescription":"These cookies are essential to enable you to move around the website and use its features. Without these cookies, some core site functionality will not work correctly. They are enabled by default and cannot be disabled.","buttonText":"Confirm selected cookies"},"fieldIdentifiers":{"essentialHeader":"86bae705-9b38-4e44-bb1b-12fadc80cfb9","essentialDescription":"5fc49108-05e2-4893-bde3-d090c4cde7b1","buttonText":"c9c47729-9b53-4136-a2ea-d129e762d860"}}]}]}],"fieldIdentifiers":{}}]}]}]]>
+    <![CDATA[{"editableAreas":[{"identifier":"areaMain","sections":[{"identifier":"ea0651f2-36e6-47cc-8203-d79899396932","type":"Kentico.DefaultSection","properties":null,"zones":[{"identifier":"927db70f-eefe-4824-8133-fe9a0b71ac69","widgets":[{"identifier":"5e246bbc-8056-4874-ac89-1342b7aa45a0","type":"KBank.CookiePreferences","variants":[{"identifier":"e4c6f389-4f25-48e5-a86c-8c939a74cf71","properties":{"essentialHeader":"Essential cookies","essentialDescription":"These cookies are essential to enable you to move around the website and use its features. Without these cookies, some core site functionality will not work correctly. They are enabled by default and cannot be disabled.","buttonText":"Confirm selected cookies"},"fieldIdentifiers":{"essentialHeader":"86bae705-9b38-4e44-bb1b-12fadc80cfb9","essentialDescription":"5fc49108-05e2-4893-bde3-d090c4cde7b1","buttonText":"c9c47729-9b53-4136-a2ea-d129e762d860"}}]},{"identifier":"4ba0a5cb-1ef2-40a9-8735-9718d1c9c5e7","type":"KBank.PageLiike","variants":[{"identifier":"5d12cca0-b062-47b4-ad07-8dee95bb395e","properties":{},"fieldIdentifiers":{}}]}]}],"fieldIdentifiers":{}}]}]}]]>
   </DocumentPageBuilderWidgets>
+  <DocumentPageTemplateConfiguration>
+    <![CDATA[{"identifier":"KBank.SingleZoneGeneric","properties":null,"fieldIdentifiers":{}}]]>
+  </DocumentPageTemplateConfiguration>
 </cms.documentlocalization>

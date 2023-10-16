@@ -43,5 +43,5 @@
   <ClassNodeNameSource />
   <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
   <ClassTableName>KBank_HeadingAndSub</ClassTableName>
-  <ClassUsesPageBuilder>False</ClassUsesPageBuilder>
+  <ClassUsesPageBuilder>True</ClassUsesPageBuilder>
 </cms.documenttype>

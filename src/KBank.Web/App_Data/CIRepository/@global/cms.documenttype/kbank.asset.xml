@@ -67,6 +67,6 @@
   <ClassName>KBank.Asset</ClassName>
   <ClassNodeNameSource />
   <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
-  <ClassTableName>Kentico_Asset</ClassTableName>
+  <ClassTableName>KBank_Asset</ClassTableName>
   <ClassUsesPageBuilder>False</ClassUsesPageBuilder>
 </cms.documenttype>

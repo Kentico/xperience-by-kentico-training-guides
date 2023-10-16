@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.documenttype>
+  <ClassDisplayName>Download Page</ClassDisplayName>
+  <ClassFormDefinition>
+    <form>
+      <field column="DownloadPageID" columntype="integer" enabled="true" guid="09d93a62-64a9-4652-90aa-f7d77a2b28dc" isPK="true">
+        <properties>
+          <fieldcaption>DownloadPageID</fieldcaption>
+        </properties>
+      </field>
+      <field column="Heading" columnprecision="0" columnsize="200" columntype="text" enabled="true" guid="2dd451d7-1e4a-4fe3-b7ba-492455d33767" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Heading</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.TextInput</controlname>
+        </settings>
+      </field>
+      <field column="Assets" columnprecision="0" columntype="contentitems" enabled="true" guid="5931c850-00f6-4123-9089-d3afb15487ca" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Downloadable Assets</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <AllowedContentItemTypeIdentifiers>
+            <![CDATA[["6cfccfc8-d1a3-4822-b432-1b0239228385"]]]>
+          </AllowedContentItemTypeIdentifiers>
+          <controlname>Kentico.Administration.ContentItemSelector</controlname>
+        </settings>
+      </field>
+    </form>
+  </ClassFormDefinition>
+  <ClassGUID>cb86c925-fb6c-4d93-89be-92822908bfc8</ClassGUID>
+  <ClassHasMetadata>False</ClassHasMetadata>
+  <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
+  <ClassHasURL>True</ClassHasURL>
+  <ClassIconClass>xp-arrow-down-line</ClassIconClass>
+  <ClassIsCoupledClass>True</ClassIsCoupledClass>
+  <ClassIsDocumentType>True</ClassIsDocumentType>
+  <ClassIsForm>False</ClassIsForm>
+  <ClassIsPage>True</ClassIsPage>
+  <ClassName>KBank.DownloadPage</ClassName>
+  <ClassNodeNameSource />
+  <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
+  <ClassTableName>KBank_DownloadPage</ClassTableName>
+  <ClassUsesPageBuilder>True</ClassUsesPageBuilder>
+</cms.documenttype>

@@ -61,26 +61,28 @@ namespace CMS.DocumentEngine.Types.KBank
 			}
 		}
 
+
 		/// <summary>
-		/// HomePageMethod
+		/// HomePageMessage.
 		/// </summary>
 		[DatabaseField]
-        public string HomePageMessage 
-		{ 
+		public string HomePageMessage
+		{
 			get
-            {
-				return ValidationHelper.GetString(GetValue("HomePageMessage"), string.Empty);
-            }
+			{
+				return ValidationHelper.GetString(GetValue("HomePageMessage"), @"");
+			}
 			set
-            {
+			{
 				SetValue("HomePageMessage", value);
-            }
+			}
 		}
 
-        /// <summary>
-        /// Gets an object that provides extended API for working with HomePage fields.
-        /// </summary>
-        [RegisterProperty]
+
+		/// <summary>
+		/// Gets an object that provides extended API for working with HomePage fields.
+		/// </summary>
+		[RegisterProperty]
 		public HomePageFields Fields
 		{
 			get
@@ -127,8 +129,9 @@ namespace CMS.DocumentEngine.Types.KBank
 				}
 			}
 
+
 			/// <summary>
-			/// HomePageMethod
+			/// HomePageMessage.
 			/// </summary>
 			public string Message
 			{
@@ -139,18 +142,6 @@ namespace CMS.DocumentEngine.Types.KBank
 				set
 				{
 					mInstance.HomePageMessage = value;
-				}
-			}
-
-
-			/// <summary>
-			/// SEOProperties.
-			/// </summary>
-			public IEnumerable<TreeNode> SEOProperties
-			{
-				get
-				{
-					return (mInstance.LinkedContentItems["SEOProperties"]);
 				}
 			}
 		}
