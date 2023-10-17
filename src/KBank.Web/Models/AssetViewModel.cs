@@ -12,7 +12,7 @@ public class AssetViewModel
     {
         return new AssetViewModel()
         {
-            Title = asset.SystemFields.ContentItemName,
+            Title = asset.File.Metadata.Name,
             Description = asset.Description,
             AltText = asset.AltText,
             UseInternalOnly = asset.UseInternalOnly,
