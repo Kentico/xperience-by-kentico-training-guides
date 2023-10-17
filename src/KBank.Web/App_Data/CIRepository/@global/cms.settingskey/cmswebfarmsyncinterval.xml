@@ -4,7 +4,6 @@
     <CodeName>CMS.WebFarm.General</CodeName>
     <ObjectType>cms.settingscategory</ObjectType>
   </KeyCategoryID>
-  <KeyDefaultValue>1000</KeyDefaultValue>
   <KeyDescription>
     <![CDATA[{$settingskey.DbWebFarmUpdaterInterval.Description$}]]>
   </KeyDescription>
@@ -12,7 +11,6 @@
   <KeyExplanationText />
   <KeyGUID>e8b1ef04-1bc4-42d6-b81d-2b69d521713f</KeyGUID>
   <KeyIsCustom>False</KeyIsCustom>
-  <KeyIsGlobal>True</KeyIsGlobal>
   <KeyIsHidden>True</KeyIsHidden>
   <KeyName>CMSWebFarmSyncInterval</KeyName>
   <KeyOrder>3</KeyOrder>

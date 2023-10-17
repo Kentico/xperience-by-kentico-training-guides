@@ -4,7 +4,6 @@
     <CodeName>CMS.OnlineMarketing.ContentPersonalization</CodeName>
     <ObjectType>cms.settingscategory</ObjectType>
   </KeyCategoryID>
-  <KeyDefaultValue>True</KeyDefaultValue>
   <KeyDescription>
     <![CDATA[{$settingskey.cmscontentpersonalizationenabled.description$}]]>
   </KeyDescription>
@@ -12,7 +11,6 @@
   <KeyExplanationText />
   <KeyGUID>fafa48ea-212c-430e-97a2-5bf1f05fed91</KeyGUID>
   <KeyIsCustom>False</KeyIsCustom>
-  <KeyIsGlobal>False</KeyIsGlobal>
   <KeyIsHidden>True</KeyIsHidden>
   <KeyName>CMSContentPersonalizationEnabled</KeyName>
   <KeyOrder>1</KeyOrder>

@@ -4,13 +4,11 @@
     <CodeName>CMS.OnlineMarketing.Activities.General</CodeName>
     <ObjectType>cms.settingscategory</ObjectType>
   </KeyCategoryID>
-  <KeyDefaultValue>True</KeyDefaultValue>
   <KeyDescription>{$settingskey.cmscmactivitiesenabled.description$}</KeyDescription>
   <KeyDisplayName>{$settingskey.cmscmactivitiesenabled$}</KeyDisplayName>
   <KeyExplanationText />
   <KeyGUID>9e3080f7-5599-4818-a423-351eb4f97907</KeyGUID>
   <KeyIsCustom>False</KeyIsCustom>
-  <KeyIsGlobal>False</KeyIsGlobal>
   <KeyIsHidden>True</KeyIsHidden>
   <KeyName>CMSCMActivitiesEnabled</KeyName>
   <KeyOrder>1</KeyOrder>

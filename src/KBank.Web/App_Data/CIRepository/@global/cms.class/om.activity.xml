@@ -2,127 +2,37 @@
 <cms.class>
   <ClassConnectionString>CMSOMConnectionString</ClassConnectionString>
   <ClassContactOverwriteEnabled>False</ClassContactOverwriteEnabled>
-  <ClassCustomizedColumns />
   <ClassDisplayName>Activities - Activity</ClassDisplayName>
   <ClassFormDefinition>
     <form>
-      <field column="ActivityID" columntype="integer" guid="5d3c983f-e8a6-4164-b18c-49834d046588" isPK="true" system="true">
-        <properties>
-          <fieldcaption>ActivityID</fieldcaption>
-        </properties>
-      </field>
-      <field column="ActivityContactID" columntype="integer" guid="bfb83fb9-da4f-40bb-9923-c328e526664a" system="true">
-        <properties>
-          <fieldcaption>ActivityContactID</fieldcaption>
-        </properties>
-      </field>
-      <field column="ActivityType" columnsize="250" columntype="text" guid="e90919e1-7a7d-4bf4-8178-592b0edda080" system="true">
-        <properties>
-          <fieldcaption>ActivityType</fieldcaption>
-        </properties>
-      </field>
-      <field allowempty="true" column="ActivityItemID" columntype="integer" guid="1e18dc64-c5a3-4ae5-8c65-1fad3e2f6b22" system="true">
-        <properties>
-          <fieldcaption>{$om.activity.activityitem$}</fieldcaption>
-        </properties>
-      </field>
-      <field allowempty="true" column="ActivityItemDetailID" columntype="integer" guid="6fb533b0-2036-49e2-9c36-e92bfb1e2205" system="true">
-        <properties>
-          <fieldcaption>{$om.activity.activityitemdetail$}</fieldcaption>
-        </properties>
-      </field>
-      <field allowempty="true" column="ActivityValue" columnsize="250" columntype="text" guid="7e1bf8d5-33bb-4e36-9727-bdb6a04fb7b0" system="true">
-        <properties>
-          <fieldcaption>{$om.activity.value$}</fieldcaption>
-        </properties>
-      </field>
-      <field allowempty="true" column="ActivityCreated" columntype="datetime" guid="db2eba1f-fec7-4019-b1c0-cfd4bfaf314f" system="true">
-        <properties>
-          <fieldcaption>{$om.activity.activitytime$}</fieldcaption>
-        </properties>
-      </field>
-      <field allowempty="true" column="ActivityNodeID" columntype="integer" guid="a103a7a6-e54e-412b-a361-8af46626f133" system="true">
-        <properties>
-          <fieldcaption>{$om.scoring.page$}</fieldcaption>
-        </properties>
-      </field>
-      <field allowempty="true" column="ActivityURL" columntype="longtext" guid="209bc147-d2a8-4dcd-aff9-e9c0de77c220" system="true">
-        <properties>
-          <fieldcaption>{$om.activity.url$}</fieldcaption>
-        </properties>
-      </field>
-      <field allowempty="true" column="ActivityTitle" columnsize="250" columntype="text" guid="72b362da-019d-4679-a29f-cfd87909d18b" system="true">
-        <properties>
-          <fieldcaption>{$om.activity.title$}</fieldcaption>
-        </properties>
-      </field>
-      <field allowempty="true" column="ActivityComment" columntype="longtext" guid="2d92df26-e285-494c-b07a-2564ab0c73c0" system="true">
-        <properties>
-          <fieldcaption>{$om.activity.activitycomment$}</fieldcaption>
-        </properties>
-      </field>
-      <field allowempty="true" column="ActivityUTMSource" columnsize="200" columntype="text" guid="10fcce88-c98b-43ad-8db4-645138f48f65" system="true">
-        <properties>
-          <fieldcaption>{$campaign.utmsource$}</fieldcaption>
-        </properties>
-      </field>
-      <field allowempty="true" column="ActivityUTMContent" columnsize="200" columntype="text" guid="33bb0223-3cb9-47a7-9a57-935377a2f6a4" system="true">
-        <properties>
-          <fieldcaption>{$campaign.utmcontent$}</fieldcaption>
-        </properties>
-      </field>
-      <field allowempty="true" column="ActivityCampaign" columnsize="200" columntype="text" guid="c5ec06be-8c55-41c5-8e11-ffeb5ec0d600" system="true">
-        <properties>
-          <fieldcaption>{$om.activity.campaign$}</fieldcaption>
-        </properties>
-      </field>
-      <field allowempty="true" column="ActivityCulture" columnsize="50" columntype="text" guid="4aa00d2f-43dc-403f-93fc-ddc5b059434c" system="true">
-        <properties>
-          <fieldcaption>{$om.scoring.culture$}</fieldcaption>
-        </properties>
-      </field>
-      <field allowempty="true" column="ActivityURLReferrer" columntype="longtext" guid="cf247454-7ab5-4e3f-a239-7b0fa57d3884" system="true">
-        <properties>
-          <fieldcaption>{$om.activity.urlreferrer$}</fieldcaption>
-        </properties>
-      </field>
-      <field column="ActivitySiteID" columntype="integer" guid="fb41f1a4-f2f9-4d9e-b161-43f4eca82d5b" system="true">
-        <properties>
-          <fieldcaption>ActivitySiteID</fieldcaption>
-        </properties>
-      </field>
-      <field allowempty="true" column="ActivityTrackedWebsiteID" columntype="integer" guid="ca41395a-3612-4b68-9ffd-a16c30b74c4a" system="true">
-        <properties>
-          <fieldcaption>ActivityTrackedWebsiteID</fieldcaption>
-        </properties>
-      </field>
-      <field allowempty="true" column="ActivityABVariantName" columnsize="200" columntype="text" guid="91dff882-6c9e-4a1f-95ec-66d7c6a7c63b" system="true">
-        <properties>
-          <fieldcaption>{$om.scoring.pagevisitabvariant$}</fieldcaption>
-        </properties>
-      </field>
+      <field column="ActivityID" columntype="integer" guid="5d3c983f-e8a6-4164-b18c-49834d046588" isPK="true" system="true" />
+      <field column="ActivityContactID" columntype="integer" guid="bfb83fb9-da4f-40bb-9923-c328e526664a" system="true" />
+      <field column="ActivityType" columnsize="250" columntype="text" guid="e90919e1-7a7d-4bf4-8178-592b0edda080" system="true" />
+      <field allowempty="true" column="ActivityItemID" columntype="integer" guid="1e18dc64-c5a3-4ae5-8c65-1fad3e2f6b22" system="true" />
+      <field allowempty="true" column="ActivityItemDetailID" columntype="integer" guid="6fb533b0-2036-49e2-9c36-e92bfb1e2205" system="true" />
+      <field allowempty="true" column="ActivityValue" columnsize="250" columntype="text" guid="7e1bf8d5-33bb-4e36-9727-bdb6a04fb7b0" system="true" />
+      <field allowempty="true" column="ActivityCreated" columntype="datetime" guid="db2eba1f-fec7-4019-b1c0-cfd4bfaf314f" system="true" />
+      <field allowempty="true" column="ActivityWebPageItemGUID" columnprecision="0" columntype="guid" enabled="true" guid="e0ef3d90-ec3d-4534-99ab-967116d241eb" system="true" />
+      <field allowempty="true" column="ActivityURL" columntype="longtext" guid="209bc147-d2a8-4dcd-aff9-e9c0de77c220" system="true" />
+      <field allowempty="true" column="ActivityTitle" columnsize="250" columntype="text" guid="72b362da-019d-4679-a29f-cfd87909d18b" system="true" />
+      <field allowempty="true" column="ActivityComment" columntype="longtext" guid="2d92df26-e285-494c-b07a-2564ab0c73c0" system="true" />
+      <field allowempty="true" column="ActivityUTMSource" columnsize="200" columntype="text" guid="10fcce88-c98b-43ad-8db4-645138f48f65" system="true" />
+      <field allowempty="true" column="ActivityUTMContent" columnsize="200" columntype="text" guid="33bb0223-3cb9-47a7-9a57-935377a2f6a4" system="true" />
+      <field allowempty="true" column="ActivityLanguageID" columnprecision="0" columntype="integer" enabled="true" guid="e1300a29-5626-4c97-b747-cd9c9e250951" refobjtype="cms.contentlanguage" reftype="Required" system="true" />
+      <field allowempty="true" column="ActivityURLReferrer" columntype="longtext" guid="cf247454-7ab5-4e3f-a239-7b0fa57d3884" system="true" />
+      <field allowempty="true" column="ActivityTrackedWebsiteID" columntype="integer" guid="ca41395a-3612-4b68-9ffd-a16c30b74c4a" system="true" />
+      <field allowempty="true" column="ActivityChannelID" columnprecision="0" columntype="integer" enabled="true" guid="1a81fbee-37de-4f6b-88fe-b4cca6dc9e70" refobjtype="cms.channel" reftype="Required" system="true" />
     </form>
   </ClassFormDefinition>
   <ClassGUID>77fa65bf-2a57-42a1-a738-c29d6f0f444a</ClassGUID>
-  <ClassHasMetadata>False</ClassHasMetadata>
   <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
-  <ClassHasURL>False</ClassHasURL>
-  <ClassIsCoupledClass>True</ClassIsCoupledClass>
-  <ClassIsDocumentType>False</ClassIsDocumentType>
-  <ClassIsForm>False</ClassIsForm>
-  <ClassIsPage>False</ClassIsPage>
   <ClassName>OM.Activity</ClassName>
-  <ClassNodeAliasSource />
-  <ClassNodeNameSource />
   <ClassResourceID>
     <CodeName>CMS.Activities</CodeName>
     <GUID>f26ac0e2-0658-4598-bae8-4cc628758550</GUID>
     <ObjectType>cms.resource</ObjectType>
   </ClassResourceID>
-  <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
-  <ClassShowColumns />
   <ClassShowTemplateSelection>False</ClassShowTemplateSelection>
   <ClassTableName>OM_Activity</ClassTableName>
-  <ClassUsePublishFromTo>False</ClassUsePublishFromTo>
-  <ClassUsesPageBuilder>False</ClassUsesPageBuilder>
+  <ClassType>Other</ClassType>
 </cms.class>

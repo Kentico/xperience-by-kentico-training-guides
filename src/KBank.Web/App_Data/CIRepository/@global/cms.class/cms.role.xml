@@ -2,67 +2,26 @@
 <cms.class>
   <ClassConnectionString>CMSConnectionString</ClassConnectionString>
   <ClassContactOverwriteEnabled>False</ClassContactOverwriteEnabled>
-  <ClassCustomizedColumns />
   <ClassDisplayName>Role</ClassDisplayName>
   <ClassFormDefinition>
     <form>
-      <field column="RoleID" columntype="integer" guid="0c8cc1de-1c82-4596-b6d0-b2c60bcad3b7" isPK="true" system="true">
-        <properties>
-          <fieldcaption>RoleID</fieldcaption>
-        </properties>
-      </field>
-      <field column="RoleDisplayName" columnsize="100" columntype="text" guid="c5f83fe3-f362-431f-80be-2d40122e469e" system="true">
-        <properties>
-          <fieldcaption>Role display name</fieldcaption>
-        </properties>
-      </field>
-      <field column="RoleName" columnsize="100" columntype="text" guid="918120c1-6d6b-42f5-be30-37f91af11666" system="true">
-        <properties>
-          <fieldcaption>Role name</fieldcaption>
-        </properties>
-      </field>
-      <field allowempty="true" column="RoleDescription" columntype="longtext" guid="c465483d-4158-42e0-bb25-0c274769c74a" system="true">
-        <properties>
-          <fieldcaption>Role description</fieldcaption>
-        </properties>
-      </field>
-      <field allowempty="true" column="SiteID" columntype="integer" guid="7238f49e-49eb-46a7-9dc4-811c3ca7d524" system="true">
-        <properties>
-          <fieldcaption>SiteID</fieldcaption>
-        </properties>
-      </field>
-      <field column="RoleGUID" columntype="guid" guid="ad0f25d2-15b7-4eae-86bd-fc64538c45f9" system="true">
-        <properties>
-          <fieldcaption>RoleGUID</fieldcaption>
-        </properties>
-      </field>
-      <field column="RoleLastModified" columntype="datetime" guid="11b1bf06-0088-48a8-87d6-cffafff290ca" system="true">
-        <properties>
-          <fieldcaption>RoleLastModified</fieldcaption>
-        </properties>
-      </field>
+      <field column="RoleID" columntype="integer" guid="0c8cc1de-1c82-4596-b6d0-b2c60bcad3b7" isPK="true" system="true" />
+      <field column="RoleDisplayName" columnsize="100" columntype="text" guid="c5f83fe3-f362-431f-80be-2d40122e469e" system="true" />
+      <field column="RoleName" columnsize="100" columntype="text" guid="918120c1-6d6b-42f5-be30-37f91af11666" system="true" />
+      <field allowempty="true" column="RoleDescription" columntype="longtext" guid="c465483d-4158-42e0-bb25-0c274769c74a" system="true" />
+      <field column="RoleGUID" columntype="guid" guid="ad0f25d2-15b7-4eae-86bd-fc64538c45f9" system="true" />
+      <field column="RoleLastModified" columntype="datetime" guid="11b1bf06-0088-48a8-87d6-cffafff290ca" system="true" />
     </form>
   </ClassFormDefinition>
   <ClassGUID>1dba5a45-954e-442c-8a00-41927c501f2b</ClassGUID>
-  <ClassHasMetadata>False</ClassHasMetadata>
   <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
-  <ClassHasURL>False</ClassHasURL>
-  <ClassIsCoupledClass>True</ClassIsCoupledClass>
-  <ClassIsDocumentType>False</ClassIsDocumentType>
-  <ClassIsForm>False</ClassIsForm>
-  <ClassIsPage>False</ClassIsPage>
   <ClassName>cms.Role</ClassName>
-  <ClassNodeAliasSource />
-  <ClassNodeNameSource />
   <ClassResourceID>
     <CodeName>CMS.Membership</CodeName>
     <GUID>d4b7561a-f188-420c-8f68-63b5c573b2bf</GUID>
     <ObjectType>cms.resource</ObjectType>
   </ClassResourceID>
-  <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
-  <ClassShowColumns />
   <ClassShowTemplateSelection>False</ClassShowTemplateSelection>
   <ClassTableName>CMS_Role</ClassTableName>
-  <ClassUsePublishFromTo>False</ClassUsePublishFromTo>
-  <ClassUsesPageBuilder>False</ClassUsesPageBuilder>
+  <ClassType>Other</ClassType>
 </cms.class>

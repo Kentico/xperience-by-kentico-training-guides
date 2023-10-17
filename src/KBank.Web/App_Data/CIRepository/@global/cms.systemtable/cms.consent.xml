@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.systemtable>
   <ClassConnectionString>CMSOMConnectionString</ClassConnectionString>
-  <ClassCustomizedColumns />
   <ClassDisplayName>Consent</ClassDisplayName>
   <ClassFormDefinition>
     <form>
@@ -15,23 +14,14 @@
     </form>
   </ClassFormDefinition>
   <ClassGUID>1de57768-d0cb-4e03-b3d9-7dd95c26c193</ClassGUID>
-  <ClassHasMetadata>False</ClassHasMetadata>
   <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
-  <ClassHasURL>False</ClassHasURL>
-  <ClassIsCoupledClass>True</ClassIsCoupledClass>
-  <ClassIsDocumentType>False</ClassIsDocumentType>
-  <ClassIsForm>False</ClassIsForm>
-  <ClassIsPage>False</ClassIsPage>
   <ClassName>CMS.Consent</ClassName>
-  <ClassNodeNameSource />
   <ClassResourceID>
     <CodeName>CMS.DataProtection</CodeName>
     <GUID>8089f9a7-95d9-4e3c-b95a-91a49ccf10c4</GUID>
     <ObjectType>cms.resource</ObjectType>
   </ClassResourceID>
-  <ClassShowAsSystemTable>True</ClassShowAsSystemTable>
   <ClassShowTemplateSelection>False</ClassShowTemplateSelection>
   <ClassTableName>CMS_Consent</ClassTableName>
-  <ClassUsePublishFromTo>False</ClassUsePublishFromTo>
-  <ClassUsesPageBuilder>False</ClassUsesPageBuilder>
+  <ClassType>System</ClassType>
 </cms.systemtable>

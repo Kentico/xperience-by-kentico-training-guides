@@ -11,7 +11,6 @@
   <KeyExplanationText />
   <KeyGUID>cff6510a-19c5-45df-b393-5552470424a8</KeyGUID>
   <KeyIsCustom>False</KeyIsCustom>
-  <KeyIsGlobal>False</KeyIsGlobal>
   <KeyIsHidden>True</KeyIsHidden>
   <KeyName>CMSAutoResizeImageWidth</KeyName>
   <KeyOrder>1</KeyOrder>

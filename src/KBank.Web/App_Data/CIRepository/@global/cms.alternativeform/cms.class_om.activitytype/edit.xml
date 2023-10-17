@@ -24,7 +24,6 @@
           <explanationtextashtml>False</explanationtextashtml>
           <fieldcaption>{$digitalmarketing.activitytype.edit.displayname$}</fieldcaption>
           <fielddescriptionashtml>False</fielddescriptionashtml>
-          <fielddescription />
         </properties>
       </field>
       <field column="ActivityTypeName" columnprecision="0" enabled="true" guid="42c30a9e-4855-4bad-b0d3-3197e6114268" visible="true" order="9">
@@ -35,7 +34,6 @@
           <explanationtextashtml>False</explanationtextashtml>
           <fieldcaption>{$digitalmarketing.activitytype.edit.codename$}</fieldcaption>
           <fielddescriptionashtml>False</fielddescriptionashtml>
-          <fielddescription />
         </properties>
       </field>
       <field column="ActivityTypeDescription" columnprecision="0" enabled="true" guid="74d0880f-9b39-4deb-9f06-c19c704f5307" visible="true" order="10">
@@ -49,7 +47,6 @@
           <explanationtextashtml>False</explanationtextashtml>
           <fieldcaption>{$digitalmarketing.activitytype.edit.description$}</fieldcaption>
           <fielddescriptionashtml>False</fielddescriptionashtml>
-          <fielddescription />
         </properties>
       </field>
       <field column="ActivityTypeEnabled" columnprecision="0" enabled="true" guid="9b57bc43-521f-478f-867b-83b5e381240f" visible="true" order="11">
@@ -61,7 +58,6 @@
           <explanationtextashtml>False</explanationtextashtml>
           <fieldcaption>{$digitalmarketing.activitytype.edit.enabled$}</fieldcaption>
           <fielddescriptionashtml>False</fielddescriptionashtml>
-          <fielddescription />
         </properties>
       </field>
     </form>

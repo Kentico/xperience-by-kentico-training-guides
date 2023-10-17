@@ -20,20 +20,6 @@
         <ObjectType>cms.macrorule</ObjectType>
       </MacroRuleID>
     </Binding>
-    <Binding id="cms.macrorule_CMSContactBelongsToAccount">
-      <MacroRuleID>
-        <CodeName>CMSContactBelongsToAccount</CodeName>
-        <GUID>0a6597a1-c899-45a7-8d94-27ef8b67b620</GUID>
-        <ObjectType>cms.macrorule</ObjectType>
-      </MacroRuleID>
-    </Binding>
-    <Binding id="cms.macrorule_CMSContactFieldContainsValue">
-      <MacroRuleID>
-        <CodeName>CMSContactFieldContainsValue</CodeName>
-        <GUID>fdf51cf1-0b21-4aac-b98b-71125944377f</GUID>
-        <ObjectType>cms.macrorule</ObjectType>
-      </MacroRuleID>
-    </Binding>
     <Binding id="cms.macrorule_CMSContactHasAgreedWithConsent">
       <MacroRuleID>
         <CodeName>CMSContactHasAgreedWithConsent</CodeName>
@@ -83,31 +69,10 @@
         <ObjectType>cms.macrorule</ObjectType>
       </MacroRuleID>
     </Binding>
-    <Binding id="cms.macrorule_CMSContactStatusIs">
-      <MacroRuleID>
-        <CodeName>CMSContactStatusIs</CodeName>
-        <GUID>5440e355-9ef0-4f56-b82b-6c5a6a06475f</GUID>
-        <ObjectType>cms.macrorule</ObjectType>
-      </MacroRuleID>
-    </Binding>
-    <Binding id="cms.macrorule_CMSContactWasCreated">
-      <MacroRuleID>
-        <CodeName>CMSContactWasCreated</CodeName>
-        <GUID>9929ac22-f9a3-4e62-b99d-96973ef24fa9</GUID>
-        <ObjectType>cms.macrorule</ObjectType>
-      </MacroRuleID>
-    </Binding>
     <Binding id="cms.macrorule_CMSSatisfiesMacroCondition">
       <MacroRuleID>
         <CodeName>CMSSatisfiesMacroCondition</CodeName>
         <GUID>33e07d27-6277-4470-8bff-1b07aafd1802</GUID>
-        <ObjectType>cms.macrorule</ObjectType>
-      </MacroRuleID>
-    </Binding>
-    <Binding id="cms.macrorule_ContactIsInPersona">
-      <MacroRuleID>
-        <CodeName>ContactIsInPersona</CodeName>
-        <GUID>7d3e93dc-d4d4-4450-b9e7-cf8f559daf2b</GUID>
         <ObjectType>cms.macrorule</ObjectType>
       </MacroRuleID>
     </Binding>

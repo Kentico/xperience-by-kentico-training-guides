@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.macrorule>
-  <MacroRuleAvailability>2</MacroRuleAvailability>
   <MacroRuleCondition>
     <![CDATA[{_perfectum}Contact.CameToLandingPage("{page}")]]>
   </MacroRuleCondition>
@@ -19,9 +18,8 @@
           <fieldcaption>select page</fieldcaption>
         </properties>
         <settings>
-          <controlname>Kentico.Administration.PageSelector</controlname>
+          <controlname>Kentico.Administration.WebPageSelector</controlname>
           <MaximumPages>1</MaximumPages>
-          <RootPath>/</RootPath>
           <Sortable>False</Sortable>
         </settings>
       </field>
@@ -31,7 +29,8 @@
           <fieldcaption>select operation</fieldcaption>
         </properties>
         <settings>
-          <controlname>macronegationoperator</controlname>
+          <controlname>Kentico.Administration.DropDownSelector</controlname>
+          <IsPerfectum>True</IsPerfectum>
           <Options>
 <![CDATA[
 __is;has
@@ -43,8 +42,5 @@ __isnot;has not
       </field>
     </form>
   </MacroRuleParameters>
-  <MacroRuleRequiredData>Contact</MacroRuleRequiredData>
-  <MacroRuleRequiresContext>False</MacroRuleRequiresContext>
-  <MacroRuleResourceName>cms.onlinemarketing</MacroRuleResourceName>
   <MacroRuleText>Contact {_perfectum} come to landing page {page}</MacroRuleText>
 </cms.macrorule>

@@ -8,6 +8,7 @@
   <WebsiteChannelDefaultCookieLevel>1000</WebsiteChannelDefaultCookieLevel>
   <WebsiteChannelDomain>localhost:53415</WebsiteChannelDomain>
   <WebsiteChannelGUID>fdba40fe-1ece-4821-9d57-eaa1d89e13b1</WebsiteChannelGUID>
+  <WebsiteChannelHomePage>/Home</WebsiteChannelHomePage>
   <WebsiteChannelPrimaryContentLanguageID>
     <CodeName>en</CodeName>
     <GUID>e81b5172-f240-4041-88b1-653089984e29</GUID>

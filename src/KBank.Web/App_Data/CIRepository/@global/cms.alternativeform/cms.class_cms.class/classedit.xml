@@ -15,7 +15,7 @@
         </settings>
         <properties>
           <explanationtextashtml>False</explanationtextashtml>
-          <fieldcaption>Display name</fieldcaption>
+          <fieldcaption>{$general.displayname$}</fieldcaption>
           <fielddescriptionashtml>False</fielddescriptionashtml>
         </properties>
       </field>
@@ -25,55 +25,39 @@
         </settings>
         <properties>
           <explanationtextashtml>False</explanationtextashtml>
-          <fieldcaption>Code name</fieldcaption>
+          <fieldcaption>{$general.codename$}</fieldcaption>
           <fielddescriptionashtml>False</fielddescriptionashtml>
         </properties>
       </field>
-      <field column="ClassIsDocumentType" enabled="true" guid="9644486f-782f-4582-9b94-06d82ec99cd4" />
-      <field column="ClassIsCoupledClass" enabled="true" guid="60b11243-38b5-40a5-b3e1-d722e717b11b" />
       <field column="ClassXmlSchema" enabled="true" guid="fa1ff4fd-b445-494b-9b34-538b978011c7" />
       <field column="ClassFormDefinition" enabled="true" guid="0e36af3b-04b5-477b-86d9-e4fedbb6acfd" />
-      <field column="ClassNodeNameSource" enabled="true" guid="ce45ef8a-ba6d-40da-b437-88221a134f0a" />
       <field column="ClassTableName" columnprecision="0" guid="b211147b-2e77-4f0d-9546-e18990108532" visible="true">
         <settings>
           <controlname>Kentico.Administration.TextInput</controlname>
         </settings>
         <properties>
           <explanationtextashtml>False</explanationtextashtml>
-          <fieldcaption>Table name</fieldcaption>
+          <fieldcaption>{$base.class.create.tablename$}</fieldcaption>
           <fielddescriptionashtml>False</fielddescriptionashtml>
         </properties>
       </field>
-      <field column="ClassUsePublishFromTo" enabled="true" guid="f6c7434d-b4f5-4788-878b-af4b7a011066" order="9" />
-      <field column="ClassShowTemplateSelection" enabled="true" guid="9d6a6d71-0f1a-49f3-810c-40b830a5cba9" order="10" />
-      <field column="ClassNodeAliasSource" enabled="true" guid="9db135ca-2256-4812-96d3-c9bbc1b458d1" order="11" />
-      <field column="ClassLastModified" enabled="true" guid="b0efc357-062e-4db3-a772-4761673faa81" order="12" />
-      <field column="ClassGUID" enabled="true" guid="155ef725-c6a5-434f-90e6-f9a91f70d6cb" order="13" />
-      <field column="ClassShowColumns" enabled="true" guid="95ac260b-5d66-4bf5-a16b-af7313b642e0" order="14" />
-      <field column="ClassInheritsFromClassID" enabled="true" guid="794296ec-5b04-40a2-a9ea-a802629e6839" order="15" />
-      <field column="ClassConnectionString" enabled="true" guid="81f850e0-0dbd-4298-aebf-3a73bdc3b8e4" order="16" />
-      <field column="ClassContactMapping" enabled="true" guid="fa0aa943-e3ef-42a0-ade2-179a27fc184b" order="17" />
-      <field column="ClassContactOverwriteEnabled" enabled="true" guid="04b3aee9-b470-45b2-9c5e-90932d09cc19" order="18" />
-      <field column="ClassDefaultObjectType" enabled="true" guid="87954ccc-9d86-4dcc-8e05-90dc7bbdfeb6" order="19" />
-      <field column="ClassIsForm" enabled="true" guid="1dd5c069-4856-48dd-9938-030db613fe0b" order="20" />
-      <field column="ClassResourceID" columnprecision="0" enabled="true" guid="e8581cf4-a56e-4daf-9dd4-ee3f0d8a15b2" order="21">
-        <properties>
-          <fieldcaption>Class module</fieldcaption>
-        </properties>
-      </field>
-      <field column="ClassCustomizedColumns" enabled="true" guid="aac1c1dd-6965-49a8-8e30-05a652fbbbe7" order="22" />
-      <field column="ClassCodeGenerationSettings" enabled="true" guid="5a8428f9-3212-4ad6-be4e-7fd96928f699" order="23" />
-      <field column="ClassIconClass" enabled="true" guid="6db7bd4c-3a91-4f98-8540-a82a070677ff" order="24" />
-      <field column="ClassURLPattern" enabled="true" guid="00c00c0d-1627-4bab-864c-1a6b371b8636" order="25" />
-      <field column="ClassUsesPageBuilder" enabled="true" guid="2462fa2a-d236-4a96-8b1e-a8b72d645290" order="26" />
-      <field column="ClassHasURL" enabled="true" guid="38ca89b0-abfb-482e-a0d7-be1ee50de0f9" order="27" />
-      <field column="ClassHasMetadata" enabled="true" guid="31ebdec9-9b2c-4d09-bd01-437195b27654" order="28" />
-      <field column="ClassFormLayout" enabled="true" guid="32425d42-712b-48ad-92f2-ca7be3493456" order="29" />
-      <field column="ClassFormLayoutType" enabled="true" guid="1197ae53-0087-4e94-9b62-b8d4f3c46919" order="30" />
-      <field column="ClassVersionGUID" enabled="true" guid="f27eb613-419e-48d4-9046-6828e5d8caab" order="31" />
-      <field column="ClassShowAsSystemTable" enabled="true" guid="ad5fbd45-77ac-4ef6-8df7-823392ea0357" order="32" />
-      <field column="ClassHasUnmanagedDbSchema" guid="cfeb12da-2006-4f45-aa24-919142788451" order="33" />
-      <field column="ClassIsPage" guid="f00f5a2c-c8de-4824-b9b2-2d51b39e84dd" order="34" />
+      <field column="ClassShowTemplateSelection" enabled="true" guid="9d6a6d71-0f1a-49f3-810c-40b830a5cba9" />
+      <field column="ClassLastModified" enabled="true" guid="b0efc357-062e-4db3-a772-4761673faa81" />
+      <field column="ClassGUID" enabled="true" guid="155ef725-c6a5-434f-90e6-f9a91f70d6cb" />
+      <field column="ClassConnectionString" enabled="true" guid="81f850e0-0dbd-4298-aebf-3a73bdc3b8e4" />
+      <field column="ClassContactMapping" enabled="true" guid="fa0aa943-e3ef-42a0-ade2-179a27fc184b" />
+      <field column="ClassContactOverwriteEnabled" enabled="true" guid="04b3aee9-b470-45b2-9c5e-90932d09cc19" />
+      <field column="ClassDefaultObjectType" enabled="true" guid="87954ccc-9d86-4dcc-8e05-90dc7bbdfeb6" />
+      <field column="ClassResourceID" columnprecision="0" enabled="true" guid="e8581cf4-a56e-4daf-9dd4-ee3f0d8a15b2" />
+      <field column="ClassCodeGenerationSettings" enabled="true" guid="5a8428f9-3212-4ad6-be4e-7fd96928f699" />
+      <field column="ClassIconClass" enabled="true" guid="6db7bd4c-3a91-4f98-8540-a82a070677ff" />
+      <field column="ClassFormLayout" enabled="true" guid="32425d42-712b-48ad-92f2-ca7be3493456" order="16" />
+      <field column="ClassFormLayoutType" enabled="true" guid="1197ae53-0087-4e94-9b62-b8d4f3c46919" order="17" />
+      <field column="ClassVersionGUID" enabled="true" guid="f27eb613-419e-48d4-9046-6828e5d8caab" order="18" />
+      <field column="ClassHasUnmanagedDbSchema" guid="cfeb12da-2006-4f45-aa24-919142788451" order="19" />
+      <field column="ClassContentTypeType" guid="032be9ff-9648-4289-a55f-eba73d6ddce3" enabled="" order="20" />
+      <field column="ClassType" guid="e6e0f7a9-f910-4ba2-8520-e6ca86a1f88b" enabled="" order="21" />
+      <field column="ClassWebPageHasUrl" guid="f76db854-f389-421b-9c92-13bd12978c0c" enabled="" order="22" />
     </form>
   </FormDefinition>
   <FormDisplayName>ClassEdit</FormDisplayName>

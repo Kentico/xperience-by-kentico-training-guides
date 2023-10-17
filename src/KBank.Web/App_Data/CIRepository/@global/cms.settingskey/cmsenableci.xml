@@ -4,7 +4,6 @@
     <CodeName>CMS.ContinuousIntegration.General</CodeName>
     <ObjectType>cms.settingscategory</ObjectType>
   </KeyCategoryID>
-  <KeyDefaultValue>False</KeyDefaultValue>
   <KeyDescription>
     <![CDATA[{$base.settings.settingskey.cmsenableci.description$}]]>
   </KeyDescription>
@@ -12,7 +11,6 @@
   <KeyExplanationText />
   <KeyGUID>d693f21f-f34d-4f51-8cb0-d09097401756</KeyGUID>
   <KeyIsCustom>False</KeyIsCustom>
-  <KeyIsGlobal>True</KeyIsGlobal>
   <KeyIsHidden>False</KeyIsHidden>
   <KeyName>CMSEnableCI</KeyName>
   <KeyOrder>1</KeyOrder>

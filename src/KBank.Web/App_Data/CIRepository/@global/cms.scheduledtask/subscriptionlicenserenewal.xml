@@ -12,7 +12,6 @@
     <![CDATA[day;7/13/2011 10:10:49 AM;1;Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday]]>
   </TaskInterval>
   <TaskName>SubscriptionLicenseRenewal</TaskName>
-  <TaskRunIndividually>False</TaskRunIndividually>
   <TaskRunInSeparateThread>True</TaskRunInSeparateThread>
   <TaskServerName />
 </cms.scheduledtask>

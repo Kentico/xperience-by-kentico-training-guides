@@ -14,21 +14,13 @@
     </form>
   </ClassFormDefinition>
   <ClassGUID>2e9a20d6-0432-4c51-9048-07961a05a604</ClassGUID>
-  <ClassHasMetadata>False</ClassHasMetadata>
   <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
-  <ClassHasURL>False</ClassHasURL>
-  <ClassIsCoupledClass>True</ClassIsCoupledClass>
-  <ClassIsDocumentType>False</ClassIsDocumentType>
-  <ClassIsForm>False</ClassIsForm>
-  <ClassIsPage>False</ClassIsPage>
   <ClassName>EmailLibrary.EmailBounce</ClassName>
-  <ClassNodeNameSource />
   <ClassResourceID>
     <CodeName>CMS.EmailLibrary</CodeName>
     <GUID>028f4adc-346c-434a-8992-408c8b45a986</GUID>
     <ObjectType>cms.resource</ObjectType>
   </ClassResourceID>
-  <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
   <ClassTableName>EmailLibrary_EmailBounce</ClassTableName>
-  <ClassUsesPageBuilder>False</ClassUsesPageBuilder>
+  <ClassType>Other</ClassType>
 </cms.class>

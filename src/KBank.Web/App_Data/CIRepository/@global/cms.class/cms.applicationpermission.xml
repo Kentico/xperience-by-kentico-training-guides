@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.class>
-  <ClassCustomizedColumns />
   <ClassDisplayName>Application Permission</ClassDisplayName>
   <ClassFormDefinition>
     <form>
@@ -12,21 +11,13 @@
     </form>
   </ClassFormDefinition>
   <ClassGUID>da4ce06f-8c1d-49ef-ad6c-c7e240c8f69c</ClassGUID>
-  <ClassHasMetadata>False</ClassHasMetadata>
   <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
-  <ClassHasURL>False</ClassHasURL>
-  <ClassIsCoupledClass>True</ClassIsCoupledClass>
-  <ClassIsDocumentType>False</ClassIsDocumentType>
-  <ClassIsForm>False</ClassIsForm>
-  <ClassIsPage>False</ClassIsPage>
   <ClassName>CMS.ApplicationPermission</ClassName>
-  <ClassNodeNameSource />
   <ClassResourceID>
     <CodeName>CMS.Membership</CodeName>
     <GUID>d4b7561a-f188-420c-8f68-63b5c573b2bf</GUID>
     <ObjectType>cms.resource</ObjectType>
   </ClassResourceID>
-  <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
   <ClassTableName>CMS_ApplicationPermission</ClassTableName>
-  <ClassUsesPageBuilder>False</ClassUsesPageBuilder>
+  <ClassType>Other</ClassType>
 </cms.class>
