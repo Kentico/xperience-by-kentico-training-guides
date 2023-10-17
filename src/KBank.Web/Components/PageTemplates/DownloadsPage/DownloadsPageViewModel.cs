@@ -18,7 +18,7 @@ public class DownloadsPageViewModel
         return new DownloadsPageViewModel
         {
             Heading = downloadsPage.DownloadsPageContent.FirstOrDefault()?.Heading,
-            Assets = downloadsPage.DownloadsPageContent.FirstOrDefault()?.Assets?.Select(asset => AssetViewModel.GetViewModel(asset as Asset))
+            Assets = downloadsPage.DownloadsPageContent.FirstOrDefault()?.Assets?.Select(asset => AssetViewModel.GetViewModel(asset))
         };
     }
 }

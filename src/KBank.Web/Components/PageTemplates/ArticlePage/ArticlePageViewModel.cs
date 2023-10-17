@@ -10,7 +10,7 @@ public class ArticlePageViewModel
     public static ArticlePageViewModel GetViewModel(ArticlePage article)
     {
         if (article == null)
-        { 
+        {
             return new ArticlePageViewModel();
         }
 

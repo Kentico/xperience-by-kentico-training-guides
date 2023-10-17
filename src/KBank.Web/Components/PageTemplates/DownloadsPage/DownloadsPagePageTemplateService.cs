@@ -1,22 +1,35 @@
-﻿using Kentico.Content.Web.Mvc;
+﻿using CMS.Websites;
+using KBank.Web.Services;
+using Kentico.Content.Web.Mvc;
+using System.Threading.Tasks;
 
 namespace KBank.Web.Components.PageTemplates;
 
 public class DownloadsPagePageTemplateService
 {
     private readonly IWebPageDataContextRetriever webPageDataContextRetriver;
+    private readonly IWebPageQueryResultMapper webPageQueryResultMapper;
+    private readonly IContentItemRetrieverService<DownloadsPage> contentItemRetriever;
 
-
-    public DownloadsPagePageTemplateService(IWebPageDataContextRetriever webPageDataContextRetriver)
+    public DownloadsPagePageTemplateService(IWebPageDataContextRetriever webPageDataContextRetriver, IWebPageQueryResultMapper webPageQueryResultMapper, IContentItemRetrieverService<DownloadsPage> contentItemRetriever)
     {
         this.webPageDataContextRetriver = webPageDataContextRetriver;
+        this.webPageQueryResultMapper = webPageQueryResultMapper;
+        this.contentItemRetriever = contentItemRetriever;
     }
 
 
-    public DownloadsPageViewModel GetTemplateModel()
+    public async Task<DownloadsPageViewModel> GetTemplateModel()
     {
         var context = webPageDataContextRetriver.Retrieve();
-        return DownloadsPageViewModel.GetViewModel(context as DownloadsPage);
+
+        var downloadsPage = await contentItemRetriever.RetrieveWebPageById(
+            context.WebPage.WebPageItemID,
+            DownloadsPage.CONTENT_TYPE_NAME,
+            container => webPageQueryResultMapper.Map<DownloadsPage>(container),
+            2);
+
+        return DownloadsPageViewModel.GetViewModel(downloadsPage);
     }
 }
 

@@ -10,5 +10,6 @@ public static class ComponentIdentifiers
     public const string ARTICLE_PAGE_TEMPLATE = "KBank.ArticlePage";
     public const string DOWNLOADS_PAGE_TEMPLATE = "KBank.DownloadsPage";
     public const string LANDING_PAGE_TEMPLATE = "KBank.LandingPage";
+    public const string EMPTY_PAGE_TEMPLATE = "KBank.EmptyPage";
 
 }

@@ -1,9 +1,9 @@
 ﻿@model ComponentViewModel<LandingPageTemplateProperties>
 
-@inject HomePagePageTemplateService Service
+@inject LandingPagePageTemplateService Service
 
 @{
-    var templateModel = Service.GetTemplateModel();
+    var templateModel = await Service.GetTemplateModel();
     ViewBag.Title = templateModel.Message;
     string tagText = Service.GetSafeTagText(Model.Properties.MessageType);
     string openingTag = $"<{tagText}>";

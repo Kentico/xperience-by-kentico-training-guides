@@ -3,8 +3,8 @@
 @inject ArticlePagePageTemplateService Service
 
 @{
-    var templateModel = Service.GetTemplateModel();
-    ViewBag.Title = templateModel.Heading;
+    var templateModel = await Service.GetTemplateModel();
+    ViewBag.Title = templateModel.Title;
 }
 
 <div>
