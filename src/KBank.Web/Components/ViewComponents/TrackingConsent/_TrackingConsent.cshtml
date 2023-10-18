@@ -1,12 +1,9 @@
-﻿@using CMS.DocumentEngine;
-@using Kentico.Content.Web.Mvc;
+﻿@using Kentico.Content.Web.Mvc;
 @using KBank.Web.Models
 @using Kentico.Web.Mvc
 @using KBank.Web.Extensions;
 
 @model TrackingConsentViewModel
-
-@inject IPageDataContextRetriever pageDataContextRetriever
 
 @{
     // Gets the page's current URL
@@ -17,9 +14,6 @@
 @* Displays content only if the current contact has not yet given a tracking consent agreement, or chosen only essential cookies. *@
 @if (!Model.IsAgreed && !Model.CookieAccepted)
 {
-
-
-
     @using (Html.AjaxBeginForm("CookieBanner", "cookiebannersubmit", new AjaxOptions
     {
         HttpMethod = "POST",

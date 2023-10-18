@@ -5,6 +5,8 @@ using KBank.Admin;
 using KBank.Web.Helpers.Cookies;
 using KBank.Web.Models;
 using KBank.Web.Services.Cryptography;
+using Kentico.Content.Web.Mvc.Routing;
+using Kentico.Web.Mvc;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Globalization;
@@ -18,15 +20,21 @@ namespace KBank.Web.Components.ViewComponents.TrackingConsent
         private readonly IConsentAgreementService _consentAgreementService;
         private readonly IConsentInfoProvider _consentInfoProvider;
         private readonly IStringEncryptionService _stringEncryptionService;
+        private readonly ICookieAccessor _cookieAccessor;
+        private readonly IPreferredLanguageRetriever _preferredLanguageRetriever;
 
 
         public TrackingConsentViewComponent(IConsentAgreementService consentAgreementService,
                                             IConsentInfoProvider consentInfoProvider,
-                                            IStringEncryptionService stringEncryptionService)
+                                            IStringEncryptionService stringEncryptionService,
+                                            ICookieAccessor cookieAccessor,
+                                            IPreferredLanguageRetriever preferredLanguageRetriever)
         {
             _consentAgreementService = consentAgreementService;
             _consentInfoProvider = consentInfoProvider;
             _stringEncryptionService = stringEncryptionService;
+            _cookieAccessor = cookieAccessor;
+            _preferredLanguageRetriever = preferredLanguageRetriever;
         }
 
         /// <summary>
@@ -54,8 +62,11 @@ namespace KBank.Web.Components.ViewComponents.TrackingConsent
                 foreach (ConsentInfo consent in consents)
                 {
                     codenames.Add(consent.ConsentName);
-
-                    text += $"<li>{consent.GetConsentText(CultureInfo.CurrentCulture.Name).ShortText}</li>";
+                    //TODO make sure the consents have language variants before uncommenting this 
+                    //and fix it back to better format
+                    //var asdf = consent.GetConsentTextAsync(_preferredLanguageRetriever.Get()).Result;
+                    //var asdf = consent.GetConsentTextAsync("en").Result;
+                    //text += $"<li>{asdf.ShortText}</li>";
 
                     //agreed will end up being true if the contact has agreed to at least one consent
                     isAgreed = isAgreed || (currentContact != null) && _consentAgreementService.IsAgreed(currentContact, consent);
@@ -70,7 +81,7 @@ namespace KBank.Web.Components.ViewComponents.TrackingConsent
 
                 var consentModel = new TrackingConsentViewModel
                 {
-                    CookieAccepted = ValidationHelper.GetBoolean(CookieHelper.GetValue(CookieNames.COOKIE_ACCEPTANCE), false),
+                    CookieAccepted = ValidationHelper.GetBoolean(_cookieAccessor.Get(CookieNames.COOKIE_ACCEPTANCE), false),
 
                     CookieMessage = text,
 
@@ -107,7 +118,7 @@ namespace KBank.Web.Components.ViewComponents.TrackingConsent
         private bool EnsureCorrectCookieLevel(ContactInfo contact, IEnumerable<ConsentInfo> consents, CookieLevelConsentMappingInfo mapping)
         {
 
-            CookieConsentLevel level = ValidationHelper.GetBoolean(CookieHelper.GetValue(CookieNames.COOKIE_ACCEPTANCE), false) ? CookieConsentLevel.Essential : CookieConsentLevel.NotSet;
+            CookieConsentLevel level = ValidationHelper.GetBoolean(_cookieAccessor.Get(CookieNames.COOKIE_ACCEPTANCE), false) ? CookieConsentLevel.Essential : CookieConsentLevel.NotSet;
             ConsentInfo preferenceConsent = consents.Where(consent => consent.ConsentName == mapping.PreferenceConsentCodeName.FirstOrDefault()).FirstOrDefault();
             if (contact != null && preferenceConsent != null && _consentAgreementService.IsAgreed(contact, preferenceConsent))
             {

@@ -43,21 +43,12 @@
           <fielddescriptionashtml>False</fielddescriptionashtml>
         </properties>
       </field>
-      <field column="LibraryTeaserGUID" enabled="true" guid="1cf86270-1d15-4a07-a3fb-4d97ba972c46" visible="true">
-        <settings>
-          <controlname>metafileuploadercontrol</controlname>
-          <ObjectCategory>Thumbnail</ObjectCategory>
-        </settings>
-        <properties>
-          <fieldcaption>{$general.teaser$}</fieldcaption>
-        </properties>
-      </field>
       <field column="LibraryFolder" guid="06f6b6a9-08ca-4735-8732-20cc75d11802">
         <settings>
           <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
           <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
           <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
-          <controlname>textboxcontrol</controlname>
+          <controlname>Kentico.Administration.TextInput</controlname>
           <FilterMode>False</FilterMode>
           <Trim>False</Trim>
         </settings>
@@ -67,21 +58,8 @@
         </properties>
       </field>
       <field column="LibraryAccess" guid="720d2865-0be4-43d3-8ed8-412b269b1d00" />
-      <field column="LibrarySiteID" guid="99746a1e-3514-4c13-b878-7bb7b39ddb3d" />
       <field column="LibraryGUID" guid="512c11dd-a325-4bf2-b1be-4f7c54397132" />
       <field column="LibraryLastModified" guid="54f9c352-5ac2-4e4b-ab98-65d41240e9e4" />
-      <field column="LibraryTeaserPath" guid="5de9f8d9-3e2d-4d83-8a63-6c2bdfb76629" />
-      <field column="LibraryUseDirectPathForContent" guid="b84913d8-82f6-438e-abc2-f6e6c7e9e7b2">
-        <settings>
-          <controlname>CheckBoxControl</controlname>
-        </settings>
-        <properties>
-          <fieldcaption>{$content.medialibraries.usedirectpath.name$}</fieldcaption>
-          <fielddescription>
-            <![CDATA[{$content.medialibraries.usedirectpath.description$}]]>
-          </fielddescription>
-        </properties>
-      </field>
     </form>
   </FormDefinition>
   <FormDisplayName>Edit</FormDisplayName>

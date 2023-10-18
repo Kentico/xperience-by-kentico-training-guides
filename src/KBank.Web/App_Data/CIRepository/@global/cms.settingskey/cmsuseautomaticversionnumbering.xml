@@ -4,7 +4,6 @@
     <CodeName>CMS.Content.Workflow</CodeName>
     <ObjectType>cms.settingscategory</ObjectType>
   </KeyCategoryID>
-  <KeyDefaultValue>True</KeyDefaultValue>
   <KeyDescription>
     <![CDATA[{$settingskey.cmsuseautomaticversionnumbering.description$}]]>
   </KeyDescription>
@@ -12,7 +11,6 @@
   <KeyExplanationText />
   <KeyGUID>20ff6c4e-bec0-4e57-8ce3-6fba6ba27fb8</KeyGUID>
   <KeyIsCustom>False</KeyIsCustom>
-  <KeyIsGlobal>False</KeyIsGlobal>
   <KeyIsHidden>True</KeyIsHidden>
   <KeyName>CMSUseAutomaticVersionNumbering</KeyName>
   <KeyOrder>3</KeyOrder>

@@ -4,9 +4,6 @@
     <CodeName>CMS.MediaLibraries.Security</CodeName>
     <ObjectType>cms.settingscategory</ObjectType>
   </KeyCategoryID>
-  <KeyDefaultValue>
-    <![CDATA[jpg;jpeg;png;webp;bmp;wav;mp3;mp4;mpg;mpeg;avi;webm;wmv;txt;pdf;docx;pptx;xlsx]]>
-  </KeyDefaultValue>
   <KeyDescription>
     <![CDATA[{$base.settings.settingskey.cmsmediafileallowedextensions.description$}]]>
   </KeyDescription>
@@ -16,12 +13,11 @@
   <KeyExplanationText />
   <KeyGUID>4ac1db6f-a289-49a4-8c98-b340f9e4ef6a</KeyGUID>
   <KeyIsCustom>False</KeyIsCustom>
-  <KeyIsGlobal>False</KeyIsGlobal>
   <KeyIsHidden>False</KeyIsHidden>
   <KeyName>CMSMediaFileAllowedExtensions</KeyName>
   <KeyOrder>1</KeyOrder>
   <KeyType>string</KeyType>
   <KeyValue>
-    <![CDATA[jpg;jpeg;png;webp;bmp;wav;mp3;mp4;mpg;mpeg;avi;webm;wmv;txt;pdf;docx;pptx;xlsx]]>
+    <![CDATA[jpg;jpeg;png;webp;bmp;wav;mp3;mp4;mpg;mpeg;avi;webm;wmv;txt;pdf;docx;pptx;xlsx;svg]]>
   </KeyValue>
 </cms.settingskey>

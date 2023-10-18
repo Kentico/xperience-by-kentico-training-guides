@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.macrorule>
-  <MacroRuleAvailability>0</MacroRuleAvailability>
   <MacroRuleCondition>{condition}</MacroRuleCondition>
   <MacroRuleDescription>
     <![CDATA[{$macrorule.cmssatisfiesmacrocondition.description$}]]>
@@ -26,8 +25,6 @@
       </field>
     </form>
   </MacroRuleParameters>
-  <MacroRuleRequiresContext>False</MacroRuleRequiresContext>
-  <MacroRuleResourceName />
   <MacroRuleText>
     <![CDATA[The following macro condition is satisfied: {condition}]]>
   </MacroRuleText>

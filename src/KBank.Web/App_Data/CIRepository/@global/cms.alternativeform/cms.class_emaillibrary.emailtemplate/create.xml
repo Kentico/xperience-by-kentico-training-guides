@@ -14,7 +14,9 @@
         </settings>
         <properties>
           <explanationtextashtml>False</explanationtextashtml>
-          <fieldcaption>{$base.emailtemplate.edit.displayname$}</fieldcaption>
+          <fieldcaption>
+            <![CDATA[{$digitalmarketing.emailtemplate.edit.displayname$}]]>
+          </fieldcaption>
           <fielddescriptionashtml>False</fielddescriptionashtml>
         </properties>
       </field>
@@ -24,39 +26,27 @@
         </settings>
         <properties>
           <explanationtextashtml>False</explanationtextashtml>
-          <fieldcaption>{$base.emailtemplate.edit.name$}</fieldcaption>
+          <fieldcaption>{$digitalmarketing.emailtemplate.edit.name$}</fieldcaption>
           <fielddescriptionashtml>False</fielddescriptionashtml>
         </properties>
       </field>
-      <field column="EmailTemplateType" enabled="true" guid="20b5ab1b-b7fe-4879-9781-a504fa81a5cd" visible="true" order="2">
-        <settings>
-          <controlname>Kentico.Administration.DropDownSelector</controlname>
-        </settings>
-        <properties>
-          <explanationtextashtml>False</explanationtextashtml>
-          <fieldcaption>{$base.emailtemplate.edit.type$}</fieldcaption>
-          <fielddescription>
-            <![CDATA[{$base.emailtemplate.type.tooltip$}<ul><li>{$base.emailtemplate.type.tooltip.regular$}</li><li>{$base.emailtemplate.type.tooltip.autoresponder$}</li><li>{$base.emailtemplate.type.tooltip.confirmation$}</li></ul>]]>
-          </fielddescription>
-          <fielddescriptionashtml>True</fielddescriptionashtml>
-        </properties>
-      </field>
-      <field column="EmailTemplateDescription" enabled="true" guid="471c95a6-2650-447b-8570-53ebbe983ede" visible="true">
+      <field column="EmailTemplateDescription" enabled="true" guid="471c95a6-2650-447b-8570-53ebbe983ede" visible="true" order="2">
         <settings>
           <controlname>Kentico.Administration.TextArea</controlname>
           <CopyButtonVisible>False</CopyButtonVisible>
         </settings>
         <properties>
           <explanationtextashtml>False</explanationtextashtml>
-          <fieldcaption>{$base.emailtemplate.edit.description$}</fieldcaption>
+          <fieldcaption>
+            <![CDATA[{$digitalmarketing.emailtemplate.edit.description$}]]>
+          </fieldcaption>
           <fielddescriptionashtml>False</fielddescriptionashtml>
         </properties>
       </field>
-      <field column="EmailTemplateID" guid="08d9a3b4-0c76-417a-bb90-9e57771868ba" order="4" />
-      <field column="EmailTemplateCode" guid="e4f71522-cdf4-45d5-a612-5a517e249c88" order="5" />
-      <field column="EmailTemplateSiteID" guid="78ebadf9-0b52-4d99-b679-6d1376061172" order="6" />
-      <field column="EmailTemplateGuid" guid="b5ab4211-d8ca-4a8d-879d-80127b76e284" order="7" />
-      <field column="EmailTemplateLastModified" guid="5f6a057c-7562-49ae-acd9-633f1522a645" order="8" />
+      <field column="EmailTemplateID" guid="08d9a3b4-0c76-417a-bb90-9e57771868ba" order="3" />
+      <field column="EmailTemplateCode" guid="e4f71522-cdf4-45d5-a612-5a517e249c88" />
+      <field column="EmailTemplateGuid" guid="b5ab4211-d8ca-4a8d-879d-80127b76e284" />
+      <field column="EmailTemplateLastModified" guid="5f6a057c-7562-49ae-acd9-633f1522a645" />
     </form>
   </FormDefinition>
   <FormDisplayName>Create</FormDisplayName>

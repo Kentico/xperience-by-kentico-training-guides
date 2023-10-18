@@ -4,7 +4,6 @@
     <CodeName>CMS.WebSite.ClientCaching</CodeName>
     <ObjectType>cms.settingscategory</ObjectType>
   </KeyCategoryID>
-  <KeyDefaultValue>True</KeyDefaultValue>
   <KeyDescription>
     <![CDATA[{$base.settings.settingskey.cmsrevalidateclientcache.description$}]]>
   </KeyDescription>
@@ -14,7 +13,6 @@
   <KeyExplanationText />
   <KeyGUID>b49c02fa-6375-4d61-923b-f5989ba8dfc1</KeyGUID>
   <KeyIsCustom>False</KeyIsCustom>
-  <KeyIsGlobal>False</KeyIsGlobal>
   <KeyIsHidden>False</KeyIsHidden>
   <KeyName>CMSRevalidateClientCache</KeyName>
   <KeyOrder>3</KeyOrder>

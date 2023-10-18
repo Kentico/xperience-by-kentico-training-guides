@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.class>
-  <ClassCustomizedColumns />
   <ClassDisplayName>Staging - TaskGroupTask</ClassDisplayName>
   <ClassFormDefinition>
     <form>
@@ -14,22 +13,14 @@
     </form>
   </ClassFormDefinition>
   <ClassGUID>6d2c15b3-5ba8-4ef0-88dd-d395597a9242</ClassGUID>
-  <ClassHasMetadata>False</ClassHasMetadata>
   <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
-  <ClassHasURL>False</ClassHasURL>
-  <ClassIsCoupledClass>True</ClassIsCoupledClass>
-  <ClassIsDocumentType>False</ClassIsDocumentType>
-  <ClassIsPage>False</ClassIsPage>
   <ClassName>staging.TaskGroupTask</ClassName>
-  <ClassNodeNameSource />
   <ClassResourceID>
     <CodeName>CMS.Staging</CodeName>
     <GUID>b1640241-8905-4845-ac9a-0301cb60cb63</GUID>
     <ObjectType>cms.resource</ObjectType>
   </ClassResourceID>
-  <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
   <ClassShowTemplateSelection>False</ClassShowTemplateSelection>
   <ClassTableName>staging_TaskGroupTask</ClassTableName>
-  <ClassUsePublishFromTo>False</ClassUsePublishFromTo>
-  <ClassUsesPageBuilder>False</ClassUsesPageBuilder>
+  <ClassType>Other</ClassType>
 </cms.class>

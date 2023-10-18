@@ -11,7 +11,6 @@
   <KeyExplanationText />
   <KeyGUID>fe6b1ff3-3f1c-4d1e-acbc-6877e0827157</KeyGUID>
   <KeyIsCustom>False</KeyIsCustom>
-  <KeyIsGlobal>False</KeyIsGlobal>
   <KeyIsHidden>True</KeyIsHidden>
   <KeyName>CMSAutoResizeImageMaxSideSize</KeyName>
   <KeyOrder>3</KeyOrder>

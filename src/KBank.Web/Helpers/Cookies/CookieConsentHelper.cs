@@ -7,6 +7,8 @@ using CMS.Core;
 using CMS.DataProtection;
 using CMS.Helpers;
 using KBank.Admin;
+using Kentico.Web.Mvc;
+using Microsoft.AspNetCore.Http;
 
 namespace KBank.Web.Helpers.Cookies
 {
@@ -19,6 +21,7 @@ namespace KBank.Web.Helpers.Cookies
         private static readonly IConsentAgreementService _consentAgreementService = Service.Resolve<IConsentAgreementService>();
         private static readonly IConsentInfoProvider _consentInfoProvider = Service.Resolve<IConsentInfoProvider>();
         private static readonly ICookieLevelConsentMappingInfoProvider _cookieLevelConsentMappingInfoProvider = Service.Resolve<ICookieLevelConsentMappingInfoProvider>();
+        private static readonly ICookieAccessor _cookieAccessor = Service.Resolve<ICookieAccessor>();
 
 
         /// <summary>
@@ -85,7 +88,11 @@ namespace KBank.Web.Helpers.Cookies
             try
             {
                 // Set cookie consent level into client's cookies
-                CookieHelper.SetValue(CookieNames.COOKIE_CONSENT_LEVEL, ((int)level).ToString(), null, DateTime.Now.AddYears(1), false/*, GlobalCurrentCookieLevelProvider.CookieLevelDomain*/);
+                _cookieAccessor.Set(CookieNames.COOKIE_CONSENT_LEVEL, ((int)level).ToString(), new CookieOptions { 
+                    Path = null,
+                    Expires = DateTime.Now.AddYears(1),
+                    HttpOnly = false
+                });
 
                 // Set system cookie level according consent level
                 SynchronizeCookieLevel(level);
@@ -205,7 +212,7 @@ namespace KBank.Web.Helpers.Cookies
         /// <returns>Cookie consent level</returns>
         public static CookieConsentLevel GetCurrentCookieConsentLevel()
         {
-            Enum.TryParse<CookieConsentLevel>(CookieHelper.GetValue(CookieNames.COOKIE_CONSENT_LEVEL), out var consent);
+            Enum.TryParse<CookieConsentLevel>(_cookieAccessor.Get(CookieNames.COOKIE_CONSENT_LEVEL), out var consent);
 
             return consent;
         }
@@ -223,12 +230,12 @@ namespace KBank.Web.Helpers.Cookies
                     SetCookieLevelIfChanged(_cookieLevelProvider.GetDefaultCookieLevel());
                     break;
                 case CookieConsentLevel.Essential:
-                    SetCookieLevelIfChanged(CookieLevel.Essential);
+                    SetCookieLevelIfChanged(Kentico.Web.Mvc.CookieLevel.Essential.Level);
                     break;
                 case CookieConsentLevel.Preference:
                 case CookieConsentLevel.Analytical:
                 case CookieConsentLevel.Marketing:
-                    SetCookieLevelIfChanged(CookieLevel.Visitor);
+                    SetCookieLevelIfChanged(Kentico.Web.Mvc.CookieLevel.Visitor.Level);
                     break;
                 default:
                     throw new NotSupportedException($"CookieConsentLevel {level} is not supported.");
@@ -270,7 +277,7 @@ namespace KBank.Web.Helpers.Cookies
         public static bool CurrentContactIsVisitorOrHigher()
         {
             bool isVisitorOrHigher = false;
-            string cookieLevelString = CookieHelper.GetValue("CMSCookieLevel");
+            string cookieLevelString = _cookieAccessor.Get("CMSCookieLevel");
 
             if (int.TryParse(cookieLevelString, out int cookieLevel))
             {

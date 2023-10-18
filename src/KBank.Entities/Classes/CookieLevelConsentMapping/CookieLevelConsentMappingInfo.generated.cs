@@ -27,7 +27,7 @@ namespace KBank.Admin
         /// <summary>
         /// Type information.
         /// </summary>
-        public static readonly ObjectTypeInfo TYPEINFO = new ObjectTypeInfo(typeof(CookieLevelConsentMappingInfoProvider), OBJECT_TYPE, "KBank.CookieLevelConsentMapping", "CookieLevelConsentMappingID", null, "CookieLevelConsentMappingGuid", "CookieLevelConsentMappingGuid", "CookieLevelConsentMappingID", null, null, null, null)
+        public static readonly ObjectTypeInfo TYPEINFO = new ObjectTypeInfo(typeof(CookieLevelConsentMappingInfoProvider), OBJECT_TYPE, "KBank.CookieLevelConsentMapping", "CookieLevelConsentMappingID", null, "CookieLevelConsentMappingGuid", "CookieLevelConsentMappingGuid", "CookieLevelConsentMappingID", null, null, null)
         {
             ModuleName = "KBank.Admin",
             TouchCacheDependencies = true,
@@ -43,14 +43,8 @@ namespace KBank.Admin
         [DatabaseField]
         public virtual int CookieLevelConsentMappingID
         {
-            get
-            {
-                return ValidationHelper.GetInteger(GetValue("CookieLevelConsentMappingID"), 0);
-            }
-            set
-            {
-                SetValue("CookieLevelConsentMappingID", value);
-            }
+            get => ValidationHelper.GetInteger(GetValue(nameof(CookieLevelConsentMappingID)), 0);
+            set => SetValue(nameof(CookieLevelConsentMappingID), value);
         }
 
 
@@ -60,14 +54,8 @@ namespace KBank.Admin
         [DatabaseField]
         public virtual string mPreferenceConsentCodeName
         {
-            get 
-            {
-                return ValidationHelper.GetString(GetValue("PreferenceConsentCodeName"), String.Empty);
-            }
-            set
-            {
-                SetValue("PreferenceConsentCodeName", value, String.Empty);
-            }
+            get => ValidationHelper.GetString(GetValue(nameof(PreferenceConsentCodeName)), String.Empty);
+            set => SetValue(nameof(PreferenceConsentCodeName), value, String.Empty);
         }
 
 
@@ -76,10 +64,7 @@ namespace KBank.Admin
         /// </summary>
         public IEnumerable<string> PreferenceConsentCodeName
         {
-            get 
-            {
-                return global::CMS.DataEngine.Internal.JsonDataTypeConverter.ConvertToModels<string>(mPreferenceConsentCodeName);
-            }
+            get => global::CMS.DataEngine.Internal.JsonDataTypeConverter.ConvertToModels<string>(mPreferenceConsentCodeName);
         }
 
 
@@ -89,14 +74,8 @@ namespace KBank.Admin
         [DatabaseField]
         public virtual string mAnalyticalConsentCodeName
         {
-            get 
-            {
-                return ValidationHelper.GetString(GetValue("AnalyticalConsentCodeName"), String.Empty);
-            }
-            set
-            {
-                SetValue("AnalyticalConsentCodeName", value, String.Empty);
-            }
+            get => ValidationHelper.GetString(GetValue(nameof(AnalyticalConsentCodeName)), String.Empty);
+            set => SetValue(nameof(AnalyticalConsentCodeName), value, String.Empty);
         }
 
 
@@ -105,10 +84,7 @@ namespace KBank.Admin
         /// </summary>
         public IEnumerable<string> AnalyticalConsentCodeName
         {
-            get 
-            {
-                return global::CMS.DataEngine.Internal.JsonDataTypeConverter.ConvertToModels<string>(mAnalyticalConsentCodeName);
-            }
+            get => global::CMS.DataEngine.Internal.JsonDataTypeConverter.ConvertToModels<string>(mAnalyticalConsentCodeName);
         }
 
 
@@ -118,14 +94,8 @@ namespace KBank.Admin
         [DatabaseField]
         public virtual string mMarketingConsentCodeName
         {
-            get 
-            {
-                return ValidationHelper.GetString(GetValue("MarketingConsentCodeName"), String.Empty);
-            }
-            set
-            {
-                SetValue("MarketingConsentCodeName", value, String.Empty);
-            }
+            get => ValidationHelper.GetString(GetValue(nameof(MarketingConsentCodeName)), String.Empty);
+            set => SetValue(nameof(MarketingConsentCodeName), value, String.Empty);
         }
 
 
@@ -134,10 +104,7 @@ namespace KBank.Admin
         /// </summary>
         public IEnumerable<string> MarketingConsentCodeName
         {
-            get 
-            {
-                return global::CMS.DataEngine.Internal.JsonDataTypeConverter.ConvertToModels<string>(mMarketingConsentCodeName);
-            }
+            get => global::CMS.DataEngine.Internal.JsonDataTypeConverter.ConvertToModels<string>(mMarketingConsentCodeName);
         }
 
 
@@ -147,14 +114,8 @@ namespace KBank.Admin
         [DatabaseField]
         public virtual Guid CookieLevelConsentMappingGuid
         {
-            get
-            {
-                return ValidationHelper.GetGuid(GetValue("CookieLevelConsentMappingGuid"), Guid.Empty);
-            }
-            set
-            {
-                SetValue("CookieLevelConsentMappingGuid", value);
-            }
+            get => ValidationHelper.GetGuid(GetValue(nameof(CookieLevelConsentMappingGuid)), Guid.Empty);
+            set => SetValue(nameof(CookieLevelConsentMappingGuid), value);
         }
 
 

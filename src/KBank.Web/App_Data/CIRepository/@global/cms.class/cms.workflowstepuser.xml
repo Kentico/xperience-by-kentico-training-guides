@@ -2,52 +2,24 @@
 <cms.class>
   <ClassConnectionString>CMSConnectionString</ClassConnectionString>
   <ClassContactOverwriteEnabled>False</ClassContactOverwriteEnabled>
-  <ClassCustomizedColumns />
   <ClassDisplayName>WorkflowStepUser</ClassDisplayName>
   <ClassFormDefinition>
     <form>
-      <field column="WorkflowStepUserID" columntype="integer" guid="b1518dbe-a60e-4505-a102-0a0d94045a30" isPK="true" system="true">
-        <properties>
-          <fieldcaption>WorkflowStepUserID</fieldcaption>
-        </properties>
-      </field>
-      <field column="StepID" columntype="integer" guid="24741863-2e89-43d3-abb8-170aeada4825" refobjtype="cms.workflowstep" reftype="Binding" system="true">
-        <properties>
-          <fieldcaption>StepID</fieldcaption>
-        </properties>
-      </field>
-      <field column="UserID" columntype="integer" guid="8f9e7da4-3ea7-48e5-a636-d99c3f8298ce" refobjtype="cms.user" reftype="Binding" system="true">
-        <properties>
-          <fieldcaption>UserID</fieldcaption>
-        </properties>
-      </field>
-      <field allowempty="true" column="StepSourcePointGUID" columntype="guid" guid="68f3ac04-c9c0-4f8e-87e3-fe76427a7303" system="true">
-        <properties>
-          <fieldcaption>StepSourcePointGUID</fieldcaption>
-        </properties>
-      </field>
+      <field column="WorkflowStepUserID" columntype="integer" guid="b1518dbe-a60e-4505-a102-0a0d94045a30" isPK="true" system="true" />
+      <field column="StepID" columntype="integer" guid="24741863-2e89-43d3-abb8-170aeada4825" refobjtype="cms.workflowstep" reftype="Binding" system="true" />
+      <field column="UserID" columntype="integer" guid="8f9e7da4-3ea7-48e5-a636-d99c3f8298ce" refobjtype="cms.user" reftype="Binding" system="true" />
+      <field allowempty="true" column="StepSourcePointGUID" columntype="guid" guid="68f3ac04-c9c0-4f8e-87e3-fe76427a7303" system="true" />
     </form>
   </ClassFormDefinition>
   <ClassGUID>127dfeba-3a19-41c6-ac05-56a428acc019</ClassGUID>
-  <ClassHasMetadata>False</ClassHasMetadata>
   <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
-  <ClassHasURL>False</ClassHasURL>
-  <ClassIsCoupledClass>True</ClassIsCoupledClass>
-  <ClassIsDocumentType>False</ClassIsDocumentType>
-  <ClassIsForm>False</ClassIsForm>
-  <ClassIsPage>False</ClassIsPage>
   <ClassName>CMS.WorkflowStepUser</ClassName>
-  <ClassNodeAliasSource />
-  <ClassNodeNameSource />
   <ClassResourceID>
     <CodeName>CMS.WorkflowEngine</CodeName>
     <GUID>2b67f370-3df4-4a4d-8734-1974639c5b69</GUID>
     <ObjectType>cms.resource</ObjectType>
   </ClassResourceID>
-  <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
-  <ClassShowColumns />
   <ClassShowTemplateSelection>False</ClassShowTemplateSelection>
   <ClassTableName>CMS_WorkflowStepUser</ClassTableName>
-  <ClassUsePublishFromTo>False</ClassUsePublishFromTo>
-  <ClassUsesPageBuilder>False</ClassUsesPageBuilder>
+  <ClassType>Other</ClassType>
 </cms.class>

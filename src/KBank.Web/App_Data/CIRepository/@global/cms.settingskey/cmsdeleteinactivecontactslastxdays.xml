@@ -4,7 +4,6 @@
     <CodeName>CMS.OnlineMarketing.InactiveContacts.DeleteInactiveContacts</CodeName>
     <ObjectType>cms.settingscategory</ObjectType>
   </KeyCategoryID>
-  <KeyDefaultValue>365</KeyDefaultValue>
   <KeyDescription>
     <![CDATA[{$settingskey.om.deleteinactivecontacts.lastxdays.description$}]]>
   </KeyDescription>
@@ -23,7 +22,6 @@
   </KeyFormControlSettings>
   <KeyGUID>2bba1593-bfa7-4f39-aad0-8c10ca9ea7d9</KeyGUID>
   <KeyIsCustom>False</KeyIsCustom>
-  <KeyIsGlobal>True</KeyIsGlobal>
   <KeyIsHidden>True</KeyIsHidden>
   <KeyName>CMSDeleteInactiveContactsLastXDays</KeyName>
   <KeyOrder>2</KeyOrder>

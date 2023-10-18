@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.macrorule>
-  <MacroRuleAvailability>2</MacroRuleAvailability>
   <MacroRuleCondition>
     <![CDATA[{_is}Contact.IsInContactGroup("{groups}", {_any})]]>
   </MacroRuleCondition>
@@ -37,7 +36,8 @@
           <fieldcaption>select operation</fieldcaption>
         </properties>
         <settings>
-          <controlname>macronegationoperator</controlname>
+          <controlname>Kentico.Administration.DropDownSelector</controlname>
+          <IsPerfectum>True</IsPerfectum>
           <Options>
 <![CDATA[
 __is;is
@@ -53,7 +53,7 @@ __isnot;is not
           <fieldcaption>select operation</fieldcaption>
         </properties>
         <settings>
-          <controlname>macro_any-all_bool_selector</controlname>
+          <controlname>Kentico.Administration.DropDownSelector</controlname>
           <Options>
 <![CDATA[
 false;any
@@ -65,8 +65,6 @@ true;all
       </field>
     </form>
   </MacroRuleParameters>
-  <MacroRuleRequiresContext>False</MacroRuleRequiresContext>
-  <MacroRuleResourceName>cms.onlinemarketing</MacroRuleResourceName>
   <MacroRuleText>
     <![CDATA[Contact {_is} in {_any} of the following contact groups: {groups}]]>
   </MacroRuleText>

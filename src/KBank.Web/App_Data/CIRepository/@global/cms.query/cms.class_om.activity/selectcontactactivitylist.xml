@@ -15,7 +15,7 @@
 <![CDATA[
 SELECT ##TOPN## ##COLUMNS## FROM (
 SELECT OM_Activity.ActivityID, OM_Activity.ActivityTitle, OM_Activity.ActivityType,
-OM_Activity.ActivityCreated, OM_Activity.ActivitySiteID, OM_Contact.ContactID,
+OM_Activity.ActivityCreated, OM_Contact.ContactID,
 ISNULL(OM_Contact.ContactFirstName, '') + CASE WHEN (NULLIF(OM_Contact.ContactFirstName,'') IS NULL) THEN '' ELSE ' ' END +
 ISNULL(OM_Contact.ContactMiddleName, '') + CASE WHEN (NULLIF(OM_Contact.ContactMiddleName,'') IS NULL) THEN '' ELSE ' ' END +
 ISNULL(OM_Contact.ContactLastName, '') AS ContactFullNameJoined

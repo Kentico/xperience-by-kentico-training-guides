@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.kbank.article>
+  <ContentItemDataCommonDataID>
+    <GUID>1a73fa03-08d0-485b-843a-79e1510322dc</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>KBankNews-iqxdep5p</CodeName>
+      <GUID>65e38d4a-5957-46cd-9267-3d612f8f9dc8</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>11bd7f2d-57c1-425f-98e3-17e6dda043b7</ContentItemDataGUID>
+  <Text>KBank news!</Text>
+  <Title>KBank news</Title>
+</contentitemdata.kbank.article>

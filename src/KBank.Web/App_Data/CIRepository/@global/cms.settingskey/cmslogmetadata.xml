@@ -4,7 +4,6 @@
     <CodeName>CMS.System.EventLog</CodeName>
     <ObjectType>cms.settingscategory</ObjectType>
   </KeyCategoryID>
-  <KeyDefaultValue>True</KeyDefaultValue>
   <KeyDescription>
     <![CDATA[{$base.settings.settingskey.cmslogmetadata.description$}]]>
   </KeyDescription>
@@ -12,7 +11,6 @@
   <KeyExplanationText />
   <KeyGUID>b7ac69c4-afd9-42a7-b0de-eb60e7d0d07e</KeyGUID>
   <KeyIsCustom>False</KeyIsCustom>
-  <KeyIsGlobal>False</KeyIsGlobal>
   <KeyIsHidden>False</KeyIsHidden>
   <KeyName>CMSLogMetadata</KeyName>
   <KeyOrder>2</KeyOrder>

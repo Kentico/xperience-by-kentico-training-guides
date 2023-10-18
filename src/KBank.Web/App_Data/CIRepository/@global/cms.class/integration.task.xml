@@ -2,7 +2,6 @@
 <cms.class>
   <ClassConnectionString>CMSConnectionString</ClassConnectionString>
   <ClassContactOverwriteEnabled>False</ClassContactOverwriteEnabled>
-  <ClassCustomizedColumns />
   <ClassDisplayName>Integration - Task</ClassDisplayName>
   <ClassFormDefinition>
     <form>
@@ -79,24 +78,14 @@
     </form>
   </ClassFormDefinition>
   <ClassGUID>b2409753-2393-4912-8e49-a481c1dbcfe3</ClassGUID>
-  <ClassHasMetadata>False</ClassHasMetadata>
   <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
-  <ClassHasURL>False</ClassHasURL>
-  <ClassIsCoupledClass>True</ClassIsCoupledClass>
-  <ClassIsDocumentType>False</ClassIsDocumentType>
-  <ClassIsPage>False</ClassIsPage>
   <ClassName>Integration.Task</ClassName>
-  <ClassNodeAliasSource />
-  <ClassNodeNameSource />
   <ClassResourceID>
     <CodeName>CMS.Synchronization</CodeName>
     <GUID>0d650be6-b050-46c5-8a4c-b1e8afe2b052</GUID>
     <ObjectType>cms.resource</ObjectType>
   </ClassResourceID>
-  <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
-  <ClassShowColumns />
   <ClassShowTemplateSelection>False</ClassShowTemplateSelection>
   <ClassTableName>Integration_Task</ClassTableName>
-  <ClassUsePublishFromTo>False</ClassUsePublishFromTo>
-  <ClassUsesPageBuilder>False</ClassUsesPageBuilder>
+  <ClassType>Other</ClassType>
 </cms.class>

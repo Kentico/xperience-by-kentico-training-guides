@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.applicationpermission>
+  <ApplicationName>Kentico.Xperience.Application.ContactManagement</ApplicationName>
+  <ApplicationPermissionGuid>e5b33d41-dc93-408c-a45f-7949176f8848</ApplicationPermissionGuid>
+  <PermissionName>View</PermissionName>
+  <RoleID>
+    <CodeName>DigitalChannelManager</CodeName>
+    <GUID>93fb8806-31ba-4548-8a3b-24dbbeec6e3d</GUID>
+    <ObjectType>cms.role</ObjectType>
+  </RoleID>
+</cms.applicationpermission>

@@ -2,7 +2,6 @@
 <cms.systemtable>
   <ClassConnectionString>CMSOMConnectionString</ClassConnectionString>
   <ClassContactOverwriteEnabled>False</ClassContactOverwriteEnabled>
-  <ClassCustomizedColumns />
   <ClassDisplayName>Contact management - Contact</ClassDisplayName>
   <ClassFormDefinition>
     <form>
@@ -55,25 +54,14 @@
     </form>
   </ClassFormDefinition>
   <ClassGUID>a7ca5324-19a5-4104-9579-ef54c7fca5fa</ClassGUID>
-  <ClassHasMetadata>False</ClassHasMetadata>
   <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
-  <ClassHasURL>False</ClassHasURL>
-  <ClassIsCoupledClass>True</ClassIsCoupledClass>
-  <ClassIsDocumentType>False</ClassIsDocumentType>
-  <ClassIsForm>False</ClassIsForm>
-  <ClassIsPage>False</ClassIsPage>
   <ClassName>OM.Contact</ClassName>
-  <ClassNodeAliasSource />
-  <ClassNodeNameSource />
   <ClassResourceID>
     <CodeName>CMS.ContactManagement</CodeName>
     <GUID>0e4beef1-989c-4687-80ca-ae21fec09734</GUID>
     <ObjectType>cms.resource</ObjectType>
   </ClassResourceID>
-  <ClassShowAsSystemTable>True</ClassShowAsSystemTable>
-  <ClassShowColumns />
   <ClassShowTemplateSelection>False</ClassShowTemplateSelection>
   <ClassTableName>OM_Contact</ClassTableName>
-  <ClassUsePublishFromTo>False</ClassUsePublishFromTo>
-  <ClassUsesPageBuilder>False</ClassUsesPageBuilder>
+  <ClassType>System</ClassType>
 </cms.systemtable>

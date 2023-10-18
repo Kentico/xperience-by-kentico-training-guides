@@ -12,7 +12,6 @@
   <KeyExplanationText />
   <KeyGUID>46453e32-6e29-4759-85ec-d198dd772b37</KeyGUID>
   <KeyIsCustom>False</KeyIsCustom>
-  <KeyIsGlobal>True</KeyIsGlobal>
   <KeyIsHidden>True</KeyIsHidden>
   <KeyName>CMSDeleteInactiveContactsMethod</KeyName>
   <KeyOrder>1</KeyOrder>

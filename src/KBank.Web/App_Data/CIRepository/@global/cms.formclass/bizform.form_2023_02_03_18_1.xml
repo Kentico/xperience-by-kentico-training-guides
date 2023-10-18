@@ -21,18 +21,10 @@
     </form>
   </ClassFormDefinition>
   <ClassGUID>e5bf55ff-74c6-4d37-a9e1-f71ed72b8f3d</ClassGUID>
-  <ClassHasMetadata>False</ClassHasMetadata>
   <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
-  <ClassHasURL>False</ClassHasURL>
-  <ClassIsCoupledClass>True</ClassIsCoupledClass>
-  <ClassIsDocumentType>False</ClassIsDocumentType>
-  <ClassIsForm>True</ClassIsForm>
-  <ClassIsPage>False</ClassIsPage>
   <ClassName>BizForm.Form_2023_02_03_18_1</ClassName>
-  <ClassNodeNameSource />
-  <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
   <ClassTableName>Form_KBank_Form_2023_02_03_18_1</ClassTableName>
-  <ClassUsesPageBuilder>False</ClassUsesPageBuilder>
+  <ClassType>Form</ClassType>
   <ClassXmlSchema>
 <![CDATA[
 <?xml version="1.0" encoding="utf-8"?>

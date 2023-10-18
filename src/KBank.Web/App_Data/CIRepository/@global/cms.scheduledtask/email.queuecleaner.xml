@@ -12,7 +12,6 @@
     <![CDATA[day;9/30/2008 12:00:00 AM;1;Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday]]>
   </TaskInterval>
   <TaskName>Email.QueueCleaner</TaskName>
-  <TaskRunIndividually>False</TaskRunIndividually>
   <TaskRunInSeparateThread>True</TaskRunInSeparateThread>
   <TaskServerName />
 </cms.scheduledtask>

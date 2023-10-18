@@ -11,6 +11,7 @@ using KBank.Admin;
 using System.Linq;
 using System.Threading.Tasks;
 using KBank.Web.Services.Cryptography;
+using Kentico.Content.Web.Mvc.Routing;
 
 [assembly:
     RegisterWidget(CookiePreferencesWidgetViewComponent.Identifier, typeof(CookiePreferencesWidgetViewComponent), "Cookie preferences",
@@ -23,6 +24,7 @@ namespace KBank.Web.Components.Widgets.CookiePreferences
     {
         private readonly IConsentInfoProvider _consentInfoProvider;
         private readonly IStringEncryptionService _stringEncryptionService;
+        private readonly IPreferredLanguageRetriever _preferredLanguageRetriever;
 
 
         private const string CONSENT_MISSING_HEADER = "CONSENT NOT FOUND";
@@ -39,10 +41,12 @@ namespace KBank.Web.Components.Widgets.CookiePreferences
         /// Creates an instance of <see cref="CookiePreferencesWidgetViewComponent"/> class.
         /// </summary>
         public CookiePreferencesWidgetViewComponent(IConsentInfoProvider consentInfoProvider,
-                                                    IStringEncryptionService stringEncryptionService) 
+                                                    IStringEncryptionService stringEncryptionService,
+                                                    IPreferredLanguageRetriever preferredLanguageRetriever) 
         {
             _consentInfoProvider = consentInfoProvider;
             _stringEncryptionService = stringEncryptionService;
+            _preferredLanguageRetriever = preferredLanguageRetriever;
         }
 
         /// <summary>
@@ -65,13 +69,18 @@ namespace KBank.Web.Components.Widgets.CookiePreferences
             {
                 EssentialHeader = properties.EssentialHeader,
                 EssentialDescription = properties.EssentialDescription,
+                
                 PreferenceHeader = preferenceCookiesConsent?.ConsentDisplayName ?? CONSENT_MISSING_HEADER,
-                PreferenceDescription = preferenceCookiesConsent?.GetConsentText(CultureInfo.CurrentCulture.Name).FullText ?? CONSENT_MISSING_DESCRIPTION,
+                PreferenceDescription = (await preferenceCookiesConsent?.GetConsentTextAsync(_preferredLanguageRetriever.Get())).FullText ?? CONSENT_MISSING_DESCRIPTION,
+
                 AnalyticalHeader = analyticalCookiesConsent?.ConsentDisplayName ?? CONSENT_MISSING_HEADER,
-                AnalyticalDescription = analyticalCookiesConsent?.GetConsentText(CultureInfo.CurrentCulture.Name).FullText ?? CONSENT_MISSING_DESCRIPTION,
+                AnalyticalDescription = (await analyticalCookiesConsent?.GetConsentTextAsync(_preferredLanguageRetriever.Get())).FullText ?? CONSENT_MISSING_DESCRIPTION,
+                
                 MarketingHeader = marketingCookiesConsent?.ConsentDisplayName ?? CONSENT_MISSING_HEADER,
-                MarketingDescription = marketingCookiesConsent?.GetConsentText(CultureInfo.CurrentCulture.Name).FullText ?? CONSENT_MISSING_DESCRIPTION,
+                MarketingDescription = (await marketingCookiesConsent?.GetConsentTextAsync(_preferredLanguageRetriever.Get())).FullText ?? CONSENT_MISSING_DESCRIPTION,
+                
                 ConsentMapping = _stringEncryptionService.EncryptString(mapping),
+
                 ButtonText = properties.ButtonText
             });
         }

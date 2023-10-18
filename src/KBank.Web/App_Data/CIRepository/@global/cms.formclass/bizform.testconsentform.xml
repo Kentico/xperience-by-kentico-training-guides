@@ -35,18 +35,10 @@
     </form>
   </ClassFormDefinition>
   <ClassGUID>b832908f-5e3a-4664-baf8-314a60b8e608</ClassGUID>
-  <ClassHasMetadata>False</ClassHasMetadata>
   <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
-  <ClassHasURL>False</ClassHasURL>
-  <ClassIsCoupledClass>True</ClassIsCoupledClass>
-  <ClassIsDocumentType>False</ClassIsDocumentType>
-  <ClassIsForm>True</ClassIsForm>
-  <ClassIsPage>False</ClassIsPage>
   <ClassName>BizForm.TestConsentForm</ClassName>
-  <ClassNodeNameSource />
-  <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
   <ClassTableName>Form_KBank_Form_2023_05_11_15_12</ClassTableName>
-  <ClassUsesPageBuilder>False</ClassUsesPageBuilder>
+  <ClassType>Form</ClassType>
   <ClassXmlSchema>
 <![CDATA[
 <?xml version="1.0" encoding="utf-8"?>

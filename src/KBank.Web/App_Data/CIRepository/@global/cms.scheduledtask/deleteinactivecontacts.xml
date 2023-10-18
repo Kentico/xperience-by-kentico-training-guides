@@ -15,7 +15,6 @@
     <GUID>bd03e629-e677-42a6-8b12-5277fa04add7</GUID>
     <ObjectType>cms.resource</ObjectType>
   </TaskResourceID>
-  <TaskRunIndividually>False</TaskRunIndividually>
   <TaskRunInSeparateThread>True</TaskRunInSeparateThread>
   <TaskServerName />
 </cms.scheduledtask>

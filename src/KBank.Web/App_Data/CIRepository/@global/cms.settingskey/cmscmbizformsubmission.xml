@@ -4,13 +4,11 @@
     <CodeName>CMS.OnlineMarketing.Activities.Other</CodeName>
     <ObjectType>cms.settingscategory</ObjectType>
   </KeyCategoryID>
-  <KeyDefaultValue>True</KeyDefaultValue>
   <KeyDescription>{$settingskey.cmscmbizformsubmission.description$}</KeyDescription>
   <KeyDisplayName>{$settingskey.cmscmbizformsubmission$}</KeyDisplayName>
   <KeyExplanationText />
   <KeyGUID>022c7321-7a29-47ad-a8c9-26e2478081d9</KeyGUID>
   <KeyIsCustom>False</KeyIsCustom>
-  <KeyIsGlobal>False</KeyIsGlobal>
   <KeyIsHidden>True</KeyIsHidden>
   <KeyName>CMSCMBizFormSubmission</KeyName>
   <KeyOrder>1</KeyOrder>

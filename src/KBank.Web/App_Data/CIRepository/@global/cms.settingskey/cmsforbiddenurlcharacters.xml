@@ -13,7 +13,6 @@
   <KeyExplanationText />
   <KeyGUID>8de8306a-87f2-46a6-a7b2-17a11fe7e607</KeyGUID>
   <KeyIsCustom>False</KeyIsCustom>
-  <KeyIsGlobal>False</KeyIsGlobal>
   <KeyIsHidden>False</KeyIsHidden>
   <KeyName>CMSForbiddenURLCharacters</KeyName>
   <KeyOrder>1</KeyOrder>

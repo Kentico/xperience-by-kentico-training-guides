@@ -4,7 +4,6 @@
     <CodeName>CMS.Content.Multilingual</CodeName>
     <ObjectType>cms.settingscategory</ObjectType>
   </KeyCategoryID>
-  <KeyDefaultValue>en-US</KeyDefaultValue>
   <KeyDescription>{$settingskey.cmsdefaultculturecode.description$}</KeyDescription>
   <KeyDisplayName>{$settingskey.cmsdefaultculturecode$}</KeyDisplayName>
   <KeyEditingControlPath>CultureSelectorForSettings</KeyEditingControlPath>
@@ -19,7 +18,6 @@
   </KeyFormControlSettings>
   <KeyGUID>3c68859c-e3d5-4b30-a29e-2aa7c483ba3f</KeyGUID>
   <KeyIsCustom>False</KeyIsCustom>
-  <KeyIsGlobal>False</KeyIsGlobal>
   <KeyIsHidden>True</KeyIsHidden>
   <KeyName>CMSDefaultCultureCode</KeyName>
   <KeyOrder>1</KeyOrder>

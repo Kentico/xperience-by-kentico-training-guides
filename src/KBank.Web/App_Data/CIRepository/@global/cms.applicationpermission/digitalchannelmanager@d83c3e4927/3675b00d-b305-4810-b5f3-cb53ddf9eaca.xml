@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.applicationpermission>
+  <ApplicationName>Kentico.Xperience.Application.RecipientLists</ApplicationName>
+  <ApplicationPermissionGuid>3675b00d-b305-4810-b5f3-cb53ddf9eaca</ApplicationPermissionGuid>
+  <PermissionName>Create</PermissionName>
+  <RoleID>
+    <CodeName>DigitalChannelManager</CodeName>
+    <GUID>93fb8806-31ba-4548-8a3b-24dbbeec6e3d</GUID>
+    <ObjectType>cms.role</ObjectType>
+  </RoleID>
+</cms.applicationpermission>

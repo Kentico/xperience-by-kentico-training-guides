@@ -2,98 +2,37 @@
 <cms.class>
   <ClassConnectionString>CMSConnectionString</ClassConnectionString>
   <ClassContactOverwriteEnabled>False</ClassContactOverwriteEnabled>
-  <ClassCustomizedColumns />
   <ClassDisplayName>Form</ClassDisplayName>
   <ClassFormDefinition>
     <form>
-      <field column="FormID" columntype="integer" guid="7e4045d0-83fe-48e2-8dff-17ba63371c98" isPK="true" system="true">
-        <properties>
-          <fieldcaption>FormID</fieldcaption>
-        </properties>
-      </field>
-      <field column="FormDisplayName" columnsize="100" columntype="text" guid="a2f80fe3-4db8-4108-a1ba-72d87b300acd" system="true">
-        <properties>
-          <fieldcaption>{$general.displayname$}</fieldcaption>
-          <validationerrormessage>{$BizFormGeneral.rfvDisplayName$}</validationerrormessage>
-        </properties>
-      </field>
-      <field column="FormName" columnsize="100" columntype="text" guid="9923899a-7913-4138-bc54-00b2d9d75826" system="true">
-        <properties>
-          <fieldcaption>{$general.codename$}</fieldcaption>
-        </properties>
-      </field>
-      <field column="FormClassID" columntype="integer" guid="4a6f6a49-d057-4c80-9b20-2b8e760c246f" system="true">
-        <properties>
-          <fieldcaption>FormClassID</fieldcaption>
-        </properties>
-      </field>
-      <field column="FormItems" columntype="integer" guid="72c682ed-264a-4bc2-9ce2-9aab8203dd61" system="true">
-        <properties>
-          <fieldcaption>FormItems</fieldcaption>
-        </properties>
-      </field>
+      <field column="FormID" columntype="integer" guid="7e4045d0-83fe-48e2-8dff-17ba63371c98" isPK="true" system="true" />
+      <field column="FormDisplayName" columnsize="100" columntype="text" guid="a2f80fe3-4db8-4108-a1ba-72d87b300acd" system="true" />
+      <field column="FormName" columnsize="100" columntype="text" guid="9923899a-7913-4138-bc54-00b2d9d75826" system="true" />
+      <field column="FormClassID" columntype="integer" guid="4a6f6a49-d057-4c80-9b20-2b8e760c246f" system="true" />
+      <field column="FormItems" columntype="integer" guid="72c682ed-264a-4bc2-9ce2-9aab8203dd61" system="true" />
       <field allowempty="true" column="FormReportFields" columntype="longtext" guid="f20ee9b5-041b-44fe-a2f9-c9723a959201" system="true" />
-      <field column="FormAfterSubmitMode" columnsize="100" columntype="text" guid="8de07991-0e6a-4585-94cb-2ec3a07e40e1" system="true" />
-      <field allowempty="true" column="FormAfterSubmitRelatedValue" columntype="longtext" guid="54bdb235-3cc6-40f6-9847-c5eefaa4a5dc" system="true" />
-      <field allowempty="true" column="FormSubmitButtonText" columnsize="400" columntype="text" guid="db2765b7-a1b6-464d-924b-7b7f7231d4a3" system="true">
-        <properties>
-          <fieldcaption>FormSubmitButtonText</fieldcaption>
-        </properties>
-      </field>
-      <field column="FormSiteID" columntype="integer" guid="a695a92d-3d29-4aaf-b326-20db0876d681" system="true">
-        <properties>
-          <fieldcaption>FormSiteID</fieldcaption>
-        </properties>
-      </field>
-      <field allowempty="true" column="FormAccess" columntype="integer" guid="6655864e-d1c5-44e7-bdb9-d115fd50309b" system="true">
-        <properties>
-          <fieldcaption>FormAccess</fieldcaption>
-        </properties>
-      </field>
-      <field allowempty="true" column="FormSubmitButtonImage" columnsize="255" columntype="text" guid="839193cc-6353-4cd8-9b70-2315dce1f7de" system="true">
-        <properties>
-          <fieldcaption>{$bizformgeneral.lblsubmitbuttonimage$}</fieldcaption>
-        </properties>
-      </field>
-      <field column="FormGUID" columntype="guid" guid="9e7c52e0-e181-4e28-a140-2c49aaf5640a" system="true">
-        <properties>
-          <fieldcaption>FormLastModified</fieldcaption>
-        </properties>
-      </field>
-      <field column="FormLastModified" columntype="datetime" guid="f50a1f91-63ea-4a7c-a69a-8fb4574a93ba" system="true">
-        <properties>
-          <fieldcaption>FormLastModified</fieldcaption>
-        </properties>
-      </field>
+      <field allowempty="true" column="FormSubmitButtonText" columnsize="400" columntype="text" guid="db2765b7-a1b6-464d-924b-7b7f7231d4a3" system="true" />
+      <field allowempty="true" column="FormAccess" columntype="integer" guid="6655864e-d1c5-44e7-bdb9-d115fd50309b" system="true" />
+      <field allowempty="true" column="FormSubmitButtonImage" columnsize="255" columntype="text" guid="839193cc-6353-4cd8-9b70-2315dce1f7de" system="true" />
+      <field column="FormGUID" columntype="guid" guid="9e7c52e0-e181-4e28-a140-2c49aaf5640a" system="true" />
+      <field column="FormLastModified" columntype="datetime" guid="f50a1f91-63ea-4a7c-a69a-8fb4574a93ba" system="true" />
       <field column="FormLogActivity" columntype="boolean" guid="6a4f0e2f-e7e7-49f1-b130-8da263c531cd" system="true">
         <properties>
           <defaultvalue>True</defaultvalue>
-          <fieldcaption>Log on-line marketing activity</fieldcaption>
         </properties>
       </field>
       <field allowempty="true" column="FormBuilderLayout" columntype="longtext" guid="1362af48-2b0d-4221-a188-e920ef49b205" system="true" />
     </form>
   </ClassFormDefinition>
   <ClassGUID>be2a91e3-b191-4a74-8888-a212b9a88c6d</ClassGUID>
-  <ClassHasMetadata>False</ClassHasMetadata>
   <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
-  <ClassHasURL>False</ClassHasURL>
-  <ClassIsCoupledClass>True</ClassIsCoupledClass>
-  <ClassIsDocumentType>False</ClassIsDocumentType>
-  <ClassIsForm>False</ClassIsForm>
-  <ClassIsPage>False</ClassIsPage>
   <ClassName>cms.form</ClassName>
-  <ClassNodeAliasSource />
-  <ClassNodeNameSource />
   <ClassResourceID>
     <CodeName>CMS.Form</CodeName>
     <GUID>385e528a-e013-4a84-bad9-d5956408741a</GUID>
     <ObjectType>cms.resource</ObjectType>
   </ClassResourceID>
-  <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
-  <ClassShowColumns />
   <ClassShowTemplateSelection>False</ClassShowTemplateSelection>
   <ClassTableName>CMS_Form</ClassTableName>
-  <ClassUsePublishFromTo>False</ClassUsePublishFromTo>
-  <ClassUsesPageBuilder>False</ClassUsesPageBuilder>
+  <ClassType>Other</ClassType>
 </cms.class>

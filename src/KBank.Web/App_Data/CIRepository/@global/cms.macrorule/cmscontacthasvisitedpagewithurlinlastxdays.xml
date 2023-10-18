@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.macrorule>
-  <MacroRuleAvailability>2</MacroRuleAvailability>
   <MacroRuleCondition>
     <![CDATA[{_perfectum}Contact.VisitedURL("{url}", ToInt({days}))]]>
   </MacroRuleCondition>
@@ -22,8 +21,9 @@
           <fieldcaption>select operation</fieldcaption>
         </properties>
         <settings>
-          <controlname>MacroNegationOperator</controlname>
-          <EditText>false</EditText>
+          <controlname>Kentico.Administration.DropDownSelector</controlname>
+          <EditText>False</EditText>
+          <IsPerfectum>True</IsPerfectum>
           <Options>
 <![CDATA[
 __is;has
@@ -40,7 +40,7 @@ __isnot;has not
           <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
           <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
           <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
-          <controlname>TextBoxControl</controlname>
+          <controlname>Kentico.Administration.TextInput</controlname>
           <Trim>False</Trim>
           <WatermarkText>enter text</WatermarkText>
         </settings>
@@ -53,15 +53,13 @@ __isnot;has not
           <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
           <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
           <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
-          <controlname>TextBoxControl</controlname>
+          <controlname>Kentico.Administration.NumberInput</controlname>
           <Trim>False</Trim>
           <WatermarkText>enter number</WatermarkText>
         </settings>
       </field>
     </form>
   </MacroRuleParameters>
-  <MacroRuleRequiresContext>False</MacroRuleRequiresContext>
-  <MacroRuleResourceName>cms.onlinemarketing</MacroRuleResourceName>
   <MacroRuleText>
     <![CDATA[Contact {_perfectum} visited a page with URL containing {url} in the last {days} days]]>
   </MacroRuleText>

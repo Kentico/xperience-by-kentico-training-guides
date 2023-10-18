@@ -7,7 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Kentico.Xperience.Core" Version="26.4.0" />
+    <Compile Remove="Pages\**" />
+    <EmbeddedResource Remove="Pages\**" />
+    <None Remove="Pages\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Kentico.Xperience.Core" Version="27.0.0" />
   </ItemGroup>
 
 </Project>

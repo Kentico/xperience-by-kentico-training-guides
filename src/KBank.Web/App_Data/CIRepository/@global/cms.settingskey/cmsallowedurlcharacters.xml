@@ -13,7 +13,6 @@
   <KeyExplanationText />
   <KeyGUID>a2dff26b-5541-4391-beea-90df3d6216a4</KeyGUID>
   <KeyIsCustom>False</KeyIsCustom>
-  <KeyIsGlobal>False</KeyIsGlobal>
   <KeyIsHidden>False</KeyIsHidden>
   <KeyName>CMSAllowedURLCharacters</KeyName>
   <KeyOrder>3</KeyOrder>

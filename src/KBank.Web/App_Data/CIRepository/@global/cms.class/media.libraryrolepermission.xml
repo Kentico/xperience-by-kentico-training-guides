@@ -2,7 +2,6 @@
 <cms.class>
   <ClassConnectionString>CMSConnectionString</ClassConnectionString>
   <ClassContactOverwriteEnabled>False</ClassContactOverwriteEnabled>
-  <ClassCustomizedColumns />
   <ClassDisplayName>Media library role permission</ClassDisplayName>
   <ClassFormDefinition>
     <form>
@@ -24,25 +23,14 @@
     </form>
   </ClassFormDefinition>
   <ClassGUID>7707e68b-a76e-42ad-b07b-93f26d529778</ClassGUID>
-  <ClassHasMetadata>False</ClassHasMetadata>
   <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
-  <ClassHasURL>False</ClassHasURL>
-  <ClassIsCoupledClass>True</ClassIsCoupledClass>
-  <ClassIsDocumentType>False</ClassIsDocumentType>
-  <ClassIsForm>False</ClassIsForm>
-  <ClassIsPage>False</ClassIsPage>
   <ClassName>media.libraryrolepermission</ClassName>
-  <ClassNodeAliasSource />
-  <ClassNodeNameSource />
   <ClassResourceID>
     <CodeName>CMS.MediaLibrary</CodeName>
     <GUID>f1ae7bb7-e5e2-4944-b0a6-c92be4f95982</GUID>
     <ObjectType>cms.resource</ObjectType>
   </ClassResourceID>
-  <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
-  <ClassShowColumns />
   <ClassShowTemplateSelection>False</ClassShowTemplateSelection>
   <ClassTableName>Media_LibraryRolePermission</ClassTableName>
-  <ClassUsePublishFromTo>False</ClassUsePublishFromTo>
-  <ClassUsesPageBuilder>False</ClassUsesPageBuilder>
+  <ClassType>Other</ClassType>
 </cms.class>

@@ -2,7 +2,6 @@
 <cms.systemtable>
   <ClassConnectionString>CMSConnectionString</ClassConnectionString>
   <ClassContactOverwriteEnabled>False</ClassContactOverwriteEnabled>
-  <ClassCustomizedColumns />
   <ClassDisplayName>Media library</ClassDisplayName>
   <ClassFormDefinition>
     <form>
@@ -10,36 +9,21 @@
       <field column="LibraryDisplayName" columnsize="250" columntype="text" guid="9b4aa82c-02df-4712-a5b9-3b9dee377b45" system="true" />
       <field column="LibraryName" columnsize="250" columntype="text" guid="e4081abf-652e-47bd-82d0-313752f01873" isunique="true" system="true" />
       <field allowempty="true" column="LibraryDescription" columntype="longtext" guid="ac965989-ec7a-446f-81bb-ccb5043abf0b" system="true" />
-      <field allowempty="true" column="LibraryTeaserGUID" columntype="guid" guid="1cf86270-1d15-4a07-a3fb-4d97ba972c46" system="true" />
       <field column="LibraryFolder" columnsize="250" columntype="text" guid="06f6b6a9-08ca-4735-8732-20cc75d11802" system="true" />
       <field allowempty="true" column="LibraryAccess" columntype="integer" guid="720d2865-0be4-43d3-8ed8-412b269b1d00" system="true" />
-      <field column="LibrarySiteID" columntype="integer" guid="99746a1e-3514-4c13-b878-7bb7b39ddb3d" system="true" />
       <field allowempty="true" column="LibraryGUID" columntype="guid" guid="512c11dd-a325-4bf2-b1be-4f7c54397132" system="true" />
       <field allowempty="true" column="LibraryLastModified" columntype="datetime" guid="54f9c352-5ac2-4e4b-ab98-65d41240e9e4" system="true" />
-      <field allowempty="true" column="LibraryTeaserPath" columnsize="450" columntype="text" guid="5de9f8d9-3e2d-4d83-8a63-6c2bdfb76629" system="true" />
-      <field allowempty="true" column="LibraryUseDirectPathForContent" columntype="boolean" guid="b84913d8-82f6-438e-abc2-f6e6c7e9e7b2" system="true" />
     </form>
   </ClassFormDefinition>
   <ClassGUID>dead7673-d566-4f83-87e3-e9a235b70e4f</ClassGUID>
-  <ClassHasMetadata>False</ClassHasMetadata>
   <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
-  <ClassHasURL>False</ClassHasURL>
-  <ClassIsCoupledClass>True</ClassIsCoupledClass>
-  <ClassIsDocumentType>False</ClassIsDocumentType>
-  <ClassIsForm>False</ClassIsForm>
-  <ClassIsPage>False</ClassIsPage>
   <ClassName>media.library</ClassName>
-  <ClassNodeAliasSource />
-  <ClassNodeNameSource />
   <ClassResourceID>
     <CodeName>CMS.MediaLibrary</CodeName>
     <GUID>f1ae7bb7-e5e2-4944-b0a6-c92be4f95982</GUID>
     <ObjectType>cms.resource</ObjectType>
   </ClassResourceID>
-  <ClassShowAsSystemTable>True</ClassShowAsSystemTable>
-  <ClassShowColumns />
   <ClassShowTemplateSelection>False</ClassShowTemplateSelection>
   <ClassTableName>Media_Library</ClassTableName>
-  <ClassUsePublishFromTo>False</ClassUsePublishFromTo>
-  <ClassUsesPageBuilder>False</ClassUsesPageBuilder>
+  <ClassType>System</ClassType>
 </cms.systemtable>
