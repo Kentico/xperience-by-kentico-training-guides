@@ -3,7 +3,7 @@ using CMS.Websites;
 using System;
 using System.Threading.Tasks;
 
-namespace KBank.Web.Services;
+namespace KBank.Web.Services.Content;
 
 public interface IContentItemRetrieverService<T>
 {

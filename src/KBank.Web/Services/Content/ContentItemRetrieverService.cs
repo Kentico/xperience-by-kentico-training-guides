@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace KBank.Web.Services;
+namespace KBank.Web.Services.Content;
 
 public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
 {

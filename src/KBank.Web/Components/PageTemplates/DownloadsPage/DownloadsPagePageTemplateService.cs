@@ -1,5 +1,5 @@
 ﻿using CMS.Websites;
-using KBank.Web.Services;
+using KBank.Web.Services.Content;
 using Kentico.Content.Web.Mvc;
 using System.Threading.Tasks;
 

@@ -1,7 +1,7 @@
 ﻿using CMS.ContentEngine;
 using CMS.Helpers;
 using KBank.Web.Models;
-using KBank.Web.Services;
+using KBank.Web.Services.Content;
 using Kentico.Content.Web.Mvc.Routing;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;

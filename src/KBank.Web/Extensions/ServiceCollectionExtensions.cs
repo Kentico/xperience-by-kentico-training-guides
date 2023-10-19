@@ -1,5 +1,5 @@
 ﻿using KBank.Web.Components.PageTemplates;
-using KBank.Web.Services;
+using KBank.Web.Services.Content;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace KBank.Web.Extensions;
