@@ -1,14 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using CMS.ContactManagement;
+﻿using CMS.ContactManagement;
 using CMS.Core;
 using CMS.DataProtection;
 using CMS.Helpers;
 using KBank.Admin;
 using Kentico.Web.Mvc;
 using Microsoft.AspNetCore.Http;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace KBank.Web.Helpers.Cookies
 {
@@ -87,16 +87,17 @@ namespace KBank.Web.Helpers.Cookies
             }
             try
             {
-                // Set cookie consent level into client's cookies
-                _cookieAccessor.Set(CookieNames.COOKIE_CONSENT_LEVEL, ((int)level).ToString(), new CookieOptions { 
-                    Path = null,
-                    Expires = DateTime.Now.AddYears(1),
-                    HttpOnly = false
-                });
-
                 // Set system cookie level according consent level
                 SynchronizeCookieLevel(level);
 
+                //Set cookie consent level into client's cookies
+                _cookieAccessor.Set(CookieNames.COOKIE_CONSENT_LEVEL, ((int)level).ToString(), new CookieOptions
+                {
+                    Path = null,
+                    Expires = DateTime.Now.AddYears(1),
+                    HttpOnly = false,
+                    SameSite = SameSiteMode.Lax
+                });
                 return true;
             }
             catch

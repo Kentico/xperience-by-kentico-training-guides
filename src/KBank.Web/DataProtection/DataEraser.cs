@@ -1,20 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using CMS.Activities;
+﻿using CMS.Activities;
 using CMS.Base;
 using CMS.ContactManagement;
 using CMS.DataEngine;
 using CMS.DataProtection;
 using CMS.Helpers;
 using CMS.OnlineForms;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace KBank.Web.DataProtection;
 
 public class ContactDataEraser : IPersonalDataEraser
 {
     private readonly Dictionary<Guid, FormDefinition> _siteForms = FormCollectionHelper.GetSiteForms();
-        
+
     public void Erase(IEnumerable<BaseInfo> identities, IDictionary<string, object> configuration)
     {
         var contacts = identities.OfType<ContactInfo>().ToList();
@@ -64,7 +64,7 @@ public class ContactDataEraser : IPersonalDataEraser
 
             formClasses.ForEachRow(row =>
             {
-                var bizForm = new BizFormInfo(row); 
+                var bizForm = new BizFormInfo(row);
                 var formDefinition = _siteForms[bizForm.FormGUID];
 
                 var bizFormItems = FormCollectionHelper.GetBizFormItems(emails, consentAgreementGuids, row, formDefinition);

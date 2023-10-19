@@ -1,35 +1,38 @@
 using AspNetCore.Unobtrusive.Ajax;
-using Kentico.Content.Web.Mvc.Routing;
+using KBank;
+using KBank.Web.Components;
 using KBank.Web.Extensions;
+using KBank.Web.Helpers.Cookies;
+using Kentico.Activities.Web.Mvc;
+using Kentico.Content.Web.Mvc.Routing;
+using Kentico.CrossSiteTracking.Web.Mvc;
+using Kentico.OnlineMarketing.Web.Mvc;
 using Kentico.PageBuilder.Web.Mvc;
 using Kentico.Web.Mvc;
-
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
-using Kentico.Activities.Web.Mvc;
-using Kentico.OnlineMarketing.Web.Mvc;
-using Kentico.CrossSiteTracking.Web.Mvc;
-using KBank.Web.Helpers.Cookies;
 using System.Linq;
-using KBank.Web.Components;
-using KBank;
 
 var KBankAllowSpecificOrigins = "_kBankAllowSpecificOrigins";
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddCors(options => {
+builder.Services.AddCors(options =>
+{
     options.AddPolicy(name: KBankAllowSpecificOrigins,
-        policy => {
+        policy =>
+        {
             policy.WithOrigins("https://the-domain-of-your-external-site.com").WithHeaders("content-type").AllowCredentials();
         });
 });
 
 // Enable desired Kentico Xperience features
-builder.Services.AddKentico(features => {
+builder.Services.AddKentico(features =>
+{
     var cookieConsentMapping = CookieConsentHelper.GetCurrentMapping().Result;
     features.UseCrossSiteTracking(
-        new CrossSiteTrackingOptions {
+        new CrossSiteTrackingOptions
+        {
             ConsentSettings = new[] {
                 new CrossSiteTrackingConsentOptions
                 {
@@ -40,7 +43,8 @@ builder.Services.AddKentico(features => {
             }
         });
 
-    features.UsePageBuilder(new PageBuilderOptions {
+    features.UsePageBuilder(new PageBuilderOptions
+    {
         DefaultSectionIdentifier = ComponentIdentifiers.SINGLE_COLUMN_SECTION,
         RegisterDefaultSection = false,
         ContentTypeNames = new[] {
@@ -54,9 +58,10 @@ builder.Services.AddKentico(features => {
     features.UseWebPageRouting();
 });
 
-builder.Services.Configure<CookieLevelOptions>(options => {
-    options.CookieConfigurations.Add(CookieNames.COOKIE_CONSENT_LEVEL, CookieLevel.System);
-    options.CookieConfigurations.Add(CookieNames.COOKIE_ACCEPTANCE, CookieLevel.System);
+builder.Services.Configure<CookieLevelOptions>(options =>
+{
+    options.CookieConfigurations.Add(CookieNames.COOKIE_CONSENT_LEVEL, CookieLevel.Essential);
+    options.CookieConfigurations.Add(CookieNames.COOKIE_ACCEPTANCE, CookieLevel.Essential);
 });
 
 builder.Services.AddAuthentication();

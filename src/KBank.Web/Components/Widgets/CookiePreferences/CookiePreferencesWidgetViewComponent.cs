@@ -1,17 +1,16 @@
-﻿using Microsoft.AspNetCore.Mvc.ViewComponents;
-using Microsoft.AspNetCore.Mvc;
-using Kentico.PageBuilder.Web.Mvc;
-using KBank.Web.Components.Widgets.CookiePreferences;
-using CMS.DataProtection;
-using System.Globalization;
-using KBank.Web.Helpers.Cookies;
-using System.Collections.Generic;
-using Newtonsoft.Json;
+﻿using CMS.DataProtection;
 using KBank.Admin;
-using System.Linq;
-using System.Threading.Tasks;
+using KBank.Web.Components.Widgets.CookiePreferences;
+using KBank.Web.Helpers.Cookies;
 using KBank.Web.Services.Cryptography;
 using Kentico.Content.Web.Mvc.Routing;
+using Kentico.PageBuilder.Web.Mvc;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ViewComponents;
+using Newtonsoft.Json;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 [assembly:
     RegisterWidget(CookiePreferencesWidgetViewComponent.Identifier, typeof(CookiePreferencesWidgetViewComponent), "Cookie preferences",
@@ -42,7 +41,7 @@ namespace KBank.Web.Components.Widgets.CookiePreferences
         /// </summary>
         public CookiePreferencesWidgetViewComponent(IConsentInfoProvider consentInfoProvider,
                                                     IStringEncryptionService stringEncryptionService,
-                                                    IPreferredLanguageRetriever preferredLanguageRetriever) 
+                                                    IPreferredLanguageRetriever preferredLanguageRetriever)
         {
             _consentInfoProvider = consentInfoProvider;
             _stringEncryptionService = stringEncryptionService;
@@ -69,16 +68,16 @@ namespace KBank.Web.Components.Widgets.CookiePreferences
             {
                 EssentialHeader = properties.EssentialHeader,
                 EssentialDescription = properties.EssentialDescription,
-                
+
                 PreferenceHeader = preferenceCookiesConsent?.ConsentDisplayName ?? CONSENT_MISSING_HEADER,
                 PreferenceDescription = (await preferenceCookiesConsent?.GetConsentTextAsync(_preferredLanguageRetriever.Get())).FullText ?? CONSENT_MISSING_DESCRIPTION,
 
                 AnalyticalHeader = analyticalCookiesConsent?.ConsentDisplayName ?? CONSENT_MISSING_HEADER,
                 AnalyticalDescription = (await analyticalCookiesConsent?.GetConsentTextAsync(_preferredLanguageRetriever.Get())).FullText ?? CONSENT_MISSING_DESCRIPTION,
-                
+
                 MarketingHeader = marketingCookiesConsent?.ConsentDisplayName ?? CONSENT_MISSING_HEADER,
                 MarketingDescription = (await marketingCookiesConsent?.GetConsentTextAsync(_preferredLanguageRetriever.Get())).FullText ?? CONSENT_MISSING_DESCRIPTION,
-                
+
                 ConsentMapping = _stringEncryptionService.EncryptString(mapping),
 
                 ButtonText = properties.ButtonText
@@ -92,11 +91,12 @@ namespace KBank.Web.Components.Widgets.CookiePreferences
         /// <returns>A JSON serialized sting representation of the mapping</returns>
         private string GetMappingString(CookieLevelConsentMappingInfo currentMapping)
         {
-            Dictionary<int, string> mapping = new Dictionary<int, string>();
-
-            mapping.Add((int)CookieConsentLevel.Preference, currentMapping?.PreferenceConsentCodeName.FirstOrDefault() ?? string.Empty);
-            mapping.Add((int)CookieConsentLevel.Analytical, currentMapping?.AnalyticalConsentCodeName.FirstOrDefault() ?? string.Empty);
-            mapping.Add((int)CookieConsentLevel.Marketing, currentMapping?.MarketingConsentCodeName.FirstOrDefault() ?? string.Empty);
+            Dictionary<int, string> mapping = new Dictionary<int, string>
+            {
+                { (int)CookieConsentLevel.Preference, currentMapping?.PreferenceConsentCodeName.FirstOrDefault() ?? string.Empty },
+                { (int)CookieConsentLevel.Analytical, currentMapping?.AnalyticalConsentCodeName.FirstOrDefault() ?? string.Empty },
+                { (int)CookieConsentLevel.Marketing, currentMapping?.MarketingConsentCodeName.FirstOrDefault() ?? string.Empty }
+            };
 
             return JsonConvert.SerializeObject(mapping).ToString();
         }

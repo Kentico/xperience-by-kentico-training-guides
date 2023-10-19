@@ -8,7 +8,8 @@
     cookieAccessor.Set(CookieNames.COOKIE_ACCEPTANCE, "true", new CookieOptions {
                 Path = null,
                 Expires = DateTime.Now.AddYears(1),
-                HttpOnly = false
+                HttpOnly = false,
+                SameSite = SameSiteMode.Lax
             });
 }
 

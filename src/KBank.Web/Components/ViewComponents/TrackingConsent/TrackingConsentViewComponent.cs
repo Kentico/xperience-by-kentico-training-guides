@@ -9,7 +9,6 @@ using Kentico.Content.Web.Mvc.Routing;
 using Kentico.Web.Mvc;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -50,23 +49,20 @@ namespace KBank.Web.Components.ViewComponents.TrackingConsent
                 return Content(string.Empty);
             }
 
-            var consents = await _consentInfoProvider.Get().WhereIn($"ConsentName", new string[]{currentMapping.PreferenceConsentCodeName.FirstOrDefault(), currentMapping.AnalyticalConsentCodeName.FirstOrDefault(), currentMapping.MarketingConsentCodeName.FirstOrDefault()}).GetEnumerableTypedResultAsync();
+            var consents = await _consentInfoProvider.Get().WhereIn($"ConsentName", new string[] { currentMapping.PreferenceConsentCodeName.FirstOrDefault(), currentMapping.AnalyticalConsentCodeName.FirstOrDefault(), currentMapping.MarketingConsentCodeName.FirstOrDefault() }).GetEnumerableTypedResultAsync();
 
             if (consents.Count() > 0)
             {
                 ContactInfo currentContact = ContactManagementContext.GetCurrentContact(false);
-                
+
                 string text = "<ul>";
                 List<string> codenames = new List<string>();
                 bool isAgreed = false;
                 foreach (ConsentInfo consent in consents)
                 {
                     codenames.Add(consent.ConsentName);
-                    //TODO make sure the consents have language variants before uncommenting this 
-                    //and fix it back to better format
-                    //var asdf = consent.GetConsentTextAsync(_preferredLanguageRetriever.Get()).Result;
-                    //var asdf = consent.GetConsentTextAsync("en").Result;
-                    //text += $"<li>{asdf.ShortText}</li>";
+
+                    text += $"<li>{(await consent.GetConsentTextAsync(_preferredLanguageRetriever.Get())).ShortText}</li>";
 
                     //agreed will end up being true if the contact has agreed to at least one consent
                     isAgreed = isAgreed || (currentContact != null) && _consentAgreementService.IsAgreed(currentContact, consent);
@@ -74,7 +70,7 @@ namespace KBank.Web.Components.ViewComponents.TrackingConsent
                 text += "</ul>";
 
                 string mapping = codenames.Join(System.Environment.NewLine);
-                
+
                 // Sets the cookie level according to which consents have been accepted
                 // Required for scenarios where one contact uses multiple browsers, in case of revoked consent
                 EnsureCorrectCookieLevel(currentContact, consents, currentMapping);

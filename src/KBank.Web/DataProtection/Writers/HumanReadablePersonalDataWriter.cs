@@ -1,9 +1,9 @@
-﻿using System;
+﻿using CMS.Base;
+using CMS.DataEngine;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Text;
-using CMS.Base;
-using CMS.DataEngine;
 
 namespace KBank.Web.DataProtection.Writers;
 
@@ -51,7 +51,7 @@ public class HumanReadablePersonalDataWriter : IPersonalDataWriter
         {
             var columnName = column.Name;
             var columnDisplayName = column.DisplayName;
-            
+
             if (string.IsNullOrWhiteSpace(columnDisplayName) ||
                 columnName.Equals(baseInfo.TypeInfo.IDColumn, StringComparison.Ordinal) ||
                 columnName.Equals(baseInfo.TypeInfo.GUIDColumn, StringComparison.Ordinal))
@@ -60,7 +60,7 @@ public class HumanReadablePersonalDataWriter : IPersonalDataWriter
             }
 
             var value = baseInfo.GetValue(columnName);
-            
+
             if (value == null)
             {
                 continue;
@@ -104,9 +104,9 @@ public class HumanReadablePersonalDataWriter : IPersonalDataWriter
     public void WriteEndSection()
     {
         indentationLevel--;
-        
+
         if (ignoreNewLine) return;
-        
+
         Indent();
         stringBuilder.AppendLine();
         ignoreNewLine = true;

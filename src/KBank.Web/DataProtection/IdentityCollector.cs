@@ -1,15 +1,15 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using CMS.ContactManagement;
+﻿using CMS.ContactManagement;
 using CMS.DataEngine;
 using CMS.DataProtection;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace KBank.Web.DataProtection;
 
 public class ContactIdentityCollector : IIdentityCollector
 {
     private const string EMAIL_KEY = "email";
-        
+
     public void Collect(IDictionary<string, object> dataSubjectFilter, List<BaseInfo> identities)
     {
         if (!dataSubjectFilter.ContainsKey(EMAIL_KEY))
@@ -18,7 +18,7 @@ public class ContactIdentityCollector : IIdentityCollector
         }
 
         var email = dataSubjectFilter[EMAIL_KEY] as string;
-            
+
         if (string.IsNullOrWhiteSpace(email))
         {
             return;

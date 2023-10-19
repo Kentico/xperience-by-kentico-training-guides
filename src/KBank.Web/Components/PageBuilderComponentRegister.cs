@@ -1,9 +1,9 @@
-﻿using KBank.Web.Components;
+﻿using KBank;
+using KBank.Web.Components;
+using KBank.Web.Components.PageTemplates;
 using KBank.Web.Components.Sections;
 using Kentico.PageBuilder.Web.Mvc;
 using Kentico.PageBuilder.Web.Mvc.PageTemplates;
-using KBank.Web.Components.PageTemplates;
-using KBank;
 
 // Sections
 [assembly: RegisterSection(ComponentIdentifiers.SINGLE_COLUMN_SECTION, "1 column", typeof(SingleColumnSectionProperties), "~/Components/Sections/SingleColumnSection/_KBank_SingleColumnSection.cshtml", Description = "Single-column section with one full-width zone.", IconClass = "icon-square")]

@@ -4,10 +4,10 @@
     <ConsentContent xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
       <ConsentLanguageVersions>
         <ConsentLanguageVersion>
-          <CultureCode>en-US</CultureCode>
           <FullText>
             <![CDATA[<p>Analytical cookies and the data you provide us allow us to perform site usage analytics to measure and improve the site's performance. For example, we know which pages are most frequently visited, which buttons users click, etc.</p>]]>
           </FullText>
+          <LanguageName>en</LanguageName>
           <ShortText>
             <![CDATA[<p>Analytical cookies are used to gather usage data to measure and improve performance.</p>]]>
           </ShortText>
@@ -16,9 +16,9 @@
     </ConsentContent>
   </ConsentContent>
   <ConsentDisplayName>Analytical cookies</ConsentDisplayName>
-  <ConsentGuid>a20dfb27-7fb0-4d3b-9d36-1641449a0920</ConsentGuid>
+  <ConsentGuid>4564ddbc-f4be-4814-9d5d-396b04f31af0</ConsentGuid>
   <ConsentHash>
-    <![CDATA[03b5fc527c8b43d1ee9219139c8866e469264807ae92c449682a62fe9f8c5679]]>
+    <![CDATA[6f68823cc28693194344518debdd8cd3558994afe8681bb6621f6262d53f741a]]>
   </ConsentHash>
   <ConsentName>analytical.cookies.consent</ConsentName>
 </cms.consent>

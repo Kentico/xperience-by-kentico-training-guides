@@ -39,7 +39,7 @@ namespace KBank.Web.Controllers
             }
 
             CookieConsentLevel selectedConsentValue;
-            if(requestModel.CookieLevelSelected > 0 && requestModel.CookieLevelSelected < 5)
+            if (requestModel.CookieLevelSelected > 0 && requestModel.CookieLevelSelected < 5)
             {
                 selectedConsentValue = (CookieConsentLevel)requestModel.CookieLevelSelected;
             }
@@ -105,7 +105,7 @@ namespace KBank.Web.Controllers
             {
                 throw new Exception();
             }
-            
+
             Dictionary<int, string> consentMapping;
 
             try
@@ -143,7 +143,7 @@ namespace KBank.Web.Controllers
 
             IEnumerable<string> consents = mapping.Split(Environment.NewLine).ToList();
 
-            if(consents.Count() == 0)
+            if (consents.Count() == 0)
             {
                 throw new Exception();
             }

@@ -4,21 +4,21 @@
     <ConsentContent xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
       <ConsentLanguageVersions>
         <ConsentLanguageVersion>
-          <CultureCode>en-US</CultureCode>
           <FullText>
             <![CDATA[<p>Marketing cookies and the data you provide us allow us to link our website to third-party social media and advertising networks, such as Facebook or Google Ads. With this connection, we can present relevant ads outside our website.</p>]]>
           </FullText>
+          <LanguageName>en</LanguageName>
           <ShortText>
-            <![CDATA[<p>Marketing cookies are used to provide relevant ads based on your activity.</p>]]>
+            <![CDATA[<p>Marketing cookies are used to provide relevant ads based on your activity</p>]]>
           </ShortText>
         </ConsentLanguageVersion>
       </ConsentLanguageVersions>
     </ConsentContent>
   </ConsentContent>
   <ConsentDisplayName>Marketing cookies</ConsentDisplayName>
-  <ConsentGuid>bcb84068-f212-4c10-82e9-0e1211aa365a</ConsentGuid>
+  <ConsentGuid>f12a51d0-322d-44d3-a8cc-ac29d760750e</ConsentGuid>
   <ConsentHash>
-    <![CDATA[caccca422e4ec0fbc636f69efc9e461725b24a4e0f65af610076561603956e96]]>
+    <![CDATA[86f954b1bf113228d5c718ec509448ee10ed235d5c63bd0323fd6e580df6adaa]]>
   </ConsentHash>
   <ConsentName>marketing.cookies.consent</ConsentName>
 </cms.consent>

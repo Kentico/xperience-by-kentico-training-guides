@@ -4,11 +4,11 @@ using Kentico.Xperience.Admin.Base.Forms;
 using Kentico.Xperience.Admin.DigitalMarketing.UIPages;
 
 [assembly: UIPage(
-    parentType: typeof(DataProtectionContentLanguage), 
-    slug: "cookielevelconsentmapping", 
-    uiPageType: typeof(CookieLevelConsentMappingPage), 
+    parentType: typeof(DataProtectionContentLanguage),
+    slug: "cookielevelconsentmapping",
+    uiPageType: typeof(CookieLevelConsentMappingPage),
     name: "Cookie level consent mapping",
-    templateName: TemplateNames.EDIT, 
+    templateName: TemplateNames.EDIT,
     order: UIPageOrder.First + 1)]
 namespace KBank.Admin.Pages
 {
@@ -22,7 +22,7 @@ namespace KBank.Admin.Pages
             _cookieLevelConsentMappingInfoProvider = generalSettingsInfoProvider;
         }
 
-        
+
         public override int ObjectId
         {
             get
@@ -40,7 +40,7 @@ namespace KBank.Admin.Pages
 
             return base.ConfigurePage();
         }
-        
+
 
         private CookieLevelConsentMappingInfo GetOrCreateMappings()
         {

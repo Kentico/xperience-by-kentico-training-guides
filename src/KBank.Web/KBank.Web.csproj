@@ -3,12 +3,6 @@
     <TargetFramework>net6.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Remove="Components\Widgets\PageLike\**" />
-    <Content Remove="Components\Widgets\PageLike\**" />
-    <EmbeddedResource Remove="Components\Widgets\PageLike\**" />
-    <None Remove="Components\Widgets\PageLike\**" />
-  </ItemGroup>
-  <ItemGroup>
     <PackageReference Include="AspNetCore.Unobtrusive.Ajax" Version="2.0.0" />
     <PackageReference Include="kentico.xperience.admin" Version="27.0.0" />
     <PackageReference Include="kentico.xperience.azurestorage" Version="27.0.0" />
@@ -22,5 +16,6 @@
   <ItemGroup>
     <None Include="Components\ViewComponents\TrackingConsent\_TrackingConsent.cshtml" />
     <None Include="Components\Widgets\CookiePreferences\_CookiePreferencesWidget.cshtml" />
+    <None Include="Components\Widgets\PageLike\_PageLikeWidget.cshtml" />
   </ItemGroup>
 </Project>
