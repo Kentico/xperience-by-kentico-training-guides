@@ -46,6 +46,6 @@ function Get-ConnectionString {
     }
     
     Write-Error "Connection string not found."
-    Read-Host -Prompt "Press any key to exit"
+    Read-Host -Prompt "Press Enter to exit"
     exit 1
 }

@@ -15,7 +15,7 @@ $afterList = "After.txt"
 $repositoryPath = "App_data\CIRepository"
 $migrationFolder = "@migrations"
 
-cd ../src/KBank.Web
+Set-Location -Path ../src/KBank.Web
 
 $path = Get-Location
 
@@ -177,7 +177,7 @@ function Run-Restore {
 	# Executes migration scripts before the restore
 	if (!(Run-MigrationList $connectionString $beforeList)) {
 		Write-Error "Database migrations before the restore failed."
-        Read-Host -Prompt "Press any key to exit"
+        Read-Host -Prompt "Press Enter to exit"
 		exit 1
 	}
 	
@@ -191,14 +191,14 @@ function Run-Restore {
 	dotnet run --project $Path --no-build -c "$configuration" -- --kxp-ci-restore
 	if ($LASTEXITCODE -ne 0) {
 		Write-Error "Restore failed."
-        Read-Host -Prompt "Press any key to exit"
+        Read-Host -Prompt "Press Enter to exit"
 		exit 1
 	}
 
 	# Executes migration scripts after the restore
 	if (!(Run-MigrationList $connectionString $afterList)) {
 		Write-Error "Database migrations after the restore failed."
-        Read-Host -Prompt "Press any key to exit"
+        Read-Host -Prompt "Press Enter to exit"
 		exit 1
 	}
 
@@ -220,4 +220,4 @@ if ($DisplayTimeElapsed) {
 
 Set-Location -Path $scriptsPath
 
-Read-Host -Prompt "Press any key to exit"
+Read-Host -Prompt "Press Enter to exit"

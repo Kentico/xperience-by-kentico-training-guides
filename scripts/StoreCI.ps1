@@ -5,15 +5,16 @@
 
 $scriptsPath = Get-Location
 
-cd ../src/KBank.Web
+Set-Location -Path ../src/KBank.Web
 
 Write-Host 'Storing CI files'
 
 dotnet run --no-build --kxp-ci-store
 
 if ($LASTEXITCODE -ne 0) {
+    Set-Location -Path $scriptsPath
     Write-Error "CI store failed."
-    Read-Host -Prompt "Press any key to exit"
+    Read-Host -Prompt "Press Enter to exit"
     exit 1
 }
 else{
@@ -22,4 +23,4 @@ else{
 
 Set-Location -Path $scriptsPath
 
-Read-Host -Prompt "Press any key to exit"
+Read-Host -Prompt "Press Enter to exit"

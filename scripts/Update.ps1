@@ -17,7 +17,6 @@ function Execute-SQL-Command {
     $command = new-object system.data.sqlclient.sqlcommand($CommandText,$connection)
     $transaction = $connection.BeginTransaction()
     $command.Transaction = $transaction
-    $rowsAffectedInBatch = $command.ExecuteNonQuery()
 
     try {
         $rowsAffected = $command.ExecuteNonQuery()
@@ -28,14 +27,11 @@ function Execute-SQL-Command {
     catch {
         Write-Error $_.Exception.Message
         return $FALSE
-    }
-
-    
+    }    
 
     $connection.Close()
 
     return $TRUE
-
 }
 
 #Query that retrieves a data set
@@ -56,12 +52,11 @@ function Execute-SQL-Data-Query {
     $connection.Close()
 
     return $dataset
-
 }
 
 $scriptsPath = Get-Location
 
-cd ..\src\KBank.Web
+Set-Location -Path ..\src\KBank.Web
 
 $appPath = Get-Location
 
