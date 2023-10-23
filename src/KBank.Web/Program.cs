@@ -3,6 +3,7 @@ using KBank;
 using KBank.Web.Components;
 using KBank.Web.Extensions;
 using KBank.Web.Helpers.Cookies;
+using KBank.Web.Helpers.Startup;
 using Kentico.Activities.Web.Mvc;
 using Kentico.Content.Web.Mvc.Routing;
 using Kentico.CrossSiteTracking.Web.Mvc;
@@ -27,19 +28,18 @@ builder.Services.AddCors(options =>
 });
 
 // Enable desired Kentico Xperience features
-builder.Services.AddKentico(features =>
+builder.Services.AddKentico(async features =>
 {
-    var cookieConsentMapping = CookieConsentHelper.GetCurrentMapping().Result;
     features.UseCrossSiteTracking(
         new CrossSiteTrackingOptions
         {
             ConsentSettings = new[] {
                 new CrossSiteTrackingConsentOptions
                 {
-                    ConsentName = cookieConsentMapping.MarketingConsentCodeName.FirstOrDefault(),
+                    WebsiteChannelName = "KBankPages",
+                    ConsentName = await StartupHelper.GetMarketingConsentCodeName(),
                     AgreeCookieLevel = CookieLevel.Visitor.Level
                 }
-
             }
         });
 
