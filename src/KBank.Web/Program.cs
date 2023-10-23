@@ -18,31 +18,9 @@ var KBankAllowSpecificOrigins = "_kBankAllowSpecificOrigins";
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy(name: KBankAllowSpecificOrigins,
-        policy =>
-        {
-            policy.WithOrigins("https://the-domain-of-your-external-site.com").WithHeaders("content-type").AllowCredentials();
-        });
-});
-
 // Enable desired Kentico Xperience features
 builder.Services.AddKentico(async features =>
 {
-    features.UseCrossSiteTracking(
-        new CrossSiteTrackingOptions
-        {
-            ConsentSettings = new[] {
-                new CrossSiteTrackingConsentOptions
-                {
-                    WebsiteChannelName = "KBankPages",
-                    ConsentName = await StartupHelper.GetMarketingConsentCodeName(),
-                    AgreeCookieLevel = CookieLevel.Visitor.Level
-                }
-            }
-        });
-
     features.UsePageBuilder(new PageBuilderOptions
     {
         DefaultSectionIdentifier = ComponentIdentifiers.SINGLE_COLUMN_SECTION,

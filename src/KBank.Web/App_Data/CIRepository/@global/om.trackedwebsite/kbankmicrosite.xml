@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<om.trackedwebsite>
-  <TrackedWebsiteChannelID>1</TrackedWebsiteChannelID>
-  <TrackedWebsiteDisplayName>KBank Microsite</TrackedWebsiteDisplayName>
-  <TrackedWebsiteEnabled>True</TrackedWebsiteEnabled>
-  <TrackedWebsiteGUID>db56e993-012c-4533-beba-cdf377799e68</TrackedWebsiteGUID>
-  <TrackedWebsiteName>KBankMicrosite</TrackedWebsiteName>
-  <TrackedWebsiteURL>https://the-domain-of-your-external-site.com</TrackedWebsiteURL>
-</om.trackedwebsite>
