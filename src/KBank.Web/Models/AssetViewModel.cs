@@ -12,11 +12,11 @@ public class AssetViewModel
     {
         return new AssetViewModel()
         {
-            Title = asset.File.Metadata.Name,
-            Description = asset.Description,
-            AltText = asset.AltText,
-            UseInternalOnly = asset.UseInternalOnly,
-            FilePath = asset.File?.Url
+            Title = asset.AssetFile.Metadata.Name,
+            Description = asset.AssetDescription,
+            AltText = asset.AssetAltText,
+            UseInternalOnly = asset.AssetUseInternalOnly,
+            FilePath = asset.AssetFile?.Url
         };
     }
 }

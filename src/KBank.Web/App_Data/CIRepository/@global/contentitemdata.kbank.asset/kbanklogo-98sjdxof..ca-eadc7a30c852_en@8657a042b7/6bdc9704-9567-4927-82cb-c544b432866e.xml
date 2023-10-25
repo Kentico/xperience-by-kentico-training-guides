@@ -1,6 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <contentitemdata.kbank.asset>
-  <AltText>Logo for KBank</AltText>
+  <AssetAltText>Logo for KBank</AssetAltText>
+  <AssetDescription>KBankLogo</AssetDescription>
+  <AssetFile>
+    <![CDATA[{"Identifier":"1344438b-0b4b-4b32-b54b-446f14321ea8","Name":"171aaf6a-d057-48b4-8c2a-cc1a0fd3ab35.png","Extension":".png","Size":3201,"LastModified":"2023-10-17T17:22:35.9247Z"}]]>
+  </AssetFile>
+  <AssetUseInternalOnly>False</AssetUseInternalOnly>
   <ContentItemDataCommonDataID>
     <GUID>ebc592b4-ba04-4435-8eca-eadc7a30c852</GUID>
     <ObjectType>cms.contentitemcommondata</ObjectType>
@@ -11,9 +16,4 @@
     </Parent>
   </ContentItemDataCommonDataID>
   <ContentItemDataGUID>6bdc9704-9567-4927-82cb-c544b432866e</ContentItemDataGUID>
-  <Description>KBankLogo</Description>
-  <File>
-    <![CDATA[{"Identifier":"1344438b-0b4b-4b32-b54b-446f14321ea8","Name":"171aaf6a-d057-48b4-8c2a-cc1a0fd3ab35.png","Extension":".png","Size":3201,"LastModified":"2023-10-17T17:22:35.9247Z"}]]>
-  </File>
-  <UseInternalOnly>False</UseInternalOnly>
 </contentitemdata.kbank.asset>

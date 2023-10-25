@@ -46,16 +46,16 @@ namespace KBank.Web.Components.ViewComponents.Header
         {
             Asset asset = await _progressiveCache.Load(async cs => await LoadLogo(cs), new CacheSettings(1200, "headerlogo|main"));
 
-            ContentItemAsset file = asset?.File;
+            ContentItemAsset file = asset?.AssetFile;
 
             if (file == null) return null;
 
             return new AssetViewModel()
             {
                 FilePath = file.Url,
-                AltText = asset.AltText,
-                UseInternalOnly = asset.UseInternalOnly,
-                Description = asset.Description
+                AltText = asset.AssetAltText,
+                UseInternalOnly = asset.AssetUseInternalOnly,
+                Description = asset.AssetDescription
             };
         }
 
@@ -67,7 +67,7 @@ namespace KBank.Web.Components.ViewComponents.Header
             var asset = await contentItemRetriever.RetrieveContentItem(
                 Asset.CONTENT_TYPE_NAME,
                 config => config
-                    .Where(where => where.WhereEquals(nameof(Asset.Description), KBANK_LOGO_DESCRIPTION))
+                    .Where(where => where.WhereEquals(nameof(Asset.AssetDescription), KBANK_LOGO_DESCRIPTION))
                     .TopN(1),
                 container => contentQueryResultMapper.Map<Asset>(container));
 

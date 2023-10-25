@@ -35,12 +35,12 @@ namespace KBank
 		/// <summary>
 		/// Message.
 		/// </summary>
-		public string Message { get; set; }
+		public string LandingContentMessage { get; set; }
 
 
 		/// <summary>
 		/// Text.
 		/// </summary>
-		public string Text { get; set; }
+		public string LandingContentText { get; set; }
 	}
 }

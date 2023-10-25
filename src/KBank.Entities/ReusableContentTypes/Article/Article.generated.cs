@@ -35,12 +35,12 @@ namespace KBank
 		/// <summary>
 		/// Title.
 		/// </summary>
-		public string Title { get; set; }
+		public string ArticleTitle { get; set; }
 
 
 		/// <summary>
 		/// Text.
 		/// </summary>
-		public string Text { get; set; }
+		public string ArticleText { get; set; }
 	}
 }

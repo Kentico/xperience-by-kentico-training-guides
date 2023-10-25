@@ -1,5 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <contentitemdata.kbank.article>
+  <ArticleText>KBank news!</ArticleText>
+  <ArticleTitle>KBank news</ArticleTitle>
   <ContentItemDataCommonDataID>
     <GUID>1a73fa03-08d0-485b-843a-79e1510322dc</GUID>
     <ObjectType>cms.contentitemcommondata</ObjectType>
@@ -10,6 +12,4 @@
     </Parent>
   </ContentItemDataCommonDataID>
   <ContentItemDataGUID>11bd7f2d-57c1-425f-98e3-17e6dda043b7</ContentItemDataGUID>
-  <Text>KBank news!</Text>
-  <Title>KBank news</Title>
 </contentitemdata.kbank.article>

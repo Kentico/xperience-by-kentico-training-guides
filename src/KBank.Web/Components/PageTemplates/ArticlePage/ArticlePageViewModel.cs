@@ -16,8 +16,8 @@ public class ArticlePageViewModel
 
         return new ArticlePageViewModel
         {
-            Title = article.ArticlePageContent.FirstOrDefault()?.Title,
-            Text = article.ArticlePageContent.FirstOrDefault()?.Text
+            Title = article.ArticlePageContent.FirstOrDefault()?.ArticleTitle,
+            Text = article.ArticlePageContent.FirstOrDefault()?.ArticleText
         };
     }
 

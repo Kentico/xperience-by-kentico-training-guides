@@ -14,7 +14,7 @@ public class LandingPageViewModel
         }
         return new LandingPageViewModel
         {
-            Message = landingPage.LandingPageContent.FirstOrDefault()?.Message
+            Message = landingPage.LandingPageContent.FirstOrDefault()?.LandingContentMessage
         };
     }
 }

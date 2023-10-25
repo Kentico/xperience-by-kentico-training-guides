@@ -35,24 +35,24 @@ namespace KBank
 		/// <summary>
 		/// Description.
 		/// </summary>
-		public string Description { get; set; }
+		public string AssetDescription { get; set; }
 
 
 		/// <summary>
 		/// AltText.
 		/// </summary>
-		public string AltText { get; set; }
+		public string AssetAltText { get; set; }
 
 
 		/// <summary>
 		/// UseInternalOnly.
 		/// </summary>
-		public bool UseInternalOnly { get; set; }
+		public bool AssetUseInternalOnly { get; set; }
 
 
 		/// <summary>
 		/// File.
 		/// </summary>
-		public ContentItemAsset File { get; set; }
+		public ContentItemAsset AssetFile { get; set; }
 	}
 }
