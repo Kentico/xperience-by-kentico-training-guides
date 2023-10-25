@@ -10,8 +10,8 @@
     </Parent>
   </ContentItemDataCommonDataID>
   <ContentItemDataGUID>506e381f-eabb-4895-abae-abf7eb1c5513</ContentItemDataGUID>
-  <Message>Welcome to KBank</Message>
-  <Text>
+  <LandingContentMessage>Welcome to KBank</LandingContentMessage>
+  <LandingContentText>
     <![CDATA[<p>Lorem ipsum dolor sit amet</p>]]>
-  </Text>
+  </LandingContentText>
 </contentitemdata.kbank.landingcontent>

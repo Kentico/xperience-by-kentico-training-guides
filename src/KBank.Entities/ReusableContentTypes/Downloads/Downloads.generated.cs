@@ -35,12 +35,12 @@ namespace KBank
 		/// <summary>
 		/// Heading.
 		/// </summary>
-		public string Heading { get; set; }
+		public string DownloadsHeading { get; set; }
 
 
 		/// <summary>
 		/// Assets.
 		/// </summary>
-		public IEnumerable<Asset> Assets { get; set; }
+		public IEnumerable<Asset> DownloadsAssets { get; set; }
 	}
 }

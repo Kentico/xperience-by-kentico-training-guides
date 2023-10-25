@@ -1,8 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <contentitemdata.kbank.downloads>
-  <Assets>
-    <![CDATA[[{"Identifier":"13d1466b-a95c-4bee-8e8e-52385821cf68"}]]]>
-  </Assets>
   <ContentItemDataCommonDataID>
     <GUID>4a4566d8-639b-4608-b508-c712c404b642</GUID>
     <ObjectType>cms.contentitemcommondata</ObjectType>
@@ -13,5 +10,8 @@
     </Parent>
   </ContentItemDataCommonDataID>
   <ContentItemDataGUID>91094356-3d42-435e-ba1d-8870bddc5eb9</ContentItemDataGUID>
-  <Heading>Download our policies</Heading>
+  <DownloadsAssets>
+    <![CDATA[[{"Identifier":"13d1466b-a95c-4bee-8e8e-52385821cf68"}]]]>
+  </DownloadsAssets>
+  <DownloadsHeading>Download our policies</DownloadsHeading>
 </contentitemdata.kbank.downloads>
