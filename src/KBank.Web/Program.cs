@@ -3,16 +3,12 @@ using KBank;
 using KBank.Web.Components;
 using KBank.Web.Extensions;
 using KBank.Web.Helpers.Cookies;
-using KBank.Web.Helpers.Startup;
 using Kentico.Activities.Web.Mvc;
 using Kentico.Content.Web.Mvc.Routing;
-using Kentico.CrossSiteTracking.Web.Mvc;
-using Kentico.OnlineMarketing.Web.Mvc;
 using Kentico.PageBuilder.Web.Mvc;
 using Kentico.Web.Mvc;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
-using System.Linq;
 
 var KBankAllowSpecificOrigins = "_kBankAllowSpecificOrigins";
 
@@ -38,8 +34,8 @@ builder.Services.AddKentico(async features =>
 
 builder.Services.Configure<CookieLevelOptions>(options =>
 {
-    options.CookieConfigurations.Add(CookieNames.COOKIE_CONSENT_LEVEL, CookieLevel.Essential);
-    options.CookieConfigurations.Add(CookieNames.COOKIE_ACCEPTANCE, CookieLevel.Essential);
+    options.CookieConfigurations.Add(CookieNames.COOKIE_CONSENT_LEVEL, CookieLevel.System);
+    options.CookieConfigurations.Add(CookieNames.COOKIE_ACCEPTANCE, CookieLevel.System);
 });
 
 builder.Services.AddAuthentication();
