@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.scheduledtask>
-  <TaskAssemblyName>CMS.DocumentEngine</TaskAssemblyName>
+  <TaskAssemblyName>CMS.Websites</TaskAssemblyName>
   <TaskClass>
-    <![CDATA[CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsCleaner]]>
+    <![CDATA[CMS.Websites.PageBuilder.TempPageBuilderWidgetsCleaner]]>
   </TaskClass>
   <TaskCondition />
   <TaskData />
@@ -14,7 +14,6 @@
     <![CDATA[hour;2/20/2018 12:00:00 PM;1;00:00:00;23:59:00;Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday]]>
   </TaskInterval>
   <TaskName>DeleteOldTemporaryPageBuilderWidgets</TaskName>
-  <TaskRunIndividually>False</TaskRunIndividually>
   <TaskRunInSeparateThread>True</TaskRunInSeparateThread>
   <TaskServerName />
 </cms.scheduledtask>

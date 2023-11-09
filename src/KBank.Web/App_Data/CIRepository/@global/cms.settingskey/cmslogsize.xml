@@ -4,7 +4,6 @@
     <CodeName>CMS.System.EventLog</CodeName>
     <ObjectType>cms.settingscategory</ObjectType>
   </KeyCategoryID>
-  <KeyDefaultValue>1000</KeyDefaultValue>
   <KeyDescription>
     <![CDATA[{$base.settings.settingskey.cmslogsize.description$}]]>
   </KeyDescription>
@@ -12,7 +11,6 @@
   <KeyExplanationText />
   <KeyGUID>fee130c7-a5e5-42e4-8c01-7039bd8f1c2d</KeyGUID>
   <KeyIsCustom>False</KeyIsCustom>
-  <KeyIsGlobal>False</KeyIsGlobal>
   <KeyIsHidden>False</KeyIsHidden>
   <KeyName>CMSLogSize</KeyName>
   <KeyOrder>1</KeyOrder>

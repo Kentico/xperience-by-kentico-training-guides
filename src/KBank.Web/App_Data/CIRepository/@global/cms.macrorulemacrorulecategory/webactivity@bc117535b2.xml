@@ -48,24 +48,10 @@
         <ObjectType>cms.macrorule</ObjectType>
       </MacroRuleID>
     </Binding>
-    <Binding id="cms.macrorule_CMSContactHasLoggedInInTheLastXDays">
-      <MacroRuleID>
-        <CodeName>CMSContactHasLoggedInInTheLastXDays</CodeName>
-        <GUID>1c250b40-34be-4994-927f-6c1fb74fa05b</GUID>
-        <ObjectType>cms.macrorule</ObjectType>
-      </MacroRuleID>
-    </Binding>
     <Binding id="cms.macrorule_CMSContactHasPerformedActivityWithValueInTheLastXDays">
       <MacroRuleID>
         <CodeName>CMSContactHasPerformedActivityWithValueInTheLastXDays</CodeName>
         <GUID>5ce28857-add7-422d-b2c6-1569a021d9d0</GUID>
-        <ObjectType>cms.macrorule</ObjectType>
-      </MacroRuleID>
-    </Binding>
-    <Binding id="cms.macrorule_CMSContactHasSearchedForSpecifiedKeywordsInLastXDays">
-      <MacroRuleID>
-        <CodeName>CMSContactHasSearchedForSpecifiedKeywordsInLastXDays</CodeName>
-        <GUID>9dddb501-940f-46a2-9b7a-ead8ef7962bc</GUID>
         <ObjectType>cms.macrorule</ObjectType>
       </MacroRuleID>
     </Binding>
@@ -90,13 +76,6 @@
         <ObjectType>cms.macrorule</ObjectType>
       </MacroRuleID>
     </Binding>
-    <Binding id="cms.macrorule_CMSContactHasVisitedSpecifiedSiteInTheLastXDays">
-      <MacroRuleID>
-        <CodeName>CMSContactHasVisitedSpecifiedSiteInTheLastXDays</CodeName>
-        <GUID>cde29a5b-2405-4c52-9fc0-fc1b931f2672</GUID>
-        <ObjectType>cms.macrorule</ObjectType>
-      </MacroRuleID>
-    </Binding>
     <Binding id="cms.macrorule_CMSContactInactiveInTheLastXDays">
       <MacroRuleID>
         <CodeName>CMSContactInactiveInTheLastXDays</CodeName>
@@ -108,13 +87,6 @@
       <MacroRuleID>
         <CodeName>CMSSatisfiesMacroCondition</CodeName>
         <GUID>33e07d27-6277-4470-8bff-1b07aafd1802</GUID>
-        <ObjectType>cms.macrorule</ObjectType>
-      </MacroRuleID>
-    </Binding>
-    <Binding id="cms.macrorule_ContactHasEnteredASpecificTextInASpecificFormSFieldInTheLastXDays">
-      <MacroRuleID>
-        <CodeName>ContactHasEnteredASpecificTextInASpecificFormSFieldInTheLastXDays</CodeName>
-        <GUID>44d701f7-5536-44f5-9089-06d934d71124</GUID>
         <ObjectType>cms.macrorule</ObjectType>
       </MacroRuleID>
     </Binding>

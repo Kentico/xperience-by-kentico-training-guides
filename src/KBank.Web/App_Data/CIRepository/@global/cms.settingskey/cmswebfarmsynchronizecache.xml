@@ -4,7 +4,6 @@
     <CodeName>CMS.WebFarm.Synchronization</CodeName>
     <ObjectType>cms.settingscategory</ObjectType>
   </KeyCategoryID>
-  <KeyDefaultValue>True</KeyDefaultValue>
   <KeyDescription>
     <![CDATA[{$settingskey.CMSWebFarmSynchronizeCache.description$}]]>
   </KeyDescription>
@@ -12,7 +11,6 @@
   <KeyExplanationText />
   <KeyGUID>3cbec5af-6a0d-440a-9d09-e4b0caf80672</KeyGUID>
   <KeyIsCustom>False</KeyIsCustom>
-  <KeyIsGlobal>True</KeyIsGlobal>
   <KeyIsHidden>True</KeyIsHidden>
   <KeyName>CMSWebFarmSynchronizeCache</KeyName>
   <KeyOrder>4</KeyOrder>

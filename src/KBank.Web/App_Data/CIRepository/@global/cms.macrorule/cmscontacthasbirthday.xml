@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.macrorule>
-  <MacroRuleAvailability>2</MacroRuleAvailability>
   <MacroRuleCondition>
 <![CDATA[
 selectedDay = DateTime.Now.AddDays(ToInt({days}));
@@ -20,7 +19,7 @@ Contact.ContactBirthday != null && {_is}(Contact.ContactBirthday.Month == select
           <fieldcaption>select day</fieldcaption>
         </properties>
         <settings>
-          <controlname>DropDownListControl</controlname>
+          <controlname>Kentico.Administration.DropDownSelector</controlname>
           <DisplayActualValueAsItem>False</DisplayActualValueAsItem>
           <EditText>False</EditText>
           <Options>
@@ -40,8 +39,9 @@ Contact.ContactBirthday != null && {_is}(Contact.ContactBirthday.Month == select
           <fieldcaption>select operation</fieldcaption>
         </properties>
         <settings>
-          <controlname>MacroNegationOperator</controlname>
-          <EditText>false</EditText>
+          <controlname>Kentico.Administration.DropDownSelector</controlname>
+          <EditText>False</EditText>
+          <IsPerfectum>True</IsPerfectum>
           <Options>
 <![CDATA[
 __is;is
@@ -52,7 +52,5 @@ __isnot;is not
       </field>
     </form>
   </MacroRuleParameters>
-  <MacroRuleRequiresContext>False</MacroRuleRequiresContext>
-  <MacroRuleResourceName>cms.onlinemarketing</MacroRuleResourceName>
   <MacroRuleText>Contact birthday {_is} {days}</MacroRuleText>
 </cms.macrorule>

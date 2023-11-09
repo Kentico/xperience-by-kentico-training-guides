@@ -4,7 +4,6 @@
     <CodeName>CMS.WebFarm.Synchronization</CodeName>
     <ObjectType>cms.settingscategory</ObjectType>
   </KeyCategoryID>
-  <KeyDefaultValue>True</KeyDefaultValue>
   <KeyDescription>
     <![CDATA[{$settingskey.CMSWebFarmSynchronizeBizFormFiles.description$}]]>
   </KeyDescription>
@@ -12,7 +11,6 @@
   <KeyExplanationText />
   <KeyGUID>ee393c40-2fb3-4b66-9e32-b5f70ad9b40a</KeyGUID>
   <KeyIsCustom>False</KeyIsCustom>
-  <KeyIsGlobal>True</KeyIsGlobal>
   <KeyIsHidden>True</KeyIsHidden>
   <KeyName>CMSWebFarmSynchronizeBizFormFiles</KeyName>
   <KeyOrder>6</KeyOrder>

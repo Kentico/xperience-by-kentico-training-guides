@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.form>
+  <FormBuilderLayout>
+<![CDATA[
+{
+  "editableAreas": [
+    {
+      "identifier": "DefaultFormBuilderArea",
+      "sections": [
+        {
+          "identifier": "00000000-0000-0000-0000-000000000000",
+          "type": "Kentico.DefaultSection",
+          "zones": [
+            {
+              "identifier": "c2ff68cd-4e8d-4883-922b-a314ed8c19e6",
+              "formComponents": [
+                {
+                  "identifier": "034e84fa-246a-4333-ac36-9b34f2f5f984"
+                },
+                {
+                  "identifier": "e288441b-da31-421e-b158-8919a924bcf4"
+                },
+                {
+                  "identifier": "201afec5-455d-4bce-a911-08de6cb967c1"
+                },
+                {
+                  "identifier": "048f7bd7-0a4e-486a-bfb2-ec0d2da64bd7"
+                }
+              ]
+            }
+          ],
+          "properties": null
+        }
+      ]
+    }
+  ]
+}
+]]>
+  </FormBuilderLayout>
+  <FormClassID>
+    <CodeName>BizForm.Contact</CodeName>
+    <GUID>e2bf41eb-74e7-43ff-862e-e58c2cfe5ecf</GUID>
+    <ObjectType>cms.formclass</ObjectType>
+  </FormClassID>
+  <FormDisplayName>Contact</FormDisplayName>
+  <FormGUID>fe953992-2734-4694-9da4-a25619dc3813</FormGUID>
+  <FormItems>0</FormItems>
+  <FormLogActivity>True</FormLogActivity>
+  <FormName>Contact</FormName>
+</cms.form>

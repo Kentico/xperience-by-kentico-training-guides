@@ -9,7 +9,6 @@
   <KeyExplanationText />
   <KeyGUID>32358ac1-1dd9-4a31-a19f-c032ca9af358</KeyGUID>
   <KeyIsCustom>False</KeyIsCustom>
-  <KeyIsGlobal>True</KeyIsGlobal>
   <KeyIsHidden>True</KeyIsHidden>
   <KeyName>CMSWebFarmMaxFileSize</KeyName>
   <KeyOrder>2</KeyOrder>

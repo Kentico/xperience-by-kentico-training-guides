@@ -44,11 +44,8 @@
       <field column="ContactGroupDynamicCondition" columnprecision="0" enabled="true" guid="fd9391ed-bfab-4753-bc4d-a98e0457ce1a" visible="true">
         <settings>
           <controlname>Kentico.Administration.ConditionBuilder</controlname>
-          <DisplayRuleType>1</DisplayRuleType>
-          <MacroRuleAvailability>0</MacroRuleAvailability>
           <ResolverName>ContactResolver</ResolverName>
           <RuleCategoryNames>cms.onlinemarketing</RuleCategoryNames>
-          <ShowGlobalRules>True</ShowGlobalRules>
         </settings>
         <properties>
           <explanationtextashtml>False</explanationtextashtml>

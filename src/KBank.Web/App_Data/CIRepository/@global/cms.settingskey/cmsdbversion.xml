@@ -4,16 +4,14 @@
     <CodeName>CMS.System.General</CodeName>
     <ObjectType>cms.settingscategory</ObjectType>
   </KeyCategoryID>
-  <KeyDefaultValue>26.4.0</KeyDefaultValue>
   <KeyDescription>{$settingskey.cmsdbversion.description$}</KeyDescription>
   <KeyDisplayName>{$settingskey.cmsdbversion$}</KeyDisplayName>
   <KeyExplanationText />
   <KeyGUID>f1481cd6-5b8a-407c-b1da-86bf19282b0c</KeyGUID>
   <KeyIsCustom>False</KeyIsCustom>
-  <KeyIsGlobal>True</KeyIsGlobal>
   <KeyIsHidden>True</KeyIsHidden>
   <KeyName>CMSDBVersion</KeyName>
   <KeyOrder>2</KeyOrder>
   <KeyType>string</KeyType>
-  <KeyValue>26.4.0</KeyValue>
+  <KeyValue>27.0.0</KeyValue>
 </cms.settingskey>

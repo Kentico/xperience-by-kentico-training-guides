@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.channel>
+  <ChannelDisplayName>KBank pages</ChannelDisplayName>
+  <ChannelGUID>5ba9c1e8-b61e-4570-b666-87a9b92bbe3b</ChannelGUID>
+  <ChannelName>KBankPages</ChannelName>
+  <ChannelType>Website</ChannelType>
+</cms.channel>

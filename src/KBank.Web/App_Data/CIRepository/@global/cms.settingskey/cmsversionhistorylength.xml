@@ -4,7 +4,6 @@
     <CodeName>CMS.Content.Workflow</CodeName>
     <ObjectType>cms.settingscategory</ObjectType>
   </KeyCategoryID>
-  <KeyDefaultValue>1</KeyDefaultValue>
   <KeyDescription>
     <![CDATA[{$settingskey.cmsversionhistorylength.description$}]]>
   </KeyDescription>
@@ -12,7 +11,6 @@
   <KeyExplanationText />
   <KeyGUID>7954e184-40a9-4c14-84d0-e149f687c171</KeyGUID>
   <KeyIsCustom>False</KeyIsCustom>
-  <KeyIsGlobal>False</KeyIsGlobal>
   <KeyIsHidden>True</KeyIsHidden>
   <KeyName>CMSVersionHistoryLength</KeyName>
   <KeyOrder>5</KeyOrder>

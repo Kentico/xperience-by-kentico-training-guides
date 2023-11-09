@@ -4,7 +4,6 @@
     <CodeName>CMS.OnlineMarketing.OnlineMarketing</CodeName>
     <ObjectType>cms.settingscategory</ObjectType>
   </KeyCategoryID>
-  <KeyDefaultValue>True</KeyDefaultValue>
   <KeyDescription>
     <![CDATA[{$settingskey.cmsenableonlinemarketing.description$}]]>
   </KeyDescription>
@@ -12,7 +11,6 @@
   <KeyExplanationText />
   <KeyGUID>19ed1d80-bc35-4da5-b429-870368aefea6</KeyGUID>
   <KeyIsCustom>False</KeyIsCustom>
-  <KeyIsGlobal>False</KeyIsGlobal>
   <KeyIsHidden>True</KeyIsHidden>
   <KeyName>CMSEnableOnlineMarketing</KeyName>
   <KeyOrder>1</KeyOrder>

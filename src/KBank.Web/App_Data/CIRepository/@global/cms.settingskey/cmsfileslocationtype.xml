@@ -4,7 +4,6 @@
     <CodeName>CMS.Files.Storage</CodeName>
     <ObjectType>cms.settingscategory</ObjectType>
   </KeyCategoryID>
-  <KeyDefaultValue>0</KeyDefaultValue>
   <KeyDescription>{$settingskey.cmsfileslocationtype.description$}</KeyDescription>
   <KeyDisplayName>{$settingskey.cmsfileslocationtype$}</KeyDisplayName>
   <KeyEditingControlPath>EnumSelector</KeyEditingControlPath>
@@ -20,7 +19,6 @@
   </KeyFormControlSettings>
   <KeyGUID>01819ce8-d879-484b-b474-f64247d1cf49</KeyGUID>
   <KeyIsCustom>False</KeyIsCustom>
-  <KeyIsGlobal>False</KeyIsGlobal>
   <KeyIsHidden>True</KeyIsHidden>
   <KeyName>CMSFilesLocationType</KeyName>
   <KeyOrder>1</KeyOrder>

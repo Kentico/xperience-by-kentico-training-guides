@@ -64,17 +64,18 @@
           <visible>true</visible>
         </properties>
       </category>
-      <field column="ContactGroupRecipientListThankYouPage" columnprecision="0" columntype="pages" dummy="altform" enabled="true" guid="8e189ae3-5cda-438a-b96a-2bdc967cd40f" system="true" visible="true" order="10">
+      <field column="ContactGroupRecipientListThankYouPage" columnprecision="0" columntype="webpages" dummy="altform" enabled="true" guid="8e189ae3-5cda-438a-b96a-2bdc967cd40f" system="true" visible="true" order="10">
         <properties>
           <explanationtext>
             <![CDATA[{$digitalmarketing.recipientlist.thankyoupage.explanationtext$}]]>
           </explanationtext>
+          <explanationtextashtml>False</explanationtextashtml>
           <fieldcaption>{$digitalmarketing.recipientlist.thankyoupage$}</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
         </properties>
         <settings>
-          <controlname>Kentico.Administration.PageSelector</controlname>
+          <controlname>Kentico.Administration.WebPageSelector</controlname>
           <MaximumPages>1</MaximumPages>
-          <RootPath>/</RootPath>
           <Sortable>False</Sortable>
         </settings>
       </field>
@@ -93,7 +94,7 @@
           <controlname>Kentico.Administration.Checkbox</controlname>
         </settings>
       </field>
-      <field column="ContactGroupRecipientListSubscriptionConfirmationEmail" columnprecision="0" columntype="objectids" dummy="altform" enabled="true" guid="646f70e5-c4f9-4a94-8059-f03ded9429c0" system="true" visible="true" order="12">
+      <field column="ContactGroupRecipientListSubscriptionConfirmationEmail" columnprecision="0" columntype="emails" dummy="altform" enabled="true" guid="646f70e5-c4f9-4a94-8059-f03ded9429c0" system="true" visible="true" order="12">
         <properties>
           <explanationtextashtml>False</explanationtextashtml>
           <fieldcaption>
@@ -105,10 +106,10 @@
           <fielddescriptionashtml>False</fielddescriptionashtml>
         </properties>
         <settings>
-          <controlname>Kentico.Administration.ObjectIdSelector</controlname>
-          <MaximumItems>1</MaximumItems>
-          <ObjectType>emaillibrary.emailconfiguration</ObjectType>
-          <Placeholder>{$digitalmarketing.recipientlist.chooseemail$}</Placeholder>
+          <AllowedEmailType>Confirmation</AllowedEmailType>
+          <controlname>Kentico.Administration.EmailSelector</controlname>
+          <MaximumEmails>1</MaximumEmails>
+          <Sortable>False</Sortable>
         </settings>
       </field>
       <category name="Unsubscribe_settings" order="13">
@@ -119,17 +120,18 @@
           <visible>true</visible>
         </properties>
       </category>
-      <field column="ContactGroupRecipientListGoodByePage" columnprecision="0" columntype="pages" dummy="altform" enabled="true" guid="23c70395-906f-409f-a3fd-704aa16f01d4" system="true" visible="true" order="14">
+      <field column="ContactGroupRecipientListGoodByePage" columnprecision="0" columntype="webpages" dummy="altform" enabled="true" guid="23c70395-906f-409f-a3fd-704aa16f01d4" system="true" visible="true" order="14">
         <properties>
           <explanationtext>
             <![CDATA[{$digitalmarketing.recipientlist.goodbyepage.explanationtext$}]]>
           </explanationtext>
+          <explanationtextashtml>False</explanationtextashtml>
           <fieldcaption>{$digitalmarketing.recipientlist.goodbyepage$}</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
         </properties>
         <settings>
-          <controlname>Kentico.Administration.PageSelector</controlname>
+          <controlname>Kentico.Administration.WebPageSelector</controlname>
           <MaximumPages>1</MaximumPages>
-          <RootPath>/</RootPath>
           <Sortable>False</Sortable>
         </settings>
       </field>
@@ -148,7 +150,7 @@
           <controlname>Kentico.Administration.Checkbox</controlname>
         </settings>
       </field>
-      <field column="ContactGroupRecipientListUnsubscriptionConfirmationEmail" columnprecision="0" columntype="objectids" dummy="altform" enabled="true" guid="b675e9db-73c4-44a9-8cb9-c158a891d3e6" system="true" visible="true" order="16">
+      <field column="ContactGroupRecipientListUnsubscriptionConfirmationEmail" columnprecision="0" columntype="emails" dummy="altform" enabled="true" guid="b675e9db-73c4-44a9-8cb9-c158a891d3e6" system="true" visible="true" order="16">
         <properties>
           <explanationtextashtml>False</explanationtextashtml>
           <fieldcaption>
@@ -160,10 +162,10 @@
           <fielddescriptionashtml>False</fielddescriptionashtml>
         </properties>
         <settings>
-          <controlname>Kentico.Administration.ObjectIdSelector</controlname>
-          <MaximumItems>1</MaximumItems>
-          <ObjectType>emaillibrary.emailconfiguration</ObjectType>
-          <Placeholder>{$digitalmarketing.recipientlist.chooseemail$}</Placeholder>
+          <AllowedEmailType>Confirmation</AllowedEmailType>
+          <controlname>Kentico.Administration.EmailSelector</controlname>
+          <MaximumEmails>1</MaximumEmails>
+          <Sortable>False</Sortable>
         </settings>
       </field>
       <field column="ContactGroupEnabled" guid="b2572394-a920-4f7e-81a9-5cc435925099" order="17" />

@@ -4,7 +4,6 @@
     <CodeName>CMS.WebFarm.General</CodeName>
     <ObjectType>cms.settingscategory</ObjectType>
   </KeyCategoryID>
-  <KeyDefaultValue>1</KeyDefaultValue>
   <KeyDescription />
   <KeyDisplayName>{$settingskey.WebFarmMode$}</KeyDisplayName>
   <KeyEditingControlPath>EnumSelector</KeyEditingControlPath>
@@ -20,7 +19,6 @@
   </KeyFormControlSettings>
   <KeyGUID>acd79f30-8a21-41b8-9c51-17cc2bc9fbc0</KeyGUID>
   <KeyIsCustom>False</KeyIsCustom>
-  <KeyIsGlobal>True</KeyIsGlobal>
   <KeyIsHidden>True</KeyIsHidden>
   <KeyName>CMSWebFarmMode</KeyName>
   <KeyOrder>1</KeyOrder>

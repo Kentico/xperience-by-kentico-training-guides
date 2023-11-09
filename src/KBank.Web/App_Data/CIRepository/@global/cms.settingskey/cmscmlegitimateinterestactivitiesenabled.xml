@@ -4,7 +4,6 @@
     <CodeName>CMS.OnlineMarketing.Activities.General</CodeName>
     <ObjectType>cms.settingscategory</ObjectType>
   </KeyCategoryID>
-  <KeyDefaultValue>True</KeyDefaultValue>
   <KeyDescription>
     <![CDATA[{$settingskey.cmscmlegitimateinterestactivitiesenabled.description$}]]>
   </KeyDescription>
@@ -14,7 +13,6 @@
   <KeyExplanationText />
   <KeyGUID>78becb3e-78f0-4246-85d8-1557e313756e</KeyGUID>
   <KeyIsCustom>False</KeyIsCustom>
-  <KeyIsGlobal>False</KeyIsGlobal>
   <KeyIsHidden>True</KeyIsHidden>
   <KeyName>CMSCMLegitimateInterestActivitiesEnabled</KeyName>
   <KeyOrder>2</KeyOrder>

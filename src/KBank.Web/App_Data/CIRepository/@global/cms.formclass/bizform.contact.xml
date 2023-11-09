@@ -95,18 +95,10 @@
     </form>
   </ClassFormDefinition>
   <ClassGUID>e2bf41eb-74e7-43ff-862e-e58c2cfe5ecf</ClassGUID>
-  <ClassHasMetadata>False</ClassHasMetadata>
   <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
-  <ClassHasURL>False</ClassHasURL>
-  <ClassIsCoupledClass>True</ClassIsCoupledClass>
-  <ClassIsDocumentType>False</ClassIsDocumentType>
-  <ClassIsForm>True</ClassIsForm>
-  <ClassIsPage>False</ClassIsPage>
   <ClassName>BizForm.Contact</ClassName>
-  <ClassNodeNameSource />
-  <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
   <ClassTableName>Form_KBank_Form_2023_06_20_13_47</ClassTableName>
-  <ClassUsesPageBuilder>False</ClassUsesPageBuilder>
+  <ClassType>Form</ClassType>
   <ClassXmlSchema>
 <![CDATA[
 <?xml version="1.0" encoding="utf-8"?>

@@ -3,11 +3,7 @@
   <ClassDisplayName>Email send configuration</ClassDisplayName>
   <ClassFormDefinition>
     <form>
-      <field column="SendConfigurationID" columntype="integer" enabled="true" guid="8da31668-f005-4e59-95b3-0ee7e1052099" isPK="true" system="true">
-        <properties>
-          <fieldcaption>SendConfigurationID</fieldcaption>
-        </properties>
-      </field>
+      <field column="SendConfigurationID" columntype="integer" enabled="true" guid="8da31668-f005-4e59-95b3-0ee7e1052099" isPK="true" system="true" />
       <field column="SendConfigurationEmailConfigurationID" columnprecision="0" columntype="integer" enabled="true" guid="c4adc1af-4a0c-4398-89c4-184e531b62ac" refobjtype="emaillibrary.emailconfiguration" reftype="Required" system="true" />
       <field column="SendConfigurationRecipientListID" columnprecision="0" columntype="integer" enabled="true" guid="c871385d-a9bd-4e8e-a08a-23136e879920" refobjtype="om.contactgroup" reftype="Required" system="true" />
       <field allowempty="true" column="SendConfigurationScheduledTime" columnprecision="7" columntype="datetime" enabled="true" guid="da55309d-8c3b-459b-9a84-ce58ca04dc3b" system="true" />
@@ -20,21 +16,13 @@
     </form>
   </ClassFormDefinition>
   <ClassGUID>f6738f52-ec96-47c0-a5fd-9a771f770f2d</ClassGUID>
-  <ClassHasMetadata>False</ClassHasMetadata>
   <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
-  <ClassHasURL>False</ClassHasURL>
-  <ClassIsCoupledClass>True</ClassIsCoupledClass>
-  <ClassIsDocumentType>False</ClassIsDocumentType>
-  <ClassIsForm>False</ClassIsForm>
-  <ClassIsPage>False</ClassIsPage>
   <ClassName>EmailLibrary.SendConfiguration</ClassName>
-  <ClassNodeNameSource />
   <ClassResourceID>
     <CodeName>CMS.EmailLibrary</CodeName>
     <GUID>028f4adc-346c-434a-8992-408c8b45a986</GUID>
     <ObjectType>cms.resource</ObjectType>
   </ClassResourceID>
-  <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
   <ClassTableName>EmailLibrary_SendConfiguration</ClassTableName>
-  <ClassUsesPageBuilder>False</ClassUsesPageBuilder>
+  <ClassType>Other</ClassType>
 </cms.class>

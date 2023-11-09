@@ -22,10 +22,7 @@
       <field column="FormClassID" guid="4a6f6a49-d057-4c80-9b20-2b8e760c246f" />
       <field column="FormItems" guid="72c682ed-264a-4bc2-9ce2-9aab8203dd61" />
       <field column="FormReportFields" guid="f20ee9b5-041b-44fe-a2f9-c9723a959201" />
-      <field column="FormAfterSubmitMode" guid="8de07991-0e6a-4585-94cb-2ec3a07e40e1" />
-      <field column="FormAfterSubmitRelatedValue" guid="54bdb235-3cc6-40f6-9847-c5eefaa4a5dc" />
       <field column="FormSubmitButtonText" guid="db2765b7-a1b6-464d-924b-7b7f7231d4a3" />
-      <field column="FormSiteID" guid="a695a92d-3d29-4aaf-b326-20db0876d681" />
       <field column="FormAccess" guid="6655864e-d1c5-44e7-bdb9-d115fd50309b" />
       <field column="FormSubmitButtonImage" guid="839193cc-6353-4cd8-9b70-2315dce1f7de" />
       <field column="FormGUID" guid="9e7c52e0-e181-4e28-a140-2c49aaf5640a" />

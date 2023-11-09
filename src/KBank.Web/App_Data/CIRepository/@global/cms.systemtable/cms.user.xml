@@ -9,8 +9,6 @@
     </form>
   </ClassContactMapping>
   <ClassContactOverwriteEnabled>True</ClassContactOverwriteEnabled>
-  <ClassCustomizedColumns />
-  <ClassDefaultObjectType />
   <ClassDisplayName>User</ClassDisplayName>
   <ClassFormDefinition>
     <form>
@@ -38,25 +36,14 @@
     </form>
   </ClassFormDefinition>
   <ClassGUID>2e02c378-0f3d-45de-9b2d-b8cf2bd87b55</ClassGUID>
-  <ClassHasMetadata>False</ClassHasMetadata>
   <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
-  <ClassHasURL>False</ClassHasURL>
-  <ClassIsCoupledClass>True</ClassIsCoupledClass>
-  <ClassIsDocumentType>False</ClassIsDocumentType>
-  <ClassIsForm>False</ClassIsForm>
-  <ClassIsPage>False</ClassIsPage>
   <ClassName>cms.user</ClassName>
-  <ClassNodeAliasSource />
-  <ClassNodeNameSource />
   <ClassResourceID>
     <CodeName>CMS.Membership</CodeName>
     <GUID>d4b7561a-f188-420c-8f68-63b5c573b2bf</GUID>
     <ObjectType>cms.resource</ObjectType>
   </ClassResourceID>
-  <ClassShowAsSystemTable>True</ClassShowAsSystemTable>
-  <ClassShowColumns />
   <ClassShowTemplateSelection>False</ClassShowTemplateSelection>
   <ClassTableName>CMS_User</ClassTableName>
-  <ClassUsePublishFromTo>False</ClassUsePublishFromTo>
-  <ClassUsesPageBuilder>False</ClassUsesPageBuilder>
+  <ClassType>System</ClassType>
 </cms.systemtable>

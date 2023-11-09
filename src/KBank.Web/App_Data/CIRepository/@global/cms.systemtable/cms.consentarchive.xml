@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.systemtable>
   <ClassConnectionString>CMSOMConnectionString</ClassConnectionString>
-  <ClassCustomizedColumns />
   <ClassDisplayName>Consent archive</ClassDisplayName>
   <ClassFormDefinition>
     <form>
@@ -14,23 +13,14 @@
     </form>
   </ClassFormDefinition>
   <ClassGUID>04fb1a53-1f25-42bb-9608-a4bb23ca657d</ClassGUID>
-  <ClassHasMetadata>False</ClassHasMetadata>
   <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
-  <ClassHasURL>False</ClassHasURL>
-  <ClassIsCoupledClass>True</ClassIsCoupledClass>
-  <ClassIsDocumentType>False</ClassIsDocumentType>
-  <ClassIsForm>False</ClassIsForm>
-  <ClassIsPage>False</ClassIsPage>
   <ClassName>CMS.ConsentArchive</ClassName>
-  <ClassNodeNameSource />
   <ClassResourceID>
     <CodeName>CMS.DataProtection</CodeName>
     <GUID>8089f9a7-95d9-4e3c-b95a-91a49ccf10c4</GUID>
     <ObjectType>cms.resource</ObjectType>
   </ClassResourceID>
-  <ClassShowAsSystemTable>True</ClassShowAsSystemTable>
   <ClassShowTemplateSelection>False</ClassShowTemplateSelection>
   <ClassTableName>CMS_ConsentArchive</ClassTableName>
-  <ClassUsePublishFromTo>False</ClassUsePublishFromTo>
-  <ClassUsesPageBuilder>False</ClassUsesPageBuilder>
+  <ClassType>System</ClassType>
 </cms.systemtable>
