@@ -9,7 +9,6 @@
   <KeyExplanationText />
   <KeyGUID>0a17f5dd-4a37-422b-bc8b-3065c092ee75</KeyGUID>
   <KeyIsCustom>False</KeyIsCustom>
-  <KeyIsGlobal>True</KeyIsGlobal>
   <KeyIsHidden>True</KeyIsHidden>
   <KeyName>CMSJwtTokenEncryptionKey</KeyName>
   <KeyOrder>1</KeyOrder>

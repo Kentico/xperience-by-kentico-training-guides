@@ -1,9 +1,9 @@
-﻿using System;
+﻿using CMS.DataEngine;
+using CMS.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Xml;
-using CMS.DataEngine;
-using CMS.Helpers;
 
 namespace KBank.Web.DataProtection.Writers;
 
@@ -39,7 +39,7 @@ public class XmlPersonalDataWriter : IPersonalDataWriter
         foreach (var columnTuple in columns)
         {
             var columnName = columnTuple.Name;
-            
+
             if (string.IsNullOrWhiteSpace(columnTuple.DisplayName))
             {
                 continue;

@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.applicationpermission>
+  <ApplicationName>Kentico.Xperience.Application.MediaLibraries</ApplicationName>
+  <ApplicationPermissionGuid>c1a009a0-a9c5-499e-bf61-a3579692b5cf</ApplicationPermissionGuid>
+  <PermissionName>ManageMediaLibrary</PermissionName>
+  <RoleID>
+    <CodeName>DigitalChannelManager</CodeName>
+    <GUID>93fb8806-31ba-4548-8a3b-24dbbeec6e3d</GUID>
+    <ObjectType>cms.role</ObjectType>
+  </RoleID>
+</cms.applicationpermission>

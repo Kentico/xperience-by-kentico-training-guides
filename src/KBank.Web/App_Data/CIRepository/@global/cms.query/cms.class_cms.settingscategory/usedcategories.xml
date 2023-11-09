@@ -19,7 +19,7 @@ WITH usedCategories AS
 		FROM CMS_SettingsCategory 
 		WHERE CategoryID IN (SELECT KeyCategoryID 
 								FROM CMS_SettingsKey 
-								WHERE ISNULL(SiteID, 0) = 0 AND ISNULL(KeyIsHidden, 0) = 0)
+								WHERE ISNULL(KeyIsHidden, 0) = 0)
     UNION ALL
     SELECT CMS_SettingsCategory.*
 		FROM CMS_SettingsCategory JOIN usedCategories 

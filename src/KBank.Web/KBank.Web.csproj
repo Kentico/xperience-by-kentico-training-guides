@@ -4,13 +4,18 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="AspNetCore.Unobtrusive.Ajax" Version="2.0.0" />
-    <PackageReference Include="kentico.xperience.admin" Version="26.4.0" />
-    <PackageReference Include="kentico.xperience.azurestorage" Version="26.4.0" />
-    <PackageReference Include="kentico.xperience.imageprocessing" Version="26.4.0" />
-    <PackageReference Include="kentico.xperience.webapp" Version="26.4.0" />
+    <PackageReference Include="kentico.xperience.admin" Version="27.0.0" />
+    <PackageReference Include="kentico.xperience.azurestorage" Version="27.0.0" />
+    <PackageReference Include="kentico.xperience.imageprocessing" Version="27.0.0" />
+    <PackageReference Include="kentico.xperience.webapp" Version="27.0.0" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\KBank.Admin\KBank.Admin.csproj" />
     <ProjectReference Include="..\KBank.Entities\KBank.Entities.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Components\ViewComponents\TrackingConsent\_TrackingConsent.cshtml" />
+    <None Include="Components\Widgets\CookiePreferences\_CookiePreferencesWidget.cshtml" />
+    <None Include="Components\Widgets\PageLike\_PageLikeWidget.cshtml" />
   </ItemGroup>
 </Project>

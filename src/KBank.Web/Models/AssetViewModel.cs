@@ -1,6 +1,4 @@
-﻿using CMS.DocumentEngine.Types.KBank;
-
-namespace KBank.Web.Models;
+﻿namespace KBank.Web.Models;
 
 public class AssetViewModel
 {
@@ -14,11 +12,11 @@ public class AssetViewModel
     {
         return new AssetViewModel()
         {
-            Title = asset.DocumentName,
-            Description = asset.Description,
-            AltText = asset.AltText,
-            UseInternalOnly = asset.UseInternalOnly,
-            FilePath = asset.Fields.File?.Url
+            Title = asset.AssetFile.Metadata.Name,
+            Description = asset.AssetDescription,
+            AltText = asset.AssetAltText,
+            UseInternalOnly = asset.AssetUseInternalOnly,
+            FilePath = asset.AssetFile?.Url
         };
     }
 }

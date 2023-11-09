@@ -3,10 +3,12 @@
 @using KBank.Web.Helpers.Cookies;
 @model KBank.Web.Components.Widgets.CookiePreferences.CookiePreferencesWidgetViewModel;
 
+@inject ICookieAccessor cookieAccessor
+
 @{
     Layout = null;
     var messageId = "cookiePreferencesMessage";
-    Model.CookieLevelSelected = CMS.Helpers.ValidationHelper.GetInteger(CookieHelper.GetValue(CookieNames.COOKIE_CONSENT_LEVEL), 1);
+    Model.CookieLevelSelected = CMS.Helpers.ValidationHelper.GetInteger(cookieAccessor.Get(CookieNames.COOKIE_CONSENT_LEVEL), 1);
     var baseUrl = Context.Request.GetBaseUrl();
 }
 

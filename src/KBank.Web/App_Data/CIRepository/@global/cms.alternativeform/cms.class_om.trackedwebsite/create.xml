@@ -55,7 +55,21 @@
           <fielddescriptionashtml>False</fielddescriptionashtml>
         </properties>
       </field>
-      <field column="TrackedWebsiteEnabled" enabled="true" guid="44254a4a-f7da-45c8-a452-e6691dc0fa0b" visible="true">
+      <field column="TrackedWebsiteChannelID" enabled="true" guid="1987fc7f-c745-407c-9017-57d401083a4e" visible="true" order="6">
+        <settings>
+          <controlname>Kentico.Administration.SingleObjectIdSelector</controlname>
+          <ObjectType>cms.channel</ObjectType>
+        </settings>
+        <properties>
+          <defaultvalue>0</defaultvalue>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>
+            <![CDATA[{$digitalmarketing.trackedwebsite.edit.websitechannel$}]]>
+          </fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+      </field>
+      <field column="TrackedWebsiteEnabled" enabled="true" guid="44254a4a-f7da-45c8-a452-e6691dc0fa0b" visible="true" order="7">
         <settings>
           <controlname>Kentico.Administration.Checkbox</controlname>
         </settings>
@@ -66,8 +80,7 @@
           <fielddescriptionashtml>False</fielddescriptionashtml>
         </properties>
       </field>
-      <field column="TrackedWebsiteSiteID" guid="e0b7bc00-6e9a-4f17-8bc6-8cd1d5db3834" />
-      <field column="TrackedWebsiteLastModified" guid="04236e90-2b2e-430d-b73e-ca53866a957c" />
+      <field column="TrackedWebsiteLastModified" guid="04236e90-2b2e-430d-b73e-ca53866a957c" order="8" />
     </form>
   </FormDefinition>
   <FormDisplayName>create</FormDisplayName>

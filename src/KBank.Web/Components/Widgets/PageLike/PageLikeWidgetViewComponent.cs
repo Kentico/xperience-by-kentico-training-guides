@@ -1,5 +1,6 @@
 ﻿using CMS.Activities;
 using CMS.ContactManagement;
+using CMS.Websites.Internal;
 using KBank.Web.Components.Widgets.PageLike;
 using Kentico.PageBuilder.Web.Mvc;
 using Microsoft.AspNetCore.Mvc;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 [assembly:
     RegisterWidget(PageLikeWidgetViewComponent.IDENTIFIER, typeof(PageLikeWidgetViewComponent), "Page like button", Description = "Displays a page like button.",
-        IconClass = "xp-plus-square")]
+        IconClass = "icon-check-circle")]
 namespace KBank.Web.Components.Widgets.PageLike;
 
 public class PageLikeWidgetViewComponent : ViewComponent
@@ -29,13 +30,15 @@ public class PageLikeWidgetViewComponent : ViewComponent
     {
         var currentContact = ContactManagementContext.GetCurrentContact(false);
 
+        var webPage = WebPageItemInfo.Provider.Get().WhereEquals(nameof(WebPageItemInfo.WebPageItemID), properties.Page.WebPageItemID).FirstOrDefault();
+
         IEnumerable<ActivityInfo> likesOfThisPage;
         if (currentContact != null)
         {
             likesOfThisPage = await _activityInfoProvider.Get()
                 .WhereEquals("ActivityContactID", currentContact.ContactID)
                 .And().WhereEquals("ActivityType", ACTIVITY_IDENTIFIER)
-                .And().WhereEquals("ActivityValue", properties.Page.NodeAliasPath)
+                .And().WhereEquals("ActivityValue", webPage.WebPageItemTreePath)
                 .GetEnumerableTypedResultAsync();
         }
         else
@@ -45,10 +48,12 @@ public class PageLikeWidgetViewComponent : ViewComponent
 
         bool showLikeButton = (likesOfThisPage.Count() == 0);
 
+
+
         var model = new PageLikeWidgetViewModel()
         {
             ShowLikeButton = showLikeButton,
-            PageGuid = properties.Page.DocumentGUID,
+            WebPageId = properties.Page.WebPageItemID,
         };
 
         return View("~/Components/Widgets/PageLike/_PageLikeWidget.cshtml", model);

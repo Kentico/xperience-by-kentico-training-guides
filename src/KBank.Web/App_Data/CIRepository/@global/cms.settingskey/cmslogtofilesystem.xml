@@ -4,7 +4,6 @@
     <CodeName>CMS.System.EventLog</CodeName>
     <ObjectType>cms.settingscategory</ObjectType>
   </KeyCategoryID>
-  <KeyDefaultValue>False</KeyDefaultValue>
   <KeyDescription>
     <![CDATA[{$base.settings.settingskey.cmslogtofilesystem.description$}]]>
   </KeyDescription>
@@ -12,7 +11,6 @@
   <KeyExplanationText />
   <KeyGUID>72b79e3b-fe60-4171-8baa-aeefc2ae1501</KeyGUID>
   <KeyIsCustom>False</KeyIsCustom>
-  <KeyIsGlobal>True</KeyIsGlobal>
   <KeyIsHidden>False</KeyIsHidden>
   <KeyName>CMSLogToFileSystem</KeyName>
   <KeyOrder>4</KeyOrder>

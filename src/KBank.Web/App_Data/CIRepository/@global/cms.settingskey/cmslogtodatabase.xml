@@ -4,7 +4,6 @@
     <CodeName>CMS.System.EventLog</CodeName>
     <ObjectType>cms.settingscategory</ObjectType>
   </KeyCategoryID>
-  <KeyDefaultValue>True</KeyDefaultValue>
   <KeyDescription>
     <![CDATA[{$base.settings.settingskey.cmslogtodatabase.description$}]]>
   </KeyDescription>
@@ -12,7 +11,6 @@
   <KeyExplanationText />
   <KeyGUID>5f621a7a-7f34-4dec-ba77-0d09768774bd</KeyGUID>
   <KeyIsCustom>False</KeyIsCustom>
-  <KeyIsGlobal>True</KeyIsGlobal>
   <KeyIsHidden>False</KeyIsHidden>
   <KeyName>CMSLogToDatabase</KeyName>
   <KeyOrder>3</KeyOrder>

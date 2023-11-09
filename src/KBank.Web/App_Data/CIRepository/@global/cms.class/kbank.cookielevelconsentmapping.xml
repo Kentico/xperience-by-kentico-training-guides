@@ -14,33 +14,21 @@
   <ClassDisplayName>Cookie level consent mapping</ClassDisplayName>
   <ClassFormDefinition>
     <form>
-      <field column="CookieLevelConsentMappingID" columntype="integer" enabled="true" guid="a4971860-949c-4cb7-92d0-98a2b3ca202e" isPK="true">
-        <properties>
-          <fieldcaption>CookieLevelConsentMappingID</fieldcaption>
-        </properties>
-      </field>
-      <field allowempty="true" column="PreferenceConsentCodeName" columnprecision="0" columntype="objectcodenames" enabled="true" guid="a1bf9a68-3e61-4d0b-93a7-e03f7b44c90b" />
-      <field allowempty="true" column="AnalyticalConsentCodeName" columnprecision="0" columntype="objectcodenames" enabled="true" guid="8b8e802c-72c7-4c6a-824c-bbfa79a1c15e" />
-      <field allowempty="true" column="MarketingConsentCodeName" columnprecision="0" columntype="objectcodenames" enabled="true" guid="a0838aaa-21f9-4e8f-8a83-65204e9c37b1" />
-      <field column="CookieLevelConsentMappingGuid" columnprecision="0" columntype="guid" enabled="true" guid="46c8e96e-1f4b-494d-acd6-0c45da929aa6" />
+      <field column="CookieLevelConsentMappingID" columntype="integer" enabled="true" guid="c92252ee-03fb-43be-bd1c-d5d90b7814a4" isPK="true" />
+      <field allowempty="true" column="PreferenceConsentCodeName" columnprecision="0" columntype="objectcodenames" enabled="true" guid="28cb04c7-0f39-4790-8302-d84e4b9d6956" />
+      <field allowempty="true" column="AnalyticalConsentCodeName" columnprecision="0" columntype="objectcodenames" enabled="true" guid="9fddd7f7-42e6-45ef-a3ae-f55e9c4723d8" />
+      <field allowempty="true" column="MarketingConsentCodeName" columnprecision="0" columntype="objectcodenames" enabled="true" guid="9bef93d9-1e5d-47ee-8e41-48454c22b67e" />
+      <field column="CookieLevelConsentMappingGuid" columnprecision="0" columntype="guid" enabled="true" guid="277fb389-382b-4e38-a32f-5b81a9a90978" />
     </form>
   </ClassFormDefinition>
-  <ClassGUID>f22ad084-8e83-4cb3-9532-3fe144a692c2</ClassGUID>
-  <ClassHasMetadata>False</ClassHasMetadata>
+  <ClassGUID>b6d3c3b0-8f20-4d1e-b8ca-3a885a42824a</ClassGUID>
   <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
-  <ClassHasURL>False</ClassHasURL>
-  <ClassIsCoupledClass>True</ClassIsCoupledClass>
-  <ClassIsDocumentType>False</ClassIsDocumentType>
-  <ClassIsForm>False</ClassIsForm>
-  <ClassIsPage>False</ClassIsPage>
   <ClassName>KBank.CookieLevelConsentMapping</ClassName>
-  <ClassNodeNameSource />
   <ClassResourceID>
     <CodeName>KBank.Admin</CodeName>
     <GUID>69fa2d87-24b7-4c29-9625-887d6f0da903</GUID>
     <ObjectType>cms.resource</ObjectType>
   </ClassResourceID>
-  <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
   <ClassTableName>KBank_CookieLevelConsentMapping</ClassTableName>
-  <ClassUsesPageBuilder>False</ClassUsesPageBuilder>
+  <ClassType>Other</ClassType>
 </cms.class>

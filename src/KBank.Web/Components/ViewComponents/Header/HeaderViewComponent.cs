@@ -1,29 +1,38 @@
-﻿using CMS.DocumentEngine;
-using CMS.DocumentEngine.Types.KBank;
-
-using Kentico.Content.Web.Mvc;
-using KBank.Web.Models;
-
-using Microsoft.AspNetCore.Mvc;
-
-using System.Threading.Tasks;
-using System.Linq;
+﻿using CMS.ContentEngine;
 using CMS.Helpers;
+using KBank.Web.Models;
+using KBank.Web.Services.Content;
+using Kentico.Content.Web.Mvc.Routing;
+using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace KBank.Web.Components.ViewComponents.Header
 {
     public class HeaderViewComponent : ViewComponent
     {
-        private readonly IPageRetriever _pageRetriever;
-        private readonly IProgressiveCache _progressiveCache;
 
-        public HeaderViewComponent(IPageRetriever pageRetriever, IProgressiveCache progressiveCache)
+        private readonly IProgressiveCache _progressiveCache;
+        private readonly IContentQueryExecutor contentQueryExecutor;
+        private readonly IContentQueryResultMapper contentQueryResultMapper;
+        private readonly IPreferredLanguageRetriever preferredLanguageRetriever;
+        private readonly IContentItemRetrieverService<Asset> contentItemRetriever;
+
+        public HeaderViewComponent(
+            IProgressiveCache progressiveCache,
+            IContentQueryExecutor contentQueryExecutor,
+            IContentQueryResultMapper contentQueryResultMapper,
+            IPreferredLanguageRetriever preferredLanguageRetriever,
+            IContentItemRetrieverService<Asset> contentItemRetriever)
         {
-            _pageRetriever = pageRetriever;
             _progressiveCache = progressiveCache;
+            this.contentQueryExecutor = contentQueryExecutor;
+            this.contentQueryResultMapper = contentQueryResultMapper;
+            this.preferredLanguageRetriever = preferredLanguageRetriever;
+            this.contentItemRetriever = contentItemRetriever;
         }
 
         public async Task<IViewComponentResult> InvokeAsync()
+
         {
             var model = new HeaderViewModel()
             {
@@ -35,33 +44,36 @@ namespace KBank.Web.Components.ViewComponents.Header
 
         private async Task<AssetViewModel> GetLogo()
         {
-            Asset asset = await _progressiveCache.Load(async cs => await LoadLogo(cs), new CacheSettings(720, "headerlogo|main"));
+            Asset asset = await _progressiveCache.Load(async cs => await LoadLogo(cs), new CacheSettings(1200, "headerlogo|main"));
 
-            if (asset == null) return null;
-
-            ContentItemAsset file = asset.Fields?.File;
+            ContentItemAsset file = asset?.AssetFile;
 
             if (file == null) return null;
 
             return new AssetViewModel()
             {
                 FilePath = file.Url,
-                AltText = asset.AltText,
-                UseInternalOnly = asset.UseInternalOnly,
-                Description = asset.Description
+                AltText = asset.AssetAltText,
+                UseInternalOnly = asset.AssetUseInternalOnly,
+                Description = asset.AssetDescription
             };
         }
 
 
         private async Task<Asset> LoadLogo(CacheSettings cs)
         {
-            var assetList = await _pageRetriever.RetrieveAsync<Asset>(query => query
-                .WhereEquals("Description", "KBankLogo")
-                .WhereEquals("UseInternalOnly", 0)
-                .TopN(1));  
+            const string KBANK_LOGO_DESCRIPTION = "KBankLogo";
 
-            var asset = assetList.FirstOrDefault();
-            cs.CacheDependency = CacheHelper.GetCacheDependency($"kentico.asset|byid|{asset?.AssetID}");
+            var asset = await contentItemRetriever.RetrieveContentItem(
+                Asset.CONTENT_TYPE_NAME,
+                config => config
+                    .Where(where => where.WhereEquals(nameof(Asset.AssetDescription), KBANK_LOGO_DESCRIPTION))
+                    .TopN(1),
+                container => contentQueryResultMapper.Map<Asset>(container));
+
+            if (asset == null) return null;
+
+            cs.CacheDependency = CacheHelper.GetCacheDependency($"contentitem|byid|{asset?.SystemFields.ContentItemID}");
 
             return asset;
         }

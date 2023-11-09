@@ -54,13 +54,11 @@
       <field column="ContactGroupDynamicCondition" enabled="true" guid="fd9391ed-bfab-4753-bc4d-a98e0457ce1a" visible="true">
         <settings>
           <AddDataMacroBrackets>True</AddDataMacroBrackets>
-          <controlname>ConditionBuilder</controlname>
-          <DisplayRuleType>1</DisplayRuleType>
+          <controlname>Kentico.Administration.ConditionBuilder</controlname>
           <MaxWidth>600</MaxWidth>
           <ResolverName>ContactResolver</ResolverName>
           <RuleCategoryNames>cms.onlinemarketing</RuleCategoryNames>
           <ShowAutoCompletionAbove>False</ShowAutoCompletionAbove>
-          <ShowGlobalRules>True</ShowGlobalRules>
           <SingleLineMode>True</SingleLineMode>
         </settings>
         <properties>

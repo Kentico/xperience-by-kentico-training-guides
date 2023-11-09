@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.macrorule>
-  <MacroRuleAvailability>2</MacroRuleAvailability>
   <MacroRuleCondition>
     <![CDATA[{_is}CurrentDateTime.TimeOfDay.Between(ToTimeSpan("{time1}"), ToTimeSpan("{time2}"))]]>
   </MacroRuleCondition>
@@ -22,7 +21,7 @@
           <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
           <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
           <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
-          <controlname>textboxcontrol</controlname>
+          <controlname>Kentico.Administration.TextInput</controlname>
           <FilterMode>False</FilterMode>
           <Trim>False</Trim>
           <WatermarkText>enter time</WatermarkText>
@@ -36,7 +35,7 @@
           <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
           <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
           <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
-          <controlname>textboxcontrol</controlname>
+          <controlname>Kentico.Administration.TextInput</controlname>
           <FilterMode>False</FilterMode>
           <Trim>False</Trim>
           <WatermarkText>enter time</WatermarkText>
@@ -48,7 +47,8 @@
           <fieldcaption>select operation</fieldcaption>
         </properties>
         <settings>
-          <controlname>macronegationoperator</controlname>
+          <controlname>Kentico.Administration.DropDownSelector</controlname>
+          <IsPerfectum>True</IsPerfectum>
           <Options>
 <![CDATA[
 __is;is
@@ -60,8 +60,6 @@ __isnot;is not
       </field>
     </form>
   </MacroRuleParameters>
-  <MacroRuleRequiresContext>False</MacroRuleRequiresContext>
-  <MacroRuleResourceName />
   <MacroRuleText>
     <![CDATA[Current time of the day {_is} between {time1} and {time2}]]>
   </MacroRuleText>

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Xml;
-using CMS.Activities;
+﻿using CMS.Activities;
 using CMS.ContactManagement;
 using CMS.DataEngine;
 using CMS.DataProtection;
@@ -11,6 +6,11 @@ using CMS.Globalization;
 using CMS.Helpers;
 using CMS.OnlineForms;
 using KBank.Web.DataProtection.Writers;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Xml;
 
 namespace KBank.Web.DataProtection;
 

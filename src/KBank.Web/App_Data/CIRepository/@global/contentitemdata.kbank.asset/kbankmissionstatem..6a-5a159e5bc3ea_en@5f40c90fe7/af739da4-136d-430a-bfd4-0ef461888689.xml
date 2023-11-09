@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.kbank.asset>
+  <AssetAltText>Mission statement of KBank</AssetAltText>
+  <AssetDescription>Mission statement of KBank</AssetDescription>
+  <AssetFile>
+    <![CDATA[{"Identifier":"3c7d7e5b-5822-4e7b-8e08-c20f10c8c0f4","Name":"KBank_Mission_Statement.pdf","Extension":".pdf","Size":39567,"LastModified":"2023-10-12T19:14:21.7447692Z"}]]>
+  </AssetFile>
+  <AssetUseInternalOnly>False</AssetUseInternalOnly>
+  <ContentItemDataCommonDataID>
+    <GUID>8fbc2c38-7d52-4899-a26a-5a159e5bc3ea</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>KBankMissionStatement-zv0e6nj8</CodeName>
+      <GUID>13d1466b-a95c-4bee-8e8e-52385821cf68</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>af739da4-136d-430a-bfd4-0ef461888689</ContentItemDataGUID>
+</contentitemdata.kbank.asset>

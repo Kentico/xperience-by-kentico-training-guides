@@ -1,11 +1,9 @@
 ﻿using CMS.Activities;
-using CMS.DocumentEngine;
-using Kentico.Content.Web.Mvc;
-using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
-using System;
-using System.Linq;
+using CMS.Websites.Internal;
 using KBank.Web.Helpers.Cookies;
+using Microsoft.AspNetCore.Mvc;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace KBank.Web.Components.Widgets.PageLike;
 
@@ -16,13 +14,10 @@ public class PageLikeController : Controller
     private const string BAD_PAGE_DATA_MESSAGE = "<span>Error in page like data. Please try again later.</span>";
     private const string THANK_YOU_MESSAGE = "<span>Thank you!</span>";
 
-    private readonly IPageRetriever _pageRetriever;
     private readonly ICustomActivityLogger _customActivityLogger;
 
-
-    public PageLikeController(IPageRetriever pageRetriever, ICustomActivityLogger customActivityLogger)
+    public PageLikeController(ICustomActivityLogger customActivityLogger)
     {
-        _pageRetriever = pageRetriever;
         _customActivityLogger = customActivityLogger;
     }
 
@@ -33,20 +28,16 @@ public class PageLikeController : Controller
         if (!CookieConsentHelper.CurrentContactIsVisitorOrHigher())
             return Content(NO_TRACKING_MESSAGE);
 
-        if (!Guid.TryParse(requestModel.PageGuid, out Guid pageGuid))
+        if (!int.TryParse(requestModel.WebPageId, out int webPageId))
             return Content(BAD_PAGE_DATA_MESSAGE);
 
-        var nodes = await _pageRetriever.RetrieveAsync<TreeNode>(documentQuery => documentQuery
-                    .WhereEquals("DocumentGuid", pageGuid));
+        var webPage = (await WebPageItemInfo.Provider.Get().WhereEquals(nameof(WebPageItemInfo.WebPageItemID), webPageId).GetEnumerableTypedResultAsync()).FirstOrDefault();
 
-        if (nodes.Count() == 0)
+        if (webPage is null)
             return Content(BAD_PAGE_DATA_MESSAGE);
 
-        var node = nodes.FirstOrDefault();
-        
-
-        string likedPageName = node.DocumentName;
-        string likedPagePath = node.NodeAliasPath;
+        string likedPageName = webPage.WebPageItemName;
+        string likedPagePath = webPage.WebPageItemTreePath;
 
         var pageLikeActicityData = new CustomActivityData()
         {
@@ -57,4 +48,5 @@ public class PageLikeController : Controller
         _customActivityLogger.Log(PageLikeWidgetViewComponent.ACTIVITY_IDENTIFIER, pageLikeActicityData);
         return Content(THANK_YOU_MESSAGE);
     }
+
 }

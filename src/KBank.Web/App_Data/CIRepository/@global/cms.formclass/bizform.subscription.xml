@@ -66,18 +66,10 @@
     </form>
   </ClassFormDefinition>
   <ClassGUID>29f61b01-f24a-4845-b778-aac4b9630d8f</ClassGUID>
-  <ClassHasMetadata>False</ClassHasMetadata>
   <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
-  <ClassHasURL>False</ClassHasURL>
-  <ClassIsCoupledClass>True</ClassIsCoupledClass>
-  <ClassIsDocumentType>False</ClassIsDocumentType>
-  <ClassIsForm>True</ClassIsForm>
-  <ClassIsPage>False</ClassIsPage>
   <ClassName>BizForm.Subscription</ClassName>
-  <ClassNodeNameSource />
-  <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
   <ClassTableName>Form_KBank_Form_2023_05_11_13_16</ClassTableName>
-  <ClassUsesPageBuilder>False</ClassUsesPageBuilder>
+  <ClassType>Form</ClassType>
   <ClassXmlSchema>
 <![CDATA[
 <?xml version="1.0" encoding="utf-8"?>

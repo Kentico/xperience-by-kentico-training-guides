@@ -4,10 +4,10 @@
     <ConsentContent xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
       <ConsentLanguageVersions>
         <ConsentLanguageVersion>
-          <CultureCode>en-US</CultureCode>
           <FullText>
             <![CDATA[<p>Preference cookies and the data you provide us make your work easier by, for example, remembering the language in which you want to display the pages, etc.</p>]]>
           </FullText>
+          <LanguageName>en</LanguageName>
           <ShortText>
             <![CDATA[<p>Preference cookies help us remember changes and configurations you make on the site.</p>]]>
           </ShortText>
@@ -16,9 +16,9 @@
     </ConsentContent>
   </ConsentContent>
   <ConsentDisplayName>Preference cookies</ConsentDisplayName>
-  <ConsentGuid>23fa3cb6-4872-4887-8adc-0317c912eeae</ConsentGuid>
+  <ConsentGuid>5ed908c9-e77c-40de-bb6c-963cad6cf8b8</ConsentGuid>
   <ConsentHash>
-    <![CDATA[b217cd20f26a6a4cb6550fd85721963cec2b428d46ed67e23722c64c6701a660]]>
+    <![CDATA[089ae3053fd282af1016bfae4084005cffc12100ae277d998f60740b10579605]]>
   </ConsentHash>
   <ConsentName>preference.cookies.consent</ConsentName>
 </cms.consent>

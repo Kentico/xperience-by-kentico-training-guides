@@ -12,15 +12,7 @@
       <field column="ContactFirstName" guid="84594ecb-a64d-4860-8f4a-d7ee5a08c354" />
       <field column="ContactMiddleName" guid="ccf8d540-3f72-4b50-82a9-7349059035a3" />
       <field column="ContactLastName" guid="cd41b1d5-e269-44d0-af12-d323ef2d9716" />
-      <field column="ContactBirthday" enabled="true" guid="966346ba-d00e-4ac3-ab8a-1ad08bbd8ac6" visible="true">
-        <settings>
-          <controlname>LabelControl</controlname>
-          <ResolveMacros>True</ResolveMacros>
-        </settings>
-        <properties>
-          <fieldcaption>{$digitalmarketing.contact.birthday$}</fieldcaption>
-        </properties>
-      </field>
+      <field column="ContactBirthday" guid="966346ba-d00e-4ac3-ab8a-1ad08bbd8ac6" />
       <field column="ContactGender" guid="6eb0cdc8-d4f1-433c-a39d-9fef3487d29e" />
       <field column="ContactCompanyName" enabled="true" guid="c8415f67-aaf4-4d43-87d4-cb195df99a30" visible="true">
         <settings>

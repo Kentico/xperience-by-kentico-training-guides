@@ -2,5 +2,5 @@
 
 public class PageLikeRequestModel
 {
-    public string PageGuid { get; set; }
+    public string WebPageId { get; set; }
 }

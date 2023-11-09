@@ -9,11 +9,10 @@
   <FormDefinition>
     <form>
       <field column="RoleID" guid="0c8cc1de-1c82-4596-b6d0-b2c60bcad3b7" />
-      <field column="SiteID" guid="7238f49e-49eb-46a7-9dc4-811c3ca7d524" order="1" />
-      <field column="RoleGUID" guid="ad0f25d2-15b7-4eae-86bd-fc64538c45f9" order="2" />
-      <field column="RoleLastModified" guid="11b1bf06-0088-48a8-87d6-cffafff290ca" order="3" />
-      <field column="RoleIsDomain" guid="aa3f60b2-8781-44d4-8705-d264d514883c" order="4" />
-      <field column="RoleDisplayName" columnprecision="0" enabled="true" guid="c5f83fe3-f362-431f-80be-2d40122e469e" visible="true" order="5">
+      <field column="RoleGUID" guid="ad0f25d2-15b7-4eae-86bd-fc64538c45f9" order="1" />
+      <field column="RoleLastModified" guid="11b1bf06-0088-48a8-87d6-cffafff290ca" order="2" />
+      <field column="RoleIsDomain" guid="aa3f60b2-8781-44d4-8705-d264d514883c" order="3" />
+      <field column="RoleDisplayName" columnprecision="0" enabled="true" guid="c5f83fe3-f362-431f-80be-2d40122e469e" visible="true" order="4">
         <settings>
           <controlname>Kentico.Administration.TextInput</controlname>
         </settings>
@@ -23,7 +22,7 @@
           <fielddescriptionashtml>False</fielddescriptionashtml>
         </properties>
       </field>
-      <field column="RoleName" columnprecision="0" enabled="true" guid="918120c1-6d6b-42f5-be30-37f91af11666" visible="true" order="6">
+      <field column="RoleName" columnprecision="0" enabled="true" guid="918120c1-6d6b-42f5-be30-37f91af11666" visible="true" order="5">
         <settings>
           <controlname>Kentico.Administration.TextInput</controlname>
         </settings>
@@ -33,7 +32,7 @@
           <fielddescriptionashtml>False</fielddescriptionashtml>
         </properties>
       </field>
-      <field column="RoleDescription" columnprecision="0" enabled="true" guid="c465483d-4158-42e0-bb25-0c274769c74a" visible="true" order="7">
+      <field column="RoleDescription" columnprecision="0" enabled="true" guid="c465483d-4158-42e0-bb25-0c274769c74a" visible="true" order="6">
         <settings>
           <controlname>Kentico.Administration.TextArea</controlname>
           <CopyButtonVisible>False</CopyButtonVisible>

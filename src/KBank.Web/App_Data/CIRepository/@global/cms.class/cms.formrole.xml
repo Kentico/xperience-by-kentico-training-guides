@@ -2,42 +2,22 @@
 <cms.class>
   <ClassConnectionString>CMSConnectionString</ClassConnectionString>
   <ClassContactOverwriteEnabled>False</ClassContactOverwriteEnabled>
-  <ClassCustomizedColumns />
   <ClassDisplayName>FormRole</ClassDisplayName>
   <ClassFormDefinition>
     <form>
-      <field column="FormID" columntype="integer" guid="ab620239-2fc4-41e5-b46a-bb9737b59d15" isPK="true" refobjtype="cms.form" reftype="Binding" system="true">
-        <properties>
-          <fieldcaption>FormID</fieldcaption>
-        </properties>
-      </field>
-      <field column="RoleID" columntype="integer" guid="61315092-d101-4af5-8b07-c712828c49c4" refobjtype="cms.role" reftype="Binding" system="true">
-        <properties>
-          <fieldcaption>RoleID</fieldcaption>
-        </properties>
-      </field>
+      <field column="FormID" columntype="integer" guid="ab620239-2fc4-41e5-b46a-bb9737b59d15" isPK="true" refobjtype="cms.form" reftype="Binding" system="true" />
+      <field column="RoleID" columntype="integer" guid="61315092-d101-4af5-8b07-c712828c49c4" refobjtype="cms.role" reftype="Binding" system="true" />
     </form>
   </ClassFormDefinition>
   <ClassGUID>c6fdeded-624d-46a0-99a7-910cd0eba763</ClassGUID>
-  <ClassHasMetadata>False</ClassHasMetadata>
   <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
-  <ClassHasURL>False</ClassHasURL>
-  <ClassIsCoupledClass>True</ClassIsCoupledClass>
-  <ClassIsDocumentType>False</ClassIsDocumentType>
-  <ClassIsForm>False</ClassIsForm>
-  <ClassIsPage>False</ClassIsPage>
   <ClassName>cms.FormRole</ClassName>
-  <ClassNodeAliasSource />
-  <ClassNodeNameSource />
   <ClassResourceID>
     <CodeName>CMS.Form</CodeName>
     <GUID>385e528a-e013-4a84-bad9-d5956408741a</GUID>
     <ObjectType>cms.resource</ObjectType>
   </ClassResourceID>
-  <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
-  <ClassShowColumns />
   <ClassShowTemplateSelection>False</ClassShowTemplateSelection>
   <ClassTableName>CMS_FormRole</ClassTableName>
-  <ClassUsePublishFromTo>False</ClassUsePublishFromTo>
-  <ClassUsesPageBuilder>False</ClassUsesPageBuilder>
+  <ClassType>Other</ClassType>
 </cms.class>

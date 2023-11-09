@@ -4,7 +4,6 @@
     <CodeName>CMS.System.EventLog</CodeName>
     <ObjectType>cms.settingscategory</ObjectType>
   </KeyCategoryID>
-  <KeyDefaultValue>False</KeyDefaultValue>
   <KeyDescription>
     <![CDATA[{$base.settings.settingskey.cmslogtotrace.description$}]]>
   </KeyDescription>
@@ -12,7 +11,6 @@
   <KeyExplanationText />
   <KeyGUID>e856bf93-fcd1-4c12-a392-002b55357311</KeyGUID>
   <KeyIsCustom>False</KeyIsCustom>
-  <KeyIsGlobal>True</KeyIsGlobal>
   <KeyIsHidden>True</KeyIsHidden>
   <KeyName>CMSLogToTrace</KeyName>
   <KeyOrder>5</KeyOrder>

@@ -2,7 +2,6 @@
 <cms.class>
   <ClassConnectionString>CMSConnectionString</ClassConnectionString>
   <ClassContactOverwriteEnabled>False</ClassContactOverwriteEnabled>
-  <ClassCustomizedColumns />
   <ClassDisplayName>Email</ClassDisplayName>
   <ClassFormDefinition>
     <form>
@@ -17,11 +16,9 @@
       <field allowempty="true" column="EmailPlainTextBody" columntype="longtext" guid="c96fa853-4a36-4f3d-b661-fcdb58434d1c" system="true" />
       <field column="EmailFormat" columntype="integer" guid="dcfbdec6-2369-4292-b406-9995bb2889bf" system="true" />
       <field column="EmailPriority" columntype="integer" guid="b7feb9c1-7f2e-42e1-9be6-8e7100f9c669" system="true" />
-      <field allowempty="true" column="EmailSiteID" columntype="integer" guid="2aa51d80-c928-42d7-90a7-735dc9ddbc80" system="true" />
       <field allowempty="true" column="EmailLastSendResult" columntype="longtext" guid="40755371-af41-4836-9e1c-6e512a280e66" system="true" />
       <field allowempty="true" column="EmailLastSendAttempt" columnprecision="7" columntype="datetime" guid="b5be875d-5220-454c-a099-6b936c3485c0" system="true" />
       <field column="EmailGUID" columntype="guid" guid="c78068ea-bd20-4004-b3d4-25028ffd07e8" system="true" />
-      <field column="EmailLastModified" columnprecision="7" columntype="datetime" guid="e94a0a0b-86c9-4207-8710-e86533e755bc" system="true" />
       <field allowempty="true" column="EmailCreated" columnprecision="7" columntype="datetime" guid="f8d87b02-84bb-4b8f-b25b-7610dd41e3b1" system="true" />
       <field allowempty="true" column="EmailStatus" columntype="integer" guid="227556a7-9cc7-4f9b-96ad-2ccd667605b1" system="true" />
       <field allowempty="true" column="EmailHeaders" columntype="longtext" guid="df673a9f-31e4-40c5-9f13-3a5af25dd895" system="true" />
@@ -30,25 +27,14 @@
     </form>
   </ClassFormDefinition>
   <ClassGUID>488f275e-7311-4136-a127-4c970cd4060f</ClassGUID>
-  <ClassHasMetadata>False</ClassHasMetadata>
   <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
-  <ClassHasURL>False</ClassHasURL>
-  <ClassIsCoupledClass>True</ClassIsCoupledClass>
-  <ClassIsDocumentType>False</ClassIsDocumentType>
-  <ClassIsForm>False</ClassIsForm>
-  <ClassIsPage>False</ClassIsPage>
   <ClassName>cms.email</ClassName>
-  <ClassNodeAliasSource />
-  <ClassNodeNameSource />
   <ClassResourceID>
     <CodeName>CMS.EmailEngine</CodeName>
     <GUID>7675c4a8-a792-4d4c-b83e-38ed24b64eab</GUID>
     <ObjectType>cms.resource</ObjectType>
   </ClassResourceID>
-  <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
-  <ClassShowColumns />
   <ClassShowTemplateSelection>False</ClassShowTemplateSelection>
   <ClassTableName>CMS_Email</ClassTableName>
-  <ClassUsePublishFromTo>False</ClassUsePublishFromTo>
-  <ClassUsesPageBuilder>False</ClassUsesPageBuilder>
+  <ClassType>Other</ClassType>
 </cms.class>

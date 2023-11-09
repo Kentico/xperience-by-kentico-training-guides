@@ -2,15 +2,10 @@
 <cms.class>
   <ClassConnectionString>CMSConnectionString</ClassConnectionString>
   <ClassContactOverwriteEnabled>False</ClassContactOverwriteEnabled>
-  <ClassCustomizedColumns />
   <ClassDisplayName>Temporary file</ClassDisplayName>
   <ClassFormDefinition>
     <form>
-      <field column="FileID" columntype="integer" guid="5abf2688-3875-4ce7-a83d-0aafd362b52b" isPK="true" isunique="true" system="true">
-        <properties>
-          <fieldcaption>FileID</fieldcaption>
-        </properties>
-      </field>
+      <field column="FileID" columntype="integer" guid="5abf2688-3875-4ce7-a83d-0aafd362b52b" isPK="true" isunique="true" system="true" />
       <field column="FileParentGUID" columntype="guid" guid="215a1e76-6d11-491e-8c1b-6f0d011462bc" system="true" />
       <field column="FileNumber" columntype="integer" guid="fd151d86-81f3-47f7-afee-a1a556324fa1" system="true" />
       <field column="FileDirectory" columnsize="200" columntype="text" guid="5b00c2b8-265b-488b-9b2c-a1eaa70108ea" system="true" />
@@ -23,37 +18,19 @@
       <field allowempty="true" column="FileBinary" columntype="binary" guid="b0088401-e9e3-4385-96f4-e8c8791aba42" system="true" />
       <field column="FileGUID" columntype="guid" guid="bdfcbbd5-0147-4bf9-8869-2985e5d422b2" system="true" />
       <field column="FileLastModified" columntype="datetime" guid="ffe61141-5b36-485e-b69c-4c3f7866dac5" system="true" />
-      <field allowempty="true" column="FileTitle" columnsize="250" columntype="text" guid="bd81da9a-4501-4350-a20e-5c781143fa16" system="true">
-        <properties>
-          <fieldcaption>FileTitle</fieldcaption>
-        </properties>
-      </field>
-      <field allowempty="true" column="FileDescription" columntype="longtext" guid="a91f1701-e840-4e49-8544-bb5b8e3a554e" system="true">
-        <properties>
-          <fieldcaption>FileDescription</fieldcaption>
-        </properties>
-      </field>
+      <field allowempty="true" column="FileTitle" columnsize="250" columntype="text" guid="bd81da9a-4501-4350-a20e-5c781143fa16" system="true" />
+      <field allowempty="true" column="FileDescription" columntype="longtext" guid="a91f1701-e840-4e49-8544-bb5b8e3a554e" system="true" />
     </form>
   </ClassFormDefinition>
   <ClassGUID>0b6b1848-09a8-4564-9853-6d11b2bf621b</ClassGUID>
-  <ClassHasMetadata>False</ClassHasMetadata>
   <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
-  <ClassHasURL>False</ClassHasURL>
-  <ClassIsCoupledClass>True</ClassIsCoupledClass>
-  <ClassIsDocumentType>False</ClassIsDocumentType>
-  <ClassIsPage>False</ClassIsPage>
   <ClassName>Temp.File</ClassName>
-  <ClassNodeAliasSource />
-  <ClassNodeNameSource />
   <ClassResourceID>
     <CodeName>CMS</CodeName>
     <GUID>ce1a65a0-80dc-4c53-b0e7-bdecf0aa8c02</GUID>
     <ObjectType>cms.resource</ObjectType>
   </ClassResourceID>
-  <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
-  <ClassShowColumns />
   <ClassShowTemplateSelection>False</ClassShowTemplateSelection>
   <ClassTableName>Temp_File</ClassTableName>
-  <ClassUsePublishFromTo>False</ClassUsePublishFromTo>
-  <ClassUsesPageBuilder>False</ClassUsesPageBuilder>
+  <ClassType>Other</ClassType>
 </cms.class>

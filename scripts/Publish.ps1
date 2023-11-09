@@ -9,7 +9,7 @@ $scriptsPath = Get-Location
 $outputFolderPath = "./bin/Deployment/"
 $buildNumber = (Get-Date).ToUniversalTime().ToString("yyyyMMddHHmm")
 
-cd ../src/KBank.Web
+Set-Location -Path ../src/KBank.Web
 
 # Publish the application in the 'Release' mode
 $publishCommand = "dotnet publish --nologo -c Release --self-contained true --runtime win-x64 -o $OutputFolderPath"
@@ -18,15 +18,16 @@ if (!$KeepProductVersion) {
     $publishCommand += " --version-suffix $buildNumber"
 }
 
-echo $publishCommand
+Write-Host $publishCommand
 
 Invoke-Expression $publishCommand
 
 if ($LASTEXITCODE -ne 0) {
+    Set-Location -Path $scriptsPath
     Write-Error "Publishing the website failed."
-    Read-Host -Prompt "Press any key to exit"
+    Read-Host -Prompt "Press Enter to exit"
     exit 1
 }
 
 Set-Location -Path $scriptsPath
-Read-Host -Prompt "Press any key to exit"
+Read-Host -Prompt "Press Enter to exit"

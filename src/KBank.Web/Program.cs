@@ -1,49 +1,41 @@
 using AspNetCore.Unobtrusive.Ajax;
-using Kentico.Content.Web.Mvc.Routing;
+using KBank;
+using KBank.Web.Components;
 using KBank.Web.Extensions;
+using KBank.Web.Helpers.Cookies;
+using Kentico.Activities.Web.Mvc;
+using Kentico.Content.Web.Mvc.Routing;
 using Kentico.PageBuilder.Web.Mvc;
 using Kentico.Web.Mvc;
-
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
-using Kentico.Activities.Web.Mvc;
-using Kentico.OnlineMarketing.Web.Mvc;
-using Kentico.CrossSiteTracking.Web.Mvc;
-using CMS.Helpers;
-using KBank.Web.Helpers.Cookies;
-using System.Linq;
 
 var KBankAllowSpecificOrigins = "_kBankAllowSpecificOrigins";
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddCors(options =>
+// Enable desired Kentico Xperience features
+builder.Services.AddKentico(async features =>
 {
-    options.AddPolicy(name: KBankAllowSpecificOrigins,
-        policy =>
-        {
-            policy.WithOrigins("https://the-domain-of-your-external-site.com").WithHeaders("content-type").AllowCredentials();
-        });
+    features.UsePageBuilder(new PageBuilderOptions
+    {
+        DefaultSectionIdentifier = ComponentIdentifiers.SINGLE_COLUMN_SECTION,
+        RegisterDefaultSection = false,
+        ContentTypeNames = new[] {
+            LandingPage.CONTENT_TYPE_NAME,
+            ArticlePage.CONTENT_TYPE_NAME,
+            DownloadsPage.CONTENT_TYPE_NAME,
+            EmptyPage.CONTENT_TYPE_NAME,
+        }
+    });
+    features.UseActivityTracking();
+    features.UseWebPageRouting();
 });
 
-// Enable desired Kentico Xperience features
-builder.Services.AddKentico(features =>
+builder.Services.Configure<CookieLevelOptions>(options =>
 {
-    var cookieConsentMapping = CookieConsentHelper.GetCurrentMapping().Result;
-    features.UseCrossSiteTracking(
-        new CrossSiteTrackingOptions
-        {
-            ConsentSettings = new CrossSiteTrackingConsentOptions
-            {
-                ConsentName = cookieConsentMapping.MarketingConsentCodeName.FirstOrDefault(),
-                AgreeCookieLevel = CookieLevel.Visitor
-            }
-        });
-
-    features.UsePageBuilder();
-    features.UseActivityTracking();
-    features.UsePageRouting();
-    
+    options.CookieConfigurations.Add(CookieNames.COOKIE_CONSENT_LEVEL, CookieLevel.System);
+    options.CookieConfigurations.Add(CookieNames.COOKIE_ACCEPTANCE, CookieLevel.System);
 });
 
 builder.Services.AddAuthentication();
@@ -59,10 +51,9 @@ builder.Services.AddMvc().AddMvcLocalization();
 builder.Services.AddDistributedMemoryCache();
 
 var app = builder.Build();
+
 app.InitKentico();
-
 app.UseStaticFiles();
-
 app.UseKentico();
 
 app.UseCookiePolicy();

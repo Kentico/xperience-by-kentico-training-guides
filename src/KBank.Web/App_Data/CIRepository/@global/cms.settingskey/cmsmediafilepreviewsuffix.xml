@@ -4,7 +4,6 @@
     <CodeName>CMS.MediaLibraries.Storage</CodeName>
     <ObjectType>cms.settingscategory</ObjectType>
   </KeyCategoryID>
-  <KeyDefaultValue>_thumbnail</KeyDefaultValue>
   <KeyDescription>
     <![CDATA[{$settingskey.cmsmediafilepreviewsuffix.description$}]]>
   </KeyDescription>
@@ -12,7 +11,6 @@
   <KeyExplanationText />
   <KeyGUID>0160cac4-c494-4e81-9016-f9a54901a7ee</KeyGUID>
   <KeyIsCustom>False</KeyIsCustom>
-  <KeyIsGlobal>False</KeyIsGlobal>
   <KeyIsHidden>True</KeyIsHidden>
   <KeyName>CMSMediaFilePreviewSuffix</KeyName>
   <KeyOrder>4</KeyOrder>

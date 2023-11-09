@@ -4,13 +4,11 @@
     <CodeName>CMS.System.General</CodeName>
     <ObjectType>cms.settingscategory</ObjectType>
   </KeyCategoryID>
-  <KeyDefaultValue>False</KeyDefaultValue>
   <KeyDescription>{$settingskey.cmsupdateinprogress.description$}</KeyDescription>
   <KeyDisplayName>{$settingskey.cmsupdateinprogress$}</KeyDisplayName>
   <KeyExplanationText />
   <KeyGUID>48ae7319-458f-4ae0-9cab-4c6ab0fd1de2</KeyGUID>
   <KeyIsCustom>False</KeyIsCustom>
-  <KeyIsGlobal>True</KeyIsGlobal>
   <KeyIsHidden>True</KeyIsHidden>
   <KeyName>CMSUpdateInProgress</KeyName>
   <KeyOrder>14</KeyOrder>

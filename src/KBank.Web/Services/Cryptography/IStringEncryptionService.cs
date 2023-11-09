@@ -1,9 +1,8 @@
-﻿namespace KBank.Web.Services.Cryptography
-{
-    public interface IStringEncryptionService
-    {
-        string EncryptString(string plainText);
+﻿namespace KBank.Web.Services.Cryptography;
 
-        string DecryptString(string cipherText);
-    }
+public interface IStringEncryptionService
+{
+    string EncryptString(string plainText);
+
+    string DecryptString(string cipherText);
 }
