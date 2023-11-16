@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.applicationpermission>
   <ApplicationName>Kentico.Xperience.Application.RecipientLists</ApplicationName>
-  <ApplicationPermissionGuid>a3817ec6-0d77-4e2b-ba6f-1dcc926c71dc</ApplicationPermissionGuid>
+  <ApplicationPermissionGuid>7c79666e-4c7a-43ef-9f0f-c530c4556dd0</ApplicationPermissionGuid>
   <PermissionName>Update</PermissionName>
   <RoleID>
     <CodeName>DigitalChannelManager</CodeName>

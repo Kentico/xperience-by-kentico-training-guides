@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.applicationpermission>
   <ApplicationName>Kentico.Xperience.Application.RecipientLists</ApplicationName>
-  <ApplicationPermissionGuid>66dedff5-5bde-47a3-b172-374fa5d61225</ApplicationPermissionGuid>
+  <ApplicationPermissionGuid>a32ce5ce-dca3-49cd-928f-181b83b37b24</ApplicationPermissionGuid>
   <PermissionName>Delete</PermissionName>
   <RoleID>
     <CodeName>DigitalChannelManager</CodeName>

@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.applicationpermission>
   <ApplicationName>Kentico.Xperience.Application.RecipientLists</ApplicationName>
-  <ApplicationPermissionGuid>a5763e06-dd0a-4bd5-bec8-7bf06c17bc9e</ApplicationPermissionGuid>
-  <PermissionName>View</PermissionName>
+  <ApplicationPermissionGuid>2583604a-78ab-4c21-9d62-5ffb023f9f2d</ApplicationPermissionGuid>
+  <PermissionName>Create</PermissionName>
   <RoleID>
     <CodeName>DigitalChannelManager</CodeName>
     <GUID>93fb8806-31ba-4548-8a3b-24dbbeec6e3d</GUID>
