@@ -1,0 +1,15 @@
+<Project>
+  <!-- See https://aka.ms/dotnet/msbuild/customize for more details on customizing your build -->
+  <PropertyGroup>
+    <Company>Kentico Software</Company>
+    <PackageProjectUrl>https://github.com/Kentico/xperience-by-kentico-quickstart-guides</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+    <DisableImplicitNuGetFallbackFolder>true</DisableImplicitNuGetFallbackFolder>
+  </PropertyGroup>
+</Project>
