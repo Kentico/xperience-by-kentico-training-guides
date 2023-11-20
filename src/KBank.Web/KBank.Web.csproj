@@ -3,11 +3,11 @@
     <TargetFramework>net6.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="AspNetCore.Unobtrusive.Ajax" Version="2.0.0" />
-    <PackageReference Include="kentico.xperience.admin" Version="27.0.0" />
-    <PackageReference Include="kentico.xperience.azurestorage" Version="27.0.0" />
-    <PackageReference Include="kentico.xperience.imageprocessing" Version="27.0.0" />
-    <PackageReference Include="kentico.xperience.webapp" Version="27.0.0" />
+    <PackageReference Include="AspNetCore.Unobtrusive.Ajax" />
+    <PackageReference Include="kentico.xperience.admin"/>
+    <PackageReference Include="kentico.xperience.azurestorage" />
+    <PackageReference Include="kentico.xperience.imageprocessing" />
+    <PackageReference Include="kentico.xperience.webapp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\KBank.Admin\KBank.Admin.csproj" />

@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Kentico.Xperience.Core" Version="27.0.0" />
+    <PackageReference Include="Kentico.Xperience.Core" />
   </ItemGroup>
 
 </Project>
