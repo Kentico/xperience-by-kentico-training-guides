@@ -34,7 +34,7 @@
   <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
   <ClassIconClass>xp-market</ClassIconClass>
   <ClassName>TrainingGuides.LandingContent</ClassName>
-  <ClassTableName>KBank_Home</ClassTableName>
+  <ClassTableName>TrainingGuides_Home</ClassTableName>
   <ClassType>Content</ClassType>
   <ClassWebPageHasUrl>True</ClassWebPageHasUrl>
 </cms.contenttype>

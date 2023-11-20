@@ -712,7 +712,7 @@
           "System.Drawing.Common": "6.0.0"
         }
       },
-      "kbank.entities": {
+      "trainingguides.entities": {
         "type": "Project",
         "dependencies": {
           "Kentico.Xperience.Core": "[27.0.0, )"

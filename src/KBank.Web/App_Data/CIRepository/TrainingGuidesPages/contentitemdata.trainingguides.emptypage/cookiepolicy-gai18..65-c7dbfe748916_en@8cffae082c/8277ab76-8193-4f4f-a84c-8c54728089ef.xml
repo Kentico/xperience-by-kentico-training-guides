@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.emptypage>
+  <ContentItemDataCommonDataID>
+    <GUID>d5885390-a153-4407-ad65-c7dbfe748916</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>CookiePolicy-gai183um</CodeName>
+      <GUID>66798e3b-5564-4267-b58e-22da8c75aaf7</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>8277ab76-8193-4f4f-a84c-8c54728089ef</ContentItemDataGUID>
+</contentitemdata.trainingguides.emptypage>

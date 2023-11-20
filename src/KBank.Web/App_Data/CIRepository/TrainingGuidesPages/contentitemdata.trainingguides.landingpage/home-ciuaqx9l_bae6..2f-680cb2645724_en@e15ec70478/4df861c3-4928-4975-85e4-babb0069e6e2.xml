@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.landingpage>
+  <ContentItemDataCommonDataID>
+    <GUID>bae62ea1-c2f8-43c6-852f-680cb2645724</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>Home-ciuaqx9l</CodeName>
+      <GUID>acf3748a-38f9-4c32-90cf-cd626b1a6923</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>4df861c3-4928-4975-85e4-babb0069e6e2</ContentItemDataGUID>
+  <LandingPageContent>
+    <![CDATA[[{"Identifier":"9f511d9e-8620-4e25-afaa-9afed5b99084"}]]]>
+  </LandingPageContent>
+</contentitemdata.trainingguides.landingpage>

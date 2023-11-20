@@ -4,9 +4,9 @@
   "display": "standalone",
   "scope": "/internetbanking/",
   "start_url": "/internetbanking/dashboard",
-  "name": "KBank",
-  "description": "Kbank PWA",
-  "short_name": "KBank",
+  "name": "Training guides",
+  "description": "Training guides PWA",
+  "short_name": "TrainingGuides",
   "icons": [
     {
       "src": "/images/icon-192x192.png",

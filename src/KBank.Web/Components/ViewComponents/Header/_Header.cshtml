@@ -3,26 +3,10 @@
 @using Kentico.Web.Mvc
 @model TrainingGuides.Web.Components.ViewComponents.Header.HeaderViewModel
 
-@{
-    string LogoUrl(AssetViewModel asset)
-    {
-        return asset != null ? Url.Content(asset.FilePath) : null;
-    }
-
-    //var editStyle = Context.Kentico().PageBuilder().EditMode ? "style=z-index:100000;" : "";
-}
-
-<header class="c-header sticky-top" @*editStyle*@>
+<header class="c-header sticky-top">
     <nav class="navbar navbar-expand-md c-main-navbar">
-        <div id="navbar-container" @*class="container-xl"*@>
-            <a class="navbar-brand @*logoClass"*@ href="~/">
-                <img src="@LogoUrl(Model.Logo)" alt="@Model.Logo?.AltText"/>
-            </a>
-           @* <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarnavdropdown" aria-controls="navbarnavdropdown" aria-expanded="false" aria-label="toggle navigation">
-                <span class="navbar-toggler-bar"></span>
-                <span class="navbar-toggler-bar"></span>
-                <span class="navbar-toggler-bar"></span>
-            </button>*@
+        <div id="navbar-container">
+            <h1>@Model.Heading</h1>
         </div>
     </nav>    
 </header>
