@@ -1,8 +1,8 @@
-﻿using KBank.Web.Models;
+﻿using TrainingGuides.Web.Models;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace KBank.Web.Components.PageTemplates;
+namespace TrainingGuides.Web.Components.PageTemplates;
 
 public class DownloadsPageViewModel
 {

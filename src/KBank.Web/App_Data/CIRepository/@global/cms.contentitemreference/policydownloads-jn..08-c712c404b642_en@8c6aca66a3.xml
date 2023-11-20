@@ -10,11 +10,11 @@
     </Parent>
   </Parent>
   <Bindings>
-    <Binding id="cms.contentitem_KBankMissionStatement-zv0e6nj8">
+    <Binding id="cms.contentitem_PrivacyPolicy-zv0e6nj8">
       <ContentItemReferenceGroupGUID>1a1f83b3-0997-4caa-863a-e714378d8d13</ContentItemReferenceGroupGUID>
       <ContentItemReferenceGUID>dbbd4a01-b9f5-4df3-ba9b-f264347f0d2f</ContentItemReferenceGUID>
       <ContentItemReferenceTargetItemID>
-        <CodeName>KBankMissionStatement-zv0e6nj8</CodeName>
+        <CodeName>PrivacyPolicy-zv0e6nj8</CodeName>
         <GUID>13d1466b-a95c-4bee-8e8e-52385821cf68</GUID>
         <ObjectType>cms.contentitem</ObjectType>
       </ContentItemReferenceTargetItemID>

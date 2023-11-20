@@ -1,11 +1,9 @@
-using KBank;
-using KBank.Web.Components;
-using KBank.Web.Extensions;
+using TrainingGuides;
+using TrainingGuides.Web.Components;
+using TrainingGuides.Web.Extensions;
 using Kentico.Content.Web.Mvc.Routing;
 using Kentico.PageBuilder.Web.Mvc;
 using Kentico.Web.Mvc;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 

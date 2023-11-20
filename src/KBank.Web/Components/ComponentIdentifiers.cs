@@ -1,4 +1,4 @@
-﻿namespace KBank.Web.Components;
+﻿namespace TrainingGuides.Web.Components;
 
 public static class ComponentIdentifiers
 {

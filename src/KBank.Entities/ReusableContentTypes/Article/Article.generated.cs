@@ -13,7 +13,7 @@ using System;
 using System.Collections.Generic;
 using CMS.ContentEngine;
 
-namespace KBank
+namespace TrainingGuides
 {
 	/// <summary>
 	/// Represents a content item of type <see cref="Article"/>.
@@ -23,7 +23,7 @@ namespace KBank
 		/// <summary>
 		/// Code name of the content type.
 		/// </summary>
-		public const string CONTENT_TYPE_NAME = "KBank.Article";
+		public const string CONTENT_TYPE_NAME = "TrainingGuides.Article";
 
 
 		/// <summary>
@@ -33,13 +33,13 @@ namespace KBank
 
 
 		/// <summary>
-		/// Title.
+		/// ArticleTitle.
 		/// </summary>
 		public string ArticleTitle { get; set; }
 
 
 		/// <summary>
-		/// Text.
+		/// ArticleText.
 		/// </summary>
 		public string ArticleText { get; set; }
 	}

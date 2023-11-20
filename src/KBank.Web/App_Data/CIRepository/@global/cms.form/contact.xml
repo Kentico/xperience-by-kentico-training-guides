@@ -12,19 +12,19 @@
           "type": "Kentico.DefaultSection",
           "zones": [
             {
-              "identifier": "c2ff68cd-4e8d-4883-922b-a314ed8c19e6",
+              "identifier": "0d00e675-d6dc-47b8-b2fc-c7417649bca9",
               "formComponents": [
                 {
-                  "identifier": "034e84fa-246a-4333-ac36-9b34f2f5f984"
+                  "identifier": "cbd817bc-700a-4866-b23f-9c316b2e3391"
                 },
                 {
-                  "identifier": "e288441b-da31-421e-b158-8919a924bcf4"
+                  "identifier": "a1de18be-e8c4-4999-83fe-9eebe351b8db"
                 },
                 {
-                  "identifier": "201afec5-455d-4bce-a911-08de6cb967c1"
+                  "identifier": "e36ee865-b633-4480-91eb-10845867654d"
                 },
                 {
-                  "identifier": "048f7bd7-0a4e-486a-bfb2-ec0d2da64bd7"
+                  "identifier": "fe3527c4-074a-466b-a4d5-2fb0ac66df49"
                 }
               ]
             }
@@ -39,11 +39,11 @@
   </FormBuilderLayout>
   <FormClassID>
     <CodeName>BizForm.Contact</CodeName>
-    <GUID>e2bf41eb-74e7-43ff-862e-e58c2cfe5ecf</GUID>
+    <GUID>4f001ebf-6956-4fd0-8bb9-115b585014d2</GUID>
     <ObjectType>cms.formclass</ObjectType>
   </FormClassID>
   <FormDisplayName>Contact</FormDisplayName>
-  <FormGUID>fe953992-2734-4694-9da4-a25619dc3813</FormGUID>
+  <FormGUID>af0af8d7-38f1-4b13-814b-fff891fa9246</FormGUID>
   <FormItems>0</FormItems>
   <FormLogActivity>True</FormLogActivity>
   <FormName>Contact</FormName>

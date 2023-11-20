@@ -79,13 +79,13 @@ namespace CMS.OnlineForms.Types
 
 
 		/// <summary>
-		/// Message.
+		/// TextArea.
 		/// </summary>
 		[DatabaseField]
-		public string Message
+		public string TextArea
 		{
-			get => ValidationHelper.GetString(GetValue(nameof(Message)), @"");
-			set => SetValue(nameof(Message), value);
+			get => ValidationHelper.GetString(GetValue(nameof(TextArea)), @"");
+			set => SetValue(nameof(TextArea), value);
 		}
 
 
@@ -152,12 +152,12 @@ namespace CMS.OnlineForms.Types
 
 
 			/// <summary>
-			/// Message.
+			/// TextArea.
 			/// </summary>
-			public string Message
+			public string TextArea
 			{
-				get => mInstance.Message;
-				set => mInstance.Message = value;
+				get => mInstance.TextArea;
+				set => mInstance.TextArea = value;
 			}
 		}
 

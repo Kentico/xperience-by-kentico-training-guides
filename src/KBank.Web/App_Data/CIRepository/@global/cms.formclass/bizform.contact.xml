@@ -2,31 +2,27 @@
 <cms.formclass>
   <ClassContactMapping>
     <form>
-      <field column="ContactFirstName" enabled="true" guid="654ccd88-10db-4a2f-a907-ca19d22cfe76" mappedtofield="firstname" visible="true" />
-      <field column="ContactLastName" enabled="true" guid="c1f2f868-13ca-4703-802f-2c22383ccc2e" mappedtofield="lastname" visible="true" />
-      <field column="ContactEmail" enabled="true" guid="5e617c2b-6833-4165-9de3-5ee64f79cc72" mappedtofield="email" visible="true" />
+      <field column="ContactFirstName" enabled="true" guid="8e4f848c-f3bb-4a52-bb1d-b9ca811bf177" mappedtofield="firstname" visible="true" />
+      <field column="ContactLastName" enabled="true" guid="9b536078-ed98-429a-b4d2-8ed39259f9f0" mappedtofield="lastname" visible="true" />
+      <field column="ContactEmail" enabled="true" guid="ad014ca2-b20c-4639-abae-06ed18fc6ec7" mappedtofield="email" visible="true" />
     </form>
   </ClassContactMapping>
-  <ClassContactOverwriteEnabled>False</ClassContactOverwriteEnabled>
+  <ClassContactOverwriteEnabled>True</ClassContactOverwriteEnabled>
   <ClassDisplayName>Contact</ClassDisplayName>
   <ClassFormDefinition>
     <form>
-      <field column="Form_2023_06_20_13_47ID" columntype="integer" enabled="true" guid="496a3fa2-ee0a-42fb-9ac6-c1f991da7d38" isPK="true">
-        <properties>
-          <fieldcaption>Form_2023_06_20_13_47ID</fieldcaption>
-        </properties>
-      </field>
-      <field column="FormInserted" columnprecision="7" columntype="datetime" enabled="true" guid="e89980de-acf1-4369-8693-3c92f5597b35" system="true">
+      <field column="Form_2023_11_20_14_53ID" columntype="integer" enabled="true" guid="e91ce432-19c7-49ea-9858-67ec7d57475b" isPK="true" />
+      <field column="FormInserted" columnprecision="7" columntype="datetime" enabled="true" guid="e7beefc3-79a8-434c-a471-381644ae05c3" system="true">
         <properties>
           <fieldcaption>Form inserted</fieldcaption>
         </properties>
       </field>
-      <field column="FormUpdated" columnprecision="7" columntype="datetime" enabled="true" guid="8ee3afd0-ff46-473f-9df8-f5af563e5f33" system="true">
+      <field column="FormUpdated" columnprecision="7" columntype="datetime" enabled="true" guid="a5b9c0d0-7967-4b3c-8a7c-022f6b2b7692" system="true">
         <properties>
           <fieldcaption>Form updated</fieldcaption>
         </properties>
       </field>
-      <field allowempty="true" column="FirstName" columnsize="500" columntype="text" enabled="true" guid="034e84fa-246a-4333-ac36-9b34f2f5f984" visible="true">
+      <field allowempty="true" column="FirstName" columnsize="500" columntype="text" enabled="true" guid="cbd817bc-700a-4866-b23f-9c316b2e3391" visible="true">
         <properties>
           <fieldcaption>First name</fieldcaption>
           <smart>False</smart>
@@ -45,7 +41,7 @@
           </ValidationRuleConfiguration>
         </validationrulesdata>
       </field>
-      <field allowempty="true" column="LastName" columnsize="500" columntype="text" enabled="true" guid="e288441b-da31-421e-b158-8919a924bcf4" visible="true">
+      <field allowempty="true" column="LastName" columnsize="500" columntype="text" enabled="true" guid="a1de18be-e8c4-4999-83fe-9eebe351b8db" visible="true">
         <properties>
           <fieldcaption>Last name</fieldcaption>
           <smart>False</smart>
@@ -64,7 +60,7 @@
           </ValidationRuleConfiguration>
         </validationrulesdata>
       </field>
-      <field allowempty="true" column="Email" columnsize="500" columntype="text" enabled="true" guid="201afec5-455d-4bce-a911-08de6cb967c1" visible="true">
+      <field column="Email" columnsize="500" columntype="text" enabled="true" guid="e36ee865-b633-4480-91eb-10845867654d" visible="true">
         <properties>
           <fieldcaption>Email</fieldcaption>
           <smart>False</smart>
@@ -83,7 +79,7 @@
           </ValidationRuleConfiguration>
         </validationrulesdata>
       </field>
-      <field allowempty="true" column="Message" columntype="longtext" enabled="true" guid="048f7bd7-0a4e-486a-bfb2-ec0d2da64bd7" visible="true">
+      <field column="TextArea" columntype="longtext" enabled="true" guid="fe3527c4-074a-466b-a4d5-2fb0ac66df49" visible="true">
         <properties>
           <fieldcaption>Message</fieldcaption>
           <smart>False</smart>
@@ -94,10 +90,10 @@
       </field>
     </form>
   </ClassFormDefinition>
-  <ClassGUID>e2bf41eb-74e7-43ff-862e-e58c2cfe5ecf</ClassGUID>
+  <ClassGUID>4f001ebf-6956-4fd0-8bb9-115b585014d2</ClassGUID>
   <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
   <ClassName>BizForm.Contact</ClassName>
-  <ClassTableName>Form_KBank_Form_2023_06_20_13_47</ClassTableName>
+  <ClassTableName>Form_Form_2023_11_20_14_53</ClassTableName>
   <ClassType>Form</ClassType>
   <ClassXmlSchema>
 <![CDATA[
@@ -106,10 +102,10 @@
   <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Form_KBank_Form_2023_06_20_13_47">
+        <xs:element name="Form_Form_2023_11_20_14_53">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="Form_2023_06_20_13_47ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" type="xs:int" />
+              <xs:element name="Form_2023_11_20_14_53ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" type="xs:int" />
               <xs:element name="FormInserted" type="xs:dateTime" />
               <xs:element name="FormUpdated" type="xs:dateTime" />
               <xs:element name="FirstName" minOccurs="0">
@@ -126,14 +122,14 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Email" minOccurs="0">
+              <xs:element name="Email">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="500" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Message" minOccurs="0">
+              <xs:element name="TextArea">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
@@ -146,8 +142,8 @@
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
-      <xs:selector xpath=".//Form_KBank_Form_2023_06_20_13_47" />
-      <xs:field xpath="Form_2023_06_20_13_47ID" />
+      <xs:selector xpath=".//Form_Form_2023_11_20_14_53" />
+      <xs:field xpath="Form_2023_11_20_14_53ID" />
     </xs:unique>
   </xs:element>
 </xs:schema>

@@ -1,8 +1,8 @@
-﻿using KBank.Web.Components.PageTemplates;
-using KBank.Web.Services.Content;
+﻿using TrainingGuides.Web.Components.PageTemplates;
+using TrainingGuides.Web.Services.Content;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace KBank.Web.Extensions;
+namespace TrainingGuides.Web.Extensions;
 
 public static class ServiceCollectionExtensions
 {
