@@ -19,4 +19,19 @@
     <![CDATA[{"identifier":"TrainingGuides.LandingPage","properties":{"messageType":"h4"},"fieldIdentifiers":{"messageType":"61990abc-0781-4fed-a925-6e6ebd49c91d"}}]]>
   </ContentItemCommonDataPageTemplateConfiguration>
   <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
+  <ContentItemReferences>
+    <cms.contentitemreference>
+      <ContentItemReferenceGroupGUID>133d8674-12ff-40b6-b552-560e01989c56</ContentItemReferenceGroupGUID>
+      <ContentItemReferenceGUID>231023c0-f211-4108-af7c-73c0a54b5643</ContentItemReferenceGUID>
+      <ContentItemReferenceSourceCommonDataID>
+        <GUID>bae62ea1-c2f8-43c6-852f-680cb2645724</GUID>
+        <ObjectType>cms.contentitemcommondata</ObjectType>
+      </ContentItemReferenceSourceCommonDataID>
+      <ContentItemReferenceTargetItemID>
+        <CodeName>Home-76v71kdp</CodeName>
+        <GUID>9f511d9e-8620-4e25-afaa-9afed5b99084</GUID>
+        <ObjectType>cms.contentitem</ObjectType>
+      </ContentItemReferenceTargetItemID>
+    </cms.contentitemreference>
+  </ContentItemReferences>
 </cms.contentitemcommondata>
