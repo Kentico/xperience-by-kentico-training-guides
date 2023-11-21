@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 
-namespace KBank.Web.Extensions;
+namespace TrainingGuides.Web.Extensions;
 
 public static class HttpRequestExtensions
 {

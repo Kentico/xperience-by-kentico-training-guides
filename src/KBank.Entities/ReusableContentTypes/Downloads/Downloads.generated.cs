@@ -13,7 +13,7 @@ using System;
 using System.Collections.Generic;
 using CMS.ContentEngine;
 
-namespace KBank
+namespace TrainingGuides
 {
 	/// <summary>
 	/// Represents a content item of type <see cref="Downloads"/>.
@@ -23,7 +23,7 @@ namespace KBank
 		/// <summary>
 		/// Code name of the content type.
 		/// </summary>
-		public const string CONTENT_TYPE_NAME = "KBank.Downloads";
+		public const string CONTENT_TYPE_NAME = "TrainingGuides.Downloads";
 
 
 		/// <summary>
@@ -33,13 +33,13 @@ namespace KBank
 
 
 		/// <summary>
-		/// Heading.
+		/// DownloadsHeading.
 		/// </summary>
 		public string DownloadsHeading { get; set; }
 
 
 		/// <summary>
-		/// Assets.
+		/// DownloadsAssets.
 		/// </summary>
 		public IEnumerable<Asset> DownloadsAssets { get; set; }
 	}

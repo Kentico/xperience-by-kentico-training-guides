@@ -1,9 +1,7 @@
 ﻿using CMS.ContentEngine;
 using CMS.Websites;
-using System;
-using System.Threading.Tasks;
 
-namespace KBank.Web.Services.Content;
+namespace TrainingGuides.Web.Services.Content;
 
 public interface IContentItemRetrieverService<T>
 {

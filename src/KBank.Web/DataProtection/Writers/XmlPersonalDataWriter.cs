@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Xml;
 
-namespace KBank.Web.DataProtection.Writers;
+namespace TrainingGuides.Web.DataProtection.Writers;
 
 public class XmlPersonalDataWriter : IPersonalDataWriter
 {

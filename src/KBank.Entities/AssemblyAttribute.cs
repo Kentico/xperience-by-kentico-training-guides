@@ -1,5 +1,5 @@
 ﻿using CMS;
 
-[assembly:AssemblyDiscoverable]
+[assembly: AssemblyDiscoverable]
 
-namespace KBank.Entities;
+namespace TrainingGuides.Entities;

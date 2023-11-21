@@ -13,7 +13,7 @@ using System;
 using System.Collections.Generic;
 using CMS.Websites;
 
-namespace KBank
+namespace TrainingGuides
 {
 	/// <summary>
 	/// Represents a page of type <see cref="DownloadsPage"/>.
@@ -23,7 +23,7 @@ namespace KBank
 		/// <summary>
 		/// Code name of the content type.
 		/// </summary>
-		public const string CONTENT_TYPE_NAME = "KBank.DownloadsPage";
+		public const string CONTENT_TYPE_NAME = "TrainingGuides.DownloadsPage";
 
 
 		/// <summary>

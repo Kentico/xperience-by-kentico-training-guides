@@ -1,7 +1,7 @@
-﻿using KBank;
-using KBank.Web.Components;
-using KBank.Web.Components.PageTemplates;
-using KBank.Web.Components.Sections;
+﻿using TrainingGuides;
+using TrainingGuides.Web.Components;
+using TrainingGuides.Web.Components.PageTemplates;
+using TrainingGuides.Web.Components.Sections;
 using Kentico.PageBuilder.Web.Mvc;
 using Kentico.PageBuilder.Web.Mvc.PageTemplates;
 

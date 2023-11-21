@@ -2,7 +2,7 @@
 using CMS.Core;
 using CMS.DataProtection;
 using CMS.Helpers;
-using KBank.Admin;
+using TrainingGuides.Admin;
 using Kentico.Web.Mvc;
 using Microsoft.AspNetCore.Http;
 using System;
@@ -10,7 +10,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace KBank.Web.Helpers.Cookies;
+namespace TrainingGuides.Web.Helpers.Cookies;
 
 /// <summary>
 /// Provides functionality for retrieving consents for contact.

@@ -1,4 +1,4 @@
-﻿namespace KBank.Web.DataProtection;
+﻿namespace TrainingGuides.Web.DataProtection;
 
 public class CollectedColumn
 {

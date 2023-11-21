@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contenttype>
+  <ClassContentTypeType>Website</ClassContentTypeType>
+  <ClassDisplayName>Downloads page</ClassDisplayName>
+  <ClassFormDefinition>
+    <form>
+      <field column="ContentItemDataID" columntype="integer" enabled="true" guid="6b93b424-f310-4f7b-8a32-09dfd7c5c4e9" isPK="true" />
+      <field column="ContentItemDataCommonDataID" columntype="integer" enabled="true" guid="e4d92a78-acfb-4c81-96bb-fffad4e2e4d4" refobjtype="cms.contentitemcommondata" reftype="Required" system="true" />
+      <field column="ContentItemDataGUID" columntype="guid" enabled="true" guid="cbcf15a5-e4bf-418f-a58a-ca0419d8e2dc" isunique="true" system="true" />
+      <field allowempty="true" column="DownloadsPageContent" columnprecision="0" columntype="contentitemreference" enabled="true" guid="0a01b8e1-309a-4cfa-8e2d-588c7ade747b" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Downloads page content</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <AllowedContentItemTypeIdentifiers>
+            <![CDATA[["1469db99-a3ec-4fa4-a67c-be84b912558d"]]]>
+          </AllowedContentItemTypeIdentifiers>
+          <controlname>Kentico.Administration.ContentItemSelector</controlname>
+        </settings>
+      </field>
+    </form>
+  </ClassFormDefinition>
+  <ClassGUID>5a0c7841-fca0-4a7f-992f-58fe55c2d505</ClassGUID>
+  <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
+  <ClassIconClass>xp-arrow-down-line</ClassIconClass>
+  <ClassName>TrainingGuides.DownloadsPage</ClassName>
+  <ClassTableName>KBank_DownloadsPage</ClassTableName>
+  <ClassType>Content</ClassType>
+  <ClassWebPageHasUrl>True</ClassWebPageHasUrl>
+</cms.contenttype>

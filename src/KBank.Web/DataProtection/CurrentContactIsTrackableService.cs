@@ -1,6 +1,6 @@
-﻿using KBank.Web.Helpers.Cookies;
+﻿using TrainingGuides.Web.Helpers.Cookies;
 
-namespace KBank.Web.DataProtection;
+namespace TrainingGuides.Web.DataProtection;
 public class CurrentContactIsTrackableService
 {
     public bool CurrentContactIsTrackable()

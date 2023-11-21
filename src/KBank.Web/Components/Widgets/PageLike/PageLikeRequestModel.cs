@@ -1,4 +1,4 @@
-﻿namespace KBank.Web.Components.Widgets.PageLike;
+﻿namespace TrainingGuides.Web.Components.Widgets.PageLike;
 
 public class PageLikeRequestModel
 {

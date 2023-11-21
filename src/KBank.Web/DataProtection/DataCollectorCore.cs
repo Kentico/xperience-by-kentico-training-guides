@@ -5,14 +5,14 @@ using CMS.DataProtection;
 using CMS.Globalization;
 using CMS.Helpers;
 using CMS.OnlineForms;
-using KBank.Web.DataProtection.Writers;
+using TrainingGuides.Web.DataProtection.Writers;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Xml;
 
-namespace KBank.Web.DataProtection;
+namespace TrainingGuides.Web.DataProtection;
 
 public class DataCollectorCore
 {

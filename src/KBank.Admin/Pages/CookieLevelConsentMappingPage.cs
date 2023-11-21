@@ -1,4 +1,4 @@
-﻿using KBank.Admin.Pages;
+﻿using TrainingGuides.Admin.Pages;
 using Kentico.Xperience.Admin.Base;
 using Kentico.Xperience.Admin.Base.Forms;
 using Kentico.Xperience.Admin.DigitalMarketing.UIPages;
@@ -10,7 +10,7 @@ using Kentico.Xperience.Admin.DigitalMarketing.UIPages;
     name: "Cookie level consent mapping",
     templateName: TemplateNames.EDIT,
     order: UIPageOrder.First + 1)]
-namespace KBank.Admin.Pages
+namespace TrainingGuides.Admin.Pages
 {
     internal class CookieLevelConsentMappingPage : InfoEditPage<CookieLevelConsentMappingInfo>
     {

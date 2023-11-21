@@ -6,11 +6,11 @@ using System.Collections.Generic;
 using CMS;
 using CMS.DataEngine;
 using CMS.Helpers;
-using KBank.Admin;
+using TrainingGuides.Admin;
 
 [assembly: RegisterObjectType(typeof(CookieLevelConsentMappingInfo), CookieLevelConsentMappingInfo.OBJECT_TYPE)]
 
-namespace KBank.Admin
+namespace TrainingGuides.Admin
 {
     /// <summary>
     /// Data container class for <see cref="CookieLevelConsentMappingInfo"/>.

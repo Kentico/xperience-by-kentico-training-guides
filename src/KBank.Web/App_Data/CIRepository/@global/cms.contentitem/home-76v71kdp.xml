@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.contentitem>
   <ContentItemContentTypeID>
-    <CodeName>KBank.LandingContent</CodeName>
+    <CodeName>TrainingGuides.LandingContent</CodeName>
     <GUID>e13b2d5c-7736-45d1-bbb0-d6330559002d</GUID>
     <ObjectType>cms.contenttype</ObjectType>
   </ContentItemContentTypeID>

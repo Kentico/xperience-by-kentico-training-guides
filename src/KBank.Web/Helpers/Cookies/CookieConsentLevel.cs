@@ -1,4 +1,4 @@
-﻿namespace KBank.Web.Helpers.Cookies;
+﻿namespace TrainingGuides.Web.Helpers.Cookies;
 
 /// <summary>
 /// Cookie consent level types.

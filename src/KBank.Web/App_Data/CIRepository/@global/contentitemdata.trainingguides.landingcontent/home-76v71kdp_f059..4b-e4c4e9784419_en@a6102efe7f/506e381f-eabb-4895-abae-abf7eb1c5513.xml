@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.landingcontent>
+  <ContentItemDataCommonDataID>
+    <GUID>f059ada8-36ce-43db-894b-e4c4e9784419</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>Home-76v71kdp</CodeName>
+      <GUID>9f511d9e-8620-4e25-afaa-9afed5b99084</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>506e381f-eabb-4895-abae-abf7eb1c5513</ContentItemDataGUID>
+  <LandingContentMessage>Welcome to Training guides!</LandingContentMessage>
+  <LandingContentText>
+    <![CDATA[<p>Lorem ipsum dolor sit amet</p>]]>
+  </LandingContentText>
+</contentitemdata.trainingguides.landingcontent>

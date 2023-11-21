@@ -1,4 +1,4 @@
-﻿namespace KBank.Web.Models
+﻿namespace TrainingGuides.Web.Models
 {
     public class CookiePreferencesViewModel
     {

@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-namespace KBank.Web.Components.PageTemplates;
+namespace TrainingGuides.Web.Components.PageTemplates;
 
 public class LandingPageViewModel
 {

@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace KBank.Web.DataProtection.Writers;
+namespace TrainingGuides.Web.DataProtection.Writers;
 
 public interface IPersonalDataWriter : IDisposable
 {

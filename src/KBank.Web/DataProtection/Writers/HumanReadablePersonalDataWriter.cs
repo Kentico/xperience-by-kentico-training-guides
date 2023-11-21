@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Text;
 
-namespace KBank.Web.DataProtection.Writers;
+namespace TrainingGuides.Web.DataProtection.Writers;
 
 public class HumanReadablePersonalDataWriter : IPersonalDataWriter
 {

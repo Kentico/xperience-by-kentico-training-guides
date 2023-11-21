@@ -1,11 +1,11 @@
 ﻿using CMS.Activities;
 using CMS.Websites.Internal;
-using KBank.Web.Helpers.Cookies;
+using TrainingGuides.Web.Helpers.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace KBank.Web.Components.Widgets.PageLike;
+namespace TrainingGuides.Web.Components.Widgets.PageLike;
 
 
 public class PageLikeController : Controller

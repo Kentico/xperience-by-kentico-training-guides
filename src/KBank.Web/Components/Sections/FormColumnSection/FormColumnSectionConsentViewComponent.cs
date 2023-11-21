@@ -1,8 +1,8 @@
-﻿using KBank.Web.Helpers.Cookies;
+﻿using TrainingGuides.Web.Helpers.Cookies;
 using Kentico.PageBuilder.Web.Mvc;
 using Microsoft.AspNetCore.Mvc;
 
-namespace KBank.Web.Components.Sections
+namespace TrainingGuides.Web.Components.Sections
 {
     public class FormColumnSectionConsentViewComponent : ViewComponent
     {

@@ -1,11 +1,11 @@
 ﻿
 using CMS.Websites;
-using KBank.Web.Services.Content;
+using TrainingGuides.Web.Services.Content;
 using Kentico.Content.Web.Mvc;
 using System.Threading.Tasks;
 
 
-namespace KBank.Web.Components.PageTemplates;
+namespace TrainingGuides.Web.Components.PageTemplates;
 
 public class LandingPagePageTemplateService
 {

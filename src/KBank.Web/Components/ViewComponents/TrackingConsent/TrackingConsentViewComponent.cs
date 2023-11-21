@@ -1,10 +1,10 @@
 ﻿using CMS.ContactManagement;
 using CMS.DataProtection;
 using CMS.Helpers;
-using KBank.Admin;
-using KBank.Web.Helpers.Cookies;
-using KBank.Web.Models;
-using KBank.Web.Services.Cryptography;
+using TrainingGuides.Admin;
+using TrainingGuides.Web.Helpers.Cookies;
+using TrainingGuides.Web.Models;
+using TrainingGuides.Web.Services.Cryptography;
 using Kentico.Content.Web.Mvc.Routing;
 using Kentico.Web.Mvc;
 using Microsoft.AspNetCore.Mvc;
@@ -12,7 +12,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace KBank.Web.Components.ViewComponents.TrackingConsent;
+namespace TrainingGuides.Web.Components.ViewComponents.TrackingConsent;
 
 public class TrackingConsentViewComponent : ViewComponent
 {

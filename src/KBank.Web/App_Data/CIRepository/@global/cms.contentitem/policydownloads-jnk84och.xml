@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.contentitem>
   <ContentItemContentTypeID>
-    <CodeName>KBank.Downloads</CodeName>
+    <CodeName>TrainingGuides.Downloads</CodeName>
     <GUID>1469db99-a3ec-4fa4-a67c-be84b912558d</GUID>
     <ObjectType>cms.contenttype</ObjectType>
   </ContentItemContentTypeID>

@@ -4,7 +4,7 @@ using CMS.DataProtection;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace KBank.Web.DataProtection;
+namespace TrainingGuides.Web.DataProtection;
 
 public class ContactIdentityCollector : IIdentityCollector
 {

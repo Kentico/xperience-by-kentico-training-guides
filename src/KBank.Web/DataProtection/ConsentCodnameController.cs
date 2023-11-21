@@ -1,10 +1,10 @@
-﻿using KBank.Admin;
-using KBank.Web.Helpers.Cookies;
+﻿using TrainingGuides.Admin;
+using TrainingGuides.Web.Helpers.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace KBank.Web.DataProtection
+namespace TrainingGuides.Web.DataProtection
 {
     public class ConsentCodnameController : Controller
     {

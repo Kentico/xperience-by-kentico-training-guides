@@ -1,4 +1,4 @@
-﻿namespace KBank.Web.Components.Sections;
+﻿namespace TrainingGuides.Web.Components.Sections;
 
 public class FormColumnSectionConsentViewModel
 {

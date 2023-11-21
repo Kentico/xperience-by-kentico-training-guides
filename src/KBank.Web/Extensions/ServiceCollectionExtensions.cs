@@ -1,10 +1,10 @@
-﻿using KBank.Web.Components.PageTemplates;
-using KBank.Web.DataProtection;
-using KBank.Web.Services.Content;
-using KBank.Web.Services.Cryptography;
+﻿using TrainingGuides.Web.Components.PageTemplates;
+using TrainingGuides.Web.Services.Content;
+using TrainingGuides.Web.Services.Cryptography;
+using TrainingGuides.Web.DataProtection;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace KBank.Web.Extensions;
+namespace TrainingGuides.Web.Extensions;
 
 public static class ServiceCollectionExtensions
 {

@@ -1,12 +1,12 @@
 ﻿using CMS.ContentEngine;
 using CMS.Helpers;
-using KBank.Web.Models;
-using KBank.Web.Services.Content;
+using TrainingGuides.Web.Models;
+using TrainingGuides.Web.Services.Content;
 using Kentico.Content.Web.Mvc.Routing;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
-namespace KBank.Web.Components.ViewComponents.Header
+namespace TrainingGuides.Web.Components.ViewComponents.Header
 {
     public class HeaderViewComponent : ViewComponent
     {

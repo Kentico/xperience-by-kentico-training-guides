@@ -8,7 +8,7 @@ using System.Data;
 using System.Linq;
 using System.Xml.Linq;
 
-namespace KBank.Web.DataProtection;
+namespace TrainingGuides.Web.DataProtection;
 
 public class FormCollectionHelper
 {

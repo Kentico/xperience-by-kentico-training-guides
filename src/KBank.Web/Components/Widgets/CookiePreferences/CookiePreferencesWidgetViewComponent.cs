@@ -1,8 +1,8 @@
 ﻿using CMS.DataProtection;
-using KBank.Admin;
-using KBank.Web.Components.Widgets.CookiePreferences;
-using KBank.Web.Helpers.Cookies;
-using KBank.Web.Services.Cryptography;
+using TrainingGuides.Admin;
+using TrainingGuides.Web.Components.Widgets.CookiePreferences;
+using TrainingGuides.Web.Helpers.Cookies;
+using TrainingGuides.Web.Services.Cryptography;
 using Kentico.Content.Web.Mvc.Routing;
 using Kentico.PageBuilder.Web.Mvc;
 using Microsoft.AspNetCore.Mvc;
@@ -17,7 +17,7 @@ using System.Threading.Tasks;
         typeof(CookiePreferencesWidgetProperties), Description = "Displays a cookie preferences.",
         IconClass = "icon-cookie")]
 
-namespace KBank.Web.Components.Widgets.CookiePreferences;
+namespace TrainingGuides.Web.Components.Widgets.CookiePreferences;
 
 public class CookiePreferencesWidgetViewComponent : ViewComponent
 {

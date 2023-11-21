@@ -3,7 +3,7 @@ using System;
 using System.IO;
 using System.Security.Cryptography;
 
-namespace KBank.Web.Services.Cryptography;
+namespace TrainingGuides.Web.Services.Cryptography;
 
 public class AesEncryptionService : IStringEncryptionService
 {

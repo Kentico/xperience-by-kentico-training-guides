@@ -1,6 +1,6 @@
-﻿using KBank.Web.Helpers.Cookies;
-using KBank.Web.Models;
-using KBank.Web.Services.Cryptography;
+﻿using TrainingGuides.Web.Helpers.Cookies;
+using TrainingGuides.Web.Models;
+using TrainingGuides.Web.Services.Cryptography;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System;
@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace KBank.Web.Controllers;
+namespace TrainingGuides.Web.Controllers;
 
 public class CookiesController : Controller
 {

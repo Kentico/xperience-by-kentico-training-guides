@@ -1,7 +1,7 @@
 ﻿using Kentico.PageBuilder.Web.Mvc;
 using Kentico.Xperience.Admin.Base.FormAnnotations;
 
-namespace KBank.Web.Components.Sections;
+namespace TrainingGuides.Web.Components.Sections;
 
 public class SingleColumnSectionProperties : ISectionProperties
 {

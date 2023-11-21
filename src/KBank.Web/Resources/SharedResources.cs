@@ -1,4 +1,4 @@
-﻿namespace KBank.Web.Resources;
+﻿namespace TrainingGuides.Web.Resources;
 
 public class SharedResources
 {

@@ -1,4 +1,4 @@
-﻿namespace KBank.Web.Services.Cryptography;
+﻿namespace TrainingGuides.Web.Services.Cryptography;
 
 public interface IStringEncryptionService
 {

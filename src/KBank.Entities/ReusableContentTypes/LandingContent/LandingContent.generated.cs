@@ -13,7 +13,7 @@ using System;
 using System.Collections.Generic;
 using CMS.ContentEngine;
 
-namespace KBank
+namespace TrainingGuides
 {
 	/// <summary>
 	/// Represents a content item of type <see cref="LandingContent"/>.
@@ -23,7 +23,7 @@ namespace KBank
 		/// <summary>
 		/// Code name of the content type.
 		/// </summary>
-		public const string CONTENT_TYPE_NAME = "KBank.LandingContent";
+		public const string CONTENT_TYPE_NAME = "TrainingGuides.LandingContent";
 
 
 		/// <summary>
@@ -33,13 +33,13 @@ namespace KBank
 
 
 		/// <summary>
-		/// Message.
+		/// LandingContentMessage.
 		/// </summary>
 		public string LandingContentMessage { get; set; }
 
 
 		/// <summary>
-		/// Text.
+		/// LandingContentText.
 		/// </summary>
 		public string LandingContentText { get; set; }
 	}

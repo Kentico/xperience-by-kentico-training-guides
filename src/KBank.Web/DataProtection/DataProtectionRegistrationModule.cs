@@ -1,10 +1,10 @@
 ﻿using CMS;
 using CMS.DataEngine;
 using CMS.DataProtection;
-using KBank.Web.DataProtection;
+using TrainingGuides.Web.DataProtection;
 
 [assembly: RegisterModule(typeof(DataProtectionRegistrationModule))]
-namespace KBank.Web.DataProtection;
+namespace TrainingGuides.Web.DataProtection;
 
 public class DataProtectionRegistrationModule : Module
 {

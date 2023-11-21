@@ -1,4 +1,4 @@
-﻿namespace KBank.Web.Components.Widgets.CookiePreferences
+﻿namespace TrainingGuides.Web.Components.Widgets.CookiePreferences
 {
     public class CookiePreferencesWidgetViewModel
     {

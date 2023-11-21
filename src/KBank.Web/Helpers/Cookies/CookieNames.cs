@@ -1,4 +1,4 @@
-﻿namespace KBank.Web.Helpers.Cookies;
+﻿namespace TrainingGuides.Web.Helpers.Cookies;
 
 /// <summary>
 /// Contains names of all custom cookies extending the solution. Each need to be registered in <see cref="CookieRegistrationModule"/>.

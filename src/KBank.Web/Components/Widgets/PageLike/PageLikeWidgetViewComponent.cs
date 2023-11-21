@@ -1,7 +1,7 @@
 ﻿using CMS.Activities;
 using CMS.ContactManagement;
 using CMS.Websites.Internal;
-using KBank.Web.Components.Widgets.PageLike;
+using TrainingGuides.Web.Components.Widgets.PageLike;
 using Kentico.PageBuilder.Web.Mvc;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ViewComponents;
@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 [assembly:
     RegisterWidget(PageLikeWidgetViewComponent.IDENTIFIER, typeof(PageLikeWidgetViewComponent), "Page like button", Description = "Displays a page like button.",
         IconClass = "icon-check-circle")]
-namespace KBank.Web.Components.Widgets.PageLike;
+namespace TrainingGuides.Web.Components.Widgets.PageLike;
 
 public class PageLikeWidgetViewComponent : ViewComponent
 {

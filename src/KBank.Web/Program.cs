@@ -1,16 +1,14 @@
-using AspNetCore.Unobtrusive.Ajax;
-using KBank;
-using KBank.Web.Components;
-using KBank.Web.Extensions;
-using KBank.Web.Helpers.Cookies;
-using Kentico.Activities.Web.Mvc;
+using TrainingGuides;
+using TrainingGuides.Web.Components;
+using TrainingGuides.Web.Extensions;
 using Kentico.Content.Web.Mvc.Routing;
 using Kentico.PageBuilder.Web.Mvc;
+using TrainingGuides.Web.Helpers.Cookies;
 using Kentico.Web.Mvc;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.DependencyInjection;
+using AspNetCore.Unobtrusive.Ajax;
+using Kentico.Activities.Web.Mvc;
 
-var KBankAllowSpecificOrigins = "_kBankAllowSpecificOrigins";
+string KBankAllowSpecificOrigins = "_kBankAllowSpecificOrigins";
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -61,7 +59,5 @@ app.UseCookiePolicy();
 app.UseAuthentication();
 
 app.Kentico().MapRoutes();
-
-app.UseCors(KBankAllowSpecificOrigins);
 
 app.Run();

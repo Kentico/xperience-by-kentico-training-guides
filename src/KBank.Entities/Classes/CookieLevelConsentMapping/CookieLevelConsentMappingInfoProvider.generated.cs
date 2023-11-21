@@ -1,6 +1,6 @@
 using CMS.DataEngine;
 
-namespace KBank.Admin
+namespace TrainingGuides.Admin
 {
     /// <summary>
     /// Class providing <see cref="CookieLevelConsentMappingInfo"/> management.

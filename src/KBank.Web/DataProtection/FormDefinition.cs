@@ -1,7 +1,7 @@
 ﻿
 using System.Collections.Generic;
 
-namespace KBank.Web.DataProtection;
+namespace TrainingGuides.Web.DataProtection;
 
 public class FormDefinition
 {

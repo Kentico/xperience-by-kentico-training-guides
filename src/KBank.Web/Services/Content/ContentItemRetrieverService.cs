@@ -2,12 +2,8 @@
 using CMS.Websites;
 using CMS.Websites.Routing;
 using Kentico.Content.Web.Mvc.Routing;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace KBank.Web.Services.Content;
+namespace TrainingGuides.Web.Services.Content;
 
 public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
 {
@@ -25,16 +21,17 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
         this.preferredLanguageRetriever = preferredLanguageRetriever;
     }
 
-    public async Task<T> RetrieveWebPageById(int webPageItemId, string contentTypeName, Func<IWebPageContentQueryDataContainer, T> selectResult, int depth = 1)
-    {
-        return await RetrieveContentItem(
+    public async Task<T> RetrieveWebPageById(
+        int webPageItemId,
+        string contentTypeName,
+        Func<IWebPageContentQueryDataContainer, T> selectResult,
+        int depth = 1) => await RetrieveContentItem(
             contentTypeName,
             config => config
                 .Where(where => where.WhereEquals(nameof(IWebPageContentQueryDataContainer.WebPageItemID), webPageItemId))
                 .WithLinkedItems(depth)
                 .ForWebsite(webSiteChannelContext.WebsiteChannelName),
             selectResult);
-    }
 
     public async Task<T> RetrieveContentItem(
         string contentTypeName,
