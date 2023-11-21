@@ -15,7 +15,7 @@ $afterList = "After.txt"
 $repositoryPath = "App_data\CIRepository"
 $migrationFolder = "@migrations"
 
-Set-Location -Path ../src/KBank.Web
+Set-Location -Path ../src/TrainingGuides.Web
 
 $path = Get-Location
 

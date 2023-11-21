@@ -9,7 +9,7 @@ $scriptsPath = Get-Location
 $outputFolderPath = "./bin/Deployment/"
 $buildNumber = (Get-Date).ToUniversalTime().ToString("yyyyMMddHHmm")
 
-Set-Location -Path ../src/KBank.Web
+Set-Location -Path ../src/TrainingGuides.Web
 
 # Publish the application in the 'Release' mode
 $publishCommand = "dotnet publish --nologo -c Release --self-contained true --runtime win-x64 -o $OutputFolderPath"

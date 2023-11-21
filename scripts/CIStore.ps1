@@ -5,7 +5,7 @@
 
 $scriptsPath = Get-Location
 
-Set-Location -Path ../src/KBank.Web
+Set-Location -Path ../src/TrainingGuides.Web
 
 Write-Host 'Storing CI files'
 

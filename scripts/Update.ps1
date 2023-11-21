@@ -56,7 +56,7 @@ function Execute-SQL-Data-Query {
 
 $scriptsPath = Get-Location
 
-Set-Location -Path ..\src\KBank.Web
+Set-Location -Path ..\src\TrainingGuides.Web
 
 $appPath = Get-Location
 
