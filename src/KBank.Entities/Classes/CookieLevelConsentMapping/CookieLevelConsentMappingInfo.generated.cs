@@ -21,15 +21,16 @@ namespace TrainingGuides.Admin
         /// <summary>
         /// Object type.
         /// </summary>
-        public const string OBJECT_TYPE = "kbank.cookielevelconsentmapping";
+        public const string OBJECT_TYPE = "trainingguides.cookielevelconsentmapping";
 
 
         /// <summary>
         /// Type information.
         /// </summary>
-        public static readonly ObjectTypeInfo TYPEINFO = new ObjectTypeInfo(typeof(CookieLevelConsentMappingInfoProvider), OBJECT_TYPE, "KBank.CookieLevelConsentMapping", "CookieLevelConsentMappingID", null, "CookieLevelConsentMappingGuid", "CookieLevelConsentMappingGuid", "CookieLevelConsentMappingID", null, null, null)
+#warning "You will need to configure the type info."
+        public static readonly ObjectTypeInfo TYPEINFO = new ObjectTypeInfo(typeof(CookieLevelConsentMappingInfoProvider), OBJECT_TYPE, "TrainingGuides.CookieLevelConsentMapping", "CookieLevelConsentMappingID", null, "CookieLevelConsentMappingGuid", "CookieLevelConsentMappingGuid", "CookieLevelConsentMappingID", null, null, null)
         {
-            ModuleName = "KBank.Admin",
+            ModuleName = "TrainingGuides.Admin",
             TouchCacheDependencies = true,
             DependsOn = new List<ObjectDependency>()
             {

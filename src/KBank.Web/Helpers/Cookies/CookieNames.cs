@@ -6,6 +6,6 @@
 public static class CookieNames
 {
     // System cookies
-    public const string COOKIE_CONSENT_LEVEL = "kbank.cookieconsentlevel";
-    public const string COOKIE_ACCEPTANCE = "kbank.cookielevelselection";
+    public const string COOKIE_CONSENT_LEVEL = "trainingguides.cookieconsentlevel";
+    public const string COOKIE_ACCEPTANCE = "trainingguides.cookielevelselection";
 }

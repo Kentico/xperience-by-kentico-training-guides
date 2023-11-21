@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.alternativeform>
+  <FormClassID>
+    <CodeName>TrainingGuides.CookieLevelConsentMapping</CodeName>
+    <GUID>ab059dd0-5152-42d3-8daf-6c25357944ed</GUID>
+    <ObjectType>cms.class</ObjectType>
+  </FormClassID>
+  <FormDefinition>
+    <form>
+      <field column="CookieLevelConsentMappingID" guid="b4599855-fb87-414e-b608-d344e2e29948" enabled="" />
+      <field column="CookieLevelConsentMappingGuid" guid="fcf986e1-d75d-41b6-a8d9-596c172b0109" enabled="" order="1" />
+      <field column="PreferenceConsentCodeName" enabled="true" guid="a98fffe3-30de-4eb9-8164-adb59b53cb22" visible="true" order="2">
+        <settings>
+          <controlname>Kentico.Administration.ObjectCodeNameSelector</controlname>
+          <MaximumItems>1</MaximumItems>
+          <ObjectType>CMS.Consent</ObjectType>
+          <Placeholder>Select</Placeholder>
+        </settings>
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Preference cookies consent (level 2)</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+      </field>
+      <field column="AnalyticalConsentCodeName" enabled="true" guid="68098e7f-f470-4487-8461-61d3c692087f" visible="true" order="3">
+        <settings>
+          <controlname>Kentico.Administration.ObjectCodeNameSelector</controlname>
+          <MaximumItems>1</MaximumItems>
+          <ObjectType>CMS.Consent</ObjectType>
+          <Placeholder>Select</Placeholder>
+        </settings>
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Analytical cookies consent (level 3)</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+      </field>
+      <field column="MarketingConsentCodeName" enabled="true" guid="bb4a2785-ce82-4a65-b7ec-418b701a1e32" visible="true" order="4">
+        <settings>
+          <controlname>Kentico.Administration.ObjectCodeNameSelector</controlname>
+          <MaximumItems>1</MaximumItems>
+          <ObjectType>CMS.Consent</ObjectType>
+          <Placeholder>Select</Placeholder>
+        </settings>
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Marketing cookies consent (level 4)</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+      </field>
+    </form>
+  </FormDefinition>
+  <FormDisplayName>Cookie level consent mapping</FormDisplayName>
+  <FormGUID>84abb0cc-ebce-423d-85c4-e4c6e6cfcc34</FormGUID>
+  <FormIsCustom>True</FormIsCustom>
+  <FormName>CookieLevelConsentMapping</FormName>
+</cms.alternativeform>

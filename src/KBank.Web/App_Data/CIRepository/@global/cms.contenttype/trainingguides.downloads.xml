@@ -36,7 +36,7 @@
   <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
   <ClassIconClass>xp-arrow-down-line</ClassIconClass>
   <ClassName>TrainingGuides.Downloads</ClassName>
-  <ClassTableName>KBank_Downloads</ClassTableName>
+  <ClassTableName>TrainingGuides_Downloads</ClassTableName>
   <ClassType>Content</ClassType>
   <ClassWebPageHasUrl>True</ClassWebPageHasUrl>
 </cms.contenttype>

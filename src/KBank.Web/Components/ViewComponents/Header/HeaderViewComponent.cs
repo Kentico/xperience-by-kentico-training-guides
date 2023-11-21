@@ -36,46 +36,9 @@ namespace TrainingGuides.Web.Components.ViewComponents.Header
         {
             var model = new HeaderViewModel()
             {
-                Logo = await GetLogo()
+                Heading = "Training guides"
             };
             return View("~/Components/ViewComponents/Header/_Header.cshtml", model);
-        }
-
-
-        private async Task<AssetViewModel> GetLogo()
-        {
-            Asset asset = await _progressiveCache.Load(async cs => await LoadLogo(cs), new CacheSettings(1200, "headerlogo|main"));
-
-            ContentItemAsset file = asset?.AssetFile;
-
-            if (file == null) return null;
-
-            return new AssetViewModel()
-            {
-                FilePath = file.Url,
-                AltText = asset.AssetAltText,
-                UseInternalOnly = asset.AssetUseInternalOnly,
-                Description = asset.AssetDescription
-            };
-        }
-
-
-        private async Task<Asset> LoadLogo(CacheSettings cs)
-        {
-            const string KBANK_LOGO_DESCRIPTION = "KBankLogo";
-
-            var asset = await contentItemRetriever.RetrieveContentItem(
-                Asset.CONTENT_TYPE_NAME,
-                config => config
-                    .Where(where => where.WhereEquals(nameof(Asset.AssetDescription), KBANK_LOGO_DESCRIPTION))
-                    .TopN(1),
-                container => contentQueryResultMapper.Map<Asset>(container));
-
-            if (asset == null) return null;
-
-            cs.CacheDependency = CacheHelper.GetCacheDependency($"contentitem|byid|{asset?.SystemFields.ContentItemID}");
-
-            return asset;
         }
     }
 }

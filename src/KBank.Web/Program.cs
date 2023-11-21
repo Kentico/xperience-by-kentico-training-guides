@@ -8,7 +8,7 @@ using Kentico.Web.Mvc;
 using AspNetCore.Unobtrusive.Ajax;
 using Kentico.Activities.Web.Mvc;
 
-string KBankAllowSpecificOrigins = "_kBankAllowSpecificOrigins";
+string TrainingGuidesAllowSpecificOrigins = "_trainingGuidesAllowSpecificOrigins";
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -40,8 +40,8 @@ builder.Services.AddAuthentication();
 
 builder.Services.AddUnobtrusiveAjax();
 
-builder.Services.AddKBankServices();
-builder.Services.AddKBankPageTemplateServices();
+builder.Services.AddTrainingGuidesServices();
+builder.Services.AddTrainingGuidesPageTemplateServices();
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddMvc().AddMvcLocalization();
@@ -59,5 +59,7 @@ app.UseCookiePolicy();
 app.UseAuthentication();
 
 app.Kentico().MapRoutes();
+
+app.UseCors(TrainingGuidesAllowSpecificOrigins);
 
 app.Run();

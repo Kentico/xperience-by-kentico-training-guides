@@ -17,7 +17,7 @@ namespace TrainingGuides.Web.Components.Sections
                 ShowContents = showContents
             };
 
-            return View("~/Components/Sections/FormColumnSection/_KBank_FormColumnSectionConsent.cshtml", model);
+            return View("~/Components/Sections/FormColumnSection/_TrainingGuides_FormColumnSectionConsent.cshtml", model);
         }
     }
 }

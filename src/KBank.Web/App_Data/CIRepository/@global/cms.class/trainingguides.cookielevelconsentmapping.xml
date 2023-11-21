@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.class>
+  <ClassCodeGenerationSettings>
+    <Data>
+      <CodeNameColumn>CookieLevelConsentMappingGuid</CodeNameColumn>
+      <DisplayNameColumn>CookieLevelConsentMappingID</DisplayNameColumn>
+      <GUIDColumn>CookieLevelConsentMappingGuid</GUIDColumn>
+      <ObjectType>TrainingGuides.CookieLevelConsentMapping</ObjectType>
+      <UseGuidHashtable>False</UseGuidHashtable>
+      <UseIdHashtable>False</UseIdHashtable>
+      <UseNameHashtable>False</UseNameHashtable>
+    </Data>
+  </ClassCodeGenerationSettings>
+  <ClassDisplayName>Cookie level consent mapping</ClassDisplayName>
+  <ClassFormDefinition>
+    <form>
+      <field column="CookieLevelConsentMappingID" columntype="integer" enabled="true" guid="b4599855-fb87-414e-b608-d344e2e29948" isPK="true" />
+      <field allowempty="true" column="PreferenceConsentCodeName" columnprecision="0" columntype="objectcodenames" enabled="true" guid="a98fffe3-30de-4eb9-8164-adb59b53cb22" />
+      <field allowempty="true" column="AnalyticalConsentCodeName" columnprecision="0" columntype="objectcodenames" enabled="true" guid="68098e7f-f470-4487-8461-61d3c692087f" />
+      <field allowempty="true" column="MarketingConsentCodeName" columnprecision="0" columntype="objectcodenames" enabled="true" guid="5ae6806c-46bf-4b92-b15a-73c818ebb2e3" />
+      <field column="CookieLevelConsentMappingGuid" columnprecision="0" columntype="guid" enabled="true" guid="fcf986e1-d75d-41b6-a8d9-596c172b0109" />
+    </form>
+  </ClassFormDefinition>
+  <ClassGUID>ab059dd0-5152-42d3-8daf-6c25357944ed</ClassGUID>
+  <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
+  <ClassName>TrainingGuides.CookieLevelConsentMapping</ClassName>
+  <ClassResourceID>
+    <CodeName>TrainingGuides.Admin</CodeName>
+    <GUID>69fa2d87-24b7-4c29-9625-887d6f0da903</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ClassResourceID>
+  <ClassTableName>TrainingGuides_CookieLevelConsentMapping</ClassTableName>
+  <ClassType>Other</ClassType>
+</cms.class>

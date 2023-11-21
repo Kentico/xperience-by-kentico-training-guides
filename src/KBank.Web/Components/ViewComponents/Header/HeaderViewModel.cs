@@ -1,7 +1,5 @@
-﻿using TrainingGuides.Web.Models;
-
-namespace TrainingGuides.Web.Components.ViewComponents.Header;
+﻿namespace TrainingGuides.Web.Components.ViewComponents.Header;
 public class HeaderViewModel
 {
-    public AssetViewModel Logo { get; set; }
+    public string Heading { get; set; }
 }

@@ -57,7 +57,7 @@
   <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
   <ClassIconClass>xp-picture</ClassIconClass>
   <ClassName>TrainingGuides.Asset</ClassName>
-  <ClassTableName>KBank_Asset</ClassTableName>
+  <ClassTableName>TrainingGuides_Asset</ClassTableName>
   <ClassType>Content</ClassType>
   <ClassWebPageHasUrl>True</ClassWebPageHasUrl>
 </cms.contenttype>

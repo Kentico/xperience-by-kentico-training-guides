@@ -712,15 +712,15 @@
           "System.Drawing.Common": "6.0.0"
         }
       },
-      "kbank.admin": {
+      "trainingguides.admin": {
         "type": "Project",
         "dependencies": {
-          "KBank.Entities": "[1.0.0, )",
           "Kentico.Xperience.Admin": "[27.0.0, )",
-          "Kentico.Xperience.Core": "[27.0.0, )"
+          "Kentico.Xperience.Core": "[27.0.0, )",
+          "TrainingGuides.Entities": "[1.0.0, )"
         }
       },
-      "kbank.entities": {
+      "trainingguides.entities": {
         "type": "Project",
         "dependencies": {
           "Kentico.Xperience.Core": "[27.0.0, )"

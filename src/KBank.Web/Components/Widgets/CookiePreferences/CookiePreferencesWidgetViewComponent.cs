@@ -33,7 +33,7 @@ public class CookiePreferencesWidgetViewComponent : ViewComponent
     /// <summary>
     /// Widget identifier.
     /// </summary>
-    public const string Identifier = "KBank.CookiePreferences";
+    public const string Identifier = "TrainingGuides.CookiePreferences";
 
 
     /// <summary>

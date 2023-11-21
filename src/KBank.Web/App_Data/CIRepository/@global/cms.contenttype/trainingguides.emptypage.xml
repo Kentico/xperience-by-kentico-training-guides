@@ -13,7 +13,7 @@
   <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
   <ClassIconClass>xp-c-sharp</ClassIconClass>
   <ClassName>TrainingGuides.EmptyPage</ClassName>
-  <ClassTableName>KBank_EmptyPage</ClassTableName>
+  <ClassTableName>TrainingGuides_EmptyPage</ClassTableName>
   <ClassType>Content</ClassType>
   <ClassWebPageHasUrl>True</ClassWebPageHasUrl>
 </cms.contenttype>

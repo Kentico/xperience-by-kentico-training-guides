@@ -36,7 +36,7 @@
   <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
   <ClassIconClass>xp-l-text</ClassIconClass>
   <ClassName>TrainingGuides.Article</ClassName>
-  <ClassTableName>KBank_Article</ClassTableName>
+  <ClassTableName>TrainingGuides_Article</ClassTableName>
   <ClassType>Content</ClassType>
   <ClassWebPageHasUrl>True</ClassWebPageHasUrl>
 </cms.contenttype>
