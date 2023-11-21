@@ -1,9 +1,7 @@
 # Xperience by Kentico Quickstart Guide starter repository
 This repository is the starting point for the [Xperience by Kentico technical quickstart guides](https://docs.xperience.io/tutorial/quickstart-guides/development). Use this branch to follow along with the trainings.
 
-To see the end result, check the [finished branch](https://github.com/Kentico/xperience-by-kentico-quickguides/tree/finished).
-
-### :pencil2:**Note:** *This repository is based on the **KBank** demo site, but is not a one-to-one recreation.*
+The [finished branch](https://github.com/Kentico/xperience-by-kentico-quickguides/tree/finished) contains the cumulative results of the quickstart guides and can be used for reference. As it contains several independent examples, it is not built comprehensively, and we recommend against using it as a boilerplate.
 
 ## Installation requirements
 - The database backup included in this repository requires SQL Server 2022 or newer. 
@@ -12,9 +10,9 @@ To see the end result, check the [finished branch](https://github.com/Kentico/xp
   - If you are using .NET 7 SDK or newer, you can update the project properties to target your version.
 ## Getting started
 1. Clone or download this repository to your development environment
-1. Open **`KBank.sln`** under the **src** folder and restore all NuGet packages.
-1. Restore **`KBank.QuickstartGuides.bak`** from the **Database** folder to your SQL server
+1. Open **`TrainingGuides.sln`** under the **src** folder and restore all NuGet packages.
+1. Restore **`Xperience.TrainingGuides.bak`** from the **Database** folder to your SQL server
 1. Update the connection string in the **`appsettings.json`** file under the **.\src\Kentico.KBank.Web** folder to point to your newly restored database
 1. Run a [Continuous Integration Restore](https://docs.xperience.io/xp/developers-and-admins/ci-cd/continuous-integration#ContinuousIntegration-Restorerepositoryfilestothedatabase) to populate the database with the necessary data
 1. Clean and rebuild the solution
-1. Log in with the username **administrator** and the password **QuickGuides123\***
+1. Log in with the username **administrator** and the password **TrainingGuides123\***
