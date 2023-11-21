@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\KBank.Entities\TrainingGuides.Entities.csproj" />
+    <ProjectReference Include="..\TrainingGuides.Entities\TrainingGuides.Entities.csproj" />
   </ItemGroup>
 
 </Project>

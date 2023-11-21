@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TrainingGuides.Web", "KBank.Web\TrainingGuides.Web.csproj", "{17AD0E81-4BEF-4204-93CD-485D3A358527}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TrainingGuides.Web", "TrainingGuides.Web\TrainingGuides.Web.csproj", "{17AD0E81-4BEF-4204-93CD-485D3A358527}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TrainingGuides.Entities", "KBank.Entities\TrainingGuides.Entities.csproj", "{E20685D5-8E97-4A1A-8C24-5612C6760BDB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TrainingGuides.Entities", "TrainingGuides.Entities\TrainingGuides.Entities.csproj", "{E20685D5-8E97-4A1A-8C24-5612C6760BDB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TrainingGuides.Admin", "KBank.Admin\TrainingGuides.Admin.csproj", "{E7068071-BC8C-4460-B6B1-EAF82C445C49}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TrainingGuides.Admin", "TrainingGuides.Admin\TrainingGuides.Admin.csproj", "{E7068071-BC8C-4460-B6B1-EAF82C445C49}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

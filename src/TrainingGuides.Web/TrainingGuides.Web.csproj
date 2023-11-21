@@ -10,8 +10,8 @@
     <PackageReference Include="kentico.xperience.webapp" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\KBank.Admin\TrainingGuides.Admin.csproj" />
-    <ProjectReference Include="..\KBank.Entities\TrainingGuides.Entities.csproj" />
+    <ProjectReference Include="..\TrainingGuides.Admin\TrainingGuides.Admin.csproj" />
+    <ProjectReference Include="..\TrainingGuides.Entities\TrainingGuides.Entities.csproj" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Components\ViewComponents\TrackingConsent\_TrackingConsent.cshtml" />
