@@ -29,7 +29,6 @@ builder.Services.AddKentico(features =>
 builder.Services.AddAuthentication();
 
 builder.Services.AddTrainingGuidesServices();
-builder.Services.AddTrainingGuidesPageTemplateServices();
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddMvc().AddMvcLocalization();

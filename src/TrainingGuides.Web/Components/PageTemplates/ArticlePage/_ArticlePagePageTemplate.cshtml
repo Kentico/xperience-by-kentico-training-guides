@@ -1,9 +1,7 @@
-﻿@model ComponentViewModel
-
-@inject ArticlePagePageTemplateService Service
+﻿@model TemplateViewModel
 
 @{
-    var templateModel = await Service.GetTemplateModel();
+    var templateModel = Model.GetTemplateModel<ArticlePageViewModel>();
     ViewBag.Title = templateModel.Title;
 }
 

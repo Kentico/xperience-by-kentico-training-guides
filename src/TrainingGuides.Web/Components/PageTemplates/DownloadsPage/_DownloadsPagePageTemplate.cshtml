@@ -1,9 +1,7 @@
-﻿@model ComponentViewModel
-
-@inject DownloadsPagePageTemplateService Service
+﻿@model TemplateViewModel
 
 @{
-    var templateModel = await Service.GetTemplateModel();
+    var templateModel = Model.GetTemplateModel<DownloadsPageViewModel>();
     ViewBag.Title = templateModel.Heading;
 }
 
