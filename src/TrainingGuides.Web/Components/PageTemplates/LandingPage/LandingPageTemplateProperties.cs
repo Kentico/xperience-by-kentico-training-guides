@@ -14,7 +14,24 @@ public class LandingPageTemplateProperties : IPageTemplateProperties
         "h4;Heading 4" + "\r\n" +
         "p;Paragraph" + "\r\n";
 
+    private string messageType;
+
     [RadioGroupComponent(Label = "Message tag type", AriaLabel = DESCRIPTION, ExplanationText = DESCRIPTION, Inline = true, Options = OPTIONS)]
-    public string MessageType { get; set; }
+    public string MessageType
+    {
+        get => GetSafeTagText(messageType);
+        set => messageType = value;
+    }
+
+    //ensures only valid strings will be rendered as raw html
+    private string GetSafeTagText(string messageType) => messageType switch
+    {
+        "h1" => "h1",
+        "h2" => "h2",
+        "h3" => "h3",
+        "h4" => "h4",
+        "p" => "p",
+        _ => "span"
+    };
 }
 

@@ -633,7 +633,7 @@
       "trainingguides.entities": {
         "type": "Project",
         "dependencies": {
-          "Kentico.Xperience.Core": "[27.0.0, )"
+          "Kentico.Xperience.Core": "[28.0.0, )"
         }
       },
       "Kentico.Xperience.WebApp": {

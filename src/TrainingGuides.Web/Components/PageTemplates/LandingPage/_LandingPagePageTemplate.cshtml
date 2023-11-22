@@ -1,18 +1,17 @@
-﻿@model ComponentViewModel<LandingPageTemplateProperties>
-
-@inject LandingPagePageTemplateService Service
+﻿@using Microsoft.AspNetCore.Html;
+@model TemplateViewModel<LandingPageTemplateProperties>
 
 @{
-    var templateModel = await Service.GetTemplateModel();
+    var templateModel = Model.GetTemplateModel<LandingPageViewModel>();
     ViewBag.Title = templateModel.Message;
-    string tagText = Service.GetSafeTagText(Model.Properties.MessageType);
-    string openingTag = $"<{tagText}>";
-    string closingTag = $"</{tagText}>";
+    string tagText = Model.Properties.MessageType;
+    HtmlString openingTag = new HtmlString($"<{tagText}>");
+    HtmlString closingTag = new HtmlString($"</{tagText}>");
 }
 
-@Html.Raw(openingTag)
+@openingTag
     @templateModel.Message
-@Html.Raw(closingTag)
+@closingTag
 
 
 <editable-area area-identifier="areaMain" />

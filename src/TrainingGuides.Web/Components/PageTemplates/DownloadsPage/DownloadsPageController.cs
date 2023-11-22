@@ -1,25 +1,30 @@
 ﻿using CMS.Websites;
-using TrainingGuides.Web.Services.Content;
 using Kentico.Content.Web.Mvc;
-using System.Threading.Tasks;
+using Kentico.Content.Web.Mvc.Routing;
+using Kentico.PageBuilder.Web.Mvc.PageTemplates;
+using Microsoft.AspNetCore.Mvc;
+using TrainingGuides;
+using TrainingGuides.Web.Services.Content;
+
+[assembly: RegisterWebPageRoute(DownloadsPage.CONTENT_TYPE_NAME, typeof(TrainingGuides.Web.Components.PageTemplates.DownloadsPageController))]
 
 namespace TrainingGuides.Web.Components.PageTemplates;
-
-public class DownloadsPagePageTemplateService
+public class DownloadsPageController : Controller
 {
     private readonly IWebPageDataContextRetriever webPageDataContextRetriver;
     private readonly IWebPageQueryResultMapper webPageQueryResultMapper;
     private readonly IContentItemRetrieverService<DownloadsPage> contentItemRetriever;
 
-    public DownloadsPagePageTemplateService(IWebPageDataContextRetriever webPageDataContextRetriver, IWebPageQueryResultMapper webPageQueryResultMapper, IContentItemRetrieverService<DownloadsPage> contentItemRetriever)
+    public DownloadsPageController(IWebPageDataContextRetriever webPageDataContextRetriver,
+        IWebPageQueryResultMapper webPageQueryResultMapper,
+        IContentItemRetrieverService<DownloadsPage> contentItemRetriever)
     {
         this.webPageDataContextRetriver = webPageDataContextRetriver;
         this.webPageQueryResultMapper = webPageQueryResultMapper;
         this.contentItemRetriever = contentItemRetriever;
     }
 
-
-    public async Task<DownloadsPageViewModel> GetTemplateModel()
+    public async Task<IActionResult> Index()
     {
         var context = webPageDataContextRetriver.Retrieve();
 
@@ -29,7 +34,7 @@ public class DownloadsPagePageTemplateService
             container => webPageQueryResultMapper.Map<DownloadsPage>(container),
             2);
 
-        return DownloadsPageViewModel.GetViewModel(downloadsPage);
+        var model = DownloadsPageViewModel.GetViewModel(downloadsPage);
+        return new TemplateResult(model);
     }
 }
-

@@ -41,7 +41,6 @@ builder.Services.AddAuthentication();
 builder.Services.AddUnobtrusiveAjax();
 
 builder.Services.AddTrainingGuidesServices();
-builder.Services.AddTrainingGuidesPageTemplateServices();
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddMvc().AddMvcLocalization();
