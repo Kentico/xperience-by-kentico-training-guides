@@ -13,4 +13,19 @@
   <ContentItemCommonDataGUID>4a4566d8-639b-4608-b508-c712c404b642</ContentItemCommonDataGUID>
   <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
   <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
+  <ContentItemReferences>
+    <cms.contentitemreference>
+      <ContentItemReferenceGroupGUID>1a1f83b3-0997-4caa-863a-e714378d8d13</ContentItemReferenceGroupGUID>
+      <ContentItemReferenceGUID>dbbd4a01-b9f5-4df3-ba9b-f264347f0d2f</ContentItemReferenceGUID>
+      <ContentItemReferenceSourceCommonDataID>
+        <GUID>4a4566d8-639b-4608-b508-c712c404b642</GUID>
+        <ObjectType>cms.contentitemcommondata</ObjectType>
+      </ContentItemReferenceSourceCommonDataID>
+      <ContentItemReferenceTargetItemID>
+        <CodeName>PrivacyPolicy-zv0e6nj8</CodeName>
+        <GUID>13d1466b-a95c-4bee-8e8e-52385821cf68</GUID>
+        <ObjectType>cms.contentitem</ObjectType>
+      </ContentItemReferenceTargetItemID>
+    </cms.contentitemreference>
+  </ContentItemReferences>
 </cms.contentitemcommondata>
