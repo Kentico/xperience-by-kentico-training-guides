@@ -24,17 +24,14 @@ public class LandingPageTemplateProperties : IPageTemplateProperties
     }
 
     //ensures only valid strings will be rendered as raw html
-    private string GetSafeTagText(string messageType)
+    private string GetSafeTagText(string messageType) => messageType switch
     {
-        return messageType switch
-        {
-            "h1" => "h1",
-            "h2" => "h2",
-            "h3" => "h3",
-            "h4" => "h4",
-            "p" => "p",
-            _ => "span"
-        };
-    }
+        "h1" => "h1",
+        "h2" => "h2",
+        "h3" => "h3",
+        "h4" => "h4",
+        "p" => "p",
+        _ => "span"
+    };
 }
 

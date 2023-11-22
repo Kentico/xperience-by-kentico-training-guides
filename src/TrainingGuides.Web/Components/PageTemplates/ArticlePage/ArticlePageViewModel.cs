@@ -1,6 +1,4 @@
-﻿using System.Linq;
-
-namespace TrainingGuides.Web.Components.PageTemplates;
+﻿namespace TrainingGuides.Web.Components.PageTemplates;
 
 public class ArticlePageViewModel
 {

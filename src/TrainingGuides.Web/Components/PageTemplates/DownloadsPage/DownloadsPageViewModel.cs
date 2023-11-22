@@ -1,6 +1,4 @@
 ﻿using TrainingGuides.Web.Models;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace TrainingGuides.Web.Components.PageTemplates;
 
