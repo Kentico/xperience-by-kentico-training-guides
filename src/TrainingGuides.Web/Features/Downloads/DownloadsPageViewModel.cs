@@ -1,5 +1,6 @@
 ﻿using TrainingGuides.Web.Models;
-namespace TrainingGuides.Web.Components.PageTemplates;
+
+namespace TrainingGuides.Web.Features.Downloads;
 
 public class DownloadsPageViewModel
 {

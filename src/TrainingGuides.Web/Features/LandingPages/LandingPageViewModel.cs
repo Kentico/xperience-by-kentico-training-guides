@@ -1,4 +1,4 @@
-﻿namespace TrainingGuides.Web.Components.PageTemplates;
+﻿namespace TrainingGuides.Web.Features.LandingPages;
 
 public class LandingPageViewModel
 {

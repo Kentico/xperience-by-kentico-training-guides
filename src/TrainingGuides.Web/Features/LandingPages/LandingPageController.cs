@@ -6,9 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 using TrainingGuides;
 using TrainingGuides.Web.Services.Content;
 
-[assembly: RegisterWebPageRoute(LandingPage.CONTENT_TYPE_NAME, typeof(TrainingGuides.Web.Components.PageTemplates.LandingPageController))]
+[assembly: RegisterWebPageRoute(LandingPage.CONTENT_TYPE_NAME, typeof(TrainingGuides.Web.Features.LandingPages.LandingPageController))]
 
-namespace TrainingGuides.Web.Components.PageTemplates;
+namespace TrainingGuides.Web.Features.LandingPages;
 public class LandingPageController : Controller
 {
     private readonly IWebPageDataContextRetriever webPageDataContextRetriver;

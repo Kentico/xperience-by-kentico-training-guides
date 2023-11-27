@@ -1,7 +1,7 @@
 ﻿using Kentico.PageBuilder.Web.Mvc.PageTemplates;
 using Kentico.Xperience.Admin.Base.FormAnnotations;
 
-namespace TrainingGuides.Web.Components.PageTemplates;
+namespace TrainingGuides.Web.Features.LandingPages;
 
 public class LandingPageTemplateProperties : IPageTemplateProperties
 {

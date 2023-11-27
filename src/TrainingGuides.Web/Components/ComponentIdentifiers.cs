@@ -1,4 +1,7 @@
 ﻿using TrainingGuides.Web.Components.Sections;
+using TrainingGuides.Web.Features.Articles;
+using TrainingGuides.Web.Features.Downloads;
+using TrainingGuides.Web.Features.LandingPages;
 
 namespace TrainingGuides.Web.Components;
 
@@ -10,16 +13,12 @@ public static class ComponentIdentifiers
         public const string FORM_COLUMN = FormColumnSectionViewComponent.IDENTIFIER;
         public const string FORM_COLUMN_CONSENT = FormColumnSectionViewComponent.IDENTIFIER;
     }
-    
-    // Sections
-    
-    //public const string FORM_COLUMN_SECTION = "TrainingGuides.FormColumnSection";
-    //public const string FORM_COLUMN_SECTION_CONSENT = "TrainingGuides.FormColumnSectionConsent";
 
-    //Page templates
-    public const string ARTICLE_PAGE_TEMPLATE = "TrainingGuides.ArticlePage";
-    public const string DOWNLOADS_PAGE_TEMPLATE = "TrainingGuides.DownloadsPage";
-    public const string LANDING_PAGE_TEMPLATE = "TrainingGuides.LandingPage";
-    public const string EMPTY_PAGE_TEMPLATE = "TrainingGuides.EmptyPage";
-
+    public static class PageTemplates
+    {
+        public const string ARTICLE = ArticlePagePageTemplate.IDENTIFIER;
+        public const string DOWNLOADS = DownloadsPagePageTemplate.IDENTIFIER;
+        public const string EMPTY_PAGE_TEMPLATE = EmptyPagePageTemplate.IDENTIFIER;
+        public const string LANDING_PAGE_TEMPLATE = LandingPagePageTemplate.IDENTIFIER;
+    }
 }

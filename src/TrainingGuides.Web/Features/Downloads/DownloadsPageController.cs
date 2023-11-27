@@ -6,9 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 using TrainingGuides;
 using TrainingGuides.Web.Services.Content;
 
-[assembly: RegisterWebPageRoute(DownloadsPage.CONTENT_TYPE_NAME, typeof(TrainingGuides.Web.Components.PageTemplates.DownloadsPageController))]
+[assembly: RegisterWebPageRoute(DownloadsPage.CONTENT_TYPE_NAME, typeof(TrainingGuides.Web.Features.Downloads.DownloadsPageController))]
 
-namespace TrainingGuides.Web.Components.PageTemplates;
+namespace TrainingGuides.Web.Features.Downloads;
 public class DownloadsPageController : Controller
 {
     private readonly IWebPageDataContextRetriever webPageDataContextRetriver;

@@ -1,4 +1,4 @@
-﻿namespace TrainingGuides.Web.Components.PageTemplates;
+﻿namespace TrainingGuides.Web.Features.Articles;
 
 public class ArticlePageViewModel
 {
