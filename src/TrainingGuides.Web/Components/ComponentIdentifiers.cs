@@ -1,11 +1,20 @@
-﻿namespace TrainingGuides.Web.Components;
+﻿using TrainingGuides.Web.Components.Sections;
+
+namespace TrainingGuides.Web.Components;
 
 public static class ComponentIdentifiers
 {
+    public static class Sections
+    {
+        public const string SINGLE_COLUMN = SingleColumnSectionViewComponent.IDENTIFIER;
+        public const string FORM_COLUMN = FormColumnSectionViewComponent.IDENTIFIER;
+        public const string FORM_COLUMN_CONSENT = FormColumnSectionViewComponent.IDENTIFIER;
+    }
+    
     // Sections
-    public const string SINGLE_COLUMN_SECTION = "TrainingGuides.SingleColumnSection";
-    public const string FORM_COLUMN_SECTION = "TrainingGuides.FormColumnSection";
-    public const string FORM_COLUMN_SECTION_CONSENT = "TrainingGuides.FormColumnSectionConsent";
+    
+    //public const string FORM_COLUMN_SECTION = "TrainingGuides.FormColumnSection";
+    //public const string FORM_COLUMN_SECTION_CONSENT = "TrainingGuides.FormColumnSectionConsent";
 
     //Page templates
     public const string ARTICLE_PAGE_TEMPLATE = "TrainingGuides.ArticlePage";

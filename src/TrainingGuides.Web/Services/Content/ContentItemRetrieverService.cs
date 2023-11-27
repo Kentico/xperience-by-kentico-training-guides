@@ -53,6 +53,8 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
     }
 
 }
+
+
 public class ContentItemRetrieverService : IContentItemRetrieverService
 {
     private readonly Dictionary<string, Func<IWebPageContentQueryDataContainer, IWebPageFieldsSource>> contentTypeDictionary;

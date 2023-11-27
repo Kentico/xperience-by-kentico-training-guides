@@ -17,7 +17,7 @@ builder.Services.AddKentico(async features =>
 {
     features.UsePageBuilder(new PageBuilderOptions
     {
-        DefaultSectionIdentifier = ComponentIdentifiers.SINGLE_COLUMN_SECTION,
+        DefaultSectionIdentifier = ComponentIdentifiers.Sections.SINGLE_COLUMN,
         RegisterDefaultSection = false,
         ContentTypeNames = new[] {
             LandingPage.CONTENT_TYPE_NAME,
