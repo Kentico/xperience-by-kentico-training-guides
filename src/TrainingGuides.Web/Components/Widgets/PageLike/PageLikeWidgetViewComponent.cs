@@ -1,13 +1,10 @@
 ﻿using CMS.Activities;
 using CMS.ContactManagement;
-using CMS.Websites.Internal;
 using TrainingGuides.Web.Components.Widgets.PageLike;
 using Kentico.PageBuilder.Web.Mvc;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ViewComponents;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using TrainingGuides.Web.Services.Content;
 
 [assembly:
     RegisterWidget(PageLikeWidgetViewComponent.IDENTIFIER, typeof(PageLikeWidgetViewComponent), "Page like button", Description = "Displays a page like button.",
@@ -16,44 +13,41 @@ namespace TrainingGuides.Web.Components.Widgets.PageLike;
 
 public class PageLikeWidgetViewComponent : ViewComponent
 {
-    private readonly IActivityInfoProvider _activityInfoProvider;
+    private readonly IActivityInfoProvider activityInfoProvider;
+    private readonly IContentItemRetrieverService contentItemRetrieverService;
 
     public const string IDENTIFIER = "TrainingGuides.PageLike";
     public const string ACTIVITY_IDENTIFIER = "pagelike";
 
-    public PageLikeWidgetViewComponent(IActivityInfoProvider activityInfoProvider)
+    public PageLikeWidgetViewComponent(IActivityInfoProvider activityInfoProvider,
+        IContentItemRetrieverService contentItemRetrieverService)
     {
-        _activityInfoProvider = activityInfoProvider;
+        this.activityInfoProvider = activityInfoProvider;
+        this.contentItemRetrieverService = contentItemRetrieverService;
     }
 
     public async Task<ViewViewComponentResult> InvokeAsync(ComponentViewModel properties)
     {
         var currentContact = ContactManagementContext.GetCurrentContact(false);
 
-        var webPage = WebPageItemInfo.Provider.Get().WhereEquals(nameof(WebPageItemInfo.WebPageItemID), properties.Page.WebPageItemID).FirstOrDefault();
+        //var webPage = WebPageItemInfo.Provider.Get().WhereEquals(nameof(WebPageItemInfo.WebPageItemID), properties.Page.WebPageItemID).FirstOrDefault();
+        var webPage = await contentItemRetrieverService.RetrieveWebPageById(properties.Page.WebPageItemID, properties.Page.ContentTypeName);
 
-        IEnumerable<ActivityInfo> likesOfThisPage;
-        if (currentContact != null)
-        {
-            likesOfThisPage = await _activityInfoProvider.Get()
+        var likesOfThisPage = currentContact != null
+            ? await activityInfoProvider.Get()
                 .WhereEquals("ActivityContactID", currentContact.ContactID)
                 .And().WhereEquals("ActivityType", ACTIVITY_IDENTIFIER)
-                .And().WhereEquals("ActivityValue", webPage.WebPageItemTreePath)
-                .GetEnumerableTypedResultAsync();
-        }
-        else
-        {
-            likesOfThisPage = new List<ActivityInfo>();
-        }
+                .And().WhereEquals("ActivityValue", webPage.SystemFields.WebPageItemGUID.ToString())
+                .GetEnumerableTypedResultAsync()
+            : new List<ActivityInfo>();
 
-        bool showLikeButton = (likesOfThisPage.Count() == 0);
-
-
+        bool showLikeButton = likesOfThisPage.Count() == 0;
 
         var model = new PageLikeWidgetViewModel()
         {
             ShowLikeButton = showLikeButton,
-            WebPageId = properties.Page.WebPageItemID,
+            WebPageItemID = properties.Page.WebPageItemID,
+            ContentTypeName = properties.Page.ContentTypeName
         };
 
         return View("~/Components/Widgets/PageLike/_PageLikeWidget.cshtml", model);

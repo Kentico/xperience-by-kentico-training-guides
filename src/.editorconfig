@@ -256,7 +256,7 @@ dotnet_diagnostic.IDE0078.severity                                        = erro
 csharp_style_prefer_not_pattern                                           = true
 dotnet_diagnostic.IDE0083.severity                                        = error
 
-csharp_prefer_braces                                                      = true
+csharp_prefer_braces                                                      = when_multiline
 dotnet_diagnostic.IDE0011.severity                                        = error
 
 csharp_prefer_simple_using_statement                                      = true

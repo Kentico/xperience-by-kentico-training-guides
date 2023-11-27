@@ -2,5 +2,7 @@
 
 public class PageLikeRequestModel
 {
-    public string WebPageId { get; set; }
+    public string WebPageItemID { get; set; }
+
+    public string ContentTypeName { get; set; }
 }

@@ -3,6 +3,8 @@ public class PageLikeWidgetViewModel
 {
     public bool ShowLikeButton { get; set; }
 
-    public int WebPageId { get; set; }
+    public int WebPageItemID { get; set; }
+
+    public string ContentTypeName { get; set; }
 }
 

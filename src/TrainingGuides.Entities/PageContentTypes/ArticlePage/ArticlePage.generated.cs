@@ -25,7 +25,6 @@ namespace TrainingGuides
 		/// </summary>
 		public const string CONTENT_TYPE_NAME = "TrainingGuides.ArticlePage";
 
-
 		/// <summary>
 		/// Represents system properties for a web page item.
 		/// </summary>

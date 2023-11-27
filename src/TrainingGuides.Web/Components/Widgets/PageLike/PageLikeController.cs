@@ -1,9 +1,7 @@
 ﻿using CMS.Activities;
-using CMS.Websites.Internal;
 using TrainingGuides.Web.Helpers.Cookies;
 using Microsoft.AspNetCore.Mvc;
-using System.Linq;
-using System.Threading.Tasks;
+using TrainingGuides.Web.Services.Content;
 
 namespace TrainingGuides.Web.Components.Widgets.PageLike;
 
@@ -14,11 +12,14 @@ public class PageLikeController : Controller
     private const string BAD_PAGE_DATA_MESSAGE = "<span>Error in page like data. Please try again later.</span>";
     private const string THANK_YOU_MESSAGE = "<span>Thank you!</span>";
 
-    private readonly ICustomActivityLogger _customActivityLogger;
+    private readonly ICustomActivityLogger customActivityLogger;
+    private readonly IContentItemRetrieverService contentItemRetrieverService;
 
-    public PageLikeController(ICustomActivityLogger customActivityLogger)
+    public PageLikeController(ICustomActivityLogger customActivityLogger,
+        IContentItemRetrieverService contentItemRetrieverService)
     {
-        _customActivityLogger = customActivityLogger;
+        this.customActivityLogger = customActivityLogger;
+        this.contentItemRetrieverService = contentItemRetrieverService;
     }
 
     [Route("pagelike")]
@@ -28,24 +29,28 @@ public class PageLikeController : Controller
         if (!CookieConsentHelper.CurrentContactIsVisitorOrHigher())
             return Content(NO_TRACKING_MESSAGE);
 
-        if (!int.TryParse(requestModel.WebPageId, out int webPageId))
+        if (!int.TryParse(requestModel.WebPageItemID, out int webPageItemID))
             return Content(BAD_PAGE_DATA_MESSAGE);
 
-        var webPage = (await WebPageItemInfo.Provider.Get().WhereEquals(nameof(WebPageItemInfo.WebPageItemID), webPageId).GetEnumerableTypedResultAsync()).FirstOrDefault();
+        if (string.IsNullOrEmpty(requestModel.ContentTypeName))
+            return Content(BAD_PAGE_DATA_MESSAGE);
+
+        //var webPage = (await WebPageItemInfo.Provider.Get().WhereEquals(nameof(WebPageItemInfo.WebPageItemID), webPageId).GetEnumerableTypedResultAsync()).FirstOrDefault();
+        var webPage = await contentItemRetrieverService.RetrieveWebPageById(webPageItemID, requestModel.ContentTypeName);
 
         if (webPage is null)
             return Content(BAD_PAGE_DATA_MESSAGE);
 
-        string likedPageName = webPage.WebPageItemName;
-        string likedPagePath = webPage.WebPageItemTreePath;
+        string likedPageName = webPage.SystemFields.WebPageItemName;
+        string likedPageGuid = webPage.SystemFields.WebPageItemGUID.ToString();
 
         var pageLikeActicityData = new CustomActivityData()
         {
             ActivityTitle = $"Page Like - {likedPageName}",
-            ActivityValue = likedPagePath,
+            ActivityValue = likedPageGuid,
         };
 
-        _customActivityLogger.Log(PageLikeWidgetViewComponent.ACTIVITY_IDENTIFIER, pageLikeActicityData);
+        customActivityLogger.Log(PageLikeWidgetViewComponent.ACTIVITY_IDENTIFIER, pageLikeActicityData);
         return Content(THANK_YOU_MESSAGE);
     }
 

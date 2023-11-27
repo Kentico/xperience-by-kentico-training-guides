@@ -11,5 +11,6 @@ public static class ServiceCollectionExtensions
         services.AddSingleton<IStringEncryptionService, AesEncryptionService>();
         services.AddSingleton<CurrentContactIsTrackableService>();
         services.AddTransient(typeof(IContentItemRetrieverService<>), typeof(ContentItemRetrieverService<>));
+        services.AddTransient(typeof(IContentItemRetrieverService), typeof(ContentItemRetrieverService));
     }
 }
