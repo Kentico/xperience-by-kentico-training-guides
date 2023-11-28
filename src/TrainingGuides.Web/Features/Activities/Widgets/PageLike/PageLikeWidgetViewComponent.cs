@@ -4,7 +4,7 @@ using TrainingGuides.Web.Features.Activities.Widgets.PageLike;
 using Kentico.PageBuilder.Web.Mvc;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ViewComponents;
-using TrainingGuides.Web.Services.Content;
+using TrainingGuides.Web.Features.Shared.Services;
 
 [assembly:
     RegisterWidget(PageLikeWidgetViewComponent.IDENTIFIER, typeof(PageLikeWidgetViewComponent), "Page like button", Description = "Displays a page like button.",

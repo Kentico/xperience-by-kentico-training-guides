@@ -1,4 +1,4 @@
-﻿using TrainingGuides.Web.Models;
+﻿using TrainingGuides.Web.Features.Shared.Models;
 
 namespace TrainingGuides.Web.Features.Downloads;
 

@@ -3,12 +3,6 @@
     <TargetFramework>net8.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Remove="Components\ViewComponents\**" />
-    <Content Remove="Components\ViewComponents\**" />
-    <EmbeddedResource Remove="Components\ViewComponents\**" />
-    <None Remove="Components\ViewComponents\**" />
-  </ItemGroup>
-  <ItemGroup>
     <PackageReference Include="AspNetCore.Unobtrusive.Ajax" />
     <PackageReference Include="kentico.xperience.admin" />
     <PackageReference Include="kentico.xperience.azurestorage" />
@@ -22,9 +16,5 @@
   <ItemGroup>
     <None Include="Features\DataProtection\Widgets\CookiePreferences\CookiePreferencesWidget.cshtml" />
     <None Include="Features\Activities\Widgets\PageLike\PageLikeWidget.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Features\Shared\ViewComponents\" />
-    <Folder Include="Views\Shared\Cookies\" />
   </ItemGroup>
 </Project>

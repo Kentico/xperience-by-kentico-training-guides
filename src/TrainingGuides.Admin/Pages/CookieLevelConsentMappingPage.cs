@@ -10,50 +10,52 @@ using Kentico.Xperience.Admin.DigitalMarketing.UIPages;
     name: "Cookie level consent mapping",
     templateName: TemplateNames.EDIT,
     order: UIPageOrder.First + 1)]
-namespace TrainingGuides.Admin.Pages
+
+namespace TrainingGuides.Admin.Pages;
+
+internal class CookieLevelConsentMappingPage : InfoEditPage<CookieLevelConsentMappingInfo>
 {
-    internal class CookieLevelConsentMappingPage : InfoEditPage<CookieLevelConsentMappingInfo>
+    private readonly ICookieLevelConsentMappingInfoProvider cookieLevelConsentMappingInfoProvider;
+
+    public CookieLevelConsentMappingPage(IFormComponentMapper formComponentMapper, IFormDataBinder formDataBinder,
+    ICookieLevelConsentMappingInfoProvider generalSettingsInfoProvider) : base(formComponentMapper, formDataBinder)
     {
-        private readonly ICookieLevelConsentMappingInfoProvider _cookieLevelConsentMappingInfoProvider;
+        cookieLevelConsentMappingInfoProvider = generalSettingsInfoProvider;
+    }
 
-        public CookieLevelConsentMappingPage(IFormComponentMapper formComponentMapper, IFormDataBinder formDataBinder,
-        ICookieLevelConsentMappingInfoProvider generalSettingsInfoProvider) : base(formComponentMapper, formDataBinder)
+
+    public override int ObjectId
+    {
+        get
         {
-            _cookieLevelConsentMappingInfoProvider = generalSettingsInfoProvider;
+            var mappings = GetOrCreateMappings();
+            return mappings.CookieLevelConsentMappingID;
         }
+        set => throw new InvalidOperationException("The $ObjectId value cannot be set.");
+    }
 
 
-        public override int ObjectId
+    public override Task ConfigurePage()
+    {
+        PageConfiguration.UIFormName = "CookieLevelConsentMapping";
+
+        return base.ConfigurePage();
+    }
+
+
+    private CookieLevelConsentMappingInfo GetOrCreateMappings()
+    {
+        var item = cookieLevelConsentMappingInfoProvider.Get()?.FirstOrDefault();
+
+        if (item == null)
         {
-            get
+            item = new CookieLevelConsentMappingInfo
             {
-                var mappings = GetOrCreateMappings();
-                return mappings.CookieLevelConsentMappingID;
-            }
-            set => throw new InvalidOperationException("The $ObjectId value cannot be set.");
+                CookieLevelConsentMappingGuid = Guid.NewGuid()
+            };
+            cookieLevelConsentMappingInfoProvider.Set(item);
         }
 
-
-        public override Task ConfigurePage()
-        {
-            PageConfiguration.UIFormName = "CookieLevelConsentMapping";
-
-            return base.ConfigurePage();
-        }
-
-
-        private CookieLevelConsentMappingInfo GetOrCreateMappings()
-        {
-            var item = _cookieLevelConsentMappingInfoProvider.Get()?.FirstOrDefault();
-
-            if (item == null)
-            {
-                item = new CookieLevelConsentMappingInfo();
-                item.CookieLevelConsentMappingGuid = Guid.NewGuid();
-                _cookieLevelConsentMappingInfoProvider.Set(item);
-            }
-
-            return item;
-        }
+        return item;
     }
 }

@@ -4,7 +4,7 @@ using Kentico.Content.Web.Mvc.Routing;
 using Kentico.PageBuilder.Web.Mvc.PageTemplates;
 using Microsoft.AspNetCore.Mvc;
 using TrainingGuides;
-using TrainingGuides.Web.Services.Content;
+using TrainingGuides.Web.Features.Shared.Services;
 
 [assembly: RegisterWebPageRoute(DownloadsPage.CONTENT_TYPE_NAME, typeof(TrainingGuides.Web.Features.Downloads.DownloadsPageController))]
 

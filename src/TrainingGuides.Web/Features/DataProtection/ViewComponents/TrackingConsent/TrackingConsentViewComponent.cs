@@ -2,7 +2,6 @@
 using CMS.DataProtection;
 using CMS.Helpers;
 using TrainingGuides.Admin;
-using TrainingGuides.Web.Services.Cryptography;
 using Kentico.Content.Web.Mvc.Routing;
 using Kentico.Web.Mvc;
 using Microsoft.AspNetCore.Mvc;

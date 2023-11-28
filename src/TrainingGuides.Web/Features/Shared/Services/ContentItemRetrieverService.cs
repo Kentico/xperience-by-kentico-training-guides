@@ -4,7 +4,7 @@ using CMS.Websites;
 using CMS.Websites.Routing;
 using Kentico.Content.Web.Mvc.Routing;
 
-namespace TrainingGuides.Web.Services.Content;
+namespace TrainingGuides.Web.Features.Shared.Services;
 
 public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
 {

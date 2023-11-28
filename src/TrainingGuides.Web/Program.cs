@@ -1,19 +1,18 @@
 using TrainingGuides;
-using TrainingGuides.Web.Components;
-using TrainingGuides.Web.Extensions;
 using Kentico.Content.Web.Mvc.Routing;
 using Kentico.PageBuilder.Web.Mvc;
 using Kentico.Web.Mvc;
 using AspNetCore.Unobtrusive.Ajax;
 using Kentico.Activities.Web.Mvc;
 using TrainingGuides.Web.Features.DataProtection.Shared;
+using TrainingGuides.Web;
 
 string TrainingGuidesAllowSpecificOrigins = "_trainingGuidesAllowSpecificOrigins";
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Enable desired Kentico Xperience features
-builder.Services.AddKentico(async features =>
+builder.Services.AddKentico(features =>
 {
     features.UsePageBuilder(new PageBuilderOptions
     {

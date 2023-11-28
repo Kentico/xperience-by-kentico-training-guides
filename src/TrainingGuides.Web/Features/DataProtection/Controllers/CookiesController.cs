@@ -1,9 +1,8 @@
-﻿using TrainingGuides.Web.Models;
-using TrainingGuides.Web.Services.Cryptography;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using TrainingGuides.Web.Features.DataProtection.Services;
 using TrainingGuides.Web.Features.DataProtection.Shared;
+using TrainingGuides.Web.Features.DataProtection.Widgets.CookiePreferences;
 
 namespace TrainingGuides.Web.Features.DataProtection.Controllers;
 

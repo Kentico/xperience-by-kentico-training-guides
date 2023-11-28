@@ -1,7 +1,7 @@
 ﻿using CMS.Activities;
 using Microsoft.AspNetCore.Mvc;
-using TrainingGuides.Web.Services.Content;
 using TrainingGuides.Web.Features.DataProtection.Services;
+using TrainingGuides.Web.Features.Shared.Services;
 
 namespace TrainingGuides.Web.Features.Activities.Widgets.PageLike;
 

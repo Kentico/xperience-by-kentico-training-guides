@@ -1,7 +1,6 @@
 ﻿using CMS.DataProtection;
 using TrainingGuides.Admin;
 using TrainingGuides.Web.Features.DataProtection.Widgets.CookiePreferences;
-using TrainingGuides.Web.Services.Cryptography;
 using Kentico.Content.Web.Mvc.Routing;
 using Kentico.PageBuilder.Web.Mvc;
 using Microsoft.AspNetCore.Mvc;
@@ -11,7 +10,7 @@ using TrainingGuides.Web.Features.DataProtection.Services;
 using TrainingGuides.Web.Features.DataProtection.Shared;
 
 [assembly:
-    RegisterWidget(CookiePreferencesWidgetViewComponent.Identifier, typeof(CookiePreferencesWidgetViewComponent), "Cookie preferences",
+    RegisterWidget(CookiePreferencesWidgetViewComponent.IDENTIFIER, typeof(CookiePreferencesWidgetViewComponent), "Cookie preferences",
         typeof(CookiePreferencesWidgetProperties), Description = "Displays a cookie preferences.",
         IconClass = "icon-cookie")]
 
@@ -26,7 +25,7 @@ public class CookiePreferencesWidgetViewComponent : ViewComponent
     /// <summary>
     /// Widget identifier.
     /// </summary>
-    public const string Identifier = "TrainingGuides.CookiePreferences";
+    public const string IDENTIFIER = "TrainingGuides.CookiePreferences";
 
     private readonly IConsentInfoProvider consentInfoProvider;
     private readonly IStringEncryptionService stringEncryptionService;

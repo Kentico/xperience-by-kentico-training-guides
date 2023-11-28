@@ -1,7 +1,7 @@
 ﻿using CMS.ContentEngine;
 using CMS.Websites;
 
-namespace TrainingGuides.Web.Services.Content;
+namespace TrainingGuides.Web.Features.Shared.Services;
 
 public interface IContentItemRetrieverService<T>
 {
