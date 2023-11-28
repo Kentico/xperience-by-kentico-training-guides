@@ -6,13 +6,18 @@ namespace TrainingGuides.Web.Features.DataProtection.Collectors;
 
 public class ContactDataCollector : IPersonalDataCollector
 {
+    private readonly IServiceProvider serviceProvider;
+
+    public ContactDataCollector(IServiceProvider serviceProvider)
+    {
+        this.serviceProvider = serviceProvider;
+    }
+
     public PersonalDataCollectorResult Collect(IEnumerable<BaseInfo> identities, string outputFormat)
     {
-        using var writer = CreateWriter(outputFormat);
+        using var personalDataWriter = CreateWriter(outputFormat);
 
-        // Activator.CreateInstance(typeof(DataCollectorCore))
-        // ActivatorUtilities.CreateInstance(IServiceProvider, Type, Object[])
-        var dataCollector = new DataCollectorCore(writer);
+        var dataCollector = ActivatorUtilities.CreateInstance<ContactDataCollectorCore>(serviceProvider, personalDataWriter);
 
         return new PersonalDataCollectorResult
         {

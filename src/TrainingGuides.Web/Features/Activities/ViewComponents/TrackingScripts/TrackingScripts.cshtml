@@ -1,0 +1,9 @@
+﻿@using TrainingGuides.Web.Features.Activities.ViewComponents
+@using Kentico.Activities.Web.Mvc
+
+@model ContactTrackingAllowedViewModel
+
+@if (Model.ContactTrackingAllowed)
+{
+    @Html.Kentico().ActivityLoggingScriptV2();
+}

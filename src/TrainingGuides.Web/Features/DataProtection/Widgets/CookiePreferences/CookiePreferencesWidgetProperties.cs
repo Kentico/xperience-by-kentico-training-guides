@@ -1,7 +1,7 @@
 ﻿using Kentico.PageBuilder.Web.Mvc;
 using Kentico.Xperience.Admin.Base.FormAnnotations;
 
-namespace TrainingGuides.Web.Components.Widgets.CookiePreferences;
+namespace TrainingGuides.Web.Features.DataProtection.Widgets.CookiePreferences;
 
 public class CookiePreferencesWidgetProperties : IWidgetProperties
 {

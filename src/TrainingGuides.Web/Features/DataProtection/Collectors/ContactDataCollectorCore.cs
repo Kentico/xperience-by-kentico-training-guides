@@ -13,7 +13,7 @@ using TrainingGuides.Web.Features.DataProtection.Writers;
 
 namespace TrainingGuides.Web.Features.DataProtection.Collectors;
 
-public class DataCollectorCore
+public class ContactDataCollectorCore
 {
     private readonly List<CollectedColumn> contactInfoColumns =
     [
@@ -105,7 +105,7 @@ public class DataCollectorCore
     private readonly IFormCollectionService formCollectionService;
     private readonly Dictionary<Guid, FormDefinition> forms;
 
-    public DataCollectorCore(IPersonalDataWriter personalDataWriter, IFormCollectionService formCollectionService)
+    public ContactDataCollectorCore(IPersonalDataWriter personalDataWriter, IFormCollectionService formCollectionService)
     {
         this.personalDataWriter = personalDataWriter;
         this.formCollectionService = formCollectionService;

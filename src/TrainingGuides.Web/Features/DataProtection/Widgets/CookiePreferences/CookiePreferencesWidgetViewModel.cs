@@ -1,4 +1,4 @@
-﻿namespace TrainingGuides.Web.Components.Widgets.CookiePreferences
+﻿namespace TrainingGuides.Web.Features.DataProtection.Widgets.CookiePreferences
 {
     public class CookiePreferencesWidgetViewModel
     {

@@ -3,20 +3,23 @@ using TrainingGuides.Web.Models;
 using TrainingGuides.Web.Services.Cryptography;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using TrainingGuides.Web.Features.DataProtection.Services;
 
 namespace TrainingGuides.Web.Features.DataProtection.Controllers;
 
 public class CookiesController : Controller
 {
-    private const string PREFERENCE_SUCCESS_VIEW = "Cookies/_CookiePreferencesComplete";
-    private const string BANNER_SUCESS_VIEW = "Cookies/_CookieBannerComplete";
-    private const string FAILURE_VIEW = "Cookies/_CookieLevelSetFailed";
+    private const string COOKIE_PREFERENCES_SUCCESS = "~/Features/DataProtection/Widgets/CookiePreferences/CookiePreferencesWidgetComplete.cshtml";
+    private const string TRACKING_CONSENT_SUCCESS = "~/Features/DataProtection/ViewComponents/TrackingConsent/TrackingConsentComplete.cshtml";
+    private const string FAILURE = "~/Features/DataProtection/CookieLevelSetFailed.cshtml";
 
     private readonly IStringEncryptionService stringEncryptionService;
+    private readonly ICookieConsentService cookieConsentService;
 
-    public CookiesController(IStringEncryptionService stringEncryptionService)
+    public CookiesController(IStringEncryptionService stringEncryptionService, ICookieConsentService cookieConsentService)
     {
         this.stringEncryptionService = stringEncryptionService;
+        this.cookieConsentService = cookieConsentService;
     }
 
 
@@ -31,7 +34,7 @@ public class CookiesController : Controller
         }
         catch
         {
-            return PartialView(FAILURE_VIEW, requestModel);
+            return PartialView(FAILURE, requestModel);
         }
 
         CookieConsentLevel selectedConsentValue;
@@ -41,22 +44,22 @@ public class CookiesController : Controller
         }
         else
         {
-            return PartialView(FAILURE_VIEW, requestModel);
+            return PartialView(FAILURE, requestModel);
         }
 
         try
         {
-            if (!await CookieConsentHelper.SetCurrentCookieConsentLevel(selectedConsentValue, mapping))
+            if (!await cookieConsentService.SetCurrentCookieConsentLevel(selectedConsentValue, mapping))
             {
                 throw new Exception();
             }
         }
         catch
         {
-            return PartialView(FAILURE_VIEW, requestModel);
+            return PartialView(FAILURE, requestModel);
         }
 
-        return PartialView(PREFERENCE_SUCCESS_VIEW, requestModel);
+        return PartialView(COOKIE_PREFERENCES_SUCCESS, requestModel);
     }
 
 
@@ -71,22 +74,22 @@ public class CookiesController : Controller
         }
         catch
         {
-            return PartialView(FAILURE_VIEW);
+            return PartialView(FAILURE);
         }
 
         try
         {
-            if (!await CookieConsentHelper.SetCurrentCookieConsentLevel(CookieConsentLevel.Marketing, consents))
+            if (!await cookieConsentService.SetCurrentCookieConsentLevel(CookieConsentLevel.Marketing, consents))
             {
                 throw new Exception();
             }
         }
         catch
         {
-            return PartialView(FAILURE_VIEW);
+            return PartialView(FAILURE);
         }
 
-        return PartialView(BANNER_SUCESS_VIEW);
+        return PartialView(TRACKING_CONSENT_SUCCESS);
     }
 
     /// <summary>

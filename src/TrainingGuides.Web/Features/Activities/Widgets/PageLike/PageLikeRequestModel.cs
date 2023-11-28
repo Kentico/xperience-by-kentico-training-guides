@@ -1,4 +1,4 @@
-﻿namespace TrainingGuides.Web.Components.Widgets.PageLike;
+﻿namespace TrainingGuides.Web.Features.Activities.Widgets.PageLike;
 
 public class PageLikeRequestModel
 {

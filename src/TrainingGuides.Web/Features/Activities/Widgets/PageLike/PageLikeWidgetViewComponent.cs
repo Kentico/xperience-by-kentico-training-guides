@@ -1,6 +1,6 @@
 ﻿using CMS.Activities;
 using CMS.ContactManagement;
-using TrainingGuides.Web.Components.Widgets.PageLike;
+using TrainingGuides.Web.Features.Activities.Widgets.PageLike;
 using Kentico.PageBuilder.Web.Mvc;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ViewComponents;
@@ -9,7 +9,8 @@ using TrainingGuides.Web.Services.Content;
 [assembly:
     RegisterWidget(PageLikeWidgetViewComponent.IDENTIFIER, typeof(PageLikeWidgetViewComponent), "Page like button", Description = "Displays a page like button.",
         IconClass = "icon-check-circle")]
-namespace TrainingGuides.Web.Components.Widgets.PageLike;
+
+namespace TrainingGuides.Web.Features.Activities.Widgets.PageLike;
 
 public class PageLikeWidgetViewComponent : ViewComponent
 {
@@ -50,6 +51,6 @@ public class PageLikeWidgetViewComponent : ViewComponent
             ContentTypeName = properties.Page.ContentTypeName
         };
 
-        return View("~/Components/Widgets/PageLike/_PageLikeWidget.cshtml", model);
+        return View("~/Features/Activities/Widgets/PageLike/PageLikeWidget.cshtml", model);
     }
 }

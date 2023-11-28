@@ -1,6 +1,6 @@
 ﻿using CMS.DataProtection;
 using TrainingGuides.Admin;
-using TrainingGuides.Web.Components.Widgets.CookiePreferences;
+using TrainingGuides.Web.Features.DataProtection.Widgets.CookiePreferences;
 using TrainingGuides.Web.Helpers.Cookies;
 using TrainingGuides.Web.Services.Cryptography;
 using Kentico.Content.Web.Mvc.Routing;
@@ -8,24 +8,17 @@ using Kentico.PageBuilder.Web.Mvc;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ViewComponents;
 using Newtonsoft.Json;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using TrainingGuides.Web.Features.DataProtection.Services;
 
 [assembly:
     RegisterWidget(CookiePreferencesWidgetViewComponent.Identifier, typeof(CookiePreferencesWidgetViewComponent), "Cookie preferences",
         typeof(CookiePreferencesWidgetProperties), Description = "Displays a cookie preferences.",
         IconClass = "icon-cookie")]
 
-namespace TrainingGuides.Web.Components.Widgets.CookiePreferences;
+namespace TrainingGuides.Web.Features.DataProtection.Widgets.CookiePreferences;
 
 public class CookiePreferencesWidgetViewComponent : ViewComponent
 {
-    private readonly IConsentInfoProvider _consentInfoProvider;
-    private readonly IStringEncryptionService _stringEncryptionService;
-    private readonly IPreferredLanguageRetriever _preferredLanguageRetriever;
-
-
     private const string CONSENT_MISSING_HEADER = "CONSENT NOT FOUND";
     private const string CONSENT_MISSING_DESCRIPTION = "Please ensure that a valid consent is mapped to this cookie level in the Data protection application.";
 
@@ -35,17 +28,24 @@ public class CookiePreferencesWidgetViewComponent : ViewComponent
     /// </summary>
     public const string Identifier = "TrainingGuides.CookiePreferences";
 
+    private readonly IConsentInfoProvider consentInfoProvider;
+    private readonly IStringEncryptionService stringEncryptionService;
+    private readonly IPreferredLanguageRetriever preferredLanguageRetriever;
+    private readonly ICookieConsentService cookieConsentService;
 
     /// <summary>
     /// Creates an instance of <see cref="CookiePreferencesWidgetViewComponent"/> class.
     /// </summary>
-    public CookiePreferencesWidgetViewComponent(IConsentInfoProvider consentInfoProvider,
-                                                IStringEncryptionService stringEncryptionService,
-                                                IPreferredLanguageRetriever preferredLanguageRetriever)
+    public CookiePreferencesWidgetViewComponent(
+        IConsentInfoProvider consentInfoProvider,
+        IStringEncryptionService stringEncryptionService,
+        IPreferredLanguageRetriever preferredLanguageRetriever,
+        ICookieConsentService cookieConsentService)
     {
-        _consentInfoProvider = consentInfoProvider;
-        _stringEncryptionService = stringEncryptionService;
-        _preferredLanguageRetriever = preferredLanguageRetriever;
+        this.consentInfoProvider = consentInfoProvider;
+        this.stringEncryptionService = stringEncryptionService;
+        this.preferredLanguageRetriever = preferredLanguageRetriever;
+        this.cookieConsentService = cookieConsentService;
     }
 
     /// <summary>
@@ -55,30 +55,30 @@ public class CookiePreferencesWidgetViewComponent : ViewComponent
     /// <returns>The view for the widget</returns>
     public async Task<ViewViewComponentResult> InvokeAsync(CookiePreferencesWidgetProperties properties)
     {
-        var currentMapping = await CookieConsentHelper.GetCurrentMapping();
+        var currentMapping = await cookieConsentService.GetCurrentMapping();
 
         // Get consents
-        var preferenceCookiesConsent = await _consentInfoProvider.GetAsync(currentMapping?.PreferenceConsentCodeName.FirstOrDefault());
-        var analyticalCookiesConsent = await _consentInfoProvider.GetAsync(currentMapping?.AnalyticalConsentCodeName.FirstOrDefault());
-        var marketingCookiesConsent = await _consentInfoProvider.GetAsync(currentMapping?.MarketingConsentCodeName.FirstOrDefault());
+        var preferenceCookiesConsent = await consentInfoProvider.GetAsync(currentMapping?.PreferenceConsentCodeName.FirstOrDefault());
+        var analyticalCookiesConsent = await consentInfoProvider.GetAsync(currentMapping?.AnalyticalConsentCodeName.FirstOrDefault());
+        var marketingCookiesConsent = await consentInfoProvider.GetAsync(currentMapping?.MarketingConsentCodeName.FirstOrDefault());
 
         var mapping = GetMappingString(currentMapping);
 
-        return View("~/Components/Widgets/CookiePreferences/_CookiePreferencesWidget.cshtml", new CookiePreferencesWidgetViewModel
+        return View("~/Features/DataProtection/Widgets/CookiePreferences/CookiePreferencesWidget.cshtml", new CookiePreferencesWidgetViewModel
         {
             EssentialHeader = properties.EssentialHeader,
             EssentialDescription = properties.EssentialDescription,
 
             PreferenceHeader = preferenceCookiesConsent?.ConsentDisplayName ?? CONSENT_MISSING_HEADER,
-            PreferenceDescription = (await preferenceCookiesConsent?.GetConsentTextAsync(_preferredLanguageRetriever.Get())).FullText ?? CONSENT_MISSING_DESCRIPTION,
+            PreferenceDescription = (await preferenceCookiesConsent?.GetConsentTextAsync(preferredLanguageRetriever.Get())).FullText ?? CONSENT_MISSING_DESCRIPTION,
 
             AnalyticalHeader = analyticalCookiesConsent?.ConsentDisplayName ?? CONSENT_MISSING_HEADER,
-            AnalyticalDescription = (await analyticalCookiesConsent?.GetConsentTextAsync(_preferredLanguageRetriever.Get())).FullText ?? CONSENT_MISSING_DESCRIPTION,
+            AnalyticalDescription = (await analyticalCookiesConsent?.GetConsentTextAsync(preferredLanguageRetriever.Get())).FullText ?? CONSENT_MISSING_DESCRIPTION,
 
             MarketingHeader = marketingCookiesConsent?.ConsentDisplayName ?? CONSENT_MISSING_HEADER,
-            MarketingDescription = (await marketingCookiesConsent?.GetConsentTextAsync(_preferredLanguageRetriever.Get())).FullText ?? CONSENT_MISSING_DESCRIPTION,
+            MarketingDescription = (await marketingCookiesConsent?.GetConsentTextAsync(preferredLanguageRetriever.Get())).FullText ?? CONSENT_MISSING_DESCRIPTION,
 
-            ConsentMapping = _stringEncryptionService.EncryptString(mapping),
+            ConsentMapping = stringEncryptionService.EncryptString(mapping),
 
             ButtonText = properties.ButtonText
         });
@@ -91,7 +91,7 @@ public class CookiePreferencesWidgetViewComponent : ViewComponent
     /// <returns>A JSON serialized sting representation of the mapping</returns>
     private string GetMappingString(CookieLevelConsentMappingInfo currentMapping)
     {
-        Dictionary<int, string> mapping = new Dictionary<int, string>
+        var mapping = new Dictionary<int, string>
         {
             { (int)CookieConsentLevel.Preference, currentMapping?.PreferenceConsentCodeName.FirstOrDefault() ?? string.Empty },
             { (int)CookieConsentLevel.Analytical, currentMapping?.AnalyticalConsentCodeName.FirstOrDefault() ?? string.Empty },

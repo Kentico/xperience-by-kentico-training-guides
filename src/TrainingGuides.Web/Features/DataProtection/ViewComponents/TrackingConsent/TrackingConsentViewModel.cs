@@ -1,4 +1,4 @@
-﻿namespace TrainingGuides.Web.Models;
+﻿namespace TrainingGuides.Web.Features.DataProtection.ViewComponents.TrackingConsent;
 
 public class TrackingConsentViewModel
 {

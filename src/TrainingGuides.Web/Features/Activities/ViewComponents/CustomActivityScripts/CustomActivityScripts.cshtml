@@ -1,0 +1,9 @@
+﻿@using TrainingGuides.Web.Features.Activities.ViewComponents
+
+@model ContactTrackingAllowedViewModel
+
+@if (Model.ContactTrackingAllowed)
+{
+    @*Scripts for logging custom activities*@
+    <script src="~/scripts/FileDownloadActivityLogger.js"></script>
+}

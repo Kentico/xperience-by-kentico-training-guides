@@ -9,9 +9,10 @@ public static class ServiceCollectionExtensions
     public static void AddTrainingGuidesServices(this IServiceCollection services)
     {
         services.AddSingleton<IStringEncryptionService, AesEncryptionService>();
-        services.AddSingleton<CurrentContactIsTrackableService>();
         services.AddSingleton<IFormCollectionService, FormCollectionService>();
-        services.AddTransient(typeof(IContentItemRetrieverService<>), typeof(ContentItemRetrieverService<>));
+        services.AddSingleton<ICookieConsentService, CookieConsentService>();
+
         services.AddTransient<IContentItemRetrieverService, ContentItemRetrieverService>();
+        services.AddTransient(typeof(IContentItemRetrieverService<>), typeof(ContentItemRetrieverService<>));
     }
 }

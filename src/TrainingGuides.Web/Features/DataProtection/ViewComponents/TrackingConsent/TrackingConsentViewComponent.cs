@@ -3,13 +3,13 @@ using CMS.DataProtection;
 using CMS.Helpers;
 using TrainingGuides.Admin;
 using TrainingGuides.Web.Helpers.Cookies;
-using TrainingGuides.Web.Models;
 using TrainingGuides.Web.Services.Cryptography;
 using Kentico.Content.Web.Mvc.Routing;
 using Kentico.Web.Mvc;
 using Microsoft.AspNetCore.Mvc;
+using TrainingGuides.Web.Features.DataProtection.Services;
 
-namespace TrainingGuides.Web.Components.ViewComponents.TrackingConsent;
+namespace TrainingGuides.Web.Features.DataProtection.ViewComponents.TrackingConsent;
 
 public class TrackingConsentViewComponent : ViewComponent
 {
@@ -18,18 +18,22 @@ public class TrackingConsentViewComponent : ViewComponent
     private readonly IStringEncryptionService stringEncryptionService;
     private readonly ICookieAccessor cookieAccessor;
     private readonly IPreferredLanguageRetriever preferredLanguageRetriever;
+    private readonly ICookieConsentService cookieConsentService;
 
-    public TrackingConsentViewComponent(IConsentAgreementService consentAgreementService,
-                                        IConsentInfoProvider consentInfoProvider,
-                                        IStringEncryptionService stringEncryptionService,
-                                        ICookieAccessor cookieAccessor,
-                                        IPreferredLanguageRetriever preferredLanguageRetriever)
+    public TrackingConsentViewComponent(
+        IConsentAgreementService consentAgreementService,
+        IConsentInfoProvider consentInfoProvider,
+        IStringEncryptionService stringEncryptionService,
+        ICookieAccessor cookieAccessor,
+        IPreferredLanguageRetriever preferredLanguageRetriever,
+        ICookieConsentService cookieConsentService)
     {
         this.consentAgreementService = consentAgreementService;
         this.consentInfoProvider = consentInfoProvider;
         this.stringEncryptionService = stringEncryptionService;
         this.cookieAccessor = cookieAccessor;
         this.preferredLanguageRetriever = preferredLanguageRetriever;
+        this.cookieConsentService = cookieConsentService;
     }
 
     /// <summary>
@@ -38,7 +42,7 @@ public class TrackingConsentViewComponent : ViewComponent
     /// <returns>cookie banner view if visitor has not chosen a cookie level, empty if it has already been chosen </returns>
     public async Task<IViewComponentResult> InvokeAsync()
     {
-        var currentMapping = await CookieConsentHelper.GetCurrentMapping();
+        var currentMapping = await cookieConsentService.GetCurrentMapping();
 
         if (currentMapping == null || currentMapping.PreferenceConsentCodeName.Count() == 0 || currentMapping.AnalyticalConsentCodeName.Count() == 0 || currentMapping.MarketingConsentCodeName.Count() == 0)
         {
@@ -93,7 +97,7 @@ public class TrackingConsentViewComponent : ViewComponent
             };
 
             // Displays a view with tracking consent information and actions
-            return View("~/Components/ViewComponents/TrackingConsent/_TrackingConsent.cshtml", consentModel);
+            return View("~/Features/DataProtection/ViewComponents/TrackingConsent/TrackingConsent.cshtml", consentModel);
         }
 
         return Content(string.Empty);
@@ -126,6 +130,6 @@ public class TrackingConsentViewComponent : ViewComponent
                 }
             }
         }
-        return CookieConsentHelper.UpdateCookieLevels(level);
+        return cookieConsentService.UpdateCookieLevels(level);
     }
 }

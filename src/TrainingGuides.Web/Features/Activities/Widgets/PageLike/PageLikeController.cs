@@ -1,9 +1,9 @@
 ﻿using CMS.Activities;
-using TrainingGuides.Web.Helpers.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using TrainingGuides.Web.Services.Content;
+using TrainingGuides.Web.Features.DataProtection.Services;
 
-namespace TrainingGuides.Web.Components.Widgets.PageLike;
+namespace TrainingGuides.Web.Features.Activities.Widgets.PageLike;
 
 
 public class PageLikeController : Controller
@@ -14,19 +14,22 @@ public class PageLikeController : Controller
 
     private readonly ICustomActivityLogger customActivityLogger;
     private readonly IContentItemRetrieverService contentItemRetrieverService;
+    private readonly ICookieConsentService cookieConsentService;
 
     public PageLikeController(ICustomActivityLogger customActivityLogger,
-        IContentItemRetrieverService contentItemRetrieverService)
+        IContentItemRetrieverService contentItemRetrieverService,
+        ICookieConsentService cookieConsentService)
     {
         this.customActivityLogger = customActivityLogger;
         this.contentItemRetrieverService = contentItemRetrieverService;
+        this.cookieConsentService = cookieConsentService;
     }
 
     [Route("pagelike")]
     [HttpPost]
     public async Task<IActionResult> PageLike(PageLikeRequestModel requestModel)
     {
-        if (!CookieConsentHelper.CurrentContactIsVisitorOrHigher())
+        if (!cookieConsentService.CurrentContactIsVisitorOrHigher())
             return Content(NO_TRACKING_MESSAGE);
 
         if (!int.TryParse(requestModel.WebPageItemID, out int webPageItemID))

@@ -1,7 +1,7 @@
-﻿using TrainingGuides.Web.Helpers.Cookies;
-using Kentico.PageBuilder.Web.Mvc;
+﻿using Kentico.PageBuilder.Web.Mvc;
 using Microsoft.AspNetCore.Mvc;
 using TrainingGuides.Web.Features.Shared.Sections.FormColumn;
+using TrainingGuides.Web.Features.DataProtection.Services;
 
 [assembly: RegisterSection(
     identifier: FormColumnSectionConsentViewComponent.IDENTIFIER,
@@ -17,10 +17,17 @@ public class FormColumnSectionConsentViewComponent : ViewComponent
 {
     public const string IDENTIFIER = "TrainingGuides.FormColumnSectionConsent";
 
+    private readonly ICookieConsentService cookieConsentService;
+
+    public FormColumnSectionConsentViewComponent(ICookieConsentService cookieConsentService)
+    {
+        this.cookieConsentService = cookieConsentService;
+    }
+
     public IViewComponentResult Invoke(ComponentViewModel<FormColumnSectionProperties> sectionProperties)
     {
         //If the CMSCookieLevel is set to 200 (Visitor) or higher, and Data Protection is set up, it means the visitor has the appropriate consent level for tracking.
-        bool showContents = CookieConsentHelper.CurrentContactIsVisitorOrHigher();
+        bool showContents = cookieConsentService.CurrentContactIsVisitorOrHigher();
 
         var model = new FormColumnSectionViewModel()
         {
