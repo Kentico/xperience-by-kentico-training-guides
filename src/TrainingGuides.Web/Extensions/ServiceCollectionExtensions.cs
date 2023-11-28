@@ -1,6 +1,6 @@
 using TrainingGuides.Web.Services.Content;
 using TrainingGuides.Web.Services.Cryptography;
-using TrainingGuides.Web.DataProtection;
+using TrainingGuides.Web.Features.DataProtection.Services;
 
 namespace TrainingGuides.Web.Extensions;
 
@@ -10,7 +10,8 @@ public static class ServiceCollectionExtensions
     {
         services.AddSingleton<IStringEncryptionService, AesEncryptionService>();
         services.AddSingleton<CurrentContactIsTrackableService>();
+        services.AddSingleton<IFormCollectionService, FormCollectionService>();
         services.AddTransient(typeof(IContentItemRetrieverService<>), typeof(ContentItemRetrieverService<>));
-        services.AddTransient(typeof(IContentItemRetrieverService), typeof(ContentItemRetrieverService));
+        services.AddTransient<IContentItemRetrieverService, ContentItemRetrieverService>();
     }
 }

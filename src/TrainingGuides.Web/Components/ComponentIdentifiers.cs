@@ -1,7 +1,8 @@
-﻿using TrainingGuides.Web.Components.Sections;
-using TrainingGuides.Web.Features.Articles;
+﻿using TrainingGuides.Web.Features.Articles;
 using TrainingGuides.Web.Features.Downloads;
 using TrainingGuides.Web.Features.LandingPages;
+using TrainingGuides.Web.Features.Shared.Sections.FormColumn;
+using TrainingGuides.Web.Features.Shared.Sections.SingleColumn;
 
 namespace TrainingGuides.Web.Components;
 
