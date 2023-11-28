@@ -3,7 +3,7 @@ using CMS.DataProtection;
 using CMS.Helpers;
 using TrainingGuides.Admin;
 using Kentico.Web.Mvc;
-using TrainingGuides.Web.Helpers.Cookies;
+using TrainingGuides.Web.Features.DataProtection.Shared;
 
 namespace TrainingGuides.Web.Features.DataProtection.Services;
 

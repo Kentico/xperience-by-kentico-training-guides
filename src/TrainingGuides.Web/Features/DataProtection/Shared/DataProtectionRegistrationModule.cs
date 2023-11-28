@@ -2,13 +2,13 @@
 using CMS.Core;
 using CMS.DataEngine;
 using CMS.DataProtection;
-using TrainingGuides.Web.Features.DataProtection;
 using TrainingGuides.Web.Features.DataProtection.Collectors;
 using TrainingGuides.Web.Features.DataProtection.Erasers;
+using TrainingGuides.Web.Features.DataProtection.Shared;
 
 [assembly: RegisterModule(typeof(DataProtectionRegistrationModule))]
 
-namespace TrainingGuides.Web.Features.DataProtection;
+namespace TrainingGuides.Web.Features.DataProtection.Shared;
 
 public class DataProtectionRegistrationModule : Module
 {

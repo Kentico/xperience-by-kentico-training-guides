@@ -1,5 +1,5 @@
 ﻿using TrainingGuides.Admin;
-using TrainingGuides.Web.Helpers.Cookies;
+using TrainingGuides.Web.Features.DataProtection.Shared;
 
 namespace TrainingGuides.Web.Features.DataProtection.Services;
 public interface ICookieConsentService

@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-
-namespace TrainingGuides.Web.Extensions;
+﻿namespace TrainingGuides.Web.Extensions;
 
 public static class HttpRequestExtensions
 {

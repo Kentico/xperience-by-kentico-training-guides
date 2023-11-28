@@ -1,6 +1,6 @@
 ﻿using Kentico.Web.Mvc;
 using Microsoft.AspNetCore.Mvc;
-using TrainingGuides.Web.Helpers.Cookies;
+using TrainingGuides.Web.Features.DataProtection.Shared;
 
 namespace TrainingGuides.Web.Features.DataProtection.ViewComponents.CookieAcceptance;
 

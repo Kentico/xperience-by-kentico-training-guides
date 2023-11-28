@@ -1,4 +1,4 @@
-﻿namespace TrainingGuides.Web.Helpers.Cookies;
+﻿namespace TrainingGuides.Web.Features.DataProtection.Shared;
 
 /// <summary>
 /// Cookie consent level types.

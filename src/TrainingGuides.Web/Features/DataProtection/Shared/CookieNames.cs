@@ -1,4 +1,4 @@
-﻿namespace TrainingGuides.Web.Helpers.Cookies;
+﻿namespace TrainingGuides.Web.Features.DataProtection.Shared;
 
 /// <summary>
 /// Contains names of all custom cookies extending the solution. Each need to be registered in <see cref="CookieRegistrationModule"/>.

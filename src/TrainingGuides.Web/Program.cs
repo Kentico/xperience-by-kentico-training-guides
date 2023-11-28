@@ -3,10 +3,10 @@ using TrainingGuides.Web.Components;
 using TrainingGuides.Web.Extensions;
 using Kentico.Content.Web.Mvc.Routing;
 using Kentico.PageBuilder.Web.Mvc;
-using TrainingGuides.Web.Helpers.Cookies;
 using Kentico.Web.Mvc;
 using AspNetCore.Unobtrusive.Ajax;
 using Kentico.Activities.Web.Mvc;
+using TrainingGuides.Web.Features.DataProtection.Shared;
 
 string TrainingGuidesAllowSpecificOrigins = "_trainingGuidesAllowSpecificOrigins";
 
