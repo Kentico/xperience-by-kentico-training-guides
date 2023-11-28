@@ -7,6 +7,7 @@ using TrainingGuides.Web.Features.LandingPages;
     name: "Landing page content type template",
     propertiesType: typeof(LandingPageTemplateProperties),
     customViewName: "~/Features/LandingPages/LandingPagePageTemplate.cshtml",
+    propertiesType: typeof(LandingPageTemplateProperties),
     ContentTypeNames = [LandingPage.CONTENT_TYPE_NAME],
     IconClass = "xp-market")]
 
