@@ -6,7 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 using TrainingGuides;
 using TrainingGuides.Web.Features.Shared.Services;
 
-[assembly: RegisterWebPageRoute(DownloadsPage.CONTENT_TYPE_NAME, typeof(TrainingGuides.Web.Features.Downloads.DownloadsPageController))]
+[assembly: RegisterWebPageRoute(
+    contentTypeName: DownloadsPage.CONTENT_TYPE_NAME,
+    controllerType: typeof(TrainingGuides.Web.Features.Downloads.DownloadsPageController))]
 
 namespace TrainingGuides.Web.Features.Downloads;
 public class DownloadsPageController : Controller

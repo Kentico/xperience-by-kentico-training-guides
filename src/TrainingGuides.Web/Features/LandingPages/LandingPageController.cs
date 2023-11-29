@@ -6,7 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 using TrainingGuides;
 using TrainingGuides.Web.Features.Shared.Services;
 
-[assembly: RegisterWebPageRoute(LandingPage.CONTENT_TYPE_NAME, typeof(TrainingGuides.Web.Features.LandingPages.LandingPageController))]
+[assembly: RegisterWebPageRoute(
+    contentTypeName: LandingPage.CONTENT_TYPE_NAME,
+    controllerType: typeof(TrainingGuides.Web.Features.LandingPages.LandingPageController))]
 
 namespace TrainingGuides.Web.Features.LandingPages;
 public class LandingPageController : Controller

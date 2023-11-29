@@ -1,6 +1,4 @@
-﻿using CMS.DataEngine;
-
-namespace TrainingGuides.Admin;
+﻿namespace TrainingGuides.Admin;
 
 public partial class CookieLevelConsentMappingInfo
 {

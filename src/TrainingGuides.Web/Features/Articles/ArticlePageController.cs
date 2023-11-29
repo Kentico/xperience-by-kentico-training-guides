@@ -6,7 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 using TrainingGuides;
 using TrainingGuides.Web.Features.Shared.Services;
 
-[assembly: RegisterWebPageRoute(ArticlePage.CONTENT_TYPE_NAME, typeof(TrainingGuides.Web.Features.Articles.ArticlePageController))]
+[assembly: RegisterWebPageRoute(
+    contentTypeName: ArticlePage.CONTENT_TYPE_NAME,
+    controllerType: typeof(TrainingGuides.Web.Features.Articles.ArticlePageController))]
 
 namespace TrainingGuides.Web.Features.Articles;
 public class ArticlePageController : Controller

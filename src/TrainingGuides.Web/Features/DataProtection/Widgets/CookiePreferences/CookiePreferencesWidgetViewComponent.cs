@@ -10,10 +10,13 @@ using TrainingGuides.Web.Features.DataProtection.Services;
 using TrainingGuides.Web.Features.DataProtection.Shared;
 using Microsoft.AspNetCore.Html;
 
-[assembly:
-    RegisterWidget(CookiePreferencesWidgetViewComponent.IDENTIFIER, typeof(CookiePreferencesWidgetViewComponent), "Cookie preferences",
-        typeof(CookiePreferencesWidgetProperties), Description = "Displays a cookie preferences.",
-        IconClass = "icon-cookie")]
+[assembly: RegisterWidget(
+    identifier: CookiePreferencesWidgetViewComponent.IDENTIFIER,
+    viewComponentType: typeof(CookiePreferencesWidgetViewComponent),
+    name: "Cookie preferences",
+    propertiesType: typeof(CookiePreferencesWidgetProperties),
+    Description = "Displays a cookie preferences.",
+    IconClass = "icon-cookie")]
 
 namespace TrainingGuides.Web.Features.DataProtection.Widgets.CookiePreferences;
 

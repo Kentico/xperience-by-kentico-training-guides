@@ -6,7 +6,8 @@ using TrainingGuides.Web.Features.DataProtection.Collectors;
 using TrainingGuides.Web.Features.DataProtection.Erasers;
 using TrainingGuides.Web.Features.DataProtection.Shared;
 
-[assembly: RegisterModule(typeof(DataProtectionRegistrationModule))]
+[assembly: RegisterModule(
+    type: typeof(DataProtectionRegistrationModule))]
 
 namespace TrainingGuides.Web.Features.DataProtection.Shared;
 

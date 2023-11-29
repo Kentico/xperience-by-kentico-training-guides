@@ -6,9 +6,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ViewComponents;
 using TrainingGuides.Web.Features.Shared.Services;
 
-[assembly:
-    RegisterWidget(PageLikeWidgetViewComponent.IDENTIFIER, typeof(PageLikeWidgetViewComponent), "Page like button", Description = "Displays a page like button.",
-        IconClass = "icon-check-circle")]
+[assembly: RegisterWidget(
+    identifier: PageLikeWidgetViewComponent.IDENTIFIER,
+    viewComponentType: typeof(PageLikeWidgetViewComponent),
+    name: "Page like button",
+    Description = "Displays a page like button.",
+    IconClass = "icon-check-circle")]
 
 namespace TrainingGuides.Web.Features.Activities.Widgets.PageLike;
 
