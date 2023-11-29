@@ -17,7 +17,7 @@ public class PageLikeWidgetViewComponent : ViewComponent
     private readonly IActivityInfoProvider activityInfoProvider;
     private readonly IContentItemRetrieverService contentItemRetrieverService;
 
-    public const string IDENTIFIER = "TrainingGuides.PageLike";
+    public const string IDENTIFIER = "TrainingGuides.PageLikeWidget";
     public const string ACTIVITY_IDENTIFIER = "pagelike";
 
     public PageLikeWidgetViewComponent(IActivityInfoProvider activityInfoProvider,

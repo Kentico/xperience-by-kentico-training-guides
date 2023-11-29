@@ -13,5 +13,5 @@ using TrainingGuides.Web.Features.LandingPages;
 namespace TrainingGuides.Web.Features.LandingPages;
 public static class LandingPagePageTemplate
 {
-    public const string IDENTIFIER = "TrainingGuides.LandingPage";
+    public const string IDENTIFIER = "TrainingGuides.LandingPagePageTemplate";
 }

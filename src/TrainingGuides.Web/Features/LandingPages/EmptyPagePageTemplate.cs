@@ -10,5 +10,5 @@ using TrainingGuides.Web.Features.LandingPages;
 namespace TrainingGuides.Web.Features.LandingPages;
 public static class EmptyPagePageTemplate
 {
-    public const string IDENTIFIER = "TrainingGuides.EmptyPage";
+    public const string IDENTIFIER = "TrainingGuides.EmptyPagePageTemplate";
 }

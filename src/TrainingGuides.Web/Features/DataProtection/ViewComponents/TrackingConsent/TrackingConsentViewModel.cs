@@ -1,4 +1,5 @@
-﻿namespace TrainingGuides.Web.Features.DataProtection.ViewComponents.TrackingConsent;
+﻿using Microsoft.AspNetCore.Html;
+namespace TrainingGuides.Web.Features.DataProtection.ViewComponents.TrackingConsent;
 
 public class TrackingConsentViewModel
 {
@@ -6,9 +7,9 @@ public class TrackingConsentViewModel
 
     public bool IsAgreed { get; set; }
 
-    public string CookieHeader { get; set; }
+    public HtmlString CookieHeader { get; set; }
 
-    public string CookieMessage { get; set; }
+    public HtmlString CookieMessage { get; set; }
 
     public string AcceptMessage { get; set; }
 

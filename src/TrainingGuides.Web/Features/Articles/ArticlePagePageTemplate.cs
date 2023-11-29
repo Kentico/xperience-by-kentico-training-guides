@@ -12,5 +12,5 @@ using TrainingGuides;
 namespace TrainingGuides.Web.Features.Articles;
 public static class ArticlePagePageTemplate
 {
-    public const string IDENTIFIER = "TrainingGuides.ArticlePage";
+    public const string IDENTIFIER = "TrainingGuides.ArticlePagePageTemplate";
 }

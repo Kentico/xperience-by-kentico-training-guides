@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.ViewComponents;
 using Newtonsoft.Json;
 using TrainingGuides.Web.Features.DataProtection.Services;
 using TrainingGuides.Web.Features.DataProtection.Shared;
+using Microsoft.AspNetCore.Html;
 
 [assembly:
     RegisterWidget(CookiePreferencesWidgetViewComponent.IDENTIFIER, typeof(CookiePreferencesWidgetViewComponent), "Cookie preferences",
@@ -19,13 +20,13 @@ namespace TrainingGuides.Web.Features.DataProtection.Widgets.CookiePreferences;
 public class CookiePreferencesWidgetViewComponent : ViewComponent
 {
     private const string CONSENT_MISSING_HEADER = "CONSENT NOT FOUND";
-    private const string CONSENT_MISSING_DESCRIPTION = "Please ensure that a valid consent is mapped to this cookie level in the Data protection application.";
+    private readonly HtmlString consentMissingDescription = new("Please ensure that a valid consent is mapped to this cookie level in the Data protection application.");
 
 
     /// <summary>
     /// Widget identifier.
     /// </summary>
-    public const string IDENTIFIER = "TrainingGuides.CookiePreferences";
+    public const string IDENTIFIER = "TrainingGuides.CookiePreferencesWidget";
 
     private readonly IConsentInfoProvider consentInfoProvider;
     private readonly IStringEncryptionService stringEncryptionService;
@@ -69,13 +70,13 @@ public class CookiePreferencesWidgetViewComponent : ViewComponent
             EssentialDescription = properties.EssentialDescription,
 
             PreferenceHeader = preferenceCookiesConsent?.ConsentDisplayName ?? CONSENT_MISSING_HEADER,
-            PreferenceDescription = (await preferenceCookiesConsent?.GetConsentTextAsync(preferredLanguageRetriever.Get())).FullText ?? CONSENT_MISSING_DESCRIPTION,
+            PreferenceDescription = new HtmlString((await preferenceCookiesConsent?.GetConsentTextAsync(preferredLanguageRetriever.Get())).FullText) ?? consentMissingDescription,
 
             AnalyticalHeader = analyticalCookiesConsent?.ConsentDisplayName ?? CONSENT_MISSING_HEADER,
-            AnalyticalDescription = (await analyticalCookiesConsent?.GetConsentTextAsync(preferredLanguageRetriever.Get())).FullText ?? CONSENT_MISSING_DESCRIPTION,
+            AnalyticalDescription = new HtmlString((await analyticalCookiesConsent?.GetConsentTextAsync(preferredLanguageRetriever.Get())).FullText) ?? consentMissingDescription,
 
             MarketingHeader = marketingCookiesConsent?.ConsentDisplayName ?? CONSENT_MISSING_HEADER,
-            MarketingDescription = (await marketingCookiesConsent?.GetConsentTextAsync(preferredLanguageRetriever.Get())).FullText ?? CONSENT_MISSING_DESCRIPTION,
+            MarketingDescription = new HtmlString((await marketingCookiesConsent?.GetConsentTextAsync(preferredLanguageRetriever.Get())).FullText) ?? consentMissingDescription,
 
             ConsentMapping = stringEncryptionService.EncryptString(mapping),
 

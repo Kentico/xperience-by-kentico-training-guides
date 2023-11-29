@@ -12,5 +12,5 @@ using TrainingGuides;
 namespace TrainingGuides.Web.Features.Downloads;
 public static class DownloadsPagePageTemplate
 {
-    public const string IDENTIFIER = "TrainingGuides.DownloadsPage";
+    public const string IDENTIFIER = "TrainingGuides.DownloadsPagePageTemplate";
 }

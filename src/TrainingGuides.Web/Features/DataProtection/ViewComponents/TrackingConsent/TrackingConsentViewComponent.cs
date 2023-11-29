@@ -1,10 +1,11 @@
-﻿using CMS.ContactManagement;
+﻿using Microsoft.AspNetCore.Html;
+using Microsoft.AspNetCore.Mvc;
+using CMS.ContactManagement;
 using CMS.DataProtection;
 using CMS.Helpers;
-using TrainingGuides.Admin;
 using Kentico.Content.Web.Mvc.Routing;
 using Kentico.Web.Mvc;
-using Microsoft.AspNetCore.Mvc;
+using TrainingGuides.Admin;
 using TrainingGuides.Web.Features.DataProtection.Services;
 using TrainingGuides.Web.Features.DataProtection.Shared;
 
@@ -78,9 +79,9 @@ public class TrackingConsentViewComponent : ViewComponent
             {
                 CookieAccepted = ValidationHelper.GetBoolean(cookieAccessor.Get(CookieNames.COOKIE_ACCEPTANCE), false),
 
-                CookieMessage = text,
+                CookieMessage = new HtmlString(text),
 
-                CookieHeader = "This site uses cookies in the following ways",
+                CookieHeader = new HtmlString("This site uses cookies in the following ways"),
 
                 AcceptMessage = "Accept all cookies",
 
