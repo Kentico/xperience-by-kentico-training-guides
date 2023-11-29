@@ -2,10 +2,6 @@
 using CMS.Websites;
 using CMS.Websites.Routing;
 using Kentico.Content.Web.Mvc.Routing;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace TrainingGuides.Web.Services.Content;
 
@@ -25,18 +21,23 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
         this.preferredLanguageRetriever = preferredLanguageRetriever;
     }
 
-    public async Task<T> RetrieveWebPageById(int webPageItemId, string contentTypeName, Func<IWebPageContentQueryDataContainer, T> selectResult, int depth = 1)
-    {
-        return await RetrieveContentItem(
+    /// <summary>
+    /// Retrieves Web page content item by Id using ContentItemQueryBuilder
+    /// </summary>
+    /// <param name="webPageItemId">The Id of the Web page content item.</param>
+    /// <param name="contentTypeName">Content type name of the Web page.</param>
+    /// <param name="selectResult">A function mapping the result of the query to the desired content type class using WebPageQueryResultMapper, e.g. container => webPageQueryResultMapper.Map<ArticlePage>(container)</param>
+    /// <param name="depth">The maximum level of recursively linked content items that should be included in the results. Default value is 1.</param>
+    /// <returns>A Web page content item of specified type</returns>
+    public async Task<T> RetrieveWebPageById(int webPageItemId, string contentTypeName, Func<IWebPageContentQueryDataContainer, T> selectResult, int depth = 1) => await RetrieveWebPageContentItem(
             contentTypeName,
             config => config
                 .Where(where => where.WhereEquals(nameof(IWebPageContentQueryDataContainer.WebPageItemID), webPageItemId))
                 .WithLinkedItems(depth)
                 .ForWebsite(webSiteChannelContext.WebsiteChannelName),
             selectResult);
-    }
 
-    public async Task<T> RetrieveContentItem(
+    private async Task<T> RetrieveWebPageContentItem(
         string contentTypeName,
         Func<ContentTypeQueryParameters, ContentTypeQueryParameters> filterQuery,
         Func<IWebPageContentQueryDataContainer, T> selectResult)
@@ -48,7 +49,7 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
                             )
                             .InLanguage(preferredLanguageRetriever.Get());
 
-        IEnumerable<T> pages = await contentQueryExecutor.GetWebPageResult(builder, selectResult);
+        var pages = await contentQueryExecutor.GetWebPageResult(builder, selectResult);
 
         return pages.FirstOrDefault();
     }
