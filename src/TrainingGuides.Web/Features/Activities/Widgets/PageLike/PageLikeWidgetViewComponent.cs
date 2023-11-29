@@ -35,7 +35,9 @@ public class PageLikeWidgetViewComponent : ViewComponent
         var currentContact = ContactManagementContext.GetCurrentContact(false);
 
         //var webPage = WebPageItemInfo.Provider.Get().WhereEquals(nameof(WebPageItemInfo.WebPageItemID), properties.Page.WebPageItemID).FirstOrDefault();
-        var webPage = await contentItemRetrieverService.RetrieveWebPageById(properties.Page.WebPageItemID, properties.Page.ContentTypeName);
+        var webPage = await contentItemRetrieverService.RetrieveWebPageById(
+            properties.Page.WebPageItemID,
+            properties.Page.ContentTypeName);
 
         var likesOfThisPage = currentContact != null
             ? await activityInfoProvider.Get()
