@@ -8,7 +8,7 @@ using TrainingGuides.Web.Features.DataProtection.Shared;
 using TrainingGuides.Web;
 using Kentico.CrossSiteTracking.Web.Mvc;
 using Kentico.OnlineMarketing.Web.Mvc;
-using TrainingGuides.Web.Helpers.Startup;
+using TrainingGuides.Web.Features.Shared.Helpers.Startup;
 
 string TrainingGuidesAllowSpecificOrigins = "_trainingGuidesAllowSpecificOrigins";
 

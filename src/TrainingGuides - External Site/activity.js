@@ -54,7 +54,7 @@ function logDownload() {
 }
 
 //When the document loads
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', () => {
     // Disables all tracking by default
     kxt('consentdefault', {
         allow_tracking: false,
@@ -95,14 +95,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
             //Registers click event handlers for consent functions
             const consentAgreeButton = document.getElementById("btnConsentAgree");
-            consentAgreeButton.addEventListener("click", function () {
-                trackingConsentAgree(consentName);  
-            });
+            consentAgreeButton.addEventListener("click", () => 
+                trackingConsentAgree(consentName)
+            );
 
             const consentRevokeButton = document.getElementById("btnConsentRevoke");
-            consentRevokeButton.addEventListener("click", function () {
-                trackingConsentRevoke(consentName);
-            });
+            consentRevokeButton.addEventListener("click", () => 
+                trackingConsentRevoke(consentName)
+            );
         });
 
     const links = document.getElementsByTagName("a");
