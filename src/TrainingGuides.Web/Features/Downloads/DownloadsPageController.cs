@@ -1,4 +1,9 @@
 ﻿using CMS.Websites;
+/*
+ * This namespace might be the perfect addition
+ * to custom global usings in the .csproj file
+ * Ex: https://github.com/Kentico/community-portal/blob/main/src/Kentico.Community.Portal.Web/Kentico.Community.Portal.Web.csproj#L36
+ */
 using Kentico.Content.Web.Mvc;
 using Kentico.Content.Web.Mvc.Routing;
 using Kentico.PageBuilder.Web.Mvc.PageTemplates;

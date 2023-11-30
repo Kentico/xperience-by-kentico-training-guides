@@ -25,6 +25,10 @@ public class PageLikeController : Controller
         this.cookieConsentService = cookieConsentService;
     }
 
+    /*
+     * You can combine these two attributes into one
+     * by specifying the route path pattern in the [HttpPost] attribute
+     */
     [Route("pagelike")]
     [HttpPost]
     public async Task<IActionResult> PageLike(PageLikeRequestModel requestModel)

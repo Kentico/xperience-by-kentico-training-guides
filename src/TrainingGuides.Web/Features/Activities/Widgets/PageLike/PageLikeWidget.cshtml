@@ -7,6 +7,10 @@
 @model PageLikeWidgetViewModel
 
 @{
+    /*
+     * You shouldn't need to set the Layout to null as this View should
+     * never be used as the view of top level page rendering
+     */
     Layout = null;
     var baseUrl = Context.Request.GetBaseUrl();
     var messageId = "pageLikeMessage";

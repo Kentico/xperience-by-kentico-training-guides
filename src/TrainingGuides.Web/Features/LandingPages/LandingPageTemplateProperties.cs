@@ -7,6 +7,12 @@ public class LandingPageTemplateProperties : IPageTemplateProperties
 {
     private const string DESCRIPTION = "Radio button group to select the type of HTML tag that wraps the home page message";
 
+    /*
+     * You can do this with enums as well, which can be a little easier
+     * to manage in some cases
+     * Ex implementation: https://github.com/Kentico/community-portal/blob/main/src/Kentico.Community.Portal.Web/Components/EnumDropDownOptionsProvider.cs#L7
+     * Ex use case: https://github.com/Kentico/community-portal/blob/main/src/Kentico.Community.Portal.Web/Components/Widgets/CTAButton/CTAButtonWidget.cs#L45
+     */
     private const string OPTIONS =
         "h1;Heading 1" + "\r\n" +
         "h2;Heading 2" + "\r\n" +

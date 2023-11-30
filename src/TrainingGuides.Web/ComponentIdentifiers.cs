@@ -17,6 +17,14 @@ public static class ComponentIdentifiers
         public const string FORM_COLUMN_CONSENT = FormColumnSectionViewComponent.IDENTIFIER;
     }
 
+    /*
+     * I don't think there are scenarios where you'll need to use the
+     * Page Template identifiers outside of the Page Template registration,
+     * unlike Widget and Section identifiers which you might use to restrict
+     * allowed components in <editable-area> Tag Helpers
+     * Removing this could let you simplify the Template registration
+     * and remove the extra Template class
+     */
     public static class PageTemplates
     {
         public const string ARTICLE = ArticlePagePageTemplate.IDENTIFIER;
