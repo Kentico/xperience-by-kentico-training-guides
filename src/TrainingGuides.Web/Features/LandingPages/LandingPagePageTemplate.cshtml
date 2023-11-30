@@ -5,7 +5,6 @@
 
 @{
     var templateModel = Model.GetTemplateModel<LandingPageViewModel>();
-    ViewBag.Title = templateModel.Message;
     string tagText = Model.Properties.MessageType;
     HtmlString openingTag = new HtmlString($"<{tagText}>");
     HtmlString closingTag = new HtmlString($"</{tagText}>");
