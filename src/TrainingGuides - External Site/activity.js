@@ -1,11 +1,8 @@
 //Fetches the codename of the marketing consent
-async function getConsentCodeName(){
-    let consentJson;
-    const res = await fetch("https://The-URL-of-your-Xperience-site.com/");
-
-    consentJson = await res.json();
-
-    return JSON.stringify(consentJson).replace(/"+/g, '');
+function getConsentCodeName(){
+    return fetch("https://The-URL-of-your-Xperience-site.com/")
+        .then(response => response.json())
+        .then(consentJson => JSON.stringify(consentJson).replace(/"+/g, ''));
 }
 
 // Click handler that creates a consent agreement for the current contact
@@ -50,7 +47,7 @@ function logLinkClick() {
 function logDownload() {
     kxt('customactivity', {
         type: 'filedownload',
-        value: this.getAttribute('alt') + ', '  + window.location.pathname,
+        value: this.getAttribute('alt') + ', ' + window.location.pathname,
         title: 'File download',
         onerror: t => console.log(t)
     });
@@ -65,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function () {
         onerror: t => console.log(t)
     });
 
-    getConsentCodeName().then((consentName) => {
+    getConsentCodeName().then(consentName => {
         // Retrieves and displays the consent text
         kxt('consentdata', {
             codeName: consentName,
