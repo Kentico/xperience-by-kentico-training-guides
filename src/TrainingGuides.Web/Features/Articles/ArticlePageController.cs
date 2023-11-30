@@ -33,7 +33,7 @@ public class ArticlePageController : Controller
         var articlePage = await contentItemRetriever.RetrieveWebPageById(
             context.WebPage.WebPageItemID,
             ArticlePage.CONTENT_TYPE_NAME,
-            container => webPageQueryResultMapper.Map<ArticlePage>(container));
+            webPageQueryResultMapper.Map<ArticlePage>);
 
         var model = ArticlePageViewModel.GetViewModel(articlePage);
         return new TemplateResult(model);

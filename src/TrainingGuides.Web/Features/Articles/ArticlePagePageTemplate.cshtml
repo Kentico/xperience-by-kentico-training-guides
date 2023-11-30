@@ -4,7 +4,6 @@
 
 @{
     var templateModel = Model.GetTemplateModel<ArticlePageViewModel>();
-    ViewBag.Title = templateModel.Title;
 }
 
 <div>
@@ -15,10 +14,3 @@
         @templateModel.Text
     </p>
 </div>
-
-@section styles {
-    <page-builder-styles/>
-}
-@section scripts {
-    <page-builder-scripts/>
-}

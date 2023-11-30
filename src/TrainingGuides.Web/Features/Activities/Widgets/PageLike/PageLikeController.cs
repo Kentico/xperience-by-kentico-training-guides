@@ -25,8 +25,7 @@ public class PageLikeController : Controller
         this.cookieConsentService = cookieConsentService;
     }
 
-    [Route("pagelike")]
-    [HttpPost]
+    [HttpPost("/pagelike")]
     public async Task<IActionResult> PageLike(PageLikeRequestModel requestModel)
     {
         if (!cookieConsentService.CurrentContactIsVisitorOrHigher())
