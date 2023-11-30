@@ -6,13 +6,29 @@ using AspNetCore.Unobtrusive.Ajax;
 using Kentico.Activities.Web.Mvc;
 using TrainingGuides.Web.Features.DataProtection.Shared;
 using TrainingGuides.Web;
+using Kentico.CrossSiteTracking.Web.Mvc;
+using Kentico.OnlineMarketing.Web.Mvc;
+using TrainingGuides.Web.Features.Shared.Helpers.Startup;
 
 string TrainingGuidesAllowSpecificOrigins = "_trainingGuidesAllowSpecificOrigins";
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: TrainingGuidesAllowSpecificOrigins,
+        policy =>
+        {
+            policy
+            .WithOrigins("https://The-URL-of-your-external-site.com")
+            .WithHeaders("content-type")
+            .AllowAnyMethod()
+            .AllowCredentials();
+        });
+});
+
 // Enable desired Kentico Xperience features
-builder.Services.AddKentico(features =>
+builder.Services.AddKentico(async features =>
 {
     features.UsePageBuilder(new PageBuilderOptions
     {
@@ -25,6 +41,18 @@ builder.Services.AddKentico(features =>
             EmptyPage.CONTENT_TYPE_NAME,
         }
     });
+    features.UseCrossSiteTracking(
+        new CrossSiteTrackingOptions
+        {
+            ConsentSettings = new[] {
+                new CrossSiteTrackingConsentOptions
+                {
+                    WebsiteChannelName = "TrainingGuidesPages",
+                    ConsentName = await StartupHelper.GetMarketingConsentCodeName(),
+                    AgreeCookieLevel = CookieLevel.Visitor.Level
+                }
+            },
+        });
     features.UseActivityTracking();
     features.UseWebPageRouting();
 });
