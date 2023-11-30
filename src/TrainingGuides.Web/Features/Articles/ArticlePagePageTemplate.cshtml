@@ -4,11 +4,6 @@
 
 @{
     var templateModel = Model.GetTemplateModel<ArticlePageViewModel>();
-    /*
-     * I realize it might not be the focus of this quickstart guide,
-     * but I always recommend _against_ using ViewBag, unless its being
-     * used by library/internal code because its not refactorable.
-     */
     ViewBag.Title = templateModel.Title;
 }
 
@@ -20,15 +15,3 @@
         @templateModel.Text
     </p>
 </div>
-
-@*
-  There's very little harm in including both these styles and scripts in the _Layout.cshtml
-  becaues they already include logic to not render the assets
-  when the page isn't in Preview/Page Builder mode
-*@
-@section styles {
-    <page-builder-styles/>
-}
-@section scripts {
-    <page-builder-scripts/>
-}

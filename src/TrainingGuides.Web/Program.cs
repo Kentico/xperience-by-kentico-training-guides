@@ -29,13 +29,6 @@ builder.Services.AddKentico(features =>
     features.UseWebPageRouting();
 });
 
-/*
- * All of these service collection extensions/methods are fluent
- * so they _can_ be chained off each other if you don't want
- * to repeat builder.Services over and over
- *
- * The same chainability applies to the middleware registration calls below
- */
 builder.Services.Configure<CookieLevelOptions>(options =>
 {
     options.CookieConfigurations.Add(CookieNames.COOKIE_CONSENT_LEVEL, CookieLevel.System);

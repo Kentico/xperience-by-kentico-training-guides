@@ -1,10 +1,5 @@
 ﻿namespace TrainingGuides.Web.Features.Articles;
 
-/*
- * This class is only used in the Controller
- * I would recommend moving it to that file since it has tight coupling
- * with the Controller
- */
 public class ArticlePageViewModel
 {
     public string Title { get; set; }

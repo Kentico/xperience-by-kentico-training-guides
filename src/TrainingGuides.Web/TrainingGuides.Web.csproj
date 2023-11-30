@@ -1,12 +1,5 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
-  <PropertyGroup>
-    <!-- 
-      You have net6.0 in Directory.Build.props but net8.0 here
-      I would recommend specifying the .net framework version globally
-      only in the Directory.Build.props to reduce confusion
-    -->
-    <TargetFramework>net8.0</TargetFramework>
-  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="AspNetCore.Unobtrusive.Ajax" />
     <PackageReference Include="kentico.xperience.admin" />
@@ -14,16 +7,14 @@
     <PackageReference Include="kentico.xperience.imageprocessing" />
     <PackageReference Include="kentico.xperience.webapp" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Using Include="CMS.Websites" />
+  </ItemGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\TrainingGuides.Admin\TrainingGuides.Admin.csproj" />
     <ProjectReference Include="..\TrainingGuides.Entities\TrainingGuides.Entities.csproj" />
   </ItemGroup>
-  <ItemGroup>
-    <!-- 
-      I'm not sure you need either of these entries below
-      The Razor compiler should handle these views just like all the others in the app
-    -->
-    <None Include="Features\DataProtection\Widgets\CookiePreferences\CookiePreferencesWidget.cshtml" />
-    <None Include="Features\Activities\Widgets\PageLike\PageLikeWidget.cshtml" />
-  </ItemGroup>
+
 </Project>

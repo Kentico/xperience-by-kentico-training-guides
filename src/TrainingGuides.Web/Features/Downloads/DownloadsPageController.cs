@@ -1,10 +1,4 @@
-﻿using CMS.Websites;
-/*
- * This namespace might be the perfect addition
- * to custom global usings in the .csproj file
- * Ex: https://github.com/Kentico/community-portal/blob/main/src/Kentico.Community.Portal.Web/Kentico.Community.Portal.Web.csproj#L36
- */
-using Kentico.Content.Web.Mvc;
+﻿using Kentico.Content.Web.Mvc;
 using Kentico.Content.Web.Mvc.Routing;
 using Kentico.PageBuilder.Web.Mvc.PageTemplates;
 using Microsoft.AspNetCore.Mvc;
@@ -38,7 +32,7 @@ public class DownloadsPageController : Controller
         var downloadsPage = await contentItemRetriever.RetrieveWebPageById(
             context.WebPage.WebPageItemID,
             DownloadsPage.CONTENT_TYPE_NAME,
-            container => webPageQueryResultMapper.Map<DownloadsPage>(container),
+            webPageQueryResultMapper.Map<DownloadsPage>,
             2);
 
         var model = DownloadsPageViewModel.GetViewModel(downloadsPage);

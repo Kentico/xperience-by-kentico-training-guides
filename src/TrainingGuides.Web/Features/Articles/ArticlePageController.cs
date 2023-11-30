@@ -33,15 +33,7 @@ public class ArticlePageController : Controller
         var articlePage = await contentItemRetriever.RetrieveWebPageById(
             context.WebPage.WebPageItemID,
             ArticlePage.CONTENT_TYPE_NAME,
-            /*
-             * Not something you need to change, but whenever you have a
-             * delegate that passes a single parameter to a method that only takes
-             * that parameter (ex: x => method(x)) you can just pass the
-             * delegate as a parameter instead.
-             * In the case below you would pass webPageQueryResultMapper.Map<ArticlePage>
-             * as the parameter
-             */
-            container => webPageQueryResultMapper.Map<ArticlePage>(container));
+            webPageQueryResultMapper.Map<ArticlePage>);
 
         var model = ArticlePageViewModel.GetViewModel(articlePage);
         return new TemplateResult(model);

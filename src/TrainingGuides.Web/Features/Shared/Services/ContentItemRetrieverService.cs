@@ -29,7 +29,7 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
     /// </summary>
     /// <param name="webPageItemId">The Id of the Web page content item.</param>
     /// <param name="contentTypeName">Content type name of the Web page.</param>
-    /// <param name="selectResult">A function mapping the result of the query to the desired content type class using WebPageQueryResultMapper, e.g. container => webPageQueryResultMapper.Map<ArticlePage>(container)</param>
+    /// <param name="selectResult">A delegate function mapping the result of the query to the desired content type class using WebPageQueryResultMapper, e.g. webPageQueryResultMapper.Map<ArticlePage></param>
     /// <param name="depth">The maximum level of recursively linked content items that should be included in the results. Default value is 1.</param>
     /// <returns>A Web page content item of specified type</returns>
     public async Task<T> RetrieveWebPageById(
