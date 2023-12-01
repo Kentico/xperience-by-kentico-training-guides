@@ -31,7 +31,7 @@ public class LandingPageController : Controller
         var landingPage = await contentItemRetriever.RetrieveWebPageById
             (context.WebPage.WebPageItemID,
             LandingPage.CONTENT_TYPE_NAME,
-            container => webPageQueryResultMapper.Map<LandingPage>(container));
+            webPageQueryResultMapper.Map<LandingPage>);
 
         var model = LandingPageViewModel.GetViewModel(landingPage);
 

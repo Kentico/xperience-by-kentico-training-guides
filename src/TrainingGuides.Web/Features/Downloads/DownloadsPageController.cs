@@ -1,5 +1,4 @@
-﻿using CMS.Websites;
-using Kentico.Content.Web.Mvc;
+﻿using Kentico.Content.Web.Mvc;
 using Kentico.Content.Web.Mvc.Routing;
 using Kentico.PageBuilder.Web.Mvc.PageTemplates;
 using Microsoft.AspNetCore.Mvc;
@@ -33,7 +32,7 @@ public class DownloadsPageController : Controller
         var downloadsPage = await contentItemRetriever.RetrieveWebPageById(
             context.WebPage.WebPageItemID,
             DownloadsPage.CONTENT_TYPE_NAME,
-            container => webPageQueryResultMapper.Map<DownloadsPage>(container),
+            webPageQueryResultMapper.Map<DownloadsPage>,
             2);
 
         var model = DownloadsPageViewModel.GetViewModel(downloadsPage);

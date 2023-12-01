@@ -25,8 +25,7 @@ public class PageLikeController : Controller
         this.cookieConsentService = cookieConsentService;
     }
 
-    [Route("pagelike")]
-    [HttpPost]
+    [HttpPost("/pagelike")]
     public async Task<IActionResult> PageLike(PageLikeRequestModel requestModel)
     {
         if (!cookieConsentService.CurrentContactIsVisitorOrHigher())
@@ -39,7 +38,9 @@ public class PageLikeController : Controller
             return Content(BAD_PAGE_DATA_MESSAGE);
 
         //var webPage = (await WebPageItemInfo.Provider.Get().WhereEquals(nameof(WebPageItemInfo.WebPageItemID), webPageId).GetEnumerableTypedResultAsync()).FirstOrDefault();
-        var webPage = await contentItemRetrieverService.RetrieveWebPageById(webPageItemID, requestModel.ContentTypeName);
+        var webPage = await contentItemRetrieverService.RetrieveWebPageById(
+            webPageItemID,
+            requestModel.ContentTypeName);
 
         if (webPage is null)
             return Content(BAD_PAGE_DATA_MESSAGE);

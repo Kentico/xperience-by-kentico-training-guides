@@ -16,7 +16,12 @@ public class LandingPageTemplateProperties : IPageTemplateProperties
 
     private string messageType;
 
-    [RadioGroupComponent(Label = "Message tag type", AriaLabel = DESCRIPTION, ExplanationText = DESCRIPTION, Inline = true, Options = OPTIONS)]
+    [RadioGroupComponent(
+        Label = "Message tag type",
+        AriaLabel = DESCRIPTION,
+        ExplanationText = DESCRIPTION,
+        Inline = true,
+        Options = OPTIONS)]
     public string MessageType
     {
         get => GetSafeTagText(messageType);

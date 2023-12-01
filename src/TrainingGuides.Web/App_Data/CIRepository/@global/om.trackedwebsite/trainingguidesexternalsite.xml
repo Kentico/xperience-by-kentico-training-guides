@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<om.trackedwebsite>
+  <TrackedWebsiteChannelID>1</TrackedWebsiteChannelID>
+  <TrackedWebsiteDescription>
+    <![CDATA[The external static Html site which you want to track]]>
+  </TrackedWebsiteDescription>
+  <TrackedWebsiteDisplayName>Training guides external site</TrackedWebsiteDisplayName>
+  <TrackedWebsiteEnabled>True</TrackedWebsiteEnabled>
+  <TrackedWebsiteGUID>53545f8f-a34e-4710-8614-7ffc0f129eaf</TrackedWebsiteGUID>
+  <TrackedWebsiteName>TrainingGuidesExternalSite</TrackedWebsiteName>
+  <TrackedWebsiteURL>https://The-URL-of-your-external-site.com</TrackedWebsiteURL>
+</om.trackedwebsite>
