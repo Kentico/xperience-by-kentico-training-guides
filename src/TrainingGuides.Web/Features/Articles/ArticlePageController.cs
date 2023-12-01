@@ -1,8 +1,7 @@
-﻿using CMS.Websites;
+﻿﻿using Microsoft.AspNetCore.Mvc;
 using Kentico.Content.Web.Mvc;
 using Kentico.Content.Web.Mvc.Routing;
 using Kentico.PageBuilder.Web.Mvc.PageTemplates;
-using Microsoft.AspNetCore.Mvc;
 using TrainingGuides;
 using TrainingGuides.Web.Features.Shared.Services;
 

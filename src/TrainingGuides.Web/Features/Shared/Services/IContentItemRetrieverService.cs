@@ -1,6 +1,4 @@
-﻿using CMS.Websites;
-
-namespace TrainingGuides.Web.Features.Shared.Services;
+﻿namespace TrainingGuides.Web.Features.Shared.Services;
 
 public interface IContentItemRetrieverService<T>
 {
