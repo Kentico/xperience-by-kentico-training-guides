@@ -1,4 +1,4 @@
-﻿﻿# Severity levels of analyzers https://docs.microsoft.com/en-us/visualstudio/code-quality/roslyn-analyzers-overview?view=vs-2019#severity-levels-of-analyzers
+﻿﻿﻿﻿# Severity levels of analyzers https://docs.microsoft.com/en-us/visualstudio/code-quality/roslyn-analyzers-overview?view=vs-2019#severity-levels-of-analyzers
 
 root = true
 
@@ -213,10 +213,10 @@ dotnet_diagnostic.IDE0018.severity                                        = erro
 csharp_style_var_elsewhere                                                = true
 csharp_style_var_for_built_in_types                                       = false
 csharp_style_var_when_type_is_apparent                                    = true
-dotnet_diagnostic.IDE0007.severity                                        = error
-dotnet_diagnostic.IDE0008.severity                                        = error
+dotnet_diagnostic.IDE0007.severity                                        = warning
+dotnet_diagnostic.IDE0008.severity                                        = warning
 
-csharp_style_expression_bodied_constructors                               = true
+csharp_style_expression_bodied_constructors                               = false
 dotnet_diagnostic.IDE0021.severity                                        = error
 
 csharp_style_expression_bodied_methods                                    = true
@@ -251,12 +251,12 @@ csharp_style_prefer_switch_expression                                     = true
 dotnet_diagnostic.IDE0066.severity                                        = error
 
 csharp_style_prefer_pattern_matching                                      = true
-dotnet_diagnostic.IDE0078.severity                                        = error
+dotnet_diagnostic.IDE0078.severity                                        = warning
 
 csharp_style_prefer_not_pattern                                           = true
 dotnet_diagnostic.IDE0083.severity                                        = error
 
-csharp_prefer_braces                                                      = true
+csharp_prefer_braces                                                      = when_multiline
 dotnet_diagnostic.IDE0011.severity                                        = error
 
 csharp_prefer_simple_using_statement                                      = true

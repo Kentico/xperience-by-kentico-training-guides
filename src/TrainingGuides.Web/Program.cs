@@ -1,6 +1,5 @@
 using TrainingGuides;
-using TrainingGuides.Web.Components;
-using TrainingGuides.Web.Extensions;
+using TrainingGuides.Web;
 using Kentico.Content.Web.Mvc.Routing;
 using Kentico.PageBuilder.Web.Mvc;
 using Kentico.Web.Mvc;
@@ -13,7 +12,7 @@ builder.Services.AddKentico(features =>
 {
     features.UsePageBuilder(new PageBuilderOptions
     {
-        DefaultSectionIdentifier = ComponentIdentifiers.SINGLE_COLUMN_SECTION,
+        DefaultSectionIdentifier = ComponentIdentifiers.Sections.SINGLE_COLUMN,
         RegisterDefaultSection = false,
         ContentTypeNames = new[]
         {

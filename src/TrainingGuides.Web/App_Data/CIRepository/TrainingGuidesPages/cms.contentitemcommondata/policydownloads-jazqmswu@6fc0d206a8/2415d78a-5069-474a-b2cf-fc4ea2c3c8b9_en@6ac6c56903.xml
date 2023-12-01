@@ -13,7 +13,7 @@
   <ContentItemCommonDataGUID>2415d78a-5069-474a-b2cf-fc4ea2c3c8b9</ContentItemCommonDataGUID>
   <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
   <ContentItemCommonDataPageTemplateConfiguration>
-    <![CDATA[{"identifier":"TrainingGuides.DownloadsPage","properties":null,"fieldIdentifiers":null}]]>
+    <![CDATA[{"identifier":"TrainingGuides.DownloadsPagePageTemplate","properties":null,"fieldIdentifiers":null}]]>
   </ContentItemCommonDataPageTemplateConfiguration>
   <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
   <ContentItemReferences>

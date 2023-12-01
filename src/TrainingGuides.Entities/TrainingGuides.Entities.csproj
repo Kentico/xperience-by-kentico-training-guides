@@ -1,7 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
@@ -10,6 +9,11 @@
     <Compile Remove="Pages\**" />
     <EmbeddedResource Remove="Pages\**" />
     <None Remove="Pages\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AssemblyAttribute Include="CMS.AssemblyDiscoverableAttribute">
+    </AssemblyAttribute>
   </ItemGroup>
 
   <ItemGroup>
