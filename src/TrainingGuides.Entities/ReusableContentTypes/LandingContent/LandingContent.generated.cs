@@ -36,11 +36,5 @@ namespace TrainingGuides
 		/// LandingContentMessage.
 		/// </summary>
 		public string LandingContentMessage { get; set; }
-
-
-		/// <summary>
-		/// LandingContentText.
-		/// </summary>
-		public string LandingContentText { get; set; }
 	}
 }
