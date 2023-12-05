@@ -1,6 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <contentitemdata.trainingguides.article>
-  <ArticleText>Training Guides news!</ArticleText>
+  <ArticleText>
+    <![CDATA[<p><em>Training Guides news!</em></p>]]>
+  </ArticleText>
   <ArticleTitle>News</ArticleTitle>
   <ContentItemDataCommonDataID>
     <GUID>1a73fa03-08d0-485b-843a-79e1510322dc</GUID>

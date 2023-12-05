@@ -1,9 +1,11 @@
-﻿namespace TrainingGuides.Web.Features.Articles;
+﻿using Microsoft.AspNetCore.Html;
+
+namespace TrainingGuides.Web.Features.Articles;
 
 public class ArticlePageViewModel
 {
     public string Title { get; set; }
-    public string Text { get; set; }
+    public HtmlString Text { get; set; }
 
     public static ArticlePageViewModel GetViewModel(ArticlePage article)
     {
@@ -15,7 +17,7 @@ public class ArticlePageViewModel
         return new ArticlePageViewModel
         {
             Title = article.ArticlePageContent.FirstOrDefault()?.ArticleTitle,
-            Text = article.ArticlePageContent.FirstOrDefault()?.ArticleText
+            Text = new HtmlString(article.ArticlePageContent.FirstOrDefault()?.ArticleText)
         };
     }
 
