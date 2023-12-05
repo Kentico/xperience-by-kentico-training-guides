@@ -17,17 +17,14 @@
           <controlname>Kentico.Administration.TextInput</controlname>
         </settings>
       </field>
-      <field column="ArticleText" columnprecision="0" columnsize="500" columntype="text" enabled="true" guid="d98a2eb5-1419-4504-a0cd-6591a71c5605" visible="true">
+      <field column="ArticleText" columnprecision="0" columntype="longtext" enabled="true" guid="d98a2eb5-1419-4504-a0cd-6591a71c5605" visible="true">
         <properties>
           <explanationtextashtml>False</explanationtextashtml>
           <fieldcaption>Text</fieldcaption>
           <fielddescriptionashtml>False</fielddescriptionashtml>
         </properties>
         <settings>
-          <controlname>Kentico.Administration.TextArea</controlname>
-          <CopyButtonVisible>False</CopyButtonVisible>
-          <MaxRowsNumber>5</MaxRowsNumber>
-          <MinRowsNumber>3</MinRowsNumber>
+          <controlname>Kentico.Administration.RichTextEditor</controlname>
         </settings>
       </field>
     </form>
