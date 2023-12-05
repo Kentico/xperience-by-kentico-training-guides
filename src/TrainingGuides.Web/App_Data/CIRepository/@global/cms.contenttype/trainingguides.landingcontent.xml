@@ -17,17 +17,6 @@
           <controlname>Kentico.Administration.TextInput</controlname>
         </settings>
       </field>
-      <field allowempty="true" column="LandingContentText" columnprecision="0" columntype="longtext" enabled="true" guid="6ba24837-10ab-46e3-b064-1fdda7fead8a" visible="true">
-        <properties>
-          <explanationtextashtml>False</explanationtextashtml>
-          <fieldcaption>Text</fieldcaption>
-          <fielddescriptionashtml>False</fielddescriptionashtml>
-        </properties>
-        <settings>
-          <ConfigurationName>Kentico.Administration.StructuredContent</ConfigurationName>
-          <controlname>Kentico.Administration.RichTextEditor</controlname>
-        </settings>
-      </field>
     </form>
   </ClassFormDefinition>
   <ClassGUID>e13b2d5c-7736-45d1-bbb0-d6330559002d</ClassGUID>
