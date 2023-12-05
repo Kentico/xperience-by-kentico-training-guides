@@ -22,8 +22,7 @@ public class CookiesController : Controller
     }
 
 
-    [Route("cookies/submit")]
-    [HttpPost]
+    [HttpPost("/cookies/submit")]
     public async Task<IActionResult> CookiePreferences(CookiePreferencesViewModel requestModel)
     {
         IDictionary<int, string> mapping;
@@ -62,8 +61,7 @@ public class CookiesController : Controller
     }
 
 
-    [Route("cookies/cookiebannersubmit")]
-    [HttpPost]
+    [HttpPost("/cookies/cookiebannersubmit")]
     public async Task<IActionResult> CookieBanner(CookiePreferencesViewModel requestModel)
     {
         IEnumerable<string> consents;
