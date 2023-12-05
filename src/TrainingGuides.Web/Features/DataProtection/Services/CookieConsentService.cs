@@ -49,7 +49,13 @@ public class CookieConsentService : ICookieConsentService
         // Get current contact after changes to the cookie level
         var currentContact = ContactManagementContext.GetCurrentContact();
 
-        return await AcceptAllConsents(currentContact, acceptAllList) && cookiesUpToDate;
+        bool consentsAllAgreed = await AcceptAllConsents(currentContact, acceptAllList);
+        bool successful = consentsAllAgreed && cookiesUpToDate;
+
+        if (successful)
+            SetCookieAcceptanceCookie();
+
+        return successful;
     }
 
 
@@ -72,7 +78,13 @@ public class CookieConsentService : ICookieConsentService
         // Get current contact after changes to the cookie level
         var currentContact = ContactManagementContext.GetCurrentContact();
 
-        return await UpdatePreferredConsents(level, originalContact, currentContact, mapping) && cookiesUpToDate;
+        bool preferedConsentsAgreed = await UpdatePreferredConsents(level, originalContact, currentContact, mapping);
+        bool successful = preferedConsentsAgreed && cookiesUpToDate;
+
+        if (successful)
+            SetCookieAcceptanceCookie();
+
+        return successful;
     }
 
 
@@ -269,4 +281,13 @@ public class CookieConsentService : ICookieConsentService
 
         return isVisitorOrHigher;
     }
+
+    private void SetCookieAcceptanceCookie() =>
+        cookieAccessor.Set(CookieNames.COOKIE_ACCEPTANCE, "true", new CookieOptions
+        {
+            Path = null,
+            Expires = DateTime.Now.AddYears(1),
+            HttpOnly = false,
+            SameSite = SameSiteMode.Lax
+        });
 }

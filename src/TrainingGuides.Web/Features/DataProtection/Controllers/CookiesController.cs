@@ -8,19 +8,20 @@ namespace TrainingGuides.Web.Features.DataProtection.Controllers;
 
 public class CookiesController : Controller
 {
-    private const string COOKIE_PREFERENCES_SUCCESS = "~/Features/DataProtection/Widgets/CookiePreferences/CookiePreferencesWidgetComplete.cshtml";
-    private const string TRACKING_CONSENT_SUCCESS = "~/Features/DataProtection/ViewComponents/TrackingConsent/TrackingConsentComplete.cshtml";
-    private const string FAILURE = "~/Features/DataProtection/CookieLevelSetFailed.cshtml";
+    private const string COOKIE_UPDATE_MESSAGE = "~/Features/DataProtection/Shared/CookieUpdateMessage.cshtml";
+    private const string COOKIE_UPDATE_MESSAGE_SUCCESS = "Cookie consents have been successfully updated.";
+    private const string COOKIE_UPDATE_MESSAGE_FAILURE = "Unable to update cookie consents. Please try again.";
 
     private readonly IStringEncryptionService stringEncryptionService;
     private readonly ICookieConsentService cookieConsentService;
 
-    public CookiesController(IStringEncryptionService stringEncryptionService, ICookieConsentService cookieConsentService)
+    public CookiesController(
+        IStringEncryptionService stringEncryptionService,
+        ICookieConsentService cookieConsentService)
     {
         this.stringEncryptionService = stringEncryptionService;
         this.cookieConsentService = cookieConsentService;
     }
-
 
     [HttpPost("/cookies/submit")]
     public async Task<IActionResult> CookiePreferences(CookiePreferencesViewModel requestModel)
@@ -32,7 +33,7 @@ public class CookiesController : Controller
         }
         catch
         {
-            return PartialView(FAILURE, requestModel);
+            return ErrorView();
         }
 
         CookieConsentLevel selectedConsentValue;
@@ -42,7 +43,7 @@ public class CookiesController : Controller
         }
         else
         {
-            return PartialView(FAILURE, requestModel);
+            return ErrorView();
         }
 
         try
@@ -54,10 +55,10 @@ public class CookiesController : Controller
         }
         catch
         {
-            return PartialView(FAILURE, requestModel);
+            return ErrorView();
         }
 
-        return PartialView(COOKIE_PREFERENCES_SUCCESS, requestModel);
+        return SuccessView(COOKIE_UPDATE_MESSAGE_SUCCESS);
     }
 
 
@@ -71,7 +72,7 @@ public class CookiesController : Controller
         }
         catch
         {
-            return PartialView(FAILURE);
+            return ErrorView();
         }
 
         try
@@ -83,10 +84,10 @@ public class CookiesController : Controller
         }
         catch
         {
-            return PartialView(FAILURE);
+            return ErrorView();
         }
 
-        return PartialView(TRACKING_CONSENT_SUCCESS);
+        return SuccessView();
     }
 
     /// <summary>
@@ -146,4 +147,11 @@ public class CookiesController : Controller
 
         return consents;
     }
+
+    private IActionResult SuccessView(string message = "") =>
+        PartialView(COOKIE_UPDATE_MESSAGE, new CookieUpdateMessageViewModel(message));
+
+    private IActionResult ErrorView() =>
+        PartialView(COOKIE_UPDATE_MESSAGE, new CookieUpdateMessageViewModel(COOKIE_UPDATE_MESSAGE_FAILURE));
+
 }
