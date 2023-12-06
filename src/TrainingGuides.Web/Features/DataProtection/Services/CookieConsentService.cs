@@ -229,10 +229,10 @@ public class CookieConsentService : ICookieConsentService
                 SetCookieLevelIfChanged(cookieLevelProvider.GetDefaultCookieLevel());
                 break;
             case CookieConsentLevel.Essential:
-                SetCookieLevelIfChanged(Kentico.Web.Mvc.CookieLevel.Essential.Level);
-                break;
             case CookieConsentLevel.Preference:
             case CookieConsentLevel.Analytical:
+                SetCookieLevelIfChanged(Kentico.Web.Mvc.CookieLevel.Essential.Level);
+                break;
             case CookieConsentLevel.Marketing:
                 SetCookieLevelIfChanged(Kentico.Web.Mvc.CookieLevel.Visitor.Level);
                 break;
