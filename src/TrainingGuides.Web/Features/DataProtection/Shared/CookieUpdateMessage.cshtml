@@ -1,0 +1,10 @@
+﻿@using TrainingGuides.Web.Features.DataProtection.Shared
+@using Microsoft.AspNetCore.Html
+
+@model CookieUpdateMessageViewModel
+
+@{
+    HtmlString message = new HtmlString($"<div class=\"cookies__message\">{Model.Message}</div>");
+}
+
+@message
