@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using TrainingGuides.Web.Features.Activities.ViewComponents.Shared;
 using TrainingGuides.Web.Features.DataProtection.Services;
 
 namespace TrainingGuides.Web.Features.Activities.ViewComponents.CustomActivityScripts;

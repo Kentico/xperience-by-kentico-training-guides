@@ -1,4 +1,4 @@
-﻿namespace TrainingGuides.Web.Features.Activities.ViewComponents;
+﻿namespace TrainingGuides.Web.Features.Activities.ViewComponents.Shared;
 
 public class ContactTrackingAllowedViewModel
 {
