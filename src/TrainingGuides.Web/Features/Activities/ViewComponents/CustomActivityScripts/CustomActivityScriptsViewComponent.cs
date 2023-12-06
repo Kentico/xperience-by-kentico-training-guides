@@ -4,11 +4,11 @@ using TrainingGuides.Web.Features.DataProtection.Services;
 
 namespace TrainingGuides.Web.Features.Activities.ViewComponents.CustomActivityScripts;
 
-public class CustomScriptsViewComponent : ViewComponent
+public class CustomActivityScriptsViewComponent : ViewComponent
 {
     private readonly ICookieConsentService cookieConsentService;
 
-    public CustomScriptsViewComponent(ICookieConsentService cookieConsentService)
+    public CustomActivityScriptsViewComponent(ICookieConsentService cookieConsentService)
     {
         this.cookieConsentService = cookieConsentService;
     }
@@ -20,6 +20,6 @@ public class CustomScriptsViewComponent : ViewComponent
             ContactTrackingAllowed = cookieConsentService.CurrentContactIsVisitorOrHigher()
         };
 
-        return View("~/Features/Activities/ViewComponents/CustomScripts/CustomScripts.cshtml", model);
+        return View("~/Features/Activities/ViewComponents/CustomActivityScripts/CustomActivityScripts.cshtml", model);
     }
 }

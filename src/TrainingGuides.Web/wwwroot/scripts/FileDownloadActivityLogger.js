@@ -12,6 +12,7 @@ function handleClick() {
     kxt('customactivity', {
         type: 'filedownload',
         value: window.location.pathname,
-        title: 'File downloaded - ' + this.getAttribute("alt")
+        title: 'File downloaded - ' + this.getAttribute("alt"),
+        onerror: t => console.log(t)
     });
 }

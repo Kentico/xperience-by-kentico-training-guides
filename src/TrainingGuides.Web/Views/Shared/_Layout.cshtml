@@ -1,6 +1,7 @@
 ﻿@using TrainingGuides.Web.Features.Header
 @using TrainingGuides.Web.Features.DataProtection.ViewComponents.TrackingConsent
-@using TrainingGuides.Web.Features.DataProtection.Services
+@using TrainingGuides.Web.Features.Activities.ViewComponents.CustomActivityScripts
+@using TrainingGuides.Web.Features.Activities.ViewComponents.TrackingScripts
 @using Kentico.Activities.Web.Mvc
 
 @{
@@ -29,11 +30,12 @@
     <meta data-hid="apple-mobile-web-app-title" name="apple-mobile-web-app-title" content="@title">
     <meta data-hid="mobile-web-app-capable" name="mobile-web-app-capable" content="yes">
     <meta data-hid="author" name="author" content="Kentico software s.r.o.">
-    <vc:tracking-consent />
+    <vc:tracking-scripts/>
 </head>
 <body class="p-hp t-default">
     <div class="page-wrapper">
-        <vc:header />        
+        <vc:header />       
+        <vc:tracking-consent />
         <div class="content-wrapper">
             @RenderBody()
         </div>
@@ -73,5 +75,6 @@
     <script src="@baseUrl/assets/js/main.min.js?v=1.0.0"></script>
     <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
     
+    <vc:custom-activity-scripts/>
 </body>
 </html>
