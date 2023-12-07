@@ -20,8 +20,7 @@ public class FormColumnSectionViewComponent : ViewComponent
     {
         var model = new FormColumnSectionViewModel()
         {
-            SectionAnchor = sectionProperties.Properties.SectionAnchor,
-            ShowContents = true
+            SectionAnchor = sectionProperties.Properties.SectionAnchor
         };
 
         return View("~/Features/Shared/Sections/FormColumn/FormColumnSection.cshtml", model);
