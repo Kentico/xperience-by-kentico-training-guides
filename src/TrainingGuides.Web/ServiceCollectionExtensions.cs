@@ -10,8 +10,8 @@ public static class ServiceCollectionExtensions
         services.AddSingleton<IStringEncryptionService, AesEncryptionService>();
         services.AddSingleton<IFormCollectionService, FormCollectionService>();
         services.AddSingleton<ICookieConsentService, CookieConsentService>();
+        services.AddSingleton<IContentItemRetrieverService, ContentItemRetrieverService>();
 
-        services.AddTransient<IContentItemRetrieverService, ContentItemRetrieverService>();
         services.AddTransient(typeof(IContentItemRetrieverService<>), typeof(ContentItemRetrieverService<>));
     }
 }

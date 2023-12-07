@@ -35,13 +35,14 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
         int webPageItemId,
         string contentTypeName,
         Func<IWebPageContentQueryDataContainer, T> selectResult,
-        int depth = 1) => await RetrieveWebPageContentItem(
-            contentTypeName,
-            config => config
-                .Where(where => where.WhereEquals(nameof(IWebPageContentQueryDataContainer.WebPageItemID), webPageItemId))
-                .WithLinkedItems(depth)
-                .ForWebsite(webSiteChannelContext.WebsiteChannelName),
-            selectResult);
+        int depth = 1) => await
+            RetrieveWebPageContentItem(
+                contentTypeName,
+                config => config
+                    .Where(where => where.WhereEquals(nameof(IWebPageContentQueryDataContainer.WebPageItemID), webPageItemId))
+                    .WithLinkedItems(depth)
+                    .ForWebsite(webSiteChannelContext.WebsiteChannelName),
+                selectResult);
 
     private async Task<T> RetrieveWebPageContentItem(
         string contentTypeName,
@@ -68,10 +69,13 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
     private readonly Dictionary<string, Func<IWebPageContentQueryDataContainer, IWebPageFieldsSource>> contentTypeDictionary;
 
     private readonly IWebPageQueryResultMapper webPageQueryResultMapper;
+    private readonly IContentItemRetrieverService<IWebPageFieldsSource> contentItemRetrieverService;
 
-    public ContentItemRetrieverService(IWebPageQueryResultMapper webPageQueryResultMapper)
+    public ContentItemRetrieverService(IWebPageQueryResultMapper webPageQueryResultMapper, IContentItemRetrieverService<IWebPageFieldsSource> contentItemRetrieverService)
     {
         this.webPageQueryResultMapper = webPageQueryResultMapper;
+        this.contentItemRetrieverService = contentItemRetrieverService;
+
         contentTypeDictionary = new Dictionary<string, Func<IWebPageContentQueryDataContainer, IWebPageFieldsSource>>
         {
             { ArticlePage.CONTENT_TYPE_NAME, container => this.webPageQueryResultMapper.Map<ArticlePage>(container) },
@@ -80,16 +84,13 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
             { LandingPage.CONTENT_TYPE_NAME, container => this.webPageQueryResultMapper.Map<LandingPage>(container) }
         };
     }
-    public async Task<IWebPageFieldsSource> RetrieveWebPageById(int webPageItemId, string contentTypeName)
-    {
-        var contentItemRetrieverService = Service.Resolve<IContentItemRetrieverService<IWebPageFieldsSource>>();
 
-        var page = await contentItemRetrieverService.RetrieveWebPageById(
-            webPageItemId,
-            contentTypeName,
-            contentTypeDictionary[contentTypeName],
-            1);
-
-        return page;
-    }
+    public async Task<IWebPageFieldsSource> RetrieveWebPageById(
+        int webPageItemId,
+        string contentTypeName) => await
+            contentItemRetrieverService.RetrieveWebPageById(
+                webPageItemId,
+                contentTypeName,
+                contentTypeDictionary[contentTypeName],
+                1);
 }
