@@ -16,7 +16,8 @@ public class PageLikeController : Controller
     private readonly IContentItemRetrieverService contentItemRetrieverService;
     private readonly ICookieConsentService cookieConsentService;
 
-    public PageLikeController(ICustomActivityLogger customActivityLogger,
+    public PageLikeController(
+        ICustomActivityLogger customActivityLogger,
         IContentItemRetrieverService contentItemRetrieverService,
         ICookieConsentService cookieConsentService)
     {
@@ -37,7 +38,6 @@ public class PageLikeController : Controller
         if (string.IsNullOrEmpty(requestModel.ContentTypeName))
             return Content(BAD_PAGE_DATA_MESSAGE);
 
-        //var webPage = (await WebPageItemInfo.Provider.Get().WhereEquals(nameof(WebPageItemInfo.WebPageItemID), webPageId).GetEnumerableTypedResultAsync()).FirstOrDefault();
         var webPage = await contentItemRetrieverService.RetrieveWebPageById(
             webPageItemID,
             requestModel.ContentTypeName);
@@ -46,16 +46,16 @@ public class PageLikeController : Controller
             return Content(BAD_PAGE_DATA_MESSAGE);
 
         string likedPageName = webPage.SystemFields.WebPageItemName;
+        string likedPageTreePath = webPage.SystemFields.WebPageItemTreePath;
         string likedPageGuid = webPage.SystemFields.WebPageItemGUID.ToString();
 
         var pageLikeActicityData = new CustomActivityData()
         {
-            ActivityTitle = $"Page Like - {likedPageName}",
+            ActivityTitle = $"Page like - {likedPageTreePath} ({likedPageName})",
             ActivityValue = likedPageGuid,
         };
 
         customActivityLogger.Log(PageLikeWidgetViewComponent.ACTIVITY_IDENTIFIER, pageLikeActicityData);
         return Content(THANK_YOU_MESSAGE);
     }
-
 }
