@@ -14,8 +14,7 @@ public class ConsentCodnameController : Controller
     }
 
     //Provides the name of the consent mapped to the Marketing cookie level for cross-site tracking.
-    [HttpGet]
-    [Route("consent/marketing")]
+    [HttpGet("consent/marketing")]
     public async Task<IActionResult> MarketingConsent()
     {
         CookieLevelConsentMappingInfo mapping = await cookieConsentService.GetCurrentMapping();
