@@ -1,0 +1,31 @@
+﻿@using TrainingGuides.Web.Features.Shared.Extensions;
+@using TrainingGuides.Web.Features.Activities.Widgets.PageLike;
+
+@model PageLikeWidgetViewModel
+
+@{
+    var baseUrl = Context.Request.GetBaseUrl();
+    var messageId = "pageLikeMessage";
+}
+
+@if(Model.ShowLikeButton || Context.Kentico().Preview().Enabled)
+{
+    @using (Html.AjaxBeginForm("PageLike", "PageLike", new AjaxOptions
+     {
+         HttpMethod = "POST",
+         InsertionMode = InsertionMode.Replace,
+         UpdateTargetId = messageId
+     }, new { action = $"{baseUrl}/pagelike" }))
+    {
+        <div class="container">
+            <div class="cookie-preferences js-cookie-preferences">
+                <input id="WebPageItemID" name="WebPageItemID" type="hidden" value="@Model.WebPageItemID" />
+                <input id="ContentTypeName" name="ContentTypeName" type="hidden" value="@Model.ContentTypeName" />
+                <button class="btn btn-secondary text-uppercase mt-4 cookie-preferences__button" type="submit" name="button">
+                    Like this page
+                </button>
+                <div id="@messageId" class="cookie-preferences__message"></div>
+            </div>
+        </div>
+    }
+}

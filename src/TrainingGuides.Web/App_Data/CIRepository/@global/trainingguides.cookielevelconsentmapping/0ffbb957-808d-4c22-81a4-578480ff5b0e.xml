@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<trainingguides.cookielevelconsentmapping>
+  <AnalyticalConsentCodeName>
+    <![CDATA[["analytical.cookies.consent"]]]>
+  </AnalyticalConsentCodeName>
+  <CookieLevelConsentMappingGuid>0ffbb957-808d-4c22-81a4-578480ff5b0e</CookieLevelConsentMappingGuid>
+  <MarketingConsentCodeName>
+    <![CDATA[["marketing.cookies.consent"]]]>
+  </MarketingConsentCodeName>
+  <PreferenceConsentCodeName>
+    <![CDATA[["preference.cookies.consent"]]]>
+  </PreferenceConsentCodeName>
+</trainingguides.cookielevelconsentmapping>

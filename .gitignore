@@ -364,4 +364,3 @@ MigrationBackup/
 FodyWeavers.xsd
 src/TrainingGuides.Web/.config/dotnet-tools.json
 src/TrainingGuides.Web/License/
-src/KBank.Web/License/

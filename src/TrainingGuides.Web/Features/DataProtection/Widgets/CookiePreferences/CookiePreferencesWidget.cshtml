@@ -1,0 +1,58 @@
+﻿@using CMS.Helpers
+@using TrainingGuides.Web.Features.Shared.Extensions
+@using TrainingGuides.Web.Features.DataProtection.Shared
+@using TrainingGuides.Web.Features.DataProtection.Widgets.CookiePreferences
+
+@model CookiePreferencesWidgetViewModel;
+
+@inject ICookieAccessor cookieAccessor
+
+@{
+    Layout = null;
+    var messageId = "cookiePreferencesMessage";
+    Model.CookieLevelSelected = CMS.Helpers.ValidationHelper.GetInteger(cookieAccessor.Get(CookieNames.COOKIE_CONSENT_LEVEL), 1);
+    var baseUrl = Context.Request.GetBaseUrl();
+}
+
+@using (Html.AjaxBeginForm("CookiePreferences", "Cookies", new AjaxOptions
+ {
+     HttpMethod = "POST",
+     InsertionMode = InsertionMode.Replace,
+     UpdateTargetId = messageId
+ }, new { action = $"{baseUrl}/cookies/submit" }))
+{
+    <div class="container">
+        <div class="cookie-preferences js-cookie-preferences">
+            <input id="ConsentMapping" name="ConsentMapping" type="hidden"  value="@Model.ConsentMapping" />
+            <div class="cookie-preferences__levels">
+                <div class="cookie-preferences__selector" id="js-cookie-preferences__selector">
+                    <div class="cookie-preferences__range-fill" id="range-fill"></div>
+                    <input id="CookieLevelSelected" name="CookieLevelSelected" type="range" min="1" max="4" step="1" class="cookie-preferences__range-slider" value="@Model.CookieLevelSelected" />
+                </div>
+
+                <ul class="cookie-preferences__options">
+                    <li class="cookie-preferences__option" data-value="1">
+                        <span class="cookie-preferences__option-header">@Model.EssentialHeader</span>
+                        <span class="cookie-preferences__option-description">@Model.EssentialDescription</span>
+                    </li>
+                    <li class="cookie-preferences__option" data-value="2">
+                        <span class="cookie-preferences__option-header">@Model.PreferenceHeader</span>
+                        <span class="cookie-preferences__option-description">@Model.PreferenceDescription</span>
+                    </li>
+                    <li class="cookie-preferences__option" data-value="3">
+                        <span class="cookie-preferences__option-header">@Model.AnalyticalHeader</span>
+                        <span class="cookie-preferences__option-description">@Model.AnalyticalDescription</span>
+                    </li>
+                    <li class="cookie-preferences__option" data-value="4">
+                        <span class="cookie-preferences__option-header">@Model.MarketingHeader</span>
+                        <span class="cookie-preferences__option-description">@Model.MarketingDescription</span>
+                    </li>
+                </ul>
+            </div>
+            <button class="btn btn-secondary text-uppercase mt-4 cookie-preferences__button" type="submit" name="button">
+                @Model.ButtonText
+            </button>
+            <div id="@messageId" class="cookie-preferences__message"></div>
+        </div>
+    </div>
+}
