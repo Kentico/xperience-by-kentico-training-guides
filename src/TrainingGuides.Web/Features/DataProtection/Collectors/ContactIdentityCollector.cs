@@ -22,9 +22,11 @@ public class ContactIdentityCollector : IIdentityCollector
             return;
         }
 
-        var contacts = ContactInfo.Provider.Get()
-                                            .WhereEquals(nameof(ContactInfo.ContactEmail), email)
-                                            .ToList();
+        var contacts = ContactInfo.Provider
+            .Get()
+            .WhereEquals(nameof(ContactInfo.ContactEmail), email)
+            .ToList();
+
         if (contacts.Count() == 0)
         {
             contacts.Add(new ContactInfo() { ContactEmail = email });

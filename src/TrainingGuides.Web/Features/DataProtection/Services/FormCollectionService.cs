@@ -14,7 +14,6 @@ public class FormCollectionService : IFormCollectionService
     public FormCollectionService(IBizFormInfoProvider bizFormInfoProvider)
     {
         this.bizFormInfoProvider = bizFormInfoProvider;
-
     }
 
     private bool IsField(XElement element) => element.Name.ToString() == "field";
@@ -56,24 +55,24 @@ public class FormCollectionService : IFormCollectionService
         var bizForms = bizFormInfoProvider.Get();
         foreach (var bizForm in bizForms)
         {
-            var dataClass = DataClassInfoProvider.GetDataClassInfo(bizForm.FormClassID);
-            if (dataClass == null || string.IsNullOrEmpty(dataClass.ClassFormDefinition))
+            var dataClassInfo = DataClassInfoProvider.GetDataClassInfo(bizForm.FormClassID);
+            if (dataClassInfo == null || string.IsNullOrEmpty(dataClassInfo.ClassFormDefinition))
             {
                 continue;
             }
 
             IEnumerable<string> mappedEmailFields = new List<string>();
 
-            if (!string.IsNullOrEmpty(dataClass.ClassContactMapping))
+            if (!string.IsNullOrEmpty(dataClassInfo.ClassContactMapping))
             {
-                var contactMapping = XElement.Parse(dataClass.ClassContactMapping);
+                var contactMapping = XElement.Parse(dataClassInfo.ClassContactMapping);
 
                 //gets lowercase names of fields mapped to contact email (there should be only one unless they mess with the database directly)
                 mappedEmailFields = contactMapping?.Elements()
                 .Where(child => child.Attribute("column")?.Value == "ContactEmail").Select(field => field.Attribute("mappedtofield")?.Value);
             }
 
-            var formDefinition = XElement.Parse(dataClass.ClassFormDefinition);
+            var formDefinition = XElement.Parse(dataClassInfo.ClassFormDefinition);
 
             //gets all form fields which are either mapped to the ContactEmail colun, or which use the Kentico.EmailInput form control
             var emailFields = formDefinition?.Elements()
@@ -123,9 +122,7 @@ public class FormCollectionService : IFormCollectionService
             {
                 bizFormItems.Or().WhereIn(columnName, consentAgreementGuids);
             }
-
         }
-
         return bizFormItems;
     }
 }
