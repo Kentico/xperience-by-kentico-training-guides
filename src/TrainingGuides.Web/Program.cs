@@ -10,13 +10,13 @@ using Kentico.CrossSiteTracking.Web.Mvc;
 using Kentico.OnlineMarketing.Web.Mvc;
 using TrainingGuides.Web.Features.Shared.Helpers.Startup;
 
-string TrainingGuidesAllowSpecificOrigins = "_trainingGuidesAllowSpecificOrigins";
+string trainingGuidesAllowSpecificOrigins = "_trainingGuidesAllowSpecificOrigins";
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy(name: TrainingGuidesAllowSpecificOrigins,
+    options.AddPolicy(name: trainingGuidesAllowSpecificOrigins,
         policy =>
         {
             policy
@@ -86,6 +86,6 @@ app.UseAuthentication();
 
 app.Kentico().MapRoutes();
 
-app.UseCors(TrainingGuidesAllowSpecificOrigins);
+app.UseCors(trainingGuidesAllowSpecificOrigins);
 
 app.Run();
