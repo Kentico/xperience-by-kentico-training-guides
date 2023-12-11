@@ -1,0 +1,21 @@
+﻿﻿@using TrainingGuides.Web.Features.Downloads
+
+@model TemplateViewModel
+
+@{
+    var templateModel = Model.GetTemplateModel<DownloadsPageViewModel>();
+}
+
+<h2>@templateModel.Heading</h2>
+<div>
+    <ul>
+        @foreach(var asset in templateModel.Assets)
+        {
+            <li>
+                <div><a href="@Url.Content(asset.FilePath)" alt="@asset.AltText" download="true">@asset.Title</a></div>
+                <div>@asset.Description</div>
+            </li>
+        }
+    </ul>
+
+</div>

@@ -1,0 +1,16 @@
+﻿﻿@using TrainingGuides.Web.Features.Shared.Sections.FormColumn
+@model FormColumnSectionViewModel
+
+@{
+    var sectionAnchor = !string.IsNullOrWhiteSpace(Model.SectionAnchor) ? $"id={Model.SectionAnchor}" : "";
+}
+
+<section class="c-section form" @sectionAnchor>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <widget-zone />
+            </div>
+        </div>
+    </div>
+</section>

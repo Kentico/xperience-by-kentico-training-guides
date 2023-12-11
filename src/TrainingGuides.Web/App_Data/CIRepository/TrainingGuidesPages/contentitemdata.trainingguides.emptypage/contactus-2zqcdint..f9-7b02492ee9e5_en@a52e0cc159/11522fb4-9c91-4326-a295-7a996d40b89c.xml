@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.emptypage>
+  <ContentItemDataCommonDataID>
+    <GUID>d38467e1-c5e9-47b3-87f9-7b02492ee9e5</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>ContactUs-2zqcdint</CodeName>
+      <GUID>b6e644bb-f457-4140-aff4-2347e195940a</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>11522fb4-9c91-4326-a295-7a996d40b89c</ContentItemDataGUID>
+</contentitemdata.trainingguides.emptypage>

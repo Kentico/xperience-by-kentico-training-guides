@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentitem>
+  <ContentItemContentTypeID>
+    <CodeName>TrainingGuides.LandingContent</CodeName>
+    <GUID>e13b2d5c-7736-45d1-bbb0-d6330559002d</GUID>
+    <ObjectType>cms.contenttype</ObjectType>
+  </ContentItemContentTypeID>
+  <ContentItemGUID>9f511d9e-8620-4e25-afaa-9afed5b99084</ContentItemGUID>
+  <ContentItemIsReusable>True</ContentItemIsReusable>
+  <ContentItemIsSecured>False</ContentItemIsSecured>
+  <ContentItemName>Home-76v71kdp</ContentItemName>
+</cms.contentitem>

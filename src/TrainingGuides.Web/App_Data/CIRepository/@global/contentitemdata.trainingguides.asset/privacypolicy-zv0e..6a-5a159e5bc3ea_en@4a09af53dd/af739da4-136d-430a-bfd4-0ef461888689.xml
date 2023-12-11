@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.asset>
+  <AssetAltText>Privacy policy of Training guides</AssetAltText>
+  <AssetDescription>Privacy policy of Training guides</AssetDescription>
+  <AssetFile>
+    <![CDATA[{"Identifier":"44905c7b-98f2-4dd7-86ee-cde5226d3bec","Name":"Training_guides_privacy_policy.pdf","Extension":".pdf","Size":68012,"LastModified":"2023-11-20T19:47:21.2784029Z"}]]>
+  </AssetFile>
+  <AssetUseInternalOnly>False</AssetUseInternalOnly>
+  <ContentItemDataCommonDataID>
+    <GUID>8fbc2c38-7d52-4899-a26a-5a159e5bc3ea</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>PrivacyPolicy-zv0e6nj8</CodeName>
+      <GUID>13d1466b-a95c-4bee-8e8e-52385821cf68</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>af739da4-136d-430a-bfd4-0ef461888689</ContentItemDataGUID>
+</contentitemdata.trainingguides.asset>

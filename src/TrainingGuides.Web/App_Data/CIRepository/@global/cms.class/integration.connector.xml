@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.class>
+  <ClassConnectionString>CMSConnectionString</ClassConnectionString>
+  <ClassContactOverwriteEnabled>False</ClassContactOverwriteEnabled>
+  <ClassDisplayName>Integration - Connector</ClassDisplayName>
+  <ClassFormDefinition>
+    <form>
+      <field column="ConnectorID" columntype="integer" guid="2fa72235-5398-43d9-8d48-65a978d5f4e4" isPK="true" system="true">
+        <properties>
+          <fieldcaption>ConnectorID</fieldcaption>
+        </properties>
+      </field>
+      <field column="ConnectorDisplayName" columnsize="440" columntype="text" guid="d01e7018-93d6-426a-9a35-f1bbb74923ce" system="true">
+        <properties>
+          <fieldcaption>{$general.displayname$}</fieldcaption>
+        </properties>
+      </field>
+      <field column="ConnectorName" columnsize="100" columntype="text" guid="fde86c81-e225-4843-9bcf-7af779dd02ec" system="true">
+        <properties>
+          <fieldcaption>{$general.codename$}</fieldcaption>
+        </properties>
+      </field>
+      <field column="ConnectorAssemblyName" columnsize="400" columntype="text" guid="52f0a5a2-3874-4dc4-9898-0d4fa136263d" system="true">
+        <properties>
+          <fieldcaption>{$integration.assemblyname$}</fieldcaption>
+          <validationerrormessage>{$AssemblySelector.BadAssemblyOrClass$}</validationerrormessage>
+        </properties>
+      </field>
+      <field column="ConnectorClassName" columnsize="400" columntype="text" guid="3f8f2199-9bd7-4e77-9df9-f67d6cfe2aa4" system="true">
+        <properties>
+          <fieldcaption>Class name</fieldcaption>
+        </properties>
+      </field>
+      <field column="ConnectorEnabled" columntype="boolean" guid="1717dead-6e78-4546-8f34-ba85b4d88718" system="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>{$general.enabled$}</fieldcaption>
+          <validationerrormessage>Bad assembly or class name selected.</validationerrormessage>
+        </properties>
+      </field>
+      <field column="ConnectorLastModified" columntype="datetime" guid="7c2a1e25-157e-45f6-9138-e0cccb2a1bac" system="true">
+        <properties>
+          <fieldcaption>ConnectorLastModified</fieldcaption>
+        </properties>
+      </field>
+    </form>
+  </ClassFormDefinition>
+  <ClassGUID>8dc5bb80-21ae-4744-b6e7-dab9568c42c0</ClassGUID>
+  <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
+  <ClassName>Integration.Connector</ClassName>
+  <ClassResourceID>
+    <CodeName>CMS.Synchronization</CodeName>
+    <GUID>0d650be6-b050-46c5-8a4c-b1e8afe2b052</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ClassResourceID>
+  <ClassShowTemplateSelection>False</ClassShowTemplateSelection>
+  <ClassTableName>Integration_Connector</ClassTableName>
+  <ClassType>Other</ClassType>
+</cms.class>

@@ -1,0 +1,14 @@
+﻿﻿@using TrainingGuides.Web.Features.Articles
+
+@model TemplateViewModel
+
+@{
+    var templateModel = Model.GetTemplateModel<ArticlePageViewModel>();
+}
+
+<div>
+    <h1>
+        @templateModel.Title
+    </h1>
+    @templateModel.Text
+</div>

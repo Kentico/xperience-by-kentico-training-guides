@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.applicationpermission>
+  <ApplicationName>Kentico.Xperience.Application.CrossSiteTracking</ApplicationName>
+  <ApplicationPermissionGuid>efa5746c-f43b-4ef5-a9dd-a63b0dedfcc6</ApplicationPermissionGuid>
+  <PermissionName>Update</PermissionName>
+  <RoleID>
+    <CodeName>DigitalChannelManager</CodeName>
+    <GUID>93fb8806-31ba-4548-8a3b-24dbbeec6e3d</GUID>
+    <ObjectType>cms.role</ObjectType>
+  </RoleID>
+</cms.applicationpermission>

@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.applicationpermission>
+  <ApplicationName>Kentico.Xperience.Application.EmailTemplates</ApplicationName>
+  <ApplicationPermissionGuid>9f6f2300-67c8-4ac7-adf9-2d30b9e92ad2</ApplicationPermissionGuid>
+  <PermissionName>Update</PermissionName>
+  <RoleID>
+    <CodeName>DigitalChannelManager</CodeName>
+    <GUID>93fb8806-31ba-4548-8a3b-24dbbeec6e3d</GUID>
+    <ObjectType>cms.role</ObjectType>
+  </RoleID>
+</cms.applicationpermission>

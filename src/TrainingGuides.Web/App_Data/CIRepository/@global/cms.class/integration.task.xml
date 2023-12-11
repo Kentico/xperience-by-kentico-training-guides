@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.class>
+  <ClassConnectionString>CMSConnectionString</ClassConnectionString>
+  <ClassContactOverwriteEnabled>False</ClassContactOverwriteEnabled>
+  <ClassDisplayName>Integration - Task</ClassDisplayName>
+  <ClassFormDefinition>
+    <form>
+      <field column="TaskID" columntype="integer" guid="9b26c8b8-aadb-4e0d-93c7-4c5aa36d2ca6" isPK="true" system="true">
+        <properties>
+          <fieldcaption>TaskID</fieldcaption>
+        </properties>
+      </field>
+      <field allowempty="true" column="TaskNodeID" columntype="integer" guid="70b7d91e-5cd1-4af6-9cf7-280c40cdd669" system="true">
+        <properties>
+          <fieldcaption>TaskNodeID</fieldcaption>
+        </properties>
+      </field>
+      <field allowempty="true" column="TaskDocumentID" columntype="integer" guid="95585887-249d-4323-bba8-d6868b6de34e" system="true">
+        <properties>
+          <fieldcaption>TaskDocumentID</fieldcaption>
+        </properties>
+      </field>
+      <field allowempty="true" column="TaskNodeAliasPath" columnsize="450" columntype="text" guid="806cf9cf-197d-47d8-a2f6-b603c18363d1" system="true">
+        <properties>
+          <fieldcaption>TaskNodeAliasPath</fieldcaption>
+        </properties>
+      </field>
+      <field column="TaskTitle" columnsize="450" columntype="text" guid="52b9ff56-c147-401c-af53-553d97894d48" system="true">
+        <properties>
+          <fieldcaption>TaskTitle</fieldcaption>
+        </properties>
+      </field>
+      <field column="TaskTime" columntype="datetime" guid="2c7f99ac-6a35-4e98-9425-148fb7efe8e7" system="true">
+        <properties>
+          <fieldcaption>TaskTime</fieldcaption>
+        </properties>
+      </field>
+      <field column="TaskType" columnsize="50" columntype="text" guid="520299ec-2577-40d5-a8dd-b16351512d59" system="true">
+        <properties>
+          <fieldcaption>TaskType</fieldcaption>
+        </properties>
+      </field>
+      <field allowempty="true" column="TaskObjectType" columnsize="100" columntype="text" guid="5566cb6d-6cb0-4128-b9a3-228bd5ebcb32" system="true">
+        <properties>
+          <fieldcaption>TaskObjectType</fieldcaption>
+        </properties>
+      </field>
+      <field allowempty="true" column="TaskObjectID" columntype="integer" guid="e1dbaac6-9d5d-4cab-bcc9-98b57bef1185" system="true">
+        <properties>
+          <fieldcaption>TaskObjectID</fieldcaption>
+        </properties>
+      </field>
+      <field column="TaskIsInbound" columntype="boolean" guid="5827bf7a-d583-4ea4-a9d6-bf7ae8ed1942" system="true">
+        <properties>
+          <fieldcaption>TaskIsInbound</fieldcaption>
+        </properties>
+      </field>
+      <field allowempty="true" column="TaskProcessType" columnsize="50" columntype="text" guid="0539b561-4830-4875-a43d-fb09104e6583" system="true">
+        <properties>
+          <fieldcaption>TaskProcessType</fieldcaption>
+        </properties>
+      </field>
+      <field column="TaskData" columntype="longtext" guid="8a0bc8b9-2eb1-4be4-9711-825ae8a2076b" system="true">
+        <properties>
+          <fieldcaption>TaskData</fieldcaption>
+        </properties>
+      </field>
+      <field allowempty="true" column="TaskSiteID" columntype="integer" guid="ee44a207-69df-42fd-82dc-7705500a6aff" system="true">
+        <properties>
+          <fieldcaption>TaskSiteID</fieldcaption>
+        </properties>
+      </field>
+      <field allowempty="true" column="TaskDataType" columnsize="50" columntype="text" guid="ea1ba086-9abf-43ab-b48a-45e6fe5a585f" system="true">
+        <properties>
+          <fieldcaption>TaskDataType</fieldcaption>
+        </properties>
+      </field>
+    </form>
+  </ClassFormDefinition>
+  <ClassGUID>b2409753-2393-4912-8e49-a481c1dbcfe3</ClassGUID>
+  <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
+  <ClassName>Integration.Task</ClassName>
+  <ClassResourceID>
+    <CodeName>CMS.Synchronization</CodeName>
+    <GUID>0d650be6-b050-46c5-8a4c-b1e8afe2b052</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ClassResourceID>
+  <ClassShowTemplateSelection>False</ClassShowTemplateSelection>
+  <ClassTableName>Integration_Task</ClassTableName>
+  <ClassType>Other</ClassType>
+</cms.class>

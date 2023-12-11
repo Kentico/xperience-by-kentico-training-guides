@@ -1,0 +1,42 @@
+﻿.listing-inline-editor div.listing-property-editor {
+    display: flex;
+    padding: 0.5em;
+}
+
+.listing-inline-editor div.listing-property-editor div.listing-property-label {
+    color: white;
+    width: 11em;
+    margin-right: 1em;
+    display: flex;
+    align-items: flex-end;
+    justify-content: end;
+}
+
+.listing-inline-editor div.listing-property-editor div.listing-property-value {
+    margin-top: auto;
+    display: flex;
+}
+
+.listing-inline-editor * {
+    font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+    font-size: 16px;
+}
+
+.listing-inline-editor  {
+    background-color: #262524;
+    border: 1px solid #383838;
+    padding: 5px;
+    display: table;
+    margin: 1em auto 1em 1em;
+    box-sizing: border-box;
+}
+
+.listing-inline-editor div.listing-property-editor div.listing-property-tooltip {
+    color: white;
+    margin-top: auto;
+    margin-left: 0.5em;
+}
+
+.listing-inline-editor [class^="icon-"], .listing-inline-editor [class*=" icon-"] {
+    font-family: 'Core-icons';
+}

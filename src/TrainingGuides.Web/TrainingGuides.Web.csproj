@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+  
+  <ItemGroup>
+    <PackageReference Include="AspNetCore.Unobtrusive.Ajax" />
+    <PackageReference Include="kentico.xperience.admin" />
+    <PackageReference Include="kentico.xperience.azurestorage" />
+    <PackageReference Include="kentico.xperience.imageprocessing" />
+    <PackageReference Include="kentico.xperience.webapp" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Using Include="CMS.Websites" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TrainingGuides.Entities\TrainingGuides.Entities.csproj" />
+  </ItemGroup>
+
+</Project>

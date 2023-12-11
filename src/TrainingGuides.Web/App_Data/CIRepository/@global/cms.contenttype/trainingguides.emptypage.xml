@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contenttype>
+  <ClassContentTypeType>Website</ClassContentTypeType>
+  <ClassDisplayName>Empty page</ClassDisplayName>
+  <ClassFormDefinition>
+    <form>
+      <field column="ContentItemDataID" columntype="integer" enabled="true" guid="c5050848-3007-45cb-8f9d-4cb636a10b56" isPK="true" />
+      <field column="ContentItemDataCommonDataID" columntype="integer" enabled="true" guid="93691c62-a792-400f-a0ba-ed5dd701a9eb" refobjtype="cms.contentitemcommondata" reftype="Required" system="true" />
+      <field column="ContentItemDataGUID" columntype="guid" enabled="true" guid="ba36fa19-399e-486d-9879-8766a359f8cd" isunique="true" system="true" />
+    </form>
+  </ClassFormDefinition>
+  <ClassGUID>58018c9d-5b6c-4251-b3a8-8c1a6d124780</ClassGUID>
+  <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
+  <ClassIconClass>xp-c-sharp</ClassIconClass>
+  <ClassName>TrainingGuides.EmptyPage</ClassName>
+  <ClassTableName>TrainingGuides_EmptyPage</ClassTableName>
+  <ClassType>Content</ClassType>
+  <ClassWebPageHasUrl>True</ClassWebPageHasUrl>
+</cms.contenttype>

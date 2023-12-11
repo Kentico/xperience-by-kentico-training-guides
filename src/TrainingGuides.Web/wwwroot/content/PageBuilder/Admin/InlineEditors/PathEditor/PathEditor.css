@@ -1,0 +1,16 @@
+﻿.listing-inline-editor div.listing-property-editor div.listing-property-value button.path-editor-button {
+    margin-left: 10px;
+}
+
+.listing-inline-editor div.listing-property-editor div.listing-property-value .selected-path {
+    color: white;
+    width: 10em;
+    margin-top: auto;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.listing-inline-editor div.listing-property-editor div.listing-property-value .invalid-page {
+    color: indianred;
+}
