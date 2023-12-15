@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Html;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Localization;
 using CMS.ContactManagement;
 using CMS.DataProtection;
 using CMS.Helpers;
@@ -8,6 +9,7 @@ using Kentico.Web.Mvc;
 using TrainingGuides.Admin;
 using TrainingGuides.Web.Features.DataProtection.Services;
 using TrainingGuides.Web.Features.DataProtection.Shared;
+using TrainingGuides.Web.Features.Shared.Resources;
 
 namespace TrainingGuides.Web.Features.DataProtection.ViewComponents.TrackingConsent;
 
@@ -19,6 +21,7 @@ public class TrackingConsentViewComponent : ViewComponent
     private readonly ICookieAccessor cookieAccessor;
     private readonly IPreferredLanguageRetriever preferredLanguageRetriever;
     private readonly ICookieConsentService cookieConsentService;
+    private readonly IStringLocalizer<SharedResources> stringLocalizer;
 
     public TrackingConsentViewComponent(
         IConsentAgreementService consentAgreementService,
@@ -26,7 +29,8 @@ public class TrackingConsentViewComponent : ViewComponent
         IStringEncryptionService stringEncryptionService,
         ICookieAccessor cookieAccessor,
         IPreferredLanguageRetriever preferredLanguageRetriever,
-        ICookieConsentService cookieConsentService)
+        ICookieConsentService cookieConsentService,
+        IStringLocalizer<SharedResources> stringLocalizer)
     {
         this.consentAgreementService = consentAgreementService;
         this.consentInfoProvider = consentInfoProvider;
@@ -34,6 +38,7 @@ public class TrackingConsentViewComponent : ViewComponent
         this.cookieAccessor = cookieAccessor;
         this.preferredLanguageRetriever = preferredLanguageRetriever;
         this.cookieConsentService = cookieConsentService;
+        this.stringLocalizer = stringLocalizer;
     }
 
     /// <summary>
@@ -54,7 +59,7 @@ public class TrackingConsentViewComponent : ViewComponent
 
         var consents = await consentInfoProvider
             .Get()
-            .WhereIn($"ConsentName", new string[] {
+            .WhereIn("ConsentName", new string[] {
                 currentMapping.PreferenceConsentCodeName.FirstOrDefault(),
                 currentMapping.AnalyticalConsentCodeName.FirstOrDefault(),
                 currentMapping.MarketingConsentCodeName.FirstOrDefault() })
@@ -90,16 +95,16 @@ public class TrackingConsentViewComponent : ViewComponent
 
                 CookieMessage = new HtmlString(text),
 
-                CookieHeader = new HtmlString("This site uses cookies in the following ways"),
+                CookieHeader = new HtmlString(stringLocalizer["TrackingConsent.CookieHeader"]),
 
-                AcceptMessage = "Accept all cookies",
+                AcceptMessage = stringLocalizer["TrackingConsent.AcceptMessage"],
 
                 // Checks whether the current contact has given an agreement for a cookie level
                 IsAgreed = isAgreed,
 
                 RedirectUrl = "/cookie-policy",
 
-                ConfigureMessage = "Configure cookies",
+                ConfigureMessage = stringLocalizer["TrackingConsent.ConfigureMessage"],
 
                 ConsentMapping = stringEncryptionService.EncryptString(mapping)
 
@@ -120,19 +125,33 @@ public class TrackingConsentViewComponent : ViewComponent
     /// <param name="consents">ConsentInfo objects that are mapped to cookie levels</param>
     /// <param name="mapping">Cookie level consent mapping</param>
     /// <returns>true if cookie levels were updated or alredy up-to-date, false if there is an exception</returns>
-    private bool EnsureCorrectCookieLevel(ContactInfo contact, IEnumerable<ConsentInfo> consents, CookieLevelConsentMappingInfo mapping)
+    private bool EnsureCorrectCookieLevel(
+        ContactInfo contact,
+        IEnumerable<ConsentInfo> consents,
+        CookieLevelConsentMappingInfo mapping)
     {
 
-        CookieConsentLevel level = ValidationHelper.GetBoolean(cookieAccessor.Get(CookieNames.COOKIE_ACCEPTANCE), false) ? CookieConsentLevel.Essential : CookieConsentLevel.NotSet;
-        ConsentInfo preferenceConsent = consents.Where(consent => consent.ConsentName == mapping.PreferenceConsentCodeName.FirstOrDefault()).FirstOrDefault();
+        var level = ValidationHelper.GetBoolean(cookieAccessor.Get(CookieNames.COOKIE_ACCEPTANCE), false)
+                ? CookieConsentLevel.Essential
+                : CookieConsentLevel.NotSet;
+        var preferenceConsent = consents
+            .Where(consent => consent.ConsentName == mapping.PreferenceConsentCodeName.FirstOrDefault())
+            .FirstOrDefault();
+
         if (contact != null && preferenceConsent != null && consentAgreementService.IsAgreed(contact, preferenceConsent))
         {
             level = CookieConsentLevel.Preference;
-            ConsentInfo analyticalConsent = consents.Where(consent => consent.ConsentName == mapping.AnalyticalConsentCodeName.FirstOrDefault()).FirstOrDefault();
+            var analyticalConsent = consents
+                .Where(consent => consent.ConsentName == mapping.AnalyticalConsentCodeName.FirstOrDefault())
+                .FirstOrDefault();
+
             if (contact != null && analyticalConsent != null && consentAgreementService.IsAgreed(contact, analyticalConsent))
             {
                 level = CookieConsentLevel.Analytical;
-                ConsentInfo marketingConsent = consents.Where(consent => consent.ConsentName == mapping.MarketingConsentCodeName.FirstOrDefault()).FirstOrDefault();
+                var marketingConsent = consents
+                    .Where(consent => consent.ConsentName == mapping.MarketingConsentCodeName.FirstOrDefault())
+                    .FirstOrDefault();
+
                 if (contact != null && marketingConsent != null && consentAgreementService.IsAgreed(contact, marketingConsent))
                 {
                     level = CookieConsentLevel.Marketing;

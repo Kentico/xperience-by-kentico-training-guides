@@ -12,13 +12,22 @@
             <![CDATA[<p>Marketing cookies are used to provide relevant ads based on your activity</p>]]>
           </ShortText>
         </ConsentLanguageVersion>
+        <ConsentLanguageVersion>
+          <FullText>
+            <![CDATA[<p>Las cookies de marketing y los datos que usted nos proporciona nos permiten vincular nuestro sitio web a redes sociales y publicitarias de terceros, como Facebook o Google Ads. Con esta conexión podemos presentar anuncios relevantes fuera de nuestro sitio web.</p>]]>
+          </FullText>
+          <LanguageName>es</LanguageName>
+          <ShortText>
+            <![CDATA[<p>Las cookies de marketing se utilizan para proporcionar anuncios relevantes según su actividad.</p>]]>
+          </ShortText>
+        </ConsentLanguageVersion>
       </ConsentLanguageVersions>
     </ConsentContent>
   </ConsentContent>
   <ConsentDisplayName>Marketing cookies</ConsentDisplayName>
   <ConsentGuid>f12a51d0-322d-44d3-a8cc-ac29d760750e</ConsentGuid>
   <ConsentHash>
-    <![CDATA[86f954b1bf113228d5c718ec509448ee10ed235d5c63bd0323fd6e580df6adaa]]>
+    <![CDATA[a1058edc88eb35ff88ca8a433977e5309b176b7ed1d8ff4ddf58dd64213d9b50]]>
   </ConsentHash>
   <ConsentName>marketing.cookies.consent</ConsentName>
 </cms.consent>

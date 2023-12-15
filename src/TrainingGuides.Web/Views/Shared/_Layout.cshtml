@@ -5,7 +5,7 @@
 @using Kentico.Activities.Web.Mvc
 
 @{
-    var title = StringLocalizer["Title"];
+    var title = StringLocalizer["Shared.Title"];
     var baseUrl = $"{Context.Request.Scheme}://{Context.Request.Host + (string.IsNullOrWhiteSpace(Context.Request.PathBase) ? string.Empty : Context.Request.PathBase)}";
 }
 <!DOCTYPE html>
@@ -53,13 +53,13 @@
                             </div>
                             <div class="col-md-3 grid-item">
                                 <ul class="c-list-footer">
-                                    <li class="c-list-footer_item"><a href="https://www.kentico.com/platform/xap" target="_blank"><h2 class="">@StringLocalizer["XperienceAdoptersProgram"]</h2></a></li>
+                                    <li class="c-list-footer_item"><a href="https://www.kentico.com/platform/xap" target="_blank"><h2 class="">@StringLocalizer["Shared.XperienceAdoptersProgram"]</h2></a></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
-                <strong>@StringLocalizer["FooterMessage"]</strong>
+                <strong>@StringLocalizer["Shared.FooterMessage"]</strong>
             </div>
         </footer>
     </div>

@@ -12,13 +12,22 @@
             <![CDATA[<p>Analytical cookies are used to gather usage data to measure and improve performance.</p>]]>
           </ShortText>
         </ConsentLanguageVersion>
+        <ConsentLanguageVersion>
+          <FullText>
+            <![CDATA[<p>Las cookies analíticas y los datos que usted nos proporciona nos permiten realizar análisis de uso del sitio para medir y mejorar el rendimiento del sitio. Por ejemplo, sabemos qué páginas se visitan con más frecuencia, en qué botones hacen clic los usuarios, etc.</p>]]>
+          </FullText>
+          <LanguageName>es</LanguageName>
+          <ShortText>
+            <![CDATA[<p>Las cookies analíticas se utilizan para recopilar datos de uso para medir y mejorar el rendimiento.</p>]]>
+          </ShortText>
+        </ConsentLanguageVersion>
       </ConsentLanguageVersions>
     </ConsentContent>
   </ConsentContent>
   <ConsentDisplayName>Analytical cookies</ConsentDisplayName>
   <ConsentGuid>4564ddbc-f4be-4814-9d5d-396b04f31af0</ConsentGuid>
   <ConsentHash>
-    <![CDATA[6f68823cc28693194344518debdd8cd3558994afe8681bb6621f6262d53f741a]]>
+    <![CDATA[f05f735a01e292382f241dd1473cfb668d01eb7a7ffa7e149894721a2d0f9564]]>
   </ConsentHash>
   <ConsentName>analytical.cookies.consent</ConsentName>
 </cms.consent>
