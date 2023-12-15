@@ -1,18 +1,23 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Localization;
+using TrainingGuides.Web.Features.Shared.Resources;
 
 namespace TrainingGuides.Web.Features.Header;
 
 public class HeaderViewComponent : ViewComponent
 {
 
-    public HeaderViewComponent()
-    { }
+    private readonly IStringLocalizer<SharedResources> localizer;
+    public HeaderViewComponent(IStringLocalizer<SharedResources> localizer)
+    {
+        this.localizer = localizer;
+    }
 
     public IViewComponentResult Invoke()
     {
         var model = new HeaderViewModel()
         {
-            Heading = "Training guides"
+            Heading = localizer["Heading"]
         };
         return View("~/Features/Header/Header.cshtml", model);
     }

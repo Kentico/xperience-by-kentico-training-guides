@@ -90,6 +90,5 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
             contentItemRetrieverService.RetrieveWebPageById(
                 webPageItemId,
                 contentTypeName,
-                contentTypeDictionary[contentTypeName],
-                1);
+                contentTypeDictionary[contentTypeName]);
 }

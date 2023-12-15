@@ -44,12 +44,21 @@ public class TrackingConsentViewComponent : ViewComponent
     {
         var currentMapping = await cookieConsentService.GetCurrentMapping();
 
-        if (currentMapping == null || currentMapping.PreferenceConsentCodeName.Count() == 0 || currentMapping.AnalyticalConsentCodeName.Count() == 0 || currentMapping.MarketingConsentCodeName.Count() == 0)
+        if (currentMapping == null
+            || currentMapping.PreferenceConsentCodeName.Count() == 0
+            || currentMapping.AnalyticalConsentCodeName.Count() == 0
+            || currentMapping.MarketingConsentCodeName.Count() == 0)
         {
             return Content(string.Empty);
         }
 
-        var consents = await consentInfoProvider.Get().WhereIn($"ConsentName", new string[] { currentMapping.PreferenceConsentCodeName.FirstOrDefault(), currentMapping.AnalyticalConsentCodeName.FirstOrDefault(), currentMapping.MarketingConsentCodeName.FirstOrDefault() }).GetEnumerableTypedResultAsync();
+        var consents = await consentInfoProvider
+            .Get()
+            .WhereIn($"ConsentName", new string[] {
+                currentMapping.PreferenceConsentCodeName.FirstOrDefault(),
+                currentMapping.AnalyticalConsentCodeName.FirstOrDefault(),
+                currentMapping.MarketingConsentCodeName.FirstOrDefault() })
+            .GetEnumerableTypedResultAsync();
 
         if (consents.Count() > 0)
         {
@@ -58,14 +67,14 @@ public class TrackingConsentViewComponent : ViewComponent
             string text = "<ul>";
             List<string> codenames = [];
             bool isAgreed = false;
-            foreach (ConsentInfo consent in consents)
+            foreach (var consent in consents)
             {
                 codenames.Add(consent.ConsentName);
 
                 text += $"<li>{(await consent.GetConsentTextAsync(preferredLanguageRetriever.Get())).ShortText}</li>";
 
                 //agreed will end up being true if the contact has agreed to at least one consent
-                isAgreed = isAgreed || (currentContact != null) && consentAgreementService.IsAgreed(currentContact, consent);
+                isAgreed = isAgreed || ((currentContact != null) && consentAgreementService.IsAgreed(currentContact, consent));
             }
             text += "</ul>";
 
