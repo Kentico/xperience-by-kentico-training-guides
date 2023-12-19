@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Html;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ViewComponents;
+using Microsoft.Extensions.Localization;
 using CMS.DataProtection;
 using Kentico.Content.Web.Mvc.Routing;
 using Kentico.PageBuilder.Web.Mvc;
@@ -10,6 +11,7 @@ using TrainingGuides.Web.Features.DataProtection.Services;
 using TrainingGuides.Web.Features.DataProtection.Shared;
 using TrainingGuides.Web.Features.DataProtection.Widgets.CookiePreferences;
 using TrainingGuides.Web.Features.Shared.Services;
+using TrainingGuides.Web.Features.Shared.Resources;
 
 [assembly: RegisterWidget(
     identifier: CookiePreferencesWidgetViewComponent.IDENTIFIER,
@@ -23,7 +25,10 @@ namespace TrainingGuides.Web.Features.DataProtection.Widgets.CookiePreferences;
 
 public class CookiePreferencesWidgetViewComponent : ViewComponent
 {
-    private const string CONSENT_MISSING_HEADER = "CONSENT NOT FOUND";
+    //make sure the values of the following 3 constants match names in .resx file(s)
+    private const string PREFERENCE_COOKIES_HEADER = "Preference cookies";
+    private const string ANALYTICAL_COOKIES_HEADER = "Analytical cookies";
+    private const string MARKETING_COOKIES_HEADER = "Marketing cookies";
     private readonly HtmlString consentMissingDescription = new("Please ensure that a valid consent is mapped to this cookie level in the Data protection application.");
 
 
@@ -37,6 +42,7 @@ public class CookiePreferencesWidgetViewComponent : ViewComponent
     private readonly IPreferredLanguageRetriever preferredLanguageRetriever;
     private readonly ICookieConsentService cookieConsentService;
     private readonly IHttpRequestService httpRequestService;
+    private readonly IStringLocalizer<SharedResources> stringLocalizer;
 
     /// <summary>
     /// Creates an instance of <see cref="CookiePreferencesWidgetViewComponent"/> class.
@@ -46,13 +52,15 @@ public class CookiePreferencesWidgetViewComponent : ViewComponent
         IStringEncryptionService stringEncryptionService,
         IPreferredLanguageRetriever preferredLanguageRetriever,
         ICookieConsentService cookieConsentService,
-        IHttpRequestService httpRequestService)
+        IHttpRequestService httpRequestService,
+        IStringLocalizer<SharedResources> stringLocalizer)
     {
         this.consentInfoProvider = consentInfoProvider;
         this.stringEncryptionService = stringEncryptionService;
         this.preferredLanguageRetriever = preferredLanguageRetriever;
         this.cookieConsentService = cookieConsentService;
         this.httpRequestService = httpRequestService;
+        this.stringLocalizer = stringLocalizer;
     }
 
     /// <summary>
@@ -76,13 +84,15 @@ public class CookiePreferencesWidgetViewComponent : ViewComponent
             EssentialHeader = properties.EssentialHeader,
             EssentialDescription = properties.EssentialDescription,
 
-            PreferenceHeader = preferenceCookiesConsent?.ConsentDisplayName ?? CONSENT_MISSING_HEADER,
+            // alternatively, use preferenceCookiesConsent?.ConsentDisplayName preperty for header.
+            // Be advised, this propery does not support multiple language versions in Xperience.
+            PreferenceHeader = stringLocalizer[PREFERENCE_COOKIES_HEADER],
             PreferenceDescription = new HtmlString((await preferenceCookiesConsent?.GetConsentTextAsync(preferredLanguageRetriever.Get())).FullText) ?? consentMissingDescription,
 
-            AnalyticalHeader = analyticalCookiesConsent?.ConsentDisplayName ?? CONSENT_MISSING_HEADER,
+            AnalyticalHeader = stringLocalizer[ANALYTICAL_COOKIES_HEADER],
             AnalyticalDescription = new HtmlString((await analyticalCookiesConsent?.GetConsentTextAsync(preferredLanguageRetriever.Get())).FullText) ?? consentMissingDescription,
 
-            MarketingHeader = marketingCookiesConsent?.ConsentDisplayName ?? CONSENT_MISSING_HEADER,
+            MarketingHeader = stringLocalizer[MARKETING_COOKIES_HEADER],
             MarketingDescription = new HtmlString((await marketingCookiesConsent?.GetConsentTextAsync(preferredLanguageRetriever.Get())).FullText) ?? consentMissingDescription,
 
             ConsentMapping = stringEncryptionService.EncryptString(mapping),

@@ -100,16 +100,16 @@ public class TrackingConsentViewComponent : ViewComponent
 
                 CookieMessage = new HtmlString(text),
 
-                CookieHeader = new HtmlString(stringLocalizer["TrackingConsent.CookieHeader"]),
+                CookieHeader = new HtmlString(stringLocalizer["This site uses cookies in the following ways"]),
 
-                AcceptMessage = stringLocalizer["TrackingConsent.AcceptMessage"],
+                AcceptMessage = stringLocalizer["Accept all cookies"],
 
                 // Checks whether the current contact has given an agreement for a cookie level
                 IsAgreed = isAgreed,
 
                 RedirectUrl = "/cookie-policy",
 
-                ConfigureMessage = stringLocalizer["TrackingConsent.ConfigureMessage"],
+                ConfigureMessage = stringLocalizer["Configure cookies"],
 
                 ConsentMapping = stringEncryptionService.EncryptString(mapping),
 

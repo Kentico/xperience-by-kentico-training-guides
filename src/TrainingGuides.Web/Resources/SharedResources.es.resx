@@ -117,25 +117,36 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Header.Heading" xml:space="preserve">
+  <data name="Training guides" xml:space="preserve">
     <value>Guías de formación</value>
   </data>
-  <data name="Shared.Title" xml:space="preserve">
+  <data name="Kentico training guides" xml:space="preserve">
     <value>Kentico guías de formación</value>
   </data>
-  <data name="Shared.XperienceAdoptersProgram" xml:space="preserve">
+  <data name="Xperience Adopters Program" xml:space="preserve">
     <value>Xperience Programa de Adoptantes</value>
   </data>
-  <data name="Shared.FooterMessage" xml:space="preserve">
+  <data name="Xperience by Kentico training guide samples." xml:space="preserve">
     <value>Muestras de guías de formación de Xperience by Kentico.</value>
   </data>
-  <data name="TrackingConsent.CookieHeader" xml:space="preserve">
+  <data name="This site uses cookies in the following ways" xml:space="preserve">
     <value>Este sitio utiliza cookies de las siguientes maneras</value>
   </data>
-  <data name="TrackingConsent.AcceptMessage" xml:space="preserve">
+
+  <data name="Accept all cookies" xml:space="preserve">
     <value>Aceptar todas las cookies</value>
   </data>
-  <data name="TrackingConsent.ConfigureMessage" xml:space="preserve">
+  <data name="Configure cookies" xml:space="preserve">
     <value>Configurar cookies</value>
+  </data>
+  
+  <data name="Preference cookies" xml:space="preserve">
+    <value>Cookies de preferencia</value>
+  </data>
+  <data name="Analytical cookies" xml:space="preserve">
+    <value>Cookies analíticas</value>
+  </data>
+  <data name="Marketing cookies" xml:space="preserve">
+    <value>Cookies de marketing</value>
   </data>
 </root>

@@ -17,7 +17,7 @@ public class HeaderViewComponent : ViewComponent
     {
         var model = new HeaderViewModel()
         {
-            Heading = stringLocalizer["Header.Heading"]
+            Heading = stringLocalizer["Training guides"]
         };
         return View("~/Features/Header/Header.cshtml", model);
     }
