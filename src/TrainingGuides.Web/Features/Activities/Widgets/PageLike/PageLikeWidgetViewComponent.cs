@@ -19,15 +19,18 @@ public class PageLikeWidgetViewComponent : ViewComponent
 {
     private readonly IActivityInfoProvider activityInfoProvider;
     private readonly IContentItemRetrieverService contentItemRetrieverService;
+    private readonly IHttpRequestService httpRequestService;
 
     public const string IDENTIFIER = "TrainingGuides.PageLikeWidget";
     public const string ACTIVITY_IDENTIFIER = "pagelike";
 
     public PageLikeWidgetViewComponent(IActivityInfoProvider activityInfoProvider,
-        IContentItemRetrieverService contentItemRetrieverService)
+        IContentItemRetrieverService contentItemRetrieverService,
+        IHttpRequestService httpRequestService)
     {
         this.activityInfoProvider = activityInfoProvider;
         this.contentItemRetrieverService = contentItemRetrieverService;
+        this.httpRequestService = httpRequestService;
     }
 
     public async Task<ViewViewComponentResult> InvokeAsync(ComponentViewModel properties)
@@ -52,7 +55,8 @@ public class PageLikeWidgetViewComponent : ViewComponent
         {
             ShowLikeButton = showLikeButton,
             WebPageItemID = properties.Page.WebPageItemID,
-            ContentTypeName = properties.Page.ContentTypeName
+            ContentTypeName = properties.Page.ContentTypeName,
+            BaseUrl = httpRequestService.GetBaseUrl()
         };
 
         return View("~/Features/Activities/Widgets/PageLike/PageLikeWidget.cshtml", model);

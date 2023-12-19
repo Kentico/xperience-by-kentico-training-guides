@@ -1,10 +1,8 @@
-﻿@using TrainingGuides.Web.Features.Shared.Extensions;
-@using TrainingGuides.Web.Features.Activities.Widgets.PageLike;
+﻿@using TrainingGuides.Web.Features.Activities.Widgets.PageLike;
 
 @model PageLikeWidgetViewModel
 
 @{
-    var baseUrl = Context.Request.GetBaseUrl();
     var messageId = "pageLikeMessage";
 }
 
@@ -15,7 +13,7 @@
          HttpMethod = "POST",
          InsertionMode = InsertionMode.Replace,
          UpdateTargetId = messageId
-     }, new { action = $"{baseUrl}/pagelike" }))
+     }, new { action = $"{Model.BaseUrl}/pagelike" }))
     {
         <div class="container">
             <div class="cookie-preferences js-cookie-preferences">

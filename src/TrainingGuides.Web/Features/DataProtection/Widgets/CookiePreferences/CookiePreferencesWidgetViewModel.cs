@@ -15,4 +15,5 @@ public class CookiePreferencesWidgetViewModel
     public string ButtonText { get; set; }
     public int CookieLevelSelected { get; set; }
     public string ConsentMapping { get; set; }
+    public string BaseUrl { get; set; }
 }

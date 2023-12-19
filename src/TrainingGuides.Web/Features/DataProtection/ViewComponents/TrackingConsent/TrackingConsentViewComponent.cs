@@ -10,6 +10,7 @@ using TrainingGuides.Admin;
 using TrainingGuides.Web.Features.DataProtection.Services;
 using TrainingGuides.Web.Features.DataProtection.Shared;
 using TrainingGuides.Web.Features.Shared.Resources;
+using TrainingGuides.Web.Features.Shared.Services;
 
 namespace TrainingGuides.Web.Features.DataProtection.ViewComponents.TrackingConsent;
 
@@ -22,6 +23,8 @@ public class TrackingConsentViewComponent : ViewComponent
     private readonly IPreferredLanguageRetriever preferredLanguageRetriever;
     private readonly ICookieConsentService cookieConsentService;
     private readonly IStringLocalizer<SharedResources> stringLocalizer;
+    private readonly IHttpRequestService httpRequestService;
+
 
     public TrackingConsentViewComponent(
         IConsentAgreementService consentAgreementService,
@@ -30,7 +33,8 @@ public class TrackingConsentViewComponent : ViewComponent
         ICookieAccessor cookieAccessor,
         IPreferredLanguageRetriever preferredLanguageRetriever,
         ICookieConsentService cookieConsentService,
-        IStringLocalizer<SharedResources> stringLocalizer)
+        IStringLocalizer<SharedResources> stringLocalizer,
+        IHttpRequestService httpRequestService)
     {
         this.consentAgreementService = consentAgreementService;
         this.consentInfoProvider = consentInfoProvider;
@@ -39,6 +43,7 @@ public class TrackingConsentViewComponent : ViewComponent
         this.preferredLanguageRetriever = preferredLanguageRetriever;
         this.cookieConsentService = cookieConsentService;
         this.stringLocalizer = stringLocalizer;
+        this.httpRequestService = httpRequestService;
     }
 
     /// <summary>
@@ -106,7 +111,10 @@ public class TrackingConsentViewComponent : ViewComponent
 
                 ConfigureMessage = stringLocalizer["TrackingConsent.ConfigureMessage"],
 
-                ConsentMapping = stringEncryptionService.EncryptString(mapping)
+                ConsentMapping = stringEncryptionService.EncryptString(mapping),
+
+                // Gets the page's current URL
+                BaseUrl = httpRequestService.GetBaseUrl()
 
             };
 

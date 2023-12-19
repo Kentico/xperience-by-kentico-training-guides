@@ -1,14 +1,15 @@
-﻿using CMS.DataProtection;
-using TrainingGuides.Admin;
-using TrainingGuides.Web.Features.DataProtection.Widgets.CookiePreferences;
-using Kentico.Content.Web.Mvc.Routing;
-using Kentico.PageBuilder.Web.Mvc;
+﻿using Microsoft.AspNetCore.Html;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ViewComponents;
+using CMS.DataProtection;
+using Kentico.Content.Web.Mvc.Routing;
+using Kentico.PageBuilder.Web.Mvc;
 using Newtonsoft.Json;
+using TrainingGuides.Admin;
 using TrainingGuides.Web.Features.DataProtection.Services;
 using TrainingGuides.Web.Features.DataProtection.Shared;
-using Microsoft.AspNetCore.Html;
+using TrainingGuides.Web.Features.DataProtection.Widgets.CookiePreferences;
+using TrainingGuides.Web.Features.Shared.Services;
 
 [assembly: RegisterWidget(
     identifier: CookiePreferencesWidgetViewComponent.IDENTIFIER,
@@ -35,6 +36,7 @@ public class CookiePreferencesWidgetViewComponent : ViewComponent
     private readonly IStringEncryptionService stringEncryptionService;
     private readonly IPreferredLanguageRetriever preferredLanguageRetriever;
     private readonly ICookieConsentService cookieConsentService;
+    private readonly IHttpRequestService httpRequestService;
 
     /// <summary>
     /// Creates an instance of <see cref="CookiePreferencesWidgetViewComponent"/> class.
@@ -43,12 +45,14 @@ public class CookiePreferencesWidgetViewComponent : ViewComponent
         IConsentInfoProvider consentInfoProvider,
         IStringEncryptionService stringEncryptionService,
         IPreferredLanguageRetriever preferredLanguageRetriever,
-        ICookieConsentService cookieConsentService)
+        ICookieConsentService cookieConsentService,
+        IHttpRequestService httpRequestService)
     {
         this.consentInfoProvider = consentInfoProvider;
         this.stringEncryptionService = stringEncryptionService;
         this.preferredLanguageRetriever = preferredLanguageRetriever;
         this.cookieConsentService = cookieConsentService;
+        this.httpRequestService = httpRequestService;
     }
 
     /// <summary>
@@ -65,7 +69,7 @@ public class CookiePreferencesWidgetViewComponent : ViewComponent
         var analyticalCookiesConsent = await consentInfoProvider.GetAsync(currentMapping?.AnalyticalConsentCodeName.FirstOrDefault());
         var marketingCookiesConsent = await consentInfoProvider.GetAsync(currentMapping?.MarketingConsentCodeName.FirstOrDefault());
 
-        var mapping = GetMappingString(currentMapping);
+        string mapping = GetMappingString(currentMapping);
 
         return View("~/Features/DataProtection/Widgets/CookiePreferences/CookiePreferencesWidget.cshtml", new CookiePreferencesWidgetViewModel
         {
@@ -83,7 +87,9 @@ public class CookiePreferencesWidgetViewComponent : ViewComponent
 
             ConsentMapping = stringEncryptionService.EncryptString(mapping),
 
-            ButtonText = properties.ButtonText
+            ButtonText = properties.ButtonText,
+
+            BaseUrl = httpRequestService.GetBaseUrl()
         });
     }
 
