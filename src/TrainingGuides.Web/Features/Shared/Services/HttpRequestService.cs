@@ -25,11 +25,13 @@ public class HttpRequestService : IHttpRequestService
         var webPageUrlPathList = ((string)request.RouteValues[WEB_PAGE_URL_PATHS])?.Split('/').ToList() ?? [];
         string language = preferredLanguageRetriever.Get();
 
-        string baseUrl = $"{request.Scheme}://{request.Host}"
-            + (webPageUrlPathList.Contains(language)
-                ? $"/{language}"
-                : string.Empty);
+        bool isPrimaryLanguage = webPageUrlPathList.Contains(language);
 
-        return !string.IsNullOrWhiteSpace(pathBase) ? $"{baseUrl}{pathBase}" : baseUrl;
+        string baseUrl = $"{request.Scheme}://{request.Host}"
+            + (isPrimaryLanguage
+                ? string.Empty
+                : $"/{language}");
+
+        return string.IsNullOrWhiteSpace(pathBase) ? baseUrl : $"{baseUrl}{pathBase}";
     }
 }
