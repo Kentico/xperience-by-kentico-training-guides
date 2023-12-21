@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ViewComponents;
 using Microsoft.Extensions.Localization;
 using CMS.DataProtection;
+using Kentico.Web.Mvc;
 using Kentico.Content.Web.Mvc.Routing;
 using Kentico.PageBuilder.Web.Mvc;
 using Newtonsoft.Json;
@@ -11,7 +12,6 @@ using TrainingGuides.Web.Features.DataProtection.Services;
 using TrainingGuides.Web.Features.DataProtection.Shared;
 using TrainingGuides.Web.Features.DataProtection.Widgets.CookiePreferences;
 using TrainingGuides.Web.Features.Shared.Services;
-using TrainingGuides.Web.Features.Shared.Resources;
 
 [assembly: RegisterWidget(
     identifier: CookiePreferencesWidgetViewComponent.IDENTIFIER,
@@ -41,6 +41,7 @@ public class CookiePreferencesWidgetViewComponent : ViewComponent
     private readonly IStringEncryptionService stringEncryptionService;
     private readonly IPreferredLanguageRetriever preferredLanguageRetriever;
     private readonly ICookieConsentService cookieConsentService;
+    private readonly ICookieAccessor cookieAccessor;
     private readonly IHttpRequestService httpRequestService;
     private readonly IStringLocalizer<SharedResources> stringLocalizer;
 
@@ -52,6 +53,7 @@ public class CookiePreferencesWidgetViewComponent : ViewComponent
         IStringEncryptionService stringEncryptionService,
         IPreferredLanguageRetriever preferredLanguageRetriever,
         ICookieConsentService cookieConsentService,
+        ICookieAccessor cookieAccessor,
         IHttpRequestService httpRequestService,
         IStringLocalizer<SharedResources> stringLocalizer)
     {
@@ -59,6 +61,7 @@ public class CookiePreferencesWidgetViewComponent : ViewComponent
         this.stringEncryptionService = stringEncryptionService;
         this.preferredLanguageRetriever = preferredLanguageRetriever;
         this.cookieConsentService = cookieConsentService;
+        this.cookieAccessor = cookieAccessor;
         this.httpRequestService = httpRequestService;
         this.stringLocalizer = stringLocalizer;
     }
@@ -78,6 +81,7 @@ public class CookiePreferencesWidgetViewComponent : ViewComponent
         var marketingCookiesConsent = await consentInfoProvider.GetAsync(currentMapping?.MarketingConsentCodeName.FirstOrDefault());
 
         string mapping = GetMappingString(currentMapping);
+        string language = preferredLanguageRetriever.Get();
 
         return View("~/Features/DataProtection/Widgets/CookiePreferences/CookiePreferencesWidget.cshtml", new CookiePreferencesWidgetViewModel
         {
@@ -87,13 +91,15 @@ public class CookiePreferencesWidgetViewComponent : ViewComponent
             // alternatively, use preferenceCookiesConsent?.ConsentDisplayName preperty for header.
             // Be advised, this propery does not support multiple language versions in Xperience.
             PreferenceHeader = stringLocalizer[PREFERENCE_COOKIES_HEADER],
-            PreferenceDescription = new HtmlString((await preferenceCookiesConsent?.GetConsentTextAsync(preferredLanguageRetriever.Get())).FullText) ?? consentMissingDescription,
+            PreferenceDescription = new HtmlString((await preferenceCookiesConsent?.GetConsentTextAsync(language)).FullText) ?? consentMissingDescription,
 
             AnalyticalHeader = stringLocalizer[ANALYTICAL_COOKIES_HEADER],
-            AnalyticalDescription = new HtmlString((await analyticalCookiesConsent?.GetConsentTextAsync(preferredLanguageRetriever.Get())).FullText) ?? consentMissingDescription,
+            AnalyticalDescription = new HtmlString((await analyticalCookiesConsent?.GetConsentTextAsync(language)).FullText) ?? consentMissingDescription,
 
             MarketingHeader = stringLocalizer[MARKETING_COOKIES_HEADER],
-            MarketingDescription = new HtmlString((await marketingCookiesConsent?.GetConsentTextAsync(preferredLanguageRetriever.Get())).FullText) ?? consentMissingDescription,
+            MarketingDescription = new HtmlString((await marketingCookiesConsent?.GetConsentTextAsync(language)).FullText) ?? consentMissingDescription,
+
+            CookieLevelSelected = CMS.Helpers.ValidationHelper.GetInteger(cookieAccessor.Get(CookieNames.COOKIE_CONSENT_LEVEL), 1),
 
             ConsentMapping = stringEncryptionService.EncryptString(mapping),
 

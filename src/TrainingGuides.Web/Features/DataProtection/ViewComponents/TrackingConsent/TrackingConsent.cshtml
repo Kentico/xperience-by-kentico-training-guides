@@ -32,7 +32,7 @@
                     }
                     @if (!string.IsNullOrWhiteSpace(Model.RedirectUrl) && !string.IsNullOrWhiteSpace(Model.ConfigureMessage))
                     {
-                        <a href="@string.Format("{0}{1}", Model.BaseUrl, Model.RedirectUrl)" class="xpcookiebanner__cta" data-tracking-code="CookieBar_More">
+                        <a href="@string.Format("{0}{1}", Model.BaseUrlWithLanguage, Model.RedirectUrl)" class="xpcookiebanner__cta" data-tracking-code="CookieBar_More">
                             @Model.ConfigureMessage
                         </a>
                     }

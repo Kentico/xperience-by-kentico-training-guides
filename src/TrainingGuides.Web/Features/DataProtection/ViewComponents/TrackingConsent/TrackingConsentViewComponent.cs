@@ -9,7 +9,6 @@ using Kentico.Web.Mvc;
 using TrainingGuides.Admin;
 using TrainingGuides.Web.Features.DataProtection.Services;
 using TrainingGuides.Web.Features.DataProtection.Shared;
-using TrainingGuides.Web.Features.Shared.Resources;
 using TrainingGuides.Web.Features.Shared.Services;
 
 namespace TrainingGuides.Web.Features.DataProtection.ViewComponents.TrackingConsent;
@@ -113,8 +112,9 @@ public class TrackingConsentViewComponent : ViewComponent
 
                 ConsentMapping = stringEncryptionService.EncryptString(mapping),
 
-                // Gets the page's current URL
-                BaseUrl = httpRequestService.GetBaseUrl()
+                BaseUrl = httpRequestService.GetBaseUrl(),
+
+                BaseUrlWithLanguage = httpRequestService.GetBaseUrlWithLanguage()
 
             };
 

@@ -14,24 +14,39 @@ public class HttpRequestService : IHttpRequestService
         this.httpContextAccessor = httpContextAccessor;
         this.preferredLanguageRetriever = preferredLanguageRetriever;
     }
+    private string GetBaseUrl(HttpRequest currentRequest)
+    {
+        string pathBase = currentRequest.PathBase.ToString();
+        string baseUrl = $"{currentRequest.Scheme}://{currentRequest.Host}";
+
+        return string.IsNullOrWhiteSpace(pathBase) ? baseUrl : $"{baseUrl}{pathBase}";
+    }
+
     /// <summary>
     /// Retrieves Base URL from the current request context.
     /// </summary>
-    /// <returns>The base URL in current language variant. (e.g. website.com or website.com/es)</returns>
+    /// <returns>The base URL. If current request contains language, it will NOT be returned with the base URL.</returns>
     public string GetBaseUrl()
     {
-        var request = httpContextAccessor?.HttpContext?.Request;
-        string pathBase = request.PathBase.ToString();
-        var webPageUrlPathList = ((string)request.RouteValues[WEB_PAGE_URL_PATHS])?.Split('/').ToList() ?? [];
+        var currentRequest = httpContextAccessor?.HttpContext?.Request;
+        return GetBaseUrl(currentRequest);
+    }
+
+    /// <summary>
+    /// Retrieves Base URL from the current request context. If current site is in a language variant, returns language with the base URL as well
+    /// </summary>
+    /// <returns>The base URL in current language variant. (e.g. website.com or website.com/es)</returns>
+    public string GetBaseUrlWithLanguage()
+    {
+        var currentRequest = httpContextAccessor?.HttpContext?.Request;
+        var webPageUrlPathList = ((string)currentRequest.RouteValues[WEB_PAGE_URL_PATHS])?.Split('/').ToList() ?? [];
         string language = preferredLanguageRetriever.Get();
 
-        bool isPrimaryLanguage = webPageUrlPathList.Contains(language);
+        bool notPrimaryLanguage = webPageUrlPathList.Contains(language);
 
-        string baseUrl = $"{request.Scheme}://{request.Host}"
-            + (isPrimaryLanguage
-                ? string.Empty
-                : $"/{language}");
-
-        return string.IsNullOrWhiteSpace(pathBase) ? baseUrl : $"{baseUrl}{pathBase}";
+        return GetBaseUrl(currentRequest)
+            + (notPrimaryLanguage
+                ? $"/{language}"
+                : string.Empty);
     }
 }

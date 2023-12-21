@@ -1,9 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Localization;
-using TrainingGuides.Web.Features.Shared.Resources;
 
 namespace TrainingGuides.Web.Features.Header;
-
 public class HeaderViewComponent : ViewComponent
 {
 

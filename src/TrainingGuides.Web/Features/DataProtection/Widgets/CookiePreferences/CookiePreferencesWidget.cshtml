@@ -5,12 +5,9 @@
 
 @model CookiePreferencesWidgetViewModel;
 
-@inject ICookieAccessor cookieAccessor
-
 @{
     Layout = null;
     var messageId = "cookiePreferencesMessage";
-    Model.CookieLevelSelected = CMS.Helpers.ValidationHelper.GetInteger(cookieAccessor.Get(CookieNames.COOKIE_CONSENT_LEVEL), 1);
 }
 
 @using (Html.AjaxBeginForm("CookiePreferences", "Cookies", new AjaxOptions

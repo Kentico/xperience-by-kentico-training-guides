@@ -1,4 +1,4 @@
-﻿namespace TrainingGuides.Web.Features.Shared.Resources;
+﻿namespace TrainingGuides.Web;
 
 public class SharedResources
 {

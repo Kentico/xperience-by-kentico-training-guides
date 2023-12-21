@@ -12,4 +12,5 @@ public class TrackingConsentViewModel
     public string ConfigureMessage { get; set; }
     public string ConsentMapping { get; set; }
     public string BaseUrl { get; set; }
+    public string BaseUrlWithLanguage { get; set; }
 }

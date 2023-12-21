@@ -2,11 +2,14 @@
 @using TrainingGuides.Web.Features.DataProtection.ViewComponents.TrackingConsent
 @using TrainingGuides.Web.Features.Activities.ViewComponents.CustomActivityScripts
 @using TrainingGuides.Web.Features.Activities.ViewComponents.TrackingScripts
+@using TrainingGuides.Web.Features.Shared.Services;
 @using Kentico.Activities.Web.Mvc
+
+@inject IHttpRequestService httpRequestService
 
 @{
     var title = StringLocalizer["Kentico training guides"];
-    var baseUrl = $"{Context.Request.Scheme}://{Context.Request.Host + (string.IsNullOrWhiteSpace(Context.Request.PathBase) ? string.Empty : Context.Request.PathBase)}";
+    var baseUrl = httpRequestService.GetBaseUrl();
 }
 <!DOCTYPE html>
 
