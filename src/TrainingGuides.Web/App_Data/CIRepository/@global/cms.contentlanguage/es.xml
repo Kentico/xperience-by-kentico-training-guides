@@ -1,7 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.contentlanguage>
   <ContentLanguageCultureFormat>es-ES</ContentLanguageCultureFormat>
-  <ContentLanguageDisplayName>Spanish</ContentLanguageDisplayName>
+  <ContentLanguageDisplayName>
+    <![CDATA[Español]]>
+  </ContentLanguageDisplayName>
   <ContentLanguageFallbackContentLanguageID>
     <CodeName>en</CodeName>
     <GUID>e81b5172-f240-4041-88b1-653089984e29</GUID>

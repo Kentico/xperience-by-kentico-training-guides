@@ -1,3 +1,4 @@
+using Kentico.Content.Web.Mvc;
 using Kentico.Content.Web.Mvc.Routing;
 
 namespace TrainingGuides.Web.Features.Shared.Services;
@@ -6,13 +7,19 @@ public class HttpRequestService : IHttpRequestService
 {
     private readonly IHttpContextAccessor httpContextAccessor;
     private readonly IPreferredLanguageRetriever preferredLanguageRetriever;
+    private readonly IWebPageDataContextRetriever webPageDataContextRetriever;
+    private readonly IWebPageUrlRetriever webPageUrlRetriever;
     private const string WEB_PAGE_URL_PATHS = "Kentico.WebPageUrlPaths";
 
     public HttpRequestService(IHttpContextAccessor httpContextAccessor,
-    IPreferredLanguageRetriever preferredLanguageRetriever)
+    IPreferredLanguageRetriever preferredLanguageRetriever,
+    IWebPageDataContextRetriever webPageDataContextRetriever,
+    IWebPageUrlRetriever webPageUrlRetriever)
     {
         this.httpContextAccessor = httpContextAccessor;
         this.preferredLanguageRetriever = preferredLanguageRetriever;
+        this.webPageDataContextRetriever = webPageDataContextRetriever;
+        this.webPageUrlRetriever = webPageUrlRetriever;
     }
     private string GetBaseUrl(HttpRequest currentRequest)
     {
@@ -48,5 +55,12 @@ public class HttpRequestService : IHttpRequestService
             + (notPrimaryLanguage
                 ? $"/{language}"
                 : string.Empty);
+    }
+
+    public async Task<string> GetCurrentPageUrlForLanguage(string language)
+    {
+        var currentPage = webPageDataContextRetriever.Retrieve().WebPage;
+        var url = await webPageUrlRetriever.Retrieve(currentPage.WebPageItemID, language);
+        return url.RelativePath;
     }
 }
