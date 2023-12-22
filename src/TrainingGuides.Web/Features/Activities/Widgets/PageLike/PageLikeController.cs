@@ -29,7 +29,7 @@ public class PageLikeController : Controller
     [HttpPost("/pagelike")]
     public async Task<IActionResult> PageLike(PageLikeRequestModel requestModel)
     {
-        if (!cookieConsentService.CurrentContactIsVisitorOrHigher())
+        if (!cookieConsentService.CurrentContactCanBeTracked())
             return Content(NO_TRACKING_MESSAGE);
 
         if (!int.TryParse(requestModel.WebPageItemID, out int webPageItemID))

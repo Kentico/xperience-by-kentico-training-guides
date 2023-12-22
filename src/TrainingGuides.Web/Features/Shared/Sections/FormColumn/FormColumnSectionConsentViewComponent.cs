@@ -26,8 +26,8 @@ public class FormColumnSectionConsentViewComponent : ViewComponent
 
     public IViewComponentResult Invoke(ComponentViewModel<FormColumnSectionProperties> sectionProperties)
     {
-        //If the CMSCookieLevel is set to 200 (Visitor) or higher, and Data Protection is set up, it means the visitor has the appropriate consent level for tracking.
-        bool showContents = cookieConsentService.CurrentContactIsVisitorOrHigher();
+        //If the CMSCookieLevel is set to All (1000) or higher, and Data Protection is set up, it means the visitor has the appropriate consent level for tracking.
+        bool showContents = cookieConsentService.CurrentContactCanBeTracked();
 
         var model = new FormColumnSectionViewModel()
         {

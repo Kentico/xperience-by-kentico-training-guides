@@ -4,7 +4,7 @@ using TrainingGuides.Web.Features.DataProtection.Shared;
 namespace TrainingGuides.Web.Features.DataProtection.Services;
 public interface ICookieConsentService
 {
-    bool CurrentContactIsVisitorOrHigher();
+    bool CurrentContactCanBeTracked();
     CookieConsentLevel GetCurrentCookieConsentLevel();
     Task<CookieLevelConsentMappingInfo> GetCurrentMapping();
     Task<bool> SetCurrentCookieConsentLevel(CookieConsentLevel level, IDictionary<int, string> mapping);

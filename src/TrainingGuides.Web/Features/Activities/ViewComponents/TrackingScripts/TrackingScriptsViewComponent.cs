@@ -17,7 +17,7 @@ public class TrackingScriptsViewComponent : ViewComponent
     {
         var model = new ContactTrackingAllowedViewModel()
         {
-            ContactTrackingAllowed = cookieConsentService.CurrentContactIsVisitorOrHigher()
+            ContactTrackingAllowed = cookieConsentService.CurrentContactCanBeTracked()
         };
 
         return View("~/Features/Activities/ViewComponents/TrackingScripts/TrackingScripts.cshtml", model);
