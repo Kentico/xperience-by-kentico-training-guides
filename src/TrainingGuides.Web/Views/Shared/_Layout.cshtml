@@ -1,7 +1,6 @@
 ﻿@using TrainingGuides.Web.Features.Header
 @{
     var title = $"Kentico training guides";
-    var baseUrl = $"{Context.Request.Scheme}://{Context.Request.Host + (string.IsNullOrWhiteSpace(Context.Request.PathBase) ? string.Empty : Context.Request.PathBase)}";
 }
 <!DOCTYPE html>
 
@@ -16,7 +15,7 @@
     <link rel="manifest" href="~/content/images/site.webmanifest">
     <link rel="mask-icon" href="~/content/images/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#da532c">
-    <link rel="stylesheet" type="text/css" href="@baseUrl/assets/css/style.css?v=1.0.0">
+    <link rel="stylesheet" type="text/css" href="~/assets/css/style.css?v=1.0.0">
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
     
     <page-builder-styles/>
@@ -59,11 +58,10 @@
    
     <page-builder-scripts/>
 
-    <script src="~/scripts/jquery-3.6.4.min.js"></script>
-    <script src="~/scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/assets/jquery/jquery-3.6.4.min.js"></script>
+    <script src="~/assets/jquery/jquery.unobtrusive-ajax.min.js"></script>
 
-    <script src="@baseUrl/assets/js/vendor/bootstrap.bundle.min.js"></script>
-    <script src="@baseUrl/assets/js/main.min.js?v=1.0.0"></script>
+    <script src="~/assets/js/main.min.js?v=1.0.0"></script>
     <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
     
 </body>
