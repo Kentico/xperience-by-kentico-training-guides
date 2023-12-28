@@ -28,7 +28,6 @@ public class LanguageDropdownViewComponent : ViewComponent
 
         Dictionary<string, LanguageViewModel> languagesDictionary = [];
 
-        //using foreach here instead of allLanguage.ForEach because Linq does not work well with async and is it not recommended to combine the two 
         foreach (var language in allLanguages)
         {
             string languageCode = language.ContentLanguageName;
