@@ -9,7 +9,6 @@
 
 @{
     var title = StringLocalizer["Kentico training guides"];
-    var baseUrl = httpRequestService.GetBaseUrl();
 }
 <!DOCTYPE html>
 
@@ -24,9 +23,9 @@
     <link rel="manifest" href="~/content/images/site.webmanifest">
     <link rel="mask-icon" href="~/content/images/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#da532c">
-    <link rel="stylesheet" type="text/css" href="@baseUrl/assets/css/style.css?v=1.0.0">
+    <link rel="stylesheet" type="text/css" href="~/assets/css/style.css?v=1.0.0">
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/assets/bootstrap/css/bootstrap.min.css">
 
     <page-builder-styles/>
     
@@ -40,7 +39,7 @@
     <div class="page-wrapper">
         <vc:header />       
         <vc:tracking-consent />
-        <div class="content-wrapper">
+        <div class="content-wrapper container">
             @RenderBody()
         </div>
         <footer class="c-footer">
@@ -71,12 +70,12 @@
     <page-builder-scripts/>
 
 
-    <script src="~/scripts/jquery-3.6.4.min.js"></script>
-    <script src="~/scripts/jquery.unobtrusive-ajax.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="~/assets/jquery/jquery-3.6.4.min.js"></script>
+    <script src="~/assets/jquery/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 
-    <script src="@baseUrl/assets/js/main.min.js?v=1.0.0"></script>
+    <script src="~/assets/js/main.min.js?v=1.0.0"></script>
     <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
     
     <vc:custom-activity-scripts/>

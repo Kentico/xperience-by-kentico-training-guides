@@ -3,14 +3,13 @@
 @model LanguageDropdownViewModel
 
 <div class="dropdown">
-    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
         @Model.AvailableLanguages[Model.SelectedLanguage].DisplayName
     </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
         @foreach (KeyValuePair<string, LanguageViewModel> language in Model.AvailableLanguages)
         {
-            <a class="dropdown-item" href="@language.Value.CurrentPageUrl"
-                data-tracking-code="Language_Select">@language.Value.DisplayName</a>
+            <li><a class="dropdown-item" href="@language.Value.CurrentPageUrl">@language.Value.DisplayName</a></li>
         }
-    </div>
+    </ul>
 </div>
