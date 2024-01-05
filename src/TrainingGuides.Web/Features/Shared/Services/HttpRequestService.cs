@@ -1,23 +1,21 @@
 using Kentico.Content.Web.Mvc;
-using Kentico.Content.Web.Mvc.Routing;
+using TrainingGuides.Web.Features.Shared.Helpers;
 
 namespace TrainingGuides.Web.Features.Shared.Services;
+
 
 public class HttpRequestService : IHttpRequestService
 {
     private readonly IHttpContextAccessor httpContextAccessor;
-    private readonly IPreferredLanguageRetriever preferredLanguageRetriever;
     private readonly IWebPageDataContextRetriever webPageDataContextRetriever;
     private readonly IWebPageUrlRetriever webPageUrlRetriever;
     private const string WEB_PAGE_URL_PATHS = "Kentico.WebPageUrlPaths";
 
     public HttpRequestService(IHttpContextAccessor httpContextAccessor,
-    IPreferredLanguageRetriever preferredLanguageRetriever,
     IWebPageDataContextRetriever webPageDataContextRetriever,
     IWebPageUrlRetriever webPageUrlRetriever)
     {
         this.httpContextAccessor = httpContextAccessor;
-        this.preferredLanguageRetriever = preferredLanguageRetriever;
         this.webPageDataContextRetriever = webPageDataContextRetriever;
         this.webPageUrlRetriever = webPageUrlRetriever;
     }
@@ -46,8 +44,8 @@ public class HttpRequestService : IHttpRequestService
     public string GetBaseUrlWithLanguage()
     {
         var currentRequest = httpContextAccessor?.HttpContext?.Request;
+        string language = (string)currentRequest.RouteValues[ApplicationConstants.LANGUAGE_KEY];
         var webPageUrlPathList = ((string)currentRequest.RouteValues[WEB_PAGE_URL_PATHS])?.Split('/').ToList() ?? [];
-        string language = preferredLanguageRetriever.Get();
 
         bool notPrimaryLanguage = webPageUrlPathList.Contains(language);
 
