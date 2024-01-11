@@ -36,12 +36,12 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
         Func<IWebPageContentQueryDataContainer, T> selectResult,
         int depth = 1) => await
             RetrieveWebPageContentItem(
-                contentTypeName,
-                config => config
-                    .Where(where => where.WhereEquals(nameof(IWebPageContentQueryDataContainer.WebPageItemID), webPageItemId))
+                contentTypeName: contentTypeName,
+                filterQuery: config => config
+                    .Where(where => where.WhereEquals(nameof(WebPageFields.WebPageItemID), webPageItemId))
                     .WithLinkedItems(depth)
                     .ForWebsite(webSiteChannelContext.WebsiteChannelName),
-                selectResult);
+                selectResult: selectResult);
 
     private async Task<T> RetrieveWebPageContentItem(
         string contentTypeName,
@@ -50,8 +50,8 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
     {
         var builder = new ContentItemQueryBuilder()
                             .ForContentType(
-                                contentTypeName,
-                                config => filterQuery(config)
+                                contentTypeName: contentTypeName,
+                                configureQuery: config => filterQuery(config)
                             )
                             .InLanguage(preferredLanguageRetriever.Get());
 
@@ -88,7 +88,7 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
         int webPageItemId,
         string contentTypeName) => await
             contentItemRetrieverService.RetrieveWebPageById(
-                webPageItemId,
-                contentTypeName,
-                contentTypeDictionary[contentTypeName]);
+                webPageItemId: webPageItemId,
+                contentTypeName: contentTypeName,
+                resultSelector: contentTypeDictionary[contentTypeName]);
 }
