@@ -55,7 +55,9 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
                             )
                             .InLanguage(preferredLanguageRetriever.Get());
 
-        var pages = await contentQueryExecutor.GetWebPageResult(builder, selectResult);
+        var pages = await contentQueryExecutor.GetWebPageResult(
+            builder: builder,
+            resultSelector: selectResult);
 
         return pages.FirstOrDefault();
     }
