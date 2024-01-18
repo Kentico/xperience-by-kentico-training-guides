@@ -55,6 +55,11 @@ public class HttpRequestService : IHttpRequestService
                 : string.Empty);
     }
 
+    /// <summary>
+    /// Retrieves URL of the currently displayed page for a spacific language
+    /// </summary>
+    /// <param name="language">Two-letter language code (e.g., "es" for Spanish, "en" for English)</param>
+    /// <returns>Language specific URL of the current page (e.g. website.com/es/page)</returns>
     public async Task<string> GetCurrentPageUrlForLanguage(string language)
     {
         var currentPage = webPageDataContextRetriever.Retrieve().WebPage;
