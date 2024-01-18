@@ -36,12 +36,12 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
         Func<IWebPageContentQueryDataContainer, T> selectResult,
         int depth = 1) => await
             RetrieveWebPageContentItem(
-                contentTypeName: contentTypeName,
-                filterQuery: config => config
+                contentTypeName,
+                config => config
                     .Where(where => where.WhereEquals(nameof(WebPageFields.WebPageItemID), webPageItemId))
                     .WithLinkedItems(depth)
                     .ForWebsite(webSiteChannelContext.WebsiteChannelName),
-                selectResult: selectResult);
+                selectResult);
 
     private async Task<T> RetrieveWebPageContentItem(
         string contentTypeName,
@@ -50,14 +50,14 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
     {
         var builder = new ContentItemQueryBuilder()
                             .ForContentType(
-                                contentTypeName: contentTypeName,
-                                configureQuery: config => filterQuery(config)
+                               contentTypeName,
+                               config => filterQuery(config)
                             )
                             .InLanguage(preferredLanguageRetriever.Get());
 
         var pages = await contentQueryExecutor.GetWebPageResult(
-            builder: builder,
-            resultSelector: selectResult);
+                                                builder,
+                                                selectResult);
 
         return pages.FirstOrDefault();
     }
@@ -90,7 +90,7 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
         int webPageItemId,
         string contentTypeName) => await
             contentItemRetrieverService.RetrieveWebPageById(
-                webPageItemId: webPageItemId,
-                contentTypeName: contentTypeName,
-                resultSelector: contentTypeDictionary[contentTypeName]);
+                webPageItemId,
+                contentTypeName,
+                contentTypeDictionary[contentTypeName]);
 }
