@@ -11,6 +11,7 @@ public static class ServiceCollectionExtensions
         services.AddSingleton<IFormCollectionService, FormCollectionService>();
         services.AddSingleton<ICookieConsentService, CookieConsentService>();
         services.AddSingleton<IContentItemRetrieverService, ContentItemRetrieverService>();
+        services.AddSingleton<IHttpRequestService, HttpRequestService>();
 
         services.AddTransient(typeof(IContentItemRetrieverService<>), typeof(ContentItemRetrieverService<>));
     }

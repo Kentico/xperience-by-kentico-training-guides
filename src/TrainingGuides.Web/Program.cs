@@ -1,13 +1,14 @@
-using TrainingGuides;
-using Kentico.Content.Web.Mvc.Routing;
-using Kentico.PageBuilder.Web.Mvc;
-using Kentico.Web.Mvc;
 using AspNetCore.Unobtrusive.Ajax;
 using Kentico.Activities.Web.Mvc;
-using TrainingGuides.Web.Features.DataProtection.Shared;
-using TrainingGuides.Web;
+using Kentico.Content.Web.Mvc.Routing;
 using Kentico.CrossSiteTracking.Web.Mvc;
 using Kentico.OnlineMarketing.Web.Mvc;
+using Kentico.PageBuilder.Web.Mvc;
+using Kentico.Web.Mvc;
+using TrainingGuides;
+using TrainingGuides.Web;
+using TrainingGuides.Web.Features.DataProtection.Shared;
+using TrainingGuides.Web.Features.Shared.Helpers;
 using TrainingGuides.Web.Features.Shared.Helpers.Startup;
 
 string trainingGuidesAllowSpecificOrigins = "_trainingGuidesAllowSpecificOrigins";
@@ -54,7 +55,7 @@ builder.Services.AddKentico(async features =>
             },
         });
     features.UseActivityTracking();
-    features.UseWebPageRouting();
+    features.UseWebPageRouting(new WebPageRoutingOptions { LanguageNameRouteValuesKey = ApplicationConstants.LANGUAGE_KEY });
 });
 
 builder.Services.Configure<CookieLevelOptions>(options =>

@@ -1,11 +1,8 @@
-﻿@using TrainingGuides.Web.Features.Shared.Extensions;
-@using TrainingGuides.Web.Features.DataProtection.ViewComponents.TrackingConsent;
+﻿@using TrainingGuides.Web.Features.DataProtection.ViewComponents.TrackingConsent;
 
 @model TrackingConsentViewModel
 
 @{
-    // Gets the page's current URL
-    var baseUrl = Context.Request.GetBaseUrl();
     var messageId = "BannerMessage";
 }
 
@@ -17,7 +14,7 @@
         HttpMethod = "POST",
         InsertionMode = InsertionMode.Replace,
         UpdateTargetId = messageId
-    }, new { action = $"{baseUrl}/cookies/cookiebannersubmit" }))
+    }, new { action = $"{Model.BaseUrl}/cookies/cookiebannersubmit" }))
     {
 
         <div class="xpcookiebanner js-xpcookiebanner is-active">
@@ -34,7 +31,7 @@
                     }
                     @if (!string.IsNullOrWhiteSpace(Model.RedirectUrl) && !string.IsNullOrWhiteSpace(Model.ConfigureMessage))
                     {
-                        <a href="@string.Format("{0}{1}", baseUrl, Model.RedirectUrl)" class="xpcookiebanner__cta" data-tracking-code="CookieBar_More">
+                        <a href="@string.Format("{0}{1}", Model.BaseUrlWithLanguage, Model.RedirectUrl)" class="xpcookiebanner__cta" data-tracking-code="CookieBar_More">
                             @Model.ConfigureMessage
                         </a>
                     }

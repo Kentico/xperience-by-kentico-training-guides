@@ -1,0 +1,15 @@
+@using TrainingGuides.Web.Features.Languages
+
+@model LanguageDropdownViewModel
+
+<div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+        @Model.AvailableLanguages[Model.SelectedLanguage].DisplayName
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        @foreach (KeyValuePair<string, LanguageViewModel> language in Model.AvailableLanguages)
+        {
+            <li><a class="dropdown-item" href="@language.Value.CurrentPageUrl">@language.Value.DisplayName</a></li>
+        }
+    </ul>
+</div>

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentlanguage>
+  <ContentLanguageCultureFormat>es-ES</ContentLanguageCultureFormat>
+  <ContentLanguageDisplayName>
+    <![CDATA[Español]]>
+  </ContentLanguageDisplayName>
+  <ContentLanguageFallbackContentLanguageID>
+    <CodeName>en</CodeName>
+    <GUID>e81b5172-f240-4041-88b1-653089984e29</GUID>
+    <ObjectType>cms.contentlanguage</ObjectType>
+  </ContentLanguageFallbackContentLanguageID>
+  <ContentLanguageGUID>b2e99971-c2dd-4a47-bb64-0d9a0d28d226</ContentLanguageGUID>
+  <ContentLanguageIsDefault>False</ContentLanguageIsDefault>
+  <ContentLanguageName>es</ContentLanguageName>
+</cms.contentlanguage>

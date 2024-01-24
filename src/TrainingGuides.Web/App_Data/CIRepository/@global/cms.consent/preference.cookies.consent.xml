@@ -12,13 +12,22 @@
             <![CDATA[<p>Preference cookies help us remember changes and configurations you make on the site.</p>]]>
           </ShortText>
         </ConsentLanguageVersion>
+        <ConsentLanguageVersion>
+          <FullText>
+            <![CDATA[<p>Las cookies de preferencias y los datos que nos facilitas te facilitan el trabajo, por ejemplo, recordar el idioma en el que quieres mostrar las páginas, etc.</p>]]>
+          </FullText>
+          <LanguageName>es</LanguageName>
+          <ShortText>
+            <![CDATA[<p>Las cookies de preferencias nos ayudan a recordar los cambios y configuraciones que realiza en el sitio.</p>]]>
+          </ShortText>
+        </ConsentLanguageVersion>
       </ConsentLanguageVersions>
     </ConsentContent>
   </ConsentContent>
   <ConsentDisplayName>Preference cookies</ConsentDisplayName>
   <ConsentGuid>5ed908c9-e77c-40de-bb6c-963cad6cf8b8</ConsentGuid>
   <ConsentHash>
-    <![CDATA[089ae3053fd282af1016bfae4084005cffc12100ae277d998f60740b10579605]]>
+    <![CDATA[622261658d0e2773e026c99137c49870098ba967c5c79aead35ccd88b81fe61f]]>
   </ConsentHash>
   <ConsentName>preference.cookies.consent</ConsentName>
 </cms.consent>

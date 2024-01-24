@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentitemcommondata>
+  <ContentItemCommonDataContentItemID>
+    <CodeName>CookiePolicy-gai183um</CodeName>
+    <GUID>66798e3b-5564-4267-b58e-22da8c75aaf7</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </ContentItemCommonDataContentItemID>
+  <ContentItemCommonDataContentLanguageID>
+    <CodeName>es</CodeName>
+    <GUID>b2e99971-c2dd-4a47-bb64-0d9a0d28d226</GUID>
+    <ObjectType>cms.contentlanguage</ObjectType>
+  </ContentItemCommonDataContentLanguageID>
+  <ContentItemCommonDataGUID>05db286a-bfef-42ba-9895-0b6573a9039d</ContentItemCommonDataGUID>
+  <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
+  <ContentItemCommonDataPageBuilderWidgets>
+    <![CDATA[{"editableAreas":[{"identifier":"areaMain","sections":[{"identifier":"65c3b783-5a33-4be2-9817-813fa125a47c","type":"TrainingGuides.SingleColumnSection","properties":{"sectionAnchor":null},"zones":[{"identifier":"2475c2cf-2796-4db7-98b3-3955247c31e2","widgets":[{"identifier":"97f6bae4-61a8-43d9-8446-211080f8fc59","type":"TrainingGuides.CookiePreferencesWidget","variants":[{"identifier":"fecee60e-e33c-4d95-a612-eb07e205710b","properties":{"essentialHeader":"Cookies esenciales","essentialDescription":"Estas cookies son esenciales para permitirle moverse por el sitio web y utilizar sus funciones. Sin estas cookies, algunas funciones principales del sitio no funcionarán correctamente. Están habilitados de forma predeterminada y no se pueden deshabilitar.","buttonText":"Entregar"},"fieldIdentifiers":{"essentialHeader":"84e01022-df08-4505-9c83-3f62775cca73","essentialDescription":"5e1e0044-197b-468e-9d8f-62e420f5cc32","buttonText":"c81b3131-60f7-4483-a5c9-93c549eeb443"}}]},{"identifier":"93e1e67e-98e4-482d-93cf-9597eeb179c2","type":"TrainingGuides.PageLikeWidget","variants":[{"identifier":"3addf28f-cb7e-49d3-8f2a-44efd67faa41","properties":null,"fieldIdentifiers":{}}]}]}],"fieldIdentifiers":{"sectionAnchor":"5925bd30-ca5b-4de5-8645-125fdca9360a"}}]}]}]]>
+  </ContentItemCommonDataPageBuilderWidgets>
+  <ContentItemCommonDataPageTemplateConfiguration>
+    <![CDATA[{"identifier":"TrainingGuides.EmptyPagePageTemplate","properties":null,"fieldIdentifiers":{}}]]>
+  </ContentItemCommonDataPageTemplateConfiguration>
+  <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
+</cms.contentitemcommondata>

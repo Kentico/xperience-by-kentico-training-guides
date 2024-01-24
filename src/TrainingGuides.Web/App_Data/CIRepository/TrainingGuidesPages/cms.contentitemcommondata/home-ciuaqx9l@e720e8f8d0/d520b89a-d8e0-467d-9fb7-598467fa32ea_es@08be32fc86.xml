@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentitemcommondata>
+  <ContentItemCommonDataContentItemID>
+    <CodeName>Home-ciuaqx9l</CodeName>
+    <GUID>acf3748a-38f9-4c32-90cf-cd626b1a6923</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </ContentItemCommonDataContentItemID>
+  <ContentItemCommonDataContentLanguageID>
+    <CodeName>es</CodeName>
+    <GUID>b2e99971-c2dd-4a47-bb64-0d9a0d28d226</GUID>
+    <ObjectType>cms.contentlanguage</ObjectType>
+  </ContentItemCommonDataContentLanguageID>
+  <ContentItemCommonDataGUID>d520b89a-d8e0-467d-9fb7-598467fa32ea</ContentItemCommonDataGUID>
+  <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
+  <ContentItemCommonDataPageBuilderWidgets>
+    <![CDATA[{"editableAreas":[{"identifier":"areaMain","sections":[{"identifier":"b23942e8-ea2f-4754-9c81-b221abee820c","type":"TrainingGuides.SingleColumnSection","properties":{"sectionAnchor":null},"zones":[{"identifier":"d8798668-95ef-4ef4-b4fb-ed7480c4a161","widgets":[{"identifier":"3ffd6e80-6eda-4eb2-ac26-55f8d5dcba61","type":"Kentico.Widget.RichText","variants":[{"identifier":"24ca3365-1c4b-468d-8515-389ad1400aca","properties":{"content":"<p>¡Hola Mundo!</p>"},"fieldIdentifiers":{"content":"cc1f8cc3-c9bf-4042-aeda-45d63e955f84"}}]}]}],"fieldIdentifiers":{"sectionAnchor":"6a4bb2cf-9e6c-4d16-b9e8-6c33ca63a9ae"}}]}]}]]>
+  </ContentItemCommonDataPageBuilderWidgets>
+  <ContentItemCommonDataPageTemplateConfiguration>
+    <![CDATA[{"identifier":"TrainingGuides.LandingPagePageTemplate","properties":{"messageType":"h4"},"fieldIdentifiers":{"messageType":"61990abc-0781-4fed-a925-6e6ebd49c91d"}}]]>
+  </ContentItemCommonDataPageTemplateConfiguration>
+  <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
+  <ContentItemReferences>
+    <cms.contentitemreference>
+      <ContentItemReferenceGroupGUID>133d8674-12ff-40b6-b552-560e01989c56</ContentItemReferenceGroupGUID>
+      <ContentItemReferenceGUID>ba179689-9c3e-4ea1-bb07-af57b1f07230</ContentItemReferenceGUID>
+      <ContentItemReferenceSourceCommonDataID>
+        <GUID>d520b89a-d8e0-467d-9fb7-598467fa32ea</GUID>
+        <ObjectType>cms.contentitemcommondata</ObjectType>
+      </ContentItemReferenceSourceCommonDataID>
+      <ContentItemReferenceTargetItemID>
+        <CodeName>Home-76v71kdp</CodeName>
+        <GUID>9f511d9e-8620-4e25-afaa-9afed5b99084</GUID>
+        <ObjectType>cms.contentitem</ObjectType>
+      </ContentItemReferenceTargetItemID>
+    </cms.contentitemreference>
+  </ContentItemReferences>
+</cms.contentitemcommondata>

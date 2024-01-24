@@ -38,7 +38,7 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
             RetrieveWebPageContentItem(
                 contentTypeName,
                 config => config
-                    .Where(where => where.WhereEquals(nameof(IWebPageContentQueryDataContainer.WebPageItemID), webPageItemId))
+                    .Where(where => where.WhereEquals(nameof(WebPageFields.WebPageItemID), webPageItemId))
                     .WithLinkedItems(depth)
                     .ForWebsite(webSiteChannelContext.WebsiteChannelName),
                 selectResult);
@@ -50,12 +50,14 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
     {
         var builder = new ContentItemQueryBuilder()
                             .ForContentType(
-                                contentTypeName,
-                                config => filterQuery(config)
+                               contentTypeName,
+                               config => filterQuery(config)
                             )
                             .InLanguage(preferredLanguageRetriever.Get());
 
-        var pages = await contentQueryExecutor.GetWebPageResult(builder, selectResult);
+        var pages = await contentQueryExecutor.GetWebPageResult(
+                                                builder,
+                                                selectResult);
 
         return pages.FirstOrDefault();
     }
@@ -90,6 +92,5 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
             contentItemRetrieverService.RetrieveWebPageById(
                 webPageItemId,
                 contentTypeName,
-                contentTypeDictionary[contentTypeName],
-                1);
+                contentTypeDictionary[contentTypeName]);
 }
