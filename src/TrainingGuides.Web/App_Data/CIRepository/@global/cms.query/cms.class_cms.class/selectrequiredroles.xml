@@ -8,7 +8,6 @@
   <QueryConnectionString>CMSConnectionString</QueryConnectionString>
   <QueryGUID>f2dac7f2-dcb7-419a-b627-7efded496b36</QueryGUID>
   <QueryIsCustom>False</QueryIsCustom>
-  <QueryIsLocked>False</QueryIsLocked>
   <QueryName>selectrequiredroles</QueryName>
   <QueryRequiresTransaction>False</QueryRequiresTransaction>
   <QueryText>

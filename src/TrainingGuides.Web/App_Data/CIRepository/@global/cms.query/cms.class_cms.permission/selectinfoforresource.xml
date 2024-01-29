@@ -8,7 +8,6 @@
   <QueryConnectionString>CMSConnectionString</QueryConnectionString>
   <QueryGUID>95a3db79-575d-444a-8ece-637d9b106134</QueryGUID>
   <QueryIsCustom>False</QueryIsCustom>
-  <QueryIsLocked>False</QueryIsLocked>
   <QueryName>SelectInfoForResource</QueryName>
   <QueryRequiresTransaction>False</QueryRequiresTransaction>
   <QueryText>

@@ -8,7 +8,6 @@
   <QueryConnectionString>CMSConnectionString</QueryConnectionString>
   <QueryGUID>e47cad7b-2256-4f73-8144-8261a3e450a1</QueryGUID>
   <QueryIsCustom>False</QueryIsCustom>
-  <QueryIsLocked>False</QueryIsLocked>
   <QueryName>deleteolderglobaltasks</QueryName>
   <QueryRequiresTransaction>True</QueryRequiresTransaction>
   <QueryText>
