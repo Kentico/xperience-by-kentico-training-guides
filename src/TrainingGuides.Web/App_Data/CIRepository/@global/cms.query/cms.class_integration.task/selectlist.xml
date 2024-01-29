@@ -8,7 +8,6 @@
   <QueryConnectionString>CMSConnectionString</QueryConnectionString>
   <QueryGUID>29e295ea-e2ac-4993-9f1c-64b4f77e2405</QueryGUID>
   <QueryIsCustom>False</QueryIsCustom>
-  <QueryIsLocked>False</QueryIsLocked>
   <QueryName>selectlist</QueryName>
   <QueryRequiresTransaction>False</QueryRequiresTransaction>
   <QueryText>

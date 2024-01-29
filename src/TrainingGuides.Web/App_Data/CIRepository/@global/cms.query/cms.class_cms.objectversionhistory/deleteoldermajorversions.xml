@@ -8,7 +8,6 @@
   <QueryConnectionString>CMSConnectionString</QueryConnectionString>
   <QueryGUID>7495bd9c-76ae-42b6-a930-27ae98093240</QueryGUID>
   <QueryIsCustom>False</QueryIsCustom>
-  <QueryIsLocked>False</QueryIsLocked>
   <QueryName>deleteoldermajorversions</QueryName>
   <QueryRequiresTransaction>False</QueryRequiresTransaction>
   <QueryText>

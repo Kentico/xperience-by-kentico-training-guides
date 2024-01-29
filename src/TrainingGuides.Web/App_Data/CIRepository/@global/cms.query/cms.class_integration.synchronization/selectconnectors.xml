@@ -8,7 +8,6 @@
   <QueryConnectionString>CMSConnectionString</QueryConnectionString>
   <QueryGUID>97bc5437-581a-498f-aa53-48d208194082</QueryGUID>
   <QueryIsCustom>False</QueryIsCustom>
-  <QueryIsLocked>False</QueryIsLocked>
   <QueryName>selectconnectors</QueryName>
   <QueryRequiresTransaction>False</QueryRequiresTransaction>
   <QueryText>
