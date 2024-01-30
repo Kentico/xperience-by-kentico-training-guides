@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contenttype>
+  <ClassContentTypeType>Reusable</ClassContentTypeType>
+  <ClassDisplayName>Product</ClassDisplayName>
+  <ClassFormDefinition>
+    <form>
+      <field column="ContentItemDataID" columntype="integer" enabled="true" guid="2adf6b42-289d-4247-9f8d-c503afc37ef8" isPK="true" />
+      <field column="ContentItemDataCommonDataID" columntype="integer" enabled="true" guid="5e217b9e-0a76-4f8a-a86d-0c2301add5a7" refobjtype="cms.contentitemcommondata" reftype="Required" system="true" />
+      <field column="ContentItemDataGUID" columntype="guid" enabled="true" guid="97374a7e-ccf5-47b0-bc62-5527460a6e8b" isunique="true" system="true" />
+      <field column="ProductName" columnprecision="0" columnsize="200" columntype="text" enabled="true" guid="36db390f-c1cd-422d-afd8-844b94388af3" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Product name</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.TextInput</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="ProductShortDescription" columnprecision="0" columntype="longtext" enabled="true" guid="fb91f0dc-0b7e-4413-944e-66cdd503b7b1" visible="true">
+        <properties>
+          <explanationtext>
+            <![CDATA[Keep the summary under 250 characters. Different channels will truncate content if necessary.]]>
+          </explanationtext>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Short description</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <ConfigurationName>Kentico.Administration.StructuredContent</ConfigurationName>
+          <controlname>Kentico.Administration.RichTextEditor</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="ProductMedia" columnprecision="0" columntype="contentitemreference" enabled="true" guid="ac5f51bb-7ce0-4972-8615-b8213e39ef2d" visible="true">
+        <properties>
+          <explanationtext>
+            <![CDATA[Select default image that represents the product. Editors will be able to change the image per channel, if required.]]>
+          </explanationtext>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Media</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <AllowedContentItemTypeIdentifiers>
+            <![CDATA[["9ecde825-735e-4967-a995-cc97b55adb0f"]]]>
+          </AllowedContentItemTypeIdentifiers>
+          <controlname>Kentico.Administration.ContentItemSelector</controlname>
+        </settings>
+        <validationrulesdata>
+          <ValidationRuleConfiguration>
+            <ValidationRuleIdentifier>Kentico.Administration.RequiredValue</ValidationRuleIdentifier>
+            <RuleValues>
+              <ErrorMessage>Add missing image.</ErrorMessage>
+            </RuleValues>
+          </ValidationRuleConfiguration>
+        </validationrulesdata>
+      </field>
+      <field allowempty="true" column="ProductDescription" columnprecision="0" columntype="longtext" enabled="true" guid="8ae7154c-3b5d-41f4-8e52-19a728ecc465" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Description</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <ConfigurationName>Kentico.Administration.StructuredContent</ConfigurationName>
+          <controlname>Kentico.Administration.RichTextEditor</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="ProductBenefits" columnprecision="0" columntype="contentitemreference" enabled="true" guid="16c6b4e5-17c4-4c89-a19e-b5a28f04ee22" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Product benefits</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <AllowedContentItemTypeIdentifiers>
+            <![CDATA[["6eb7df2d-2da5-4343-8e67-a5aa61017e18"]]]>
+          </AllowedContentItemTypeIdentifiers>
+          <controlname>Kentico.Administration.ContentItemSelector</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="ProductFeatures" columnprecision="0" columntype="contentitemreference" enabled="true" guid="1724a9f0-e380-4751-ba83-088c8973b61c" visible="true">
+        <properties>
+          <explanationtext>
+            <![CDATA[Add all product features. Explain available services and features customers receive with the product. These features can propagate to different channels, for example, when referencing the product from widgets.]]>
+          </explanationtext>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Select default product features</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <AllowedContentItemTypeIdentifiers>
+            <![CDATA[["7521136f-4ed3-4b69-8b54-82255d7b4385"]]]>
+          </AllowedContentItemTypeIdentifiers>
+          <controlname>Kentico.Administration.ContentItemSelector</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="ProductPrice" columnprecision="2" columnsize="20" columntype="decimal" enabled="true" guid="cd7202e4-775c-410e-b614-9ed3fa6d2295" visible="true">
+        <properties>
+          <explanationtext>Enter a decimal or whole number (e.g. 0.3)</explanationtext>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Price</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.DecimalNumberInput</controlname>
+        </settings>
+      </field>
+    </form>
+  </ClassFormDefinition>
+  <ClassGUID>54c89164-06fa-4984-a04c-cc2ec647463f</ClassGUID>
+  <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
+  <ClassIconClass>xp-gift</ClassIconClass>
+  <ClassName>TrainingGuides.Product</ClassName>
+  <ClassTableName>TrainingGuides_Product</ClassTableName>
+  <ClassType>Content</ClassType>
+  <ClassWebPageHasUrl>False</ClassWebPageHasUrl>
+</cms.contenttype>
