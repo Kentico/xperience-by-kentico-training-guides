@@ -36,6 +36,7 @@
   <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
   <ClassIconClass>xp-arrow-down-line</ClassIconClass>
   <ClassName>TrainingGuides.Downloads</ClassName>
+  <ClassShortName>TrainingGuidesDownloads</ClassShortName>
   <ClassTableName>TrainingGuides_Downloads</ClassTableName>
   <ClassType>Content</ClassType>
   <ClassWebPageHasUrl>True</ClassWebPageHasUrl>

@@ -8,7 +8,6 @@
   <QueryConnectionString>CMSConnectionString</QueryConnectionString>
   <QueryGUID>a9dbfb11-685c-4a07-b8d5-e91fe92eb284</QueryGUID>
   <QueryIsCustom>False</QueryIsCustom>
-  <QueryIsLocked>False</QueryIsLocked>
   <QueryName>fetchtask</QueryName>
   <QueryRequiresTransaction>False</QueryRequiresTransaction>
   <QueryText>
