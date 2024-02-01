@@ -8,7 +8,6 @@
   <QueryConnectionString>CMSConnectionString</QueryConnectionString>
   <QueryGUID>9deace2f-1f63-491d-9957-f9be0d27ea41</QueryGUID>
   <QueryIsCustom>False</QueryIsCustom>
-  <QueryIsLocked>False</QueryIsLocked>
   <QueryName>changeobjectid</QueryName>
   <QueryRequiresTransaction>False</QueryRequiresTransaction>
   <QueryText>

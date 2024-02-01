@@ -37,6 +37,7 @@
   <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
   <ClassIconClass>xp-star-full</ClassIconClass>
   <ClassName>TrainingGuides.Benefit</ClassName>
+  <ClassShortName>TrainingGuidesBenefit</ClassShortName>
   <ClassTableName>TrainingGuides_Benefit</ClassTableName>
   <ClassType>Content</ClassType>
   <ClassWebPageHasUrl>False</ClassWebPageHasUrl>

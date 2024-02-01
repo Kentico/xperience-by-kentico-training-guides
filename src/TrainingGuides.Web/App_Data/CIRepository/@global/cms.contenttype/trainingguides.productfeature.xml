@@ -101,6 +101,7 @@
   <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
   <ClassIconClass>xp-list-bullets</ClassIconClass>
   <ClassName>TrainingGuides.ProductFeature</ClassName>
+  <ClassShortName>TrainingGuidesProductFeature</ClassShortName>
   <ClassTableName>TrainingGuides_ProductFeature</ClassTableName>
   <ClassType>Content</ClassType>
   <ClassWebPageHasUrl>False</ClassWebPageHasUrl>

@@ -86,6 +86,7 @@
   <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
   <ClassIconClass>xp-book-opened</ClassIconClass>
   <ClassName>TrainingGuides.Hero</ClassName>
+  <ClassShortName>TrainingGuidesHero</ClassShortName>
   <ClassTableName>TrainingGuides_Hero</ClassTableName>
   <ClassType>Content</ClassType>
   <ClassWebPageHasUrl>False</ClassWebPageHasUrl>

@@ -112,6 +112,7 @@
   <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
   <ClassIconClass>xp-gift</ClassIconClass>
   <ClassName>TrainingGuides.Product</ClassName>
+  <ClassShortName>TrainingGuidesProduct</ClassShortName>
   <ClassTableName>TrainingGuides_Product</ClassTableName>
   <ClassType>Content</ClassType>
   <ClassWebPageHasUrl>False</ClassWebPageHasUrl>

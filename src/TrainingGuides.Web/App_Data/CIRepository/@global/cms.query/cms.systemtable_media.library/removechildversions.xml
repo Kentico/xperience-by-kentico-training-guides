@@ -8,7 +8,6 @@
   <QueryConnectionString>CMSConnectionString</QueryConnectionString>
   <QueryGUID>e712b63d-ecc2-4312-8b61-4c025eabe129</QueryGUID>
   <QueryIsCustom>False</QueryIsCustom>
-  <QueryIsLocked>False</QueryIsLocked>
   <QueryName>removechildversions</QueryName>
   <QueryRequiresTransaction>False</QueryRequiresTransaction>
   <QueryText>Proc_Media_Library_RemoveChildVersions</QueryText>
