@@ -8,7 +8,6 @@
   <QueryConnectionString>CMSConnectionString</QueryConnectionString>
   <QueryGUID>0ec9e9a7-9c73-4dc5-8489-fbd8832837df</QueryGUID>
   <QueryIsCustom>False</QueryIsCustom>
-  <QueryIsLocked>False</QueryIsLocked>
   <QueryName>SelectTasksForSynchronization</QueryName>
   <QueryRequiresTransaction>False</QueryRequiresTransaction>
   <QueryText>Proc_Staging_SelectTasksForSynchronization</QueryText>

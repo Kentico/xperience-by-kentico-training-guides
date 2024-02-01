@@ -8,7 +8,6 @@
   <QueryConnectionString>CMSConnectionString</QueryConnectionString>
   <QueryGUID>a0cbaeca-8b6d-47e5-9bfa-8224aa60b28a</QueryGUID>
   <QueryIsCustom>False</QueryIsCustom>
-  <QueryIsLocked>False</QueryIsLocked>
   <QueryName>SelectOlderVersions</QueryName>
   <QueryRequiresTransaction>False</QueryRequiresTransaction>
   <QueryText>

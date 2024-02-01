@@ -8,7 +8,6 @@
   <QueryConnectionString>CMSConnectionString</QueryConnectionString>
   <QueryGUID>2298bc40-90dd-4188-8879-c2625db621e1</QueryGUID>
   <QueryIsCustom>False</QueryIsCustom>
-  <QueryIsLocked>False</QueryIsLocked>
   <QueryName>GetRolePermissionMatrix</QueryName>
   <QueryRequiresTransaction>False</QueryRequiresTransaction>
   <QueryText>

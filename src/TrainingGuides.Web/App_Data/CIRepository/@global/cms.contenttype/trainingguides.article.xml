@@ -33,6 +33,7 @@
   <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
   <ClassIconClass>xp-l-text</ClassIconClass>
   <ClassName>TrainingGuides.Article</ClassName>
+  <ClassShortName>TrainingGuidesArticle</ClassShortName>
   <ClassTableName>TrainingGuides_Article</ClassTableName>
   <ClassType>Content</ClassType>
   <ClassWebPageHasUrl>True</ClassWebPageHasUrl>

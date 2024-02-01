@@ -8,7 +8,6 @@
   <QueryConnectionString>CMSConnectionString</QueryConnectionString>
   <QueryGUID>b4f22ef9-ac6e-4198-829f-3af1f2364f23</QueryGUID>
   <QueryIsCustom>False</QueryIsCustom>
-  <QueryIsLocked>False</QueryIsLocked>
   <QueryName>getClassPermissionMatrix</QueryName>
   <QueryRequiresTransaction>False</QueryRequiresTransaction>
   <QueryText>

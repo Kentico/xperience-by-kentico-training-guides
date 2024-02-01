@@ -8,7 +8,6 @@
   <QueryConnectionString>CMSConnectionString</QueryConnectionString>
   <QueryGUID>0a8bba1a-2518-4fa6-9375-05e60a374956</QueryGUID>
   <QueryIsCustom>False</QueryIsCustom>
-  <QueryIsLocked>False</QueryIsLocked>
   <QueryName>selectallwithmembership</QueryName>
   <QueryRequiresTransaction>False</QueryRequiresTransaction>
   <QueryText>

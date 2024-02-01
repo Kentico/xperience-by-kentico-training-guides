@@ -8,7 +8,6 @@
   <QueryConnectionString>CMSConnectionString</QueryConnectionString>
   <QueryGUID>07324780-6813-48e3-8387-9d9a910bed0f</QueryGUID>
   <QueryIsCustom>False</QueryIsCustom>
-  <QueryIsLocked>False</QueryIsLocked>
   <QueryName>isauthorized</QueryName>
   <QueryRequiresTransaction>False</QueryRequiresTransaction>
   <QueryText>
