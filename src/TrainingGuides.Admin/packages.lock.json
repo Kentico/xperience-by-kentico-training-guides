@@ -4,21 +4,21 @@
     "net8.0": {
       "Kentico.Xperience.Admin": {
         "type": "Direct",
-        "requested": "[28.2.0, )",
-        "resolved": "28.2.0",
-        "contentHash": "5HLN8u7rQGnw+tweS/4T1wfLzigqR2pzBrJz9OoQogcQCsUxvOZU6HX3eMB3g24jNG9CHwZw1eKEi06cX3xjqw==",
+        "requested": "[28.2.1, )",
+        "resolved": "28.2.1",
+        "contentHash": "eyYU2pskDDGpEvjMnsNnS61YiaUtCkknhaNMa/+d3ljbuuXT8040gHJEyp1BminRClkdrK3oBiUzsYkQC1AN3A==",
         "dependencies": {
           "Kentico.Aira.Client": "1.0.23",
-          "Kentico.Xperience.WebApp": "[28.2.0]",
+          "Kentico.Xperience.WebApp": "[28.2.1]",
           "Microsoft.AspNetCore.SpaServices.Extensions": "6.0.26",
           "Microsoft.Extensions.FileProviders.Embedded": "6.0.26"
         }
       },
       "Kentico.Xperience.Core": {
         "type": "Direct",
-        "requested": "[28.2.0, )",
-        "resolved": "28.2.0",
-        "contentHash": "+2YAtobUbM4G0Ki8Fh5ti+cUcZOWHxPiZ4uUYLnWQjhUVWwY7+9qSuvrGNQa3VnXpm5g5BEWOhp63Uji0ea6Tg==",
+        "requested": "[28.2.1, )",
+        "resolved": "28.2.1",
+        "contentHash": "f2T7+Ry/6oqdTBMHNIv2mdA61Z6C9S+vT9brwjvUC/XyqMtJUoSHRfzc3fHDWKb0djXoYtko0TwJWZp2uqU9TA==",
         "dependencies": {
           "AngleSharp": "0.17.1",
           "MailKit": "4.3.0",
@@ -897,20 +897,20 @@
       "trainingguides.entities": {
         "type": "Project",
         "dependencies": {
-          "Kentico.Xperience.Core": "[28.2.0, )"
+          "Kentico.Xperience.Core": "[28.2.1, )"
         }
       },
       "Kentico.Xperience.WebApp": {
         "type": "CentralTransitive",
-        "requested": "[28.2.0, )",
-        "resolved": "28.2.0",
-        "contentHash": "YTrP+R5QcNfeojNJwQlXLYG3s7xrleAalrXlGEJXQg5oPFXw/3kJbseeebPOMDH6dl/MkGDGHPbo9ijyxly7AQ==",
+        "requested": "[28.2.1, )",
+        "resolved": "28.2.1",
+        "contentHash": "781koL8+4yXFekO0cEZaUFDRgD83y0XhMc1dlNaBJ9VqpzXplEVhfgfhTPyJj19Amj/PZcKwBKbj7ebuaT6Nzg==",
         "dependencies": {
           "CommandLineParser": "2.9.1",
           "HotChocolate.AspNetCore": "13.8.1",
           "HotChocolate.Data": "13.8.1",
           "HtmlSanitizer": "8.0.811",
-          "Kentico.Xperience.Core": "[28.2.0]",
+          "Kentico.Xperience.Core": "[28.2.1]",
           "Microsoft.Extensions.FileProviders.Embedded": "6.0.26",
           "Microsoft.Extensions.Localization": "6.0.26",
           "System.Runtime.Caching": "8.0.0"
