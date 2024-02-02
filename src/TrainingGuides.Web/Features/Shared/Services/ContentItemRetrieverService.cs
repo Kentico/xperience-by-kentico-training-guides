@@ -30,9 +30,9 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
     /// <param name="resultSelector">A delegate function mapping the result of the query to the desired content type class using WebPageQueryResultMapper, e.g. webPageQueryResultMapper.Map<ArticlePage></param>
     /// <param name="depth">The maximum level of recursively linked content items that should be included in the results. Default value is 1.</param>
     /// <returns>A Web page content item of specified type, with the specifiied Id</returns>
-    public async Task<T?> RetrieveWebPageById(
+    public async Task<T> RetrieveWebPageById(
         int webPageItemId,
-        string? contentTypeName,
+        string contentTypeName,
         Func<IWebPageContentQueryDataContainer, T> resultSelector,
         int depth = 1)
     {
@@ -53,9 +53,9 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
     /// <param name="resultSelector">A delegate function mapping the result of the query to the desired content type class using WebPageQueryResultMapper, e.g. webPageQueryResultMapper.Map<ArticlePage></param>
     /// <param name="depth">The maximum level of recursively linked content items that should be included in the results. Default value is 1.</param>
     /// <returns>A Web page content item of specified type, with the specifiied Id</returns>
-    public async Task<T?> RetrieveWebPageByGuid(
+    public async Task<T> RetrieveWebPageByGuid(
         Guid webPageItemGuid,
-        string? contentTypeName,
+        string contentTypeName,
         Func<IWebPageContentQueryDataContainer, T> resultSelector,
         int depth = 1)
     {
@@ -75,7 +75,7 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
     /// <param name="queryFilter">A delegate used to configure query for given contentTypeName</param>
     /// <param name="resultSelector">A delegate function mapping the result of the query to the desired content type class using WebPageQueryResultMapper, e.g. webPageQueryResultMapper.Map<ArticlePage>.</param>
     /// <returns></returns>
-    public async Task<IEnumerable<T?>> RetrieveWebPageContentItems(
+    public async Task<IEnumerable<T>> RetrieveWebPageContentItems(
         string contentTypeName,
         Func<ContentTypeQueryParameters, ContentTypeQueryParameters> queryFilter,
         Func<IWebPageContentQueryDataContainer, T> resultSelector)
@@ -95,9 +95,6 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
 
 
 
-
-
-
     /// <summary>
     /// Retrieves Web page content item by Id using ContentItemQueryBuilder
     /// </summary>
@@ -106,9 +103,9 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
     /// <param name="resultSelector">A delegate function mapping the result of the query to the desired content type class using WebPageQueryResultMapper, e.g. webPageQueryResultMapper.Map<ArticlePage></param>
     /// <param name="depth">The maximum level of recursively linked content items that should be included in the results. Default value is 1.</param>
     /// <returns>A Web page content item of specified type, with the specifiied Id</returns>
-    public async Task<T?> RetrieveContentItemByGuid(
+    public async Task<T> RetrieveContentItemByGuid(
         Guid contentItemGuid,
-        string? contentTypeName,
+        string contentTypeName,
         Func<IContentQueryDataContainer, T> resultSelector,
         int depth = 1)
     {
@@ -121,7 +118,7 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
         return pages.FirstOrDefault();
     }
 
-    public async Task<IEnumerable<T?>> RetrieveReusableContentItems(
+    public async Task<IEnumerable<T>> RetrieveReusableContentItems(
         string contentTypeName,
         Func<ContentTypeQueryParameters, ContentTypeQueryParameters> queryFilter,
         Func<IContentQueryDataContainer, T> resultSelector)
