@@ -1,0 +1,15 @@
+@model TrainingGuides.Web.Features.LandingPages.Widgets.CallToAction.CallToActionWidgetViewModel
+
+@if (Model is null || string.IsNullOrWhiteSpace(Model.Text) || string.IsNullOrWhiteSpace(Model.Url))
+{
+    <xpc-misconfigured-widget-instructions />
+
+    return;
+}
+
+@if (Model != null)
+{
+    <div class="text-center">
+        <a href="@Model.Url" class="btn btn-secondary text-uppercase my-4" target="@(Model.OpenInNewTab ? "_blank" : "")" data-id="@Model.Identifier" download="@Model.IsDownload">@Model.Text</a>
+    </div>
+}
