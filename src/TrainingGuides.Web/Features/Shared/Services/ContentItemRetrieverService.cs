@@ -115,7 +115,7 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
         var pages = await RetrieveReusableContentItems(
                 contentTypeName ?? string.Empty,
                 config => config
-                    .Where(where => where.WhereEquals(nameof(WebPageFields.WebPageItemGUID), contentItemGuid))
+                    .Where(where => where.WhereEquals(nameof(ContentItemFields.ContentItemGUID), contentItemGuid))
                     .WithLinkedItems(depth),
                 resultSelector);
         return pages.FirstOrDefault();

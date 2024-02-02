@@ -13,7 +13,7 @@ public class BenefitViewModel
     public static BenefitViewModel GetViewModel(Benefit benefit) => new()
     {
         Description = new(benefit.BenefitDescription),
-        Asset = benefit.BenefitIcon.FirstOrDefault() != null
+        Asset = benefit.BenefitIcon?.FirstOrDefault() != null
                 ? AssetViewModel.GetViewModel(benefit.BenefitIcon.FirstOrDefault())
                 : null,
     };
