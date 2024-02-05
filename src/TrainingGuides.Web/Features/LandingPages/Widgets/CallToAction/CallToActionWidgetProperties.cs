@@ -7,10 +7,10 @@ namespace TrainingGuides.Web.Features.LandingPages.Widgets.CallToAction;
 
 public class CallToActionWidgetProperties : IWidgetProperties
 {
-    [TextInputComponent(Order = 0, Label = "CTA Button text", ExplanationText = "Add your call to action. Keep your call to action under 30 characters.")]
+    [TextInputComponent(Order = 0, Label = "CTA button text", ExplanationText = "Add your call to action. Keep your call to action under 30 characters.")]
     public string? Text { get; set; }
 
-    [RadioGroupComponent(Label = "Target content", ExplanationText = "Select what happens when a visitor clicks your CTA.", Options = "page;Page\ncontent;Content hub asset\nabsolute;Absolute url", Order = 1)]
+    [RadioGroupComponent(Label = "Target content", ExplanationText = "Select what happens when a visitor clicks your CTA.", Options = "page;Page\ncontent;Content hub asset\nabsolute;Absolute URL", Order = 1)]
     public string Type { get; set; } = "page";
 
     [UrlSelectorComponent(Label = "Target page", Order = 2, ExplanationText = "Select the page in the tree.")]
@@ -21,7 +21,7 @@ public class CallToActionWidgetProperties : IWidgetProperties
     [VisibleIfEqualTo(nameof(Type), "content", StringComparison.OrdinalIgnoreCase)]
     public IEnumerable<ContentItemReference>? ContentItem { get; set; }
 
-    [TextInputComponent(Order = 3, Label = "Absolute Url", ExplanationText = "Add a hyperlink to an external site, or use the product's URL + anchor tag # for referencing an anchor on the page, for example, \"https://your-doma.in/contact-us#form\"")]
+    [TextInputComponent(Order = 3, Label = "Absolute URL", ExplanationText = "Add a hyperlink to an external site, or use the product's URL + anchor tag # for referencing an anchor on the page, for example, \"https://your-doma.in/contact-us#form\"")]
     [VisibleIfEqualTo(nameof(Type), "absolute", StringComparison.OrdinalIgnoreCase)]
     public string? AbsoluteUrl { get; set; }
 
@@ -29,7 +29,7 @@ public class CallToActionWidgetProperties : IWidgetProperties
     [VisibleIfEqualTo(nameof(Type), "absolute", StringComparison.OrdinalIgnoreCase)]
     public bool IsDownload { get; set; } = false;
 
-    [TextInputComponent(Order = 5, Label = "CTA Unique data identifier", ExplanationText = "Add a predefined custom variable from project documentation.\r\nFor example, when a visitor clicks the button, Xperience logs a custom activity.")]
+    [TextInputComponent(Order = 5, Label = "CTA unique data identifier", ExplanationText = "Add a predefined custom variable from project documentation.\r\nFor example, when a visitor clicks the button, Xperience logs a custom activity.")]
     public string? Identifier { get; set; }
 
     [CheckBoxComponent(Order = 6, Label = "Open in new tab")]

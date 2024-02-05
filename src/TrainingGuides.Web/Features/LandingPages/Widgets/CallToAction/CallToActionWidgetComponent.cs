@@ -33,7 +33,7 @@ public class CallToActionWidgetComponent : ViewComponent
 
     public async Task<ViewViewComponentResult> InvokeAsync(CallToActionWidgetProperties properties)
     {
-        string targetUrl = string.Empty;
+        string? targetUrl = string.Empty;
 
         if (properties.Type.Equals("page", StringComparison.InvariantCultureIgnoreCase))
         {
