@@ -7,7 +7,7 @@ namespace TrainingGuides.Web.Features.LandingPages.Widgets.CallToAction;
 
 public class CallToActionWidgetProperties : IWidgetProperties
 {
-    [TextInputComponent(Order = 0, Label = "CTA button text", ExplanationText = "Add your call to action. Keep your call to action under 30 characters.")]
+    [TextInputComponent(Order = 0, Label = "CTA button text", ExplanationText = "Add your call to action. Keep it under 30 characters.")]
     public string? Text { get; set; }
 
     [RadioGroupComponent(Label = "Target content", ExplanationText = "Select what happens when a visitor clicks your CTA.", Options = "page;Page\ncontent;Content hub asset\nabsolute;Absolute URL", Order = 1)]
@@ -29,7 +29,7 @@ public class CallToActionWidgetProperties : IWidgetProperties
     [VisibleIfEqualTo(nameof(Type), "absolute", StringComparison.OrdinalIgnoreCase)]
     public bool IsDownload { get; set; } = false;
 
-    [TextInputComponent(Order = 5, Label = "CTA unique data identifier", ExplanationText = "Add a predefined custom variable from project documentation.\r\nFor example, when a visitor clicks the button, Xperience logs a custom activity.")]
+    [TextInputComponent(Order = 5, Label = "CTA unique data identifier", ExplanationText = "Use this field to set an identifier of this widget instance. For example, it can come in handy for logging custom activities or distinguishing personalization variants.")]
     public string? Identifier { get; set; }
 
     [CheckBoxComponent(Order = 6, Label = "Open in new tab")]
