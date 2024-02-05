@@ -9,9 +9,9 @@ using TrainingGuides.Web.Features.Shared.Services;
     RegisterWidget(
         identifier: CallToActionWidgetComponent.IDENTIFIER,
         viewComponentType: typeof(CallToActionWidgetComponent),
-        name: "CTA",
+        name: "Call to action (CTA)",
         propertiesType: typeof(CallToActionWidgetProperties),
-        Description = "Displays CTA.",
+        Description = "Displays a call to action button.",
         IconClass = "icon-bubbles")]
 
 namespace TrainingGuides.Web.Features.LandingPages.Widgets.CallToAction;
