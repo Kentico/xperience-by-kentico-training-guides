@@ -1,4 +1,5 @@
-﻿using TrainingGuides.Web.Features.Activities.Widgets.PageLike;
+﻿using TrainingGuides.Features.LandingPages.Widgets.HeroBannerWidget;
+using TrainingGuides.Web.Features.Activities.Widgets.PageLike;
 using TrainingGuides.Web.Features.DataProtection.Widgets.CookiePreferences;
 using TrainingGuides.Web.Features.LandingPages.Widgets.CallToAction;
 using TrainingGuides.Web.Features.Shared.Sections.FormColumn;
@@ -20,5 +21,6 @@ public static class ComponentIdentifiers
         public const string PAGE_LIKE = PageLikeWidgetViewComponent.IDENTIFIER;
         public const string COOKIE_PREFERENCES = CookiePreferencesWidgetViewComponent.IDENTIFIER;
         public const string CALL_TO_ACTION = CallToActionWidgetComponent.IDENTIFIER;
+        public const string HERO_BANNER = HeroBannerWidgetViewComponent.IDENTIFIER;
     }
 }
