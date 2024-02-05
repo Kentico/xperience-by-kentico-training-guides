@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentitem>
+  <ContentItemContentTypeID>
+    <CodeName>TrainingGuides.Hero</CodeName>
+    <GUID>3a83180b-cbef-43fd-b467-5bbcb018f22c</GUID>
+    <ObjectType>cms.contenttype</ObjectType>
+  </ContentItemContentTypeID>
+  <ContentItemGUID>f56a7c73-21d5-4604-8729-11cf5c74563f</ContentItemGUID>
+  <ContentItemIsReusable>True</ContentItemIsReusable>
+  <ContentItemIsSecured>False</ContentItemIsSecured>
+  <ContentItemName>LoremIpsumHero-ktk2zetu</ContentItemName>
+</cms.contentitem>

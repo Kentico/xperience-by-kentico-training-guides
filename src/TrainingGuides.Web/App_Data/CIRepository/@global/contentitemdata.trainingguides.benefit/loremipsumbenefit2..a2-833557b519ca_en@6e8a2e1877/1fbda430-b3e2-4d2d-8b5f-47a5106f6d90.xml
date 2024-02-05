@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.benefit>
+  <BenefitDescription>
+    <![CDATA[<p>Morbi scelerisque, tellus vel bibendum ultricies</p>]]>
+  </BenefitDescription>
+  <BenefitIcon>
+    <![CDATA[[{"Identifier":"3bceb54a-b28d-4291-90b8-128efb530f16"}]]]>
+  </BenefitIcon>
+  <ContentItemDataCommonDataID>
+    <GUID>d42ffca3-489d-4b30-b5a2-833557b519ca</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>LoremIpsumBenefit2-w321yakb</CodeName>
+      <GUID>15b4e527-dc69-4af3-95b3-95d995ede802</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>1fbda430-b3e2-4d2d-8b5f-47a5106f6d90</ContentItemDataGUID>
+</contentitemdata.trainingguides.benefit>

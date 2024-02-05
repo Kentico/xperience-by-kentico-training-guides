@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.hero>
+  <ContentItemDataCommonDataID>
+    <GUID>b5b8ea6c-4e5e-45a1-a776-da9b92ce41ba</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>LoremIpsumHero-ktk2zetu</CodeName>
+      <GUID>f56a7c73-21d5-4604-8729-11cf5c74563f</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>f63a20f4-ecef-4c40-8565-4b1c187b2b01</ContentItemDataGUID>
+  <HeroBenefits>
+    <![CDATA[[{"Identifier":"e3994c1f-b91e-43d0-82ee-fca635fd8792"},{"Identifier":"15b4e527-dc69-4af3-95b3-95d995ede802"},{"Identifier":"1c1d377a-0e51-4b18-83cf-05836881f131"}]]]>
+  </HeroBenefits>
+  <HeroCallToAction>View downloads!</HeroCallToAction>
+  <HeroHeader>Lorem ipsum hero</HeroHeader>
+  <HeroMedia>
+    <![CDATA[[{"Identifier":"fc6f2d35-7238-4fc5-9a62-b1059521d07c"}]]]>
+  </HeroMedia>
+  <HeroSubheader>
+    <![CDATA[<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>]]>
+  </HeroSubheader>
+  <HeroTarget>
+    <![CDATA[[{"WebPageGuid":"72a7df0f-c50e-42a9-a8d6-931688caca7d"}]]]>
+  </HeroTarget>
+</contentitemdata.trainingguides.hero>
