@@ -21,7 +21,7 @@ public class HeroBannerWidgetProperties : IWidgetProperties
     [VisibleIfEqualTo(nameof(Mode), "productPage", StringComparison.OrdinalIgnoreCase)]
     [WebPageSelectorComponent(Label = "Selected product", Order = 1, MaximumPages = 1, Sortable = true,
         ExplanationText =
-            "The widget will display the default product's content (Header, Short description, Media, Link (optional), and Product benefits).")]
+            "The widget will display the default product's content.")]
     public IEnumerable<WebPageRelatedItem> ProductPage { get; set; } = null!;
 
     [VisibleIfEqualTo(nameof(Mode), "productPage", StringComparison.OrdinalIgnoreCase)]
@@ -32,30 +32,19 @@ public class HeroBannerWidgetProperties : IWidgetProperties
     [ContentItemSelectorComponent(TrainingGuides.Hero.CONTENT_TYPE_NAME, Label = "Select hero banner", Order = 3,
         ExplanationTextAsHtml = true,
         ExplanationText =
-            "The widget will display the content from the selected Hero content type (Header, Short description, Media, Link (optional), and Product benefits).<br/>Adding a custom banner keeps the Product page's URL but overrides the product's default values (Header, Short description, Media, and Product benefits)")]
+            "The widget will display the content from the selected Hero content item.")]
     public IEnumerable<ContentItemReference> Hero { get; set; } = null!;
 
-    [VisibleIfEqualTo(nameof(Mode), "heroContentItem", StringComparison.OrdinalIgnoreCase)]
-    [UrlSelectorComponent(Label = "Banner Url", Order = 4)]
-    public string BannerUrl { get; set; } = null!;
-
-    [TextInputComponent(Label = "CTAText", Order = 5)]
+    [TextInputComponent(Label = "CTAText", Order = 5, ExplanationText = "Text of the call to action. (Overrides that of the selected content item)")]
     public string CTA { get; set; } = null!;
 
-    [CheckBoxComponent(Label = "Add absolute URL", Order = 6)]
-    public bool CustomAbsoluteUrl { get; set; } = false;
-
-    [TextInputComponent(Label = "Absolute url", Order = 7, ExplanationText = "Add a hyperlink to an external site, or use the product's URL + anchor tag # for referencing an anchor on the page, for example, \"https://kbank.com/loans/optimal-loan#form\"")]
-    [VisibleIfTrue(nameof(CustomAbsoluteUrl))]
-    public string AbsoluteUrl { get; set; } = null!;
-
-    [CheckBoxComponent(Label = "Display CTAText", Order = 8, ExplanationText = "When selected, the banner widget displays call to action")]
+    [CheckBoxComponent(Label = "Display CTA", Order = 8, ExplanationText = "When selected, the banner widget displays call to action")]
     public bool DisplayCTA { get; set; } = true;
 
     [CheckBoxComponent(Label = "Open in new tab", Order = 9)]
     public bool OpenInNewTab { get; set; } = false;
 
-    [CheckBoxComponent(Label = "Change widget design", Order = 10)]
+    [CheckBoxComponent(Label = "Show design options", Order = 10)]
     public bool ChangeDesign { get; set; } = false;
 
     [CheckBoxComponent(Label = "Show benefits", Order = 11, ExplanationText = "Displays product benefits if selected")]

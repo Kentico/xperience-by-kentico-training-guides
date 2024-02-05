@@ -1,7 +1,4 @@
 ﻿using CMS.ContentEngine;
-using CMS.ContentEngine.Internal;
-using CMS.DataEngine;
-using CMS.Websites.Internal;
 using Kbank.Web.Components.Widgets.HeroBannerWidget;
 using Kentico.Content.Web.Mvc;
 using Kentico.Content.Web.Mvc.Routing;
@@ -31,10 +28,9 @@ public class HeroBannerWidgetViewComponent : ViewComponent
     private readonly IContentQueryResultMapper contentQueryResultMapper;
     private readonly IContentItemRetrieverService<ProductPage> productRetrieverService;
     private readonly IContentItemRetrieverService<Hero> heroRetrieverService;
-    private readonly IContentItemRetrieverService contentItemRetrieverService;
     private readonly IWebPageUrlRetriever webPageUrlRetriever;
     private readonly IPreferredLanguageRetriever preferredLanguageRetriever;
-    
+
 
     public const string IDENTIFIER = "TrainingGuides.HeroBannerWidget";
 
@@ -43,7 +39,6 @@ public class HeroBannerWidgetViewComponent : ViewComponent
         IContentQueryResultMapper contentQueryResultMapper,
         IContentItemRetrieverService<ProductPage> productRetrieverService,
         IContentItemRetrieverService<Hero> heroRetrieverService,
-        IContentItemRetrieverService contentItemRetrieverService,
         IWebPageUrlRetriever webPageUrlRetriever,
         IPreferredLanguageRetriever preferredLanguageRetriever
         )
@@ -53,7 +48,6 @@ public class HeroBannerWidgetViewComponent : ViewComponent
         this.contentQueryResultMapper = contentQueryResultMapper;
         this.productRetrieverService = productRetrieverService;
         this.heroRetrieverService = heroRetrieverService;
-        this.contentItemRetrieverService = contentItemRetrieverService;
         this.webPageUrlRetriever = webPageUrlRetriever;
         this.preferredLanguageRetriever = preferredLanguageRetriever;
     }
@@ -71,7 +65,7 @@ public class HeroBannerWidgetViewComponent : ViewComponent
                 .RetrieveWebPageById(context.WebPage.WebPageItemID,
                     ProductPage.CONTENT_TYPE_NAME,
                     webPageQueryResultMapper.Map<ProductPage>,
-                    1);
+                    3);
 
             if (productPage != null)
             {
@@ -95,7 +89,7 @@ public class HeroBannerWidgetViewComponent : ViewComponent
                     .RetrieveWebPageByGuid((Guid)productPageGuid,
                         ProductPage.CONTENT_TYPE_NAME,
                         webPageQueryResultMapper.Map<ProductPage>,
-                        1)
+                        3)
                     : null;
 
                 banner = GetProductPageBanner(productPage);
@@ -123,7 +117,7 @@ public class HeroBannerWidgetViewComponent : ViewComponent
                     .RetrieveContentItemByGuid((Guid)heroGuid,
                         Hero.CONTENT_TYPE_NAME,
                         contentQueryResultMapper.Map<Hero>,
-                        1)
+                        3)
                     : null;
 
                 banner = await GetModel(hero, properties, cancellationToken);
@@ -139,10 +133,6 @@ public class HeroBannerWidgetViewComponent : ViewComponent
 
         if (banner != null)
         {
-            if (properties!.CustomAbsoluteUrl && !string.IsNullOrWhiteSpace(properties.AbsoluteUrl))
-            {
-                banner.CTALink = properties.AbsoluteUrl;
-            }
 
             banner.DisplayCTA = !string.IsNullOrEmpty(banner.CTALink) && !string.IsNullOrEmpty(banner.CTAText) && properties.DisplayCTA;
             banner.OpenInNewTab = properties.OpenInNewTab;
@@ -180,7 +170,7 @@ public class HeroBannerWidgetViewComponent : ViewComponent
             return new HeroBannerViewModel()
             {
                 Header = product.ProductName,
-                Subheader = product.ProductShortDescription,
+                Subheader = new HtmlString(product.ProductShortDescription),
                 Benefits = benefits.Select(BenefitViewModel.GetViewModel).ToList(),
                 Media = media != null
                     ? AssetViewModel.GetViewModel(media)
@@ -210,13 +200,13 @@ public class HeroBannerWidgetViewComponent : ViewComponent
 
             //var webPage = await contentItemRetrieverService.RetrieveWebPageByGuid(guid,
             //"");//TODO figure out how to get the codename, it's not available in the selector >:/
-            
+
             var media = hero.HeroMedia.FirstOrDefault();
 
             var model = new HeroBannerViewModel()
             {
                 Header = hero.HeroHeader,
-                Subheader = hero.HeroSubheader,
+                Subheader = new HtmlString(hero.HeroSubheader),
                 Benefits = hero.HeroBenefits.Select(BenefitViewModel.GetViewModel).ToList(),
                 Link = new LinkViewModel()
                 {

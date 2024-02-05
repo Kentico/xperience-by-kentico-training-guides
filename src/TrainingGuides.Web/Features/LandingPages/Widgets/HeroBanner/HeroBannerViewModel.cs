@@ -6,7 +6,7 @@ namespace Kbank.Web.Components.Widgets.HeroBannerWidget;
 public class HeroBannerViewModel : WidgetViewModel
 {
     public string Header { get; set; } = null!;
-    public string Subheader { get; set; } = null!;
+    public HtmlString Subheader { get; set; } = null!;
     public List<BenefitViewModel> Benefits { get; set; } = null!;
     public LinkViewModel Link { get; set; } = null!;
     public AssetViewModel? Media { get; set; }

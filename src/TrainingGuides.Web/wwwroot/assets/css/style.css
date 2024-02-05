@@ -11984,4 +11984,19 @@ blockquote {
   .size-1of3 {
     width: 33.333%; } }
 
+.c-icon-box {
+    display: grid;
+    grid-template-columns: 1.5rem 1fr;
+    gap: .75rem
+}
+
+.c-icon-box_icon {
+    color: var(--k-secondary,#8107c1)
+}
+
+    .c-icon-box_icon .c-icon {
+        width: 1.5rem;
+        height: 1.5rem
+    }
+
 /*# sourceMappingURL=style.css.map */
