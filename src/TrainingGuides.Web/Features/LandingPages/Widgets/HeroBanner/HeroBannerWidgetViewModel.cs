@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Html;
 using TrainingGuides.Web.Features.Shared.Models;
 
-namespace TrainingGuides.Features.LandingPages.Widgets.HeroBanner;
+namespace TrainingGuides.Web.Features.LandingPages.Widgets.HeroBanner;
 
 public class HeroBannerWidgetViewModel : WidgetViewModel
 {

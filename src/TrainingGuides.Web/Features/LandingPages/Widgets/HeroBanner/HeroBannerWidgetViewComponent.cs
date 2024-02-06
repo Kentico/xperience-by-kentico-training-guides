@@ -6,7 +6,7 @@ using Kentico.PageBuilder.Web.Mvc;
 using Microsoft.AspNetCore.Html;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ViewComponents;
-using TrainingGuides.Features.LandingPages.Widgets.HeroBanner;
+using TrainingGuides.Web.Features.LandingPages.Widgets.HeroBanner;
 using TrainingGuides.Web.Features.Shared.Models;
 using TrainingGuides.Web.Features.Shared.Services;
 
@@ -19,7 +19,7 @@ using TrainingGuides.Web.Features.Shared.Services;
     Description = "Displays text, image, and benefits.",
     IconClass = "icon-ribbon")]
 
-namespace TrainingGuides.Features.LandingPages.Widgets.HeroBanner;
+namespace TrainingGuides.Web.Features.LandingPages.Widgets.HeroBanner;
 
 public class HeroBannerWidgetViewComponent : ViewComponent
 {
