@@ -1,4 +1,4 @@
-﻿using TrainingGuides.Features.LandingPages.Widgets.HeroBannerWidget;
+﻿using TrainingGuides.Features.LandingPages.Widgets.HeroBanner;
 using TrainingGuides.Web.Features.Activities.Widgets.PageLike;
 using TrainingGuides.Web.Features.DataProtection.Widgets.CookiePreferences;
 using TrainingGuides.Web.Features.LandingPages.Widgets.CallToAction;

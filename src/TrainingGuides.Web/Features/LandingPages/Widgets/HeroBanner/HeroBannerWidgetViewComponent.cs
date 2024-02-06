@@ -1,12 +1,12 @@
 ﻿using CMS.ContentEngine;
-using Kbank.Web.Components.Widgets.HeroBannerWidget;
+using TrainingGuides.Web.Features.LandingPages.Widgets.HeroBanner;
 using Kentico.Content.Web.Mvc;
 using Kentico.Content.Web.Mvc.Routing;
 using Kentico.PageBuilder.Web.Mvc;
 using Microsoft.AspNetCore.Html;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ViewComponents;
-using TrainingGuides.Features.LandingPages.Widgets.HeroBannerWidget;
+using TrainingGuides.Features.LandingPages.Widgets.HeroBanner;
 using TrainingGuides.Web.Features.Shared.Models;
 using TrainingGuides.Web.Features.Shared.Services;
 
@@ -19,7 +19,7 @@ using TrainingGuides.Web.Features.Shared.Services;
     Description = "Displays text, image, and benefits.",
     IconClass = "icon-ribbon")]
 
-namespace TrainingGuides.Features.LandingPages.Widgets.HeroBannerWidget;
+namespace TrainingGuides.Features.LandingPages.Widgets.HeroBanner;
 
 public class HeroBannerWidgetViewComponent : ViewComponent
 {
@@ -32,7 +32,7 @@ public class HeroBannerWidgetViewComponent : ViewComponent
     private readonly IPreferredLanguageRetriever preferredLanguageRetriever;
 
 
-    public const string IDENTIFIER = "TrainingGuides.HeroBannerWidget";
+    public const string IDENTIFIER = "TrainingGuides.HeroBanner";
 
     public HeroBannerWidgetViewComponent(IWebPageDataContextRetriever webPageDataContextRetriever,
         IWebPageQueryResultMapper webPageQueryResultMapper,
@@ -55,7 +55,7 @@ public class HeroBannerWidgetViewComponent : ViewComponent
     public async Task<ViewViewComponentResult> InvokeAsync(HeroBannerWidgetProperties properties,
         CancellationToken cancellationToken)
     {
-        var banner = new HeroBannerViewModel();
+        var banner = new HeroBannerWidgetViewModel();
 
         if (string.Equals(properties.Mode, "currentProductPage"))
         {
@@ -156,9 +156,9 @@ public class HeroBannerWidgetViewComponent : ViewComponent
         return View("~/Features/LandingPages/Widgets/HeroBanner/_HeroBannerWidget.cshtml", banner);
     }
 
-    private HeroBannerViewModel? GetProductPageBanner(ProductPage? productPage) => productPage == null ? null : GetHeroBannerViewModel(productPage);
+    private HeroBannerWidgetViewModel? GetProductPageBanner(ProductPage? productPage) => productPage == null ? null : GetHeroBannerViewModel(productPage);
 
-    private static HeroBannerViewModel? GetHeroBannerViewModel(ProductPage productPage)
+    private static HeroBannerWidgetViewModel? GetHeroBannerViewModel(ProductPage productPage)
     {
         var product = productPage.ProductPageProduct.FirstOrDefault();
 
@@ -167,7 +167,7 @@ public class HeroBannerWidgetViewComponent : ViewComponent
             var benefits = product.ProductBenefits.ToList();
             var media = product.ProductMedia.FirstOrDefault();
 
-            return new HeroBannerViewModel()
+            return new HeroBannerWidgetViewModel()
             {
                 Header = product.ProductName,
                 Subheader = new HtmlString(product.ProductShortDescription),
@@ -181,46 +181,34 @@ public class HeroBannerWidgetViewComponent : ViewComponent
         return null;
     }
 
-    private async Task<HeroBannerViewModel?> GetModel(Hero? hero, HeroBannerWidgetProperties? properties, CancellationToken _)
+    private async Task<HeroBannerWidgetViewModel?> GetModel(Hero? hero, HeroBannerWidgetProperties? properties, CancellationToken _)
     {
-        if (hero != null && properties != null)
+        if (hero == null || properties == null)
         {
-            var guid = hero?.HeroTarget?.FirstOrDefault()?.WebPageGuid ?? new Guid();
-
-            //var dataSet = WebPageItemInfo.Provider.Get().WhereEquals(nameof(WebPageFields.WebPageItemGUID);
-            //.Source(sourceItem => sourceItem
-            //    .Join<ContentItemInfo>(nameof(WebPageItemInfo.WebPageItemContentItemID), nameof(ContentItemInfo.ContentItemID))
-            //    .Join<DataClassInfo>(nameof(ContentItemInfo.ContentItemContentTypeID), nameof(DataClassInfo.ClassID)))
-            //.Columns(nameof(DataClassInfo.ClassName))
-            //.Result;
-
-            //var contentTypeName = dataSet.Tables?[0]?.Rows?[0]?[nameof(DataClassInfo.ClassName)] ?? string.Empty
-
-            var url = await webPageUrlRetriever.Retrieve(guid, preferredLanguageRetriever.Get());
-
-            //var webPage = await contentItemRetrieverService.RetrieveWebPageByGuid(guid,
-            //"");//TODO figure out how to get the codename, it's not available in the selector >:/
-
-            var media = hero.HeroMedia.FirstOrDefault();
-
-            var model = new HeroBannerViewModel()
-            {
-                Header = hero.HeroHeader,
-                Subheader = new HtmlString(hero.HeroSubheader),
-                Benefits = hero.HeroBenefits.Select(BenefitViewModel.GetViewModel).ToList(),
-                Link = new LinkViewModel()
-                {
-                    Page = url.RelativePath,
-                    CTA = hero.HeroCallToAction
-                },
-                Media = media != null
-                    ? AssetViewModel.GetViewModel(media)
-                    : null
-            };
-
-            return model;
+            return null;
         }
 
-        return null;
+        var guid = hero.HeroTarget?.FirstOrDefault()?.WebPageGuid ?? new Guid();
+
+        var url = await webPageUrlRetriever.Retrieve(guid, preferredLanguageRetriever.Get());
+
+        var media = hero.HeroMedia.FirstOrDefault();
+
+        var model = new HeroBannerWidgetViewModel()
+        {
+            Header = hero.HeroHeader,
+            Subheader = new HtmlString(hero.HeroSubheader),
+            Benefits = hero.HeroBenefits.Select(BenefitViewModel.GetViewModel).ToList(),
+            Link = new LinkViewModel()
+            {
+                Page = url.RelativePath,
+                CTA = hero.HeroCallToAction
+            },
+            Media = media != null
+                ? AssetViewModel.GetViewModel(media)
+                : null
+        };
+
+        return model;
     }
 }

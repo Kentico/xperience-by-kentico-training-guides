@@ -1,5 +1,5 @@
 ﻿@using Microsoft.AspNetCore.Html;
-@model Kbank.Web.Components.Widgets.HeroBannerWidget.HeroBannerViewModel
+@model TrainingGuides.Features.LandingPages.Widgets.HeroBanner.HeroBannerWidgetViewModel
 
 @if (Model is null || Model.IsMisconfigured)
 {
@@ -8,7 +8,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-7">
-                        <xpc-misconfigured-widget-instructions />
+                        <tg-configure-widget-instructions />
                     </div>
                 </div>
             </div>

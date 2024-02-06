@@ -3,13 +3,13 @@ using Kentico.PageBuilder.Web.Mvc;
 using Kentico.Xperience.Admin.Base.FormAnnotations;
 using Kentico.Xperience.Admin.Websites.FormAnnotations;
 
-namespace Kbank.Web.Components.Widgets.HeroBannerWidget;
+namespace TrainingGuides.Web.Features.LandingPages.Widgets.HeroBanner;
 
 public class HeroBannerWidgetProperties : IWidgetProperties
 {
     [RadioGroupComponent(
         Label = "Selected hero widget mode",
-        Options = "currentProductPage;Current product page\nproductPage;Select product page\nheroContentItem;Select hero content item",
+        Options = "currentProductPage;Use the current product page\nproductPage;Select a product page\nheroContentItem;Select a hero content item from Content hub",
         Order = 1
     )]
     public string Mode { get; set; } = "currentProductPage";
@@ -35,7 +35,7 @@ public class HeroBannerWidgetProperties : IWidgetProperties
             "The widget will display the content from the selected Hero content item.")]
     public IEnumerable<ContentItemReference> Hero { get; set; } = null!;
 
-    [TextInputComponent(Label = "CTAText", Order = 5, ExplanationText = "Text of the call to action. (Overrides that of the selected content item)")]
+    [TextInputComponent(Label = "CTA Text", Order = 5, ExplanationText = "Text of the call to action. (Overrides that of the selected content item)")]
     public string CTA { get; set; } = null!;
 
     [CheckBoxComponent(Label = "Display CTA", Order = 8, ExplanationText = "When selected, the banner widget displays call to action")]
@@ -59,7 +59,7 @@ public class HeroBannerWidgetProperties : IWidgetProperties
     [VisibleIfTrue(nameof(ChangeDesign))]
     public string Width { get; set; } = "circle";
 
-    [DropDownComponent(Label = "Text Color", Order = 10, Options = "dark;Dark\nlight;Light", ExplanationText = "Select the color of the component text. Changing this will automatically change the component color theme to fit the text color.")]
+    [DropDownComponent(Label = "Text color", Order = 10, Options = "dark;Dark\nlight;Light", ExplanationText = "Select the color of the component text. Changing this will automatically change the component color theme to fit the text color.")]
     [VisibleIfTrue(nameof(ChangeDesign))]
     public string TextColor { get; set; } = "dark";
 }

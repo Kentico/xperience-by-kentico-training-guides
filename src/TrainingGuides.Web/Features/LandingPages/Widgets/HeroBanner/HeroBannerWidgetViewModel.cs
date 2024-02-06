@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Html;
 using TrainingGuides.Web.Features.Shared.Models;
 
-namespace Kbank.Web.Components.Widgets.HeroBannerWidget;
+namespace TrainingGuides.Features.LandingPages.Widgets.HeroBanner;
 
-public class HeroBannerViewModel : WidgetViewModel
+public class HeroBannerWidgetViewModel : WidgetViewModel
 {
     public string Header { get; set; } = null!;
     public HtmlString Subheader { get; set; } = null!;
@@ -22,15 +22,12 @@ public class HeroBannerViewModel : WidgetViewModel
     public bool ShowImage { get; set; } = true;
     public bool FullWidth { get; set; } = false;
     public string TextColor { get; set; } = null!;
-
     public string ThemeClass => TextColor switch
     {
         "light" => "light",
         "dark" => "",
         _ => ""
     };
-
     public HtmlString StyleAttribute { get; set; } = null!;
-
-    public override bool IsMisconfigured => false;
+    public override bool IsMisconfigured => string.IsNullOrEmpty(Header);
 }
