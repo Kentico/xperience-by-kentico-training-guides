@@ -6,7 +6,6 @@ using Kentico.PageBuilder.Web.Mvc;
 using Microsoft.AspNetCore.Html;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ViewComponents;
-using TrainingGuides.Web.Features.LandingPages.Widgets.HeroBanner;
 using TrainingGuides.Web.Features.Shared.Models;
 using TrainingGuides.Web.Features.Shared.Services;
 
@@ -97,6 +96,7 @@ public class HeroBannerWidgetViewComponent : ViewComponent
                 {
                     string relativeUrl = productPage?.SystemFields.WebPageUrlPath is not null
                         ? $"~/{productPage.SystemFields.WebPageUrlPath}"
+                        : string.Empty;
                     banner.CTALink = relativeUrl + (string.IsNullOrWhiteSpace(properties.SelectedProductPageAnchor)
                                         ? string.Empty
                                         : $"#{properties.SelectedProductPageAnchor}");
