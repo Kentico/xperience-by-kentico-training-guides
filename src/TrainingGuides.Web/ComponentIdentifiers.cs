@@ -20,7 +20,7 @@ public static class ComponentIdentifiers
     {
         public const string PAGE_LIKE = PageLikeWidgetViewComponent.IDENTIFIER;
         public const string COOKIE_PREFERENCES = CookiePreferencesWidgetViewComponent.IDENTIFIER;
-        public const string CALL_TO_ACTION = CallToActionWidgetComponent.IDENTIFIER;
+        public const string CALL_TO_ACTION = CallToActionWidgetViewComponent.IDENTIFIER;
         public const string HERO_BANNER = HeroBannerWidgetViewComponent.IDENTIFIER;
     }
 }

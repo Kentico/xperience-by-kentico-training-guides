@@ -7,8 +7,8 @@ using TrainingGuides.Web.Features.Shared.Services;
 
 [assembly:
     RegisterWidget(
-        identifier: CallToActionWidgetComponent.IDENTIFIER,
-        viewComponentType: typeof(CallToActionWidgetComponent),
+        identifier: CallToActionWidgetViewComponent.IDENTIFIER,
+        viewComponentType: typeof(CallToActionWidgetViewComponent),
         name: "Call to action (CTA)",
         propertiesType: typeof(CallToActionWidgetProperties),
         Description = "Displays a call to action button.",
@@ -16,14 +16,14 @@ using TrainingGuides.Web.Features.Shared.Services;
 
 namespace TrainingGuides.Web.Features.LandingPages.Widgets.CallToAction;
 
-public class CallToActionWidgetComponent : ViewComponent
+public class CallToActionWidgetViewComponent : ViewComponent
 {
     private readonly IContentItemRetrieverService<Asset> contentItemRetrieverService;
     private readonly IContentQueryResultMapper contentQueryResultMapper;
 
     public const string IDENTIFIER = "TrainingGuides.CallToActionWidget";
 
-    public CallToActionWidgetComponent(
+    public CallToActionWidgetViewComponent(
         IContentItemRetrieverService<Asset> contentItemRetrieverService,
         IContentQueryResultMapper contentQueryResultMapper)
     {
