@@ -88,7 +88,12 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
                             )
                             .InLanguage(preferredLanguageRetriever.Get());
 
-        var pages = await contentQueryExecutor.GetWebPageResult(builder, resultSelector);
+        var queryExecutorOptions = new ContentQueryExecutionOptions
+        {
+            ForPreview = webSiteChannelContext.IsPreview
+        };
+
+        var pages = await contentQueryExecutor.GetWebPageResult(builder, resultSelector, queryExecutorOptions);
 
         return pages;
     }
@@ -109,13 +114,13 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
         Func<IContentQueryDataContainer, T> resultSelector,
         int depth = 1)
     {
-        var pages = await RetrieveReusableContentItems(
+        var items = await RetrieveReusableContentItems(
                 contentTypeName ?? string.Empty,
                 config => config
                     .Where(where => where.WhereEquals(nameof(ContentItemFields.ContentItemGUID), contentItemGuid))
                     .WithLinkedItems(depth),
                 resultSelector);
-        return pages.FirstOrDefault();
+        return items.FirstOrDefault();
     }
 
     public async Task<IEnumerable<T>> RetrieveReusableContentItems(
@@ -130,9 +135,14 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
                             )
                             .InLanguage(preferredLanguageRetriever.Get());
 
-        var pages = await contentQueryExecutor.GetResult(builder, resultSelector);
+        var queryExecutorOptions = new ContentQueryExecutionOptions
+        {
+            ForPreview = webSiteChannelContext.IsPreview
+        };
 
-        return pages;
+        var items = await contentQueryExecutor.GetResult(builder, resultSelector, queryExecutorOptions);
+
+        return items;
     }
 }
 
