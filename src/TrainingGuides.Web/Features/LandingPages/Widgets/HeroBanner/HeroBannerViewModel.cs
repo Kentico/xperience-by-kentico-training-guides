@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Html;
 using TrainingGuides.Web.Features.Shared.Models;
 
+// remove leftover KBank from the namespace
 namespace Kbank.Web.Components.Widgets.HeroBannerWidget;
 
 public class HeroBannerViewModel : WidgetViewModel
