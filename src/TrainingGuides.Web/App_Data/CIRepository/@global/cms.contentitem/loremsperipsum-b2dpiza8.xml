@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentitem>
+  <ContentItemContentTypeID>
+    <CodeName>TrainingGuides.ProductFeature</CodeName>
+    <GUID>7521136f-4ed3-4b69-8b54-82255d7b4385</GUID>
+    <ObjectType>cms.contenttype</ObjectType>
+  </ContentItemContentTypeID>
+  <ContentItemGUID>3453b6bc-f36a-4203-8757-bba2562df298</ContentItemGUID>
+  <ContentItemIsReusable>True</ContentItemIsReusable>
+  <ContentItemIsSecured>False</ContentItemIsSecured>
+  <ContentItemName>LoremsPerIpsum-b2dpiza8</ContentItemName>
+</cms.contentitem>
