@@ -122,7 +122,7 @@ public class HeroBannerWidgetViewComponent : ViewComponent
 
                 if (banner?.Link != null)
                 {
-                    banner.CTALink = !string.IsNullOrEmpty(banner.Link.Page) ? banner.Link.Page : banner.Link.LinkToExternal;
+                    banner.CTALink = !string.IsNullOrEmpty(banner.Link.Page) ? banner!.Link.Page : banner.Link.LinkToExternal ?? string.Empty;
                     banner.CTAText = !string.IsNullOrEmpty(properties?.CTA) ? properties.CTA : banner.Link.CTA;
                     banner.LinkTitle = banner.Link.LinkTitleText;
                 }
@@ -132,8 +132,8 @@ public class HeroBannerWidgetViewComponent : ViewComponent
         if (banner != null)
         {
 
-            banner.DisplayCTA = !string.IsNullOrEmpty(banner.CTALink) && !string.IsNullOrEmpty(banner.CTAText) && properties.DisplayCTA;
-            banner.OpenInNewTab = properties.OpenInNewTab;
+            banner.DisplayCTA = !string.IsNullOrEmpty(banner.CTALink) && !string.IsNullOrEmpty(banner.CTAText) && properties!.DisplayCTA;
+            banner.OpenInNewTab = properties!.OpenInNewTab;
 
             if (properties.ChangeDesign)
             {
@@ -159,7 +159,7 @@ public class HeroBannerWidgetViewComponent : ViewComponent
         return View("~/Features/LandingPages/Widgets/HeroBanner/_HeroBannerWidget.cshtml", banner);
     }
 
-    private HeroBannerViewModel? GetProductPageBanner(ProductPage? productPage) =>
+    private HeroBannerWidgetViewModel? GetProductPageBanner(ProductPage? productPage) =>
         productPage == null ? null : GetHeroBannerViewModel(productPage);
 
     private static HeroBannerWidgetViewModel? GetHeroBannerViewModel(ProductPage productPage)
