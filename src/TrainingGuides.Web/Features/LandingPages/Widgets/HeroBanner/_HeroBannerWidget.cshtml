@@ -1,4 +1,6 @@
 ﻿@using Microsoft.AspNetCore.Html;
+@* remove leftover KBank from the namespace *@
+@* also, the underscore in this view file name*@
 @model Kbank.Web.Components.Widgets.HeroBannerWidget.HeroBannerViewModel
 
 @if (Model is null || Model.IsMisconfigured)
@@ -8,6 +10,9 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-7">
+                        @* This is the tag helper dos not exist in our repo. It's the one I added with the CTA widget, but I gave it a different name: *@
+                        @* <tg-configure-widget-instructions/> *@
+                        @* Although I don't see when it would actually display. Is Model EVER null? Also, from what I understand, IsMisconfigured is always false. *@
                         <xpc-misconfigured-widget-instructions />
                     </div>
                 </div>
@@ -52,14 +57,12 @@
                                 </div>
                             }
 
-
                             @if (Model.DisplayCTA)
                             {
                                 <div class="mt-4">
                                     <a type="submit" class="btn btn-primary text-uppercase" target="@(Model.OpenInNewTab ? "_blank" : "")" href="@Url.Content(Model.CTALink)" title="@Model.LinkTitle">@Model.CTAText</a>
                                 </div>
                             }
-
 
                         </div>
                     </div>
@@ -102,6 +105,7 @@
                                     <a type="submit" class="btn btn-primary text-uppercase" target="@(Model.OpenInNewTab ? "_blank" : "")" href="@Url.Content(Model.CTALink)" title="@Model.LinkTitle">@Model.CTAText</a>
                                 </div>
                             }
+                            
                         </div>
                         <div class="col-5 offset-1 d-none d-lg-block">
                             <div class="c-hero_canvas">
@@ -114,7 +118,6 @@
                                 <div class="c-hero_canvas_circle big"></div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </section>

@@ -1,4 +1,5 @@
 ﻿using CMS.ContentEngine;
+//remove KBank leftover
 using Kbank.Web.Components.Widgets.HeroBannerWidget;
 using Kentico.Content.Web.Mvc;
 using Kentico.Content.Web.Mvc.Routing;
@@ -86,10 +87,11 @@ public class HeroBannerWidgetViewComponent : ViewComponent
                 var productPageGuid = properties.ProductPage?.Select(i => i.WebPageGuid).FirstOrDefault();
                 var productPage = productPageGuid.HasValue
                     ? await productRetrieverService
-                    .RetrieveWebPageByGuid((Guid)productPageGuid,
-                        ProductPage.CONTENT_TYPE_NAME,
-                        webPageQueryResultMapper.Map<ProductPage>,
-                        3)
+                        //indentating the method like this makes it more readable in my opinion (it belongs with the first part of the condition)
+                        .RetrieveWebPageByGuid((Guid)productPageGuid,
+                            ProductPage.CONTENT_TYPE_NAME,
+                            webPageQueryResultMapper.Map<ProductPage>,
+                            3)
                     : null;
 
                 banner = GetProductPageBanner(productPage);
@@ -98,8 +100,8 @@ public class HeroBannerWidgetViewComponent : ViewComponent
                     string relativeUrl = productPage?.SystemFields.WebPageUrlPath is not null
                         ? $"~/{productPage.SystemFields.WebPageUrlPath}"
                         : string.Empty;
-                    banner.CTALink = relativeUrl +
-                                    (string.IsNullOrWhiteSpace(properties.SelectedProductPageAnchor)
+                    //just a proposal - i think this reads better
+                    banner.CTALink = relativeUrl + (string.IsNullOrWhiteSpace(properties.SelectedProductPageAnchor)
                                         ? string.Empty
                                         : $"#{properties.SelectedProductPageAnchor}");
                     banner.CTAText = properties.CTA;
@@ -113,18 +115,19 @@ public class HeroBannerWidgetViewComponent : ViewComponent
                 var heroGuid = properties?.Hero?.Select(i => i.Identifier).ToList().FirstOrDefault();
 
                 var hero = heroGuid.HasValue
+                //same indentation comment as above
                     ? await heroRetrieverService
-                    .RetrieveContentItemByGuid((Guid)heroGuid,
-                        Hero.CONTENT_TYPE_NAME,
-                        contentQueryResultMapper.Map<Hero>,
-                        3)
+                        .RetrieveContentItemByGuid((Guid)heroGuid,
+                            Hero.CONTENT_TYPE_NAME,
+                            contentQueryResultMapper.Map<Hero>,
+                            3)
                     : null;
 
                 banner = await GetModel(hero, properties, cancellationToken);
 
                 if (banner?.Link != null)
                 {
-                    banner.CTALink = !string.IsNullOrEmpty(banner.Link!.Page) ? banner.Link.Page : banner.Link.LinkToExternal;
+                    banner.CTALink = !string.IsNullOrEmpty(banner.Link.Page) ? banner.Link.Page : banner.Link.LinkToExternal;
                     banner.CTAText = !string.IsNullOrEmpty(properties?.CTA) ? properties.CTA : banner.Link.CTA;
                     banner.LinkTitle = banner.Link.LinkTitleText;
                 }
@@ -147,16 +150,29 @@ public class HeroBannerWidgetViewComponent : ViewComponent
 
             if (!string.IsNullOrEmpty(banner.Media?.FilePath))
             {
-                banner.StyleAttribute = new HtmlString(banner.FullWidth
-                    ? $"style=\"background-image: url('{Url.Content(banner.Media.FilePath)}');\""
-                    : $"style=\"background-image: url('{Url.Content(banner.Media.FilePath)}'); background-repeat: no-repeat;background-size: cover;background-position: center\"");
+                // My suggestion is to refactor this to avoid repetition and accidental typo-related issues.
+                // Yes, it's a bit longer, my hope is that putting the styles into variables and naming them meaningfully will help with readability.
+                // banner.StyleAttribute = new HtmlString(banner.FullWidth
+                //     ? $"style=\"background-image: url('{Url.Content(banner.Media.FilePath)}');\""
+                //     : $"style=\"background-image: url('{Url.Content(banner.Media.FilePath)}'); background-repeat: no-repeat;background-size: cover;background-position: center\"");
+
+                string backgroundImageStyle = $"background-image: url('{Url.Content(banner.Media.FilePath)}');";
+                string backgroundNoRepeatStyle = "background-repeat: no-repeat;background-size: cover;background-position: center";
+
+                string backgroundStyle = banner.FullWidth
+                        ? backgroundImageStyle
+                        : $"{backgroundImageStyle};{backgroundNoRepeatStyle}";
+
+                banner.StyleAttribute = new HtmlString($"style=\"{backgroundStyle}\"");
             }
         }
 
         return View("~/Features/LandingPages/Widgets/HeroBanner/_HeroBannerWidget.cshtml", banner);
     }
 
-    private HeroBannerViewModel? GetProductPageBanner(ProductPage? productPage) => productPage == null ? null : GetHeroBannerViewModel(productPage);
+    //suggestion: I think it reads better to have the arrow function body on a new line
+    private HeroBannerViewModel? GetProductPageBanner(ProductPage? productPage) =>
+        productPage == null ? null : GetHeroBannerViewModel(productPage);
 
     private static HeroBannerViewModel? GetHeroBannerViewModel(ProductPage productPage)
     {
@@ -187,6 +203,8 @@ public class HeroBannerWidgetViewComponent : ViewComponent
         {
             var guid = hero?.HeroTarget?.FirstOrDefault()?.WebPageGuid ?? new Guid();
 
+            //are these comments leftovers to eb removed? If they are left on purpose, it would be good to have a comment with an explanation of some kind. 
+
             //var dataSet = WebPageItemInfo.Provider.Get().WhereEquals(nameof(WebPageFields.WebPageItemGUID);
             //.Source(sourceItem => sourceItem
             //    .Join<ContentItemInfo>(nameof(WebPageItemInfo.WebPageItemContentItemID), nameof(ContentItemInfo.ContentItemID))
@@ -201,17 +219,19 @@ public class HeroBannerWidgetViewComponent : ViewComponent
             //var webPage = await contentItemRetrieverService.RetrieveWebPageByGuid(guid,
             //"");//TODO figure out how to get the codename, it's not available in the selector >:/
 
-            var media = hero.HeroMedia.FirstOrDefault();
+
+            //hero will never be null here (the if condition above), use the ! (null forgiving operator) to get rid of warnings
+            var media = hero!.HeroMedia.FirstOrDefault();
 
             var model = new HeroBannerViewModel()
             {
-                Header = hero.HeroHeader,
-                Subheader = new HtmlString(hero.HeroSubheader),
-                Benefits = hero.HeroBenefits.Select(BenefitViewModel.GetViewModel).ToList(),
+                Header = hero!.HeroHeader,
+                Subheader = new HtmlString(hero?.HeroSubheader),
+                Benefits = hero!.HeroBenefits.Select(BenefitViewModel.GetViewModel).ToList(),
                 Link = new LinkViewModel()
                 {
                     Page = url.RelativePath,
-                    CTA = hero.HeroCallToAction
+                    CTA = hero!.HeroCallToAction
                 },
                 Media = media != null
                     ? AssetViewModel.GetViewModel(media)

@@ -13,8 +13,9 @@ public class BenefitViewModel
     public static BenefitViewModel GetViewModel(Benefit benefit) => new()
     {
         Description = new(benefit.BenefitDescription),
+        //I fixed the indentation and added nulll forgiving operator to get rid of the warning
         Asset = benefit.BenefitIcon?.FirstOrDefault() != null
-                ? AssetViewModel.GetViewModel(benefit.BenefitIcon.FirstOrDefault())
-                : null,
+            ? AssetViewModel.GetViewModel(benefit.BenefitIcon.FirstOrDefault()!)
+            : null,
     };
 }
