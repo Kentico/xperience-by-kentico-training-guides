@@ -52,14 +52,12 @@
                                 </div>
                             }
 
-
                             @if (Model.DisplayCTA)
                             {
                                 <div class="mt-4">
                                     <a type="submit" class="btn btn-primary text-uppercase" target="@(Model.OpenInNewTab ? "_blank" : "")" href="@Url.Content(Model.CTALink)" title="@Model.LinkTitle">@Model.CTAText</a>
                                 </div>
                             }
-
 
                         </div>
                     </div>
@@ -102,6 +100,7 @@
                                     <a type="submit" class="btn btn-primary text-uppercase" target="@(Model.OpenInNewTab ? "_blank" : "")" href="@Url.Content(Model.CTALink)" title="@Model.LinkTitle">@Model.CTAText</a>
                                 </div>
                             }
+                            
                         </div>
                         <div class="col-5 offset-1 d-none d-lg-block">
                             <div class="c-hero_canvas">
@@ -114,7 +113,6 @@
                                 <div class="c-hero_canvas_circle big"></div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </section>

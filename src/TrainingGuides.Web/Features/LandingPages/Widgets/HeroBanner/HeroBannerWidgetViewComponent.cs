@@ -86,10 +86,10 @@ public class HeroBannerWidgetViewComponent : ViewComponent
                 var productPageGuid = properties.ProductPage?.Select(i => i.WebPageGuid).FirstOrDefault();
                 var productPage = productPageGuid.HasValue
                     ? await productRetrieverService
-                    .RetrieveWebPageByGuid((Guid)productPageGuid,
-                        ProductPage.CONTENT_TYPE_NAME,
-                        webPageQueryResultMapper.Map<ProductPage>,
-                        3)
+                        .RetrieveWebPageByGuid((Guid)productPageGuid,
+                            ProductPage.CONTENT_TYPE_NAME,
+                            webPageQueryResultMapper.Map<ProductPage>,
+                            3)
                     : null;
 
                 banner = GetProductPageBanner(productPage);
@@ -97,9 +97,7 @@ public class HeroBannerWidgetViewComponent : ViewComponent
                 {
                     string relativeUrl = productPage?.SystemFields.WebPageUrlPath is not null
                         ? $"~/{productPage.SystemFields.WebPageUrlPath}"
-                        : string.Empty;
-                    banner.CTALink = relativeUrl +
-                                    (string.IsNullOrWhiteSpace(properties.SelectedProductPageAnchor)
+                    banner.CTALink = relativeUrl + (string.IsNullOrWhiteSpace(properties.SelectedProductPageAnchor)
                                         ? string.Empty
                                         : $"#{properties.SelectedProductPageAnchor}");
                     banner.CTAText = properties.CTA;
@@ -114,17 +112,17 @@ public class HeroBannerWidgetViewComponent : ViewComponent
 
                 var hero = heroGuid.HasValue
                     ? await heroRetrieverService
-                    .RetrieveContentItemByGuid((Guid)heroGuid,
-                        Hero.CONTENT_TYPE_NAME,
-                        contentQueryResultMapper.Map<Hero>,
-                        3)
+                        .RetrieveContentItemByGuid((Guid)heroGuid,
+                            Hero.CONTENT_TYPE_NAME,
+                            contentQueryResultMapper.Map<Hero>,
+                            3)
                     : null;
 
                 banner = await GetModel(hero, properties, cancellationToken);
 
                 if (banner?.Link != null)
                 {
-                    banner.CTALink = !string.IsNullOrEmpty(banner.Link!.Page) ? banner.Link.Page : banner.Link.LinkToExternal;
+                    banner.CTALink = !string.IsNullOrEmpty(banner.Link.Page) ? banner.Link.Page : banner.Link.LinkToExternal;
                     banner.CTAText = !string.IsNullOrEmpty(properties?.CTA) ? properties.CTA : banner.Link.CTA;
                     banner.LinkTitle = banner.Link.LinkTitleText;
                 }
@@ -147,16 +145,22 @@ public class HeroBannerWidgetViewComponent : ViewComponent
 
             if (!string.IsNullOrEmpty(banner.Media?.FilePath))
             {
-                banner.StyleAttribute = new HtmlString(banner.FullWidth
-                    ? $"style=\"background-image: url('{Url.Content(banner.Media.FilePath)}');\""
-                    : $"style=\"background-image: url('{Url.Content(banner.Media.FilePath)}'); background-repeat: no-repeat;background-size: cover;background-position: center\"");
+                string backgroundImageStyle = $"background-image: url('{Url.Content(banner.Media.FilePath)}');";
+                string backgroundNoRepeatStyle = "background-repeat: no-repeat;background-size: cover;background-position: center";
+
+                string backgroundStyle = banner.FullWidth
+                        ? backgroundImageStyle
+                        : $"{backgroundImageStyle};{backgroundNoRepeatStyle}";
+
+                banner.StyleAttribute = new HtmlString($"style=\"{backgroundStyle}\"");
             }
         }
 
         return View("~/Features/LandingPages/Widgets/HeroBanner/_HeroBannerWidget.cshtml", banner);
     }
 
-    private HeroBannerWidgetViewModel? GetProductPageBanner(ProductPage? productPage) => productPage == null ? null : GetHeroBannerViewModel(productPage);
+    private HeroBannerViewModel? GetProductPageBanner(ProductPage? productPage) =>
+        productPage == null ? null : GetHeroBannerViewModel(productPage);
 
     private static HeroBannerWidgetViewModel? GetHeroBannerViewModel(ProductPage productPage)
     {

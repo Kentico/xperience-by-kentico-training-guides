@@ -38,7 +38,7 @@ public class HeroBannerWidgetProperties : IWidgetProperties
     [TextInputComponent(Label = "CTA Text", Order = 5, ExplanationText = "Text of the call to action. (Overrides that of the selected content item)")]
     public string CTA { get; set; } = null!;
 
-    [CheckBoxComponent(Label = "Display CTA", Order = 8, ExplanationText = "When selected, the banner widget displays call to action")]
+    [CheckBoxComponent(Label = "Display CTA", Order = 8, ExplanationText = "When selected, the banner widget displays call to action.")]
     public bool DisplayCTA { get; set; } = true;
 
     [CheckBoxComponent(Label = "Open in new tab", Order = 9)]
@@ -47,7 +47,7 @@ public class HeroBannerWidgetProperties : IWidgetProperties
     [CheckBoxComponent(Label = "Show design options", Order = 10)]
     public bool ChangeDesign { get; set; } = false;
 
-    [CheckBoxComponent(Label = "Show benefits", Order = 11, ExplanationText = "Displays product benefits if selected")]
+    [CheckBoxComponent(Label = "Show benefits", Order = 11, ExplanationText = "Displays product benefits if selected.")]
     [VisibleIfTrue(nameof(ChangeDesign))]
     public bool ShowBenefits { get; set; } = false;
 
