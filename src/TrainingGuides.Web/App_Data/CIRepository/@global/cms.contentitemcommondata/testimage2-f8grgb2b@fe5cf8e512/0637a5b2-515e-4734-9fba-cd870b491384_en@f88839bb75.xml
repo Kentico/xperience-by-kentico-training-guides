@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.contentitemcommondata>
   <ContentItemCommonDataContentItemID>
-    <CodeName>DolorSitAmet-ymn1m2kg</CodeName>
-    <GUID>024469dc-5467-48a6-b09f-9b202ee2f510</GUID>
+    <CodeName>TestImage2-f8grgb2b</CodeName>
+    <GUID>467634b2-e844-45b9-b712-ff72f44d903d</GUID>
     <ObjectType>cms.contentitem</ObjectType>
   </ContentItemCommonDataContentItemID>
   <ContentItemCommonDataContentLanguageID>
@@ -10,9 +10,9 @@
     <GUID>e81b5172-f240-4041-88b1-653089984e29</GUID>
     <ObjectType>cms.contentlanguage</ObjectType>
   </ContentItemCommonDataContentLanguageID>
-  <ContentItemCommonDataFirstPublishedWhen>2024-02-06 18:43:20Z</ContentItemCommonDataFirstPublishedWhen>
-  <ContentItemCommonDataGUID>6e8279b9-f099-4337-83a6-9d5eac55d4e6</ContentItemCommonDataGUID>
+  <ContentItemCommonDataFirstPublishedWhen>2024-02-06 21:38:50Z</ContentItemCommonDataFirstPublishedWhen>
+  <ContentItemCommonDataGUID>0637a5b2-515e-4734-9fba-cd870b491384</ContentItemCommonDataGUID>
   <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
-  <ContentItemCommonDataLastPublishedWhen>2024-02-06 22:15:30Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataLastPublishedWhen>2024-02-06 21:38:50Z</ContentItemCommonDataLastPublishedWhen>
   <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
 </cms.contentitemcommondata>

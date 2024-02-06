@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.productpage>
+  <ContentItemDataCommonDataID>
+    <GUID>4e0b3e2f-0c78-4cb8-ab50-febbabdb358e</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>IpsumZ-dk8frf1d</CodeName>
+      <GUID>90f28e6e-7bdd-4f88-a1e8-0e2dbd243e9b</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>b185be91-8cb2-4acd-a833-44623854ddf5</ContentItemDataGUID>
+  <ProductPageProduct>
+    <![CDATA[[{"Identifier":"85342550-f35f-4941-9ca9-21b0a0cf4918"}]]]>
+  </ProductPageProduct>
+</contentitemdata.trainingguides.productpage>

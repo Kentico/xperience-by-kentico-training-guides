@@ -1,19 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <contentitemdata.trainingguides.productfeature>
   <ContentItemDataCommonDataID>
-    <GUID>18e2e93f-8379-43e8-a238-cb03b384c737</GUID>
+    <GUID>8edb249a-5406-46ec-9a1b-dba73f3970c8</GUID>
     <ObjectType>cms.contentitemcommondata</ObjectType>
     <Parent>
-      <CodeName>LoremsPerIpsum-b2dpiza8</CodeName>
-      <GUID>3453b6bc-f36a-4203-8757-bba2562df298</GUID>
+      <CodeName>LoremsPerIpsum-rnnrmvk8</CodeName>
+      <GUID>f89c8f04-17ec-47a9-97df-c559b108691f</GUID>
       <ObjectType>cms.contentitem</ObjectType>
     </Parent>
   </ContentItemDataCommonDataID>
-  <ContentItemDataGUID>52263b6e-975e-4b02-915b-2bda69ff153e</ContentItemDataGUID>
+  <ContentItemDataGUID>127bb5be-8457-46e0-a7b2-b06742a1cb01</ContentItemDataGUID>
   <ProductFeatureIncluded>False</ProductFeatureIncluded>
   <ProductFeatureKey>lorems-per-ipsum</ProductFeatureKey>
   <ProductFeatureLabel>Lorems per ipsum</ProductFeatureLabel>
   <ProductFeatureShowInComparator>1</ProductFeatureShowInComparator>
-  <ProductFeatureValue>100</ProductFeatureValue>
+  <ProductFeatureValue>125</ProductFeatureValue>
   <ProductFeatureValueType>0</ProductFeatureValueType>
 </contentitemdata.trainingguides.productfeature>

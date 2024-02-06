@@ -1,16 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <contentitemdata.trainingguides.productfeature>
   <ContentItemDataCommonDataID>
-    <GUID>6e8279b9-f099-4337-83a6-9d5eac55d4e6</GUID>
+    <GUID>685d070c-ca03-47e7-80a5-86d05acd88ef</GUID>
     <ObjectType>cms.contentitemcommondata</ObjectType>
     <Parent>
-      <CodeName>DolorSitAmet-ymn1m2kg</CodeName>
-      <GUID>024469dc-5467-48a6-b09f-9b202ee2f510</GUID>
+      <CodeName>DolorSitAmet-4j0g8zk6</CodeName>
+      <GUID>0267614c-b1ed-42d9-ac01-99b429441854</GUID>
       <ObjectType>cms.contentitem</ObjectType>
     </Parent>
   </ContentItemDataCommonDataID>
-  <ContentItemDataGUID>c718cd78-8892-459f-8f1c-b0729f21aaf3</ContentItemDataGUID>
-  <ProductFeatureIncluded>True</ProductFeatureIncluded>
+  <ContentItemDataGUID>66439c18-65d2-4809-9141-744b99bba3c5</ContentItemDataGUID>
+  <ProductFeatureIncluded>False</ProductFeatureIncluded>
   <ProductFeatureKey>dolor-sit-amet</ProductFeatureKey>
   <ProductFeatureLabel>Dolor sit amet</ProductFeatureLabel>
   <ProductFeatureShowInComparator>1</ProductFeatureShowInComparator>

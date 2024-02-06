@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.contentitemcommondata>
   <ContentItemCommonDataContentItemID>
-    <CodeName>LoremX-12tmew4o</CodeName>
-    <GUID>9f82e93c-d107-4614-9481-c41224249cae</GUID>
+    <CodeName>IpsumZ-24ypp4el</CodeName>
+    <GUID>85342550-f35f-4941-9ca9-21b0a0cf4918</GUID>
     <ObjectType>cms.contentitem</ObjectType>
   </ContentItemCommonDataContentItemID>
   <ContentItemCommonDataContentLanguageID>
@@ -10,48 +10,48 @@
     <GUID>e81b5172-f240-4041-88b1-653089984e29</GUID>
     <ObjectType>cms.contentlanguage</ObjectType>
   </ContentItemCommonDataContentLanguageID>
-  <ContentItemCommonDataFirstPublishedWhen>2024-02-06 18:43:36Z</ContentItemCommonDataFirstPublishedWhen>
-  <ContentItemCommonDataGUID>602c8fdf-0c53-4db3-bd7d-4f817aaef87e</ContentItemCommonDataGUID>
+  <ContentItemCommonDataFirstPublishedWhen>2024-02-06 21:39:10Z</ContentItemCommonDataFirstPublishedWhen>
+  <ContentItemCommonDataGUID>e08f1830-4a40-45d6-a31f-1026feb8d953</ContentItemCommonDataGUID>
   <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
-  <ContentItemCommonDataLastPublishedWhen>2024-02-06 21:45:32Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataLastPublishedWhen>2024-02-06 21:45:18Z</ContentItemCommonDataLastPublishedWhen>
   <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
   <ContentItemReferences>
     <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>ac5f51bb-7ce0-4972-8615-b8213e39ef2d</ContentItemReferenceGroupGUID>
-      <ContentItemReferenceGUID>267a409e-a02e-4e54-baf4-9bdd478efdf4</ContentItemReferenceGUID>
+      <ContentItemReferenceGUID>7ca7035c-5837-4413-8e01-e724946523b7</ContentItemReferenceGUID>
       <ContentItemReferenceSourceCommonDataID>
-        <GUID>602c8fdf-0c53-4db3-bd7d-4f817aaef87e</GUID>
+        <GUID>e08f1830-4a40-45d6-a31f-1026feb8d953</GUID>
         <ObjectType>cms.contentitemcommondata</ObjectType>
       </ContentItemReferenceSourceCommonDataID>
       <ContentItemReferenceTargetItemID>
-        <CodeName>TestImage1-u4dhpfvi</CodeName>
-        <GUID>3c3d91e3-1a1e-4fee-a9d0-8ae589759471</GUID>
+        <CodeName>TestImage2-f8grgb2b</CodeName>
+        <GUID>467634b2-e844-45b9-b712-ff72f44d903d</GUID>
         <ObjectType>cms.contentitem</ObjectType>
       </ContentItemReferenceTargetItemID>
     </cms.contentitemreference>
     <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>1724a9f0-e380-4751-ba83-088c8973b61c</ContentItemReferenceGroupGUID>
-      <ContentItemReferenceGUID>0733710b-8589-444d-83a9-64696fcb3e4f</ContentItemReferenceGUID>
+      <ContentItemReferenceGUID>250c1918-ffee-418f-a97f-755ac078052f</ContentItemReferenceGUID>
       <ContentItemReferenceSourceCommonDataID>
-        <GUID>602c8fdf-0c53-4db3-bd7d-4f817aaef87e</GUID>
+        <GUID>e08f1830-4a40-45d6-a31f-1026feb8d953</GUID>
         <ObjectType>cms.contentitemcommondata</ObjectType>
       </ContentItemReferenceSourceCommonDataID>
       <ContentItemReferenceTargetItemID>
-        <CodeName>LoremsPerIpsum-b2dpiza8</CodeName>
-        <GUID>3453b6bc-f36a-4203-8757-bba2562df298</GUID>
+        <CodeName>LoremsPerIpsum-rnnrmvk8</CodeName>
+        <GUID>f89c8f04-17ec-47a9-97df-c559b108691f</GUID>
         <ObjectType>cms.contentitem</ObjectType>
       </ContentItemReferenceTargetItemID>
     </cms.contentitemreference>
     <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>1724a9f0-e380-4751-ba83-088c8973b61c</ContentItemReferenceGroupGUID>
-      <ContentItemReferenceGUID>aae59168-23a5-4e52-bf3d-c91ecac83d7d</ContentItemReferenceGUID>
+      <ContentItemReferenceGUID>2bc8c990-79cd-448f-b55f-ec8f877a7eb7</ContentItemReferenceGUID>
       <ContentItemReferenceSourceCommonDataID>
-        <GUID>602c8fdf-0c53-4db3-bd7d-4f817aaef87e</GUID>
+        <GUID>e08f1830-4a40-45d6-a31f-1026feb8d953</GUID>
         <ObjectType>cms.contentitemcommondata</ObjectType>
       </ContentItemReferenceSourceCommonDataID>
       <ContentItemReferenceTargetItemID>
-        <CodeName>DolorSitAmet-ymn1m2kg</CodeName>
-        <GUID>024469dc-5467-48a6-b09f-9b202ee2f510</GUID>
+        <CodeName>DolorSitAmet-4j0g8zk6</CodeName>
+        <GUID>0267614c-b1ed-42d9-ac01-99b429441854</GUID>
         <ObjectType>cms.contentitem</ObjectType>
       </ContentItemReferenceTargetItemID>
     </cms.contentitemreference>

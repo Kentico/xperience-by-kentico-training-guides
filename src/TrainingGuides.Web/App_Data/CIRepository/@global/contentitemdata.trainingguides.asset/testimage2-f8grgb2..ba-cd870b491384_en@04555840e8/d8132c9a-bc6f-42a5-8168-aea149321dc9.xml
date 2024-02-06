@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.asset>
+  <AssetAltText>test image</AssetAltText>
+  <AssetDescription>test image</AssetDescription>
+  <AssetFile>
+    <![CDATA[{"Identifier":"b073f1a8-8354-4156-8e87-4fbd7b18c8e2","Name":"TestImage2.png","Extension":".png","Size":6179,"LastModified":"2024-02-06T21:38:46.6307192Z"}]]>
+  </AssetFile>
+  <AssetUseInternalOnly>False</AssetUseInternalOnly>
+  <ContentItemDataCommonDataID>
+    <GUID>0637a5b2-515e-4734-9fba-cd870b491384</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>TestImage2-f8grgb2b</CodeName>
+      <GUID>467634b2-e844-45b9-b712-ff72f44d903d</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>d8132c9a-bc6f-42a5-8168-aea149321dc9</ContentItemDataGUID>
+</contentitemdata.trainingguides.asset>

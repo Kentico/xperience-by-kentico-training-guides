@@ -7,14 +7,16 @@ using TrainingGuides.Web.Features.Shared.Models;
 using TrainingGuides.Web.Features.Shared.Services;
 
 [assembly:
-    RegisterWidget(ProductComparatorWidgetComponent.IDENTIFIER, typeof(ProductComparatorWidgetComponent),
-        "Product comparator",
-        typeof(ProductComparatorWidgetProperties), Description = "Displays the products comparison.",
+    RegisterWidget(identifier: ProductComparatorWidgetViewComponent.IDENTIFIER, 
+        viewComponentType: typeof(ProductComparatorWidgetViewComponent),
+        name: "Product comparator",
+        propertiesType: typeof(ProductComparatorWidgetProperties), 
+        Description = "Displays a comparison between products.",
         IconClass = "icon-ribbon")]
 
 namespace TrainingGuides.Web.Features.Products.Widgets.ProductComparator;
 
-public class ProductComparatorWidgetComponent : ViewComponent
+public class ProductComparatorWidgetViewComponent : ViewComponent
 {
     public const string IDENTIFIER = "Kbank.ProductComparatorWidget";
 
@@ -23,7 +25,7 @@ public class ProductComparatorWidgetComponent : ViewComponent
     private readonly IWebPageUrlRetriever webPageUrlRetriever;
     private readonly IHttpRequestService httpRequestService;
 
-    public ProductComparatorWidgetComponent(IContentItemRetrieverService<ProductPage> productRetrieverService,
+    public ProductComparatorWidgetViewComponent(IContentItemRetrieverService<ProductPage> productRetrieverService,
         IWebPageQueryResultMapper webPageQueryResultMapper,
         IWebPageUrlRetriever webPageUrlRetriever,
         IHttpRequestService httpRequestService)
@@ -65,7 +67,7 @@ public class ProductComparatorWidgetComponent : ViewComponent
 
         model.GroupedFeatures = model.GroupedFeatures.DistinctBy(item => item.Key).ToList();
 
-        return View("~/Features/Products/Products/Widgets/ProductComparatorWidget/_ProductComparatorWidget.cshtml", model);
+        return View("~/Features/Products/Widgets/ProductComparator/ProductComparatorWidget.cshtml", model);
     }
 
     private async Task<ProductViewModel?> GetProduct(Guid guid, ProductComparatorWidgetProperties properties, CancellationToken cancellationToken)
@@ -74,7 +76,7 @@ public class ProductComparatorWidgetComponent : ViewComponent
                             guid,
                             ProductPage.CONTENT_TYPE_NAME,
                             webPageQueryResultMapper.Map<ProductPage>,
-                            3);
+                            4);
 
         if (productPage == null)
             return null;

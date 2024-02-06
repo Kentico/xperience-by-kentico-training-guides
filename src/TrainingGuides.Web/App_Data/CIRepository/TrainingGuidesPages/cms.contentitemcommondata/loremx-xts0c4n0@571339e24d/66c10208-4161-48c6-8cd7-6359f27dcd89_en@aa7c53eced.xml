@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentitemcommondata>
+  <ContentItemCommonDataContentItemID>
+    <CodeName>LoremX-xts0c4n0</CodeName>
+    <GUID>92cc0b01-99a4-4e10-87bf-c0358470aafb</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </ContentItemCommonDataContentItemID>
+  <ContentItemCommonDataContentLanguageID>
+    <CodeName>en</CodeName>
+    <GUID>e81b5172-f240-4041-88b1-653089984e29</GUID>
+    <ObjectType>cms.contentlanguage</ObjectType>
+  </ContentItemCommonDataContentLanguageID>
+  <ContentItemCommonDataFirstPublishedWhen>2024-02-06 21:58:43Z</ContentItemCommonDataFirstPublishedWhen>
+  <ContentItemCommonDataGUID>66c10208-4161-48c6-8cd7-6359f27dcd89</ContentItemCommonDataGUID>
+  <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
+  <ContentItemCommonDataLastPublishedWhen>2024-02-06 21:58:43Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataPageTemplateConfiguration>
+    <![CDATA[{"identifier":"TrainingGuides.EmptyPagePageTemplate","properties":null,"fieldIdentifiers":null}]]>
+  </ContentItemCommonDataPageTemplateConfiguration>
+  <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
+  <ContentItemReferences>
+    <cms.contentitemreference>
+      <ContentItemReferenceGroupGUID>b315e712-05da-445d-980c-87578e46cd4d</ContentItemReferenceGroupGUID>
+      <ContentItemReferenceGUID>4ae4c12c-6ed8-45d0-a208-4496f995e1e0</ContentItemReferenceGUID>
+      <ContentItemReferenceSourceCommonDataID>
+        <GUID>66c10208-4161-48c6-8cd7-6359f27dcd89</GUID>
+        <ObjectType>cms.contentitemcommondata</ObjectType>
+      </ContentItemReferenceSourceCommonDataID>
+      <ContentItemReferenceTargetItemID>
+        <CodeName>LoremX-12tmew4o</CodeName>
+        <GUID>9f82e93c-d107-4614-9481-c41224249cae</GUID>
+        <ObjectType>cms.contentitem</ObjectType>
+      </ContentItemReferenceTargetItemID>
+    </cms.contentitemreference>
+  </ContentItemReferences>
+</cms.contentitemcommondata>

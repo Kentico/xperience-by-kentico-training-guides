@@ -27,30 +27,6 @@
           <controlname>Kentico.Administration.TextInput</controlname>
         </settings>
       </field>
-      <field allowempty="true" column="ProductFeaturePrice" columnprecision="2" columnsize="20" columntype="decimal" enabled="true" guid="cdcb8440-2c25-4627-9a3b-ef3cb5984f53" visible="true">
-        <properties>
-          <explanationtext>Enter a decimal or whole number (e.g. 0.3)</explanationtext>
-          <explanationtextashtml>False</explanationtextashtml>
-          <fieldcaption>Price</fieldcaption>
-          <fielddescriptionashtml>False</fielddescriptionashtml>
-        </properties>
-        <settings>
-          <controlname>Kentico.Administration.DecimalNumberInput</controlname>
-        </settings>
-      </field>
-      <field allowempty="true" column="ProductFeatureValue" columnprecision="0" columntype="longtext" enabled="true" guid="d473f17c-c453-4088-baee-bedba09c3f79" visible="true">
-        <properties>
-          <explanationtextashtml>False</explanationtextashtml>
-          <fieldcaption>Value</fieldcaption>
-          <fielddescriptionashtml>False</fielddescriptionashtml>
-        </properties>
-        <settings>
-          <controlname>Kentico.Administration.TextArea</controlname>
-          <CopyButtonVisible>False</CopyButtonVisible>
-          <MaxRowsNumber>5</MaxRowsNumber>
-          <MinRowsNumber>3</MinRowsNumber>
-        </settings>
-      </field>
       <field allowempty="true" column="ProductFeatureValueType" columnprecision="0" columnsize="200" columntype="text" enabled="true" guid="db208b69-c298-4ca3-9251-0b540fa296c0" visible="true">
         <properties>
           <explanationtextashtml>False</explanationtextashtml>
@@ -62,17 +38,49 @@
           <Options>
 <![CDATA[
 0;Text
-1;Number
+1;Price
 2;Boolean
 ]]>
           </Options>
+        </settings>
+      </field>
+      <field allowempty="true" column="ProductFeatureValue" columnprecision="0" columntype="longtext" enabled="true" guid="d473f17c-c453-4088-baee-bedba09c3f79" visible="true">
+        <properties>
+          <explanationtext>
+            <![CDATA[If you chose the Text value type, enter the value here.]]>
+          </explanationtext>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Text value</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.TextArea</controlname>
+          <CopyButtonVisible>False</CopyButtonVisible>
+          <MaxRowsNumber>5</MaxRowsNumber>
+          <MinRowsNumber>3</MinRowsNumber>
+        </settings>
+      </field>
+      <field allowempty="true" column="ProductFeaturePrice" columnprecision="2" columnsize="20" columntype="decimal" enabled="true" guid="cdcb8440-2c25-4627-9a3b-ef3cb5984f53" visible="true">
+        <properties>
+          <explanationtext>
+            <![CDATA[If you chose the Price value type, enter the value here. Use a decimal or whole number (e.g. 0.3)]]>
+          </explanationtext>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Price value</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.DecimalNumberInput</controlname>
         </settings>
       </field>
       <field allowempty="true" column="ProductFeatureIncluded" columnprecision="0" columntype="boolean" enabled="true" guid="1a918309-246f-4927-bdef-d465abe6abff" visible="true">
         <properties>
           <defaultvalue>False</defaultvalue>
           <explanationtextashtml>False</explanationtextashtml>
-          <fieldcaption>Included</fieldcaption>
+          <fieldcaption>Boolean value</fieldcaption>
+          <fielddescription>
+            <![CDATA[If you chose the Boolean value type, enter the value here.]]>
+          </fielddescription>
           <fielddescriptionashtml>False</fielddescriptionashtml>
         </properties>
         <settings>

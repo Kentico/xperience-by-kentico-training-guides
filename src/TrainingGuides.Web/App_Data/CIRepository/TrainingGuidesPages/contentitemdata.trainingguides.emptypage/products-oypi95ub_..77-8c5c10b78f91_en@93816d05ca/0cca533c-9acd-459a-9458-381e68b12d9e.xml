@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.emptypage>
+  <ContentItemDataCommonDataID>
+    <GUID>4133e71d-eae1-4608-9677-8c5c10b78f91</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>Products-oypi95ub</CodeName>
+      <GUID>196b3926-f820-4bd4-bed0-42e4db92ce40</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>0cca533c-9acd-459a-9458-381e68b12d9e</ContentItemDataGUID>
+</contentitemdata.trainingguides.emptypage>
