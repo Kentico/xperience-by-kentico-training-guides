@@ -4,15 +4,19 @@ using Microsoft.AspNetCore.Mvc.ViewComponents;
 using TrainingGuides.Web.Features.HTML.Services;
 using TrainingGuides.Web.Features.HTML.Widgets.HtmlCode;
 
-[assembly:
-    RegisterWidget(HtmlCodeWidgetViewComponent.IDENTIFIER, typeof(HtmlCodeWidgetViewComponent), "HTML code",
-        typeof(HtmlCodeWidgetProperties), Description = "Displays the heading of the page.", IconClass = "icon-ribbon")]
+[assembly:RegisterWidget(
+    identifier: HtmlCodeWidgetViewComponent.IDENTIFIER,
+    viewComponentType: typeof(HtmlCodeWidgetViewComponent),
+    name: "HTML code",
+    propertiesType: typeof(HtmlCodeWidgetProperties),
+    Description = "Displays the heading of the page.",
+    IconClass = "icon-ribbon")]
 
 namespace TrainingGuides.Web.Features.HTML.Widgets.HtmlCode;
 
 public class HtmlCodeWidgetViewComponent : ViewComponent
 {
-    public const string IDENTIFIER = "Kbank.HtmlCodeWidget";
+    public const string IDENTIFIER = "TrainingGuides.HtmlCodeWidget";
 
     private readonly IHeadTagStoreService headTagStoreService;
 

@@ -7,7 +7,8 @@ using TrainingGuides.Web.Features.Shared.Models;
 using TrainingGuides.Web.Features.Shared.Services;
 
 [assembly:
-    RegisterWidget(identifier: ProductComparatorWidgetViewComponent.IDENTIFIER,
+    RegisterWidget(
+        identifier: ProductComparatorWidgetViewComponent.IDENTIFIER,
         viewComponentType: typeof(ProductComparatorWidgetViewComponent),
         name: "Product comparator",
         propertiesType: typeof(ProductComparatorWidgetProperties),
