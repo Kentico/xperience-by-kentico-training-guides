@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.article>
+  <ArticleSummary>
+    <![CDATA[Birds are cool. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.]]>
+  </ArticleSummary>
+  <ArticleTeaser>
+    <![CDATA[[{"Identifier":"2d6f7041-fa65-4507-a686-f40c2136450a"}]]]>
+  </ArticleTeaser>
+  <ArticleText>
+    <![CDATA[<p id="isPasted">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dictum at tempor commodo ullamcorper a lacus vestibulum. Viverra justo nec ultrices dui. Ut ornare lectus sit amet est. Nullam non nisi est sit amet facilisis magna etiam tempor. Enim tortor at auctor urna nunc. Cursus euismod quis viverra nibh cras pulvinar. Posuere sollicitudin aliquam ultrices sagittis orci a scelerisque. Accumsan in nisl nisi scelerisque eu ultrices vitae auctor eu. Lacus luctus accumsan tortor posuere ac ut consequat semper viverra. Iaculis at erat pellentesque adipiscing commodo elit at imperdiet.</p><p>Lacus vel facilisis volutpat est velit egestas dui. Ac felis donec et odio pellentesque diam volutpat commodo sed. Nunc lobortis mattis aliquam faucibus purus in massa tempor. Tellus at urna condimentum mattis. Ornare suspendisse sed nisi lacus. Eget gravida cum sociis natoque penatibus et magnis dis. Velit euismod in pellentesque massa placerat duis ultricies lacus. Ut enim blandit volutpat maecenas volutpat. Tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada proin libero. Cum sociis natoque penatibus et magnis dis parturient. Viverra justo nec ultrices dui sapien eget mi proin. Est pellentesque elit ullamcorper dignissim. Nunc congue nisi vitae suscipit tellus mauris a diam maecenas.</p>]]>
+  </ArticleText>
+  <ArticleTitle>Birds of prey</ArticleTitle>
+  <ContentItemDataCommonDataID>
+    <GUID>ef19daf0-de69-4a17-a4c0-578a9315206c</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>Birds-kgjq0naj</CodeName>
+      <GUID>9f1b22d5-fb43-49aa-8939-c2900ab72987</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>523689cb-ec1b-4978-8ff8-bf108a012306</ContentItemDataGUID>
+</contentitemdata.trainingguides.article>

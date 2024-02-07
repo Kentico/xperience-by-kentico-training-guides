@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.articlepage>
+  <ArticlePageContent>
+    <![CDATA[[{"Identifier":"89ae27da-cd71-48f3-9a49-df9680ea98f9"}]]]>
+  </ArticlePageContent>
+  <ArticlePagePublishDate>0001-01-01 05:00:00Z</ArticlePagePublishDate>
+  <ContentItemDataCommonDataID>
+    <GUID>108c2e65-c586-4948-8c60-0e5613bcf6fc</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>AboutDogs-c4f5xvnf</CodeName>
+      <GUID>8e1ea5a1-68f2-444b-990e-1cb3fd53430f</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>8c54cc94-e0f4-4eb0-97e6-80f4095f313e</ContentItemDataGUID>
+</contentitemdata.trainingguides.articlepage>

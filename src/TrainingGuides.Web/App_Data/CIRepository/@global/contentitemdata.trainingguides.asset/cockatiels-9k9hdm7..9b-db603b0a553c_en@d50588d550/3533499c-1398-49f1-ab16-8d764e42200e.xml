@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.asset>
+  <AssetDescription>Picture of three Cockatiels in a row</AssetDescription>
+  <AssetFile>
+    <![CDATA[{"Identifier":"0b1b88bb-3bad-4c44-8947-097d3cbcc861","Name":"david-clode-p_glx683R7w-unsplash.jpg","Extension":".jpg","Size":4046766,"LastModified":"2024-02-07T22:31:47.9438222Z"}]]>
+  </AssetFile>
+  <AssetUseInternalOnly>False</AssetUseInternalOnly>
+  <ContentItemDataCommonDataID>
+    <GUID>c1204a7b-c985-4f7d-8f9b-db603b0a553c</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>Cockatiels-9k9hdm7a</CodeName>
+      <GUID>b35b01ec-efda-4d54-a0ab-98e0b8987da4</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>3533499c-1398-49f1-ab16-8d764e42200e</ContentItemDataGUID>
+</contentitemdata.trainingguides.asset>

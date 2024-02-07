@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.asset>
+  <AssetDescription>Border collie</AssetDescription>
+  <AssetFile>
+    <![CDATA[{"Identifier":"8b5d71a0-e9d9-41d9-9503-24ac83d3f339","Name":"anna-dudkova--KWX2LlZ_3M-unsplash.jpg","Extension":".jpg","Size":1059073,"LastModified":"2024-02-06T22:04:00.7357741Z"}]]>
+  </AssetFile>
+  <AssetUseInternalOnly>False</AssetUseInternalOnly>
+  <ContentItemDataCommonDataID>
+    <GUID>e4a594cd-7728-4237-a89a-542813a171c8</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>Dog-sqz0uhux</CodeName>
+      <GUID>8b84d201-7063-477d-ada8-ef635d5d248b</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>52d95b6c-8d1a-4638-91ef-21fad581ba6b</ContentItemDataGUID>
+</contentitemdata.trainingguides.asset>

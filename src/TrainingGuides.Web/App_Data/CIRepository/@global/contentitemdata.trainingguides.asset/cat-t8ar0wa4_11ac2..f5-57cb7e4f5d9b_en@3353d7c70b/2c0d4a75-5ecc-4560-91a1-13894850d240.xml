@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.asset>
+  <AssetDescription>Black and white cat with green eyes</AssetDescription>
+  <AssetFile>
+    <![CDATA[{"Identifier":"f68edef6-8dbe-4538-9e68-555d6fd13289","Name":"manja-vitolic-gKXKBY-C-Dk-unsplash.jpg","Extension":".jpg","Size":2017802,"LastModified":"2024-02-06T21:06:47.6475141Z"}]]>
+  </AssetFile>
+  <AssetUseInternalOnly>False</AssetUseInternalOnly>
+  <ContentItemDataCommonDataID>
+    <GUID>11ac253e-5606-4d8c-aaf5-57cb7e4f5d9b</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>Cat-t8ar0wa4</CodeName>
+      <GUID>81ef9c03-36f9-46d5-b46d-93da73716a96</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>2c0d4a75-5ecc-4560-91a1-13894850d240</ContentItemDataGUID>
+</contentitemdata.trainingguides.asset>
