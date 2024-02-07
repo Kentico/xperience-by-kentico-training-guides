@@ -100,9 +100,26 @@ public class ProductComparatorWidgetViewComponent : ViewComponent
             Link = linkComponent,
             CallToAction = !string.IsNullOrEmpty(properties.CallToAction)
                 ? properties.CallToAction
-                : string.Empty
-
+                : string.Empty,
+            Price = product.ProductPrice
         };
+
+        if (properties.ShowPrice)
+        {
+            model.Features.Add(
+                new ProductFeaturesViewModel
+                {
+                    Key = "price-from-product-content-item",
+                    Name = "Price",
+                    Label = new("Price"),
+                    Price = model.Price,
+                    Value = new(string.Empty),
+                    FeatureIncluded = false,
+                    ValueType = ProductFeatureValueType.Number,
+                    ShowInComparator = true,
+
+                });
+        }
 
         return model;
     }

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentitem>
+  <ContentItemContentTypeID>
+    <CodeName>TrainingGuides.ProductFeature</CodeName>
+    <GUID>7521136f-4ed3-4b69-8b54-82255d7b4385</GUID>
+    <ObjectType>cms.contenttype</ObjectType>
+  </ContentItemContentTypeID>
+  <ContentItemGUID>73ac8418-6e3c-499f-96ff-87cc618ac27f</ContentItemGUID>
+  <ContentItemIsReusable>True</ContentItemIsReusable>
+  <ContentItemIsSecured>False</ContentItemIsSecured>
+  <ContentItemName>IpsumZ-YearlyMaintenanceCost-tqwlqqwa</ContentItemName>
+</cms.contentitem>

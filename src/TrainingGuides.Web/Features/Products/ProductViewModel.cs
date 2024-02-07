@@ -12,13 +12,6 @@ public class ProductViewModel : PageViewModel
     public List<AssetViewModel?> Media { get; set; } = [];
     public LinkViewModel? Link { get; set; }
     public string CallToAction { get; set; } = null!;
-    public decimal AnnualRate { get; set; }
-    public decimal InterestRate { get; set; }
-    public decimal Amount { get; set; }
-    public string Currency { get; set; } = null!;
-    public int LoanDuration { get; set; }
-    public string? LoanType { get; set; }
-    public bool RenegotiationableLoan { get; set; }
-    public string RequiredCollateral { get; set; } = null!;
+    public decimal Price { get; set; }
     public List<ProductFeaturesViewModel> Features { get; set; } = [];
 }

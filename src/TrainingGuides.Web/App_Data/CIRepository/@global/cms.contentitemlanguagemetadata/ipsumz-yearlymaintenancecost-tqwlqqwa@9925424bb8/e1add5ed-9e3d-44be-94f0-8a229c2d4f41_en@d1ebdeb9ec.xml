@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.contentitemlanguagemetadata>
   <ContentItemLanguageMetadataContentItemID>
-    <CodeName>DolorSitAmet-4j0g8zk6</CodeName>
-    <GUID>0267614c-b1ed-42d9-ac01-99b429441854</GUID>
+    <CodeName>IpsumZ-YearlyMaintenanceCost-tqwlqqwa</CodeName>
+    <GUID>73ac8418-6e3c-499f-96ff-87cc618ac27f</GUID>
     <ObjectType>cms.contentitem</ObjectType>
   </ContentItemLanguageMetadataContentItemID>
   <ContentItemLanguageMetadataContentLanguageID>
@@ -15,9 +15,9 @@
     <GUID>6415b8ce-8072-4bcd-8e48-9d7178b826b7</GUID>
     <ObjectType>cms.user</ObjectType>
   </ContentItemLanguageMetadataCreatedByUserID>
-  <ContentItemLanguageMetadataCreatedWhen>2024-02-06 21:45:06Z</ContentItemLanguageMetadataCreatedWhen>
-  <ContentItemLanguageMetadataDisplayName>Ipsum Z - Dolor sit amet</ContentItemLanguageMetadataDisplayName>
-  <ContentItemLanguageMetadataGUID>eea14aac-5901-49bb-8105-d55a0db8500c</ContentItemLanguageMetadataGUID>
+  <ContentItemLanguageMetadataCreatedWhen>2024-02-07 14:09:29Z</ContentItemLanguageMetadataCreatedWhen>
+  <ContentItemLanguageMetadataDisplayName>Ipsum Z - Yearly maintenance cost</ContentItemLanguageMetadataDisplayName>
+  <ContentItemLanguageMetadataGUID>e1add5ed-9e3d-44be-94f0-8a229c2d4f41</ContentItemLanguageMetadataGUID>
   <ContentItemLanguageMetadataHasImageAsset>False</ContentItemLanguageMetadataHasImageAsset>
   <ContentItemLanguageMetadataLatestVersionStatus>2</ContentItemLanguageMetadataLatestVersionStatus>
   <ContentItemLanguageMetadataModifiedByUserID>

@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.contentitemcommondata>
   <ContentItemCommonDataContentItemID>
-    <CodeName>DolorSitAmet-ymn1m2kg</CodeName>
-    <GUID>024469dc-5467-48a6-b09f-9b202ee2f510</GUID>
+    <CodeName>LoremX-YearlyMaintenanceCost-3rxg1s24</CodeName>
+    <GUID>421baf9f-de34-4ace-b648-239c89ce614d</GUID>
     <ObjectType>cms.contentitem</ObjectType>
   </ContentItemCommonDataContentItemID>
   <ContentItemCommonDataContentLanguageID>
@@ -10,9 +10,9 @@
     <GUID>e81b5172-f240-4041-88b1-653089984e29</GUID>
     <ObjectType>cms.contentlanguage</ObjectType>
   </ContentItemCommonDataContentLanguageID>
-  <ContentItemCommonDataFirstPublishedWhen>2024-02-06 18:43:20Z</ContentItemCommonDataFirstPublishedWhen>
-  <ContentItemCommonDataGUID>6e8279b9-f099-4337-83a6-9d5eac55d4e6</ContentItemCommonDataGUID>
+  <ContentItemCommonDataFirstPublishedWhen>2024-02-07 14:08:03Z</ContentItemCommonDataFirstPublishedWhen>
+  <ContentItemCommonDataGUID>b9c39d1c-39d5-4542-a641-6822f389d783</ContentItemCommonDataGUID>
   <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
-  <ContentItemCommonDataLastPublishedWhen>2024-02-07 14:06:59Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataLastPublishedWhen>2024-02-07 14:08:03Z</ContentItemCommonDataLastPublishedWhen>
   <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
 </cms.contentitemcommondata>

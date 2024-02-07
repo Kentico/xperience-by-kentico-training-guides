@@ -13,7 +13,7 @@
   <ContentItemCommonDataFirstPublishedWhen>2024-02-06 21:39:10Z</ContentItemCommonDataFirstPublishedWhen>
   <ContentItemCommonDataGUID>e08f1830-4a40-45d6-a31f-1026feb8d953</ContentItemCommonDataGUID>
   <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
-  <ContentItemCommonDataLastPublishedWhen>2024-02-06 21:45:18Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataLastPublishedWhen>2024-02-07 14:11:03Z</ContentItemCommonDataLastPublishedWhen>
   <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
   <ContentItemReferences>
     <cms.contentitemreference>
@@ -52,6 +52,19 @@
       <ContentItemReferenceTargetItemID>
         <CodeName>DolorSitAmet-4j0g8zk6</CodeName>
         <GUID>0267614c-b1ed-42d9-ac01-99b429441854</GUID>
+        <ObjectType>cms.contentitem</ObjectType>
+      </ContentItemReferenceTargetItemID>
+    </cms.contentitemreference>
+    <cms.contentitemreference>
+      <ContentItemReferenceGroupGUID>1724a9f0-e380-4751-ba83-088c8973b61c</ContentItemReferenceGroupGUID>
+      <ContentItemReferenceGUID>b267cc26-7a2b-4c0c-969b-d034a4641749</ContentItemReferenceGUID>
+      <ContentItemReferenceSourceCommonDataID>
+        <GUID>e08f1830-4a40-45d6-a31f-1026feb8d953</GUID>
+        <ObjectType>cms.contentitemcommondata</ObjectType>
+      </ContentItemReferenceSourceCommonDataID>
+      <ContentItemReferenceTargetItemID>
+        <CodeName>IpsumZ-YearlyMaintenanceCost-tqwlqqwa</CodeName>
+        <GUID>73ac8418-6e3c-499f-96ff-87cc618ac27f</GUID>
         <ObjectType>cms.contentitem</ObjectType>
       </ContentItemReferenceTargetItemID>
     </cms.contentitemreference>

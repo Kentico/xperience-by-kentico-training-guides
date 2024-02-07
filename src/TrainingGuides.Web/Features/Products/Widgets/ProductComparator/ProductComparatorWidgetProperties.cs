@@ -25,6 +25,9 @@ public class ProductComparatorWidgetProperties : IWidgetProperties
 
     [CheckBoxComponent(Label = "Show short description", Order = 6)]
     public bool ShowShortDescription { get; set; }
+
+    [CheckBoxComponent(Label = "Show price", Order = 7)]
+    public bool ShowPrice { get; set; }
 }
 
 public class HeadingTypeOptionsProvider : Shared.OptionsProviders.Heading.HeadingTypeOptionsProvider
