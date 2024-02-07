@@ -1,4 +1,5 @@
 using TrainingGuides.Web.Features.DataProtection.Services;
+using TrainingGuides.Web.Features.HTML.Services;
 using TrainingGuides.Web.Features.Shared.Services;
 
 namespace TrainingGuides.Web;
@@ -12,6 +13,8 @@ public static class ServiceCollectionExtensions
         services.AddSingleton<ICookieConsentService, CookieConsentService>();
         services.AddSingleton<IContentItemRetrieverService, ContentItemRetrieverService>();
         services.AddSingleton<IHttpRequestService, HttpRequestService>();
+
+        services.AddScoped<IHeadTagStoreService, HeadTagStoreService>();
 
         services.AddTransient(typeof(IContentItemRetrieverService<>), typeof(ContentItemRetrieverService<>));
     }
