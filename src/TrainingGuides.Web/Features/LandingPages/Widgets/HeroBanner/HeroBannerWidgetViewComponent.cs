@@ -156,7 +156,7 @@ public class HeroBannerWidgetViewComponent : ViewComponent
             }
         }
 
-        return View("~/Features/LandingPages/Widgets/HeroBanner/_HeroBannerWidget.cshtml", banner);
+        return View("~/Features/LandingPages/Widgets/HeroBanner/HeroBannerWidget.cshtml", banner);
     }
 
     private HeroBannerWidgetViewModel? GetProductPageBanner(ProductPage? productPage) =>
