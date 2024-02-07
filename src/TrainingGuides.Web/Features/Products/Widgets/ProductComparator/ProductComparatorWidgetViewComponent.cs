@@ -79,7 +79,26 @@ public class ProductComparatorWidgetViewComponent : ViewComponent
                             4);
 
         if (productPage == null)
-            return null;
+        {
+            return new ProductViewModel
+            {
+                Name = new("Error"),
+                Features =
+                [
+                    new ProductFeaturesViewModel
+                    {
+                        Key = "error",
+                        Name = "Error",
+                        Label = new("Error"),
+                        Price = 0,
+                        Value = new("Unable to load product.<br/>Please double-check your page selection."),
+                        FeatureIncluded = false,
+                        ValueType = ProductFeatureValueType.Text,
+                        ShowInComparator = true,
+                    }
+                ]
+            };
+        }
 
         var product = productPage.ProductPageProduct.FirstOrDefault();
 
@@ -91,7 +110,7 @@ public class ProductComparatorWidgetViewComponent : ViewComponent
             Page = webPageUrlRetriever.Retrieve(productPage, cancellationToken).Result.RelativePath
         };
 
-        var model = new ProductViewModel()
+        var model = new ProductViewModel
         {
             Name = new(product.ProductName),
             ShortDescription = new(product.ProductShortDescription),
