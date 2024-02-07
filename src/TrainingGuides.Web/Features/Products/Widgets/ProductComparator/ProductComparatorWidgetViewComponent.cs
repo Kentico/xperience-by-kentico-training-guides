@@ -7,10 +7,10 @@ using TrainingGuides.Web.Features.Shared.Models;
 using TrainingGuides.Web.Features.Shared.Services;
 
 [assembly:
-    RegisterWidget(identifier: ProductComparatorWidgetViewComponent.IDENTIFIER, 
+    RegisterWidget(identifier: ProductComparatorWidgetViewComponent.IDENTIFIER,
         viewComponentType: typeof(ProductComparatorWidgetViewComponent),
         name: "Product comparator",
-        propertiesType: typeof(ProductComparatorWidgetProperties), 
+        propertiesType: typeof(ProductComparatorWidgetProperties),
         Description = "Displays a comparison between products.",
         IconClass = "icon-ribbon")]
 
@@ -18,7 +18,7 @@ namespace TrainingGuides.Web.Features.Products.Widgets.ProductComparator;
 
 public class ProductComparatorWidgetViewComponent : ViewComponent
 {
-    public const string IDENTIFIER = "Kbank.ProductComparatorWidget";
+    public const string IDENTIFIER = "TrainingGuides.ProductComparatorWidget";
 
     private readonly IContentItemRetrieverService<ProductPage> productRetrieverService;
     private readonly IWebPageQueryResultMapper webPageQueryResultMapper;

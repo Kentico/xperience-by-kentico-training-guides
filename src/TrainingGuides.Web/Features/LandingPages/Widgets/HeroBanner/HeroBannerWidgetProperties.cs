@@ -35,7 +35,7 @@ public class HeroBannerWidgetProperties : IWidgetProperties
             "The widget will display the content from the selected Hero content item.")]
     public IEnumerable<ContentItemReference> Hero { get; set; } = null!;
 
-    [TextInputComponent(Label = "CTA Text", Order = 5, ExplanationText = "Text of the call to action. (Overrides that of the selected content item)")]
+    [TextInputComponent(Label = "CTA text", Order = 5, ExplanationText = "Text of the call to action. (Overrides that of the selected content item)")]
     public string CTA { get; set; } = null!;
 
     [CheckBoxComponent(Label = "Display CTA", Order = 8, ExplanationText = "When selected, the banner widget displays call to action.")]
