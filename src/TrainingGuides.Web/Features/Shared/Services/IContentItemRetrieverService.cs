@@ -9,7 +9,7 @@ public interface IContentItemRetrieverService<T>
         Func<IWebPageContentQueryDataContainer, T> resultSelector,
         int depth = 1);
 
-    public Task<T> RetrieveWebPageByGuid(Guid webPageItemGuid,
+    public Task<T> RetrieveWebPageByGuid(Guid? webPageItemGuid,
         string contentTypeName,
         Func<IWebPageContentQueryDataContainer, T> resultSelector,
         int depth = 1);
@@ -17,6 +17,12 @@ public interface IContentItemRetrieverService<T>
     public Task<IEnumerable<T>> RetrieveWebPageContentItems(string contentTypeName,
         Func<ContentTypeQueryParameters, ContentTypeQueryParameters> queryFilter,
         Func<IWebPageContentQueryDataContainer, T> resultSelector);
+
+    public Task<IEnumerable<T>> RetrieveWebPageChildrenByPath(
+        string parentPageContentTypeName,
+        string path,
+        Func<IWebPageContentQueryDataContainer, T> resultSelector,
+        int depth = 1);
 
     public Task<T> RetrieveContentItemByGuid(
         Guid contentItemGuid,

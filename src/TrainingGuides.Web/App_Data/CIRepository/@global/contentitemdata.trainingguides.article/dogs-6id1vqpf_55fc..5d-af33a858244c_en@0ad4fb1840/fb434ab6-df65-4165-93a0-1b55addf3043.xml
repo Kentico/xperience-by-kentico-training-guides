@@ -3,7 +3,9 @@
   <ArticleRelatedArticles>
     <![CDATA[[{"Identifier":"65e38d4a-5957-46cd-9267-3d612f8f9dc8"}]]]>
   </ArticleRelatedArticles>
-  <ArticleSummary>Lorem ipsum dolor sit amet dogs</ArticleSummary>
+  <ArticleSummary>
+    <![CDATA[Lorem ipsum dolor sit amet dogs, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lacus sed turpis tincidunt id aliquet risus. Feugiat in fermentum posuere urna nec tincidunt praesent semper.]]>
+  </ArticleSummary>
   <ArticleTeaser>
     <![CDATA[[{"Identifier":"8b84d201-7063-477d-ada8-ef635d5d248b"}]]]>
   </ArticleTeaser>

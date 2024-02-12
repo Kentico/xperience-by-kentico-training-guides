@@ -7,9 +7,9 @@
 }
 
 <div class="c-card md bg-1 u-border-02">
-    @if (templateModel.Teaser != null)
+    @if (templateModel.TeaserImage != null)
     {
-        <img src="@Url.Content(@templateModel.Teaser.FilePath)" alt="@templateModel.Teaser.AltText" />
+        <img src="@Url.Content(@templateModel.TeaserImage.FilePath)" alt="@templateModel.TeaserImage.AltText" />
     }
     <div class="c-post_body">
         <h1>

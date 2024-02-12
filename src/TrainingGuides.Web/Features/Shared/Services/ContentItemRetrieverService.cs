@@ -13,8 +13,7 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
     public ContentItemRetrieverService(
         IContentQueryExecutor contentQueryExecutor,
         IWebsiteChannelContext webSiteChannelContext,
-        IPreferredLanguageRetriever preferredLanguageRetriever
-        )
+        IPreferredLanguageRetriever preferredLanguageRetriever)
     {
         this.contentQueryExecutor = contentQueryExecutor;
         this.webSiteChannelContext = webSiteChannelContext;
@@ -54,13 +53,13 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
     /// <param name="depth">The maximum level of recursively linked content items that should be included in the results. Default value is 1.</param>
     /// <returns>A Web page content item of specified type, with the specifiied Id</returns>
     public async Task<T> RetrieveWebPageByGuid(
-        Guid webPageItemGuid,
+        Guid? webPageItemGuid,
         string contentTypeName,
         Func<IWebPageContentQueryDataContainer, T> resultSelector,
         int depth = 1)
     {
         var pages = await RetrieveWebPageContentItems(
-                contentTypeName ?? string.Empty,
+                contentTypeName,
                 config => config
                     .Where(where => where.WhereEquals(nameof(WebPageFields.WebPageItemGUID), webPageItemGuid))
                     .WithLinkedItems(depth),
@@ -86,6 +85,30 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
                                 config => queryFilter(config)
                                 .ForWebsite(webSiteChannelContext.WebsiteChannelName)
                             )
+                            .InLanguage(preferredLanguageRetriever.Get());
+
+        var queryExecutorOptions = new ContentQueryExecutionOptions
+        {
+            ForPreview = webSiteChannelContext.IsPreview
+        };
+
+        var pages = await contentQueryExecutor.GetWebPageResult(builder, resultSelector, queryExecutorOptions);
+
+        return pages;
+    }
+
+    public async Task<IEnumerable<T>> RetrieveWebPageChildrenByPath(
+        string parentPageContentTypeName,
+        string parentPagePath,
+        Func<IWebPageContentQueryDataContainer, T> resultSelector,
+        int depth = 1)
+    {
+        var builder = new ContentItemQueryBuilder()
+                            .ForContentType(
+                                parentPageContentTypeName,
+                                config => config
+                                    .ForWebsite(webSiteChannelContext.WebsiteChannelName, [PathMatch.Children(parentPagePath)])
+                                    .WithLinkedItems(depth))
                             .InLanguage(preferredLanguageRetriever.Get());
 
         var queryExecutorOptions = new ContentQueryExecutionOptions

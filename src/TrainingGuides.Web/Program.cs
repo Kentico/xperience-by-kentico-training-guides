@@ -7,6 +7,7 @@ using Kentico.PageBuilder.Web.Mvc;
 using Kentico.Web.Mvc;
 using TrainingGuides;
 using TrainingGuides.Web;
+using TrainingGuides.Web.Extensions;
 using TrainingGuides.Web.Features.DataProtection.Shared;
 using TrainingGuides.Web.Features.Shared.Helpers;
 using TrainingGuides.Web.Features.Shared.Helpers.Startup;

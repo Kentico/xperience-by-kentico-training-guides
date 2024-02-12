@@ -1,0 +1,53 @@
+@using TrainingGuides.Web.Extensions
+@model TrainingGuides.Web.Features.Articles.Widgets.ArticleList.ArticleListWidgetViewModel?
+
+@if (Model?.Articles is null)
+{
+    <xpc-page-builder-content>
+        <div class="row justify-content-center">
+            <div class="col-xl-11">
+                <div class="row" data-gridify="3-columns">
+                    <xpc-misconfigured-widget-instructions />
+                </div>
+            </div>
+        </div>
+    </xpc-page-builder-content>
+
+    return;
+}
+
+@if (Model != null && Model.Articles != null)
+{
+    <div class="row justify-content-center">
+        <div class="col-xl-11">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 c-blog-grid mt-3 mt-md-4">
+                @foreach (var item in Model.Articles)
+                {
+                    <div class="col mt-4">
+                        @* <a class="c-card-anchor" href="@item.Url"> *@
+                        <a class="c-card-anchor" href="#">
+                            <div class="c-post-thumbnail default">
+                                <div class="c-card bg-1 u-border-01">
+                                    @if (item.TeaserImage != null)
+                                    {
+                                        <div class="c-card_img">
+                                            <img src="@Url.Content(item.TeaserImage.FilePath)" alt="@item.TeaserImage.AltText" class="img-fluid" />
+                                        </div>
+                                    }
+                                    <div class="c-card_body j-truncate" data-heading-lines="3" data-total-lines="6">
+                                        <div class="c-date">@Html.FormatDate(item.CreatedOn)</div>
+                                        <h2 class="h4 mb-0 j-truncate_heading">@item.Title</h2>
+                                        <p class="mb-0 j-truncate_paragraph">@Html.Raw(@item.Summary)</p>
+                                    </div>
+                                    <div class="c-card_footer">
+                                        <span class="c-link primary-upper text-uppercase">@Model.CtaText</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+}
