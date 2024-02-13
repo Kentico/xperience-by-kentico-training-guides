@@ -72,8 +72,6 @@ public class ArticleListWidgetViewComponent : ViewComponent
 
     private async Task<string> GetWebPageContentTypeName(Guid id)
     {
-        // the comment below as well as this whole method is from KBank source code. Is there a better way to retrieve page class name by page guid?
-        // TODO: use better method provided by Kentico
         var query = new ObjectQuery("cms.webpageitem").Source(delegate (QuerySource source)
         {
             source.LeftJoin<ContentItemInfo>("WebPageItemContentItemID", "ContentItemID");
