@@ -6,6 +6,7 @@ using TrainingGuides.Web.Features.Shared.Sections.FormColumn;
 using TrainingGuides.Web.Features.Shared.Sections.SingleColumn;
 using TrainingGuides.Web.Features.Products.Widgets.ProductComparator;
 using TrainingGuides.Web.Features.HTML.Widgets.HtmlCode;
+using TrainingGuides.Web.Features.Articles.Widgets.ArticleList;
 
 namespace TrainingGuides.Web;
 
@@ -26,5 +27,6 @@ public static class ComponentIdentifiers
         public const string HERO_BANNER = HeroBannerWidgetViewComponent.IDENTIFIER;
         public const string PRODUCT_COMPARATOR = ProductComparatorWidgetViewComponent.IDENTIFIER;
         public const string HTML_CODE = HtmlCodeWidgetViewComponent.IDENTIFIER;
+        public const string ARTICLE_LIST = ArticleListWidgetViewComponent.IDENTIFIER;
     }
 }

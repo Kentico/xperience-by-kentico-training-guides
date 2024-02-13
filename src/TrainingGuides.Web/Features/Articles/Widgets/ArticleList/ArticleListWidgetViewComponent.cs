@@ -60,7 +60,9 @@ public class ArticleListWidgetViewComponent : ViewComponent
                 webPageQueryResultMapper.Map<ArticlePage>,
                 3);
 
-            model.Articles = (await GetArticlePageViewModels(articlePages))
+            model.Articles = (properties.OrderBy.Equals("oldest-first")
+                ? (await GetArticlePageViewModels(articlePages)).OrderBy(article => article.CreatedOn)
+                : (await GetArticlePageViewModels(articlePages)).OrderByDescending(article => article.CreatedOn))
                 .Take(properties.TopN)
                 .ToList();
         }
