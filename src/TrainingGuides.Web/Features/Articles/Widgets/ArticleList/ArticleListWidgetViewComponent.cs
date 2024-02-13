@@ -6,6 +6,7 @@ using Kentico.PageBuilder.Web.Mvc;
 using TrainingGuides.Web.Features.Articles.Entities;
 using TrainingGuides.Web.Features.Articles.Widgets.ArticleList;
 using TrainingGuides.Web.Features.Shared.Services;
+using TrainingGuides.Web.Features.Articles.Services;
 
 [assembly:
     RegisterWidget(ArticleListWidgetViewComponent.IDENTIFIER, typeof(ArticleListWidgetViewComponent), "Article list widget",
@@ -20,18 +21,19 @@ public class ArticleListWidgetViewComponent : ViewComponent
     private readonly IContentItemRetrieverService<GenericPage> genericPageRetrieverService;
     private readonly IContentItemRetrieverService<ArticlePage> articlePageRetrieverService;
     private readonly IWebPageQueryResultMapper webPageQueryResultMapper;
-    private readonly IWebPageUrlRetriever webPageUrlRetriever;
+
+    private readonly IArticlePageService articlePageService;
 
     public ArticleListWidgetViewComponent(
         IContentItemRetrieverService<GenericPage> genericPageRetrieverService,
         IContentItemRetrieverService<ArticlePage> articlePageRetrieverService,
         IWebPageQueryResultMapper webPageQueryResultMapper,
-        IWebPageUrlRetriever webPageUrlRetriever)
+        IArticlePageService articlePageService)
     {
         this.genericPageRetrieverService = genericPageRetrieverService;
         this.articlePageRetrieverService = articlePageRetrieverService;
         this.webPageQueryResultMapper = webPageQueryResultMapper;
-        this.webPageUrlRetriever = webPageUrlRetriever;
+        this.articlePageService = articlePageService;
     }
 
     public async Task<ViewViewComponentResult> InvokeAsync(ArticleListWidgetProperties properties)
@@ -91,18 +93,11 @@ public class ArticleListWidgetViewComponent : ViewComponent
             {
                 if (articlePage != null)
                 {
-                    var model = await GetArticlePageViewModel(articlePage);
+                    var model = await articlePageService.GetArticlePageViewModel(articlePage);
                     models.Add(model);
                 }
             }
         }
         return models;
-    }
-
-    private async Task<ArticlePageViewModel> GetArticlePageViewModel(ArticlePage articlePage)
-    {
-        string articleUrl = (await webPageUrlRetriever.Retrieve(articlePage)).RelativePath;
-        return ArticlePageViewModel.GetViewModel(articlePage)
-            .SetArticlePageUrl(articleUrl);
     }
 }

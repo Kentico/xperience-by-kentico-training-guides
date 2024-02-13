@@ -1,3 +1,4 @@
+using TrainingGuides.Web.Features.Articles.Services;
 using TrainingGuides.Web.Features.DataProtection.Services;
 using TrainingGuides.Web.Features.Html.Services;
 using TrainingGuides.Web.Features.Shared.Services;
@@ -13,6 +14,7 @@ public static class ServiceCollectionExtensions
         services.AddSingleton<ICookieConsentService, CookieConsentService>();
         services.AddSingleton<IContentItemRetrieverService, ContentItemRetrieverService>();
         services.AddSingleton<IHttpRequestService, HttpRequestService>();
+        services.AddSingleton<IArticlePageService, ArticlePageService>();
 
         services.AddScoped<IHeadTagStoreService, HeadTagStoreService>();
 

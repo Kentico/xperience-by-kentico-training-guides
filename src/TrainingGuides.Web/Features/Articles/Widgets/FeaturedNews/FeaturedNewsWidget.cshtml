@@ -1,0 +1,26 @@
+@using TrainingGuides.Web
+
+@model TrainingGuides.Web.Features.Articles.Widgets.FeaturedNews.FeaturedNewsWidgetViewModel?
+
+@if (Model is null || Model.IsMisconfigured)
+{
+    <xpc-page-builder-content>
+        <div class="c-card md bg-1 u-border-02 text-center">
+            <tg-configure-widget-instructions/>
+        </div>    
+    </xpc-page-builder-content>
+
+    return;
+}
+
+@if (Model is {Article: not null })
+{
+    <div class="c-card md bg-1 u-border-02 text-center">
+        @if (Model.Article.TeaserImage != null)
+        {
+            <img src="@Url.Content(Model.Article.TeaserImage.FilePath)" alt="@Model.Article.TeaserImage.AltText" class="u-border-02 img-fluid" />
+        }
+        <tg-date date="@Model.Article.CreatedOn"/>
+        <h2 class="h4"><a class="c-link basic" href="@Model.Article.Url">@Model.Article.Title</a></h2>
+    </div>
+}

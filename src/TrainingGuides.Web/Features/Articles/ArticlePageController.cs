@@ -4,6 +4,7 @@ using Kentico.Content.Web.Mvc.Routing;
 using Kentico.PageBuilder.Web.Mvc.PageTemplates;
 using TrainingGuides;
 using TrainingGuides.Web.Features.Shared.Services;
+using TrainingGuides.Web.Features.Articles.Services;
 
 [assembly: RegisterWebPageRoute(
     contentTypeName: ArticlePage.CONTENT_TYPE_NAME,
@@ -15,27 +16,30 @@ public class ArticlePageController : Controller
 
     private readonly IWebPageDataContextRetriever webPageDataContextRetriever;
     private readonly IWebPageQueryResultMapper webPageQueryResultMapper;
-    private readonly IContentItemRetrieverService<ArticlePage> contentItemRetriever;
+    private readonly IContentItemRetrieverService<ArticlePage> articlePageRetrieverService;
+    private readonly IArticlePageService articlePageService;
 
     public ArticlePageController(IWebPageDataContextRetriever webPageDataContextRetriever,
         IWebPageQueryResultMapper webPageQueryResultMapper,
-        IContentItemRetrieverService<ArticlePage> contentItemRetriever)
+        IContentItemRetrieverService<ArticlePage> articlePageRetrieverService,
+        IArticlePageService articlePageService)
     {
         this.webPageDataContextRetriever = webPageDataContextRetriever;
         this.webPageQueryResultMapper = webPageQueryResultMapper;
-        this.contentItemRetriever = contentItemRetriever;
+        this.articlePageRetrieverService = articlePageRetrieverService;
+        this.articlePageService = articlePageService;
     }
 
     public async Task<IActionResult> Index()
     {
         var context = webPageDataContextRetriever.Retrieve();
-        var articlePage = await contentItemRetriever.RetrieveWebPageById(
+        var articlePage = await articlePageRetrieverService.RetrieveWebPageById(
             context.WebPage.WebPageItemID,
             ArticlePage.CONTENT_TYPE_NAME,
             webPageQueryResultMapper.Map<ArticlePage>,
             2);
 
-        var model = ArticlePageViewModel.GetViewModel(articlePage);
+        var model = await articlePageService.GetArticlePageViewModel(articlePage);
         return new TemplateResult(model);
     }
 }
