@@ -22,10 +22,7 @@ public class HeadTagStoreService : IHeadTagStoreService
         }
         else
         {
-            store[location] =
-            [
-                tag
-            ];
+            store[location] = [tag];
         }
 
         await Task.CompletedTask;

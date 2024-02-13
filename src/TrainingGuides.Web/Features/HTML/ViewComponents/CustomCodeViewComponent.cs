@@ -15,7 +15,9 @@ public class CustomCodeViewComponent : ViewComponent
 
     public async Task<IViewComponentResult> InvokeAsync(CodeLocation location)
     {
-        var code = (await headTagStoreService.GetCodeAsync(location)).Select(x => new HtmlString(x)).ToList();
+        var code = (await headTagStoreService.GetCodeAsync(location))
+            .Select(customCode => new HtmlString(customCode))
+            .ToList();
 
         return View("~/Features/HTML/ViewComponents/CustomCode.cshtml", model: code);
     }

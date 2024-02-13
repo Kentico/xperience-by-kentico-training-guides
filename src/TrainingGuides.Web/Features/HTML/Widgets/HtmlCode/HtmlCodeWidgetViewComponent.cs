@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc.ViewComponents;
 using TrainingGuides.Web.Features.HTML.Services;
 using TrainingGuides.Web.Features.HTML.Widgets.HtmlCode;
 
-[assembly:RegisterWidget(
+[assembly: RegisterWidget(
     identifier: HtmlCodeWidgetViewComponent.IDENTIFIER,
     viewComponentType: typeof(HtmlCodeWidgetViewComponent),
     name: "HTML code",
