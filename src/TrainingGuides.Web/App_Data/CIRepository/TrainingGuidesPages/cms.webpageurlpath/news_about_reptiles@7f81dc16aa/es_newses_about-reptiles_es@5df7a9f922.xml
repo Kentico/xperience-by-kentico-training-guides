@@ -1,20 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.webpageurlpath>
-  <WebPageUrlPath>es/News</WebPageUrlPath>
+  <WebPageUrlPath>es/NewsES/About-reptiles</WebPageUrlPath>
   <WebPageUrlPathContentLanguageID>
     <CodeName>es</CodeName>
     <GUID>b2e99971-c2dd-4a47-bb64-0d9a0d28d226</GUID>
     <ObjectType>cms.contentlanguage</ObjectType>
   </WebPageUrlPathContentLanguageID>
-  <WebPageUrlPathGUID>5297310b-0b9f-45b9-ac68-44fa7f371332</WebPageUrlPathGUID>
+  <WebPageUrlPathGUID>0ff01343-a5b3-4a1c-877d-ff3d6f0fb806</WebPageUrlPathGUID>
   <WebPageUrlPathHash>
-    <![CDATA[3305281D08A8CC864913C4E8E205A77A825140BADAC6470E724F935D387B139E]]>
+    <![CDATA[45D2DC265EBC1D049755238535B4B080BF08BA6843BD08ED29A8095457BC4B45]]>
   </WebPageUrlPathHash>
   <WebPageUrlPathIsDraft>False</WebPageUrlPathIsDraft>
   <WebPageUrlPathIsLatest>True</WebPageUrlPathIsLatest>
   <WebPageUrlPathWebPageItemID>
-    <CodeName>News-bgt05j82</CodeName>
-    <GUID>77c7aa1f-e0e3-4b74-a66f-8c0c87523c15</GUID>
+    <CodeName>AboutReptiles-gjkhpmft</CodeName>
+    <GUID>fc87659b-c4d3-456e-aef7-7202aa247426</GUID>
     <ObjectType>cms.webpageitem</ObjectType>
   </WebPageUrlPathWebPageItemID>
   <WebPageUrlPathWebsiteChannelID>

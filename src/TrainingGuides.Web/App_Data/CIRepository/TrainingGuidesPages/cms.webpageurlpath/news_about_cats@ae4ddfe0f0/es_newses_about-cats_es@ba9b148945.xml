@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.webpageurlpath>
-  <WebPageUrlPath>es/News/About-cats</WebPageUrlPath>
+  <WebPageUrlPath>es/NewsES/About-cats</WebPageUrlPath>
   <WebPageUrlPathContentLanguageID>
     <CodeName>es</CodeName>
     <GUID>b2e99971-c2dd-4a47-bb64-0d9a0d28d226</GUID>
@@ -8,7 +8,7 @@
   </WebPageUrlPathContentLanguageID>
   <WebPageUrlPathGUID>eb03c818-2021-4a9b-9a4b-7f761d17407b</WebPageUrlPathGUID>
   <WebPageUrlPathHash>
-    <![CDATA[FE04D263C338A42833F1BB89F189A11C61943311FF455B41328C884A4ABA02E0]]>
+    <![CDATA[1B50EEAF40D6901CDC0EA351B1BF8D9DC17F8CDC5045132144D1364DAE4BE4D6]]>
   </WebPageUrlPathHash>
   <WebPageUrlPathIsDraft>False</WebPageUrlPathIsDraft>
   <WebPageUrlPathIsLatest>True</WebPageUrlPathIsLatest>

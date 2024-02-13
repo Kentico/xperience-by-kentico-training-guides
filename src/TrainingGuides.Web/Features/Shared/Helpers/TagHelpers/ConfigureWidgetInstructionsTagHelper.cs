@@ -2,6 +2,7 @@ using Kentico.Content.Web.Mvc;
 using Kentico.PageBuilder.Web.Mvc;
 using Kentico.Web.Mvc;
 using Microsoft.AspNetCore.Razor.TagHelpers;
+using Microsoft.IdentityModel.Tokens;
 
 namespace TrainingGuides.Web.Features.Shared.Helpers.TagHelpers;
 
@@ -13,9 +14,12 @@ namespace TrainingGuides.Web.Features.Shared.Helpers.TagHelpers;
 public class ConfigureWidgetInstructionsTagHelper : TagHelper
 {
     private readonly IHttpContextAccessor accessor;
+    public string Message { get; set; }
 
-    private const string INSTRUCTIONS_EDIT_MODE = "<p class=\"m-5\">This widget needs some setup. Click the <strong>Configure widget</strong> icon in the top right to configure content and design for this widget.</p>";
-    private const string INSTRUCTIONS_PREVIEW_MODE = "<p class=\"m-5\">This widget needs some setup. Switch to the <strong>Page Builder</strong> and <strong>Edit page</strong>.<br/>Then click the <strong>Configure widget</strong> icon in the top right to configure content and design for this widget.";
+    private const string OPENING_TAG = "<p class=\"m-5\">";
+    private const string CLOSING_TAG = "</p>";
+    private const string INSTRUCTIONS_EDIT_MODE = "This widget needs some setup. Click the <strong>Configure widget</strong> gear icon in the top right to configure content and design for this widget.";
+    private const string INSTRUCTIONS_PREVIEW_MODE = "This widget needs some setup. Switch to the <strong>Page Builder</strong> and <strong>Edit page</strong>.<br/>Then click the <strong>Configure widget</strong> gear icon in the top right to configure content and design for this widget.";
 
     public ConfigureWidgetInstructionsTagHelper(IHttpContextAccessor accessor)
     {
@@ -32,10 +36,12 @@ public class ConfigureWidgetInstructionsTagHelper : TagHelper
         }
 
         output.TagName = "";
-        output.Content.SetHtmlContent(
-            httpContext.Kentico().PageBuilder().EditMode
+        string messageToShow = Message.IsNullOrEmpty()
+            ? httpContext.Kentico().PageBuilder().EditMode
                 ? INSTRUCTIONS_EDIT_MODE
                 : INSTRUCTIONS_PREVIEW_MODE
-            );
+            : Message;
+
+        output.Content.SetHtmlContent(OPENING_TAG + messageToShow + CLOSING_TAG);
     }
 }

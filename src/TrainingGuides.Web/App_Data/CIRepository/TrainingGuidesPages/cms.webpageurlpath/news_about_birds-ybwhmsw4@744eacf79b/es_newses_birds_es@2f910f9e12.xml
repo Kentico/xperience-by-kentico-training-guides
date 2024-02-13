@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.webpageurlpath>
-  <WebPageUrlPath>es/News/birds</WebPageUrlPath>
+  <WebPageUrlPath>es/NewsES/birds</WebPageUrlPath>
   <WebPageUrlPathContentLanguageID>
     <CodeName>es</CodeName>
     <GUID>b2e99971-c2dd-4a47-bb64-0d9a0d28d226</GUID>
@@ -8,7 +8,7 @@
   </WebPageUrlPathContentLanguageID>
   <WebPageUrlPathGUID>9efcc74f-4eb7-40ff-964b-64197334aeb3</WebPageUrlPathGUID>
   <WebPageUrlPathHash>
-    <![CDATA[6125E0078604C8EBBEE3FCE5F32F5AA7A1FFFBF9367F445CDF3D37A452A879FF]]>
+    <![CDATA[192B19F60B56F8E076C4EABFFBBD25CADDB8C40A88483D6C46181F41DB2E1E0D]]>
   </WebPageUrlPathHash>
   <WebPageUrlPathIsDraft>False</WebPageUrlPathIsDraft>
   <WebPageUrlPathIsLatest>True</WebPageUrlPathIsLatest>

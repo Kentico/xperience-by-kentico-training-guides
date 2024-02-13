@@ -13,9 +13,12 @@
   <ContentItemCommonDataFirstPublishedWhen>2024-02-06 22:05:23Z</ContentItemCommonDataFirstPublishedWhen>
   <ContentItemCommonDataGUID>108c2e65-c586-4948-8c60-0e5613bcf6fc</ContentItemCommonDataGUID>
   <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
-  <ContentItemCommonDataLastPublishedWhen>2024-02-07 22:36:02Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataLastPublishedWhen>2024-02-13 02:21:23Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataPageBuilderWidgets>
+    <![CDATA[{"editableAreas":[]}]]>
+  </ContentItemCommonDataPageBuilderWidgets>
   <ContentItemCommonDataPageTemplateConfiguration>
-    <![CDATA[{"identifier":"TrainingGuides.ArticlePagePageTemplate","properties":null,"fieldIdentifiers":null}]]>
+    <![CDATA[{"identifier":"TrainingGuides.ArticlePagePageTemplate","properties":null,"fieldIdentifiers":{}}]]>
   </ContentItemCommonDataPageTemplateConfiguration>
   <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
   <ContentItemReferences>
