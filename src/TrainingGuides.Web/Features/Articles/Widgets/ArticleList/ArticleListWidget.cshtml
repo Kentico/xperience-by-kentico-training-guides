@@ -27,7 +27,7 @@ else
     <div class="row justify-content-center">
         <div class="col-xl-11">
             <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 c-blog-grid mt-3 mt-md-4">
-                @foreach (var item in Model.Articles)
+                @foreach (var item in Model.Articles!)
                 {
                     <div class="col mt-4">
                         <a class="c-card-anchor" href="@item.Url">
@@ -40,7 +40,7 @@ else
                                         </div>
                                     }
                                     <div class="c-card_body j-truncate" data-heading-lines="3" data-total-lines="6">
-                                        <div class="c-date">@Html.FormatDate(item.CreatedOn)</div>
+                                        <tg-date date="@item.CreatedOn"/>
                                         <h2 class="h4 mb-0 j-truncate_heading">@item.Title</h2>
                                         <p class="mb-0 j-truncate_paragraph">@item.Summary</p>
                                     </div>

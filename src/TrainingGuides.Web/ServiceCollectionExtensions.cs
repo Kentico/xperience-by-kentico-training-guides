@@ -2,7 +2,7 @@ using TrainingGuides.Web.Features.DataProtection.Services;
 using TrainingGuides.Web.Features.Html.Services;
 using TrainingGuides.Web.Features.Shared.Services;
 
-namespace TrainingGuides.Web.Extensions;
+namespace TrainingGuides.Web;
 
 public static class ServiceCollectionExtensions
 {

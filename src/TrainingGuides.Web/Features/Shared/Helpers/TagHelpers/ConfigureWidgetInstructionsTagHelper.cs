@@ -1,8 +1,8 @@
 using Kentico.Content.Web.Mvc;
 using Kentico.PageBuilder.Web.Mvc;
 using Kentico.Web.Mvc;
+using Microsoft.AspNetCore.Html;
 using Microsoft.AspNetCore.Razor.TagHelpers;
-using Microsoft.IdentityModel.Tokens;
 
 namespace TrainingGuides.Web.Features.Shared.Helpers.TagHelpers;
 
@@ -14,7 +14,7 @@ namespace TrainingGuides.Web.Features.Shared.Helpers.TagHelpers;
 public class ConfigureWidgetInstructionsTagHelper : TagHelper
 {
     private readonly IHttpContextAccessor accessor;
-    public string Message { get; set; }
+    public string? Message { get; set; }
 
     private const string OPENING_TAG = "<p class=\"m-5\">";
     private const string CLOSING_TAG = "</p>";
@@ -36,12 +36,10 @@ public class ConfigureWidgetInstructionsTagHelper : TagHelper
         }
 
         output.TagName = "";
-        string messageToShow = Message.IsNullOrEmpty()
-            ? httpContext.Kentico().PageBuilder().EditMode
+        string messageToShow = Message ?? (httpContext.Kentico().PageBuilder().EditMode
                 ? INSTRUCTIONS_EDIT_MODE
-                : INSTRUCTIONS_PREVIEW_MODE
-            : Message;
+                : INSTRUCTIONS_PREVIEW_MODE);
 
-        output.Content.SetHtmlContent(OPENING_TAG + messageToShow + CLOSING_TAG);
+        output.Content.SetHtmlContent(new HtmlString(OPENING_TAG + messageToShow + CLOSING_TAG));
     }
 }
