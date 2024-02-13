@@ -1,8 +1,8 @@
-﻿using TrainingGuides.Web.Features.HTML.Services;
+﻿using TrainingGuides.Web.Features.Html.Services;
 using Microsoft.AspNetCore.Html;
 using Microsoft.AspNetCore.Mvc;
 
-namespace TrainingGuides.Web.Features.HTML.ViewComponents;
+namespace TrainingGuides.Web.Features.Html.ViewComponents;
 
 public class CustomCodeViewComponent : ViewComponent
 {
@@ -19,6 +19,6 @@ public class CustomCodeViewComponent : ViewComponent
             .Select(customCode => new HtmlString(customCode))
             .ToList();
 
-        return View("~/Features/HTML/ViewComponents/CustomCode.cshtml", model: code);
+        return View("~/Features/Html/ViewComponents/CustomCode.cshtml", model: code);
     }
 }

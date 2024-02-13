@@ -1,18 +1,18 @@
 ﻿using Kentico.PageBuilder.Web.Mvc;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ViewComponents;
-using TrainingGuides.Web.Features.HTML.Services;
-using TrainingGuides.Web.Features.HTML.Widgets.HtmlCode;
+using TrainingGuides.Web.Features.Html.Services;
+using TrainingGuides.Web.Features.Html.Widgets.HtmlCode;
 
 [assembly: RegisterWidget(
     identifier: HtmlCodeWidgetViewComponent.IDENTIFIER,
     viewComponentType: typeof(HtmlCodeWidgetViewComponent),
-    name: "HTML code",
+    name: "Html code",
     propertiesType: typeof(HtmlCodeWidgetProperties),
     Description = "Displays the heading of the page.",
     IconClass = "icon-ribbon")]
 
-namespace TrainingGuides.Web.Features.HTML.Widgets.HtmlCode;
+namespace TrainingGuides.Web.Features.Html.Widgets.HtmlCode;
 
 public class HtmlCodeWidgetViewComponent : ViewComponent
 {
@@ -39,6 +39,6 @@ public class HtmlCodeWidgetViewComponent : ViewComponent
             model.Code = new(properties.Code);
         }
 
-        return View("~/Features/HTML/Widgets/HtmlCode/HtmlCodeWidget.cshtml", model);
+        return View("~/Features/Html/Widgets/HtmlCode/HtmlCodeWidget.cshtml", model);
     }
 }

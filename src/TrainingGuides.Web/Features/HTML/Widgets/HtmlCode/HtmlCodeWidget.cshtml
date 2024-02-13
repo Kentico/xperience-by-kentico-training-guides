@@ -1,5 +1,12 @@
-﻿@using TrainingGuides.Web.Features.HTML.Widgets.HtmlCode
+﻿@using TrainingGuides.Web.Features.Html.Widgets.HtmlCode
 
 @model HtmlCodeWidgetViewModel
 
-@Model?.Code
+@if (Model is null || Model.IsMisconfigured)
+{
+    <tg-configure-widget-instructions />
+}
+else
+{
+    @Model!.Code
+}

@@ -5,7 +5,7 @@ namespace TrainingGuides.Web.Features.LandingPages;
 
 public class LandingPageTemplateProperties : IPageTemplateProperties
 {
-    private const string DESCRIPTION = "Radio button group to select the type of HTML tag that wraps the home page message";
+    private const string DESCRIPTION = "Radio button group to select the type of Html tag that wraps the home page message";
 
     private const string OPTIONS =
         "h1;Heading 1" + "\r\n" +

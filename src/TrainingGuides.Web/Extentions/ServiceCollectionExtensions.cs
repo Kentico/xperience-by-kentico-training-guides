@@ -1,5 +1,5 @@
 using TrainingGuides.Web.Features.DataProtection.Services;
-using TrainingGuides.Web.Features.HTML.Services;
+using TrainingGuides.Web.Features.Html.Services;
 using TrainingGuides.Web.Features.Shared.Services;
 
 namespace TrainingGuides.Web.Extensions;

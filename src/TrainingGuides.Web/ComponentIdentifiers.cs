@@ -5,7 +5,7 @@ using TrainingGuides.Web.Features.LandingPages.Widgets.CallToAction;
 using TrainingGuides.Web.Features.Shared.Sections.FormColumn;
 using TrainingGuides.Web.Features.Shared.Sections.SingleColumn;
 using TrainingGuides.Web.Features.Products.Widgets.ProductComparator;
-using TrainingGuides.Web.Features.HTML.Widgets.HtmlCode;
+using TrainingGuides.Web.Features.Html.Widgets.HtmlCode;
 using TrainingGuides.Web.Features.Articles.Widgets.ArticleList;
 
 namespace TrainingGuides.Web;

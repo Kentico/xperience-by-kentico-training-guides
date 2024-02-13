@@ -1,7 +1,7 @@
 ﻿using Kentico.PageBuilder.Web.Mvc;
 using Kentico.Xperience.Admin.Base.FormAnnotations;
 
-namespace TrainingGuides.Web.Features.HTML.Widgets.HtmlCode;
+namespace TrainingGuides.Web.Features.Html.Widgets.HtmlCode;
 
 public class HtmlCodeWidgetProperties : IWidgetProperties
 {

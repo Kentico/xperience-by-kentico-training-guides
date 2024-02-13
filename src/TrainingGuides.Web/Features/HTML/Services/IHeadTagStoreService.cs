@@ -1,4 +1,4 @@
-﻿namespace TrainingGuides.Web.Features.HTML.Services;
+﻿namespace TrainingGuides.Web.Features.Html.Services;
 
 public enum CodeLocation
 {
