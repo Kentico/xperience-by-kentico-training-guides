@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ViewComponents;
-using CMS.ContentEngine.Internal;
 using CMS.DataEngine;
 using Kentico.PageBuilder.Web.Mvc;
 using TrainingGuides.Web.Features.Articles.Entities;
@@ -74,12 +73,27 @@ public class ArticleListWidgetViewComponent : ViewComponent
 
     private async Task<string> GetWebPageContentTypeName(Guid id)
     {
-        var query = new ObjectQuery("cms.webpageitem").Source(delegate (QuerySource source)
+        // database-related string constants, needed to retrieve Page content type name
+        const string WEB_PAGE_ITEM_OBJECT_TYPE = "cms.webpageitem";
+        const string CONTENT_ITEM_TABLE_NAME = "CMS_ContentItem";
+        const string WEB_PAGE_ITEM_CONTENT_ITEM_ID = "WebPageItemContentItemID";
+        const string CONTENT_ITEM_ID = "ContentItemID";
+        const string CONTENT_ITEM_CONTENT_TYPE_ID = "ContentItemContentTypeID";
+        const string CLASS_ID = "ClassID";
+        const string WEB_PAGE_ITEM_GUID = "WebPageItemGUID";
+        const string CLASS_NAME = "ClassName";
+
+        var query = new ObjectQuery(WEB_PAGE_ITEM_OBJECT_TYPE).Source(delegate (QuerySource source)
         {
-            source.LeftJoin<ContentItemInfo>("WebPageItemContentItemID", "ContentItemID");
-            source.LeftJoin<DataClassInfo>("ContentItemContentTypeID", "ClassID");
-        }).WhereEquals("WebPageItemGUID", id)
-                .Column("ClassName");
+            source.LeftJoin(
+                source: new QuerySourceTable(CONTENT_ITEM_TABLE_NAME),
+                leftColumn: WEB_PAGE_ITEM_CONTENT_ITEM_ID,
+                rightColumn: CONTENT_ITEM_ID);
+            source.LeftJoin<DataClassInfo>(
+                leftColumn: CONTENT_ITEM_CONTENT_TYPE_ID,
+                rightColumn: CLASS_ID);
+        }).WhereEquals(WEB_PAGE_ITEM_GUID, id)
+                .Column(CLASS_NAME);
 
         return await query.GetScalarResultAsync<string>();
     }
