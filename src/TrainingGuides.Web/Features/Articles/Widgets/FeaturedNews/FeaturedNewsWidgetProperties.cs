@@ -5,6 +5,6 @@ namespace TrainingGuides.Web.Features.Articles.Widgets.FeaturedNews;
 
 public class FeaturedNewsWidgetProperties : IWidgetProperties
 {
-    [WebPageSelectorComponent(Label = "Selected article", Order = 1, MaximumPages = 1, Sortable = true, ItemModifierType = typeof(NewsWidgetsItemModifier))]
+    [WebPageSelectorComponent(Label = "Selected article", Order = 1, MaximumPages = 1, Sortable = true)]
     public IEnumerable<WebPageRelatedItem> Article { get; set; } = null!;
 }
