@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.asset>
+  <AssetDescription>
+    <![CDATA[Black and white cat with green eyes peeking from a basket.]]>
+  </AssetDescription>
+  <AssetFile>
+    <![CDATA[{"Identifier":"23b48e29-fc5e-4d62-8e56-112b2a1a3a78","Name":"cat_small.jpg","Extension":".jpg","Size":90373,"LastModified":"2024-02-15T17:06:32.4485447Z"}]]>
+  </AssetFile>
+  <AssetUseInternalOnly>False</AssetUseInternalOnly>
+  <ContentItemDataCommonDataID>
+    <GUID>61cb51b6-06c9-44d5-84c7-cc2731bd7b0c</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>Cat-ktj9godr</CodeName>
+      <GUID>f4dafef5-f7d3-486b-87f6-2e1360d5c28b</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>e8d08504-6e3a-4446-aef1-1f6ae6f6a58e</ContentItemDataGUID>
+</contentitemdata.trainingguides.asset>

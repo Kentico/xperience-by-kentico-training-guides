@@ -6,9 +6,15 @@
     var templateModel = Model.GetTemplateModel<ArticlePageViewModel>();
 }
 
-<div>
-    <h1>
-        @templateModel.Title
-    </h1>
-    @templateModel.Text
+<div class="c-card md bg-1 u-border-02">
+    @if (templateModel.TeaserImage != null)
+    {
+        <img src="@Url.Content(@templateModel.TeaserImage.FilePath)" alt="@templateModel.TeaserImage.AltText" />
+    }
+    <div class="c-post_body">
+        <h1>
+            @templateModel.Title
+        </h1>
+        <p>@templateModel.Text</p>
+    </div>
 </div>

@@ -1,7 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <contentitemdata.trainingguides.article>
+  <ArticleSummary>Training Guides news!</ArticleSummary>
+  <ArticleTeaser>
+    <![CDATA[[{"Identifier":"f4dafef5-f7d3-486b-87f6-2e1360d5c28b"}]]]>
+  </ArticleTeaser>
   <ArticleText>
-    <![CDATA[<p><em>Training Guides news!</em></p>]]>
+    <![CDATA[<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>]]>
   </ArticleText>
   <ArticleTitle>News</ArticleTitle>
   <ContentItemDataCommonDataID>

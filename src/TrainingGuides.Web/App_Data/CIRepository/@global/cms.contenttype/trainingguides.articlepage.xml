@@ -20,6 +20,19 @@
           <controlname>Kentico.Administration.ContentItemSelector</controlname>
         </settings>
       </field>
+      <field allowempty="true" column="ArticlePagePublishDate" columnprecision="7" columntype="datetime" enabled="true" guid="4c8e5953-393e-45a9-be58-aaeb3ff4a414" visible="true">
+        <properties>
+          <explanationtext>
+            <![CDATA[The date will show on the website as the day of publishing the news article. Doesn't schedule this page for publishing.]]>
+          </explanationtext>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Page publish date</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.DateTimeInput</controlname>
+        </settings>
+      </field>
     </form>
   </ClassFormDefinition>
   <ClassGUID>c5201839-8fe2-4d8d-a19a-f080592dc7d3</ClassGUID>

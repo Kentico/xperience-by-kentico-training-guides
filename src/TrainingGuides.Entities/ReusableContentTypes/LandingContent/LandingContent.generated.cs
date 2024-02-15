@@ -18,7 +18,7 @@ namespace TrainingGuides
 	/// <summary>
 	/// Represents a content item of type <see cref="LandingContent"/>.
 	/// </summary>
-	public partial class LandingContent
+	public partial class LandingContent : IContentItemFieldsSource
 	{
 		/// <summary>
 		/// Code name of the content type.
