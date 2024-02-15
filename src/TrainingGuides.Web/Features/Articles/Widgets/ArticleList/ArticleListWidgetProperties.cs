@@ -16,6 +16,12 @@ public class ArticleListWidgetProperties : IWidgetProperties
     public string? CtaText { get; set; }
 
     [DropDownComponent(Label = "Order articles by", Order = 4,
-    Options = "newest-first;Newest first\noldest-first;Oldest first")]
-    public string OrderBy { get; set; } = "newest-first";
+    Options = OrderByOptions.NEWEST_FIRST + ";Newest first\n" + OrderByOptions.OLDEST_FIRST + ";Oldest first")]
+    public string OrderBy { get; set; } = OrderByOptions.NEWEST_FIRST;
+}
+
+public static class OrderByOptions
+{
+    public const string NEWEST_FIRST = "newest-first";
+    public const string OLDEST_FIRST = "oldest-first";
 }

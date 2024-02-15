@@ -24,8 +24,8 @@ public class HeroBannerWidgetViewModel : WidgetViewModel
     public string TextColor { get; set; } = null!;
     public string ThemeClass => TextColor switch
     {
-        "light" => "light",
-        "dark" => "",
+        TextColorOptions.LIGHT => "light",
+        TextColorOptions.DARK => "",
         _ => ""
     };
     public HtmlString StyleAttribute { get; set; } = null!;

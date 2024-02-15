@@ -48,7 +48,7 @@ public class ProductComparatorWidgetViewComponent : ViewComponent
             GroupedFeatures = [],
             ComparatorHeading = properties.ComparatorHeading,
             HeadingType = new HeadingTypeOptionsProvider().Parse(properties.HeadingType)!.Value,
-            HeadingMargin = properties.HeadingMargin ?? "default",
+            HeadingMargin = properties.HeadingMargin,
             ShowShortDescription = properties.ShowShortDescription,
             CheckboxIconUrl = $"{httpRequestService.GetBaseUrl()}/assets/img/icons.svg#check"
         };

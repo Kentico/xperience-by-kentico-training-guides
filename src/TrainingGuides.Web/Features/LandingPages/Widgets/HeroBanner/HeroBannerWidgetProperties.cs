@@ -59,7 +59,13 @@ public class HeroBannerWidgetProperties : IWidgetProperties
     [VisibleIfTrue(nameof(ChangeDesign))]
     public string Width { get; set; } = "circle";
 
-    [DropDownComponent(Label = "Text color", Order = 10, Options = "dark;Dark\nlight;Light", ExplanationText = "Select the color of the component text. Changing this will automatically change the component color theme to fit the text color.")]
+    [DropDownComponent(Label = "Text color", Order = 10, Options = TextColorOptions.DARK + ";Dark\n" + TextColorOptions.LIGHT + ";Light", ExplanationText = "Select the color of the component text. Changing this will automatically change the component color theme to fit the text color.")]
     [VisibleIfTrue(nameof(ChangeDesign))]
-    public string TextColor { get; set; } = "dark";
+    public string TextColor { get; set; } = TextColorOptions.DARK;
+}
+
+public static class TextColorOptions
+{
+    public const string DARK = "dark";
+    public const string LIGHT = "light";
 }

@@ -2,7 +2,7 @@
 
 namespace TrainingGuides.Web.Features.Shared.OptionsProviders.Heading;
 
-[HtmlTargetElement("xpc-heading", TagStructure = TagStructure.NormalOrSelfClosing)]
+[HtmlTargetElement("tg-heading", TagStructure = TagStructure.NormalOrSelfClosing)]
 public class HeadingTagHelper : TagHelper
 {
     private readonly IHttpContextAccessor accessor;
