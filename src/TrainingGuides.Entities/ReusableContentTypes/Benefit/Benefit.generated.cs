@@ -18,7 +18,7 @@ namespace TrainingGuides
 	/// <summary>
 	/// Represents a content item of type <see cref="Benefit"/>.
 	/// </summary>
-	public partial class Benefit
+	public partial class Benefit : IContentItemFieldsSource
 	{
 		/// <summary>
 		/// Code name of the content type.

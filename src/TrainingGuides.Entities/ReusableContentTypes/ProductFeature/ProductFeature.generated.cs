@@ -18,7 +18,7 @@ namespace TrainingGuides
 	/// <summary>
 	/// Represents a content item of type <see cref="ProductFeature"/>.
 	/// </summary>
-	public partial class ProductFeature
+	public partial class ProductFeature : IContentItemFieldsSource
 	{
 		/// <summary>
 		/// Code name of the content type.
@@ -45,9 +45,9 @@ namespace TrainingGuides
 
 
 		/// <summary>
-		/// ProductFeaturePrice.
+		/// ProductFeatureValueType.
 		/// </summary>
-		public decimal ProductFeaturePrice { get; set; }
+		public string ProductFeatureValueType { get; set; }
 
 
 		/// <summary>
@@ -57,9 +57,9 @@ namespace TrainingGuides
 
 
 		/// <summary>
-		/// ProductFeatureValueType.
+		/// ProductFeaturePrice.
 		/// </summary>
-		public string ProductFeatureValueType { get; set; }
+		public decimal ProductFeaturePrice { get; set; }
 
 
 		/// <summary>

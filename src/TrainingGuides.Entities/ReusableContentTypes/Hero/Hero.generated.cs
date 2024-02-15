@@ -19,7 +19,7 @@ namespace TrainingGuides
 	/// <summary>
 	/// Represents a content item of type <see cref="Hero"/>.
 	/// </summary>
-	public partial class Hero
+	public partial class Hero : IContentItemFieldsSource
 	{
 		/// <summary>
 		/// Code name of the content type.
