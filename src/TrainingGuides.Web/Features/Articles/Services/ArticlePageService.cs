@@ -11,6 +11,11 @@ public class ArticlePageService : IArticlePageService
         this.webPageUrlRetriever = webPageUrlRetriever;
     }
 
+    /// <summary>
+    /// Creates a new instance of <see cref="ArticlePageViewModel"/>, setting the properties using ArticlePage given as a parameter.
+    /// </summary>
+    /// <param name="articlePage">Corresponding Article page object.</param>
+    /// <returns>New instance of ArticlePageViewModel.</returns>
     public async Task<ArticlePageViewModel> GetArticlePageViewModel(ArticlePage articlePage)
     {
         var article = articlePage.ArticlePageContent.FirstOrDefault();
