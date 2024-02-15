@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.contentitemlanguagemetadata>
   <ContentItemLanguageMetadataContentItemID>
-    <CodeName>AboutBirds-s9uo6z8p</CodeName>
-    <GUID>34c30b43-f1c9-4e09-84de-f97242116089</GUID>
+    <CodeName>Star2-p41ggao7</CodeName>
+    <GUID>d7b682e2-82fc-44ce-b434-590a9b2b0a7a</GUID>
     <ObjectType>cms.contentitem</ObjectType>
   </ContentItemLanguageMetadataContentItemID>
   <ContentItemLanguageMetadataContentLanguageID>
@@ -15,11 +15,11 @@
     <GUID>6415b8ce-8072-4bcd-8e48-9d7178b826b7</GUID>
     <ObjectType>cms.user</ObjectType>
   </ContentItemLanguageMetadataCreatedByUserID>
-  <ContentItemLanguageMetadataCreatedWhen>2024-02-07 22:33:11Z</ContentItemLanguageMetadataCreatedWhen>
-  <ContentItemLanguageMetadataDisplayName>About birds</ContentItemLanguageMetadataDisplayName>
-  <ContentItemLanguageMetadataGUID>aac45c4b-2dd0-4693-aa34-e68d38c7028f</ContentItemLanguageMetadataGUID>
+  <ContentItemLanguageMetadataCreatedWhen>2024-02-15 20:05:11Z</ContentItemLanguageMetadataCreatedWhen>
+  <ContentItemLanguageMetadataDisplayName>Star icon 2</ContentItemLanguageMetadataDisplayName>
+  <ContentItemLanguageMetadataGUID>598210a5-b5d2-4fc5-9fa3-54546a51ca34</ContentItemLanguageMetadataGUID>
   <ContentItemLanguageMetadataHasImageAsset>False</ContentItemLanguageMetadataHasImageAsset>
-  <ContentItemLanguageMetadataLatestVersionStatus>0</ContentItemLanguageMetadataLatestVersionStatus>
+  <ContentItemLanguageMetadataLatestVersionStatus>2</ContentItemLanguageMetadataLatestVersionStatus>
   <ContentItemLanguageMetadataModifiedByUserID>
     <CodeName>administrator</CodeName>
     <GUID>6415b8ce-8072-4bcd-8e48-9d7178b826b7</GUID>
