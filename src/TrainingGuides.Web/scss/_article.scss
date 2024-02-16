@@ -1,3 +1,5 @@
+@use 'variables';
+
 .c-post h1,
 .c-post .h1 {
     font-size: 1.875rem;
@@ -21,8 +23,8 @@
     float: left;
     margin: .375rem 1.875rem 1.25rem 0;
     padding: 1.75rem 1.5rem;
-    background: var(--k-primary, #8107c1);
-    color: #fff;
+    background: variables.$color-primary;
+    color: variables.$body-bg;
     font-size: 1.25rem;
     text-align: center;
     width: 190px;

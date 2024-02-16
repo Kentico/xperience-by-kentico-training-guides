@@ -1,10 +1,12 @@
+@use 'variables';
+
 .form form {
     display: grid;
 }
 
 .form form input[type=submit] {
     margin: 1.5rem 0;
-    background-color: var(--k-secondary, #f0561a);
+    background-color: variables.$color-secondary;
     color: #fff;
     border: none;
     border-top-left-radius: 1.75rem;
@@ -21,8 +23,8 @@
 }
 
 .form form input[type=submit]:hover {
-    background-color: var(--k-secondary-hover, var(--k-secondary, #f0561a));
-    border-color: var(--k-secondary-hover, var(--k-secondary, #f0561a));
+    background-color: variables.$color-secondary-hover;
+    border-color: variables.$color-secondary-hover;
     color: #fff;
     border: none;
 }

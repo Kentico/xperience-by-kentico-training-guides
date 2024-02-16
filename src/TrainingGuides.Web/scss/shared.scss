@@ -1,19 +1,20 @@
-@use '_article.scss';
-@use '_button.scss'; 
-@use '_card.scss'; 
-@use '_data-protection.scss'; 
-@use '_font.scss';
-@use '_footer.scss';
-@use '_form.scss';
-@use '_header.scss';
-@use '_product.scss';
-@use '_section.scss';
+@use 'article';
+@use 'button'; 
+@use 'card'; 
+@use 'data-protection'; 
+@use 'font';
+@use 'footer';
+@use 'form';
+@use 'header';
+@use 'product';
+@use 'section';
+@use 'variables';
 
 
 .t-default {
-    background: var(--k-body-bg, #fff);
-    color: var(--k-body-color, #1e1a1b);
-    --bs-body-font-family: var(--k-body-font, "GT Walsheim Pro"), Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+    background: variables.$body-bg;
+    color: variables.$body-color;
+    --bs-body-font-family: "GT Walsheim Pro", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
 }
 
 .content-wrapper {
@@ -33,12 +34,12 @@
 
 .u-border-01 {
     border: none;
-    border-radius: var(--k-border-radius, 2rem);
+    border-radius: variables.$border-radius;
 }
 
 .u-border-02 {
     border: none;
-    border-radius: var(--k-border-radius-2, var(--k-border-radius, 2rem));
+    border-radius: variables.$border-radius;
 }
 
 .c-img-placeholder.type01 {
@@ -65,7 +66,7 @@
 }
 
 .c-icon-box_icon {
-    color: var(--k-secondary, #8107c1)
+    color: variables.$color-primary
 }
 
 .c-icon-box_icon .c-icon {
@@ -96,7 +97,7 @@
 }
 
 .c-link.primary-upper {
-    color: var(--k-primary, #8107c1);
+    color: variables.$color-primary;
     font-weight: 500;
     text-transform: uppercase;
     text-decoration: none;
@@ -111,16 +112,15 @@
 
 .c-link.primary-upper:hover,
 .c-link.primary-upper:focus {
-    color: var(--k-primary-hover, var(--k-primary, #8107c1));
+    color: variables.$color-primary;
 }
 
 .c-link.primary-upper:active {
-    color: var(--k-primary-active, var(--k-primary-hover, var(--k-primary, #8107c1)));
+    color: variables.$color-primary;
 }
-
 
 .c-date {
     font-size: .875rem;
     margin: .6rem 0;
-    color: var(--k-secondary, #f0561a);
+    color: variables.$color-secondary;
 }

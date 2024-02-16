@@ -1,5 +1,7 @@
+@use 'variables';
+
 .c-why_heading {
-    color: var(--k-why-heading-color, var(--k-body-color, #1e1a1b));
+    color: variables.$why-heading-color;
 }
 
 .c-products-grid {
@@ -14,7 +16,7 @@
     content: '';
     display: block;
     position: absolute;
-    background: var(--k-products-grid-bg, var(--k-card-bg, #efe6f9));
+    background: variables.$products-grid-bg;
     z-index: 1;
 }
 
@@ -28,21 +30,21 @@
     margin-bottom: 1rem;
     padding-bottom: 3rem;
     overflow: auto;
-    scrollbar-color: var(--k-primary, #8107c1) var(--k-body-bg, #fff);
+    scrollbar-color: variables.$color-primary variables.$body-bg;
 }
 
 .c-products-grid_inner::-webkit-scrollbar {
-    width: var(--k-scrollbar-width, 6px);
-    height: var(--k-scrollbar-width, 6px);
+    width: variables.$scrollbar-width;
+    height: variables.$scrollbar-width;
 }
 
 .c-products-grid_inner::-webkit-scrollbar-track {
     margin: 0 50px;
-    background: var(--k-scrollbar-track-color, var(--k-body-bg, #fff));
+    background: variables.$scrollbar-track-color;
 }
 
 .c-products-grid_inner::-webkit-scrollbar-thumb {
-    background: var(--k-scrollbar-thumb-color, var(--k-primary, #8107c1));
+    background: variables.$scrollbar-thumb-color;
 }
 
 .c-products-grid_scrollable {
@@ -53,15 +55,15 @@
     position: absolute;
     top: 0;
     bottom: 3rem;
-    background: var(--k-products-grid-tile-bg, var(--k-body-bg, #fff));
-    border-radius: var(--k-border-radius, 2rem);
+    background: variables.$products-grid-tile-bg;
+    border-radius: variables.$border-radius;
     width: 46vw;
     margin-left: -1vw;
     z-index: -1;
 }
 
 .c-products-grid_bg.highlight {
-    box-shadow: 0 0 2vw 0 var(--k-products-grid-highlight-shadow, var(--k-secondary, #f0561a));
+    box-shadow: 0 0 2vw 0 variables.$products-grid-highlight-shadow;
 }
 
 .c-products-grid_row {
@@ -109,11 +111,11 @@
     width: 42vw;
     padding: 1.25rem 0;
     min-height: 3.5rem;
-    border-bottom: 1px solid var(--k-pricelist-table-lines, #f0f0f2);
+    border-bottom: 1px solid variables.$pricelist-table-lines;
     text-align: center;
     margin: 0 4vw;
     font-size: 1.125rem;
-    color: var(--k-products-grid-col-color, var(--k-body-color, #1e1a1b));
+    color: variables.$products-grid-col-color;
 }
 
 .c-products-grid_col:before {
@@ -130,7 +132,7 @@
     width: 34vw;
     text-align: left;
     justify-content: flex-start;
-    border-bottom: 1px solid var(--k-secondary, #f0561a);
+    border-bottom: 1px solid variables.$color-secondary;
     margin: 0;
     padding: 1.25rem 0;
     font-size: 1rem;
@@ -152,7 +154,7 @@
     position: sticky;
     right: 0;
     z-index: 1;
-    background: var(--k-products-grid-bg, var(--k-card-bg, #efe6f9));
+    background: variables.$products-grid-bg;
 }
 
 .c-products-grid_col.gap:before {
@@ -172,11 +174,11 @@
 }
 
 .c-products-grid_del-price {
-    color: var(--k-products-grid-del-price, var(--k-pricelist-price-color, var(--k-primary, #8107c1)));
+    color: variables.$products-grid-del-price;
 }
 
 .c-products-grid_check {
-    color: var(--k-products-grid-check-color, var(--k-secondary, #f0561a));
+    color: variables.$products-grid-check-color;
 }
 
 .c-products-grid .accordion-button {
@@ -200,7 +202,7 @@
     }
 
     .c-products-grid_bg.highlight {
-        box-shadow: 0 0 20px 0 var(--k-products-grid-highlight-shadow, var(--k-secondary, #f0561a));
+        box-shadow: 0 0 20px 0 variables.$products-grid-highlight-shadow;
     }
 
     .c-products-grid_row {
@@ -241,11 +243,11 @@
     }
 
     .c-products-grid_bg.highlight {
-        box-shadow: 0 0 30px 0 var(--k-products-grid-highlight-shadow, var(--k-secondary, #f0561a));
+        box-shadow: 0 0 30px 0 variables.$products-grid-highlight-shadow;
     }
 
     .c-products-grid_row:hover .c-products-grid_col:before {
-        background: var(--k-products-grid-hover-overlay, rgba(0, 0, 0, 0.05));
+        background: variables.$products-grid-hover-overlay;
     }
 
     .c-products-grid_col {
@@ -294,7 +296,7 @@
     }
 
     .c-products-grid_bg.highlight {
-        box-shadow: 0 0 30px 0 var(--k-products-grid-highlight-shadow, var(--k-secondary, #f0561a));
+        box-shadow: 0 0 30px 0 variables.$products-grid-highlight-shadow;
     }
 
     .c-products-grid_row {

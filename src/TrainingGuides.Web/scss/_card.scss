@@ -1,8 +1,10 @@
+@use 'variables';
+
 .c-card {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    color: var(--k-card-color, var(--k-body-color, #1e1a1b));
+    color: variables.$card-color;
 }
 
 .c-card.sm {
@@ -18,7 +20,7 @@
 }
 
 .c-card.bg-1 {
-    background: var(--k-card-bg, #efe6f9);
+    background: variables.$card-bg;
 }
 
 .c-card.bg-1 .c-card.bg-1 {
@@ -26,7 +28,7 @@
 }
 
 .c-card.bg-2 {
-    background: var(--k-card-bg-2, var(--k-secondary, #f0561a));
+    background: variables.$card-bg-2;
 }
 
 .c-card.bg-2 .c-card.bg-2 {
@@ -77,7 +79,7 @@
 
 .c-card-wrapper {
     padding: 2rem 1rem;
-    background-color: var(--k-card-bg, #efe6f9);
+    background-color: variables.$card-bg;
 }
 
 .c-card-wrapper .c-card-home_content-01 {
@@ -101,10 +103,10 @@
 }
 
 .c-card-anchor .c-card.bg-1 {
-    background-color: var(--k-card-bg, #efe6f9);
+    background-color: variables.$card-bg;
     transition: transform 0.3s, box-shadow 0.5s, background-color 0.3s ease-in-out;
 }
 
 .c-card-anchor:hover .c-card.bg-1 {
-    background-color: var(--k-card-bg-hover, #EBD8FF);
+    background-color: variables.$card-bg-hover;
 }

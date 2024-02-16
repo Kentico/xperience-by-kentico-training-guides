@@ -1,3 +1,5 @@
+@use 'variables';
+
 .c-footer {
     background: #EBF5FF;
     padding: 2.5rem 1rem 1.25rem;
@@ -35,8 +37,8 @@
     top: -20%;
     left: 93%;
     padding: 15%;
-    border: 1px solid var(--k-secondary, #f0561a);
-    background-color: var(--k-secondary, #f0561a);
+    border: 1px solid variables.$color-secondary;
+    background-color: variables.$color-secondary;
 }
 
 @media (min-width: 568px) {

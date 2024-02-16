@@ -1,9 +1,11 @@
+@use 'variables';
+
 .c-section.c-section-faq-bg {
-    background-color: var(--k-faq-section-bg, var(--k-body-bg, #fff));
+    background-color: variables.$faq-section-bg;
 }
 
 .c-section.c-section-pricelist-bg {
-    background-color: var(--k-pricelist-section-bg, var(--k-body-bg, #fff));
+    background-color: variables.$pricelist-section-bg;
 }
 
 .c-section.default {
@@ -41,7 +43,7 @@
     padding: 3.5rem 0;
     background: no-repeat center center;
     background-size: cover;
-    color: var(--k-hero-color, var(--k-body-color, #1e1a1b));
+    color: variables.$hero-color;
 }
 
 .c-section.hero.v03 {
@@ -55,8 +57,8 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: var(--k-hero-overlay-color, var(--k-secondary, #f0561a));
-    opacity: var(--k-hero-overlay-opacity, 0.5);
+    background-color: variables.$hero-overlay-color;
+    opacity: variables.$hero-overlay-opacity;
     z-index: 0;
 }
 
@@ -97,24 +99,24 @@
 .c-section.hero.v04 .c-hero_canvas_circle.small {
     inset: auto auto 0 23.93%;
     width: 11.4%;
-    background: var(--k-circles-hero-smalle-bg, var(--k-secondary, #f0561a));
+    background: variables.$circles-hero-small-bg;
 }
 
 .c-section.hero.v04 .c-hero_canvas_circle.medium {
     inset: 5.36% auto auto 0;
     width: 25.7%;
-    background: var(--k-circles-hero-medium-bg, var(--k-primary, #8107c1));
+    background: variables.$circles-hero-medium-bg;
 }
 
 .c-section.hero.v04 .c-hero_canvas_circle.big {
     width: 59.6%;
     inset: auto -25.9% -25.9% auto;
-    border: 1px solid var(--k-circles-hero-big-outline, var(--k-body-color, #1e1a1b));
+    border: 1px solid variables.$circles-hero-big-outline;
 }
 
 .c-section.hero.light {
-    color: var(--k-hero-color-light, var(--k-body-color, #fff));
-    background-color: var(--k-hero-color, #1e1a1b);
+    color: variables.$hero-color-light;
+    background-color: variables.$hero-color;
 }
 
 @media (min-width: 768px) {
@@ -201,8 +203,8 @@
 }
 
 .c-section .container.bg-secondary {
-    background: var(--k-secondary, #f0561a);
-    border-radius: var(--k-border-radius, 2rem);
+    background: variables.$color-secondary;
+    border-radius: variables.$border-radius;
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
 }
@@ -212,8 +214,8 @@
 }
 
 .c-section .container.bg-primary {
-    background: var(--k-primary, #8107c1);
-    border-radius: var(--k-border-radius, 2rem);
+    background: variables.$color-primary;
+    border-radius: variables.$border-radius;
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
 }
@@ -223,8 +225,8 @@
 }
 
 .c-section .container.bg-card {
-    background: var(--k-card-bg, #efe6f9);
-    border-radius: var(--k-border-radius, 2rem);
+    background: variables.$card-bg;
+    border-radius: variables.$border-radius;
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
 }

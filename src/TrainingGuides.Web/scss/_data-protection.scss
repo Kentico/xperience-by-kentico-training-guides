@@ -1,3 +1,4 @@
+@use 'variables';
 
 .xpcookiebanner {
     width: 100%;
@@ -234,7 +235,7 @@
     border-bottom-right-radius: 0;
     width: calc(100% - 5px);
     height: 10px;
-    background: var(--k-secondary, #f0561a);
+    background: variables.$color-secondary;
 }
 
 .cookie-preferences__range-slider {
@@ -276,7 +277,7 @@
     height: 30px;
     width: 30px;
     border-radius: 50%;
-    background: var(--k-secondary, #f0561a);
+    background: variables.$color-secondary;
     cursor: pointer;
     margin-top: -10px;
 }
@@ -293,7 +294,7 @@
     height: 30px;
     width: 30px;
     border-radius: 50%;
-    background: var(--k-secondary, #f0561a);
+    background: variables.$color-secondary;
     cursor: pointer;
 }
 
@@ -317,7 +318,7 @@
     height: 30px;
     width: 30px;
     border-radius: 50%;
-    background: var(--k-secondary, #f0561a);
+    background: variables.$color-secondary;
     cursor: pointer;
     margin-top: 2px;
     box-sizing: border-box;
@@ -338,7 +339,7 @@
 }
 
 .cookie-preferences__range-slider::-ms-fill-lower {
-    background: var(--k-secondary, #f0561a);
+    background: variables.$color-secondary;
 }
 
 .cookie-preferences__range-slider::-ms-fill-upper {
