@@ -1,0 +1,117 @@
+.c-footer {
+    background: #EBF5FF;
+    padding: 2.5rem 1rem 1.25rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.c-footer .navbar-brand {
+    display: block;
+}
+
+.c-footer .nav {
+    justify-content: end;
+}
+
+.c-footer .nav-link {
+    font-size: 1rem;
+    font-weight: 400;
+    padding: 0;
+}
+
+.c-footer .nav-item {
+    display: flex;
+    align-items: center;
+    padding: 0 0 0 1rem;
+}
+
+.c-footer .c-note {
+    font-size: .75rem;
+}
+
+.c-footer_circle {
+    position: absolute;
+    top: -20%;
+    left: 93%;
+    padding: 15%;
+    border: 1px solid var(--k-secondary, #f0561a);
+    background-color: var(--k-secondary, #f0561a);
+}
+
+@media (min-width: 568px) {
+    .c-footer {
+        padding: 2rem 1rem 2.25rem;
+    }
+
+    .c-footer .navbar-brand {
+        margin-top: 0.625rem;
+        text-align: left;
+    }
+
+    .c-footer .nav {
+        justify-content: flex-end;
+        margin-top: 0;
+    }
+
+    .c-footer .c-note {
+        text-align: right;
+    }
+}
+
+@media (min-width: 992px) {
+    .c-footer .navbar-brand {
+        margin-top: 0.5rem;
+    }
+}
+
+.c-footer .c-divider {
+    border-bottom: 2px solid #cfc9ca;
+    padding-bottom: 2rem;
+}
+
+@media (max-width: 767.98px) {
+    .c-footer-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .c-footer-grid .grid-item:nth-of-type(1) {
+        order: 1;
+    }
+
+    .c-footer-grid .grid-item:nth-of-type(2) {
+        order: 3;
+    }
+
+    .c-footer-grid .grid-item:nth-of-type(3) {
+        order: 2;
+    }
+
+    .c-footer-grid .grid-item:nth-of-type(4) {
+        order: 4;
+    }
+}
+
+.c-list-footer {
+    text-align: start;
+    padding: 0;
+}
+
+.c-list-footer_item {
+    list-style: none;
+    padding: 0.25rem 0;
+}
+
+.c-list-footer_item a {
+    text-decoration: none;
+    color: #231F20;
+    font-weight: 500;
+}
+
+.c-list-footer_item h2,
+.c-list-footer_item .h2 {
+    font-size: .75rem;
+    margin-bottom: 0;
+    padding-bottom: .2rem;
+}
