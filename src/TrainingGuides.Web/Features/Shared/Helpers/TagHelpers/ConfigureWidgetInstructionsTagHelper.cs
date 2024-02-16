@@ -1,8 +1,7 @@
-using Kentico.Content.Web.Mvc;
-using Kentico.PageBuilder.Web.Mvc;
-using Kentico.Web.Mvc;
 using Microsoft.AspNetCore.Html;
 using Microsoft.AspNetCore.Razor.TagHelpers;
+using Kentico.PageBuilder.Web.Mvc;
+using Kentico.Web.Mvc;
 
 namespace TrainingGuides.Web.Features.Shared.Helpers.TagHelpers;
 
@@ -29,11 +28,6 @@ public class ConfigureWidgetInstructionsTagHelper : TagHelper
     public override void Process(TagHelperContext context, TagHelperOutput output)
     {
         var httpContext = accessor.HttpContext;
-
-        if (!httpContext.Kentico().PageBuilder().EditMode && !httpContext.Kentico().Preview().Enabled)
-        {
-            output.SuppressOutput();
-        }
 
         output.TagName = "";
         string messageToShow = Message ?? (httpContext.Kentico().PageBuilder().EditMode

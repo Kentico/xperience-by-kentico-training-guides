@@ -6,13 +6,13 @@
 
 @if (Model is null || Model.IsMisconfigured)
 {
-    <PageBuilderContentTagHelper>
+    <tg-page-builder-content>
         <section class="c-section default">
             <div class="container">
                 <tg-configure-widget-instructions />
             </div>
         </section>
-    </PageBuilderContentTagHelper>
+    </tg-page-builder-content>
 }
 else {
     <div class="container bg-card">

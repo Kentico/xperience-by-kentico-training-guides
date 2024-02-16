@@ -2,7 +2,10 @@
 
 @if (Model is null || string.IsNullOrWhiteSpace(Model.Text) || string.IsNullOrWhiteSpace(Model.Url))
 {
-    <tg-configure-widget-instructions />
+    <tg-page-builder-content>
+        <tg-configure-widget-instructions />
+    </tg-page-builder-content>
+    
     return;
 }
 

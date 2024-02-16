@@ -4,7 +4,9 @@
 
 @if (Model is null || Model.IsMisconfigured)
 {
-    <tg-configure-widget-instructions />
+    <tg-page-builder-content>
+        <tg-configure-widget-instructions />
+    </tg-page-builder-content>
 }
 else
 {
