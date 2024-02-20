@@ -201,7 +201,8 @@
   inset: 0;
   height: 100%;
   width: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 @media (min-width: 992px) {
@@ -976,6 +977,7 @@
 }
 
 .c-products-grid_scrollable {
+  width: -moz-max-content;
   width: max-content;
 }
 
@@ -1420,7 +1422,8 @@
 
 .c-section.hero.v04 .c-hero_canvas_img {
   border-radius: 50%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   inset: 0;
   width: 100%;
   height: 100%;
@@ -1559,4 +1562,4 @@
 
 .c-section .container.bg-card .bg-1 {
   background: #fff;
-}
+}/*# sourceMappingURL=styles.css.map */
