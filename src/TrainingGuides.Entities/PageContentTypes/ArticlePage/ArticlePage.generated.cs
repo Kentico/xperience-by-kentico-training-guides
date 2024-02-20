@@ -36,5 +36,11 @@ namespace TrainingGuides
 		/// ArticlePageContent.
 		/// </summary>
 		public IEnumerable<Article> ArticlePageContent { get; set; }
+
+
+		/// <summary>
+		/// ArticlePagePublishDate.
+		/// </summary>
+		public DateTime ArticlePagePublishDate { get; set; }
 	}
 }

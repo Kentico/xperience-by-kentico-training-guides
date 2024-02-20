@@ -1,0 +1,49 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: 'GT Walsheim Pro';
+    src: url("../font/GTWalsheimPro-Regular.eot");
+    src: local("GT Walsheim Pro Regular"), local("GTWalsheimPro-Regular"), url("https://download.kentico.com/Assets/GT-Walsheim-Regular.woff") format("woff"), url("../font/GTWalsheimPro-Regular.eot?#iefix") format("embedded-opentype"), url("../font/GTWalsheimPro-Regular.woff2") format("woff2"), url("../font/GTWalsheimPro-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GT Walsheim Pro';
+    src: url("../font/GTWalsheimPro-Bold.eot");
+    src: local("GT Walsheim Pro Bold"), local("GTWalsheimPro-Bold"), url("https://download.kentico.com/Assets/GT-Walsheim-Bold.woff") format("woff"), url("../font/GTWalsheimPro-Bold.eot?#iefix") format("embedded-opentype"), url("../font/GTWalsheimPro-Bold.woff2") format("woff2"), url("../font/GTWalsheimPro-Bold.ttf") format("truetype");
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GT Walsheim Pro';
+    src: url("../font/GTWalsheimPro-Medium.eot");
+    src: local("GT Walsheim Pro Medium"), local("GTWalsheimPro-Medium"), url("https://download.kentico.com/Assets/GT-Walsheim-Medium.woff") format("woff"), url("../font/GTWalsheimPro-Medium.eot?#iefix") format("embedded-opentype"), url("../font/GTWalsheimPro-Medium.woff2") format("woff2"), url("../font/GTWalsheimPro-Medium.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Vollkorn';
+    src: url("../font/Vollkorn-Regular.eot");
+    src: local("Vollkorn Regular"), local("Vollkorn-Regular"), url("../font/Vollkorn-Regular.eot?#iefix") format("embedded-opentype"), url("../font/Vollkorn-Regular.woff") format("woff"), url("../font/Vollkorn-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Vollkorn';
+    src: url("../font/Vollkorn-Bold.eot");
+    src: local("Vollkorn Bold"), local("Vollkorn-Bold"), url("../font/Vollkorn-Bold.eot?#iefix") format("embedded-opentype"), url("../font/Vollkorn-Bold.woff") format("woff"), url("../font/Vollkorn-Bold.ttf") format("truetype");
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Vollkorn';
+    src: url("../font/Vollkorn-Medium.eot");
+    src: local("Vollkorn Medium"), local("Vollkorn-Medium"), url("../font/Vollkorn-Medium.eot?#iefix") format("embedded-opentype"), url("../font/Vollkorn-Medium.woff") format("woff"), url("../font/Vollkorn-Medium.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+}

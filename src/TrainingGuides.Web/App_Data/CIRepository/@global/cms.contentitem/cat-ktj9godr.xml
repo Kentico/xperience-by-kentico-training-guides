@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentitem>
+  <ContentItemContentTypeID>
+    <CodeName>TrainingGuides.Asset</CodeName>
+    <GUID>9ecde825-735e-4967-a995-cc97b55adb0f</GUID>
+    <ObjectType>cms.contenttype</ObjectType>
+  </ContentItemContentTypeID>
+  <ContentItemGUID>f4dafef5-f7d3-486b-87f6-2e1360d5c28b</ContentItemGUID>
+  <ContentItemIsReusable>True</ContentItemIsReusable>
+  <ContentItemIsSecured>False</ContentItemIsSecured>
+  <ContentItemName>Cat-ktj9godr</ContentItemName>
+</cms.contentitem>
