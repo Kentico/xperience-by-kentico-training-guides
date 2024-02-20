@@ -12,7 +12,7 @@
 @if (Model != null)
 {
     <div class="text-center">
-        <a href="@Model.Url" class="btn btn-secondary text-uppercase my-4" target="@(Model.OpenInNewTab ? "_blank" : "")"
+        <a href="@Model.Url" class="btn tg-btn-secondary text-uppercase my-4" target="@(Model.OpenInNewTab ? "_blank" : "")"
             data-id="@Model.Identifier" download="@Model.IsDownload">
             @Model.Text
         </a>

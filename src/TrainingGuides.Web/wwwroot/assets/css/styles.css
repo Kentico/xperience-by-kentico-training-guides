@@ -102,6 +102,40 @@
   margin-top: 0;
 }
 
+.tg-btn-primary {
+  margin: 1.5rem 0 !important;
+  background-color: #8107c1 !important;
+  color: white !important;
+  border: none !important;
+  border-top-left-radius: 1.75rem !important;
+  border-bottom-left-radius: 1.75rem !important;
+  border-top-right-radius: 1.75rem !important;
+  border-bottom-right-radius: 1.75rem !important;
+  transition: 0.15s opacity, 0.15s transform, 0.15s background-color !important;
+  white-space: nowrap !important;
+  font-size: 0.875rem !important;
+  line-height: 1rem !important;
+  padding: 0.9375rem 2rem !important;
+  text-transform: uppercase !important;
+}
+
+.tg-btn-secondary {
+  margin: 1.5rem 0 !important;
+  background-color: #f0561a !important;
+  color: white !important;
+  border: none !important;
+  border-top-left-radius: 1.75rem !important;
+  border-bottom-left-radius: 1.75rem !important;
+  border-top-right-radius: 1.75rem !important;
+  border-bottom-right-radius: 1.75rem !important;
+  transition: 0.15s opacity, 0.15s transform, 0.15s background-color !important;
+  white-space: nowrap !important;
+  font-size: 0.875rem !important;
+  line-height: 1rem !important;
+  padding: 0.9375rem 2rem !important;
+  text-transform: uppercase !important;
+}
+
 .c-card {
   display: flex;
   flex-direction: column;
@@ -701,21 +735,20 @@
 }
 
 .form form input[type=submit] {
-  margin: 1.5rem 0;
-  background-color: #f0561a;
-  color: #fff;
-  border: none;
-  border-top-left-radius: 1.75rem;
-  border-bottom-left-radius: 1.75rem;
-  border-top-right-radius: 1.75rem;
-  border-bottom-right-radius: 1.75rem;
-  transition: 0.15s opacity, 0.15s transform, 0.15s background-color;
-  letter-spacing: 0.1em;
-  white-space: nowrap;
-  font-size: 0.875rem;
-  font-weight: 700;
-  line-height: 1rem;
-  padding: 0.9375rem 2rem;
+  margin: 1.5rem 0 !important;
+  background-color: #f0561a !important;
+  color: white !important;
+  border: none !important;
+  border-top-left-radius: 1.75rem !important;
+  border-bottom-left-radius: 1.75rem !important;
+  border-top-right-radius: 1.75rem !important;
+  border-bottom-right-radius: 1.75rem !important;
+  transition: 0.15s opacity, 0.15s transform, 0.15s background-color !important;
+  white-space: nowrap !important;
+  font-size: 0.875rem !important;
+  line-height: 1rem !important;
+  padding: 0.9375rem 2rem !important;
+  text-transform: uppercase !important;
 }
 
 .form form input[type=submit]:hover {

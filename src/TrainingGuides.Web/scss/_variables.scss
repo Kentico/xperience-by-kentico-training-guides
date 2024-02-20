@@ -1,41 +1,43 @@
-$body-bg: white;
-$body-color: #1e1a1b;
-
 $color-primary: #8107c1;
 $color-secondary: #f0561a;
 $color-secondary-hover: $color-secondary;
+$color-light: white;
+$color-dark: #1e1a1b;
+
+$body-bg: $color-light;
+$body-color: $color-dark;
 
 $border-radius: 2rem;
-$why-heading-color: $body-color;
+$why-heading-color: $color-dark;
 
-$card-color: $body-color;
+$card-color: $color-dark;
 $card-bg: #efe6f9;
 $card-bg-2: $color-secondary;
 $card-bg-hover: #ebd8ff;
 
 $products-grid-bg: $card-bg;
-$products-grid-tile-bg: $body-bg;
+$products-grid-tile-bg: $color-light;
 $products-grid-highlight-shadow: $color-secondary;
-$products-grid-col-color: $body-color;
+$products-grid-col-color: $color-dark;
 $products-grid-del-price: $color-primary;
 $products-grid-check-color: $color-secondary;
 $products-grid-hover-overlay: rgba(0, 0, 0, 0.05);
 
 $scrollbar-width: 6px;
-$scrollbar-track-color: $body-bg;
+$scrollbar-track-color: $color-light;
 $scrollbar-thumb-color: $color-primary;
 
 $pricelist-table-lines: #f0f0f2;
 $pricelist-price-color: $color-primary;
-$pricelist-section-bg: $body-bg;
+$pricelist-section-bg: $color-light;
 
-$faq-section-bg: $body-bg;
+$faq-section-bg: $color-light;
 
-$hero-color: $body-color;
+$hero-color: $color-dark;
 $hero-overlay-color: $color-secondary;
 $hero-overlay-opacity: 0.5;
-$hero-color-light: $body-color;
+$hero-color-light: $color-dark;
 
 $circles-hero-small-bg: $color-secondary;
 $circles-hero-medium-bg: $color-primary;
-$circles-hero-big-outline: $body-color;
+$circles-hero-big-outline: $color-dark;
