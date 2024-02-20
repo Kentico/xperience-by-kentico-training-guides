@@ -1,0 +1,15 @@
+//Configuration settings for the Live Sass Compiler extension for Visual Studio Code, by Glenn Marks (https://marketplace.visualstudio.com/items?itemName=glenn2223.live-sass)
+"liveSassCompile.settings.watchOnLaunch": true,
+"liveSassCompile.settings.generateMap": true,
+"liveSassCompile.settings.formats": [
+	{
+		"format" :"expanded",
+		"extensionName": ".css",
+		"savePath": "/src/TrainingGuides.Web/wwwroot/assets/css"
+	},
+	{
+		"format" :"compressed",
+		"extensionName": ".min.css",
+		"savePath": "/src/TrainingGuides.Web/wwwroot/assets/css"
+	}
+],
