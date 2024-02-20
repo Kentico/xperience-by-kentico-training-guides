@@ -1,0 +1,27 @@
+@use 'mixins';
+@use 'variables';
+
+.btn .c-icon {
+    font-size: 1.25rem;
+    margin-top: -3px;
+}
+
+.btn-lg .c-icon,
+.btn-group-lg>.btn .c-icon {
+    font-size: 1.375rem;
+    margin-right: .25rem;
+    margin-top: 0;
+}
+
+.btn-social .c-icon {
+    font-size: 1.5rem;
+    margin-top: 0;
+}
+
+.tg-btn-primary {
+    @include mixins.button-mixin(variables.$color-primary);
+}
+
+.tg-btn-secondary {
+    @include mixins.button-mixin;
+}

@@ -18,7 +18,7 @@
  }, new { action = $"{Model.BaseUrl}/cookies/submit" }))
 {
     <div class="container">
-        <div class="cookie-preferences js-cookie-preferences">
+        <div>
             <input id="ConsentMapping" name="ConsentMapping" type="hidden"  value="@Model.ConsentMapping" />
             <div class="cookie-preferences__levels">
                 <div class="cookie-preferences__selector" id="js-cookie-preferences__selector">
@@ -45,7 +45,7 @@
                     </li>
                 </ul>
             </div>
-            <button class="btn btn-secondary text-uppercase mt-4 cookie-preferences__button" type="submit" name="button">
+            <button class="btn tg-btn-secondary text-uppercase mt-4 cookie-preferences__button" type="submit" name="button">
                 @Model.ButtonText
             </button>
             <div id="@messageId" class="cookie-preferences__message"></div>

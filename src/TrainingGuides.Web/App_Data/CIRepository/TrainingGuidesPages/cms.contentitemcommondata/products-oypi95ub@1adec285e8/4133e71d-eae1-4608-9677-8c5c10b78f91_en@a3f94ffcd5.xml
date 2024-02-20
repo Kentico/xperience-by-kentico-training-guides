@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentitemcommondata>
+  <ContentItemCommonDataContentItemID>
+    <CodeName>Products-oypi95ub</CodeName>
+    <GUID>196b3926-f820-4bd4-bed0-42e4db92ce40</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </ContentItemCommonDataContentItemID>
+  <ContentItemCommonDataContentLanguageID>
+    <CodeName>en</CodeName>
+    <GUID>e81b5172-f240-4041-88b1-653089984e29</GUID>
+    <ObjectType>cms.contentlanguage</ObjectType>
+  </ContentItemCommonDataContentLanguageID>
+  <ContentItemCommonDataFirstPublishedWhen>2024-02-06 21:49:32Z</ContentItemCommonDataFirstPublishedWhen>
+  <ContentItemCommonDataGUID>4133e71d-eae1-4608-9677-8c5c10b78f91</ContentItemCommonDataGUID>
+  <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
+  <ContentItemCommonDataLastPublishedWhen>2024-02-07 16:08:12Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataPageBuilderWidgets>
+    <![CDATA[{"editableAreas":[{"identifier":"areaMain","sections":[{"identifier":"371f93bb-2b20-4997-a6a0-117a840e6c57","type":"TrainingGuides.SingleColumnSection","properties":{"sectionAnchor":null},"zones":[{"identifier":"a19726f1-9b40-4a71-8c38-fa773758552d","widgets":[{"identifier":"bf07a9d6-65b4-435b-9ef2-5571072f3a4a","type":"TrainingGuides.ProductComparatorWidget","variants":[{"identifier":"d76d199d-da62-40a6-97e4-ab8e5da12bf6","properties":{"products":null,"comparatorHeading":"Compare these two products","headingType":"h2","headingMargin":"default","callToAction":null,"showShortDescription":false,"showPrice":false},"fieldIdentifiers":{"products":"19a3fc80-81f6-457c-9f78-47c7d119387f","comparatorHeading":"707ddadb-7fa7-4b6a-b998-56a91da00fdb","headingType":"fc742e93-1bd9-412a-878d-22c1539e4762","headingMargin":"2aa17d13-6981-4f75-ab53-7525fb86e85e","callToAction":"aa241b97-fbd3-4a21-9c04-5bcc9a0fa049","showShortDescription":"66a892d5-6d01-4fed-be32-84a4a385bef9","showPrice":"a779088c-d67d-43fd-aaac-4267a4dcd099"}}]}]}],"fieldIdentifiers":{"sectionAnchor":"b6e10294-0ae9-4919-a940-d8df436c810b"}}]}]}]]>
+  </ContentItemCommonDataPageBuilderWidgets>
+  <ContentItemCommonDataPageTemplateConfiguration>
+    <![CDATA[{"identifier":"TrainingGuides.EmptyPagePageTemplate","properties":null,"fieldIdentifiers":{}}]]>
+  </ContentItemCommonDataPageTemplateConfiguration>
+  <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
+</cms.contentitemcommondata>

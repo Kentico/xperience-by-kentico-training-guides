@@ -1,0 +1,112 @@
+@use 'variables';
+
+.c-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: variables.$card-color;
+}
+
+.c-card.sm {
+    padding: 1rem 1.25rem;
+}
+
+.c-card.md {
+    padding: 1rem;
+}
+
+.c-card.lg {
+    padding: 1.5rem 1rem;
+}
+
+.c-card.bg-1 {
+    background: variables.$card-bg;
+}
+
+.c-card.bg-1 .c-card.bg-1 {
+    background: #fff;
+}
+
+.c-card.bg-2 {
+    background: variables.$card-bg-2;
+}
+
+.c-card.bg-2 .c-card.bg-2 {
+    background: #fff;
+}
+
+@media (min-width: 768px) {
+    .c-card.md {
+        padding: 1.5rem;
+    }
+
+    .c-card.lg {
+        padding: 2.5rem;
+    }
+}
+
+.c-card.home {
+    position: relative;
+    padding: 1.5rem 1rem;
+}
+
+.c-card.home p {
+    margin-top: 1.2rem;
+    height: auto;
+    overflow: hidden;
+}
+
+.c-card.home .c-card_img {
+    flex-grow: 1;
+    flex-shrink: 1;
+    position: relative;
+}
+
+.c-card.home .c-card_img img {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+@media (min-width: 992px) {
+    .c-card.home {
+        padding: 1.75rem 1.875rem;
+        height: 25rem;
+    }
+}
+
+.c-card-wrapper {
+    padding: 2rem 1rem;
+    background-color: variables.$card-bg;
+}
+
+.c-card-wrapper .c-card-home_content-01 {
+    background-color: #F3F4F5;
+}
+
+@media (min-width: 768px) {
+    .c-card-wrapper {
+        padding: 2rem 1.5rem;
+    }
+}
+
+@media (min-width: 992px) {
+    .c-card-wrapper {
+        padding: 2rem 3rem;
+    }
+}
+
+.c-card-anchor {
+    text-decoration: none;
+}
+
+.c-card-anchor .c-card.bg-1 {
+    background-color: variables.$card-bg;
+    transition: transform 0.3s, box-shadow 0.5s, background-color 0.3s ease-in-out;
+}
+
+.c-card-anchor:hover .c-card.bg-1 {
+    background-color: variables.$card-bg-hover;
+}

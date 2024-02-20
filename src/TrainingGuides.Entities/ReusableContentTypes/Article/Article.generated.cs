@@ -18,7 +18,7 @@ namespace TrainingGuides
 	/// <summary>
 	/// Represents a content item of type <see cref="Article"/>.
 	/// </summary>
-	public partial class Article
+	public partial class Article : IContentItemFieldsSource
 	{
 		/// <summary>
 		/// Code name of the content type.
@@ -39,8 +39,26 @@ namespace TrainingGuides
 
 
 		/// <summary>
+		/// ArticleTeaser.
+		/// </summary>
+		public IEnumerable<Asset> ArticleTeaser { get; set; }
+
+
+		/// <summary>
+		/// ArticleSummary.
+		/// </summary>
+		public string ArticleSummary { get; set; }
+
+
+		/// <summary>
 		/// ArticleText.
 		/// </summary>
 		public string ArticleText { get; set; }
+
+
+		/// <summary>
+		/// ArticleRelatedArticles.
+		/// </summary>
+		public IEnumerable<Article> ArticleRelatedArticles { get; set; }
 	}
 }

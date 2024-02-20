@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.emptypage>
+  <ContentItemDataCommonDataID>
+    <GUID>2bc61792-947f-4750-92a3-11a3f0b2e1a1</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>WidgetSamples-qyagaxb2</CodeName>
+      <GUID>d3e7f041-c1d9-4225-bb91-72813912b8af</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>a1937805-7dd2-4aa9-8b65-46e44f9ee3e3</ContentItemDataGUID>
+</contentitemdata.trainingguides.emptypage>

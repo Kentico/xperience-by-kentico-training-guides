@@ -1,0 +1,18 @@
+@use 'variables';
+
+@mixin button-mixin ($background-color: variables.$color-secondary) {
+    margin: 1.5rem 0 !important;
+    background-color: $background-color !important;
+    color: variables.$color-light !important;
+    border: none !important;
+    border-top-left-radius: 1.75rem !important;
+    border-bottom-left-radius: 1.75rem !important;
+    border-top-right-radius: 1.75rem !important;
+    border-bottom-right-radius: 1.75rem !important;
+    transition: .15s opacity, .15s transform, .15s background-color !important;
+    white-space: nowrap !important;
+    font-size: 0.875rem !important;
+    line-height: 1rem !important;
+    padding: 0.9375rem 2rem !important;
+    text-transform: uppercase !important;
+}

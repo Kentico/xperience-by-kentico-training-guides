@@ -17,7 +17,39 @@
           <controlname>Kentico.Administration.TextInput</controlname>
         </settings>
       </field>
-      <field column="ArticleText" columnprecision="0" columntype="longtext" enabled="true" guid="d98a2eb5-1419-4504-a0cd-6591a71c5605" visible="true">
+      <field allowempty="true" column="ArticleTeaser" columnprecision="0" columntype="contentitemreference" enabled="true" guid="51ebb9a1-0d3b-4b01-870d-b3fd70133d96" visible="true">
+        <properties>
+          <explanationtext>
+            <![CDATA[Upload a vivid image to spark the user’s imagination. Use jpeg, jpg, png, or WebP format. Serve the image in resolution 3840 x 2160px for clarity across devices. Keep the image size under 1.7 MB to optimize speed.]]>
+          </explanationtext>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Add teaser image</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <AllowedContentItemTypeIdentifiers>
+            <![CDATA[["9ecde825-735e-4967-a995-cc97b55adb0f"]]]>
+          </AllowedContentItemTypeIdentifiers>
+          <controlname>Kentico.Administration.ContentItemSelector</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="ArticleSummary" columnprecision="0" columnsize="250" columntype="text" enabled="true" guid="a3edc16d-4099-4637-b391-4ef55fd8076b" visible="true">
+        <properties>
+          <explanationtext>
+            <![CDATA[Keep the summary under 250 characters. Different channels will truncate content if necessary.]]>
+          </explanationtext>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Summary</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.TextArea</controlname>
+          <CopyButtonVisible>False</CopyButtonVisible>
+          <MaxRowsNumber>5</MaxRowsNumber>
+          <MinRowsNumber>3</MinRowsNumber>
+        </settings>
+      </field>
+      <field allowempty="true" column="ArticleText" columnprecision="0" columntype="longtext" enabled="true" guid="d98a2eb5-1419-4504-a0cd-6591a71c5605" visible="true">
         <properties>
           <explanationtextashtml>False</explanationtextashtml>
           <fieldcaption>Text</fieldcaption>
@@ -25,6 +57,22 @@
         </properties>
         <settings>
           <controlname>Kentico.Administration.RichTextEditor</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="ArticleRelatedArticles" columnprecision="0" columntype="contentitemreference" enabled="true" guid="b43a4e7e-87e4-4ddb-9337-f32fc7e0d528" visible="true">
+        <properties>
+          <explanationtext>
+            <![CDATA[Add default related article to your item. Editors can override the default and select different related items in their channel.]]>
+          </explanationtext>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Select related articles</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <AllowedContentItemTypeIdentifiers>
+            <![CDATA[["17a2abf5-c412-4cee-8b6b-e5209bcd3e8c"]]]>
+          </AllowedContentItemTypeIdentifiers>
+          <controlname>Kentico.Administration.ContentItemSelector</controlname>
         </settings>
       </field>
     </form>

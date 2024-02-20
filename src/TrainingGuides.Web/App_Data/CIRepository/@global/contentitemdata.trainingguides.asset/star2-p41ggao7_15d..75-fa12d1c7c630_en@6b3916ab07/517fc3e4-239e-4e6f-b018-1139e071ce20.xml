@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.asset>
+  <AssetAltText>Star icon 2</AssetAltText>
+  <AssetDescription>Star icon 2</AssetDescription>
+  <AssetFile>
+    <![CDATA[{"Identifier":"6101f5c4-517b-4d59-9e62-024b3e05cf5b","Name":"OtherStar.svg","Extension":".svg","Size":2386,"LastModified":"2024-02-15T20:05:08.5642368Z"}]]>
+  </AssetFile>
+  <AssetUseInternalOnly>False</AssetUseInternalOnly>
+  <ContentItemDataCommonDataID>
+    <GUID>15db1b45-7bc7-4072-a975-fa12d1c7c630</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>Star2-p41ggao7</CodeName>
+      <GUID>d7b682e2-82fc-44ce-b434-590a9b2b0a7a</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>517fc3e4-239e-4e6f-b018-1139e071ce20</ContentItemDataGUID>
+</contentitemdata.trainingguides.asset>

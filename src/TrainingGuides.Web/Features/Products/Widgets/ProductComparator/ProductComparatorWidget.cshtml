@@ -1,0 +1,138 @@
+﻿@using System.Globalization
+@using TrainingGuides.Web.Features.Products
+@using TrainingGuides.Web.Features.Products.Widgets.ProductComparator
+
+@model ProductComparatorWidgetViewModel
+
+@if (Model is null || Model.IsMisconfigured)
+{
+    <tg-page-builder-content>
+        <section class="c-section default">
+            <div class="container">
+                <tg-configure-widget-instructions />
+            </div>
+        </section>
+    </tg-page-builder-content>
+}
+else {
+    <div class="container bg-card">
+        <section class="c-section @Model.HeadingMargin">
+        <div class="container">
+            <tg-heading class="text-center c-why_heading" headingType=@Model.HeadingType headingTypeDefault="h2">
+                @Model.ComparatorHeading
+            </tg-heading>
+        </div>
+        </section>
+    
+        <div class="c-card lg py-0">
+            <div class="c-products-grid">
+                <div class="c-products-grid_inner">
+
+                    <div class="c-products-grid_scrollable">
+
+                        @if (!Model.ShowShortDescription)
+                        {
+                        <div class="c-products-grid_row no-hover">
+                            <div class="c-products-grid_col th"></div>
+                            @foreach (var item in Model.Products)
+                        {
+                                <div class="c-products-grid_col">
+                                    <h3 class="h4 c-products-grid_heading">@item.Name</h3>
+                                    <div class="c-products-grid_bg"></div>
+                                </div>
+                        }
+                            <div class="c-products-grid_col gap"></div>
+                        </div>
+                        }
+                        @if (Model.ShowShortDescription)
+                        {
+                        <div class="c-products-grid_row shortDescription no-hover">
+                            <div class="c-products-grid_col th"></div>
+                            @foreach (var item in Model.Products)
+                            {
+                                <div class="c-products-grid_col">
+                                    <h3 class="h4 c-products-grid_heading">@item.Name</h3>
+                                    <div class="c-products-grid_bg"></div>
+                                </div>
+                            }
+                            <div class="c-products-grid_col gap"></div>
+                        </div>
+                        <div class="c-products-grid_row no-hover">
+                            <div class="c-products-grid_col th"></div>
+                            @foreach (var item in Model.Products)
+                            {
+                                <div class="c-products-grid_col">
+                                    @item.ShortDescription
+                                    <div class="c-products-grid_bg"></div>
+                                </div>
+                            }
+                            <div class="c-products-grid_col gap"></div>
+                        </div>
+                        }
+                        @foreach (var feature in Model.GroupedFeatures)
+                        {
+                            <div class="c-products-grid_row">
+                                <div class="c-products-grid_col th">
+                                    @feature.Value
+                                </div>
+                                @foreach (var item in Model.Products)
+                            {
+                                    <div class="c-products-grid_col">
+                                        @{
+                                        var productFeature = @item.Features.FirstOrDefault(f => f.Key == feature.Key);
+                                        }
+                                        @if (productFeature != null)
+                                    {
+                                        if (productFeature.ValueType == ProductFeatureValueType.Text)
+                                        {
+                                            @productFeature.Value
+                                        }
+                                        if (productFeature.ValueType == ProductFeatureValueType.Number)
+                                        {
+                                            <span>@string.Format(CultureInfo.CurrentUICulture, "{0:0.00}", @productFeature.Price)</span>
+                                        }
+                                        if (productFeature.ValueType == ProductFeatureValueType.Boolean)
+                                        {
+                                            if (productFeature.FeatureIncluded)
+                                            {
+                                                    <svg class="c-icon">
+                                                    <use xlink:href="@Model.CheckboxIconUrl"></use>
+                                                    </svg>
+                                            }
+                                            else
+                                            {
+                                                    <span>-</span>
+                                            }
+                                        }
+                                    }
+                                    else
+                                    {
+                                            <span>-</span>
+                                    }
+                                    </div>
+                            }
+                                <div class="c-products-grid_col gap"></div>
+                            </div>
+                    }
+
+                        <div class="c-products-grid_row no-hover">
+                            <div class="c-products-grid_col th"></div>
+                            @foreach (var item in Model.Products)
+                        {
+                                <div class="c-products-grid_col">
+                                    <a href="@Url.Content(item.Url)" class="btn tg-btn-primary text-uppercase" title="@item.Link?.LinkTitleText" target="@(item.Link !=null && item.Link.OpenInNewTab ? "_blank": "")">@item.CallToAction</a>
+                                </div>
+                        }
+
+                            <div class="c-products-grid_col gap"></div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    
+}

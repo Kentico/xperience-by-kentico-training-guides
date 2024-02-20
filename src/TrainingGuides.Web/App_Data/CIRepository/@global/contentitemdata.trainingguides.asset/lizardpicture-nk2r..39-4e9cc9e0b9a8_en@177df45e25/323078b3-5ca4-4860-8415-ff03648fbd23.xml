@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.asset>
+  <AssetAltText>picture of a lizard perched on a post</AssetAltText>
+  <AssetDescription>A lizard perched on a post</AssetDescription>
+  <AssetFile>
+    <![CDATA[{"Identifier":"14ccd8f9-29c9-4221-8bc3-75c7ee3be929","Name":"34782472_10215894872994290_4382500795371749376_n.jpg","Extension":".jpg","Size":139200,"LastModified":"2024-02-05T20:30:39.7257147Z"}]]>
+  </AssetFile>
+  <AssetUseInternalOnly>False</AssetUseInternalOnly>
+  <ContentItemDataCommonDataID>
+    <GUID>ffb68409-11fe-4b31-9839-4e9cc9e0b9a8</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>LizardPicture-nk2r8q58</CodeName>
+      <GUID>fc6f2d35-7238-4fc5-9a62-b1059521d07c</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>323078b3-5ca4-4860-8415-ff03648fbd23</ContentItemDataGUID>
+</contentitemdata.trainingguides.asset>

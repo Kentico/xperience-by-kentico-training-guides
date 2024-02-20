@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.productfeature>
+  <ContentItemDataCommonDataID>
+    <GUID>28154e2a-22d0-40ea-8913-319d0bd1650d</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>IpsumZ-YearlyMaintenanceCost-tqwlqqwa</CodeName>
+      <GUID>73ac8418-6e3c-499f-96ff-87cc618ac27f</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>e3e8240d-22bd-4188-a245-1f6f0b072631</ContentItemDataGUID>
+  <ProductFeatureIncluded>False</ProductFeatureIncluded>
+  <ProductFeatureKey>yearly-maintenance-cost</ProductFeatureKey>
+  <ProductFeatureLabel>Yearly maintenance cost</ProductFeatureLabel>
+  <ProductFeaturePrice>60</ProductFeaturePrice>
+  <ProductFeatureShowInComparator>1</ProductFeatureShowInComparator>
+  <ProductFeatureValueType>1</ProductFeatureValueType>
+</contentitemdata.trainingguides.productfeature>

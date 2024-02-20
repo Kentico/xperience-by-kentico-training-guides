@@ -40,6 +40,7 @@ builder.Services.AddKentico(async features =>
             ArticlePage.CONTENT_TYPE_NAME,
             DownloadsPage.CONTENT_TYPE_NAME,
             EmptyPage.CONTENT_TYPE_NAME,
+            ProductPage.CONTENT_TYPE_NAME
         }
     });
     features.UseCrossSiteTracking(

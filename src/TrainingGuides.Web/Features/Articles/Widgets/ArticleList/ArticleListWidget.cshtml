@@ -1,0 +1,57 @@
+@model TrainingGuides.Web.Features.Articles.Widgets.ArticleList.ArticleListWidgetViewModel?
+
+@if (Model == null || Model.IsMisconfigured)
+{
+    <tg-page-builder-content>
+        <div class="row justify-content-center">
+            <div class="col-xl-11">
+                <div class="row" data-gridify="3-columns">
+                    @if(Model?.Articles?.Count == 0)
+                    {
+                        <tg-configure-widget-instructions message="No Articles found. Double-check your page selection."/>
+                    }
+                    else
+                    {
+                        <tg-configure-widget-instructions/>
+                    }
+                </div>
+            </div>
+        </div>
+    </tg-page-builder-content>
+
+    return;
+}
+else
+{
+    <div class="row justify-content-center">
+        <div class="col-xl-11">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 c-blog-grid mt-3 mt-md-4">
+                @foreach (var item in Model.Articles!)
+                {
+                    <div class="col mt-4">
+                        <a class="c-card-anchor" href="@item.Url">
+                            <div class="c-post-thumbnail default">
+                                <div class="c-card bg-1 u-border-01">
+                                    @if (item.TeaserImage != null)
+                                    {
+                                        <div class="c-card_img">
+                                            <img src="@Url.Content(item.TeaserImage.FilePath)" alt="@item.TeaserImage.AltText" class="img-fluid" />
+                                        </div>
+                                    }
+                                    <div class="c-card_body" data-heading-lines="3" data-total-lines="6">
+                                        <tg-date date="@item.CreatedOn"/>
+                                        <h2 class="h4 mb-0 j-truncate_heading">@item.Title</h2>
+                                        <p class="mb-0 j-truncate_paragraph">@item.Summary</p>
+                                    </div>
+                                    <div class="c-card_footer">
+                                        <span class="c-link primary-upper text-uppercase">@Model.CtaText</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+}

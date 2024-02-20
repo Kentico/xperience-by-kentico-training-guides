@@ -1,0 +1,43 @@
+@use 'variables';
+@use 'mixins';
+
+.form form {
+    display: grid;
+}
+
+.form form input[type=submit] {
+    @include mixins.button-mixin;
+}
+
+.form form input[type=submit]:hover {
+    background-color: variables.$color-secondary-hover;
+    border-color: variables.$color-secondary-hover;
+    color: #fff;
+    border: none;
+}
+
+.form form .form-field {
+    margin: 1rem 0;
+    position: relative;
+}
+
+.form form .form-field .control-label {
+    margin-bottom: 0.375rem;
+    font-size: 0.875rem;
+    font-weight: 700;
+}
+
+.form form .form-field .field-validation-error {
+    position: absolute;
+    bottom: -17px;
+    left: 20px;
+    color: #b72929;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.form .formwidget-submit-text {
+    text-align: center;
+    margin: 2rem 0;
+    font-weight: 700;
+}

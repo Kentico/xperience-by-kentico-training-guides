@@ -1,0 +1,163 @@
+﻿@using Microsoft.AspNetCore.Html;
+@model TrainingGuides.Web.Features.LandingPages.Widgets.HeroBanner.HeroBannerWidgetViewModel
+
+@if (Model is null || Model.IsMisconfigured)
+{
+    <tg-page-builder-content>
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-7">
+                        <tg-configure-widget-instructions />
+                    </div>
+                </div>
+            </div>
+        </section>
+    </tg-page-builder-content>
+
+    return;
+}
+
+@if (Model != null)
+{
+    if (Model.ShowImage)
+    {
+        if (Model.FullWidth)
+        {
+            <section class="c-section hero mb-5 v03 @Model.ThemeClass" @Model.StyleAttribute aria-label="@Model.Media?.AltText">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-7">
+                            <h1>@Model.Header</h1>
+
+                            <p class="mt-4">@Model.Subheader</p>
+
+                            @if (Model.ShowBenefits)
+                            {
+                                <div class="row mt-5">
+                                    @foreach (var benefit in Model.Benefits)
+                                    {
+                                        <div class="col-sm-6 col-md-4 mt-3">
+                                            <div class="c-img-placeholder type02 text-center">
+                                                @if (benefit.Asset != null)
+                                                {
+                                                    <img src="@Url.Content(benefit.Asset.FilePath)" alt="@benefit.Asset.AltText" class="h-100" />
+                                                }
+                                            </div>
+                                            <p class="mt-3">
+                                                @benefit.Description
+                                            </p>
+                                        </div>
+                                    }
+                                </div>
+                            }
+
+                            @if (Model.DisplayCTA)
+                            {
+                                <div class="mt-4">
+                                    <a type="submit" class="btn tg-btn-primary" target="@(Model.OpenInNewTab ? "_blank" : "")" href="@Url.Content(Model.CTALink)" title="@Model.LinkTitle">@Model.CTAText</a>
+                                </div>
+                            }
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+        }
+        else
+        {
+            <section class="c-section hero mb-5 v04 @Model.ThemeClass">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-5">
+                            <h1>@Model.Header</h1>
+
+                            <div class="mt-2 mt-md-4">@Model.Subheader</div>
+
+                            @if (Model.ShowBenefits)
+                            {
+                                <div class="mt-6">
+                                    @foreach (var benefit in Model.Benefits)
+                                    {
+                                        <div class="c-icon-box mt-3 me-7">
+                                            <div class="c-icon-box_icon">
+                                                @if (benefit.Asset != null)
+                                                {
+                                                    <img src="@Url.Content(benefit.Asset.FilePath)" alt="@benefit.Asset.AltText" class="c-icon" />
+                                                }
+                                            </div>
+                                            <div class="c-icon-box_body">
+                                                @benefit.Description
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                            }
+
+                            @if (Model.DisplayCTA)
+                            {
+                                <div class="mt-4">
+                                    <a type="submit" class="btn tg-btn-primary text-uppercase" target="@(Model.OpenInNewTab ? "_blank" : "")" href="@Url.Content(Model.CTALink)" title="@Model.LinkTitle">@Model.CTAText</a>
+                                </div>
+                            }
+                            
+                        </div>
+                        <div class="col-5 offset-1 d-none d-lg-block">
+                            <div class="c-hero_canvas">
+                                @if (!string.IsNullOrEmpty(Model?.Media?.FilePath))
+                                {
+                                    <img src="@Url.Content(Model.Media.FilePath)" class="c-hero_canvas_img" alt="@Model.Media?.AltText">
+                                }
+                                <div class="c-hero_canvas_circle small"></div>
+                                <div class="c-hero_canvas_circle medium"></div>
+                                <div class="c-hero_canvas_circle big"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        }
+    }
+    else
+    {
+        <section class="c-section hero mb-5 v01 @Model.ThemeClass">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-12">
+                        <h1>@Model.Header</h1>
+
+                        <p class="mt-4">@Model.Subheader</p>
+
+                        @if (Model.ShowBenefits)
+                        {
+                            <div class="row mt-5">
+                                @foreach (var benefit in Model.Benefits)
+                                {
+                                    <div class="col-sm-6 col-md-4 mt-3">
+                                        <div class="c-img-placeholder type02 text-center w-100">
+                                            @if (benefit.Asset != null)
+                                            {
+                                                <img src="@Url.Content(benefit.Asset.FilePath)" alt="@benefit.Asset?.AltText" class="h-100" />
+                                            }
+                                        </div>
+                                        <p class="mt-3">
+                                            @benefit.Description
+                                        </p>
+                                    </div>
+                                }
+                            </div>
+                        }
+
+                        @if (Model.DisplayCTA)
+                        {
+                            <div class="mt-4">
+                                <a type="submit" class="btn tg-btn-primary text-uppercase" target="@(Model.OpenInNewTab ? "_blank" : "")" href="@Url.Content(Model.CTALink)" title="@Model.LinkTitle">@Model.CTAText</a>
+                            </div>
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    }
+}

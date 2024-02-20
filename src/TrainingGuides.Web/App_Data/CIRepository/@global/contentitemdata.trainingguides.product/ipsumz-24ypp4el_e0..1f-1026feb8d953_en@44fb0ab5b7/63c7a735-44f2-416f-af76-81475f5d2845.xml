@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.product>
+  <ContentItemDataCommonDataID>
+    <GUID>e08f1830-4a40-45d6-a31f-1026feb8d953</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>IpsumZ-24ypp4el</CodeName>
+      <GUID>85342550-f35f-4941-9ca9-21b0a0cf4918</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>63c7a735-44f2-416f-af76-81475f5d2845</ContentItemDataGUID>
+  <ProductDescription>
+    <![CDATA[<p>Phasellus sit amet erat finibus, luctus nisi eu, ullamcorper magna. Morbi scelerisque, tellus vel bibendum ultricies, ante est lobortis odio, laoreet hendrerit dui dolor id urna.&nbsp;</p>]]>
+  </ProductDescription>
+  <ProductFeatures>
+    <![CDATA[[{"Identifier":"f89c8f04-17ec-47a9-97df-c559b108691f"},{"Identifier":"0267614c-b1ed-42d9-ac01-99b429441854"},{"Identifier":"73ac8418-6e3c-499f-96ff-87cc618ac27f"}]]]>
+  </ProductFeatures>
+  <ProductMedia>
+    <![CDATA[[{"Identifier":"467634b2-e844-45b9-b712-ff72f44d903d"}]]]>
+  </ProductMedia>
+  <ProductName>Ipsum Z</ProductName>
+  <ProductPrice>210</ProductPrice>
+  <ProductShortDescription>
+    <![CDATA[<p>Phasellus sit amet erat finibus, luctus nisi eu, ullamcorper magna.</p>]]>
+  </ProductShortDescription>
+</contentitemdata.trainingguides.product>

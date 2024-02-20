@@ -18,7 +18,7 @@ namespace TrainingGuides
 	/// <summary>
 	/// Represents a content item of type <see cref="Downloads"/>.
 	/// </summary>
-	public partial class Downloads
+	public partial class Downloads : IContentItemFieldsSource
 	{
 		/// <summary>
 		/// Code name of the content type.

@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.article>
+  <ArticleSummary>Welcome to Training guides news!</ArticleSummary>
+  <ArticleTeaser>
+    <![CDATA[[{"Identifier":"f10c1c58-15ca-401d-8214-77b9f0e8a7eb"}]]]>
+  </ArticleTeaser>
+  <ArticleText>
+    <![CDATA[<p>Fringilla est ullamcorper eget nulla facilisi etiam. Molestie nunc non blandit massa enim nec. Condimentum mattis pellentesque id nibh tortor id. Nibh ipsum consequat nisl vel pretium. Vitae congue mauris rhoncus aenean vel elit scelerisque. Sagittis aliquam malesuada bibendum arcu vitae elementum curabitur vitae nunc. Aliquam faucibus purus in massa tempor nec feugiat nisl. Gravida arcu ac tortor dignissim convallis aenean. Mauris a diam maecenas sed enim ut sem. Eu augue ut lectus arcu bibendum. Varius duis at consectetur lorem donec. Amet risus nullam eget felis eget nunc lobortis. Eu volutpat odio facilisis mauris sit amet. Velit scelerisque in dictum non consectetur. At consectetur lorem donec massa sapien faucibus et. Ultrices neque ornare aenean euismod elementum nisi quis. Aliquet sagittis id consectetur purus ut faucibus pulvinar elementum integer.</p>]]>
+  </ArticleText>
+  <ArticleTitle>Training guides news</ArticleTitle>
+  <ContentItemDataCommonDataID>
+    <GUID>9256f7cf-fc95-45c9-b757-c85c9348aa03</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>News-7svum83c</CodeName>
+      <GUID>0159fcda-0fc5-48b4-82e7-b742f21bceaa</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>8abc3068-60f6-4407-9fd9-1f88d3a690ba</ContentItemDataGUID>
+</contentitemdata.trainingguides.article>

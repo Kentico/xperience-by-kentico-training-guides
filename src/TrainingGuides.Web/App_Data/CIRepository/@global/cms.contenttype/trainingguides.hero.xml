@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contenttype>
+  <ClassContentTypeType>Reusable</ClassContentTypeType>
+  <ClassDisplayName>Hero</ClassDisplayName>
+  <ClassFormDefinition>
+    <form>
+      <field column="ContentItemDataID" columntype="integer" enabled="true" guid="2994ab97-8e30-432e-b366-43d3ddc3ae42" isPK="true" />
+      <field column="ContentItemDataCommonDataID" columntype="integer" enabled="true" guid="1adaffec-9a17-46de-b6aa-0ca2fe60ee1c" refobjtype="cms.contentitemcommondata" reftype="Required" system="true" />
+      <field column="ContentItemDataGUID" columntype="guid" enabled="true" guid="8c6dec8e-a649-45a0-9059-43ca7219de9c" isunique="true" system="true" />
+      <field column="HeroHeader" columnprecision="0" columnsize="200" columntype="text" enabled="true" guid="39834a86-0417-46d4-bef9-3d7486f11bad" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Header</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.TextInput</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="HeroSubheader" columnprecision="0" columnsize="400" columntype="text" enabled="true" guid="35184d34-6e80-41ea-9f12-c9ef6591d167" visible="true">
+        <properties>
+          <explanationtext>
+            <![CDATA[Describe your product or promoted event. Don't forget to add a unique selling proposition.]]>
+          </explanationtext>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Subheader</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <ConfigurationName>Kentico.Administration.StructuredContent</ConfigurationName>
+          <controlname>Kentico.Administration.RichTextEditor</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="HeroMedia" columnprecision="0" columntype="contentitemreference" enabled="true" guid="58c39cf1-b364-425a-a8fa-b25357856137" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Media</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <AllowedContentItemTypeIdentifiers>
+            <![CDATA[["9ecde825-735e-4967-a995-cc97b55adb0f"]]]>
+          </AllowedContentItemTypeIdentifiers>
+          <controlname>Kentico.Administration.ContentItemSelector</controlname>
+        </settings>
+      </field>
+      <field column="HeroCallToAction" columnprecision="0" columnsize="200" columntype="text" enabled="true" guid="f5fd611d-7f1d-49c4-8c1f-35e91d50be5c" visible="true">
+        <properties>
+          <explanationtext>Input here overrides global Call to action/Link</explanationtext>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Call to action</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.TextInput</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="HeroBenefits" columnprecision="0" columntype="contentitemreference" enabled="true" guid="6c3e4ad5-a5b1-4198-85bf-702c854066e7" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Benefits</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <AllowedContentItemTypeIdentifiers>
+            <![CDATA[["6eb7df2d-2da5-4343-8e67-a5aa61017e18"]]]>
+          </AllowedContentItemTypeIdentifiers>
+          <controlname>Kentico.Administration.ContentItemSelector</controlname>
+        </settings>
+      </field>
+      <field column="HeroTarget" columnprecision="0" columntype="webpages" enabled="true" guid="998e1d18-3667-45be-88c8-c1d9e36f5609" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Target page</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.WebPageSelector</controlname>
+          <MaximumPages>1</MaximumPages>
+          <Sortable>False</Sortable>
+        </settings>
+      </field>
+    </form>
+  </ClassFormDefinition>
+  <ClassGUID>3a83180b-cbef-43fd-b467-5bbcb018f22c</ClassGUID>
+  <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
+  <ClassIconClass>xp-book-opened</ClassIconClass>
+  <ClassName>TrainingGuides.Hero</ClassName>
+  <ClassShortName>TrainingGuidesHero</ClassShortName>
+  <ClassTableName>TrainingGuides_Hero</ClassTableName>
+  <ClassType>Content</ClassType>
+  <ClassWebPageHasUrl>False</ClassWebPageHasUrl>
+</cms.contenttype>

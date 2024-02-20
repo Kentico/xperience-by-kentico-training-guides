@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.asset>
+  <AssetDescription>Osprey</AssetDescription>
+  <AssetFile>
+    <![CDATA[{"Identifier":"f32602ec-638e-4a63-9405-1c0a84f071eb","Name":"mathew-schwartz--fsFVSrj6jA-unsplash.jpg","Extension":".jpg","Size":480873,"LastModified":"2024-02-06T22:08:18.9605159Z"}]]>
+  </AssetFile>
+  <AssetUseInternalOnly>False</AssetUseInternalOnly>
+  <ContentItemDataCommonDataID>
+    <GUID>38d4113f-f3ad-4229-b30d-9163dd3a0573</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>Osprey-ls25lkdd</CodeName>
+      <GUID>2d6f7041-fa65-4507-a686-f40c2136450a</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>a01cffb6-90a8-4d9f-804b-e3e7dcbcf34e</ContentItemDataGUID>
+</contentitemdata.trainingguides.asset>

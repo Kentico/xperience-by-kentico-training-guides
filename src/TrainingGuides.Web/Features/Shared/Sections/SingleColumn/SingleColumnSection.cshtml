@@ -5,6 +5,6 @@
     var sectionAnchor = !string.IsNullOrWhiteSpace(Model.Properties.SectionAnchor) ? $"id={Model.Properties.SectionAnchor}" : "";
 }
 
-<section @sectionAnchor>
+<section class="c-section default" @sectionAnchor>
     <widget-zone />
 </section>

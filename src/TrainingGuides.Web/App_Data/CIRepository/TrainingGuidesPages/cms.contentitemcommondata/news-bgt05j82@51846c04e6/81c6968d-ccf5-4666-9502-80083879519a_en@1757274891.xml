@@ -12,6 +12,7 @@
   </ContentItemCommonDataContentLanguageID>
   <ContentItemCommonDataGUID>81c6968d-ccf5-4666-9502-80083879519a</ContentItemCommonDataGUID>
   <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
+  <ContentItemCommonDataLastPublishedWhen>2024-02-06 21:57:01Z</ContentItemCommonDataLastPublishedWhen>
   <ContentItemCommonDataPageTemplateConfiguration>
     <![CDATA[{"identifier":"TrainingGuides.ArticlePagePageTemplate","properties":null,"fieldIdentifiers":null}]]>
   </ContentItemCommonDataPageTemplateConfiguration>
@@ -19,14 +20,14 @@
   <ContentItemReferences>
     <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>e121ff3d-c221-4f60-9acb-0063ed2739f1</ContentItemReferenceGroupGUID>
-      <ContentItemReferenceGUID>01d9c3fa-6c37-44f0-8554-2062583f540a</ContentItemReferenceGUID>
+      <ContentItemReferenceGUID>dc263dd9-9d91-4b91-9b29-537be341431d</ContentItemReferenceGUID>
       <ContentItemReferenceSourceCommonDataID>
         <GUID>81c6968d-ccf5-4666-9502-80083879519a</GUID>
         <ObjectType>cms.contentitemcommondata</ObjectType>
       </ContentItemReferenceSourceCommonDataID>
       <ContentItemReferenceTargetItemID>
-        <CodeName>News-iqxdep5p</CodeName>
-        <GUID>65e38d4a-5957-46cd-9267-3d612f8f9dc8</GUID>
+        <CodeName>News-7svum83c</CodeName>
+        <GUID>0159fcda-0fc5-48b4-82e7-b742f21bceaa</GUID>
         <ObjectType>cms.contentitem</ObjectType>
       </ContentItemReferenceTargetItemID>
     </cms.contentitemreference>
