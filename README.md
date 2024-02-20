@@ -1,7 +1,7 @@
 # Xperience by Kentico Quickstart Guide starter repository
 This repository is the starting point for the [Xperience by Kentico technical quickstart guides](https://docs.xperience.io/tutorial/quickstart-guides/development). Use this branch to follow along with the training guides.
 
-The [finished branch](https://github.com/Kentico/xperience-by-kentico-quickguides/tree/finished) contains the cumulative results of the quickstart guides and can be used for reference. As it contains several independent examples, it is not built comprehensively, and we recommend against using it as a boilerplate.
+The [finished branch](https://github.com/Kentico/xperience-by-kentico-quickguides/tree/finished) contains the cumulative results of the quickstart guides, as well as some sample widgets and can be used for reference. As it contains several independent examples, it is not built comprehensively, and we recommend against using it as a boilerplate.
 
 ## Installation requirements
 - The database backup included in this repository requires SQL Server 2022 or newer. 
@@ -13,6 +13,6 @@ The [finished branch](https://github.com/Kentico/xperience-by-kentico-quickguide
 1. Open **`TrainingGuides.sln`** under the **src** folder and restore all NuGet packages.
 1. Restore **`Xperience.TrainingGuides.bak`** from the **Database** folder to your SQL server
 1. Update the connection string in the **`appsettings.json`** file under the **.\src\TrainingGuides.Web** folder to point to your newly restored database
-1. Run a [Continuous Integration Restore](https://docs.xperience.io/xp/developers-and-admins/ci-cd/continuous-integration#ContinuousIntegration-Restorerepositoryfilestothedatabase) to populate the database with the necessary data
+1. Run a [*Continuous integration restore*](https://docs.xperience.io/xp/developers-and-admins/ci-cd/continuous-integration#ContinuousIntegration-Restorerepositoryfilestothedatabase) to populate the database with the necessary data
 1. Clean and rebuild the solution
 1. Log in with the username **administrator** and the password **TrainingGuides123\***
