@@ -12,7 +12,11 @@ public class ProductComparatorWidgetProperties : IWidgetProperties
     [TextInputComponent(Label = "Comparator heading", Order = 2)]
     public string ComparatorHeading { get; set; } = null!;
 
-    [DropDownComponent(DataProviderType = typeof(HeadingTypeOptionsProvider), Label = "Heading type", Order = 3)]
+    [DropDownComponent(
+        Label = "Heading type",
+        DataProviderType = typeof(ProductComparatorHeadingTypeOptionsProvider),
+        Order = 3
+    )]
     public string HeadingType { get; set; } = null!;
 
     [DropDownComponent(Label = "Heading margin", Order = 4,
@@ -29,11 +33,15 @@ public class ProductComparatorWidgetProperties : IWidgetProperties
     public bool ShowPrice { get; set; }
 }
 
-public class HeadingTypeOptionsProvider : Shared.OptionsProviders.Heading.HeadingTypeOptionsProvider
+public class ProductComparatorHeadingTypeOptionsProvider : HeadingTypeOptionsProvider
 {
-    public HeadingTypeOptionsProvider() : base(new[] { HeadingTypeOption.Auto, HeadingTypeOption.h2, HeadingTypeOption.h3, HeadingTypeOption.h4 })
-    {
-    }
+    public ProductComparatorHeadingTypeOptionsProvider() : base(new[] {
+        HeadingTypeOptions.Auto,
+        HeadingTypeOptions.h2,
+        HeadingTypeOptions.h3,
+        HeadingTypeOptions.h4
+        })
+    { }
 }
 
 public static class HeadingMarginOptions
@@ -42,3 +50,10 @@ public static class HeadingMarginOptions
     public const string SMALL = "small";
     public const string LARGE = "large";
 }
+
+// public enum HeadingMarginOptions
+// {
+//     Default,
+//     Small,
+//     Large
+// }

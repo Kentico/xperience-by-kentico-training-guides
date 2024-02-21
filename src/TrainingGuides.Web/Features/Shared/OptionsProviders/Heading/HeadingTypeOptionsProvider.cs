@@ -1,10 +1,11 @@
 ﻿namespace TrainingGuides.Web.Features.Shared.OptionsProviders.Heading;
 
-public class HeadingTypeOptionsProvider : DropdownEnumOptionsProvider<HeadingTypeOption>
+public class HeadingTypeOptionsProvider : DropdownEnumOptionsProvider<HeadingTypeOptions>
 {
-    public HeadingTypeOptionsProvider(IEnumerable<HeadingTypeOption>? subset = null) : base(subset)
+    public HeadingTypeOptionsProvider(IEnumerable<HeadingTypeOptions>? subset = null) : base(subset)
     {
     }
 
-    public override HeadingTypeOption? Parse(string value) => base.Parse(value) ?? HeadingTypeOption.Auto;
+    public override HeadingTypeOptions Parse(string value, HeadingTypeOptions defaultValue = HeadingTypeOptions.Auto) =>
+        base.Parse(value, defaultValue);
 }

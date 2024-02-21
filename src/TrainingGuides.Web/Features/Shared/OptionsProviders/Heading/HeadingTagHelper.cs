@@ -13,16 +13,16 @@ public class HeadingTagHelper : TagHelper
     }
 
     [HtmlAttributeName("headingType")]
-    public HeadingTypeOption HeadingType { get; set; }
+    public HeadingTypeOptions HeadingType { get; set; }
 
     [HtmlAttributeName("headingTypeDefault")]
-    public HeadingTypeOption HeadingTypeDefault { get; set; }
+    public HeadingTypeOptions HeadingTypeDefault { get; set; }
 
     public override void Process(TagHelperContext context, TagHelperOutput output)
     {
         var httpContext = accessor.HttpContext;
 
-        if (HeadingType == HeadingTypeOption.Auto)
+        if (HeadingType == HeadingTypeOptions.Auto)
             HeadingType = HeadingTypeDefault;
 
         output.TagName = HeadingType.ToString();

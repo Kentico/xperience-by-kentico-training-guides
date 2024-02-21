@@ -16,15 +16,16 @@ public class DropdownEnumOptionsProvider<T> : IDropDownOptionsProvider where T :
         var items = subset ?? Enum.GetValues<T>();
 
         return Task.FromResult(
-            items.Select(x => new DropDownOptionItem { Text = Enum.GetName(x), Value = Enum.GetName(x) })
+            items.Select(item => new DropDownOptionItem
+            {
+                Text = Enum.GetName(item),
+                Value = Enum.GetName(item)
+            })
         );
     }
 
-    public virtual T? Parse(string value)
-    {
-        if (!Enum.TryParse<T>(value, out var parsed))
-            return null;
-        else
-            return parsed;
-    }
+    public virtual T Parse(string value, T defaultValue) =>
+        Enum.TryParse<T>(value, true, out var parsed)
+            ? parsed
+            : defaultValue;
 }

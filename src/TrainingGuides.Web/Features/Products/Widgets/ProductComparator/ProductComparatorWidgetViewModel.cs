@@ -9,7 +9,7 @@ public class ProductComparatorWidgetViewModel : WidgetViewModel
     public List<ProductViewModel> Products { get; set; } = [];
     public List<KeyValuePair<string, HtmlString>> GroupedFeatures { get; set; } = [];
     public string ComparatorHeading { get; set; } = null!;
-    public HeadingTypeOption HeadingType { get; set; }
+    public HeadingTypeOptions HeadingType { get; set; }
     public string HeadingMargin { get; set; } = HeadingMarginOptions.DEFAULT;
     public bool ShowShortDescription { get; set; }
     public string? CheckboxIconUrl { get; set; }
