@@ -1,7 +1,9 @@
-﻿using CMS.ContentEngine;
+﻿using System.ComponentModel;
+using CMS.ContentEngine;
 using Kentico.PageBuilder.Web.Mvc;
 using Kentico.Xperience.Admin.Base.FormAnnotations;
 using Kentico.Xperience.Admin.Websites.FormAnnotations;
+using TrainingGuides.Web.Features.Shared.OptionsProviders;
 
 namespace TrainingGuides.Web.Features.LandingPages.Widgets.HeroBanner;
 
@@ -59,13 +61,20 @@ public class HeroBannerWidgetProperties : IWidgetProperties
     [VisibleIfTrue(nameof(ChangeDesign))]
     public string Width { get; set; } = "circle";
 
-    [DropDownComponent(Label = "Text color", Order = 10, Options = TextColorOptions.DARK + ";Dark\n" + TextColorOptions.LIGHT + ";Light", ExplanationText = "Select the color of the component text. Changing this will automatically change the component color theme to fit the text color.")]
+    [DropDownComponent(
+        Label = "Text color",
+        ExplanationText = "Select the color of the component text. Changing this will automatically change the component color theme to fit the text color.",
+        DataProviderType = typeof(DropdownEnumOptionsProvider<TextColorOption>),
+        Order = 10
+    )]
     [VisibleIfTrue(nameof(ChangeDesign))]
-    public string TextColor { get; set; } = TextColorOptions.DARK;
+    public string TextColor { get; set; } = TextColorOption.Dark.ToString();
 }
 
-public static class TextColorOptions
+public enum TextColorOption
 {
-    public const string DARK = "dark";
-    public const string LIGHT = "light";
+    [Description("Dark")]
+    Dark,
+    [Description("Light")]
+    Light
 }
