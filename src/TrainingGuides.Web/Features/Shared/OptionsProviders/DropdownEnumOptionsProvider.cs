@@ -1,4 +1,6 @@
-﻿using Kentico.Xperience.Admin.Base.FormAnnotations;
+﻿using System.ComponentModel;
+using EnumsNET;
+using Kentico.Xperience.Admin.Base.FormAnnotations;
 
 namespace TrainingGuides.Web.Features.Shared.OptionsProviders;
 
@@ -13,19 +15,20 @@ public class DropdownEnumOptionsProvider<T> : IDropDownOptionsProvider where T :
 
     public Task<IEnumerable<DropDownOptionItem>> GetOptionItems()
     {
-        var items = subset ?? Enum.GetValues<T>();
-
-        return Task.FromResult(
-            items.Select(item => new DropDownOptionItem
+        var results = Enums.GetMembers<T>(EnumMemberSelection.All)
+            .Select(enumItem =>
             {
-                Text = Enum.GetName(item),
-                Value = Enum.GetName(item)
-            })
-        );
+                string text = enumItem.Attributes.OfType<DescriptionAttribute>().FirstOrDefault()?.Description ?? enumItem.Name;
+                string value = enumItem.Value.ToString();
+
+                return new DropDownOptionItem { Value = value, Text = text };
+            });
+
+        return Task.FromResult(results.AsEnumerable());
     }
 
     public virtual T Parse(string value, T defaultValue) =>
-        Enum.TryParse<T>(value, true, out var parsed)
+        Enums.TryParse<T>(value, true, out var parsed)
             ? parsed
             : defaultValue;
 }

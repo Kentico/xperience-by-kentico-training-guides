@@ -1,6 +1,8 @@
-﻿using Kentico.PageBuilder.Web.Mvc;
+﻿using System.ComponentModel;
+using Kentico.PageBuilder.Web.Mvc;
 using Kentico.Xperience.Admin.Base.FormAnnotations;
 using Kentico.Xperience.Admin.Websites.FormAnnotations;
+using TrainingGuides.Web.Features.Shared.OptionsProviders;
 using TrainingGuides.Web.Features.Shared.OptionsProviders.Heading;
 
 namespace TrainingGuides.Web.Features.Products.Widgets.ProductComparator;
@@ -17,11 +19,14 @@ public class ProductComparatorWidgetProperties : IWidgetProperties
         DataProviderType = typeof(ProductComparatorHeadingTypeOptionsProvider),
         Order = 3
     )]
-    public string HeadingType { get; set; } = null!;
+    public string HeadingType { get; set; } = HeadingTypeOption.Auto.ToString();
 
-    [DropDownComponent(Label = "Heading margin", Order = 4,
-        Options = HeadingMarginOptions.DEFAULT + ";Default\n" + HeadingMarginOptions.SMALL + ";Small\n" + HeadingMarginOptions.LARGE + ";Large")]
-    public string HeadingMargin { get; set; } = HeadingMarginOptions.DEFAULT;
+    [DropDownComponent(
+        Label = "Heading margin",
+        DataProviderType = typeof(DropdownEnumOptionsProvider<HeadingMarginOption>),
+        Order = 4
+    )]
+    public string HeadingMargin { get; set; } = HeadingMarginOption.Default.ToString();
 
     [TextInputComponent(Label = "CTA", Order = 5)]
     public string CallToAction { get; set; } = null!;
@@ -36,24 +41,20 @@ public class ProductComparatorWidgetProperties : IWidgetProperties
 public class ProductComparatorHeadingTypeOptionsProvider : HeadingTypeOptionsProvider
 {
     public ProductComparatorHeadingTypeOptionsProvider() : base(new[] {
-        HeadingTypeOptions.Auto,
-        HeadingTypeOptions.h2,
-        HeadingTypeOptions.h3,
-        HeadingTypeOptions.h4
+        HeadingTypeOption.Auto,
+        HeadingTypeOption.H2,
+        HeadingTypeOption.H3,
+        HeadingTypeOption.H4
         })
     { }
 }
 
-public static class HeadingMarginOptions
+public enum HeadingMarginOption
 {
-    public const string DEFAULT = "default";
-    public const string SMALL = "small";
-    public const string LARGE = "large";
+    [Description("Default")]
+    Default,
+    [Description("Small")]
+    Small,
+    [Description("Large")]
+    Large
 }
-
-// public enum HeadingMarginOptions
-// {
-//     Default,
-//     Small,
-//     Large
-// }

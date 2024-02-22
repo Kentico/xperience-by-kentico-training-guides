@@ -2,6 +2,7 @@
 
   <ItemGroup>
     <PackageReference Include="AspNetCore.Unobtrusive.Ajax" />
+    <PackageReference Include="Enums.NET" />
     <PackageReference Include="kentico.xperience.admin" />
     <PackageReference Include="kentico.xperience.azurestorage" />
     <PackageReference Include="kentico.xperience.imageprocessing" />

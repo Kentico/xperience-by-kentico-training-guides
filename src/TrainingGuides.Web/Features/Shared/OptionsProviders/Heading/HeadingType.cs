@@ -2,7 +2,7 @@
 
 namespace TrainingGuides.Web.Features.Shared.OptionsProviders.Heading;
 
-public enum HeadingTypeOption
+public enum HeadingType
 {
     [Description("Auto")]
     Auto,

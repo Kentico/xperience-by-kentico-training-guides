@@ -11,6 +11,12 @@
           "Microsoft.Extensions.FileProviders.Embedded": "6.0.1"
         }
       },
+      "Enums.NET": {
+        "type": "Direct",
+        "requested": "[4.0.2, )",
+        "resolved": "4.0.2",
+        "contentHash": "Nwa4XxZ7fsuh9SpMiLUXmFT+NntALGXEvufLaQT+A0bQUH5ToNTtG0QDCoCiChdhp+4F/rtwyxpoJSgDmObIXg=="
+      },
       "Kentico.Xperience.Admin": {
         "type": "Direct",
         "requested": "[28.2.1, )",

@@ -1,6 +1,7 @@
 ﻿@using System.Globalization
 @using TrainingGuides.Web.Features.Products
 @using TrainingGuides.Web.Features.Products.Widgets.ProductComparator
+@using TrainingGuides.Web.Features.Shared.OptionsProviders.Heading;
 
 @model ProductComparatorWidgetViewModel
 
@@ -16,9 +17,9 @@
 }
 else {
     <div class="container bg-card">
-        <section class="c-section @Model.HeadingMargin">
+        <section class="c-section @Model.HeadingMargin.ToString().ToLower()">
         <div class="container">
-            <tg-heading class="text-center c-why_heading" headingType=@Model.HeadingType headingTypeDefault="h2">
+            <tg-heading class="text-center c-why_heading" headingType=@Model.HeadingType headingTypeDefault="@HeadingTypeOption.H2">
                 @Model.ComparatorHeading
             </tg-heading>
         </div>
