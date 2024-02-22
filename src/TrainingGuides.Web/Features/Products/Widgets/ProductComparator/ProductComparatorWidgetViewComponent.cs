@@ -4,9 +4,9 @@ using Microsoft.AspNetCore.Mvc.ViewComponents;
 using Kentico.PageBuilder.Web.Mvc;
 using TrainingGuides.Web.Features.Products.Widgets.ProductComparator;
 using TrainingGuides.Web.Features.Shared.Models;
-using TrainingGuides.Web.Features.Shared.OptionsProviders;
+using TrainingGuides.Web.Features.Shared.OptionProviders;
 using TrainingGuides.Web.Features.Shared.Services;
-using TrainingGuides.Web.Features.Shared.OptionsProviders.Heading;
+using TrainingGuides.Web.Features.Shared.OptionProviders.Heading;
 
 [assembly:
     RegisterWidget(
@@ -49,7 +49,7 @@ public class ProductComparatorWidgetViewComponent : ViewComponent
             Products = [],
             GroupedFeatures = [],
             ComparatorHeading = properties.ComparatorHeading,
-            HeadingType = (HeadingTypeOption)new DropdownEnumOptionsProvider<ProductComparatorHeadingTypeOption>()
+            HeadingType = (HeadingTypeOption)new DropdownEnumOptionProvider<ProductComparatorHeadingTypeOption>()
                 .Parse(properties.HeadingType, ProductComparatorHeadingTypeOption.Auto),
             HeadingMargin = properties.HeadingMargin,
             ShowShortDescription = properties.ShowShortDescription,

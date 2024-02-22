@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Html;
 using TrainingGuides.Web.Features.Shared.Models;
-using TrainingGuides.Web.Features.Shared.OptionsProviders.Heading;
+using TrainingGuides.Web.Features.Shared.OptionProviders.Heading;
 
 namespace TrainingGuides.Web.Features.Products.Widgets.ProductComparator;
 

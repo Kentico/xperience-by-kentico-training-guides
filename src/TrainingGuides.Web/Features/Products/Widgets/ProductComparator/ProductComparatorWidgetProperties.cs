@@ -2,8 +2,8 @@
 using Kentico.PageBuilder.Web.Mvc;
 using Kentico.Xperience.Admin.Base.FormAnnotations;
 using Kentico.Xperience.Admin.Websites.FormAnnotations;
-using TrainingGuides.Web.Features.Shared.OptionsProviders;
-using TrainingGuides.Web.Features.Shared.OptionsProviders.Heading;
+using TrainingGuides.Web.Features.Shared.OptionProviders;
+using TrainingGuides.Web.Features.Shared.OptionProviders.Heading;
 
 namespace TrainingGuides.Web.Features.Products.Widgets.ProductComparator;
 public class ProductComparatorWidgetProperties : IWidgetProperties
@@ -16,14 +16,14 @@ public class ProductComparatorWidgetProperties : IWidgetProperties
 
     [DropDownComponent(
         Label = "Heading type",
-        DataProviderType = typeof(DropdownEnumOptionsProvider<ProductComparatorHeadingTypeOption>),
+        DataProviderType = typeof(DropdownEnumOptionProvider<ProductComparatorHeadingTypeOption>),
         Order = 3
     )]
     public string HeadingType { get; set; } = HeadingTypeOption.Auto.ToString();
 
     [DropDownComponent(
         Label = "Heading margin",
-        DataProviderType = typeof(DropdownEnumOptionsProvider<HeadingMarginOption>),
+        DataProviderType = typeof(DropdownEnumOptionProvider<HeadingMarginOption>),
         Order = 4
     )]
     public string HeadingMargin { get; set; } = HeadingMarginOption.Default.ToString();

@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ViewComponents;
 using TrainingGuides.Web.Features.Shared.Models;
 using TrainingGuides.Web.Features.Shared.Services;
-using TrainingGuides.Web.Features.Shared.OptionsProviders;
+using TrainingGuides.Web.Features.Shared.OptionProviders;
 
 [assembly:
     RegisterWidget(
@@ -141,7 +141,7 @@ public class HeroBannerWidgetViewComponent : ViewComponent
                 banner.ShowBenefits = properties.ShowBenefits;
                 banner.FullWidth = (properties.Width ?? "circle").Equals("full", StringComparison.InvariantCultureIgnoreCase);
                 banner.TextColor = properties.TextColor;
-                banner.ThemeClass = new DropdownEnumOptionsProvider<TextColorOption>().Parse(properties.TextColor, TextColorOption.Dark) switch
+                banner.ThemeClass = new DropdownEnumOptionProvider<TextColorOption>().Parse(properties.TextColor, TextColorOption.Dark) switch
                 {
                     TextColorOption.Light => "light",
                     TextColorOption.Dark => "",
