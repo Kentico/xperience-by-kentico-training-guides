@@ -16,7 +16,7 @@ public class ProductComparatorWidgetProperties : IWidgetProperties
 
     [DropDownComponent(
         Label = "Heading type",
-        DataProviderType = typeof(ProductComparatorHeadingTypeOptionsProvider),
+        DataProviderType = typeof(DropdownEnumOptionsProvider<ProductComparatorHeadingTypeOption>),
         Order = 3
     )]
     public string HeadingType { get; set; } = HeadingTypeOption.Auto.ToString();
@@ -38,15 +38,16 @@ public class ProductComparatorWidgetProperties : IWidgetProperties
     public bool ShowPrice { get; set; }
 }
 
-public class ProductComparatorHeadingTypeOptionsProvider : HeadingTypeOptionsProvider
+public enum ProductComparatorHeadingTypeOption
 {
-    public ProductComparatorHeadingTypeOptionsProvider() : base(new[] {
-        HeadingTypeOption.Auto,
-        HeadingTypeOption.H2,
-        HeadingTypeOption.H3,
-        HeadingTypeOption.H4
-        })
-    { }
+    [Description("Auto")]
+    Auto = HeadingTypeOption.Auto,
+    [Description("Heading 2")]
+    H2 = HeadingTypeOption.H2,
+    [Description("Heading 3")]
+    H3 = HeadingTypeOption.H3,
+    [Description("Heading 4")]
+    H4 = HeadingTypeOption.H4
 }
 
 public enum HeadingMarginOption

@@ -1,10 +1,12 @@
-﻿using Kentico.PageBuilder.Web.Mvc;
-using Microsoft.AspNetCore.Html;
+﻿using Microsoft.AspNetCore.Html;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ViewComponents;
+using Kentico.PageBuilder.Web.Mvc;
 using TrainingGuides.Web.Features.Products.Widgets.ProductComparator;
 using TrainingGuides.Web.Features.Shared.Models;
+using TrainingGuides.Web.Features.Shared.OptionsProviders;
 using TrainingGuides.Web.Features.Shared.Services;
+using TrainingGuides.Web.Features.Shared.OptionsProviders.Heading;
 
 [assembly:
     RegisterWidget(
@@ -47,7 +49,8 @@ public class ProductComparatorWidgetViewComponent : ViewComponent
             Products = [],
             GroupedFeatures = [],
             ComparatorHeading = properties.ComparatorHeading,
-            HeadingType = new ProductComparatorHeadingTypeOptionsProvider().Parse(properties.HeadingType),
+            HeadingType = (HeadingTypeOption)new DropdownEnumOptionsProvider<ProductComparatorHeadingTypeOption>()
+                .Parse(properties.HeadingType, ProductComparatorHeadingTypeOption.Auto),
             HeadingMargin = properties.HeadingMargin,
             ShowShortDescription = properties.ShowShortDescription,
             CheckboxIconUrl = $"{httpRequestService.GetBaseUrl()}/assets/img/icons.svg#check"
