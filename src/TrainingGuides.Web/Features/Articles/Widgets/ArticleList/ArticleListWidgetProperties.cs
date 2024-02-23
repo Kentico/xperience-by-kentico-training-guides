@@ -2,7 +2,7 @@ using System.ComponentModel;
 using Kentico.PageBuilder.Web.Mvc;
 using Kentico.Xperience.Admin.Base.FormAnnotations;
 using Kentico.Xperience.Admin.Websites.FormAnnotations;
-using TrainingGuides.Web.Features.Shared.OptionsProviders;
+using TrainingGuides.Web.Features.Shared.OptionProviders;
 
 namespace TrainingGuides.Web.Features.Articles.Widgets.ArticleList;
 
@@ -19,7 +19,7 @@ public class ArticleListWidgetProperties : IWidgetProperties
 
     [DropDownComponent(
         Label = "Order articles by",
-        DataProviderType = typeof(DropdownEnumOptionsProvider<OrderByOption>),
+        DataProviderType = typeof(DropdownEnumOptionProvider<OrderByOption>),
         Order = 4)]
     public string OrderBy { get; set; } = OrderByOption.NewestFirst.ToString();
 }

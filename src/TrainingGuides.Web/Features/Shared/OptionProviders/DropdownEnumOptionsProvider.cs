@@ -2,9 +2,9 @@
 using EnumsNET;
 using Kentico.Xperience.Admin.Base.FormAnnotations;
 
-namespace TrainingGuides.Web.Features.Shared.OptionsProviders;
+namespace TrainingGuides.Web.Features.Shared.OptionProviders;
 
-public class DropdownEnumOptionsProvider<T> : IDropDownOptionsProvider where T : struct, Enum
+public class DropdownEnumOptionProvider<T> : IDropDownOptionsProvider where T : struct, Enum
 {
     public Task<IEnumerable<DropDownOptionItem>> GetOptionItems()
     {

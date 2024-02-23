@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace TrainingGuides.Web.Features.Shared.OptionsProviders.Heading;
+namespace TrainingGuides.Web.Features.Shared.OptionProviders.Heading;
 
 public enum HeadingTypeOption
 {

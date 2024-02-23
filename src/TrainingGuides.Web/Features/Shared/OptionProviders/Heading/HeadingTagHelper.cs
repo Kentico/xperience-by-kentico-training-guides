@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Razor.TagHelpers;
 
-namespace TrainingGuides.Web.Features.Shared.OptionsProviders.Heading;
+namespace TrainingGuides.Web.Features.Shared.OptionProviders.Heading;
 
 [HtmlTargetElement("tg-heading", TagStructure = TagStructure.NormalOrSelfClosing)]
 public class HeadingTagHelper : TagHelper
