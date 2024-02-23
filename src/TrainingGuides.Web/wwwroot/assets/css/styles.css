@@ -1339,19 +1339,24 @@
   color: #f0561a;
 }
 
+.rounded-corners {
+  border-radius: 2rem;
+}
+
+.tg-bg-primary {
+  background: #8107c1;
+}
+
 .c-section.c-section-faq-bg {
   background-color: white;
 }
-
 .c-section.c-section-pricelist-bg {
   background-color: white;
 }
-
 .c-section.default {
   padding: 2rem 0;
   overflow: hidden;
 }
-
 @media (min-width: 992px) {
   .c-section.default {
     padding: 3rem 0;
@@ -1361,12 +1366,10 @@
   padding: 0;
   overflow: hidden;
 }
-
 .c-section.large {
   padding: 4rem 0;
   overflow: hidden;
 }
-
 @media (min-width: 992px) {
   .c-section.large {
     padding: 4rem 0;
@@ -1375,18 +1378,15 @@
 .c-section.post {
   padding-top: 1.5rem;
 }
-
 .c-section.hero {
   padding: 3.5rem 0;
   background: no-repeat center center;
   background-size: cover;
   color: #1e1a1b;
 }
-
 .c-section.hero.v03 {
   position: relative;
 }
-
 .c-section.hero.v03::before {
   content: "";
   position: absolute;
@@ -1398,28 +1398,23 @@
   opacity: 0.5;
   z-index: 0;
 }
-
 .c-section.hero.v03 .container {
   position: relative;
   z-index: 1;
 }
-
 .c-section.hero.v04 {
   position: relative;
   overflow: hidden;
 }
-
 .c-section.hero.v04 .c-hero_canvas {
   position: relative;
   height: calc(100% + 5rem);
   aspect-ratio: 1;
   margin-top: -6rem;
 }
-
 .c-section.hero.v04 .c-hero_canvas > * {
   position: absolute;
 }
-
 .c-section.hero.v04 .c-hero_canvas_img {
   border-radius: 50%;
   -o-object-fit: cover;
@@ -1428,35 +1423,29 @@
   width: 100%;
   height: 100%;
 }
-
 .c-section.hero.v04 .c-hero_canvas_circle {
   border-radius: 50%;
   aspect-ratio: 1;
 }
-
 .c-section.hero.v04 .c-hero_canvas_circle.small {
   inset: auto auto 0 23.93%;
   width: 11.4%;
   background: #f0561a;
 }
-
 .c-section.hero.v04 .c-hero_canvas_circle.medium {
   inset: 5.36% auto auto 0;
   width: 25.7%;
   background: #8107c1;
 }
-
 .c-section.hero.v04 .c-hero_canvas_circle.big {
   width: 59.6%;
   inset: auto -25.9% -25.9% auto;
   border: 1px solid #1e1a1b;
 }
-
 .c-section.hero.light {
   color: white;
   background-color: #1e1a1b;
 }
-
 @media (min-width: 768px) {
   .c-section.hero {
     padding: 9rem 0;
@@ -1471,17 +1460,12 @@
   background: no-repeat left center;
   background-size: 209% auto;
 }
-
-.c-section.error-hero h1,
-.c-section.error-hero .h1,
-.c-section.error-hero .h1 {
+.c-section.error-hero h1, .c-section.error-hero .h1, .c-section.error-hero .h1 {
   font-size: 4.5rem;
 }
-
 .c-section.error-hero + .c-section.default {
   padding-top: 0;
 }
-
 @media (min-width: 568px) {
   .c-section.error-hero {
     padding: 10vw 0;
@@ -1489,9 +1473,7 @@
     background-position: center;
     background-size: 90% auto;
   }
-  .c-section.error-hero h1,
-  .c-section.error-hero .h1,
-  .c-section.error-hero .h1 {
+  .c-section.error-hero h1, .c-section.error-hero .h1, .c-section.error-hero .h1 {
     font-size: 5.5rem;
   }
 }
@@ -1499,9 +1481,7 @@
   .c-section.error-hero {
     padding: 16vw 0;
   }
-  .c-section.error-hero h1,
-  .c-section.error-hero .h1,
-  .c-section.error-hero .h1 {
+  .c-section.error-hero h1, .c-section.error-hero .h1, .c-section.error-hero .h1 {
     font-size: 7.5rem;
   }
 }
@@ -1522,7 +1502,6 @@
   align-items: stretch;
   justify-content: center;
 }
-
 @media (min-width: 768px) {
   .c-section.app {
     background: url("../img/app/app-bg.jpg") no-repeat center center;
@@ -1537,29 +1516,24 @@
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
 }
-
 .c-section .container.bg-secondary .bg-1 {
   background: #fff;
 }
-
 .c-section .container.bg-primary {
   background: #8107c1;
   border-radius: 2rem;
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
 }
-
 .c-section .container.bg-primary .bg-1 {
   background: #fff;
 }
-
 .c-section .container.bg-card {
   background: #efe6f9;
   border-radius: 2rem;
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
 }
-
 .c-section .container.bg-card .bg-1 {
   background: #fff;
 }/*# sourceMappingURL=styles.css.map */

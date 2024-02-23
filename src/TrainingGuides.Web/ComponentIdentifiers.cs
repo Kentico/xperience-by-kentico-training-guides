@@ -7,6 +7,7 @@ using TrainingGuides.Web.Features.Shared.Sections.SingleColumn;
 using TrainingGuides.Web.Features.Products.Widgets.ProductComparator;
 using TrainingGuides.Web.Features.Html.Widgets.HtmlCode;
 using TrainingGuides.Web.Features.Articles.Widgets.ArticleList;
+using TrainingGuides.Web.Features.Shared.Sections.General;
 
 namespace TrainingGuides.Web;
 
@@ -17,6 +18,7 @@ public static class ComponentIdentifiers
         public const string SINGLE_COLUMN = SingleColumnSectionViewComponent.IDENTIFIER;
         public const string FORM_COLUMN = FormColumnSectionViewComponent.IDENTIFIER;
         public const string FORM_COLUMN_CONSENT = FormColumnSectionViewComponent.IDENTIFIER;
+        public const string GENERAL = GeneralSectionViewComponent.IDENTIFIER;
     }
 
     public static class Widgets
