@@ -1,13 +1,14 @@
-﻿using TrainingGuides.Web.Features.LandingPages.Widgets.HeroBanner;
-using TrainingGuides.Web.Features.Activities.Widgets.PageLike;
-using TrainingGuides.Web.Features.DataProtection.Widgets.CookiePreferences;
-using TrainingGuides.Web.Features.LandingPages.Widgets.CallToAction;
-using TrainingGuides.Web.Features.Shared.Sections.FormColumn;
-using TrainingGuides.Web.Features.Shared.Sections.SingleColumn;
-using TrainingGuides.Web.Features.Products.Widgets.ProductComparator;
-using TrainingGuides.Web.Features.Html.Widgets.HtmlCode;
+﻿using TrainingGuides.Web.Features.Activities.Widgets.PageLike;
 using TrainingGuides.Web.Features.Articles.Widgets.ArticleList;
+using TrainingGuides.Web.Features.DataProtection.Widgets.CookiePreferences;
+using TrainingGuides.Web.Features.Html.Widgets.HtmlCode;
+using TrainingGuides.Web.Features.LandingPages.Widgets.CallToAction;
+using TrainingGuides.Web.Features.LandingPages.Widgets.HeroBanner;
+using TrainingGuides.Web.Features.LandingPages.Widgets.SimpleCallToAction;
+using TrainingGuides.Web.Features.Products.Widgets.ProductComparator;
+using TrainingGuides.Web.Features.Shared.Sections.FormColumn;
 using TrainingGuides.Web.Features.Shared.Sections.General;
+using TrainingGuides.Web.Features.Shared.Sections.SingleColumn;
 
 namespace TrainingGuides.Web;
 
@@ -30,5 +31,6 @@ public static class ComponentIdentifiers
         public const string PRODUCT_COMPARATOR = ProductComparatorWidgetViewComponent.IDENTIFIER;
         public const string HTML_CODE = HtmlCodeWidgetViewComponent.IDENTIFIER;
         public const string ARTICLE_LIST = ArticleListWidgetViewComponent.IDENTIFIER;
+        public const string SIMPLE_CALL_TO_ACTION = SimpleCallToActionWidgetViewComponent.IDENTIFIER;
     }
 }
