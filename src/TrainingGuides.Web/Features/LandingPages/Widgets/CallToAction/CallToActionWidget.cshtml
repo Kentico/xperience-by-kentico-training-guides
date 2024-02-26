@@ -1,6 +1,6 @@
 @model TrainingGuides.Web.Features.LandingPages.Widgets.CallToAction.CallToActionWidgetViewModel
 
-@if (Model is null || string.IsNullOrWhiteSpace(Model.Text) || string.IsNullOrWhiteSpace(Model.Url))
+@if (Model == null || Model.IsMisconfigured)
 {
     <tg-page-builder-content>
         <tg-configure-widget-instructions />
