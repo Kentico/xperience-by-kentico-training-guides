@@ -23,12 +23,12 @@
 
 .u-border-01 {
     border: none;
-    border-radius: variables.$border-radius;
+    border-radius: variables.$border-radius-rounded-corners;
 }
 
 .u-border-02 {
     border: none;
-    border-radius: variables.$border-radius;
+    border-radius: variables.$border-radius-rounded-corners;
 }
 
 .c-img-placeholder.type01 {
@@ -112,4 +112,12 @@
     font-size: .875rem;
     margin: .6rem 0;
     color: variables.$color-secondary;
+}
+
+.rounded-corners {
+    border-radius: variables.$border-radius-rounded-corners;
+}
+
+.tg-bg-primary {
+    background: variables.$color-primary;
 }

@@ -1,0 +1,11 @@
+@using TrainingGuides.Web.Features.Shared.Sections.General
+
+@model GeneralSectionViewModel
+
+@{
+    var sectionAnchor = !string.IsNullOrWhiteSpace(Model.SectionAnchor) ? $"id={Model.SectionAnchor}" : "";
+}
+
+<section class="c-section default tg-bg-primary @Model.RoundedCornersClass" @sectionAnchor>
+    <widget-zone />
+</section>
