@@ -1,0 +1,18 @@
+@using System.Globalization
+@using TrainingGuides.Web.Features.Products
+@using TrainingGuides.Web.Features.Products.Widgets.Product
+@using TrainingGuides.Web.Features.Shared.OptionProviders.Heading
+
+@model ProductWidgetViewModel
+
+@if (Model is null || Model.IsMisconfigured)
+{
+    <tg-page-builder-content>
+        <tg-configure-widget-instructions />
+    </tg-page-builder-content>
+}
+else {
+    <div class="container">
+        Ahoj svet, ja som advanced widget!
+    </div>   
+}
