@@ -1,12 +1,15 @@
 ﻿@using Microsoft.AspNetCore.Html
 @using TrainingGuides.Web.Features.Shared
+@using TrainingGuides.Web.Features.Shared.OptionProviders.ColumnLayout
+@using TrainingGuides.Web.Features.Shared.ViewComponents
 
-@model TemplateViewModel<PageBuilderPageTemplateProperties>
+@model TemplateViewModel<GeneralPageTemplateProperties>
 
 @{
-
+        if (!Enum.TryParse(Model.Properties.ColumnLayout, out ColumnLayoutOption columnLayout))
+        {
+            columnLayout = ColumnLayoutOption.OneColumn;
+        }
 }
 
-<div>
-    <editable-area area-identifier="areaMain" />
-</div>
+<vc:page-builder-columns column-layout-option="@columnLayout" page-builder-area-type="@PageBuilderAreaType.EditableAreas" editable-area-options="@new EditableAreaOptions {/* TODO: set the default seciton here when it exists */}" />

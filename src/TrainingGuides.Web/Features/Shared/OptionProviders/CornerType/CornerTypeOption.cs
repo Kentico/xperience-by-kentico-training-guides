@@ -8,4 +8,6 @@ public enum CornerTypeOption
     Sharp = 0,
     [Description("Round corners")]
     Round = 1,
+    [Description("Very round corners")]
+    VeryRound = 2,
 }

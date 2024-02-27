@@ -1,0 +1,28 @@
+﻿@using TrainingGuides.Web.Features.Shared.ViewComponents
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model PageBuilderColumnsViewModel
+<div class="container">
+    <div class="row">
+
+    @foreach (var column in Model.PageBuilderColumns)
+    {
+        if(Model.PageBuilderAreaType == PageBuilderAreaType.EditableAreas)
+        {
+            <div class="@column.CssClass">
+                <editable-area area-identifier="@column.Identifier" area-options="column.EditableAreaOptions" />
+            </div>
+        }
+        else
+        {
+            <div class="@column.CssClass">
+                <widget-zone zone-name="@column.Identifier" allowed-widgets="column.EditableAreaOptions?.AllowedWidgets" />
+            </div>
+        }
+    }
+
+    </div>
+</div>

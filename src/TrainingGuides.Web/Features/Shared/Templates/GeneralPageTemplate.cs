@@ -3,9 +3,9 @@ using TrainingGuides.Web.Features.Shared;
 
 [assembly: RegisterPageTemplate(
     identifier: GeneralPageTemplate.IDENTIFIER,
-    name: "Landing page content type template",
+    name: "General page template",
     propertiesType: typeof(GeneralPageTemplateProperties),
-    customViewName: "~/Features/Shared/GeneralPageTemplate.cshtml",
+    customViewName: "~/Features/Shared/Templates/GeneralPageTemplate.cshtml",
     IconClass = "xp-market")]
 
 namespace TrainingGuides.Web.Features.Shared;
