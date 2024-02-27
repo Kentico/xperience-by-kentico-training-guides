@@ -2,18 +2,23 @@ $color-primary: #8107c1;
 $color-secondary: #f0561a;
 $color-secondary-hover: $color-secondary;
 $color-light: white;
+$color-light-secondary: #efe6f9;
+$color-light-secondary-hover: #ebd8ff;
+$color-light-tertiary: #ebf5ff;
 $color-dark: #1e1a1b;
 
 $body-bg: $color-light;
 $body-color: $color-dark;
 
 $border-radius-rounded-corners: 2rem;
+$border-radius-very-rounded-corners: 4rem;
 $why-heading-color: $color-dark;
 
 $card-color: $color-dark;
-$card-bg: #efe6f9;
+$card-bg: $color-light-secondary;
 $card-bg-2: $color-secondary;
-$card-bg-hover: #ebd8ff;
+$card-bg-hover: $color-light-secondary-hover;
+
 
 $products-grid-bg: $card-bg;
 $products-grid-tile-bg: $color-light;

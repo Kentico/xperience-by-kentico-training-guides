@@ -7,24 +7,24 @@ public enum ColorSchemeOption
     [Description("Auto")]
     Auto = 0,
 
-    [Description("Transparent with light text")]
+    [Description("Transparent background, light text")]
     TransparentLight = 1,
 
-    [Description("Transparent with dark text")]
+    [Description("Transparent background, dark text")]
     TransparentDark = 2,
 
-    [Description("Dark 1")]
+    [Description("Dark background, light text")]
     Dark1 = 3,
 
-    [Description("Dark2")]
+    [Description("Dark background, light text 2")]
     Dark2 = 4,
 
-    [Description("Light 1")]
+    [Description("Light background, dark text")]
     Light1 = 5,
 
-    [Description("Light 2")]
+    [Description("Light background, dark text 2")]
     Light2 = 6,
 
-    [Description("Light 3")]
+    [Description("Light background, dark text 3")]
     Light3 = 7,
 }

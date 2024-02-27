@@ -624,7 +624,7 @@
   font-style: normal;
 }
 .c-footer {
-  background: #EBF5FF;
+  background: #ebf5ff;
   padding: 2.5rem 1rem 1.25rem;
   text-align: center;
   position: relative;
@@ -1339,12 +1339,48 @@
   color: #f0561a;
 }
 
-.rounded-corners {
+.tg-corner-shrp {
+  border-radius: 0;
+}
+
+.tg-corner-rnd {
   border-radius: 2rem;
+}
+
+.tg-corner-v-rnd {
+  border-radius: 4rem;
 }
 
 .tg-bg-primary {
   background: #8107c1;
+}
+
+.tg-bg-secondary {
+  background: #f0561a;
+}
+
+.tg-bg-none {
+  background: none;
+}
+
+.tg-bg-light-1 {
+  background: white;
+}
+
+.tg-bg-light-2 {
+  background: #efe6f9;
+}
+
+.tg-bg-light-3 {
+  background: #ebf5ff;
+}
+
+.tg-txt-light {
+  color: white;
+}
+
+.tg-txt-dark {
+  color: #1e1a1b;
 }
 
 .c-section.c-section-faq-bg {

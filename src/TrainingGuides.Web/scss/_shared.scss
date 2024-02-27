@@ -114,10 +114,46 @@
     color: variables.$color-secondary;
 }
 
-.rounded-corners {
+.tg-corner-shrp {
+    border-radius: 0;
+}
+
+.tg-corner-rnd {
     border-radius: variables.$border-radius-rounded-corners;
+}
+
+.tg-corner-v-rnd {
+    border-radius: variables.$border-radius-very-rounded-corners;
 }
 
 .tg-bg-primary {
     background: variables.$color-primary;
+}
+
+.tg-bg-secondary {
+    background: variables.$color-secondary;
+}
+
+.tg-bg-none {
+    background: none;
+}
+
+.tg-bg-light-1 {
+    background: variables.$color-light;
+}
+
+.tg-bg-light-2 {
+    background: variables.$color-light-secondary;
+}
+
+.tg-bg-light-3 {
+    background: variables.$color-light-tertiary;
+}
+
+.tg-txt-light {
+    color: variables.$color-light;
+}
+
+.tg-txt-dark {
+    color: variables.$color-dark;
 }

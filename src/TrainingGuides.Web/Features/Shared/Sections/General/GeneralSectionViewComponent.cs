@@ -22,7 +22,7 @@ public class GeneralSectionViewComponent : ViewComponent
         var model = new GeneralSectionViewModel()
         {
             SectionAnchor = properties.SectionAnchor,
-            RoundedCornersClass = properties.RondedCorners ? "rounded-corners" : string.Empty
+            RoundedCornersClass = properties.RondedCorners ? "tg-corner-v-rnd" : string.Empty
         };
 
         return View("~/Features/Shared/Sections/General/GeneralSection.cshtml", model);
