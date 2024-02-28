@@ -5,10 +5,15 @@ using TrainingGuides.Web.Features.Shared.OptionProviders.ColumnLayout;
 using TrainingGuides.Web.Features.Shared.OptionProviders.CornerType;
 using TrainingGuides.Web.Features.Shared.OptionsProviders.ColorScheme;
 
-namespace TrainingGuides.Web.Features.Shared;
+namespace TrainingGuides.Web.Features.Products;
 
-public class GeneralPageTemplateProperties : IPageTemplateProperties
+public class ProductPagePageTemplateProperties : IPageTemplateProperties
 {
+    [CheckBoxComponent(
+        Label = "Use page builder",
+        Order = 0)]
+    public bool UsePageBuilder { get; set; } = false;
+
     [DropDownComponent(
         Label = "Color scheme",
         ExplanationText = "Select the color scheme of the template.",
@@ -28,7 +33,7 @@ public class GeneralPageTemplateProperties : IPageTemplateProperties
         ExplanationText = "Select the layout of the editable areas in the template.",
         DataProviderType = typeof(DropdownEnumOptionProvider<ColumnLayoutOption>),
         Order = 30)]
+    [VisibleIfTrue(nameof(UsePageBuilder))]
     public string ColumnLayout { get; set; }
-
 }
 

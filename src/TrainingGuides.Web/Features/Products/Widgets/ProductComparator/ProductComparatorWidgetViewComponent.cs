@@ -7,6 +7,7 @@ using TrainingGuides.Web.Features.Shared.Models;
 using TrainingGuides.Web.Features.Shared.OptionProviders;
 using TrainingGuides.Web.Features.Shared.Services;
 using TrainingGuides.Web.Features.Shared.OptionProviders.Heading;
+using TrainingGuides.Web.Features.Products.Models;
 
 [assembly:
     RegisterWidget(
@@ -74,7 +75,7 @@ public class ProductComparatorWidgetViewComponent : ViewComponent
         return View("~/Features/Products/Widgets/ProductComparator/ProductComparatorWidget.cshtml", model);
     }
 
-    private async Task<ProductViewModel?> GetProduct(Guid guid, ProductComparatorWidgetProperties properties, CancellationToken cancellationToken)
+    private async Task<ProductPageViewModel?> GetProduct(Guid guid, ProductComparatorWidgetProperties properties, CancellationToken cancellationToken)
     {
         var productPage = await productRetrieverService.RetrieveWebPageByGuid(
                             guid,
@@ -84,7 +85,7 @@ public class ProductComparatorWidgetViewComponent : ViewComponent
 
         if (productPage == null)
         {
-            return new ProductViewModel
+            return new ProductPageViewModel
             {
                 Name = new("Error"),
                 Features =
@@ -114,7 +115,7 @@ public class ProductComparatorWidgetViewComponent : ViewComponent
             Page = webPageUrlRetriever.Retrieve(productPage, cancellationToken).Result.RelativePath
         };
 
-        var model = new ProductViewModel
+        var model = new ProductPageViewModel
         {
             Name = new(product.ProductName),
             ShortDescription = new(product.ProductShortDescription),
@@ -140,7 +141,6 @@ public class ProductComparatorWidgetViewComponent : ViewComponent
                     FeatureIncluded = false,
                     ValueType = ProductFeatureValueType.Number,
                     ShowInComparator = true,
-
                 });
         }
 

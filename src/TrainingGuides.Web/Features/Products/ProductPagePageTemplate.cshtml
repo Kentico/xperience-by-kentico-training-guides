@@ -1,0 +1,72 @@
+﻿@using Microsoft.AspNetCore.Html
+@using System.Globalization
+@using TrainingGuides.Web.Features.Products
+@using TrainingGuides.Web.Features.Products.Models
+@using TrainingGuides.Web.Features.Shared
+@using TrainingGuides.Web.Features.Shared.OptionProviders.ColumnLayout
+@using TrainingGuides.Web.Features.Shared.OptionsProviders.ColorScheme
+@using TrainingGuides.Web.Features.Shared.ViewComponents
+
+@model TemplateViewModel<ProductPagePageTemplateProperties>
+
+@{
+    var templateModel = Model.GetTemplateModel<ProductPageViewModel>();
+    if (!Enum.TryParse(Model.Properties.ColumnLayout, out ColumnLayoutOption columnLayout))
+    {
+        columnLayout = ColumnLayoutOption.OneColumn;
+    }
+}
+<component-style color-scheme="@Model.Properties.ColorScheme" corner-type="@Model.Properties.CornerType">
+    @if(Model.Properties.UsePageBuilder)
+    {
+        <vc:page-builder-columns column-layout-option="@columnLayout" page-builder-area-type="@PageBuilderAreaType.EditableAreas" editable-area-options="@new EditableAreaOptions {/* TODO: set the default seciton here when it exists */}" />
+    }
+    else
+    {
+        <div class="tg-big-padding">
+            <div class="row">
+                <div class="col align-self-center">
+                    <h3>@templateModel.Name</h3>
+                    <p>@templateModel.ShortDescription</p>
+                </div>
+
+                <styled-image src="@templateModel.Media.FirstOrDefault()?.FilePath" alt="@templateModel.Media.FirstOrDefault()?.Description" corner-type="@Model.Properties.CornerType" class="col c-product-img object-fit-cover" />
+            </div>
+            <div class="row">
+                <div class="c-pricelist">                        
+                    <div class="col">
+                        <component-style color-scheme="@ColorSchemeOption.Light1" corner-type="@Model.Properties.CornerType"  class="c-table">
+                            @foreach (var feature in templateModel.Features)
+                            {
+                                <div class="c-table_row">
+                                    <div class="c-table_cell"><div class="c-table_cell">@feature.Label</div></div>
+                                    <div class="c-table_cell text-end">
+                                        @if (feature.ValueType == ProductFeatureValueType.Text)
+                                        {
+                                            @feature.Value
+                                        }
+                                        @if (feature.ValueType == ProductFeatureValueType.Number)
+                                        {
+                                            @string.Format(CultureInfo.CurrentUICulture, "{0:0.00}", @feature.Price)
+                                        }
+                                        @if (feature.ValueType == ProductFeatureValueType.Boolean)
+                                        {
+                                            @if (feature.FeatureIncluded)
+                                            {
+                                                <span>✔</span>
+                                            }
+                                            else
+                                            {
+                                                <span>-</span>
+                                            }
+                                        }
+                                    </div>
+                                </div>
+                            }
+                        </component-style>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</component-style>

@@ -15,6 +15,7 @@ public static class ServiceCollectionExtensions
         services.AddSingleton<IContentItemRetrieverService, ContentItemRetrieverService>();
         services.AddSingleton<IHttpRequestService, HttpRequestService>();
         services.AddSingleton<IArticlePageService, ArticlePageService>();
+        services.AddSingleton<IComponentStyleEnumService, ComponentStyleEnumService>();
 
         services.AddScoped<IHeadTagStoreService, HeadTagStoreService>();
 

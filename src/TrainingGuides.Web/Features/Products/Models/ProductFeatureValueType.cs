@@ -1,4 +1,4 @@
-﻿namespace TrainingGuides.Web.Features.Products;
+﻿namespace TrainingGuides.Web.Features.Products.Models;
 
 public enum ProductFeatureValueType
 {

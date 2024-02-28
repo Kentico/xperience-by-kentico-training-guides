@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Html;
 
-namespace TrainingGuides.Web.Features.Products;
+namespace TrainingGuides.Web.Features.Products.Models;
 
 public class ProductFeaturesViewModel
 {
