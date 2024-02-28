@@ -2,34 +2,35 @@ using Kentico.PageBuilder.Web.Mvc;
 using Kentico.Xperience.Admin.Base.FormAnnotations;
 using TrainingGuides.Web.Features.Shared.OptionProviders;
 using TrainingGuides.Web.Features.Shared.OptionProviders.ColumnLayout;
+using TrainingGuides.Web.Features.Shared.OptionProviders.CornerType;
 using TrainingGuides.Web.Features.Shared.OptionsProviders.ColorScheme;
 
 namespace TrainingGuides.Web.Features.Shared.Sections.General;
 public class GeneralSectionProperties : ISectionProperties
 {
-    [TextInputComponent(Label = "Section anchor", Order = 1)]
+    [TextInputComponent(
+        Label = "Section anchor",
+        Order = 0)]
     public string? SectionAnchor { get; set; }
 
     [DropDownComponent(
-        Label = "Column layout",
-        ExplanationText = "Select the layout of the widget zones in this section.",
-        DataProviderType = typeof(DropdownEnumOptionProvider<ColumnLayoutOption>),
-        Order = 10
-    )]
-    public string? ColumnLayout { get; set; }
+        Label = "Color scheme",
+        ExplanationText = "Select the color scheme of the section.",
+        DataProviderType = typeof(DropdownEnumOptionProvider<ColorSchemeOption>),
+        Order = 10)]
+    public string ColorScheme { get; set; }
 
     [DropDownComponent(
-        Label = "Color scheme",
-        ExplanationText = "Select the color scheme of this section.",
-        DataProviderType = typeof(DropdownEnumOptionProvider<ColorSchemeOption>),
-        Order = 20
-    )]
-    public string? ColorScheme { get; set; }
+        Label = "Corner type",
+        ExplanationText = "Select the corner type of the section.",
+        DataProviderType = typeof(DropdownEnumOptionProvider<CornerTypeOption>),
+        Order = 20)]
+    public string CornerType { get; set; }
 
-    [CheckBoxComponent(
-        Label = "Rounded corners",
-        ExplanationText = "Check to make the corners of this section rounded",
-        Order = 30
-    )]
-    public bool RondedCorners { get; set; } = false;
+    [DropDownComponent(
+        Label = "Column layout",
+        ExplanationText = "Select the layout of the widget zones in the section.",
+        DataProviderType = typeof(DropdownEnumOptionProvider<ColumnLayoutOption>),
+        Order = 30)]
+    public string ColumnLayout { get; set; }
 }

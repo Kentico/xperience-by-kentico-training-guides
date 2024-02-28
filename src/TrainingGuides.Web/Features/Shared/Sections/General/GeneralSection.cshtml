@@ -1,4 +1,5 @@
 @using TrainingGuides.Web.Features.Shared.Sections.General
+@using TrainingGuides.Web.Features.Shared.ViewComponents
 
 @model GeneralSectionViewModel
 
@@ -6,6 +7,8 @@
     var sectionAnchor = !string.IsNullOrWhiteSpace(Model.SectionAnchor) ? $"id={Model.SectionAnchor}" : "";
 }
 
-<section class="c-section default tg-bg-primary @Model.RoundedCornersClass" @sectionAnchor>
-    <widget-zone />
+<section @sectionAnchor>
+    <component-style color-scheme="@Model.ColorScheme" corner-type="@Model.CornerType" class="c-section default">
+        <vc:page-builder-columns column-layout-option="@Model.ColumnLayout" page-builder-area-type="@PageBuilderAreaType.WidgetZones" editable-area-options="@new EditableAreaOptions()"/>
+    </component-style>
 </section>

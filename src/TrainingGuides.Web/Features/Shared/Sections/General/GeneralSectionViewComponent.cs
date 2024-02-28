@@ -1,6 +1,8 @@
 using Kentico.PageBuilder.Web.Mvc;
 using Microsoft.AspNetCore.Mvc;
+using TrainingGuides.Web.Features.Shared.OptionProviders.ColumnLayout;
 using TrainingGuides.Web.Features.Shared.Sections.General;
+using TrainingGuides.Web.Features.Shared.Services;
 
 [assembly: RegisterSection(
     identifier: GeneralSectionViewComponent.IDENTIFIER,
@@ -19,10 +21,18 @@ public class GeneralSectionViewComponent : ViewComponent
     public IViewComponentResult Invoke(ComponentViewModel<GeneralSectionProperties> sectionProperties)
     {
         var properties = sectionProperties.Properties;
+
+        if (!Enum.TryParse(properties.ColumnLayout, out ColumnLayoutOption columnLayout))
+        {
+            columnLayout = ColumnLayoutOption.OneColumn;
+        }
+
         var model = new GeneralSectionViewModel()
         {
             SectionAnchor = properties.SectionAnchor,
-            RoundedCornersClass = properties.RondedCorners ? "tg-corner-v-rnd" : string.Empty
+            ColumnLayout = columnLayout,
+            ColorScheme = properties.ColorScheme,
+            CornerType = properties.CornerType,
         };
 
         return View("~/Features/Shared/Sections/General/GeneralSection.cshtml", model);

@@ -6,7 +6,7 @@ using TrainingGuides.Web.Features.Shared;
     name: "General page template",
     propertiesType: typeof(GeneralPageTemplateProperties),
     customViewName: "~/Features/Shared/Templates/GeneralPageTemplate.cshtml",
-    IconClass = "xp-market")]
+    IconClass = "icon-square")]
 
 namespace TrainingGuides.Web.Features.Shared;
 public static class GeneralPageTemplate
