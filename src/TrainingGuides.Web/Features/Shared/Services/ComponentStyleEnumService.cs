@@ -1,4 +1,4 @@
-﻿using TrainingGuides.Web.Features.Shared.OptionProviders.CornerType;
+﻿using TrainingGuides.Web.Features.Shared.OptionProviders.CornerStyle;
 using TrainingGuides.Web.Features.Shared.OptionsProviders.ColorScheme;
 
 namespace TrainingGuides.Web.Features.Shared.Services;
@@ -18,22 +18,22 @@ public class ComponentStyleEnumService : IComponentStyleEnumService
         _ => [string.Empty],
     };
 
-    public IEnumerable<string> GetCornerTypeClasses(CornerTypeOption cornerType) => cornerType switch
+    public IEnumerable<string> GetCornerStyleClasses(CornerStyleOption cornerStyle) => cornerStyle switch
     {
-        CornerTypeOption.Round => ["tg-corner-rnd"],
-        CornerTypeOption.VeryRound => ["tg-corner-v-rnd"],
-        CornerTypeOption.Sharp => ["tg-corner-shrp"],
+        CornerStyleOption.Round => ["tg-corner-rnd"],
+        CornerStyleOption.VeryRound => ["tg-corner-v-rnd"],
+        CornerStyleOption.Sharp => ["tg-corner-shrp"],
         _ => [string.Empty],
     };
 
-    public CornerTypeOption GetCornerType(string cornerTypeString)
+    public CornerStyleOption GetCornerStyle(string cornerStyleString)
     {
-        if (!Enum.TryParse(cornerTypeString, out CornerTypeOption cornerType))
+        if (!Enum.TryParse(cornerStyleString, out CornerStyleOption cornerStyle))
         {
-            cornerType = CornerTypeOption.Round;
+            cornerStyle = CornerStyleOption.Round;
         }
 
-        return cornerType;
+        return cornerStyle;
     }
 
     public ColorSchemeOption GetColorScheme(string colorSchemeString)

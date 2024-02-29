@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel;
 
-namespace TrainingGuides.Web.Features.Shared.OptionProviders.CornerType;
+namespace TrainingGuides.Web.Features.Shared.OptionProviders.CornerStyle;
 
-public enum CornerTypeOption
+public enum CornerStyleOption
 {
     [Description("Sharp corners")]
     Sharp = 0,

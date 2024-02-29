@@ -32,7 +32,7 @@ public class GeneralSectionViewComponent : ViewComponent
             SectionAnchor = properties.SectionAnchor,
             ColumnLayout = columnLayout,
             ColorScheme = properties.ColorScheme,
-            CornerType = properties.CornerType,
+            CornerStyle = properties.CornerStyle,
         };
 
         return View("~/Features/Shared/Sections/General/GeneralSection.cshtml", model);

@@ -1,4 +1,4 @@
-﻿using TrainingGuides.Web.Features.Shared.OptionProviders.CornerType;
+﻿using TrainingGuides.Web.Features.Shared.OptionProviders.CornerStyle;
 using TrainingGuides.Web.Features.Shared.OptionsProviders.ColorScheme;
 
 namespace TrainingGuides.Web.Features.Shared.Services;
@@ -7,9 +7,9 @@ public interface IComponentStyleEnumService
 {
     IEnumerable<string> GetColorSchemeClasses(ColorSchemeOption colorScheme);
 
-    IEnumerable<string> GetCornerTypeClasses(CornerTypeOption cornerType);
+    IEnumerable<string> GetCornerStyleClasses(CornerStyleOption cornerStyle);
 
-    CornerTypeOption GetCornerType(string cornerTypeString);
+    CornerStyleOption GetCornerStyle(string cornerStyleString);
 
     ColorSchemeOption GetColorScheme(string colorSchemeString);
 }

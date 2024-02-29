@@ -11,6 +11,6 @@
             columnLayout = ColumnLayoutOption.OneColumn;
         }
 }
-<component-style color-scheme="@Model.Properties.ColorScheme" corner-type="@Model.Properties.CornerType">
+<tg-component-style color-scheme="@Model.Properties.ColorScheme" corner-style="@Model.Properties.CornerStyle">
     <vc:page-builder-columns column-layout-option="@columnLayout" page-builder-area-type="@PageBuilderAreaType.EditableAreas" editable-area-options="@new EditableAreaOptions { DefaultSectionIdentifier = ComponentIdentifiers.Sections.GENERAL }" />
-</component-style>
+</tg-component-style>

@@ -1,16 +1,16 @@
 ﻿using System.Text.Encodings.Web;
 using Microsoft.AspNetCore.Mvc.TagHelpers;
 using Microsoft.AspNetCore.Razor.TagHelpers;
-using TrainingGuides.Web.Features.Shared.OptionProviders.CornerType;
-using TrainingGuides.Web.Features.Shared.OptionsProviders.ColorScheme;
 using TrainingGuides.Web.Features.Shared.Services;
+
 
 namespace TrainingGuides.Web.Features.Shared.Helpers.TagHelpers;
 
+[HtmlTargetElement("tg-component-style")]
 public class ComponentStyleTagHelper : TagHelper
 {
-    public string ColorScheme { get; set; }
-    public string CornerType { get; set; }
+    public string? ColorScheme { get; set; }
+    public string? CornerStyle { get; set; }
 
     private readonly IComponentStyleEnumService componentStyleEnumService;
 
@@ -24,11 +24,11 @@ public class ComponentStyleTagHelper : TagHelper
 
         List<string> cssClasses = [];
 
-        var colorScheme = componentStyleEnumService.GetColorScheme(ColorScheme);
+        var colorScheme = componentStyleEnumService.GetColorScheme(ColorScheme ?? string.Empty);
         cssClasses.AddRange(componentStyleEnumService.GetColorSchemeClasses(colorScheme));
 
-        var cornerType = componentStyleEnumService.GetCornerType(CornerType);
-        cssClasses.AddRange(componentStyleEnumService.GetCornerTypeClasses(cornerType));
+        var cornerStyle = componentStyleEnumService.GetCornerStyle(CornerStyle ?? string.Empty);
+        cssClasses.AddRange(componentStyleEnumService.GetCornerStyleClasses(cornerStyle));
 
         if (cssClasses.Count > 0)
         {

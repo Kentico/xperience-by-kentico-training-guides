@@ -14,6 +14,12 @@ public class PageBuilderColumnsViewComponent : ViewComponent
     private const string ZONE_SECONDARY = "zoneSecondary";
     private const string ZONE_TERTIARY = "zoneTertiary";
 
+    private const string COL_XS = "col-md-3";
+    private const string COL_S = "col-md-4";
+    private const string COL_M = "col-md-6";
+    private const string COL_L = "col-md-8";
+    private const string COL = "col-md";
+
     private PageBuilderAreaType pageBuilderAreaType;
 
     private string MainIdentifier
@@ -81,19 +87,19 @@ public class PageBuilderColumnsViewComponent : ViewComponent
         {
             case ColumnLayoutOption.TwoColumnEven:
                 //first column is main
-                cssClass = "col-md-6";
+                cssClass = COL_M;
                 columnName = columnIndex == 0 ? MainIdentifier : SecondaryIdentifier;
                 break;
             case ColumnLayoutOption.TwoColumnLgSm:
                 //first column is main
                 if (columnIndex == 0)
                 {
-                    cssClass += "col-md-8";
+                    cssClass += COL_L;
                     columnName = MainIdentifier;
                 }
                 else
                 {
-                    cssClass += "col-md-4";
+                    cssClass += COL_S;
                     columnName = SecondaryIdentifier;
                 }
                 break;
@@ -101,18 +107,18 @@ public class PageBuilderColumnsViewComponent : ViewComponent
                 //second column is main
                 if (columnIndex == 0)
                 {
-                    cssClass += "col-md-4";
+                    cssClass += COL_S;
                     columnName = SecondaryIdentifier;
                 }
                 else
                 {
-                    cssClass += "col-md-8";
+                    cssClass += COL_L;
                     columnName = MainIdentifier;
                 }
                 break;
             case ColumnLayoutOption.ThreeColumnEven:
                 //middle column is main
-                cssClass += "col-md-4";
+                cssClass += COL_S;
                 columnName = columnIndex == 1
                     ? MainIdentifier
                     : columnIndex == 0 ?
@@ -122,12 +128,12 @@ public class PageBuilderColumnsViewComponent : ViewComponent
                 //middle column is main
                 if (columnIndex == 1)
                 {
-                    cssClass += "col-md-6";
+                    cssClass += COL_M;
                     columnName = MainIdentifier;
                 }
                 else
                 {
-                    cssClass += "col-md-3";
+                    cssClass += COL_XS;
                     columnName = columnIndex == 0 ?
                         SecondaryIdentifier : TertiaryIdentifier;
                 }
@@ -136,7 +142,7 @@ public class PageBuilderColumnsViewComponent : ViewComponent
             default:
                 //sole column is main
                 columnName = MainIdentifier;
-                cssClass += "col-md";
+                cssClass += COL;
                 break;
         }
 

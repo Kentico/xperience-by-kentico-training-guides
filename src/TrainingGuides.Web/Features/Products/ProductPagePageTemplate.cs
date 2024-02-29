@@ -8,7 +8,7 @@ using TrainingGuides.Web.Features.Products;
     propertiesType: typeof(ProductPagePageTemplateProperties),
     customViewName: "~/Features/Products/ProductPagePageTemplate.cshtml",
     ContentTypeNames = [ProductPage.CONTENT_TYPE_NAME],
-    IconClass = "xp-market")]
+    IconClass = "xp-box")]
 
 namespace TrainingGuides.Web.Features.Products;
 public static class ProductPagePageTemplate

@@ -13,12 +13,12 @@
   <ContentItemCommonDataFirstPublishedWhen>2024-02-06 21:58:43Z</ContentItemCommonDataFirstPublishedWhen>
   <ContentItemCommonDataGUID>66c10208-4161-48c6-8cd7-6359f27dcd89</ContentItemCommonDataGUID>
   <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
-  <ContentItemCommonDataLastPublishedWhen>2024-02-28 18:20:26Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataLastPublishedWhen>2024-02-29 21:35:12Z</ContentItemCommonDataLastPublishedWhen>
   <ContentItemCommonDataPageBuilderWidgets>
     <![CDATA[{"editableAreas":[]}]]>
   </ContentItemCommonDataPageBuilderWidgets>
   <ContentItemCommonDataPageTemplateConfiguration>
-    <![CDATA[{"identifier":"TrainingGuides.ProductPageTemplate","properties":{"usePageBuilder":false,"colorScheme":"Light2","cornerType":"Sharp","columnLayout":null},"fieldIdentifiers":{"usePageBuilder":"3ee2a1f5-72ac-4e16-9752-82fe0083cbd8","colorScheme":"57b3d9b2-6201-49f7-add8-416e9a74b86e","cornerType":"0d5d078c-f883-4288-b103-8b2010ddd7ee","columnLayout":"731bd2db-a779-4cb1-9e6b-a0e0da3ad64b"}}]]>
+    <![CDATA[{"identifier":"TrainingGuides.ProductPageTemplate","properties":{"usePageBuilder":false,"colorScheme":"Light2","cornerStyle":"Sharp","columnLayout":null},"fieldIdentifiers":{"usePageBuilder":"3ee2a1f5-72ac-4e16-9752-82fe0083cbd8","colorScheme":"57b3d9b2-6201-49f7-add8-416e9a74b86e","cornerStyle":"6af7b94c-0c90-4cda-b579-974443a452ae","columnLayout":"731bd2db-a779-4cb1-9e6b-a0e0da3ad64b"}}]]>
   </ContentItemCommonDataPageTemplateConfiguration>
   <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
   <ContentItemReferences>
