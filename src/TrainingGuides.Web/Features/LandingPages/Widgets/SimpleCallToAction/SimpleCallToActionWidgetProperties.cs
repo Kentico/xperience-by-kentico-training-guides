@@ -23,12 +23,13 @@ public class SimpleCallToActionWidgetProperties : IWidgetProperties
         Order = 20)]
     public string TargetContent { get; set; } = nameof(TargetContentOption.Page);
 
-    [UrlSelectorComponent(
+    [WebPageSelectorComponent(
         Label = "Target page",
         ExplanationText = "Select the page in the tree.",
+        MaximumPages = 1,
         Order = 30)]
     [VisibleIfEqualTo(nameof(TargetContent), nameof(TargetContentOption.Page), StringComparison.OrdinalIgnoreCase)]
-    public string? TargetContentPage { get; set; }
+    public IEnumerable<WebPageRelatedItem>? TargetContentPage { get; set; }
 
     [TextInputComponent(
         Label = "Absolute URL",

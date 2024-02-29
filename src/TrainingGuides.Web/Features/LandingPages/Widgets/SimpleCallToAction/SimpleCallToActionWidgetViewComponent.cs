@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ViewComponents;
+using Kentico.Content.Web.Mvc.Routing;
 using Kentico.PageBuilder.Web.Mvc;
 using TrainingGuides.Web.Features.LandingPages.Widgets.CallToAction;
 using TrainingGuides.Web.Features.LandingPages.Widgets.SimpleCallToAction;
@@ -19,11 +20,23 @@ public class SimpleCallToActionWidgetViewComponent : ViewComponent
 {
     public const string IDENTIFIER = "TrainingGuides.SimpleCallToActionWidget";
 
-    public ViewViewComponentResult Invoke(SimpleCallToActionWidgetProperties properties)
+    private readonly IWebPageUrlRetriever webPageUrlRetriever;
+    private readonly IPreferredLanguageRetriever preferredLanguageRetriever;
+
+    public SimpleCallToActionWidgetViewComponent(
+        IWebPageUrlRetriever webPageUrlRetriever,
+        IPreferredLanguageRetriever preferredLanguageRetriever)
     {
+        this.webPageUrlRetriever = webPageUrlRetriever;
+        this.preferredLanguageRetriever = preferredLanguageRetriever;
+    }
+
+    public async Task<ViewViewComponentResult> InvokeAsync(SimpleCallToActionWidgetProperties properties)
+    {
+
         string? targetUrl = properties.TargetContent switch
         {
-            nameof(TargetContentOption.Page) => properties.TargetContentPage,
+            nameof(TargetContentOption.Page) => await GetWebPageUrl(properties.TargetContentPage?.FirstOrDefault()!),
             nameof(TargetContentOption.AbsoluteUrl) => properties.TargetContentAbsoluteUrl,
             _ => string.Empty
         };
@@ -37,4 +50,10 @@ public class SimpleCallToActionWidgetViewComponent : ViewComponent
 
         return View("~/Features/LandingPages/Widgets/SimpleCallToAction/SimpleCallToACtionWidget.cshtml", model);
     }
+
+    private async Task<string?> GetWebPageUrl(WebPageRelatedItem webPage) =>
+        webPage != null
+        ? (await webPageUrlRetriever.Retrieve(webPage.WebPageGuid, preferredLanguageRetriever.Get()))
+            .RelativePath
+        : string.Empty;
 }
