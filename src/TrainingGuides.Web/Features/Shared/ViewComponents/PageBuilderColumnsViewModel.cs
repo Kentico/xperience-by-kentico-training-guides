@@ -3,5 +3,5 @@
 public class PageBuilderColumnsViewModel
 {
     public PageBuilderAreaType PageBuilderAreaType { get; set; }
-    public IEnumerable<PageBuilderColumnViewModel> PageBuilderColumns;
+    public IEnumerable<PageBuilderColumnViewModel>? PageBuilderColumns;
 }
