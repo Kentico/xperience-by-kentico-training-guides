@@ -81,26 +81,26 @@ public class PageBuilderColumnsViewComponent : ViewComponent
     private PageBuilderColumnViewModel GetColumn(int columnIndex, ColumnLayoutOption columnLayoutOption, EditableAreaOptions editableAreaOptions)
     {
         string cssClass = string.Empty;
-        string columnName;
+        string columnIdentifier;
 
         switch (columnLayoutOption)
         {
             case ColumnLayoutOption.TwoColumnEven:
                 //first column is main
                 cssClass = COL_M;
-                columnName = columnIndex == 0 ? MainIdentifier : SecondaryIdentifier;
+                columnIdentifier = columnIndex == 0 ? MainIdentifier : SecondaryIdentifier;
                 break;
             case ColumnLayoutOption.TwoColumnLgSm:
                 //first column is main
                 if (columnIndex == 0)
                 {
                     cssClass += COL_L;
-                    columnName = MainIdentifier;
+                    columnIdentifier = MainIdentifier;
                 }
                 else
                 {
                     cssClass += COL_S;
-                    columnName = SecondaryIdentifier;
+                    columnIdentifier = SecondaryIdentifier;
                 }
                 break;
             case ColumnLayoutOption.TwoColumnSmLg:
@@ -108,18 +108,18 @@ public class PageBuilderColumnsViewComponent : ViewComponent
                 if (columnIndex == 0)
                 {
                     cssClass += COL_S;
-                    columnName = SecondaryIdentifier;
+                    columnIdentifier = SecondaryIdentifier;
                 }
                 else
                 {
                     cssClass += COL_L;
-                    columnName = MainIdentifier;
+                    columnIdentifier = MainIdentifier;
                 }
                 break;
             case ColumnLayoutOption.ThreeColumnEven:
                 //middle column is main
                 cssClass += COL_S;
-                columnName = columnIndex == 1
+                columnIdentifier = columnIndex == 1
                     ? MainIdentifier
                     : columnIndex == 0 ?
                         SecondaryIdentifier : TertiaryIdentifier;
@@ -129,19 +129,19 @@ public class PageBuilderColumnsViewComponent : ViewComponent
                 if (columnIndex == 1)
                 {
                     cssClass += COL_M;
-                    columnName = MainIdentifier;
+                    columnIdentifier = MainIdentifier;
                 }
                 else
                 {
                     cssClass += COL_XS;
-                    columnName = columnIndex == 0 ?
+                    columnIdentifier = columnIndex == 0 ?
                         SecondaryIdentifier : TertiaryIdentifier;
                 }
                 break;
             case ColumnLayoutOption.OneColumn:
             default:
                 //sole column is main
-                columnName = MainIdentifier;
+                columnIdentifier = MainIdentifier;
                 cssClass += COL;
                 break;
         }
@@ -149,7 +149,7 @@ public class PageBuilderColumnsViewComponent : ViewComponent
         return new PageBuilderColumnViewModel
         {
             CssClass = cssClass,
-            Identifier = columnName,
+            Identifier = columnIdentifier,
             EditableAreaOptions = editableAreaOptions
         };
     }
