@@ -2,6 +2,10 @@
 @using TrainingGuides.Web.Features.Products
 @using TrainingGuides.Web.Features.Products.Widgets.Product
 @using TrainingGuides.Web.Features.Shared.OptionProviders.Heading
+@using TrainingGuides.Web.Features.Shared.Services
+@using TrainingGuides.Web.Features.Products.Models
+
+@inject IHttpRequestService httpRequestService
 
 @model ProductWidgetViewModel
 
@@ -10,9 +14,228 @@
     <tg-page-builder-content>
         <tg-configure-widget-instructions />
     </tg-page-builder-content>
+
+    return;
 }
-else {
-    <div class="container">
-        Ahoj svet, ja som advanced widget!
-    </div>   
+
+@{
+    var baseUrl = httpRequestService.GetBaseUrl();
+}
+
+@if (Model != null)
+{
+    <tg-component-style color-scheme="@Model.ColorScheme" corner-style="@Model.CornerStyle" class="c-section default">
+        <div>hello world!</div> 
+    </tg-component-style>
+
+    @* @if (Model.Product != null)
+    {
+        @if (Model.CardSize == "1" || string.IsNullOrEmpty(Model.CardSize))
+        {
+            @if (Model.Product.Features == null || !Model.ShowProductFeatures)
+            {
+                <div class="row justify-content-center gy-4 mt-5">
+                    <div class="col-sm-11">
+                        @if (Model.ContentPosition == "L")
+                        {
+                            <a href="@Model.Product.Url" class="c-card-anchor" target="@(Model.OpenInNewTab ? "_blank": "")" title="@Model.Product.Link?.LinkTitleText">
+                                <div class="c-card featured bg-1 u-border-02">
+                                    <div class="c-card_img">
+                                        @if (Model.Product.Media != null && !string.IsNullOrEmpty(Model.Product.Media.FirstOrDefault()?.FilePath) && Model.ShowProductImage)
+                                        {
+                                            <img src="@Url.Content(Model.Product.Media.FirstOrDefault()?.FilePath)" alt="@Model.Product.Media.FirstOrDefault()?.AltText" />
+                                        }
+                                    </div>
+                                    <div class="c-card_body">
+                                        <h3 class="mb-0">@Html.Raw(Model.Product.Name)</h3>
+
+                                        <p class="mt-5 mb-0">@Html.Raw(Model.Product.ShortDescription)</p>
+
+                                    </div>
+                                </div>
+                            </a>
+                        }
+                        else
+                        {
+                            <a href="@Model.Product.Url" class="c-card-anchor" target="@(Model.OpenInNewTab ? "_blank": "")" title="@Model.Product.Link?.LinkTitleText">
+                                <div class="c-card featured bg-1 u-border-02">
+                                    <div class="c-card_body">
+                                        <h3 class="mb-0">@Html.Raw(Model.Product.Name)</h3>
+
+                                        <p class="mt-5 mb-0">@Html.Raw(Model.Product.ShortDescription)</p>
+
+                                    </div>
+
+                                    <div class="c-card_img">
+                                        @if (Model.Product.Media != null && !string.IsNullOrEmpty(Model.Product.Media.FirstOrDefault()?.FilePath) && Model.ShowProductImage)
+                                        {
+                                            <img src="@Url.Content(Model.Product.Media.FirstOrDefault()?.FilePath)" alt="@Model.Product.Media.FirstOrDefault()?.AltText" />
+                                        }
+                                    </div>
+
+                                </div>
+                            </a>
+                        }
+                    </div>
+                </div>
+
+            }
+            else
+            {
+                <section class="c-section default c-section-pricelist-bg">
+                        <div class="c-pricelist">
+                            <div class="row gx-md-5 gx-xl-7">
+                                @if (Model.ContentPosition == "L")
+                                {
+                                    <div class="col-sm-6 col-xl-7 d-flex align-items-center">
+                                        @if (Model.Product.Media != null && !string.IsNullOrEmpty(Model.Product.Media.FirstOrDefault()?.FilePath) && Model.ShowProductImage)
+                                        {
+                                            <img src="@Url.Content(Model.Product.Media.FirstOrDefault()?.FilePath)" alt="@Model.Product.Media.FirstOrDefault()?.AltText" class="img-fluid u-border-02" />
+                                        }
+                                    </div>
+                                    <div class="col-sm-6 col-xl-5 d-flex align-items-center">
+                                        <div class="c-pricelist_text">
+                                            <h3 class="h3 mb-0 c-pricelist_heading">@Html.Raw(Model.Product.Name)</h3>
+                                            <p class="mt-3 mt-lg-4">
+                                                @Html.Raw(Model.Product.ShortDescription)
+                                            </p>
+                                        </div>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="col-sm-6 col-xl-5 d-flex align-items-center">
+                                        <div class="c-pricelist_text">
+                                            <h3 class="h3 mb-0 c-pricelist_heading">@Html.Raw(Model.Product.Name)</h3>
+                                            <p class="mt-3 mt-lg-4">
+                                                @Html.Raw(Model.Product.ShortDescription)
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-xl-7 d-flex align-items-center">
+                                        @if (Model.Product.Media != null && !string.IsNullOrEmpty(Model.Product.Media.FirstOrDefault()?.FilePath) && Model.ShowProductImage)
+                                        {
+                                            <img src="@Url.Content(Model.Product.Media.FirstOrDefault()?.FilePath)" alt="@Model.Product.Media.FirstOrDefault()?.AltText" class="img-fluid u-border-02" />
+                                        }
+                                    </div>
+                                }
+                            </div>
+                            <div class="row mt-3 mt-md-4 mt-lg-5 mt-xl-6">
+                                <div class="col">
+                                    <div class="c-table">
+                                        @foreach (var feature in Model.Product.Features)
+                                        {
+                                            <div class="c-table_row">
+                                                <div class="c-table_cell"><div class="c-table_cell">@Html.Raw(@feature.Label)</div></div>
+                                                <div class="c-table_cell text-end">
+                                                @if (feature.ValueType == ProductFeatureValueType.Text)
+                                                {
+                                                        @Html.Raw(feature.Value)
+                                                    }
+                                                    @if (feature.ValueType == ProductFeatureValueType.Number)
+                                                    {
+                                                        @string.Format(CultureInfo.CurrentUICulture, "{0:N0}", @feature.Price)
+                                                    }
+                                                    @if (feature.ValueType == ProductFeatureValueType.Boolean)
+                                                    {
+                                                        @if (feature.FeatureIncluded)
+                                                        {
+                                                            <svg class="c-icon">
+                                                                <use xlink:href="@baseUrl/assets/img/icons.svg#check"></use>
+                                                            </svg>
+                                                        }
+                                                        else
+                                                        {
+                                                            <span>-</span>
+                                                        }
+                                                    }
+                                                </div>
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </section>
+            }
+        }
+        @if (Model.CardSize == "2")
+        {
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <a href="@Model.Product.Url" class="c-card-anchor" target="@(Model.OpenInNewTab ? "_blank": "")" title="@Model.Product.Link?.LinkTitleText">
+                        <div class="c-card home bg-1 u-border-02 text-center">
+                            <h3 class="h4 mb-0">@Html.Raw(Model.Product.Name)</h3>
+
+                            <div class="c-card_img mt-3">
+                                @if (Model.Product.Media != null && !string.IsNullOrEmpty(Model.Product.Media.FirstOrDefault()?.FilePath))
+                                {
+                                    <img src="@Url.Content(Model.Product.Media.FirstOrDefault()?.FilePath)" alt="@Model.Product.Media.FirstOrDefault()?.AltText" />
+                                }
+                            </div>
+
+                            <div class="mt-auto">
+
+                                <p class="mt-3 mb-0">@Html.Raw(Model.Product.ShortDescription)</p>
+
+                            </div>
+                            <div class="mt-3">
+                                <span class="c-link primary-upper">
+                                    @Html.Raw(Model.Product.CallToAction)
+                                    <svg class="c-icon ">
+                                        <use xlink:href="@baseUrl/assets/img/icons.svg#chevron-right"></use>
+                                    </svg>
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        }
+        @if (Model.CardSize == "3")
+        {
+            <a href="@Model.Product.Url" class="c-card-anchor" target="@(Model.OpenInNewTab ? "_blank": "")" title="@Model.Product.Link?.LinkTitleText">
+                <div class="c-card home bg-1 u-border-02">
+                    <div class="c-card_img">
+                        @if (Model.Product.Media != null && !string.IsNullOrEmpty(Model.Product.Media.FirstOrDefault()?.FilePath))
+                        {
+                            <img src="@Url.Content(Model.Product.Media.FirstOrDefault()?.FilePath)" alt="@Model.Product.Media.FirstOrDefault()?.AltText" />
+                        }
+
+                    </div>
+                    <div class="c-card_body j-truncate" data-heading-lines="2" data-total-lines="3">
+                        <h3 class="h4 mb-0 j-truncate_heading">@Html.Raw(Model.Product.Name)</h3>
+
+                        <p class="mt-2 mb-0 j-truncate_paragraph">@Html.Raw(Model.Product.ShortDescription)</p>
+
+                    </div>
+                    <div class="c-card_footer">
+                        <span class="c-link primary-upper text-uppercase">@Html.Raw(Model.Product.CallToAction)</span>
+                    </div>
+                </div>
+            </a>
+        }
+        @if (Model.CardSize == "4")
+        {
+            <a href="@Model.Product.Url" class="c-card-anchor" target="@(Model.OpenInNewTab ? "_blank": "")" title="@Model.Product.Link?.LinkTitleText">
+                <div class="c-card home bg-1 u-border-02">
+
+                    <div class="c-card_img">
+                        @if (Model.Product.Media != null && !string.IsNullOrEmpty(Model.Product.Media.FirstOrDefault()?.FilePath))
+                        {
+                            <img src="@Url.Content(Model.Product.Media.FirstOrDefault()?.FilePath)" alt="@Model.Product.Media.FirstOrDefault()?.AltText" />
+                        }
+                    </div>
+
+                    <div class="c-card_body j-truncate" data-heading-lines="2" data-total-lines="3">
+                        <h3 class="h4 mb-0 j-truncate_heading">@Html.Raw(Model.Product.Name)</h3>
+
+                    </div>
+                    <div class="c-card_footer">
+                        <span class="c-link primary-upper text-uppercase">@Html.Raw(Model.Product.CallToAction)</span>
+                    </div>
+                </div>
+            </a>
+        }
+    } *@
 }
