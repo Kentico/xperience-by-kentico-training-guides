@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.product>
+  <ContentItemDataCommonDataID>
+    <GUID>cf39836c-efba-4ba5-96d4-52929265605b</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>ProductName1-z99qpymm</CodeName>
+      <GUID>d4d2f50a-b417-42d6-a600-4da7357a28db</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>57f01dd3-820c-46aa-b674-743e0f93f507</ContentItemDataGUID>
+  <ProductBenefits>
+    <![CDATA[[{"Identifier":"1c1d377a-0e51-4b18-83cf-05836881f131"},{"Identifier":"15b4e527-dc69-4af3-95b3-95d995ede802"},{"Identifier":"e3994c1f-b91e-43d0-82ee-fca635fd8792"}]]]>
+  </ProductBenefits>
+  <ProductDescription>
+    <![CDATA[<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>]]>
+  </ProductDescription>
+  <ProductFeatures>
+    <![CDATA[[{"Identifier":"f89c8f04-17ec-47a9-97df-c559b108691f"},{"Identifier":"3453b6bc-f36a-4203-8757-bba2562df298"},{"Identifier":"73ac8418-6e3c-499f-96ff-87cc618ac27f"}]]]>
+  </ProductFeatures>
+  <ProductMedia>
+    <![CDATA[[{"Identifier":"5957bfb8-679d-44d7-9a11-6ce586926503"}]]]>
+  </ProductMedia>
+  <ProductName>Product name 1</ProductName>
+  <ProductShortDescription>
+    <![CDATA[<p>Product short description Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>]]>
+  </ProductShortDescription>
+</contentitemdata.trainingguides.product>

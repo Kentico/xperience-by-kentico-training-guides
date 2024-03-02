@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentitem>
+  <ContentItemContentTypeID>
+    <CodeName>TrainingGuides.Asset</CodeName>
+    <GUID>9ecde825-735e-4967-a995-cc97b55adb0f</GUID>
+    <ObjectType>cms.contenttype</ObjectType>
+  </ContentItemContentTypeID>
+  <ContentItemGUID>5957bfb8-679d-44d7-9a11-6ce586926503</ContentItemGUID>
+  <ContentItemIsReusable>True</ContentItemIsReusable>
+  <ContentItemIsSecured>False</ContentItemIsSecured>
+  <ContentItemName>Pasta-1qy41r16</ContentItemName>
+</cms.contentitem>

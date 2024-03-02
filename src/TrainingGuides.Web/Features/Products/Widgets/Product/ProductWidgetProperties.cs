@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using Kentico.PageBuilder.Web.Mvc;
 using Kentico.Xperience.Admin.Base.FormAnnotations;
 using Kentico.Xperience.Admin.Websites.FormAnnotations;
@@ -21,64 +22,78 @@ public class ProductWidgetProperties : IWidgetProperties
     public bool ShowProductFeatures { get; set; } = true;
 
     [CheckBoxComponent(
-        Label = "Show product image",
+        Label = "Display product image",
         Order = 30)]
     public bool ShowProductImage { get; set; } = true;
 
-    // on click properties
-    [CheckBoxComponent(
-        Label = "Open Product page on click",
-        ExplanationText = "If checked, opens the selected Product page detail when visitor clicks the widget.",
-        Order = 40)]
-    public bool OpenProductPageOnClick { get; set; } = true;
 
     [TextInputComponent(
-        Label = "Call to action",
+        Label = "Call to action (CTA) text",
         ExplanationText = "Add a call to action text, e.g., \"Read more\".",
-        Order = 50)]
-    [VisibleIfTrue(nameof(OpenProductPageOnClick))]
+        Order = 40)]
     public string CallToAction { get; set; } = string.Empty;
 
     [CheckBoxComponent(
-        Label = "Open Product page in new tab",
-        Order = 60)]
-    [VisibleIfTrue(nameof(OpenProductPageOnClick))]
+        Label = "Open in new tab",
+        ExplanationText = "Opens Product page in new tab when visitor clicks the widget or CTA",
+        Order = 50)]
     public bool OpenInNewTab { get; set; } = true;
 
     // advanced styling configuration
     [CheckBoxComponent(
-        Label = "Show advanced configuration options",
-        Order = 70)]
+        Label = "Show advanced options",
+        Order = 60)]
     public bool ShowAdvanced { get; set; } = false;
-
-    [DropDownComponent(
-        Label = "Card size",
-        DataProviderType = typeof(DropdownEnumOptionProvider<CardSizeOption>),
-        Order = 80)]
-    [VisibleIfTrue(nameof(ShowAdvanced))]
-    public string CardSize { get; set; } = null!;
 
     [DropDownComponent(
         Label = "Color scheme",
         ExplanationText = "Select widget color scheme.",
         DataProviderType = typeof(DropdownEnumOptionProvider<ColorSchemeOption>),
-        Order = 90)]
+        Order = 70)]
     [VisibleIfTrue(nameof(ShowAdvanced))]
-    public string? ColorScheme { get; set; }
+    public string? ColorScheme { get; set; } = nameof(ColorSchemeOption.Dark1);
 
     [VisibleIfTrue(nameof(ShowAdvanced))]
     [DropDownComponent(
         Label = "Corner style",
         DataProviderType = typeof(DropdownEnumOptionProvider<CornerStyleOption>),
-        Order = 100)]
-    public string? CornerStyle { get; set; }
+        Order = 80)]
+    public string? CornerStyle { get; set; } = nameof(CornerStyleOption.Round);
 
     [DropDownComponent(
-        Label = "Content alignment",
-        DataProviderType = typeof(DropdownEnumOptionProvider<ContentAlignmentOption>),
-        Order = 110)]
+        Label = "Image position",
+        ExplanationText = "Select the image position with respect to text.",
+        DataProviderType = typeof(DropdownEnumOptionProvider<ImagePositionOption>),
+        Order = 90)]
     [VisibleIfTrue(nameof(ShowAdvanced))]
-    public string ContentAlignment { get; set; } = null!;
+    [VisibleIfTrue(nameof(ShowProductImage))]
+    public string? ImagePosition { get; set; } = nameof(ImagePositionOption.FullWidth);
+
+    [DropDownComponent(
+        Label = "Align Text",
+        DataProviderType = typeof(DropdownEnumOptionProvider<ContentAlignmentOption>),
+        Order = 100)]
+    [VisibleIfTrue(nameof(ShowAdvanced))]
+    public string? TextAlignment { get; set; } = nameof(ContentAlignmentOption.Left);
+
+    [DropDownComponent(
+        Label = "CTA button style",
+        DataProviderType = typeof(DropdownEnumOptionProvider<ColorSchemeOption>),
+        Order = 110
+    )]
+    [VisibleIfTrue(nameof(ShowAdvanced))]
+    [VisibleIfNotEmpty(nameof(CallToAction))]
+    public string? CallToActionStyle { get; set; } = nameof(ColorSchemeOption.Dark2);
+}
+
+public enum ImagePositionOption
+{
+    [Description("Full width")]
+    FullWidth,
+    [Description("Ascending shape")]
+    Ascending,
+    [Description("Descending shape")]
+    Descending
 }
 
 public enum ContentAlignmentOption
@@ -86,12 +101,4 @@ public enum ContentAlignmentOption
     Left,
     Center,
     Right
-}
-
-public enum CardSizeOption
-{
-    Full = 1,
-    Wide = 2,
-    Middle = 3,
-    Slim = 4
 }

@@ -25,3 +25,43 @@
 .tg-btn-secondary {
     @include mixins.button-mixin;
 }
+
+.btn {
+    
+    &.tg-bg-primary,
+    &.tg-bg-primary:hover {
+        @include mixins.button-mixin(variables.$color-primary);
+    }
+
+    &.tg-bg-secondary,
+    &.tg-bg-secondary:hover {
+        @include mixins.button-mixin(variables.$color-secondary);
+    }
+
+    &.tg-bg-none,
+    &.tg-bg-none:hover {
+        @include mixins.button-mixin(none);
+    }
+
+    &.tg-bg-light-1,
+    &.tg-bg-light-1:hover {
+        @include mixins.button-mixin(variables.$color-light);
+    }
+
+    &.tg-bg-light-2:hover {
+        @include mixins.button-mixin(variables.$color-light-secondary);
+    }
+
+    &.tg-bg-light-3,
+    &.tg-bg-light-3:hover {
+        @include mixins.button-mixin(variables.$color-light-tertiary);
+    }
+
+    &.tg-txt-light {
+        color: variables.$color-light;
+    }
+
+    &.tg-txt-dark {
+        color: variables.$color-dark;
+    }
+}

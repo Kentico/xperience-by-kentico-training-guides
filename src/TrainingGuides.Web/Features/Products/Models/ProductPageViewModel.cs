@@ -1,15 +1,14 @@
 ﻿using TrainingGuides.Web.Features.Shared.Models;
 using Microsoft.AspNetCore.Html;
-using TrainingGuides.Web.Features.Shared.Services;
 
 namespace TrainingGuides.Web.Features.Products.Models;
 
 public class ProductPageViewModel : PageViewModel
 {
-    public HtmlString Name { get; set; } = null!;
-    public string? Header { get; set; } = null!;
-    public HtmlString ShortDescription { get; set; } = null!;
-    public string? Description { get; set; } = null!;
+    public HtmlString? Name { get; set; }
+    public string? Header { get; set; }
+    public HtmlString? ShortDescription { get; set; }
+    public string? Description { get; set; }
     public List<AssetViewModel> Media { get; set; } = [];
     public LinkViewModel? Link { get; set; }
     public string? CallToAction { get; set; } = null!;
@@ -17,6 +16,14 @@ public class ProductPageViewModel : PageViewModel
     public List<ProductFeaturesViewModel> Features { get; set; } = [];
 
     public static ProductPageViewModel GetViewModel(ProductPage productPage)
+        => GetViewModel(productPage);
+
+    public static ProductPageViewModel GetViewModel(
+        ProductPage productPage,
+        bool getMedia = true,
+        bool getFeatures = true,
+        bool getCallToAction = true,
+        bool getPrice = true)
     {
         if (productPage == null)
         {
@@ -28,14 +35,20 @@ public class ProductPageViewModel : PageViewModel
             Header = productPage.ProductPageProduct.FirstOrDefault()?.ProductName ?? string.Empty,
             ShortDescription = new(productPage.ProductPageProduct.FirstOrDefault()?.ProductShortDescription),
             Description = productPage.ProductPageProduct.FirstOrDefault()?.ProductDescription ?? string.Empty,
-            Media = productPage.ProductPageProduct.FirstOrDefault()?.ProductMedia.Select(AssetViewModel.GetViewModel)?.ToList(),
+            Media = getMedia
+                ? productPage.ProductPageProduct.FirstOrDefault()?.ProductMedia.Select(AssetViewModel.GetViewModel)?.ToList() ?? []
+                : [],
             Link = new LinkViewModel()
             {
                 Page = productPage.SystemFields.WebPageUrlPath
             },
-            CallToAction = "See more",
-            Features = productPage.ProductPageProduct.FirstOrDefault()?.ProductFeatures.Select(feature => ProductFeaturesViewModel.GetViewModel(feature)).ToList(),
-            Price = productPage.ProductPageProduct.FirstOrDefault()?.ProductPrice ?? 0,
+            CallToAction = getCallToAction ? "See more" : null,
+            Features = getFeatures
+                ? productPage.ProductPageProduct.FirstOrDefault()?.ProductFeatures
+                    .Select(feature => ProductFeaturesViewModel.GetViewModel(feature))
+                    .ToList() ?? []
+                : [],
+            Price = getPrice ? productPage.ProductPageProduct.FirstOrDefault()?.ProductPrice ?? 0 : 0,
         };
     }
 }

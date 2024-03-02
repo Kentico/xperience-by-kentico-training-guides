@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentitem>
+  <ContentItemContentTypeID>
+    <CodeName>TrainingGuides.Product</CodeName>
+    <GUID>54c89164-06fa-4984-a04c-cc2ec647463f</GUID>
+    <ObjectType>cms.contenttype</ObjectType>
+  </ContentItemContentTypeID>
+  <ContentItemGUID>d4d2f50a-b417-42d6-a600-4da7357a28db</ContentItemGUID>
+  <ContentItemIsReusable>True</ContentItemIsReusable>
+  <ContentItemIsSecured>False</ContentItemIsSecured>
+  <ContentItemName>ProductName1-z99qpymm</ContentItemName>
+</cms.contentitem>
