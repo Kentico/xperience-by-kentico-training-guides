@@ -122,7 +122,13 @@ else {
                             @foreach (var item in Model.Products)
                         {
                                 <div class="c-products-grid_col">
-                                    <a href="@Url.Content(item.Url)" class="btn tg-btn-primary text-uppercase" title="@item.Link?.LinkTitleText" target="@(item.Link !=null && item.Link.OpenInNewTab ? "_blank": "")">@item.CallToAction</a>
+                                    <a
+                                        href="@Url.Content(item.Url)"
+                                        class="btn tg-btn-primary text-uppercase"
+                                        title="@item.Link?.LinkTitleText"
+                                        target="@(item.Link !=null && item.Link.OpenInNewTab ? "_blank": "")">
+                                        @item.Link.CallToAction
+                                    </a>
                                 </div>
                         }
 

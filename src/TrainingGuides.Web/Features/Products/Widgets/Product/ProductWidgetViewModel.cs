@@ -8,8 +8,6 @@ public class ProductWidgetViewModel
     public ProductPageViewModel Product { get; set; } = null!;
     public bool ShowProductFeatures { get; set; }
     public AssetViewModel? ProductImage { get; set; }
-    public string? CallToAction { get; set; }
-    public bool OpenInNewTab { get; set; }
     public bool ShowAdvanced { get; set; }
     public string? ColorScheme { get; set; }
     public string? CornerStyle { get; set; }

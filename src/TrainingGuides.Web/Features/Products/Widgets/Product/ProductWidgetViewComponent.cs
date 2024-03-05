@@ -4,6 +4,7 @@ using Kentico.PageBuilder.Web.Mvc;
 using TrainingGuides.Web.Features.Products.Models;
 using TrainingGuides.Web.Features.Products.Widgets.Product;
 using TrainingGuides.Web.Features.Shared.Services;
+using TrainingGuides.Web.Features.Products.Services;
 
 [assembly: RegisterWidget(
     identifier: ProductWidgetViewComponent.IDENTIFIER,
@@ -26,14 +27,18 @@ public class ProductWidgetViewComponent : ViewComponent
     private readonly IWebPageQueryResultMapper webPageQueryResultMapper;
     private readonly IComponentStyleEnumService componentStyleEnumService;
 
+    private readonly IProductPageService productPageService;
+
     public ProductWidgetViewComponent(
         IContentItemRetrieverService<ProductPage> productRetrieverService,
         IWebPageQueryResultMapper webPageQueryResultMapper,
-        IComponentStyleEnumService componentStyleEnumService)
+        IComponentStyleEnumService componentStyleEnumService,
+        IProductPageService productPageService)
     {
         this.productRetrieverService = productRetrieverService;
         this.webPageQueryResultMapper = webPageQueryResultMapper;
         this.componentStyleEnumService = componentStyleEnumService;
+        this.productPageService = productPageService;
     }
 
     public async Task<ViewViewComponentResult> InvokeAsync(ProductWidgetProperties properties)
@@ -60,8 +65,6 @@ public class ProductWidgetViewComponent : ViewComponent
             Product = product!,
             ShowProductFeatures = properties.ShowProductFeatures,
             ProductImage = properties.ShowProductImage ? product?.Media.FirstOrDefault() : null,
-            CallToAction = properties.CallToAction,
-            OpenInNewTab = properties.OpenInNewTab,
             ShowAdvanced = properties.ShowAdvanced,
             ColorScheme = properties.ColorScheme,
             CornerStyle = properties.CornerStyle,
@@ -86,12 +89,13 @@ public class ProductWidgetViewComponent : ViewComponent
                             4);
 
         return productPage != null
-            ? ProductPageViewModel.GetViewModel(
+            ? await productPageService.GetProductPageViewModel(
                 productPage: productPage,
                 getMedia: properties.ShowProductImage,
                 getFeatures: properties.ShowProductFeatures,
                 getBenefits: properties.ShowProductBenefits,
-                getCallToAction: false,
+                callToAction: properties.CallToAction,
+                openInNewTab: properties.OpenInNewTab,
                 getPrice: properties.ShowProductFeatures)
             : null;
     }

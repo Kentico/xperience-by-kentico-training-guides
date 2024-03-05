@@ -1485,6 +1485,13 @@
 .tg-product .align-right .tg-product_benefits {
   flex-direction: row-reverse;
 }
+.tg-product a:link,
+.tg-product a:visited,
+.tg-product a:hover,
+.tg-product a:active {
+  text-decoration: none;
+  color: inherit;
+}
 
 .t-default {
   background: white;

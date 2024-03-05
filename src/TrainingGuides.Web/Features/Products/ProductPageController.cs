@@ -4,6 +4,7 @@ using Kentico.PageBuilder.Web.Mvc.PageTemplates;
 using Microsoft.AspNetCore.Mvc;
 using TrainingGuides;
 using TrainingGuides.Web.Features.Products.Models;
+using TrainingGuides.Web.Features.Products.Services;
 using TrainingGuides.Web.Features.Shared.Services;
 
 [assembly: RegisterWebPageRoute(
@@ -17,15 +18,18 @@ public class ProductPageController : Controller
     private readonly IWebPageDataContextRetriever webPageDataContextRetriever;
     private readonly IWebPageQueryResultMapper webPageQueryResultMapper;
     private readonly IContentItemRetrieverService<ProductPage> contentItemRetriever;
+    private readonly IProductPageService productPageService;
 
     public ProductPageController(
         IWebPageDataContextRetriever webPageDataContextRetriever,
         IWebPageQueryResultMapper webPageQueryResultMapper,
-        IContentItemRetrieverService<ProductPage> contentItemRetriever)
+        IContentItemRetrieverService<ProductPage> contentItemRetriever,
+        IProductPageService productPageService)
     {
         this.webPageDataContextRetriever = webPageDataContextRetriever;
         this.webPageQueryResultMapper = webPageQueryResultMapper;
         this.contentItemRetriever = contentItemRetriever;
+        this.productPageService = productPageService;
     }
     public async Task<IActionResult> Index()
     {
@@ -37,7 +41,7 @@ public class ProductPageController : Controller
             webPageQueryResultMapper.Map<ProductPage>,
             3);
 
-        var model = ProductPageViewModel.GetViewModel(productPage);
+        var model = await productPageService.GetProductPageViewModel(productPage);
         model.Features.Add(
                 new ProductFeaturesViewModel
                 {

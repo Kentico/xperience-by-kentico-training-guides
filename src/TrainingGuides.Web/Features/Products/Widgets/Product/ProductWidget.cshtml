@@ -22,61 +22,60 @@
     return;
 }
 
-@* <a href="@Model.Product.Url" class="c-card-anchor" target="@(Model.OpenInNewTab ? "_blank": "")"
-title="@Model.Product.Link?.LinkTitleText"> *@
 <tg-component-style color-scheme="@Model.ColorScheme" corner-style="@Model.CornerStyle" class="tg-product">
-    @* image *@
-    @if (Model.ProductImage != null && !string.IsNullOrEmpty(Model.ProductImage.FilePath))
-    {
-        <div class="tg-product_img">
-            <img src="@Url.Content(Model.ProductImage.FilePath)" alt="@Model.ProductImage.AltText" />
-        </div>
-    }
-    <div class="p-3 @Model.ContentAlignmentClass">
-        @* title *@
-        <h3 class="mb-1">@Html.Raw(Model.Product.Name)</h3>
-        
-        @* short description *@
-        <p>@Html.Raw(Model.Product.ShortDescription)</p>
-
-        @* benefits *@
-        @foreach (var benefit in Model.Product.Benefits)
+    <a href="@Model.Product.Link.PagePath" target="@(Model.Product.Link.OpenInNewTab ? "_blank": "")" title="@Model.Product.Link.LinkTitleText">
+        @* image *@
+        @if (Model.ProductImage != null && !string.IsNullOrEmpty(Model.ProductImage.FilePath))
         {
-            <div class="tg-product_benefits c-icon-box mt-3 me-7">
-                <div class="c-icon-box_icon">
-                    @if (benefit.Asset != null)
-                    {
-                        <img src="@Url.Content(benefit.Asset.FilePath)" alt="@benefit.Asset.AltText" class="c-icon" />
-                    }
-                </div>
-                <div class="c-icon-box_body">
-                    @benefit.Description
-                </div>
+            <div class="tg-product_img">
+                <img src="@Url.Content(Model.ProductImage.FilePath)" alt="@Model.ProductImage.AltText" />
             </div>
         }
-        @* features *@
-        <div class="c-table">
-            @foreach (var feature in Model.Product.Features)
+        <div class="p-3 @Model.ContentAlignmentClass">
+            @* title *@
+            <h3 class="mb-1">@Html.Raw(Model.Product.Name)</h3>
+            
+            @* short description *@
+            <p>@Html.Raw(Model.Product.ShortDescription)</p>
+
+            @* benefits *@
+            @foreach (var benefit in Model.Product.Benefits)
             {
-                <div class="c-table_row">
-                    <div class="c-table_cell">
-                        <div class="c-table_cell">@feature.Label</div>
+                <div class="tg-product_benefits c-icon-box mt-3 me-7">
+                    <div class="c-icon-box_icon">
+                        @if (benefit.Asset != null)
+                        {
+                            <img src="@Url.Content(benefit.Asset.FilePath)" alt="@benefit.Asset.AltText" class="c-icon" />
+                        }
                     </div>
-                    <div class="c-table_cell text-end">
-                        <tg-product-feature-value feature="@feature"/>
+                    <div class="c-icon-box_body">
+                        @benefit.Description
                     </div>
                 </div>
             }
-        </div>
-        @* cta *@
-        @if (!string.IsNullOrEmpty(Model.CallToAction))
-        {
-            <div class="mt-1">
-                <a type="submit" class="btn text-uppercase @Model.CallToActionStyleClasses"
-                    target="@(Model.OpenInNewTab ? "_blank" : "")" href="@Model.Product.Url"
-                    title="@Model.Product.Header">@Model.CallToAction</a>
+            @* features *@
+            <div class="c-table">
+                @foreach (var feature in Model.Product.Features)
+                {
+                    <div class="c-table_row">
+                        <div class="c-table_cell">
+                            <div class="c-table_cell">@feature.Label</div>
+                        </div>
+                        <div class="c-table_cell text-end">
+                            <tg-product-feature-value feature="@feature"/>
+                        </div>
+                    </div>
+                }
             </div>
-        }
-    </div>
+            @* cta *@
+            @if (!string.IsNullOrEmpty(Model.Product.Link.CallToAction))
+            {
+                <div class="mt-1">
+                    <a type="submit" href="@Model.Product.Link.PagePath" class="btn text-uppercase @Model.CallToActionStyleClasses"
+                        target="@(Model.Product.Link.OpenInNewTab ? "_blank" : "")"
+                        title="@Model.Product.Link.Name">@Model.Product.Link.CallToAction</a>
+                </div>
+            }
+        </div>
+    </a>
 </tg-component-style>
-@* </a> *@

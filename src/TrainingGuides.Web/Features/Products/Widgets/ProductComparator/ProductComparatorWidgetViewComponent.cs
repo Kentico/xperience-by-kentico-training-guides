@@ -112,19 +112,17 @@ public class ProductComparatorWidgetViewComponent : ViewComponent
 
         var linkComponent = new LinkViewModel()
         {
-            Page = webPageUrlRetriever.Retrieve(productPage, cancellationToken).Result.RelativePath
+            PagePath = webPageUrlRetriever.Retrieve(productPage, cancellationToken).Result.RelativePath,
+            CallToAction = properties.CallToAction ?? string.Empty
         };
 
         var model = new ProductPageViewModel
         {
             Name = new(product.ProductName),
             ShortDescription = new(product.ProductShortDescription),
-            Url = linkComponent.Page,
+            Url = linkComponent.PagePath,
             Features = product.ProductFeatures.Select(ProductFeaturesViewModel.GetViewModel).ToList(),
             Link = linkComponent,
-            CallToAction = !string.IsNullOrEmpty(properties.CallToAction)
-                ? properties.CallToAction
-                : string.Empty,
             Price = product.ProductPrice
         };
 
