@@ -1,8 +1,8 @@
-using TrainingGuides.Web.Features.Products.Widgets.Product;
-using Kentico.PageBuilder.Web.Mvc;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ViewComponents;
+using Kentico.PageBuilder.Web.Mvc;
 using TrainingGuides.Web.Features.Products.Models;
+using TrainingGuides.Web.Features.Products.Widgets.Product;
 using TrainingGuides.Web.Features.Shared.Services;
 
 [assembly: RegisterWidget(
@@ -19,10 +19,12 @@ public class ProductWidgetViewComponent : ViewComponent
 {
     public const string IDENTIFIER = "TrainingGuides.ProductWidget";
 
+    private const string ALIGN_LEFT_CLASS = "align-left";
+    private const string ALIGN_CENTER_CLASS = "align-center";
+    private const string ALIGN_RIGHT_CLASS = "align-right";
     private readonly IContentItemRetrieverService<ProductPage> productRetrieverService;
     private readonly IWebPageQueryResultMapper webPageQueryResultMapper;
     private readonly IComponentStyleEnumService componentStyleEnumService;
-
 
     public ProductWidgetViewComponent(
         IContentItemRetrieverService<ProductPage> productRetrieverService,
@@ -36,15 +38,24 @@ public class ProductWidgetViewComponent : ViewComponent
 
     public async Task<ViewViewComponentResult> InvokeAsync(ProductWidgetProperties properties)
     {
+        var model = await GetProductWidgetViewModel(properties);
+        return View("~/Features/Products/Widgets/Product/ProductWidget.cshtml", model);
+    }
+
+    private async Task<ProductWidgetViewModel> GetProductWidgetViewModel(ProductWidgetProperties properties)
+    {
+        if (properties == null)
+            return new ProductWidgetViewModel();
+
         var guid = properties.SelectedProductPage?.Select(webPage => webPage.WebPageGuid).FirstOrDefault();
         var product = guid.HasValue
             ? await GetProduct(guid.Value, properties)
             : null;
 
         var callToActionStyleClasses = componentStyleEnumService.GetColorSchemeClasses(
-            componentStyleEnumService.GetColorScheme(properties?.CallToActionStyle ?? string.Empty));
+            componentStyleEnumService.GetColorScheme(properties.CallToActionStyle ?? string.Empty));
 
-        var model = new ProductWidgetViewModel()
+        return new ProductWidgetViewModel()
         {
             Product = product!,
             ShowProductFeatures = properties.ShowProductFeatures,
@@ -55,11 +66,15 @@ public class ProductWidgetViewComponent : ViewComponent
             ColorScheme = properties.ColorScheme,
             CornerStyle = properties.CornerStyle,
             ImagePosition = properties.ImagePosition,
-            TextAlignment = properties.TextAlignment,
+            ContentAlignmentClass = properties.TextAlignment switch
+            {
+                nameof(ContentAlignmentOption.Left) => ALIGN_LEFT_CLASS,
+                nameof(ContentAlignmentOption.Center) => ALIGN_CENTER_CLASS,
+                nameof(ContentAlignmentOption.Right) => ALIGN_RIGHT_CLASS,
+                _ => ALIGN_LEFT_CLASS
+            },
             CallToActionStyleClasses = string.Join(" ", callToActionStyleClasses)
         };
-
-        return View("~/Features/Products/Widgets/Product/ProductWidget.cshtml", model);
     }
 
     private async Task<ProductPageViewModel?> GetProduct(Guid guid, ProductWidgetProperties properties)
@@ -75,8 +90,9 @@ public class ProductWidgetViewComponent : ViewComponent
                 productPage: productPage,
                 getMedia: properties.ShowProductImage,
                 getFeatures: properties.ShowProductFeatures,
+                getBenefits: properties.ShowProductBenefits,
                 getCallToAction: false,
-                getPrice: false)
+                getPrice: properties.ShowProductFeatures)
             : null;
     }
 }

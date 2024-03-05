@@ -14,14 +14,13 @@ public class ProductPageViewModel : PageViewModel
     public string? CallToAction { get; set; } = null!;
     public decimal Price { get; set; }
     public List<ProductFeaturesViewModel> Features { get; set; } = [];
-
-    public static ProductPageViewModel GetViewModel(ProductPage productPage)
-        => GetViewModel(productPage);
+    public List<BenefitViewModel> Benefits { get; set; } = [];
 
     public static ProductPageViewModel GetViewModel(
         ProductPage productPage,
         bool getMedia = true,
         bool getFeatures = true,
+        bool getBenefits = true,
         bool getCallToAction = true,
         bool getPrice = true)
     {
@@ -45,7 +44,12 @@ public class ProductPageViewModel : PageViewModel
             CallToAction = getCallToAction ? "See more" : null,
             Features = getFeatures
                 ? productPage.ProductPageProduct.FirstOrDefault()?.ProductFeatures
-                    .Select(feature => ProductFeaturesViewModel.GetViewModel(feature))
+                    .Select(ProductFeaturesViewModel.GetViewModel)
+                    .ToList() ?? []
+                : [],
+            Benefits = getBenefits
+                ? productPage.ProductPageProduct.FirstOrDefault()?.ProductBenefits
+                    .Select(BenefitViewModel.GetViewModel)
                     .ToList() ?? []
                 : [],
             Price = getPrice ? productPage.ProductPageProduct.FirstOrDefault()?.ProductPrice ?? 0 : 0,

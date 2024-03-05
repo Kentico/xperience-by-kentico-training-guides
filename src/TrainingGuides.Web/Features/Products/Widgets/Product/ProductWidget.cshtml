@@ -22,41 +22,61 @@
     return;
 }
 
-@* <a href="@Model.Product.Url" class="c-card-anchor" target="@(Model.OpenInNewTab ? "_blank": "")" title="@Model.Product.Link?.LinkTitleText"> *@
-    <tg-component-style color-scheme="@Model.ColorScheme" corner-style="@Model.CornerStyle" class="c-section default">
-        @* image *@
-        @if (Model.ProductImage != null && !string.IsNullOrEmpty(Model.ProductImage.FilePath))
+@* <a href="@Model.Product.Url" class="c-card-anchor" target="@(Model.OpenInNewTab ? "_blank": "")"
+title="@Model.Product.Link?.LinkTitleText"> *@
+<tg-component-style color-scheme="@Model.ColorScheme" corner-style="@Model.CornerStyle" class="tg-product">
+    @* image *@
+    @if (Model.ProductImage != null && !string.IsNullOrEmpty(Model.ProductImage.FilePath))
+    {
+        <div class="tg-product_img">
+            <img src="@Url.Content(Model.ProductImage.FilePath)" alt="@Model.ProductImage.AltText" />
+        </div>
+    }
+    <div class="p-3 @Model.ContentAlignmentClass">
+        @* title *@
+        <h3 class="mb-1">@Html.Raw(Model.Product.Name)</h3>
+        
+        @* short description *@
+        <p>@Html.Raw(Model.Product.ShortDescription)</p>
+
+        @* benefits *@
+        @foreach (var benefit in Model.Product.Benefits)
         {
-            <div class="c-card_img c-hero_canvas_img">
-                <img src="@Url.Content(Model.ProductImage.FilePath)" alt="@Model.ProductImage.AltText" />
+            <div class="tg-product_benefits c-icon-box mt-3 me-7">
+                <div class="c-icon-box_icon">
+                    @if (benefit.Asset != null)
+                    {
+                        <img src="@Url.Content(benefit.Asset.FilePath)" alt="@benefit.Asset.AltText" class="c-icon" />
+                    }
+                </div>
+                <div class="c-icon-box_body">
+                    @benefit.Description
+                </div>
             </div>
         }
-        <div class="p2">
-            @* title *@
-            <h3 class="mb-0">@Html.Raw(Model.Product.Name)</h3>
-            @* short description *@
-            <p class="mt-5 mb-0">@Html.Raw(Model.Product.ShortDescription)</p>
-            @* features *@
-            <div class="c-table">
-                @foreach (var feature in Model.Product.Features)
-                {
-                    <div class="c-table_row">
-                        <div class="c-table_cell"><div class="c-table_cell">@Html.Raw(@feature.Label)</div></div>
-                        <div class="c-table_cell text-end">
-                            <svg class="c-icon">
-                                <use xlink:href="@baseUrl/assets/img/icons.svg#check"></use>
-                            </svg>                    
-                        </div>
-                    </div>
-                }
-            </div>
-            @* cta *@
-            @if (!string.IsNullOrEmpty(Model.CallToAction))
+        @* features *@
+        <div class="c-table">
+            @foreach (var feature in Model.Product.Features)
             {
-                <div class="mt-4">
-                    <a type="submit" class="btn text-uppercase @Model.CallToActionStyleClasses" target="@(Model.OpenInNewTab ? "_blank" : "")" href="@Model.Product.Url" title="@Model.Product.Header">@Model.CallToAction</a>
+                <div class="c-table_row">
+                    <div class="c-table_cell">
+                        <div class="c-table_cell">@feature.Label</div>
+                    </div>
+                    <div class="c-table_cell text-end">
+                        <tg-product-feature-value feature="@feature"/>
+                    </div>
                 </div>
             }
         </div>
-    </tg-component-style>
+        @* cta *@
+        @if (!string.IsNullOrEmpty(Model.CallToAction))
+        {
+            <div class="mt-1">
+                <a type="submit" class="btn text-uppercase @Model.CallToActionStyleClasses"
+                    target="@(Model.OpenInNewTab ? "_blank" : "")" href="@Model.Product.Url"
+                    title="@Model.Product.Header">@Model.CallToAction</a>
+            </div>
+        }
+    </div>
+</tg-component-style>
 @* </a> *@

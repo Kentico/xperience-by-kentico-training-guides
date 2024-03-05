@@ -14,7 +14,7 @@ public class ProductWidgetViewModel
     public string? ColorScheme { get; set; }
     public string? CornerStyle { get; set; }
     public string? ImagePosition { get; set; }
-    public string? TextAlignment { get; set; }
+    public string? ContentAlignmentClass { get; set; }
     public string? CallToActionStyleClasses { get; set; }
 
 

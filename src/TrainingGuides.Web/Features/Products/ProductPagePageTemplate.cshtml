@@ -41,25 +41,7 @@
                                 <div class="c-table_row">
                                     <div class="c-table_cell"><div class="c-table_cell">@feature.Label</div></div>
                                     <div class="c-table_cell text-end">
-                                        @if (feature.ValueType == ProductFeatureValueType.Text)
-                                        {
-                                            @feature.Value
-                                        }
-                                        @if (feature.ValueType == ProductFeatureValueType.Number)
-                                        {
-                                            @string.Format(CultureInfo.CurrentUICulture, "{0:0.00}", @feature.Price)
-                                        }
-                                        @if (feature.ValueType == ProductFeatureValueType.Boolean)
-                                        {
-                                            @if (feature.FeatureIncluded)
-                                            {
-                                                <span>✔</span>
-                                            }
-                                            else
-                                            {
-                                                <span>-</span>
-                                            }
-                                        }
+                                        <tg-product-feature-value feature="@feature"/>
                                     </div>
                                 </div>
                             }

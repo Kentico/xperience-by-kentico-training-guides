@@ -1454,6 +1454,38 @@
     padding: 2rem;
   }
 }
+.tg-product {
+  overflow: hidden;
+}
+.tg-product .tg-product_img img {
+  width: 100%;
+  max-height: 10rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.tg-product .tg-product_benefits {
+  display: flex;
+}
+.tg-product .align-left {
+  text-align: left;
+}
+.tg-product .align-left .tg-product_benefits {
+  flex-direction: row;
+}
+.tg-product .align-center {
+  text-align: center;
+}
+.tg-product .align-center .tg-product_benefits {
+  text-align: left;
+  flex-direction: row;
+}
+.tg-product .align-right {
+  text-align: right;
+}
+.tg-product .align-right .tg-product_benefits {
+  flex-direction: row-reverse;
+}
+
 .t-default {
   background: white;
   color: #1e1a1b;

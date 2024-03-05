@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.productpage>
+  <ContentItemDataCommonDataID>
+    <GUID>076028f1-56f1-4300-87dc-ab6fa67e115c</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>ProductA-wn6z15b1</CodeName>
+      <GUID>747cdc07-b3e2-420e-aa21-cfc8750a78fc</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>5c3fd3af-c018-4721-b938-ddcf277de361</ContentItemDataGUID>
+  <ProductPageProduct>
+    <![CDATA[[{"Identifier":"d4d2f50a-b417-42d6-a600-4da7357a28db"}]]]>
+  </ProductPageProduct>
+</contentitemdata.trainingguides.productpage>

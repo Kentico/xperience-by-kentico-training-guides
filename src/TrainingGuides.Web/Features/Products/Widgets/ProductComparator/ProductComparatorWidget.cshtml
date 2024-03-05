@@ -84,33 +84,33 @@ else {
                                         var productFeature = @item.Features.FirstOrDefault(f => f.Key == feature.Key);
                                         }
                                         @if (productFeature != null)
-                                    {
-                                        if (productFeature.ValueType == ProductFeatureValueType.Text)
                                         {
-                                            @productFeature.Value
-                                        }
-                                        if (productFeature.ValueType == ProductFeatureValueType.Number)
-                                        {
-                                            <span>@string.Format(CultureInfo.CurrentUICulture, "{0:0.00}", @productFeature.Price)</span>
-                                        }
-                                        if (productFeature.ValueType == ProductFeatureValueType.Boolean)
-                                        {
-                                            if (productFeature.FeatureIncluded)
+                                            if (productFeature.ValueType == ProductFeatureValueType.Text)
                                             {
-                                                    <svg class="c-icon">
-                                                    <use xlink:href="@Model.CheckboxIconUrl"></use>
-                                                    </svg>
+                                                @productFeature.Value
                                             }
-                                            else
+                                            if (productFeature.ValueType == ProductFeatureValueType.Number)
                                             {
-                                                    <span>-</span>
+                                                <span>@string.Format(CultureInfo.CurrentUICulture, "{0:0.00}", @productFeature.Price)</span>
+                                            }
+                                            if (productFeature.ValueType == ProductFeatureValueType.Boolean)
+                                            {
+                                                if (productFeature.FeatureIncluded)
+                                                {
+                                                        <svg class="c-icon">
+                                                        <use xlink:href="@Model.CheckboxIconUrl"></use>
+                                                        </svg>
+                                                }
+                                                else
+                                                {
+                                                        <span>-</span>
+                                                }
                                             }
                                         }
-                                    }
-                                    else
-                                    {
-                                            <span>-</span>
-                                    }
+                                        else
+                                        {
+                                                <span>-</span>
+                                        }
                                     </div>
                             }
                                 <div class="c-products-grid_col gap"></div>
