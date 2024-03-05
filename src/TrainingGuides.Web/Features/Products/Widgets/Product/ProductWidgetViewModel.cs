@@ -14,6 +14,7 @@ public class ProductWidgetViewModel
     public string? ImagePosition { get; set; }
     public string? ContentAlignmentClass { get; set; }
     public string? CallToActionStyleClasses { get; set; }
+    public bool ShowDropShadow { get; set; }
 
 
     // can be extracted into a parent class and have ProductWidgetViewModel inherit from it

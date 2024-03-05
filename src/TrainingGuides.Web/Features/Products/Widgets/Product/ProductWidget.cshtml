@@ -22,7 +22,7 @@
     return;
 }
 
-<tg-component-style color-scheme="@Model.ColorScheme" corner-style="@Model.CornerStyle" class="tg-product">
+<tg-component-style color-scheme="@Model.ColorScheme" corner-style="@Model.CornerStyle" drop-shadow="@Model.ShowDropShadow" class="tg-product">
     <a href="@Model.Product.Link.PagePath" target="@(Model.Product.Link.OpenInNewTab ? "_blank": "")" title="@Model.Product.Link.LinkTitleText">
         @* image *@
         @if (Model.ProductImage != null && !string.IsNullOrEmpty(Model.ProductImage.FilePath))

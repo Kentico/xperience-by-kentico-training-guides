@@ -76,7 +76,8 @@ public class ProductWidgetViewComponent : ViewComponent
                 nameof(ContentAlignmentOption.Right) => ALIGN_RIGHT_CLASS,
                 _ => ALIGN_LEFT_CLASS
             },
-            CallToActionStyleClasses = string.Join(" ", callToActionStyleClasses)
+            CallToActionStyleClasses = string.Join(" ", callToActionStyleClasses),
+            ShowDropShadow = properties.DropShadow
         };
     }
 

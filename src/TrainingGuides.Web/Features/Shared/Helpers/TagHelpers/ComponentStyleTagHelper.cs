@@ -11,6 +11,11 @@ public class ComponentStyleTagHelper : TagHelper
 {
     public string? ColorScheme { get; set; }
     public string? CornerStyle { get; set; }
+    public bool DropShadow { get; set; } = false;
+
+    private const string DIV_TAG = "div";
+
+    private readonly IEnumerable<string> SHADOW_BOOTSTRAP_CLASSES = new List<string> { "shadow", "m-3" };
 
     private readonly IComponentStyleEnumService componentStyleEnumService;
 
@@ -20,7 +25,7 @@ public class ComponentStyleTagHelper : TagHelper
     }
     public override void Process(TagHelperContext context, TagHelperOutput output)
     {
-        output.TagName = "div";
+        output.TagName = DIV_TAG;
 
         List<string> cssClasses = [];
 
@@ -29,6 +34,9 @@ public class ComponentStyleTagHelper : TagHelper
 
         var cornerStyle = componentStyleEnumService.GetCornerStyle(CornerStyle ?? string.Empty);
         cssClasses.AddRange(componentStyleEnumService.GetCornerStyleClasses(cornerStyle));
+
+        if(DropShadow)
+            cssClasses.AddRange(SHADOW_BOOTSTRAP_CLASSES);
 
         if (cssClasses.Count > 0)
         {
