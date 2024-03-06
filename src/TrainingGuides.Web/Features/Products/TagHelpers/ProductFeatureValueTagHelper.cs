@@ -16,7 +16,7 @@ namespace TrainingGuides.Web.Features.Products.TagHelpers;
 public class ProductFeatureValueTagHelper : TagHelper
 {
     private readonly IHttpContextAccessor accessor;
-    public ProductFeaturesViewModel? Feature { get; set; }
+    public ProductFeatureViewModel? Feature { get; set; }
 
     private const string OPENING_TAG = "<span>";
     private const string CLOSING_TAG = "</span>";

@@ -11,6 +11,6 @@ public class ProductPageViewModel : PageViewModel
     public List<AssetViewModel> Media { get; set; } = [];
     public LinkViewModel? Link { get; set; }
     public decimal Price { get; set; }
-    public List<ProductFeaturesViewModel> Features { get; set; } = [];
+    public List<ProductFeatureViewModel> Features { get; set; } = [];
     public List<BenefitViewModel> Benefits { get; set; } = [];
 }

@@ -90,7 +90,7 @@ public class ProductComparatorWidgetViewComponent : ViewComponent
                 Name = new("Error"),
                 Features =
                 [
-                    new ProductFeaturesViewModel
+                    new ProductFeatureViewModel
                     {
                         Key = "error",
                         Name = "Error",
@@ -121,7 +121,7 @@ public class ProductComparatorWidgetViewComponent : ViewComponent
             Name = new(product.ProductName),
             ShortDescription = new(product.ProductShortDescription),
             Url = linkComponent.PagePath,
-            Features = product.ProductFeatures.Select(ProductFeaturesViewModel.GetViewModel).ToList(),
+            Features = product.ProductFeatures.Select(ProductFeatureViewModel.GetViewModel).ToList(),
             Link = linkComponent,
             Price = product.ProductPrice
         };
@@ -129,7 +129,7 @@ public class ProductComparatorWidgetViewComponent : ViewComponent
         if (properties.ShowPrice)
         {
             model.Features.Add(
-                new ProductFeaturesViewModel
+                new ProductFeatureViewModel
                 {
                     Key = "price-from-product-content-item",
                     Name = "Price",

@@ -2,7 +2,7 @@
 
 namespace TrainingGuides.Web.Features.Products.Models;
 
-public class ProductFeaturesViewModel
+public class ProductFeatureViewModel
 {
     public string Key { get; set; } = null!;
     public string Name { get; set; } = null!;
@@ -13,7 +13,7 @@ public class ProductFeaturesViewModel
     public ProductFeatureValueType ValueType { get; set; }
     public bool ShowInComparator { get; set; }
 
-    public static ProductFeaturesViewModel GetViewModel(ProductFeature feature) => new()
+    public static ProductFeatureViewModel GetViewModel(ProductFeature feature) => new()
     {
         Key = feature.ProductFeatureKey,
         Name = feature.SystemFields.ContentItemName,
@@ -36,3 +36,13 @@ public class ProductFeaturesViewModel
         return ProductFeatureValueType.Text;
     }
 }
+
+public enum ProductFeatureValueType
+{
+    Text = 0,
+    Number = 1,
+    Boolean = 2
+}
+
+
+

@@ -30,6 +30,8 @@ public class ProductPageService : IProductPageService
         {
             return new ProductPageViewModel();
         }
+
+        string url = (await webPageUrlRetriever.Retrieve(productPage)).RelativePath;
         return new ProductPageViewModel
         {
             Name = new(productPage.ProductPageProduct.FirstOrDefault()?.ProductName),
@@ -41,13 +43,14 @@ public class ProductPageService : IProductPageService
             Link = new LinkViewModel()
             {
                 Name = productPage.ProductPageProduct.FirstOrDefault()?.ProductName ?? string.Empty,
-                PagePath = (await webPageUrlRetriever.Retrieve(productPage)).RelativePath,
+                PagePath = url,
                 CallToAction = callToActionText.IsNullOrEmpty() ? string.Empty : callToActionText,
                 OpenInNewTab = openInNewTab
             },
+            Url = url,
             Features = getFeatures
                 ? productPage.ProductPageProduct.FirstOrDefault()?.ProductFeatures
-                    .Select(ProductFeaturesViewModel.GetViewModel)
+                    .Select(ProductFeatureViewModel.GetViewModel)
                     .ToList() ?? []
                 : [],
             Benefits = getBenefits

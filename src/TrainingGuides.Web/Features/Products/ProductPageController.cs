@@ -43,7 +43,7 @@ public class ProductPageController : Controller
 
         var model = await productPageService.GetProductPageViewModel(productPage);
         model.Features.Add(
-                new ProductFeaturesViewModel
+                new ProductFeatureViewModel
                 {
                     Key = "price-from-product-content-item",
                     Name = "Price",
