@@ -120,10 +120,12 @@
 
 .tg-corner-rnd {
     border-radius: variables.$border-radius-rounded-corners;
+    overflow: hidden;
 }
 
 .tg-corner-v-rnd {
     border-radius: variables.$border-radius-very-rounded-corners;
+    overflow: hidden;
 }
 
 .tg-bg-primary {

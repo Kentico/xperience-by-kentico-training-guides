@@ -433,9 +433,7 @@
 
 .tg-product {
 
-    overflow: hidden;
-        
-    .tg-product_img img {
+    img.tg-product_img {
         width: 100%;
         max-height: 10rem;
         object-fit: cover;
@@ -474,5 +472,49 @@
     a:active { 
         text-decoration: none;
         color: inherit;
+    }
+
+    &.tg-layout-ascending,
+    &.tg-layout-descending {
+        margin:20px auto;
+        position: relative;
+        padding:10px;
+        background-color: transparent !important;
+        
+        .tg-product_main{
+            width: 70%;
+            margin-top: 8em !important;
+            position: relative;
+            z-index: 10;
+        }
+    
+        img.tg-product_img {
+            position:absolute;
+            width: 70%;           
+            max-height: 100%;
+            object-fit: cover;
+            top: 0;
+        }
+    }
+
+    &.tg-layout-ascending {
+        img.tg-product_img {
+            right: 0;
+        }
+        .tg-product_main {
+            margin-left: 0 !important; 
+            margin-right: auto !important;
+        }
+    }
+
+    &.tg-layout-descending {
+        img.tg-product_img {
+            left: 0;
+        }
+
+        .tg-product_main {
+            margin-left: auto !important; 
+            margin-right: 0 !important;
+        }
     }
 }

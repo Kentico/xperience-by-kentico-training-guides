@@ -9,12 +9,12 @@ public class ProductWidgetViewModel
     public bool ShowProductFeatures { get; set; }
     public AssetViewModel? ProductImage { get; set; }
     public bool ShowAdvanced { get; set; }
+    public string? ParentElementCssClasses { get; set; }
+    public string? MainContentElementCssClasses { get; set; }
+    public string? ImageElementCssClasses { get; set; }
     public string? ColorScheme { get; set; }
     public string? CornerStyle { get; set; }
-    public string? ImagePosition { get; set; }
-    public string? ContentAlignmentClass { get; set; }
-    public string? CallToActionStyleClasses { get; set; }
-    public bool ShowDropShadow { get; set; }
+    public string? CallToActionCssClasses { get; set; }
 
 
     // can be extracted into a parent class and have ProductWidgetViewModel inherit from it
