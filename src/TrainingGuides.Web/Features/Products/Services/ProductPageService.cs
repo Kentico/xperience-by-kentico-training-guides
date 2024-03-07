@@ -23,6 +23,7 @@ public class ProductPageService : IProductPageService
         bool getFeatures = true,
         bool getBenefits = true,
         string callToActionText = "",
+        string callToActionLink = "",
         bool openInNewTab = true,
         bool getPrice = true)
     {
@@ -31,7 +32,9 @@ public class ProductPageService : IProductPageService
             return new ProductPageViewModel();
         }
 
-        string url = (await webPageUrlRetriever.Retrieve(productPage)).RelativePath;
+        string url = callToActionLink.IsNullOrEmpty()
+            ? (await webPageUrlRetriever.Retrieve(productPage)).RelativePath
+            : callToActionLink;
         return new ProductPageViewModel
         {
             Name = new(productPage.ProductPageProduct.FirstOrDefault()?.ProductName),

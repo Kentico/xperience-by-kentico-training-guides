@@ -10,6 +10,7 @@ public interface IProductPageService
         bool getFeatures = true,
         bool getBenefits = true,
         string callToAction = "",
+        string? callToActionLink = "",
         bool openInNewTab = true,
         bool getPrice = true);
 }

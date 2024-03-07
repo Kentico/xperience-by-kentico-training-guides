@@ -5,7 +5,7 @@ namespace TrainingGuides.Web.Features.Products.Widgets.Product;
 
 public class ProductWidgetViewModel
 {
-    public ProductPageViewModel Product { get; set; } = null!;
+    public ProductPageViewModel? Product { get; set; }
     public bool ShowProductFeatures { get; set; }
     public AssetViewModel? ProductImage { get; set; }
     public bool ShowAdvanced { get; set; }

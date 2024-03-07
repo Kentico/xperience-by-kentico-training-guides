@@ -1,12 +1,14 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ViewComponents;
+using Microsoft.IdentityModel.Tokens;
 using CMS.Helpers;
+using Kentico.Content.Web.Mvc;
 using Kentico.PageBuilder.Web.Mvc;
 using TrainingGuides.Web.Features.Products.Models;
 using TrainingGuides.Web.Features.Products.Services;
 using TrainingGuides.Web.Features.Products.Widgets.Product;
-using TrainingGuides.Web.Features.Shared.Services;
 using TrainingGuides.Web.Features.Shared.OptionProviders.CornerStyle;
+using TrainingGuides.Web.Features.Shared.Services;
 
 [assembly: RegisterWidget(
     identifier: ProductWidgetViewComponent.IDENTIFIER,
@@ -28,19 +30,21 @@ public class ProductWidgetViewComponent : ViewComponent
     private readonly IContentItemRetrieverService<ProductPage> productRetrieverService;
     private readonly IWebPageQueryResultMapper webPageQueryResultMapper;
     private readonly IComponentStyleEnumService componentStyleEnumService;
-
     private readonly IProductPageService productPageService;
+    private readonly IWebPageDataContextRetriever webPageDataContextRetriever;
 
     public ProductWidgetViewComponent(
         IContentItemRetrieverService<ProductPage> productRetrieverService,
         IWebPageQueryResultMapper webPageQueryResultMapper,
         IComponentStyleEnumService componentStyleEnumService,
-        IProductPageService productPageService)
+        IProductPageService productPageService,
+        IWebPageDataContextRetriever webPageDataContextRetriever)
     {
         this.productRetrieverService = productRetrieverService;
         this.webPageQueryResultMapper = webPageQueryResultMapper;
         this.componentStyleEnumService = componentStyleEnumService;
         this.productPageService = productPageService;
+        this.webPageDataContextRetriever = webPageDataContextRetriever;
     }
 
     public async Task<ViewViewComponentResult> InvokeAsync(ProductWidgetProperties properties)
@@ -54,16 +58,13 @@ public class ProductWidgetViewComponent : ViewComponent
         if (properties == null)
             return new ProductWidgetViewModel();
 
-        var guid = properties.SelectedProductPage?.Select(webPage => webPage.WebPageGuid).FirstOrDefault();
-        var product = guid.HasValue
-            ? await GetProduct(guid.Value, properties)
-            : null;
+        var productPageViewModel = await GetProductPageViewModel(properties);
 
         return new ProductWidgetViewModel()
         {
-            Product = product!,
+            Product = productPageViewModel,
             ShowProductFeatures = properties.ShowProductFeatures,
-            ProductImage = properties.ShowProductImage ? product?.Media.FirstOrDefault() : null,
+            ProductImage = properties.ShowProductImage ? productPageViewModel?.Media.FirstOrDefault() : null,
             ShowAdvanced = properties.ShowAdvanced,
             ColorScheme = properties.ColorScheme,
             CornerStyle = IsFullSizeImageLayout(properties.ImagePosition)
@@ -78,13 +79,39 @@ public class ProductWidgetViewComponent : ViewComponent
         };
     }
 
-    private async Task<ProductPageViewModel?> GetProduct(Guid guid, ProductWidgetProperties properties)
+    private async Task<ProductPage?> GetProductPage(ProductWidgetProperties properties)
     {
-        var productPage = await productRetrieverService.RetrieveWebPageByGuid(
-                            guid,
-                            ProductPage.CONTENT_TYPE_NAME,
-                            webPageQueryResultMapper.Map<ProductPage>,
-                            4);
+        ProductPage? productPage;
+
+        if (properties.Mode.Equals(ProductWidgetMode.CURRENT_PAGE))
+        {
+            productPage = await productRetrieverService
+                .RetrieveWebPageById(webPageDataContextRetriever.Retrieve().WebPage.WebPageItemID,
+                    ProductPage.CONTENT_TYPE_NAME,
+                    webPageQueryResultMapper.Map<ProductPage>,
+                    3);
+        }
+        else
+        {
+            var guid = properties.SelectedProductPage?.Select(webPage => webPage.WebPageGuid).FirstOrDefault();
+
+            productPage = guid.HasValue
+                ? await productRetrieverService.RetrieveWebPageByGuid(
+                    guid,
+                    ProductPage.CONTENT_TYPE_NAME,
+                    webPageQueryResultMapper.Map<ProductPage>,
+                    4)
+                : null;
+        }
+
+        return productPage;
+    }
+    private async Task<ProductPageViewModel?> GetProductPageViewModel(ProductWidgetProperties properties)
+    {
+        var productPage = await GetProductPage(properties);
+
+        if (!properties.PageAnchor.IsNullOrEmpty())
+            properties.PageAnchor = properties.PageAnchor!.StartsWith('#') ? properties.PageAnchor : $"#{properties.PageAnchor}";
 
         return productPage != null
             ? await productPageService.GetProductPageViewModel(
@@ -93,6 +120,7 @@ public class ProductWidgetViewComponent : ViewComponent
                 getFeatures: properties.ShowProductFeatures,
                 getBenefits: properties.ShowProductBenefits,
                 callToAction: properties.CallToAction,
+                callToActionLink: properties.PageAnchor,
                 openInNewTab: properties.OpenInNewTab,
                 getPrice: properties.ShowProductFeatures)
             : null;

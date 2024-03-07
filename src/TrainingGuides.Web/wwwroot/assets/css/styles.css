@@ -1484,20 +1484,19 @@
   color: inherit;
 }
 .tg-product.tg-layout-ascending, .tg-product.tg-layout-descending {
-  margin: 20px auto;
   position: relative;
-  padding: 10px;
+  padding: 1rem;
   background-color: transparent !important;
 }
 .tg-product.tg-layout-ascending .tg-product_main, .tg-product.tg-layout-descending .tg-product_main {
-  width: 70%;
-  margin-top: 8em !important;
+  width: 65%;
+  margin-top: 35% !important;
   position: relative;
   z-index: 10;
 }
 .tg-product.tg-layout-ascending img.tg-product_img, .tg-product.tg-layout-descending img.tg-product_img {
   position: absolute;
-  width: 70%;
+  width: 65%;
   max-height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
