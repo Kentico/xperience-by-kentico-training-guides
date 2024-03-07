@@ -2,7 +2,6 @@ using Kentico.PageBuilder.Web.Mvc;
 using Microsoft.AspNetCore.Mvc;
 using TrainingGuides.Web.Features.Shared.OptionProviders.ColumnLayout;
 using TrainingGuides.Web.Features.Shared.Sections.General;
-using TrainingGuides.Web.Features.Shared.Services;
 
 [assembly: RegisterSection(
     identifier: GeneralSectionViewComponent.IDENTIFIER,

@@ -53,11 +53,11 @@
             {
                 <div class="tg-product_benefits c-icon-box mt-1 me-7">
                     <div class="c-icon-box_icon">
-                        @if (benefit.Asset != null)
+                        @if (benefit.Icon != null)
                         {
                             <img
-                                src="@Url.Content(benefit.Asset.FilePath)"
-                                alt="@benefit.Asset.AltText" class="c-icon" />
+                                src="@Url.Content(benefit.Icon.FilePath)"
+                                alt="@benefit.Icon.AltText" class="c-icon" />
                         }
                     </div>
                     <div class="c-icon-box_body">
