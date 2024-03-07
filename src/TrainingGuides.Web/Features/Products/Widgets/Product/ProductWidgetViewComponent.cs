@@ -73,7 +73,7 @@ public class ProductWidgetViewComponent : ViewComponent
             MainContentElementCssClasses = GetMainContentElementCssClasses(properties).Join(" "),
             ImageElementCssClasses = GetImageElementCssClasses(properties).Join(" "),
             CallToActionCssClasses = componentStyleEnumService
-                .GetColorSchemeClasses(componentStyleEnumService.GetColorScheme(properties.CallToActionStyle ?? string.Empty))
+                .GetColorSchemeClasses(componentStyleEnumService.GetLinkStyle(properties.CallToActionStyle ?? string.Empty))
                 .Join(" ")
         };
     }

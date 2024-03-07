@@ -13,8 +13,8 @@ public class ComponentStyleEnumService : IComponentStyleEnumService
         ColorSchemeOption.Dark1 => ["tg-bg-primary", "tg-txt-light"],
         ColorSchemeOption.Dark2 => ["tg-bg-secondary", "tg-txt-light"],
         ColorSchemeOption.TransparentLight => ["tg-bg-none", "tg-txt-light"],
-        ColorSchemeOption.TransparentDark or
-        ColorSchemeOption.Auto => ["tg-bg-none", "tg-txt-dark"],
+        ColorSchemeOption.TransparentMedium => ["tg-bg-none", "tg-txt-medium"],
+        ColorSchemeOption.TransparentDark => ["tg-bg-none", "tg-txt-dark"],
         _ => [string.Empty],
     };
 
@@ -44,5 +44,15 @@ public class ComponentStyleEnumService : IComponentStyleEnumService
         }
 
         return colorScheme;
+    }
+
+    public ColorSchemeOption GetLinkStyle(string linkStyleString)
+    {
+        if (!Enum.TryParse(linkStyleString, out LinkStyleOption colorScheme))
+        {
+            colorScheme = LinkStyleOption.TransparentDark;
+        }
+
+        return (ColorSchemeOption)colorScheme;
     }
 }

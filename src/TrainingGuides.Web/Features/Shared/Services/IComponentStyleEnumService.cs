@@ -12,4 +12,6 @@ public interface IComponentStyleEnumService
     CornerStyleOption GetCornerStyle(string cornerStyleString);
 
     ColorSchemeOption GetColorScheme(string colorSchemeString);
+
+    ColorSchemeOption GetLinkStyle(string linkStyleString);
 }

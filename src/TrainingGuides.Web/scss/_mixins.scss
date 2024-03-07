@@ -1,7 +1,6 @@
 @use 'variables';
 
 @mixin button-mixin ($background-color: variables.$color-secondary) {
-    margin: 1.5rem 0 !important;
     background-color: $background-color !important;
     color: variables.$color-light !important;
     border: none !important;

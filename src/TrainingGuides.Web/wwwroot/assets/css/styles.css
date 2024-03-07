@@ -103,7 +103,6 @@
 }
 
 .tg-btn-primary {
-  margin: 1.5rem 0 !important;
   background-color: #8107c1 !important;
   color: white !important;
   border: none !important;
@@ -120,7 +119,6 @@
 }
 
 .tg-btn-secondary {
-  margin: 1.5rem 0 !important;
   background-color: #f0561a !important;
   color: white !important;
   border: none !important;
@@ -137,7 +135,6 @@
 }
 
 .btn.tg-bg-primary, .btn.tg-bg-primary:hover {
-  margin: 1.5rem 0 !important;
   background-color: #8107c1 !important;
   color: white !important;
   border: none !important;
@@ -153,7 +150,6 @@
   text-transform: uppercase !important;
 }
 .btn.tg-bg-secondary, .btn.tg-bg-secondary:hover {
-  margin: 1.5rem 0 !important;
   background-color: #f0561a !important;
   color: white !important;
   border: none !important;
@@ -169,7 +165,6 @@
   text-transform: uppercase !important;
 }
 .btn.tg-bg-none, .btn.tg-bg-none:hover {
-  margin: 1.5rem 0 !important;
   background-color: none !important;
   color: white !important;
   border: none !important;
@@ -185,7 +180,6 @@
   text-transform: uppercase !important;
 }
 .btn.tg-bg-light-1, .btn.tg-bg-light-1:hover {
-  margin: 1.5rem 0 !important;
   background-color: white !important;
   color: white !important;
   border: none !important;
@@ -201,7 +195,6 @@
   text-transform: uppercase !important;
 }
 .btn.tg-bg-light-2:hover {
-  margin: 1.5rem 0 !important;
   background-color: #efe6f9 !important;
   color: white !important;
   border: none !important;
@@ -217,7 +210,6 @@
   text-transform: uppercase !important;
 }
 .btn.tg-bg-light-3, .btn.tg-bg-light-3:hover {
-  margin: 1.5rem 0 !important;
   background-color: #ebf5ff !important;
   color: white !important;
   border: none !important;
@@ -232,11 +224,14 @@
   padding: 0.9375rem 2rem !important;
   text-transform: uppercase !important;
 }
-.btn.tg-txt-light {
-  color: white;
+.btn.tg-txt-light, .btn.tg-txt-light:hover {
+  color: white !important;
 }
-.btn.tg-txt-dark {
-  color: #1e1a1b;
+.btn.tg-txt-medium, .btn.tg-txt-medium:hover {
+  color: #f0561a !important;
+}
+.btn.tg-txt-dark, .btn.tg-txt-dark:hover {
+  color: #1e1a1b !important;
 }
 
 .c-card {
@@ -839,7 +834,6 @@
 }
 
 .form form input[type=submit] {
-  margin: 1.5rem 0 !important;
   background-color: #f0561a !important;
   color: white !important;
   border: none !important;
@@ -1677,6 +1671,10 @@
 
 .tg-txt-light {
   color: white;
+}
+
+.tg-txt-medium {
+  color: #f0561a;
 }
 
 .tg-txt-dark {

@@ -4,9 +4,6 @@ namespace TrainingGuides.Web.Features.Shared.OptionsProviders.ColorScheme;
 
 public enum ColorSchemeOption
 {
-    [Description("Auto")]
-    Auto = 0,
-
     [Description("Light background, dark text")]
     Light1 = 1,
 
@@ -19,12 +16,15 @@ public enum ColorSchemeOption
     [Description("Transparent background, dark text")]
     TransparentDark = 4,
 
+    [Description("Transparent background, medium text")]
+    TransparentMedium = 5,
+
     [Description("Transparent background, light text")]
-    TransparentLight = 5,
+    TransparentLight = 6,
 
     [Description("Dark background, light text")]
-    Dark1 = 6,
+    Dark1 = 7,
 
     [Description("Dark background, light text 2")]
-    Dark2 = 7,
+    Dark2 = 8
 }

@@ -88,12 +88,12 @@ public class ProductWidgetProperties : IWidgetProperties
 
     [DropDownComponent(
         Label = "CTA button style",
-        DataProviderType = typeof(DropdownEnumOptionProvider<ColorSchemeOption>),
+        DataProviderType = typeof(DropdownEnumOptionProvider<LinkStyleOption>),
         Order = 130
     )]
     [VisibleIfTrue(nameof(ShowAdvanced))]
     [VisibleIfNotEmpty(nameof(CallToAction))]
-    public string? CallToActionStyle { get; set; } = nameof(ColorSchemeOption.Dark2);
+    public string? CallToActionStyle { get; set; } = nameof(LinkStyleOption.Medium);
 }
 
 public enum ImagePositionOption
