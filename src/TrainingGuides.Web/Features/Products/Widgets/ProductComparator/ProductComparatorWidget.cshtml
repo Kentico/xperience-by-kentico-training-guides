@@ -120,17 +120,20 @@ else {
                         <div class="c-products-grid_row no-hover">
                             <div class="c-products-grid_col th"></div>
                             @foreach (var item in Model.Products)
-                        {
+                            {
                                 <div class="c-products-grid_col">
-                                    <a
-                                        href="@Url.Content(item.Url)"
-                                        class="btn tg-btn-primary text-uppercase"
-                                        title="@item.Link?.LinkTitleText"
-                                        target="@(item.Link !=null && item.Link.OpenInNewTab ? "_blank": "")">
-                                        @item.Link.CallToAction
-                                    </a>
+                                    @if(item.Link != null && !string.IsNullOrEmpty(item.Link.CallToAction))
+                                    {
+                                        <a
+                                            href="@Url.Content(item.Link.LinkUrl)"
+                                            class="btn tg-btn-primary text-uppercase"
+                                            title="@item.Link.LinkTitleText"
+                                            target="@(item.Link.OpenInNewTab ? "_blank": "")">
+                                            @item.Link.CallToAction
+                                        </a>
+                                    }
                                 </div>
-                        }
+                            }
 
                             <div class="c-products-grid_col gap"></div>
                         </div>

@@ -4,7 +4,7 @@ public class LinkViewModel
     public string Name { get; set; } = null!;
     public string CallToAction { get; set; } = null!;
     public string LinkTitleText { get; set; } = null!;
-    public string? PagePath { get; set; }
+    public string? LinkUrl { get; set; }
     public string? LinkToExternal { get; set; }
     public bool OpenInNewTab { get; set; }
 }

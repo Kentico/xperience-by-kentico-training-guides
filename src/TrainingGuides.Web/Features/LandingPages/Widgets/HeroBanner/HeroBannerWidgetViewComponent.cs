@@ -123,7 +123,7 @@ public class HeroBannerWidgetViewComponent : ViewComponent
 
                 if (banner?.Link != null)
                 {
-                    banner.CTALink = !string.IsNullOrEmpty(banner.Link.PagePath) ? banner!.Link.PagePath : banner.Link.LinkToExternal ?? string.Empty;
+                    banner.CTALink = !string.IsNullOrEmpty(banner.Link.LinkUrl) ? banner!.Link.LinkUrl : banner.Link.LinkToExternal ?? string.Empty;
                     banner.CTAText = !string.IsNullOrEmpty(properties?.CTA) ? properties.CTA : banner.Link.CallToAction;
                     banner.LinkTitle = banner.Link.LinkTitleText;
                 }
@@ -212,7 +212,7 @@ public class HeroBannerWidgetViewComponent : ViewComponent
             Benefits = hero.HeroBenefits.Select(BenefitViewModel.GetViewModel).ToList(),
             Link = new LinkViewModel()
             {
-                PagePath = url.RelativePath,
+                LinkUrl = url.RelativePath,
                 CallToAction = hero.HeroCallToAction
             },
             Media = media != null

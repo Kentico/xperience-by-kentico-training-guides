@@ -9,7 +9,6 @@ public class ProductPageViewModel : PageViewModel
     public HtmlString? ShortDescription { get; set; }
     public string? Description { get; set; }
     public List<AssetViewModel> Media { get; set; } = [];
-    public LinkViewModel? Link { get; set; }
     public decimal Price { get; set; }
     public List<ProductFeatureViewModel> Features { get; set; } = [];
     public List<BenefitViewModel> Benefits { get; set; } = [];

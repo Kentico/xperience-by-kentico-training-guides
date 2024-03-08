@@ -46,11 +46,10 @@ public class ProductPageService : IProductPageService
             Link = new LinkViewModel()
             {
                 Name = productPage.ProductPageProduct.FirstOrDefault()?.ProductName ?? string.Empty,
-                PagePath = url,
+                LinkUrl = url,
                 CallToAction = callToActionText.IsNullOrEmpty() ? string.Empty : callToActionText,
                 OpenInNewTab = openInNewTab
             },
-            Url = url,
             Features = getFeatures
                 ? productPage.ProductPageProduct.FirstOrDefault()?.ProductFeatures
                     .Select(ProductFeatureViewModel.GetViewModel)
