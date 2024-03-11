@@ -15,7 +15,7 @@ public class ProductWidgetViewModel
     public string? ColorScheme { get; set; }
     public string? CornerStyle { get; set; }
     public string? CallToActionCssClasses { get; set; }
-
+    public bool IsImagePositionSide { get; set; } = false;
 
     // can be extracted into a parent class and have ProductWidgetViewModel inherit from it
     // see for example Product comparator or Hero banner widget view model

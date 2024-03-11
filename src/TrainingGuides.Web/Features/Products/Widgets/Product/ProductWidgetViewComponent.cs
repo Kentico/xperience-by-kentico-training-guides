@@ -7,8 +7,8 @@ using Kentico.PageBuilder.Web.Mvc;
 using TrainingGuides.Web.Features.Products.Models;
 using TrainingGuides.Web.Features.Products.Services;
 using TrainingGuides.Web.Features.Products.Widgets.Product;
-using TrainingGuides.Web.Features.Shared.OptionProviders.CornerStyle;
 using TrainingGuides.Web.Features.Shared.Services;
+using TrainingGuides.Web.Features.Shared.OptionProviders.CornerStyle;
 
 [assembly: RegisterWidget(
     identifier: ProductWidgetViewComponent.IDENTIFIER,
@@ -25,7 +25,8 @@ public class ProductWidgetViewComponent : ViewComponent
     public const string IDENTIFIER = "TrainingGuides.ProductWidget";
     private const string BS_DROP_SHADOW_CLASS = "shadow";
     private const string BS_MARGIN_CLASS = "m-3";
-    private const string BS_PADDING_CLASS = "p-3";
+    private const string BS_PADDING_CLASS_3 = "p-3";
+    private const string BS_PADDING_CLASS_5 = "p-5";
 
     private readonly IContentItemRetrieverService<ProductPage> productRetrieverService;
     private readonly IWebPageQueryResultMapper webPageQueryResultMapper;
@@ -67,12 +68,11 @@ public class ProductWidgetViewComponent : ViewComponent
             ProductImage = properties.ShowProductImage ? productPageViewModel?.Media.FirstOrDefault() : null,
             ShowAdvanced = properties.ShowAdvanced,
             ColorScheme = properties.ColorScheme,
-            CornerStyle = IsFullSizeImageLayout(properties.ImagePosition)
-                ? nameof(CornerStyleOption.Sharp)
-                : properties.CornerStyle,
+            CornerStyle = properties.CornerStyle,
             ParentElementCssClasses = GetParentElementCssClasses(properties).Join(" "),
             MainContentElementCssClasses = GetMainContentElementCssClasses(properties).Join(" "),
-            ImageElementCssClasses = GetImageElementCssClasses(properties).Join(" "),
+            ImageElementCssClasses = properties.ShowProductImage ? GetImageElementCssClasses(properties).Join(" ") : string.Empty,
+            IsImagePositionSide = IsImagePositionSide(properties.ImagePosition),
             CallToActionCssClasses = componentStyleEnumService
                 .GetColorSchemeClasses(componentStyleEnumService.GetLinkStyle(properties.CallToActionStyle ?? string.Empty))
                 .Join(" ")
@@ -129,6 +129,9 @@ public class ProductWidgetViewComponent : ViewComponent
     private List<string> GetParentElementCssClasses(ProductWidgetProperties properties)
     {
         const string PARENT_ELEMENT_BASE_CLASS = "tg-product";
+        const string LAYOUT_FULL_WIDTH_CLASS = "tg-layout-full-width";
+        const string LAYOUT_IMAGE_LEFT_CLASS = "tg-layout-image-left";
+        const string LAYOUT_IMAGE_RIGHT_CLASS = "tg-layout-image-right";
         const string LAYOUT_ASCENDING_CLASS = "tg-layout-ascending";
         const string LAYOUT_DESCENDING_CLASS = "tg-layout-descending";
 
@@ -138,46 +141,63 @@ public class ProductWidgetViewComponent : ViewComponent
         {
             string imagePositionCssClass = properties.ImagePosition switch
             {
+                nameof(ImagePositionOption.Left) => LAYOUT_IMAGE_LEFT_CLASS,
+                nameof(ImagePositionOption.Right) => LAYOUT_IMAGE_RIGHT_CLASS,
                 nameof(ImagePositionOption.Ascending) => LAYOUT_ASCENDING_CLASS,
                 nameof(ImagePositionOption.Descending) => LAYOUT_DESCENDING_CLASS,
-                nameof(ImagePositionOption.FullWidth) => string.Empty,
-                _ => string.Empty
+                nameof(ImagePositionOption.FullWidth) => LAYOUT_FULL_WIDTH_CLASS,
+                _ => LAYOUT_FULL_WIDTH_CLASS
             };
             cssClasses.Add(imagePositionCssClass);
+
+            if (IsImagePositionFullSize(properties.ImagePosition))
+            {
+                cssClasses.Add(BS_MARGIN_CLASS);
+
+                cssClasses.AddRange(
+                    componentStyleEnumService.GetCornerStyleClasses(
+                        componentStyleEnumService.GetCornerStyle(properties.CornerStyle!)));
+
+                if (properties.DropShadow)
+                    cssClasses.Add(BS_DROP_SHADOW_CLASS);
+            }
         }
 
-        if (IsFullSizeImageLayout(properties.ImagePosition))
-        {
-            cssClasses.Add(BS_MARGIN_CLASS);
-
-            cssClasses.AddRange(
-                componentStyleEnumService.GetCornerStyleClasses(
-                    componentStyleEnumService.GetCornerStyle(properties.CornerStyle!)));
-
-            if (properties.DropShadow)
-                cssClasses.Add(BS_DROP_SHADOW_CLASS);
-
-        }
         return cssClasses;
     }
 
     private List<string> GetMainContentElementCssClasses(ProductWidgetProperties properties)
     {
         const string MAIN_CONTENT_BASE_CSS_CLASS = "tg-product_main";
-        const string ALIGN_LEFT_CLASS = "align-left";
-        const string ALIGN_CENTER_CLASS = "align-center";
-        const string ALIGN_RIGHT_CLASS = "align-right";
+        const string ROUND_CORNERS_BOTTOM_ONLY_CLASS = "bottom-only";
+        const string TEXT_ALIGN_LEFT_CLASS = "align-left";
+        const string TEXT_ALIGN_CENTER_CLASS = "align-center";
+        const string TEXT_ALIGN_RIGHT_CLASS = "align-right";
 
-        List<string> cssClasses = [MAIN_CONTENT_BASE_CSS_CLASS, BS_PADDING_CLASS];
+        List<string> cssClasses = [MAIN_CONTENT_BASE_CSS_CLASS];
 
         cssClasses.AddRange(GetChildElementCssClasses(properties));
 
+        if (properties.ShowProductImage)
+        {
+            if (IsImagePositionSide(properties.ImagePosition))
+                cssClasses.Add(BS_PADDING_CLASS_5);
+            else
+                cssClasses.Add(BS_PADDING_CLASS_3);
+
+            if (IsImagePositionFullSize(properties.ImagePosition)
+                && HasRoundCorners(properties.CornerStyle))
+            {
+                cssClasses.Add(ROUND_CORNERS_BOTTOM_ONLY_CLASS);
+            }
+        }
+
         string textAlignmentClass = properties.TextAlignment switch
         {
-            nameof(ContentAlignmentOption.Left) => ALIGN_LEFT_CLASS,
-            nameof(ContentAlignmentOption.Center) => ALIGN_CENTER_CLASS,
-            nameof(ContentAlignmentOption.Right) => ALIGN_RIGHT_CLASS,
-            _ => ALIGN_LEFT_CLASS
+            nameof(ContentAlignmentOption.Left) => TEXT_ALIGN_LEFT_CLASS,
+            nameof(ContentAlignmentOption.Center) => TEXT_ALIGN_CENTER_CLASS,
+            nameof(ContentAlignmentOption.Right) => TEXT_ALIGN_RIGHT_CLASS,
+            _ => TEXT_ALIGN_LEFT_CLASS
         };
 
         cssClasses.Add(textAlignmentClass);
@@ -187,10 +207,24 @@ public class ProductWidgetViewComponent : ViewComponent
     private List<string> GetImageElementCssClasses(ProductWidgetProperties properties)
     {
         const string IMAGE_BASE_CSS_CLASS = "tg-product_img";
+        const string ROUND_CORNERS_TOP_ONLY_CLASS = "top-only";
+        List<string> imageLeftRightClasses = ["tg-col", "c-product-img", "object-fit-cover"];
 
         List<string> cssClasses = [IMAGE_BASE_CSS_CLASS];
 
         cssClasses.AddRange(GetChildElementCssClasses(properties));
+
+        if (IsImagePositionSide(properties.ImagePosition))
+        {
+            cssClasses.AddRange(imageLeftRightClasses);
+        }
+
+        if (IsImagePositionFullSize(properties.ImagePosition)
+        && HasRoundCorners(properties.CornerStyle))
+        {
+            cssClasses.Add(ROUND_CORNERS_TOP_ONLY_CLASS);
+        }
+
         return cssClasses;
     }
 
@@ -198,7 +232,7 @@ public class ProductWidgetViewComponent : ViewComponent
     {
         List<string> cssClasses = [];
 
-        if (!IsFullSizeImageLayout(properties.ImagePosition))
+        if (!IsImagePositionFullSize(properties.ImagePosition))
         {
             if (properties.DropShadow)
                 cssClasses.Add(BS_DROP_SHADOW_CLASS);
@@ -208,6 +242,12 @@ public class ProductWidgetViewComponent : ViewComponent
         return cssClasses;
     }
 
-    private bool IsFullSizeImageLayout(string? imagePosition) =>
-        imagePosition == null || imagePosition.Equals(nameof(ImagePositionOption.FullWidth));
+    private bool IsImagePositionFullSize(string? imagePosition) =>
+        Equals(imagePosition, nameof(ImagePositionOption.FullWidth));
+
+    private bool IsImagePositionSide(string? imagePosition) =>
+        Equals(imagePosition, nameof(ImagePositionOption.Left)) || Equals(imagePosition, nameof(ImagePositionOption.Right));
+
+    private bool HasRoundCorners(string? cornerStyle) =>
+        Equals(cornerStyle, nameof(CornerStyleOption.Round)) || Equals(cornerStyle, nameof(CornerStyleOption.VeryRound));
 }

@@ -1,9 +1,12 @@
 @using System.Globalization
 @using TrainingGuides.Web.Features.Products
 @using TrainingGuides.Web.Features.Products.Widgets.Product
-@using TrainingGuides.Web.Features.Shared.OptionProviders.Heading
-@using TrainingGuides.Web.Features.Shared.Services
 @using TrainingGuides.Web.Features.Products.Models
+@using TrainingGuides.Web.Features.Shared.OptionProviders.Heading
+@using TrainingGuides.Web.Features.Shared
+@using TrainingGuides.Web.Features.Shared.OptionProviders.ColumnLayout
+@using TrainingGuides.Web.Features.Shared.OptionsProviders.ColorScheme
+@using TrainingGuides.Web.Features.Shared.Services
 
 @inject IHttpRequestService httpRequestService
 
@@ -28,7 +31,7 @@
         title="@Model.Product!.Link?.LinkTitleText">
 
         @* image *@
-        @if (Model.ProductImage != null && !string.IsNullOrEmpty(Model.ProductImage.FilePath))
+        @if (Model.ProductImage != null && !string.IsNullOrEmpty(Model.ProductImage.FilePath) && !Model.IsImagePositionSide)
         {
             <tg-styled-image
                 corner-style="@Model.CornerStyle"
@@ -41,44 +44,64 @@
             color-scheme="@Model.ColorScheme"
             corner-style="@Model.CornerStyle"
             class="@Model.MainContentElementCssClasses">
+            <div class="tg-row">
+                <div
+                    class="tg-col align-self-center m-3">
+                    @* title *@
+                    <h3 class="mt-2 mb-1">@Html.Raw(Model.Product.Name)</h3>
+                    
+                    @* short description *@
+                    <p>@Html.Raw(Model.Product.ShortDescription)</p>
 
-            @* title *@
-            <h3 class="mt-2 mb-1">@Html.Raw(Model.Product.Name)</h3>
-            
-            @* short description *@
-            <p>@Html.Raw(Model.Product.ShortDescription)</p>
-
-            @* benefits *@
-            @foreach (var benefit in Model.Product.Benefits)
+                    @* benefits *@
+                    @foreach (var benefit in Model.Product.Benefits)
+                    {
+                        <div class="tg-product_benefits c-icon-box mt-1 me-7">
+                            <div class="c-icon-box_icon">
+                                @if (benefit.Icon != null)
+                                {
+                                    <img
+                                        src="@Url.Content(benefit.Icon.FilePath)"
+                                        alt="@benefit.Icon.AltText" class="c-icon" />
+                                }
+                            </div>
+                            <div class="c-icon-box_body">
+                                @benefit.Description
+                            </div>
+                        </div>
+                    }
+                </div>
+                @if (Model.ProductImage != null && !string.IsNullOrEmpty(Model.ProductImage.FilePath) && Model.IsImagePositionSide)
+                {
+                    <tg-styled-image
+                        corner-style="@Model.CornerStyle"
+                        class="@Model.ImageElementCssClasses"
+                        src="@Url.Content(Model.ProductImage.FilePath)"
+                        alt="@Model.ProductImage.AltText">
+                    </tg-styled-image>
+                }
+            </div>
+            @* features *@
+            @if(Model.ShowProductFeatures)
             {
-                <div class="tg-product_benefits c-icon-box mt-1 me-7">
-                    <div class="c-icon-box_icon">
-                        @if (benefit.Icon != null)
-                        {
-                            <img
-                                src="@Url.Content(benefit.Icon.FilePath)"
-                                alt="@benefit.Icon.AltText" class="c-icon" />
-                        }
-                    </div>
-                    <div class="c-icon-box_body">
-                        @benefit.Description
+                <div class="row">
+                    <div class="c-pricelist">                        
+                        <div class="col">
+                            <tg-component-style color-scheme="@ColorSchemeOption.Light1" corner-style="@Model.CornerStyle" class="c-table">
+                                @foreach (var feature in Model.Product.Features)
+                                {
+                                    <div class="c-table_row">
+                                        <div class="c-table_cell"><div class="c-table_cell">@feature.Label</div></div>
+                                        <div class="c-table_cell text-end">
+                                            <tg-product-feature-value feature="@feature"/>
+                                        </div>
+                                    </div>
+                                }
+                            </tg-component-style>
+                        </div>
                     </div>
                 </div>
             }
-            @* features *@
-            <div class="c-table mt-1">
-                @foreach (var feature in Model.Product.Features)
-                {
-                    <div class="c-table_row">
-                        <div class="c-table_cell">
-                            <div class="c-table_cell">@feature.Label</div>
-                        </div>
-                        <div class="c-table_cell text-end">
-                            <tg-product-feature-value feature="@feature"/>
-                        </div>
-                    </div>
-                }
-            </div>
             @* cta *@
             @if (Model.Product!.Link != null && !string.IsNullOrEmpty(Model.Product!.Link.CallToAction))
             {

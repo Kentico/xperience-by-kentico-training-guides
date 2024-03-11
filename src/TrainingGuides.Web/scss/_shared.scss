@@ -1,4 +1,5 @@
 @use 'variables';
+@use 'mixins';
 
 .t-default {
     background: variables.$body-bg;
@@ -121,11 +122,27 @@
 .tg-corner-rnd {
     border-radius: variables.$border-radius-rounded-corners;
     overflow: hidden;
+
+    &.bottom-only {
+        @include mixins.border-radius-cancel-top-mixin;
+    }
+
+    &.top-only {
+        @include mixins.border-radius-cancel-bottom-mixin;
+    }
 }
 
 .tg-corner-v-rnd {
     border-radius: variables.$border-radius-very-rounded-corners;
     overflow: hidden;
+
+    &.bottom-only {
+        @include mixins.border-radius-cancel-top-mixin;
+    }
+
+    &.top-only {
+        @include mixins.border-radius-cancel-bottom-mixin;
+    }
 }
 
 .tg-bg-primary {
@@ -166,4 +183,10 @@
 
 .tg-padding-big {
     padding: 5rem;
+}
+.tg-row {
+    display: flex;
+}
+.tg-col {
+    flex: 1;
 }

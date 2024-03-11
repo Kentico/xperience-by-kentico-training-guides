@@ -1,4 +1,5 @@
 @use 'variables';
+@use 'mixins';
 
 .c-why_heading {
     color: variables.$why-heading-color;
@@ -462,7 +463,6 @@
 
     img.tg-product_img {
         width: 100%;
-        max-height: 10rem;
         object-fit: cover;
     }
 
@@ -502,6 +502,13 @@
         text-decoration: none;
         color: inherit;
     }
+    
+    &.tg-layout-full-width {
+    
+        img.tg-product_img {
+            max-height: 10rem;
+        }
+    }
 
     &.tg-layout-ascending,
     &.tg-layout-descending {
@@ -519,11 +526,7 @@
         }
 
         img.tg-product_img {
-            position: absolute;
-            width: $tg-asc-desc-child-width;
-            max-height: 100%;
-            object-fit: cover;
-            top: 0;
+            @include mixins.image-position-absolute($tg-asc-desc-child-width)
         }
     }
 
@@ -548,4 +551,25 @@
             margin-right: 0 !important;
         }
     }
+
+    &.tg-layout-image-left,
+    &.tg-layout-image-right {
+        background-color: transparent !important;
+
+        .tg-product_main {
+            width: 100%;
+            margin: 0 !important;
+        }
+
+        img.tg-product_img {
+            width: 80%;
+        }
+    }
+
+    &.tg-layout-image-left{
+        .tg-row {
+            flex-direction: row-reverse;
+        }
+    }
 }
+

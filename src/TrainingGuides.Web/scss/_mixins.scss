@@ -15,3 +15,21 @@
     padding: 0.9375rem 2rem !important;
     text-transform: uppercase !important;
 }
+
+@mixin border-radius-cancel-top-mixin {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+@mixin border-radius-cancel-bottom-mixin {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+@mixin image-position-absolute($width: 100%) {
+    position: absolute;
+    width: $width;
+    max-height: 100%;
+    object-fit: cover;
+    top: 0;
+}

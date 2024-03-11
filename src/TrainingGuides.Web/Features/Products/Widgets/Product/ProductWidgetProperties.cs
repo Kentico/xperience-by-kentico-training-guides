@@ -51,7 +51,7 @@ public class ProductWidgetProperties : IWidgetProperties
         Label = "Call to action (CTA) text",
         ExplanationText = "Add a call to action text, e.g., \"Read more\".",
         Order = 70)]
-    public string CallToAction { get; set; } = string.Empty;
+    public string? CallToAction { get; set; } = string.Empty;
 
     [CheckBoxComponent(
         Label = "Open in new tab",
@@ -116,6 +116,10 @@ public enum ImagePositionOption
 {
     [Description("Full width")]
     FullWidth,
+    [Description("Left side")]
+    Left,
+    [Description("Right side")]
+    Right,
     [Description("Ascending shape")]
     Ascending,
     [Description("Descending shape")]
