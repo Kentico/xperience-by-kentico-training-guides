@@ -1,6 +1,6 @@
-﻿using TrainingGuides.Web.Features.Shared.OptionProviders.CornerStyle;
+﻿using TrainingGuides.Web.Features.Shared.OptionProviders;
+using TrainingGuides.Web.Features.Shared.OptionProviders.CornerStyle;
 using TrainingGuides.Web.Features.Shared.OptionsProviders.ColorScheme;
-
 namespace TrainingGuides.Web.Features.Shared.Services;
 
 public class ComponentStyleEnumService : IComponentStyleEnumService
@@ -26,32 +26,15 @@ public class ComponentStyleEnumService : IComponentStyleEnumService
         _ => [string.Empty],
     };
 
-    public CornerStyleOption GetCornerStyle(string cornerStyleString)
-    {
-        if (!Enum.TryParse(cornerStyleString, out CornerStyleOption cornerStyle))
-        {
-            cornerStyle = CornerStyleOption.Round;
-        }
+    public CornerStyleOption GetCornerStyle(string cornerStyleString) =>
+        new DropdownEnumOptionProvider<CornerStyleOption>().Parse(cornerStyleString, CornerStyleOption.Round);
 
-        return cornerStyle;
-    }
-
-    public ColorSchemeOption GetColorScheme(string colorSchemeString)
-    {
-        if (!Enum.TryParse(colorSchemeString, out ColorSchemeOption colorScheme))
-        {
-            colorScheme = ColorSchemeOption.TransparentDark;
-        }
-
-        return colorScheme;
-    }
+    public ColorSchemeOption GetColorScheme(string colorSchemeString) =>
+        new DropdownEnumOptionProvider<ColorSchemeOption>().Parse(colorSchemeString, ColorSchemeOption.TransparentDark);
 
     public ColorSchemeOption GetLinkStyle(string linkStyleString)
     {
-        if (!Enum.TryParse(linkStyleString, out LinkStyleOption colorScheme))
-        {
-            colorScheme = LinkStyleOption.TransparentDark;
-        }
+        var colorScheme = new DropdownEnumOptionProvider<LinkStyleOption>().Parse(linkStyleString, LinkStyleOption.TransparentDark);
 
         return (ColorSchemeOption)colorScheme;
     }
