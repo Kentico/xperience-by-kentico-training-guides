@@ -1,18 +1,15 @@
 ﻿@using Microsoft.AspNetCore.Html
 @using TrainingGuides.Web.Features.LandingPages
+@using TrainingGuides.Web.Features.Shared.OptionProviders.Heading
 
 @model TemplateViewModel<LandingPageTemplateProperties>
 
 @{
     var templateModel = Model.GetTemplateModel<LandingPageViewModel>();
-    string tagText = Model.Properties.MessageType;
-    HtmlString openingTag = new HtmlString($"<{tagText}>");
-    HtmlString closingTag = new HtmlString($"</{tagText}>");
 }
 
-@openingTag
+<tg-heading headingType=@Model.Properties.MessageType headingTypeDefault="@HeadingTypeOption.H2">
     @templateModel.Message
-@closingTag
-
+</tg-heading>
 
 <editable-area area-identifier="areaMain" />

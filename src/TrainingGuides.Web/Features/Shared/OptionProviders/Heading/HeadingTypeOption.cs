@@ -4,8 +4,6 @@ namespace TrainingGuides.Web.Features.Shared.OptionProviders.Heading;
 
 public enum HeadingTypeOption
 {
-    [Description("Auto")]
-    Auto,
     [Description("Heading 1")]
     H1,
     [Description("Heading 2")]
@@ -16,4 +14,6 @@ public enum HeadingTypeOption
     H4,
     [Description("Heading 5")]
     H5,
+    [Description("Paragraph")]
+    P,
 }

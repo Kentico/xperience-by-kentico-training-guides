@@ -5,23 +5,26 @@ namespace TrainingGuides.Web.Features.Shared.OptionProviders.Heading;
 [HtmlTargetElement("tg-heading", TagStructure = TagStructure.NormalOrSelfClosing)]
 public class HeadingTagHelper : TagHelper
 {
-    private readonly IHttpContextAccessor accessor;
-    public HeadingTagHelper(IHttpContextAccessor accessor)
-    {
-        this.accessor = accessor;
-    }
-
     [HtmlAttributeName("headingType")]
-    public HeadingTypeOption HeadingType { get; set; }
+    public string? HeadingType { get; set; }
 
     [HtmlAttributeName("headingTypeDefault")]
     public HeadingTypeOption HeadingTypeDefault { get; set; }
 
     public override void Process(TagHelperContext context, TagHelperOutput output)
     {
-        if (HeadingType == HeadingTypeOption.Auto)
-            HeadingType = HeadingTypeDefault;
-
-        output.TagName = HeadingType.ToString().ToLower();
+        var headingType = new DropdownEnumOptionProvider<HeadingTypeOption>().Parse(HeadingType ?? string.Empty, HeadingTypeDefault);
+        output.TagName = GetSafeTagText(headingType);
     }
+
+    private string GetSafeTagText(HeadingTypeOption messageType) => messageType switch
+    {
+        HeadingTypeOption.H1 => "h1",
+        HeadingTypeOption.H2 => "h2",
+        HeadingTypeOption.H3 => "h3",
+        HeadingTypeOption.H4 => "h4",
+        HeadingTypeOption.H5 => "h5",
+        HeadingTypeOption.P => "p",
+        _ => "span"
+    };
 }
