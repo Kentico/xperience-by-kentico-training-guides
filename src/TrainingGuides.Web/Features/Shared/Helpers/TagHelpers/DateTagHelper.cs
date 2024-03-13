@@ -1,8 +1,7 @@
 using Microsoft.AspNetCore.Html;
 using Microsoft.AspNetCore.Razor.TagHelpers;
-using Kentico.Content.Web.Mvc;
-using Kentico.PageBuilder.Web.Mvc;
-using Kentico.Web.Mvc;
+using Microsoft.AspNetCore.Mvc.TagHelpers;
+using System.Text.Encodings.Web;
 
 namespace TrainingGuides.Web.Features.Shared.Helpers.TagHelpers;
 
@@ -12,29 +11,16 @@ namespace TrainingGuides.Web.Features.Shared.Helpers.TagHelpers;
 [HtmlTargetElement("tg-date", TagStructure = TagStructure.WithoutEndTag)]
 public class DateTagHelper : TagHelper
 {
-    private readonly IHttpContextAccessor accessor;
     public DateTime? Date { get; set; }
 
-    private const string OPENING_TAG = "<div class=\"c-date\">";
-    private const string CLOSING_TAG = "</div>";
-
-    public DateTagHelper(IHttpContextAccessor accessor)
-    {
-        this.accessor = accessor;
-    }
+    private const string DIV_TAG = "div";
 
     public override void Process(TagHelperContext context, TagHelperOutput output)
     {
-        var httpContext = accessor.HttpContext;
-
-        if (!httpContext.Kentico().PageBuilder().EditMode && !httpContext.Kentico().Preview().Enabled)
-        {
-            output.SuppressOutput();
-        }
-
-        output.TagName = "";
+        output.TagName = DIV_TAG;
+        output.TagMode = TagMode.StartTagAndEndTag;
         var formattedDate = Date?.Year > 1900 ? new HtmlString(Date?.ToString("d MMMM yyyy")) : null;
-
-        output.Content.SetHtmlContent(new HtmlString(OPENING_TAG + formattedDate + CLOSING_TAG));
+        output.AddClass("c-date", HtmlEncoder.Default);
+        output.Content.SetHtmlContent(formattedDate);
     }
 }

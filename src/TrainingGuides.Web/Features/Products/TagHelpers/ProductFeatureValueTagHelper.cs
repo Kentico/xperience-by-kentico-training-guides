@@ -1,9 +1,6 @@
 using System.Globalization;
 using Microsoft.AspNetCore.Html;
 using Microsoft.AspNetCore.Razor.TagHelpers;
-using Kentico.Content.Web.Mvc;
-using Kentico.PageBuilder.Web.Mvc;
-using Kentico.Web.Mvc;
 
 using TrainingGuides.Web.Features.Products.Models;
 
@@ -15,27 +12,14 @@ namespace TrainingGuides.Web.Features.Products.TagHelpers;
 [HtmlTargetElement("tg-product-feature-value", TagStructure = TagStructure.WithoutEndTag)]
 public class ProductFeatureValueTagHelper : TagHelper
 {
-    private readonly IHttpContextAccessor accessor;
     public ProductFeatureViewModel? Feature { get; set; }
 
-    private const string OPENING_TAG = "<span>";
-    private const string CLOSING_TAG = "</span>";
-
-    public ProductFeatureValueTagHelper(IHttpContextAccessor accessor)
-    {
-        this.accessor = accessor;
-    }
+    private const string SPAN_TAG = "span";
 
     public override void Process(TagHelperContext context, TagHelperOutput output)
     {
-        var httpContext = accessor.HttpContext;
-
-        if (!httpContext.Kentico().PageBuilder().EditMode && !httpContext.Kentico().Preview().Enabled)
-        {
-            output.SuppressOutput();
-        }
-
-        output.TagName = "";
+        output.TagName = SPAN_TAG;
+        output.TagMode = TagMode.StartTagAndEndTag;
 
         string? formattedValue = Feature?.ValueType switch
         {
@@ -45,6 +29,6 @@ public class ProductFeatureValueTagHelper : TagHelper
             _ => string.Empty
         };
 
-        output.Content.SetHtmlContent(new HtmlString(OPENING_TAG + formattedValue + CLOSING_TAG));
+        output.Content.SetHtmlContent(new HtmlString(formattedValue));
     }
 }
