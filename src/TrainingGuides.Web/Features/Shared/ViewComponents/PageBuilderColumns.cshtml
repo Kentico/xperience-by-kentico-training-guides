@@ -3,22 +3,18 @@
 @model PageBuilderColumnsViewModel
 <div class="container">
     <div class="row">
-
-    @foreach (var column in Model.PageBuilderColumns)
-    {
-        if(Model.PageBuilderAreaType == PageBuilderAreaType.EditableAreas)
+        @foreach (var column in Model.PageBuilderColumns)
         {
             <div class="@column.CssClass">
-                <editable-area area-identifier="@column.Identifier" area-options="column.EditableAreaOptions" />
+                @if(Model.PageBuilderAreaType == PageBuilderAreaType.EditableAreas)
+                {
+                    <editable-area area-identifier="@column.Identifier" area-options="column.EditableAreaOptions" />
+                }
+                else
+                {
+                    <widget-zone zone-name="@column.Identifier" allowed-widgets="column.EditableAreaOptions?.AllowedWidgets" />
+                }
             </div>
         }
-        else
-        {
-            <div class="@column.CssClass">
-                <widget-zone zone-name="@column.Identifier" allowed-widgets="column.EditableAreaOptions?.AllowedWidgets" />
-            </div>
-        }
-    }
-
     </div>
 </div>

@@ -60,7 +60,6 @@ public class PageBuilderColumnsViewComponent : ViewComponent
         };
 
         return View("~/Features/Shared/ViewComponents/PageBuilderColumns.cshtml", model);
-
     }
 
     private int GetNumberOfColumns(ColumnLayoutOption columnLayoutOption) => columnLayoutOption switch
