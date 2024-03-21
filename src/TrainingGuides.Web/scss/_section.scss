@@ -1,236 +1,235 @@
 @use 'variables';
 
-.c-section.c-section-faq-bg {
-    background-color: variables.$faq-section-bg;
-}
+.c-section {
 
-.c-section.c-section-pricelist-bg {
-    background-color: variables.$pricelist-section-bg;
-}
-
-.c-section.default {
-    padding: 2rem 0;
-    overflow: hidden;
-}
-
-@media (min-width: 992px) {
-    .c-section.default {
-        padding: 3rem 0;
+    &.c-section-faq-bg {
+        background-color: variables.$faq-section-bg;
     }
-}
-
-.c-section.small {
-    padding: 0;
-    overflow: hidden;
-}
-
-.c-section.large {
-    padding: 4rem 0;
-    overflow: hidden;
-}
-
-@media (min-width: 992px) {
-    .c-section.large {
+    
+    &.default {
+        padding: 2rem 0;
+        overflow: hidden;
+    }
+    
+    @media (min-width: 992px) {
+        &.default {
+            padding: 3rem 0;
+        }
+    }
+    
+    &.small {
+        padding: 0;
+        overflow: hidden;
+    }
+    
+    &.large {
         padding: 4rem 0;
+        overflow: hidden;
     }
-}
-
-.c-section.post {
-    padding-top: 1.5rem;
-}
-
-.c-section.hero {
-    padding: 3.5rem 0;
-    background: no-repeat center center;
-    background-size: cover;
-    color: variables.$hero-color;
-}
-
-.c-section.hero.v03 {
-    position: relative;
-}
-
-.c-section.hero.v03::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: variables.$hero-overlay-color;
-    opacity: variables.$hero-overlay-opacity;
-    z-index: 0;
-}
-
-.c-section.hero.v03 .container {
-    position: relative;
-    z-index: 1;
-}
-
-.c-section.hero.v04 {
-    position: relative;
-    overflow: hidden;
-}
-
-.c-section.hero.v04 .c-hero_canvas {
-    position: relative;
-    height: calc(100% + 5rem);
-    aspect-ratio: 1;
-    margin-top: -6rem;
-}
-
-.c-section.hero.v04 .c-hero_canvas>* {
-    position: absolute;
-}
-
-.c-section.hero.v04 .c-hero_canvas_img {
-    border-radius: 50%;
-    object-fit: cover;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-}
-
-.c-section.hero.v04 .c-hero_canvas_circle {
-    border-radius: 50%;
-    aspect-ratio: 1;
-}
-
-.c-section.hero.v04 .c-hero_canvas_circle.small {
-    inset: auto auto 0 23.93%;
-    width: 11.4%;
-    background: variables.$circles-hero-small-bg;
-}
-
-.c-section.hero.v04 .c-hero_canvas_circle.medium {
-    inset: 5.36% auto auto 0;
-    width: 25.7%;
-    background: variables.$circles-hero-medium-bg;
-}
-
-.c-section.hero.v04 .c-hero_canvas_circle.big {
-    width: 59.6%;
-    inset: auto -25.9% -25.9% auto;
-    border: 1px solid variables.$circles-hero-big-outline;
-}
-
-.c-section.hero.light {
-    color: variables.$hero-color-light;
-    background-color: variables.$hero-color;
-}
-
-@media (min-width: 768px) {
-    .c-section.hero {
-        padding: 9rem 0;
+    
+    @media (min-width: 992px) {
+        &.large {
+            padding: 4rem 0;
+        }
     }
-
-    .c-section.hero p {
-        font-size: 1.125rem;
+    
+    &.post {
+        padding-top: 1.5rem;
     }
-}
-
-.c-section.error-hero {
-    padding: 20vw 0;
-    margin-top: 1rem;
-    background: no-repeat left center;
-    background-size: 209% auto;
-}
-
-.c-section.error-hero h1,
-.c-section.error-hero .h1,
-.c-section.error-hero .h1 {
-    font-size: 4.5rem;
-}
-
-.c-section.error-hero+.c-section.default {
-    padding-top: 0;
-}
-
-@media (min-width: 568px) {
-    .c-section.error-hero {
-        padding: 10vw 0;
-        margin-top: 0;
-        background-position: center;
-        background-size: 90% auto;
-    }
-
-    .c-section.error-hero h1,
-    .c-section.error-hero .h1,
-    .c-section.error-hero .h1 {
-        font-size: 5.5rem;
-    }
-}
-
-@media (min-width: 768px) {
-    .c-section.error-hero {
-        padding: 16vw 0;
-    }
-
-    .c-section.error-hero h1,
-    .c-section.error-hero .h1,
-    .c-section.error-hero .h1 {
-        font-size: 7.5rem;
-    }
-}
-
-@media (min-width: 992px) {
-    .c-section.error-hero {
-        padding: 8.5vw 0;
-        background-size: 72% auto;
-    }
-}
-
-@media (min-width: 1400px) {
-    .c-section.error-hero {
-        background-size: 60% auto;
-    }
-}
-
-.c-section.app {
-    min-height: 100vh;
-    display: flex;
-    align-items: stretch;
-    justify-content: center;
-}
-
-@media (min-width: 768px) {
-    .c-section.app {
-        background: url("../img/app/app-bg.jpg") no-repeat center center;
+    
+    &.hero {
+        padding: 3.5rem 0;
+        background: no-repeat center center;
         background-size: cover;
-        padding: 4rem 0;
-        align-items: center;
+        color: variables.$hero-color;
+        
+        &.v03 {
+            position: relative;
+        }
+        
+        &.v03::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: variables.$hero-overlay-color;
+            opacity: variables.$hero-overlay-opacity;
+            z-index: 0;
+        }
+        
+        &.v03 .container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        &.v04 {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        &.v04 .c-hero_canvas {
+            position: relative;
+            height: calc(100% + 5rem);
+            aspect-ratio: 1;
+            margin-top: -6rem;
+        }
+        
+        &.v04 .c-hero_canvas>* {
+            position: absolute;
+        }
+        
+        &.v04 .c-hero_canvas_img {
+            border-radius: 50%;
+            object-fit: cover;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        &.v04 .c-hero_canvas_circle {
+            border-radius: 50%;
+            aspect-ratio: 1;
+        }
+        
+        &.v04 .c-hero_canvas_circle.small {
+            inset: auto auto 0 23.93%;
+            width: 11.4%;
+            background: variables.$circles-hero-small-bg;
+        }
+        
+        &.v04 .c-hero_canvas_circle.medium {
+            inset: 5.36% auto auto 0;
+            width: 25.7%;
+            background: variables.$circles-hero-medium-bg;
+        }
+        
+        &.v04 .c-hero_canvas_circle.big {
+            width: 59.6%;
+            inset: auto -25.9% -25.9% auto;
+            border: 1px solid variables.$circles-hero-big-outline;
+        }
+        
+        &.light {
+            color: variables.$hero-color-light;
+            background-color: variables.$hero-color;
+        }
     }
-}
+    
+    @media (min-width: 768px) {
+        &.hero {
+            padding: 9rem 0;
+        }
+    
+        &.hero p {
+            font-size: 1.125rem;
+        }
+    }
 
-.c-section .container.bg-secondary {
-    background: variables.$color-secondary;
-    border-radius: variables.$border-radius;
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
-}
+    &.error-hero {
+        padding: 20vw 0;
+        margin-top: 1rem;
+        background: no-repeat left center;
+        background-size: 209% auto;
+    }
+    
+    &.error-hero h1,
+    &.error-hero .h1,
+    &.error-hero .h1 {
+        font-size: 4.5rem;
+    }
+    
+    &.error-hero+&.default {
+        padding-top: 0;
+    }
+    
+    @media (min-width: 568px) {
+        &.error-hero {
+            padding: 10vw 0;
+            margin-top: 0;
+            background-position: center;
+            background-size: 90% auto;
+        }
+    
+        &.error-hero h1,
+        &.error-hero .h1,
+        &.error-hero .h1 {
+            font-size: 5.5rem;
+        }
+    }
+    
+    @media (min-width: 768px) {
+        &.error-hero {
+            padding: 16vw 0;
+        }
+    
+        &.error-hero h1,
+        &.error-hero .h1,
+        &.error-hero .h1 {
+            font-size: 7.5rem;
+        }
+    }
+    
+    @media (min-width: 992px) {
+        &.error-hero {
+            padding: 8.5vw 0;
+            background-size: 72% auto;
+        }
+    }
+    
+    @media (min-width: 1400px) {
+        &.error-hero {
+            background-size: 60% auto;
+        }
+    }
+    
+    &.app {
+        min-height: 100vh;
+        display: flex;
+        align-items: stretch;
+        justify-content: center;
+    }
+    
+    @media (min-width: 768px) {
+        &.app {
+            background: url("../img/app/app-bg.jpg") no-repeat center center;
+            background-size: cover;
+            padding: 4rem 0;
+            align-items: center;
+        }
+    }
 
-.c-section .container.bg-secondary .bg-1 {
-    background: #fff;
-}
-
-.c-section .container.bg-primary {
-    background: variables.$color-primary;
-    border-radius: variables.$border-radius;
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
-}
-
-.c-section .container.bg-primary .bg-1 {
-    background: #fff;
-}
-
-.c-section .container.bg-card {
-    background: variables.$card-bg;
-    border-radius: variables.$border-radius;
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
-}
-
-.c-section .container.bg-card .bg-1 {
-    background: #fff;
+    .container.bg-secondary {
+        background: variables.$color-secondary;
+        border-radius: variables.$border-radius-rounded-corners;
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+    }
+    
+    .container.bg-secondary .bg-1 {
+        background: #fff;
+    }
+    
+    .container.bg-primary {
+        background: variables.$color-primary;
+        border-radius: variables.$border-radius-rounded-corners;
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+    }
+    
+    .container.bg-primary .bg-1 {
+        background: #fff;
+    }
+    
+    .container.bg-card {
+        background: variables.$card-bg;
+        border-radius: variables.$border-radius-rounded-corners;
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+    }
+    
+    .container.bg-card .bg-1 {
+        background: #fff;
+    }
 }

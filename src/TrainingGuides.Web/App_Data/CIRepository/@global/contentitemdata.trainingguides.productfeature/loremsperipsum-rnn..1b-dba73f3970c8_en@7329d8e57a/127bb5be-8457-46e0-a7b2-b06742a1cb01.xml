@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.productfeature>
+  <ContentItemDataCommonDataID>
+    <GUID>8edb249a-5406-46ec-9a1b-dba73f3970c8</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>LoremsPerIpsum-rnnrmvk8</CodeName>
+      <GUID>f89c8f04-17ec-47a9-97df-c559b108691f</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>127bb5be-8457-46e0-a7b2-b06742a1cb01</ContentItemDataGUID>
+  <ProductFeatureIncluded>False</ProductFeatureIncluded>
+  <ProductFeatureKey>lorems-per-ipsum</ProductFeatureKey>
+  <ProductFeatureLabel>Lorems per ipsum</ProductFeatureLabel>
+  <ProductFeatureShowInComparator>1</ProductFeatureShowInComparator>
+  <ProductFeatureValue>125</ProductFeatureValue>
+  <ProductFeatureValueType>0</ProductFeatureValueType>
+</contentitemdata.trainingguides.productfeature>

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentitem>
+  <ContentItemContentTypeID>
+    <CodeName>TrainingGuides.ProductFeature</CodeName>
+    <GUID>7521136f-4ed3-4b69-8b54-82255d7b4385</GUID>
+    <ObjectType>cms.contenttype</ObjectType>
+  </ContentItemContentTypeID>
+  <ContentItemGUID>421baf9f-de34-4ace-b648-239c89ce614d</ContentItemGUID>
+  <ContentItemIsReusable>True</ContentItemIsReusable>
+  <ContentItemIsSecured>False</ContentItemIsSecured>
+  <ContentItemName>LoremX-YearlyMaintenanceCost-3rxg1s24</ContentItemName>
+</cms.contentitem>

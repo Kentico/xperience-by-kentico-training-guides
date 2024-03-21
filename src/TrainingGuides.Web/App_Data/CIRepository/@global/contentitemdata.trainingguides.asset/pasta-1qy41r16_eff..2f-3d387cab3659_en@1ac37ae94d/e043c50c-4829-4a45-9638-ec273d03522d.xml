@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.asset>
+  <AssetAltText>
+    <![CDATA[Farfalle with basil pesto and fresh tomatoes served on a white plate]]>
+  </AssetAltText>
+  <AssetDescription>
+    <![CDATA[Farfalle with basil pesto and fresh tomatoes served on a white plate]]>
+  </AssetDescription>
+  <AssetFile>
+    <![CDATA[{"Identifier":"f92ee17b-8922-4c7f-ac66-44ec15030135","Name":"eaters-collective-12eHC6FxPyg-unsplash.jpg","Extension":".jpg","Size":1829621,"LastModified":"2024-03-04T17:26:23.2787471Z"}]]>
+  </AssetFile>
+  <AssetUseInternalOnly>False</AssetUseInternalOnly>
+  <ContentItemDataCommonDataID>
+    <GUID>effa0c61-22cb-4375-822f-3d387cab3659</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>Pasta-1qy41r16</CodeName>
+      <GUID>5957bfb8-679d-44d7-9a11-6ce586926503</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>e043c50c-4829-4a45-9638-ec273d03522d</ContentItemDataGUID>
+</contentitemdata.trainingguides.asset>

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.productfeature>
+  <ContentItemDataCommonDataID>
+    <GUID>b9c39d1c-39d5-4542-a641-6822f389d783</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>LoremX-YearlyMaintenanceCost-3rxg1s24</CodeName>
+      <GUID>421baf9f-de34-4ace-b648-239c89ce614d</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>dfe8f22c-8f63-49d2-b7dc-08bbd0174d39</ContentItemDataGUID>
+  <ProductFeatureIncluded>False</ProductFeatureIncluded>
+  <ProductFeatureKey>yearly-maintenance-cost</ProductFeatureKey>
+  <ProductFeatureLabel>Yearly maintenance cost</ProductFeatureLabel>
+  <ProductFeaturePrice>50</ProductFeaturePrice>
+  <ProductFeatureShowInComparator>1</ProductFeatureShowInComparator>
+  <ProductFeatureValueType>1</ProductFeatureValueType>
+</contentitemdata.trainingguides.productfeature>

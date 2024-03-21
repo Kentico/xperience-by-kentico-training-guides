@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentitemcommondata>
+  <ContentItemCommonDataContentItemID>
+    <CodeName>LoremX-xts0c4n0</CodeName>
+    <GUID>92cc0b01-99a4-4e10-87bf-c0358470aafb</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </ContentItemCommonDataContentItemID>
+  <ContentItemCommonDataContentLanguageID>
+    <CodeName>en</CodeName>
+    <GUID>e81b5172-f240-4041-88b1-653089984e29</GUID>
+    <ObjectType>cms.contentlanguage</ObjectType>
+  </ContentItemCommonDataContentLanguageID>
+  <ContentItemCommonDataFirstPublishedWhen>2024-02-06 21:58:43Z</ContentItemCommonDataFirstPublishedWhen>
+  <ContentItemCommonDataGUID>66c10208-4161-48c6-8cd7-6359f27dcd89</ContentItemCommonDataGUID>
+  <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
+  <ContentItemCommonDataLastPublishedWhen>2024-03-21 14:47:43Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataPageBuilderWidgets>
+    <![CDATA[{"editableAreas":[{"identifier":"areaMain","sections":[{"identifier":"b3bc4030-e22f-4214-90ea-7ea9df9c0e16","type":"TrainingGuides.GeneralSection","properties":{"sectionAnchor":null,"colorScheme":null,"cornerStyle":null,"columnLayout":null},"zones":[{"identifier":"51326fd5-008e-4f23-94ec-fa2df432132f","name":"zoneMain","widgets":[{"identifier":"9d777351-6ecf-4358-a4fc-e1690fdd7697","type":"TrainingGuides.HeroBanner","variants":[{"identifier":"65a8c2bf-bea1-4396-80d2-44c2a96a35d1","properties":{"mode":"currentProductPage","productPageAnchor":null,"productPage":null,"selectedProductPageAnchor":null,"hero":null,"cta":null,"displayCTA":true,"openInNewTab":false,"changeDesign":false,"showBenefits":false,"showImage":true,"width":"circle","textColor":"Dark"},"fieldIdentifiers":{"mode":"6521ec69-e2b7-4bf1-9da8-ad55987a44e1","productPageAnchor":"88c04d29-28fd-426c-ad2f-4ff714433757","productPage":"bdf7ab84-feee-477f-a426-8145663f077f","selectedProductPageAnchor":"cdb5a34e-2ce4-425d-8ae9-198e6374d3f4","hero":"4eef160b-fe13-4a0d-a7e4-78cbbaaf7171","cta":"f653edf6-3131-4089-898f-ef6cd333998c","displayCTA":"ce067e70-fa2a-410a-a0e1-e614758f6b00","openInNewTab":"cba0605d-3648-456b-aed8-5ffc47fab817","changeDesign":"7d1d01c5-c1a7-4bca-8ce3-6924530a78bc","showBenefits":"87180dc6-30d9-4dab-a742-e2093ba64c8d","showImage":"83d038f0-20e5-4601-98d9-04898ae65820","width":"665e9b67-83a6-4dca-ac01-b2a3806767df","textColor":"29dccc5d-94d3-4372-8073-474eef894bb9"}}]},{"identifier":"76495de3-74d2-41a7-9c7e-0a3c9b4b5ad5","type":"TrainingGuides.ProductWidget","variants":[{"identifier":"2e843c6a-e02f-48d6-8c54-2afd0b783dc0","properties":{"mode":"currentProductPage","pageAnchor":"#ProductA","selectedProductPage":[],"showProductImage":true,"showProductBenefits":true,"showProductFeatures":true,"callToAction":"","openInNewTab":false,"showAdvanced":true,"colorScheme":"Light3","cornerStyle":"VeryRound","dropShadow":true,"imagePosition":"Left","textAlignment":"Right","callToActionStyle":"Medium"},"fieldIdentifiers":{"mode":"f3bbee4a-df84-438e-9726-3a63351208f2","pageAnchor":"9aec5774-3679-4afe-9b57-01eb560f647f","selectedProductPage":"17804335-0e80-4d41-90a9-7872d1c46a14","showProductImage":"45b61a16-7e41-4f66-b330-29a44229d17d","showProductBenefits":"baf09c3f-1e89-4c83-a543-3c2eed36eda6","showProductFeatures":"e2454b28-1e03-4769-a48c-7247a19cfde4","callToAction":"4ead23f2-476e-48a4-bc40-4885217b5ab7","openInNewTab":"eb2dbf79-3c64-4fc7-b548-27ab30de31dc","showAdvanced":"98a8816e-3f67-4c0e-8b07-d7b8e41f39cb","colorScheme":"e3ad34ea-1e79-4569-8189-81d483344e84","cornerStyle":"0c97e2d1-1d69-4a1b-ba9a-fe5d3064b2be","dropShadow":"a611993e-50b9-4d52-aaa7-b9840c21387a","imagePosition":"331aa299-b74b-4bc1-a8e3-d3c3541a00f6","textAlignment":"d4a714ab-a220-454d-8bd6-4a813cebc4d3","callToActionStyle":"50b31e5f-6547-42ed-b4d1-eb0c9a6238b8"}}]},{"identifier":"1f4a9cf0-95d1-4c95-8749-e8d4b8d1c717","type":"Kentico.Widget.RichText","variants":[{"identifier":"b4a43915-5347-49f4-a9ae-ff40b8e60e3d","properties":{"content":"<p>Additional information about the product</p>"},"fieldIdentifiers":{"content":"34b64127-bfa9-402d-8964-f666fa66e40f"}}]},{"identifier":"88475248-17e6-4664-b9e0-b37d54a3a7e6","type":"TrainingGuides.PageLikeWidget","variants":[{"identifier":"c30d1d55-ab36-414e-a6e5-ed538e3e7fd4","properties":null,"fieldIdentifiers":{}}]}]}],"fieldIdentifiers":{"sectionAnchor":"c098f783-8742-4eaa-ab7a-cf2bc3fdbfb2","colorScheme":"7adeee13-ee98-458c-bb90-2e58ba0ef562","cornerStyle":"f239652d-7c39-4462-87d1-59f115c596b5","columnLayout":"505ff4aa-98cb-4dae-8a91-c70f14955042"}}]}]}]]>
+  </ContentItemCommonDataPageBuilderWidgets>
+  <ContentItemCommonDataPageTemplateConfiguration>
+    <![CDATA[{"identifier":"TrainingGuides.ProductPageTemplate","properties":{"usePageBuilder":true,"colorScheme":"Light2","cornerStyle":"Sharp","columnLayout":"OneColumn"},"fieldIdentifiers":{"usePageBuilder":"3ee2a1f5-72ac-4e16-9752-82fe0083cbd8","colorScheme":"57b3d9b2-6201-49f7-add8-416e9a74b86e","cornerStyle":"6af7b94c-0c90-4cda-b579-974443a452ae","columnLayout":"731bd2db-a779-4cb1-9e6b-a0e0da3ad64b"}}]]>
+  </ContentItemCommonDataPageTemplateConfiguration>
+  <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
+  <ContentItemReferences>
+    <cms.contentitemreference>
+      <ContentItemReferenceGroupGUID>b315e712-05da-445d-980c-87578e46cd4d</ContentItemReferenceGroupGUID>
+      <ContentItemReferenceGUID>4ae4c12c-6ed8-45d0-a208-4496f995e1e0</ContentItemReferenceGUID>
+      <ContentItemReferenceSourceCommonDataID>
+        <GUID>66c10208-4161-48c6-8cd7-6359f27dcd89</GUID>
+        <ObjectType>cms.contentitemcommondata</ObjectType>
+      </ContentItemReferenceSourceCommonDataID>
+      <ContentItemReferenceTargetItemID>
+        <CodeName>LoremX-12tmew4o</CodeName>
+        <GUID>9f82e93c-d107-4614-9481-c41224249cae</GUID>
+        <ObjectType>cms.contentitem</ObjectType>
+      </ContentItemReferenceTargetItemID>
+    </cms.contentitemreference>
+  </ContentItemReferences>
+</cms.contentitemcommondata>

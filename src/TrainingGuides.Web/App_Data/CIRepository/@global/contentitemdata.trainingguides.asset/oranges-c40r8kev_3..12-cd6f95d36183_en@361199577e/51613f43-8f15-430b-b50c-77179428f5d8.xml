@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.asset>
+  <AssetAltText>Oranges on a blue background</AssetAltText>
+  <AssetDescription>Oranges on a blue background</AssetDescription>
+  <AssetFile>
+    <![CDATA[{"Identifier":"6539a4e4-4c5a-4c4c-92bd-c7191afa36f1","Name":"MonikaGrabkowskaOrangesResized.jpg","Extension":".jpg","Size":1704394,"LastModified":"2024-03-21T16:11:12.7960919Z"}]]>
+  </AssetFile>
+  <AssetUseInternalOnly>False</AssetUseInternalOnly>
+  <ContentItemDataCommonDataID>
+    <GUID>321f6951-617a-4045-a112-cd6f95d36183</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>Oranges-c40r8kev</CodeName>
+      <GUID>b2bda33d-6094-4ea5-b56d-4d59fd202d72</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>51613f43-8f15-430b-b50c-77179428f5d8</ContentItemDataGUID>
+</contentitemdata.trainingguides.asset>
