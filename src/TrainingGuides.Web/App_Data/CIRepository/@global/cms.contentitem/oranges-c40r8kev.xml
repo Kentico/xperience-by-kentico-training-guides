@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.contentitem>
   <ContentItemContentTypeID>
-    <CodeName>TrainingGuides.Product</CodeName>
-    <GUID>54c89164-06fa-4984-a04c-cc2ec647463f</GUID>
+    <CodeName>TrainingGuides.Asset</CodeName>
+    <GUID>9ecde825-735e-4967-a995-cc97b55adb0f</GUID>
     <ObjectType>cms.contenttype</ObjectType>
   </ContentItemContentTypeID>
-  <ContentItemGUID>d4d2f50a-b417-42d6-a600-4da7357a28db</ContentItemGUID>
+  <ContentItemGUID>b2bda33d-6094-4ea5-b56d-4d59fd202d72</ContentItemGUID>
   <ContentItemIsReusable>True</ContentItemIsReusable>
   <ContentItemIsSecured>False</ContentItemIsSecured>
-  <ContentItemName>ProductName1-z99qpymm</ContentItemName>
+  <ContentItemName>Oranges-c40r8kev</ContentItemName>
 </cms.contentitem>

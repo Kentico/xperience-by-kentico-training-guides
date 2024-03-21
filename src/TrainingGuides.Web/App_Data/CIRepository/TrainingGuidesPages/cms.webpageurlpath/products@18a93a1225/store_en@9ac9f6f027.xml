@@ -1,20 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.webpageurlpath>
-  <WebPageUrlPath>es/Products/Product-A</WebPageUrlPath>
+  <WebPageUrlPath>Store</WebPageUrlPath>
   <WebPageUrlPathContentLanguageID>
-    <CodeName>es</CodeName>
-    <GUID>b2e99971-c2dd-4a47-bb64-0d9a0d28d226</GUID>
+    <CodeName>en</CodeName>
+    <GUID>e81b5172-f240-4041-88b1-653089984e29</GUID>
     <ObjectType>cms.contentlanguage</ObjectType>
   </WebPageUrlPathContentLanguageID>
-  <WebPageUrlPathGUID>c5c44943-1743-4dec-a202-3c52c173368d</WebPageUrlPathGUID>
+  <WebPageUrlPathGUID>53429d60-44e8-4ee7-ac90-07ae707b8a9a</WebPageUrlPathGUID>
   <WebPageUrlPathHash>
-    <![CDATA[BBF8DA9BB85D0C44E8AF6EFA6CC4CA5481C023E5BC0807CBE662DDE8187B963A]]>
+    <![CDATA[982576DF1D774D39E7A77D591B3A1223F40CA34D33662CFA429DADAF4A8A2D2D]]>
   </WebPageUrlPathHash>
   <WebPageUrlPathIsDraft>False</WebPageUrlPathIsDraft>
   <WebPageUrlPathIsLatest>True</WebPageUrlPathIsLatest>
   <WebPageUrlPathWebPageItemID>
-    <CodeName>ProductA-wn6z15b1</CodeName>
-    <GUID>c25142dd-849d-43fa-9fed-349da1d3b445</GUID>
+    <CodeName>Products-oypi95ub</CodeName>
+    <GUID>5a0c83e1-2ad8-40b2-aa00-d01980daf01d</GUID>
     <ObjectType>cms.webpageitem</ObjectType>
   </WebPageUrlPathWebPageItemID>
   <WebPageUrlPathWebsiteChannelID>

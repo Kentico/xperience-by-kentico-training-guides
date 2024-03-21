@@ -10,6 +10,9 @@
     </Parent>
   </ContentItemDataCommonDataID>
   <ContentItemDataGUID>63c7a735-44f2-416f-af76-81475f5d2845</ContentItemDataGUID>
+  <ProductBenefits>
+    <![CDATA[[{"Identifier":"1c1d377a-0e51-4b18-83cf-05836881f131"}]]]>
+  </ProductBenefits>
   <ProductDescription>
     <![CDATA[<p>Phasellus sit amet erat finibus, luctus nisi eu, ullamcorper magna. Morbi scelerisque, tellus vel bibendum ultricies, ante est lobortis odio, laoreet hendrerit dui dolor id urna.&nbsp;</p>]]>
   </ProductDescription>
@@ -17,7 +20,7 @@
     <![CDATA[[{"Identifier":"f89c8f04-17ec-47a9-97df-c559b108691f"},{"Identifier":"0267614c-b1ed-42d9-ac01-99b429441854"},{"Identifier":"73ac8418-6e3c-499f-96ff-87cc618ac27f"}]]]>
   </ProductFeatures>
   <ProductMedia>
-    <![CDATA[[{"Identifier":"467634b2-e844-45b9-b712-ff72f44d903d"}]]]>
+    <![CDATA[[{"Identifier":"5957bfb8-679d-44d7-9a11-6ce586926503"}]]]>
   </ProductMedia>
   <ProductName>Ipsum Z</ProductName>
   <ProductPrice>210</ProductPrice>

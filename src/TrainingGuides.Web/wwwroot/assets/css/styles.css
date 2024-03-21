@@ -1722,6 +1722,10 @@
   flex: 1;
 }
 
+.tg-pb-col {
+  padding: 2rem;
+}
+
 .c-section.c-section-faq-bg {
   background-color: white;
 }

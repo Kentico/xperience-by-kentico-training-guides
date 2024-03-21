@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.contentitemlanguagemetadata>
   <ContentItemLanguageMetadataContentItemID>
-    <CodeName>ProductA-wn6z15b1</CodeName>
-    <GUID>747cdc07-b3e2-420e-aa21-cfc8750a78fc</GUID>
+    <CodeName>Promotion-aqcyrv7k</CodeName>
+    <GUID>6ed6f301-bcee-4d53-a126-d3148e654a93</GUID>
     <ObjectType>cms.contentitem</ObjectType>
   </ContentItemLanguageMetadataContentItemID>
   <ContentItemLanguageMetadataContentLanguageID>
@@ -15,9 +15,9 @@
     <GUID>6415b8ce-8072-4bcd-8e48-9d7178b826b7</GUID>
     <ObjectType>cms.user</ObjectType>
   </ContentItemLanguageMetadataCreatedByUserID>
-  <ContentItemLanguageMetadataCreatedWhen>2024-03-04 17:25:20Z</ContentItemLanguageMetadataCreatedWhen>
-  <ContentItemLanguageMetadataDisplayName>Product A</ContentItemLanguageMetadataDisplayName>
-  <ContentItemLanguageMetadataGUID>0b0e5b51-773c-41b0-be8b-643f6e289a97</ContentItemLanguageMetadataGUID>
+  <ContentItemLanguageMetadataCreatedWhen>2024-03-21 16:25:47Z</ContentItemLanguageMetadataCreatedWhen>
+  <ContentItemLanguageMetadataDisplayName>Promotion</ContentItemLanguageMetadataDisplayName>
+  <ContentItemLanguageMetadataGUID>ac24844b-1b39-41db-bb48-5f8a0249b630</ContentItemLanguageMetadataGUID>
   <ContentItemLanguageMetadataHasImageAsset>False</ContentItemLanguageMetadataHasImageAsset>
   <ContentItemLanguageMetadataLatestVersionStatus>2</ContentItemLanguageMetadataLatestVersionStatus>
   <ContentItemLanguageMetadataModifiedByUserID>

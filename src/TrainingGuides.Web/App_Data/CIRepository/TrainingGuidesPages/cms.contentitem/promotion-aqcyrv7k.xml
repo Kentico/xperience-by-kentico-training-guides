@@ -6,12 +6,12 @@
     <ObjectType>cms.channel</ObjectType>
   </ContentItemChannelID>
   <ContentItemContentTypeID>
-    <CodeName>TrainingGuides.ProductPage</CodeName>
-    <GUID>50b2f01e-c30e-4631-aeb6-56ff2278cb35</GUID>
+    <CodeName>TrainingGuides.EmptyPage</CodeName>
+    <GUID>58018c9d-5b6c-4251-b3a8-8c1a6d124780</GUID>
     <ObjectType>cms.contenttype</ObjectType>
   </ContentItemContentTypeID>
-  <ContentItemGUID>747cdc07-b3e2-420e-aa21-cfc8750a78fc</ContentItemGUID>
+  <ContentItemGUID>6ed6f301-bcee-4d53-a126-d3148e654a93</ContentItemGUID>
   <ContentItemIsReusable>False</ContentItemIsReusable>
   <ContentItemIsSecured>False</ContentItemIsSecured>
-  <ContentItemName>ProductA-wn6z15b1</ContentItemName>
+  <ContentItemName>Promotion-aqcyrv7k</ContentItemName>
 </cms.contentitem>

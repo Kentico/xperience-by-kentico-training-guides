@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.emptypage>
+  <ContentItemDataCommonDataID>
+    <GUID>b7bf922a-0080-49ea-b8af-263f6919774e</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>Promotion-aqcyrv7k</CodeName>
+      <GUID>6ed6f301-bcee-4d53-a126-d3148e654a93</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>8836643d-4788-428d-a7dc-cf7a2961afa9</ContentItemDataGUID>
+</contentitemdata.trainingguides.emptypage>

@@ -1,20 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.webpageurlpath>
-  <WebPageUrlPath>Products/Lorem-X</WebPageUrlPath>
+  <WebPageUrlPath>Store/Promotion</WebPageUrlPath>
   <WebPageUrlPathContentLanguageID>
     <CodeName>en</CodeName>
     <GUID>e81b5172-f240-4041-88b1-653089984e29</GUID>
     <ObjectType>cms.contentlanguage</ObjectType>
   </WebPageUrlPathContentLanguageID>
-  <WebPageUrlPathGUID>1bbec3aa-0f7a-4c7c-b1ff-73b36fc7064b</WebPageUrlPathGUID>
+  <WebPageUrlPathGUID>9fcb9d52-57b9-487e-a06e-94c34424e210</WebPageUrlPathGUID>
   <WebPageUrlPathHash>
-    <![CDATA[7CC941834AFB1F551E9E1543B2F1630E4FB60120735768E7B9012393CA72E9CB]]>
+    <![CDATA[28915FB4BC8AC3CAB203BD0E5FB4EB9311E1D1365CC4D1D998B28F3B1C02BC9B]]>
   </WebPageUrlPathHash>
   <WebPageUrlPathIsDraft>False</WebPageUrlPathIsDraft>
   <WebPageUrlPathIsLatest>True</WebPageUrlPathIsLatest>
   <WebPageUrlPathWebPageItemID>
-    <CodeName>LoremX-xts0c4n0</CodeName>
-    <GUID>fd3fd667-4404-4c08-9cc0-da3a42fd813c</GUID>
+    <CodeName>Promotion-aqcyrv7k</CodeName>
+    <GUID>852415f5-f205-4c83-a441-ed1d211a49e1</GUID>
     <ObjectType>cms.webpageitem</ObjectType>
   </WebPageUrlPathWebPageItemID>
   <WebPageUrlPathWebsiteChannelID>

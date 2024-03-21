@@ -1,20 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.webpageurlpath>
-  <WebPageUrlPath>Products/Product-A</WebPageUrlPath>
+  <WebPageUrlPath>Store/Ipsum-Z</WebPageUrlPath>
   <WebPageUrlPathContentLanguageID>
     <CodeName>en</CodeName>
     <GUID>e81b5172-f240-4041-88b1-653089984e29</GUID>
     <ObjectType>cms.contentlanguage</ObjectType>
   </WebPageUrlPathContentLanguageID>
-  <WebPageUrlPathGUID>c9c860e8-89bf-4b9d-9c7e-0315db5cf38b</WebPageUrlPathGUID>
+  <WebPageUrlPathGUID>4d824472-5264-407b-8175-1b5296a6e8ac</WebPageUrlPathGUID>
   <WebPageUrlPathHash>
-    <![CDATA[A158C32E913A8F3424F2436B143777FE9FB04AF1D35963EF0B50D9FCDAEA24EC]]>
+    <![CDATA[E28A14A7F7576C6F7C3BC91736220FF482C90E816244302342C7D54F9423958C]]>
   </WebPageUrlPathHash>
   <WebPageUrlPathIsDraft>False</WebPageUrlPathIsDraft>
   <WebPageUrlPathIsLatest>True</WebPageUrlPathIsLatest>
   <WebPageUrlPathWebPageItemID>
-    <CodeName>ProductA-wn6z15b1</CodeName>
-    <GUID>c25142dd-849d-43fa-9fed-349da1d3b445</GUID>
+    <CodeName>IpsumZ-dk8frf1d</CodeName>
+    <GUID>29d47791-2031-47ca-ae0f-f6ce0e2dbd81</GUID>
     <ObjectType>cms.webpageitem</ObjectType>
   </WebPageUrlPathWebPageItemID>
   <WebPageUrlPathWebsiteChannelID>
