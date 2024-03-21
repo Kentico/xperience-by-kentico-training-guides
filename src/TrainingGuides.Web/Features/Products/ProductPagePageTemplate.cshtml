@@ -1,19 +1,53 @@
-﻿    @using TrainingGuides.Web.Features.Products.Models
-    @using TrainingGuides.Web.Features.Products
+﻿﻿@using Microsoft.AspNetCore.Html
+@using System.Globalization
+@using TrainingGuides.Web.Features.Products
+@using TrainingGuides.Web.Features.Products.Models
+@using TrainingGuides.Web.Features.Shared.OptionProviders.ColumnLayout
+@using TrainingGuides.Web.Features.Shared.OptionProviders.ColorScheme
+@using TrainingGuides.Web.Features.Shared.ViewComponents
 
-    @model TemplateViewModel<ProductPagePageTemplateProperties>
+@model TemplateViewModel<ProductPagePageTemplateProperties>
 
-    @{
-        var templateModel = Model.GetTemplateModel<ProductPageViewModel>();
+@{
+    var templateModel = Model.GetTemplateModel<ProductPageViewModel>();
+    if (!Enum.TryParse(Model.Properties.ColumnLayout, out ColumnLayoutOption columnLayout))
+    {
+        columnLayout = ColumnLayoutOption.OneColumn;
     }
+}
+<tg-component-style color-scheme="@Model.Properties.ColorScheme" corner-style="@Model.Properties.CornerStyle">
+    @if(Model.Properties.UsePageBuilder)
+    {
+        <vc:page-builder-columns column-layout-option="@columnLayout" page-builder-area-type="@PageBuilderAreaType.EditableAreas" editable-area-options="@new EditableAreaOptions { DefaultSectionIdentifier = ComponentIdentifiers.Sections.GENERAL }" />
+    }
+    else
+    {
+        <div class="tg-padding-big">
+            <div class="row">
+                <div class="col align-self-center">
+                    <h3>@templateModel.Name</h3>
+                    <p>@templateModel.ShortDescription</p>
+                </div>
 
-    <div>
-        <div>
-            <h3>@templateModel.Name</h3>
-            <p>@templateModel.ShortDescription</p>
+                <tg-styled-image src="@templateModel.Media.FirstOrDefault()?.FilePath" alt="@templateModel.Media.FirstOrDefault()?.Description" corner-style="@Model.Properties.CornerStyle" class="col c-product-img object-fit-cover" />
+            </div>
+            <div class="row">
+                <div class="c-pricelist">                        
+                    <div class="col">
+                        <tg-component-style color-scheme="@ColorSchemeOption.Light1" corner-style="@Model.Properties.CornerStyle"  class="c-table">
+                            @foreach (var feature in templateModel.Features)
+                            {
+                                <div class="c-table_row">
+                                    <div class="c-table_cell"><div class="c-table_cell">@feature.Label</div></div>
+                                    <div class="c-table_cell text-end">
+                                        <tg-product-feature-value feature="@feature"/>
+                                    </div>
+                                </div>
+                            }
+                        </tg-component-style>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <div>
-            <img src="@templateModel.Media.FirstOrDefault()?.FilePath" alt="@templateModel.Media.FirstOrDefault()?.Description"/>
-        </div>
-    </div>
+    }
+</tg-component-style>

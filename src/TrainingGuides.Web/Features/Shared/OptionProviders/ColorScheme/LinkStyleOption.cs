@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace TrainingGuides.Web.Features.Shared.OptionsProviders.ColorScheme;
+namespace TrainingGuides.Web.Features.Shared.OptionProviders.ColorScheme;
 
 public enum LinkStyleOption
 {

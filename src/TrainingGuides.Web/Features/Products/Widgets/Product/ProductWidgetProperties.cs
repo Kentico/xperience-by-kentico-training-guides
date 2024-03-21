@@ -4,7 +4,7 @@ using Kentico.Xperience.Admin.Base.FormAnnotations;
 using Kentico.Xperience.Admin.Websites.FormAnnotations;
 using TrainingGuides.Web.Features.Shared.OptionProviders;
 using TrainingGuides.Web.Features.Shared.OptionProviders.CornerStyle;
-using TrainingGuides.Web.Features.Shared.OptionsProviders.ColorScheme;
+using TrainingGuides.Web.Features.Shared.OptionProviders.ColorScheme;
 
 namespace TrainingGuides.Web.Features.Products.Widgets.Product;
 
