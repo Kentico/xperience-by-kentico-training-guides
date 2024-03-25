@@ -30,7 +30,7 @@ public class ProductWidgetProperties : IWidgetProperties
         Label = "Select product page",
         ExplanationText = "Choose the product page to be dispayed in the widget.",
         Order = 30)]
-    public IEnumerable<WebPageRelatedItem> SelectedProductPage { get; set; } = new List<WebPageRelatedItem>();
+    public IEnumerable<WebPageRelatedItem> SelectedProductPage { get; set; } = [];
 
     [CheckBoxComponent(
         Label = "Display product image",
@@ -65,12 +65,12 @@ public class ProductWidgetProperties : IWidgetProperties
         Order = 90)]
     public bool ShowAdvanced { get; set; } = false;
 
+    [VisibleIfTrue(nameof(ShowAdvanced))]
     [DropDownComponent(
         Label = "Color scheme",
         ExplanationText = "Select widget color scheme.",
         DataProviderType = typeof(DropdownEnumOptionProvider<ColorSchemeOption>),
         Order = 100)]
-    [VisibleIfTrue(nameof(ShowAdvanced))]
     public string? ColorScheme { get; set; } = nameof(ColorSchemeOption.Dark1);
 
     [VisibleIfTrue(nameof(ShowAdvanced))]
@@ -86,29 +86,29 @@ public class ProductWidgetProperties : IWidgetProperties
         Order = 120)]
     public bool DropShadow { get; set; } = false;
 
+    [VisibleIfTrue(nameof(ShowAdvanced))]
+    [VisibleIfTrue(nameof(ShowProductImage))]
     [DropDownComponent(
         Label = "Image position",
         ExplanationText = "Select the image position with respect to text.",
         DataProviderType = typeof(DropdownEnumOptionProvider<ImagePositionOption>),
         Order = 130)]
-    [VisibleIfTrue(nameof(ShowAdvanced))]
-    [VisibleIfTrue(nameof(ShowProductImage))]
     public string? ImagePosition { get; set; } = nameof(ImagePositionOption.FullWidth);
 
+    [VisibleIfTrue(nameof(ShowAdvanced))]
     [DropDownComponent(
         Label = "Text alignment",
         DataProviderType = typeof(DropdownEnumOptionProvider<ContentAlignmentOption>),
         Order = 140)]
-    [VisibleIfTrue(nameof(ShowAdvanced))]
     public string? TextAlignment { get; set; } = nameof(ContentAlignmentOption.Left);
 
+    [VisibleIfTrue(nameof(ShowAdvanced))]
+    [VisibleIfNotEmpty(nameof(CallToAction))]
     [DropDownComponent(
         Label = "CTA button style",
         DataProviderType = typeof(DropdownEnumOptionProvider<LinkStyleOption>),
         Order = 150
     )]
-    [VisibleIfTrue(nameof(ShowAdvanced))]
-    [VisibleIfNotEmpty(nameof(CallToAction))]
     public string? CallToActionStyle { get; set; } = nameof(LinkStyleOption.Medium);
 }
 

@@ -3,7 +3,7 @@ using TrainingGuides.Web.Features.Shared.Models;
 
 namespace TrainingGuides.Web.Features.Products.Widgets.Product;
 
-public class ProductWidgetViewModel
+public class ProductWidgetViewModel : WidgetViewModel
 {
     public ProductPageViewModel? Product { get; set; }
     public bool ShowProductFeatures { get; set; }
@@ -17,7 +17,5 @@ public class ProductWidgetViewModel
     public string? CallToActionCssClasses { get; set; }
     public bool IsImagePositionSide { get; set; } = false;
 
-    // can be extracted into a parent class and have ProductWidgetViewModel inherit from it
-    // see for example Product comparator or Hero banner widget view model
-    public bool IsMisconfigured => Product == null;
+    public override bool IsMisconfigured => Product == null;
 }
