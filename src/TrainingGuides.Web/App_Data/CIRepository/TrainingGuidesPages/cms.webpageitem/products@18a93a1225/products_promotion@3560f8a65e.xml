@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpageitem>
+  <WebPageItemContentItemID>
+    <CodeName>Promotion-dm2mebvz</CodeName>
+    <GUID>2d92fa9a-0e62-49c4-88d4-5cd204aa6478</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </WebPageItemContentItemID>
+  <WebPageItemGUID>f985b6c8-63c7-46e4-a006-6d4033670cff</WebPageItemGUID>
+  <WebPageItemName>Promotion-dm2mebvz</WebPageItemName>
+  <WebPageItemOrder>1</WebPageItemOrder>
+  <WebPageItemParentID>
+    <CodeName>Products-oypi95ub</CodeName>
+    <GUID>5a0c83e1-2ad8-40b2-aa00-d01980daf01d</GUID>
+    <ObjectType>cms.webpageitem</ObjectType>
+  </WebPageItemParentID>
+  <WebPageItemTreePath>/Products/Promotion</WebPageItemTreePath>
+  <WebPageItemWebsiteChannelID>
+    <GUID>fdba40fe-1ece-4821-9d57-eaa1d89e13b1</GUID>
+    <ObjectType>cms.websitechannel</ObjectType>
+    <Parent>
+      <CodeName>TrainingGuidesPages</CodeName>
+      <GUID>5ba9c1e8-b61e-4570-b666-87a9b92bbe3b</GUID>
+      <ObjectType>cms.channel</ObjectType>
+    </Parent>
+  </WebPageItemWebsiteChannelID>
+</cms.webpageitem>
