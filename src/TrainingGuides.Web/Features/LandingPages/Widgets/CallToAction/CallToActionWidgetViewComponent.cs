@@ -9,9 +9,9 @@ using TrainingGuides.Web.Features.Shared.Services;
     RegisterWidget(
         identifier: CallToActionWidgetViewComponent.IDENTIFIER,
         viewComponentType: typeof(CallToActionWidgetViewComponent),
-        name: "Call to action (CTA)",
+        name: CallToActionWidgetViewComponent.NAME,
         propertiesType: typeof(CallToActionWidgetProperties),
-        Description = "Displays a call to action button.",
+        Description = "Displays a call to action button. As seen in KBank demo site.",
         IconClass = "icon-bubbles")]
 
 namespace TrainingGuides.Web.Features.LandingPages.Widgets.CallToAction;
@@ -22,6 +22,8 @@ public class CallToActionWidgetViewComponent : ViewComponent
     private readonly IContentQueryResultMapper contentQueryResultMapper;
 
     public const string IDENTIFIER = "TrainingGuides.CallToActionWidget";
+
+    public const string NAME = "Call to action (CTA)";
 
     public CallToActionWidgetViewComponent(
         IContentItemRetrieverService<Asset> contentItemRetrieverService,

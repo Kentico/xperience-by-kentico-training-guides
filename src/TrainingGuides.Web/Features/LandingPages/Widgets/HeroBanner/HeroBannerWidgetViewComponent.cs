@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ViewComponents;
 using TrainingGuides.Web.Features.Shared.Models;
 using TrainingGuides.Web.Features.Shared.Services;
+using TrainingGuides.Web.Features.Shared.OptionProviders;
 
 [assembly:
     RegisterWidget(
@@ -122,8 +123,8 @@ public class HeroBannerWidgetViewComponent : ViewComponent
 
                 if (banner?.Link != null)
                 {
-                    banner.CTALink = !string.IsNullOrEmpty(banner.Link.Page) ? banner!.Link.Page : banner.Link.LinkToExternal ?? string.Empty;
-                    banner.CTAText = !string.IsNullOrEmpty(properties?.CTA) ? properties.CTA : banner.Link.CTA;
+                    banner.CTALink = !string.IsNullOrEmpty(banner.Link.LinkUrl) ? banner!.Link.LinkUrl : banner.Link.LinkToExternal ?? string.Empty;
+                    banner.CTAText = !string.IsNullOrEmpty(properties?.CTA) ? properties.CTA : banner.Link.CallToAction;
                     banner.LinkTitle = banner.Link.LinkTitleText;
                 }
             }
@@ -140,6 +141,12 @@ public class HeroBannerWidgetViewComponent : ViewComponent
                 banner.ShowBenefits = properties.ShowBenefits;
                 banner.FullWidth = (properties.Width ?? "circle").Equals("full", StringComparison.InvariantCultureIgnoreCase);
                 banner.TextColor = properties.TextColor;
+                banner.ThemeClass = new DropdownEnumOptionProvider<TextColorOption>().Parse(properties.TextColor, TextColorOption.Dark) switch
+                {
+                    TextColorOption.Light => "light",
+                    TextColorOption.Dark => "",
+                    _ => ""
+                };
                 banner.ShowImage = properties.ShowImage;
             }
 
@@ -205,8 +212,8 @@ public class HeroBannerWidgetViewComponent : ViewComponent
             Benefits = hero.HeroBenefits.Select(BenefitViewModel.GetViewModel).ToList(),
             Link = new LinkViewModel()
             {
-                Page = url.RelativePath,
-                CTA = hero.HeroCallToAction
+                LinkUrl = url.RelativePath,
+                CallToAction = hero.HeroCallToAction
             },
             Media = media != null
                 ? AssetViewModel.GetViewModel(media)

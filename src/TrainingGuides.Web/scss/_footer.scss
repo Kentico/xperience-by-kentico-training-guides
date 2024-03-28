@@ -1,7 +1,7 @@
 @use 'variables';
 
 .c-footer {
-    background: #EBF5FF;
+    background: variables.$color-light-tertiary;
     padding: 2.5rem 1rem 1.25rem;
     text-align: center;
     position: relative;

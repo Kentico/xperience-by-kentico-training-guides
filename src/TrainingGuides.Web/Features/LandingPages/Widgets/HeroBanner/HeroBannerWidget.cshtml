@@ -39,9 +39,9 @@
                                     {
                                         <div class="col-sm-6 col-md-4 mt-3">
                                             <div class="c-img-placeholder type02 text-center">
-                                                @if (benefit.Asset != null)
+                                                @if (benefit.Icon != null)
                                                 {
-                                                    <img src="@Url.Content(benefit.Asset.FilePath)" alt="@benefit.Asset.AltText" class="h-100" />
+                                                    <img src="@Url.Content(benefit.Icon.FilePath)" alt="@benefit.Icon.AltText" class="h-100" />
                                                 }
                                             </div>
                                             <p class="mt-3">
@@ -81,9 +81,9 @@
                                     {
                                         <div class="c-icon-box mt-3 me-7">
                                             <div class="c-icon-box_icon">
-                                                @if (benefit.Asset != null)
+                                                @if (benefit.Icon != null)
                                                 {
-                                                    <img src="@Url.Content(benefit.Asset.FilePath)" alt="@benefit.Asset.AltText" class="c-icon" />
+                                                    <img src="@Url.Content(benefit.Icon.FilePath)" alt="@benefit.Icon.AltText" class="c-icon" />
                                                 }
                                             </div>
                                             <div class="c-icon-box_body">
@@ -135,9 +135,9 @@
                                 {
                                     <div class="col-sm-6 col-md-4 mt-3">
                                         <div class="c-img-placeholder type02 text-center w-100">
-                                            @if (benefit.Asset != null)
+                                            @if (benefit.Icon != null)
                                             {
-                                                <img src="@Url.Content(benefit.Asset.FilePath)" alt="@benefit.Asset?.AltText" class="h-100" />
+                                                <img src="@Url.Content(benefit.Icon.FilePath)" alt="@benefit.Icon?.AltText" class="h-100" />
                                             }
                                         </div>
                                         <p class="mt-3">

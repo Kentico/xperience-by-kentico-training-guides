@@ -1,7 +1,9 @@
-﻿using Kentico.PageBuilder.Web.Mvc;
+﻿using System.ComponentModel;
+using Kentico.PageBuilder.Web.Mvc;
 using Kentico.Xperience.Admin.Base.FormAnnotations;
 using Kentico.Xperience.Admin.Websites.FormAnnotations;
-using TrainingGuides.Web.Features.Shared.OptionsProviders.Heading;
+using TrainingGuides.Web.Features.Shared.OptionProviders;
+using TrainingGuides.Web.Features.Shared.OptionProviders.Heading;
 
 namespace TrainingGuides.Web.Features.Products.Widgets.ProductComparator;
 public class ProductComparatorWidgetProperties : IWidgetProperties
@@ -12,12 +14,19 @@ public class ProductComparatorWidgetProperties : IWidgetProperties
     [TextInputComponent(Label = "Comparator heading", Order = 2)]
     public string ComparatorHeading { get; set; } = null!;
 
-    [DropDownComponent(DataProviderType = typeof(HeadingTypeOptionsProvider), Label = "Heading type", Order = 3)]
-    public string HeadingType { get; set; } = null!;
+    [DropDownComponent(
+        Label = "Heading type",
+        DataProviderType = typeof(DropdownEnumOptionProvider<ProductComparatorHeadingTypeOption>),
+        Order = 3
+    )]
+    public string HeadingType { get; set; } = nameof(ProductComparatorHeadingTypeOption.H2);
 
-    [DropDownComponent(Label = "Heading margin", Order = 4,
-        Options = HeadingMarginOptions.DEFAULT + ";Default\n" + HeadingMarginOptions.SMALL + ";Small\n" + HeadingMarginOptions.LARGE + ";Large")]
-    public string HeadingMargin { get; set; } = HeadingMarginOptions.DEFAULT;
+    [DropDownComponent(
+        Label = "Heading margin",
+        DataProviderType = typeof(DropdownEnumOptionProvider<HeadingMarginOption>),
+        Order = 4
+    )]
+    public string HeadingMargin { get; set; } = HeadingMarginOption.Default.ToString();
 
     [TextInputComponent(Label = "CTA", Order = 5)]
     public string CallToAction { get; set; } = null!;
@@ -29,16 +38,22 @@ public class ProductComparatorWidgetProperties : IWidgetProperties
     public bool ShowPrice { get; set; }
 }
 
-public class HeadingTypeOptionsProvider : Shared.OptionsProviders.Heading.HeadingTypeOptionsProvider
+public enum ProductComparatorHeadingTypeOption
 {
-    public HeadingTypeOptionsProvider() : base(new[] { HeadingTypeOption.Auto, HeadingTypeOption.h2, HeadingTypeOption.h3, HeadingTypeOption.h4 })
-    {
-    }
+    [Description("Heading 2")]
+    H2 = HeadingTypeOption.H2,
+    [Description("Heading 3")]
+    H3 = HeadingTypeOption.H3,
+    [Description("Heading 4")]
+    H4 = HeadingTypeOption.H4
 }
 
-public static class HeadingMarginOptions
+public enum HeadingMarginOption
 {
-    public const string DEFAULT = "default";
-    public const string SMALL = "small";
-    public const string LARGE = "large";
+    [Description("Default")]
+    Default,
+    [Description("Small")]
+    Small,
+    [Description("Large")]
+    Large
 }

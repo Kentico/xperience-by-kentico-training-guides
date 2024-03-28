@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.emptypage>
+  <ContentItemDataCommonDataID>
+    <GUID>57a343f3-b995-4ec0-ac87-772e194ae3a4</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>Promotion-dm2mebvz</CodeName>
+      <GUID>2d92fa9a-0e62-49c4-88d4-5cd204aa6478</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>5ee18d57-c68b-43ab-8b29-0bb1eebd0d6a</ContentItemDataGUID>
+</contentitemdata.trainingguides.emptypage>

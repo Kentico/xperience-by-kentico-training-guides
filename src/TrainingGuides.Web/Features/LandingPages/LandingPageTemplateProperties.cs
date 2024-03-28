@@ -1,42 +1,33 @@
-﻿using Kentico.PageBuilder.Web.Mvc.PageTemplates;
+﻿using System.ComponentModel;
+using Kentico.PageBuilder.Web.Mvc.PageTemplates;
 using Kentico.Xperience.Admin.Base.FormAnnotations;
+using TrainingGuides.Web.Features.Shared.OptionProviders;
+using TrainingGuides.Web.Features.Shared.OptionProviders.Heading;
 
 namespace TrainingGuides.Web.Features.LandingPages;
 
 public class LandingPageTemplateProperties : IPageTemplateProperties
 {
-    private const string DESCRIPTION = "Radio button group to select the type of Html tag that wraps the home page message";
+    private const string DESCRIPTION = "Select the type of Html tag that wraps the home page message";
 
-    private const string OPTIONS =
-        "h1;Heading 1" + "\r\n" +
-        "h2;Heading 2" + "\r\n" +
-        "h3;Heading 3" + "\r\n" +
-        "h4;Heading 4" + "\r\n" +
-        "p;Paragraph" + "\r\n";
-
-    private string messageType;
-
-    [RadioGroupComponent(
+    [DropDownComponent(
         Label = "Message tag type",
-        AriaLabel = DESCRIPTION,
         ExplanationText = DESCRIPTION,
-        Inline = true,
-        Options = OPTIONS)]
-    public string MessageType
-    {
-        get => GetSafeTagText(messageType);
-        set => messageType = value;
-    }
-
-    //ensures only valid strings will be rendered as raw html
-    private string GetSafeTagText(string messageType) => messageType switch
-    {
-        "h1" => "h1",
-        "h2" => "h2",
-        "h3" => "h3",
-        "h4" => "h4",
-        "p" => "p",
-        _ => "span"
-    };
+        DataProviderType = typeof(DropdownEnumOptionProvider<LandingPageHeadingTypeOption>)
+    )]
+    public string MessageType { get; set; } = nameof(LandingPageHeadingTypeOption.H2);
+}
+public enum LandingPageHeadingTypeOption
+{
+    [Description("Heading 1")]
+    H1 = HeadingTypeOption.H1,
+    [Description("Heading 2")]
+    H2 = HeadingTypeOption.H2,
+    [Description("Heading 3")]
+    H3 = HeadingTypeOption.H3,
+    [Description("Heading 4")]
+    H4 = HeadingTypeOption.H4,
+    [Description("Paragraph")]
+    P = HeadingTypeOption.P
 }
 

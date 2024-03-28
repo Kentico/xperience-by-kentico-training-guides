@@ -1,6 +1,8 @@
 ﻿@using System.Globalization
 @using TrainingGuides.Web.Features.Products
 @using TrainingGuides.Web.Features.Products.Widgets.ProductComparator
+@using TrainingGuides.Web.Features.Shared.OptionProviders.Heading;
+@using TrainingGuides.Web.Features.Products.Models;
 
 @model ProductComparatorWidgetViewModel
 
@@ -16,9 +18,9 @@
 }
 else {
     <div class="container bg-card">
-        <section class="c-section @Model.HeadingMargin">
+        <section class="c-section @Model.HeadingMargin.ToString().ToLower()">
         <div class="container">
-            <tg-heading class="text-center c-why_heading" headingType=@Model.HeadingType headingTypeDefault="h2">
+            <tg-heading class="text-center c-why_heading" headingType=@Model.HeadingType headingTypeDefault="@HeadingTypeOption.H2">
                 @Model.ComparatorHeading
             </tg-heading>
         </div>
@@ -82,33 +84,33 @@ else {
                                         var productFeature = @item.Features.FirstOrDefault(f => f.Key == feature.Key);
                                         }
                                         @if (productFeature != null)
-                                    {
-                                        if (productFeature.ValueType == ProductFeatureValueType.Text)
                                         {
-                                            @productFeature.Value
-                                        }
-                                        if (productFeature.ValueType == ProductFeatureValueType.Number)
-                                        {
-                                            <span>@string.Format(CultureInfo.CurrentUICulture, "{0:0.00}", @productFeature.Price)</span>
-                                        }
-                                        if (productFeature.ValueType == ProductFeatureValueType.Boolean)
-                                        {
-                                            if (productFeature.FeatureIncluded)
+                                            if (productFeature.ValueType == ProductFeatureValueType.Text)
                                             {
-                                                    <svg class="c-icon">
-                                                    <use xlink:href="@Model.CheckboxIconUrl"></use>
-                                                    </svg>
+                                                @productFeature.Value
                                             }
-                                            else
+                                            if (productFeature.ValueType == ProductFeatureValueType.Number)
                                             {
-                                                    <span>-</span>
+                                                <span>@string.Format(CultureInfo.CurrentUICulture, "{0:0.00}", @productFeature.Price)</span>
+                                            }
+                                            if (productFeature.ValueType == ProductFeatureValueType.Boolean)
+                                            {
+                                                if (productFeature.FeatureIncluded)
+                                                {
+                                                        <svg class="c-icon">
+                                                        <use xlink:href="@Model.CheckboxIconUrl"></use>
+                                                        </svg>
+                                                }
+                                                else
+                                                {
+                                                        <span>-</span>
+                                                }
                                             }
                                         }
-                                    }
-                                    else
-                                    {
-                                            <span>-</span>
-                                    }
+                                        else
+                                        {
+                                                <span>-</span>
+                                        }
                                     </div>
                             }
                                 <div class="c-products-grid_col gap"></div>
@@ -118,11 +120,20 @@ else {
                         <div class="c-products-grid_row no-hover">
                             <div class="c-products-grid_col th"></div>
                             @foreach (var item in Model.Products)
-                        {
+                            {
                                 <div class="c-products-grid_col">
-                                    <a href="@Url.Content(item.Url)" class="btn tg-btn-primary text-uppercase" title="@item.Link?.LinkTitleText" target="@(item.Link !=null && item.Link.OpenInNewTab ? "_blank": "")">@item.CallToAction</a>
+                                    @if(item.Link != null && !string.IsNullOrEmpty(item.Link.CallToAction))
+                                    {
+                                        <a
+                                            href="@Url.Content(item.Link.LinkUrl)"
+                                            class="btn tg-btn-primary text-uppercase"
+                                            title="@item.Link.LinkTitleText"
+                                            target="@(item.Link.OpenInNewTab ? "_blank": "")">
+                                            @item.Link.CallToAction
+                                        </a>
+                                    }
                                 </div>
-                        }
+                            }
 
                             <div class="c-products-grid_col gap"></div>
                         </div>

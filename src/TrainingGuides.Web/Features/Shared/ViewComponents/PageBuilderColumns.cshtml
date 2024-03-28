@@ -1,0 +1,20 @@
+﻿@using TrainingGuides.Web.Features.Shared.ViewComponents
+
+@model PageBuilderColumnsViewModel
+<div class="container tg-pb-col">
+    <div class="row">
+        @foreach (var column in Model.PageBuilderColumns)
+        {
+            <div class="@column.CssClass">
+                @if(Model.PageBuilderAreaType == PageBuilderAreaType.EditableAreas)
+                {
+                    <editable-area area-identifier="@column.Identifier" area-options="column.EditableAreaOptions" />
+                }
+                else
+                {
+                    <widget-zone zone-name="@column.Identifier" allowed-widgets="column.EditableAreaOptions?.AllowedWidgets" />
+                }
+            </div>
+        }
+    </div>
+</div>

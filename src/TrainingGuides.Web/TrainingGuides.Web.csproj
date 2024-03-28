@@ -2,6 +2,7 @@
 
   <ItemGroup>
     <PackageReference Include="AspNetCore.Unobtrusive.Ajax" />
+    <PackageReference Include="Enums.NET" />
     <PackageReference Include="kentico.xperience.admin" />
     <PackageReference Include="kentico.xperience.azurestorage" />
     <PackageReference Include="kentico.xperience.imageprocessing" />
@@ -15,6 +16,10 @@
   <ItemGroup>
     <ProjectReference Include="..\TrainingGuides.Admin\TrainingGuides.Admin.csproj" />
     <ProjectReference Include="..\TrainingGuides.Entities\TrainingGuides.Entities.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Features\Products\Templates\" />
   </ItemGroup>
 
 </Project>

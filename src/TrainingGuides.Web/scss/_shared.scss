@@ -1,4 +1,5 @@
 @use 'variables';
+@use 'mixins';
 
 .t-default {
     background: variables.$body-bg;
@@ -23,12 +24,12 @@
 
 .u-border-01 {
     border: none;
-    border-radius: variables.$border-radius;
+    border-radius: variables.$border-radius-rounded-corners;
 }
 
 .u-border-02 {
     border: none;
-    border-radius: variables.$border-radius;
+    border-radius: variables.$border-radius-rounded-corners;
 }
 
 .c-img-placeholder.type01 {
@@ -112,4 +113,83 @@
     font-size: .875rem;
     margin: .6rem 0;
     color: variables.$color-secondary;
+}
+
+.tg-corner-shrp {
+    border-radius: 0;
+}
+
+.tg-corner-rnd {
+    border-radius: variables.$border-radius-rounded-corners;
+
+    &.bottom-only {
+        @include mixins.border-radius-cancel-top-mixin;
+    }
+
+    &.top-only {
+        @include mixins.border-radius-cancel-bottom-mixin;
+    }
+}
+
+.tg-corner-v-rnd {
+    border-radius: variables.$border-radius-very-rounded-corners;
+    
+    &.bottom-only {
+        @include mixins.border-radius-cancel-top-mixin;
+    }
+
+    &.top-only {
+        @include mixins.border-radius-cancel-bottom-mixin;
+    }
+}
+
+.tg-bg-primary {
+    background: variables.$color-primary;
+}
+
+.tg-bg-secondary {
+    background: variables.$color-secondary;
+}
+
+.tg-bg-none {
+    background: none;
+}
+
+.tg-bg-light-1 {
+    background: variables.$color-light;
+}
+
+.tg-bg-light-2 {
+    background: variables.$color-light-secondary;
+}
+
+.tg-bg-light-3 {
+    background: variables.$color-light-tertiary;
+}
+
+.tg-txt-light {
+    color: variables.$color-light;
+}
+
+.tg-txt-medium {
+    color: variables.$color-secondary;
+}
+
+.tg-txt-dark {
+    color: variables.$color-dark;
+}
+
+.tg-padding-big {
+    padding: 5rem;
+}
+.tg-row {
+    display: flex;
+}
+.tg-col {
+    flex: 1;
+}
+
+.tg-pb-col {
+    padding: 2rem;
+    
 }

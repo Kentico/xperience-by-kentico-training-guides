@@ -1,7 +1,8 @@
-﻿using Kentico.PageBuilder.Web.Mvc;
-using Microsoft.AspNetCore.Html;
+﻿using Microsoft.AspNetCore.Html;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ViewComponents;
+using Kentico.PageBuilder.Web.Mvc;
+using TrainingGuides.Web.Features.Products.Models;
 using TrainingGuides.Web.Features.Products.Widgets.ProductComparator;
 using TrainingGuides.Web.Features.Shared.Models;
 using TrainingGuides.Web.Features.Shared.Services;
@@ -47,7 +48,7 @@ public class ProductComparatorWidgetViewComponent : ViewComponent
             Products = [],
             GroupedFeatures = [],
             ComparatorHeading = properties.ComparatorHeading,
-            HeadingType = new HeadingTypeOptionsProvider().Parse(properties.HeadingType)!.Value,
+            HeadingType = properties.HeadingType,
             HeadingMargin = properties.HeadingMargin,
             ShowShortDescription = properties.ShowShortDescription,
             CheckboxIconUrl = $"{httpRequestService.GetBaseUrl()}/assets/img/icons.svg#check"
@@ -71,7 +72,7 @@ public class ProductComparatorWidgetViewComponent : ViewComponent
         return View("~/Features/Products/Widgets/ProductComparator/ProductComparatorWidget.cshtml", model);
     }
 
-    private async Task<ProductViewModel?> GetProduct(Guid guid, ProductComparatorWidgetProperties properties, CancellationToken cancellationToken)
+    private async Task<ProductPageViewModel?> GetProduct(Guid guid, ProductComparatorWidgetProperties properties, CancellationToken cancellationToken)
     {
         var productPage = await productRetrieverService.RetrieveWebPageByGuid(
                             guid,
@@ -81,12 +82,12 @@ public class ProductComparatorWidgetViewComponent : ViewComponent
 
         if (productPage == null)
         {
-            return new ProductViewModel
+            return new ProductPageViewModel
             {
                 Name = new("Error"),
                 Features =
                 [
-                    new ProductFeaturesViewModel
+                    new ProductFeatureViewModel
                     {
                         Key = "error",
                         Name = "Error",
@@ -108,26 +109,23 @@ public class ProductComparatorWidgetViewComponent : ViewComponent
 
         var linkComponent = new LinkViewModel()
         {
-            Page = webPageUrlRetriever.Retrieve(productPage, cancellationToken).Result.RelativePath
+            LinkUrl = webPageUrlRetriever.Retrieve(productPage, cancellationToken).Result.RelativePath,
+            CallToAction = properties.CallToAction ?? string.Empty
         };
 
-        var model = new ProductViewModel
+        var model = new ProductPageViewModel
         {
             Name = new(product.ProductName),
             ShortDescription = new(product.ProductShortDescription),
-            Url = linkComponent.Page,
-            Features = product.ProductFeatures.Select(ProductFeaturesViewModel.GetViewModel).ToList(),
+            Features = product.ProductFeatures.Select(ProductFeatureViewModel.GetViewModel).ToList(),
             Link = linkComponent,
-            CallToAction = !string.IsNullOrEmpty(properties.CallToAction)
-                ? properties.CallToAction
-                : string.Empty,
             Price = product.ProductPrice
         };
 
         if (properties.ShowPrice)
         {
             model.Features.Add(
-                new ProductFeaturesViewModel
+                new ProductFeatureViewModel
                 {
                     Key = "price-from-product-content-item",
                     Name = "Price",
@@ -137,7 +135,6 @@ public class ProductComparatorWidgetViewComponent : ViewComponent
                     FeatureIncluded = false,
                     ValueType = ProductFeatureValueType.Number,
                     ShowInComparator = true,
-
                 });
         }
 
