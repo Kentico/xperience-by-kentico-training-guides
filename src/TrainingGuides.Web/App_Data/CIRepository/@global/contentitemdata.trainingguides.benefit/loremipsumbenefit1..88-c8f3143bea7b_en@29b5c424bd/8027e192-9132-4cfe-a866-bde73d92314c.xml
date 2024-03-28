@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.benefit>
+  <BenefitDescription>
+    <![CDATA[<p>Phasellus sit amet erat finibus, luctus nisi eu, ullamcorper magna</p>]]>
+  </BenefitDescription>
+  <BenefitIcon>
+    <![CDATA[[{"Identifier":"3bceb54a-b28d-4291-90b8-128efb530f16"}]]]>
+  </BenefitIcon>
+  <ContentItemDataCommonDataID>
+    <GUID>05f8579f-ef09-42cb-8c88-c8f3143bea7b</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>LoremIpsumBenefit1-6hp9j4gq</CodeName>
+      <GUID>e3994c1f-b91e-43d0-82ee-fca635fd8792</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>8027e192-9132-4cfe-a866-bde73d92314c</ContentItemDataGUID>
+</contentitemdata.trainingguides.benefit>

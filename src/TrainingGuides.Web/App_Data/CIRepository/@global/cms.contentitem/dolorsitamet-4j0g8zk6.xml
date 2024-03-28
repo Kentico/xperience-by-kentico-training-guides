@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentitem>
+  <ContentItemContentTypeID>
+    <CodeName>TrainingGuides.ProductFeature</CodeName>
+    <GUID>7521136f-4ed3-4b69-8b54-82255d7b4385</GUID>
+    <ObjectType>cms.contenttype</ObjectType>
+  </ContentItemContentTypeID>
+  <ContentItemGUID>0267614c-b1ed-42d9-ac01-99b429441854</ContentItemGUID>
+  <ContentItemIsReusable>True</ContentItemIsReusable>
+  <ContentItemIsSecured>False</ContentItemIsSecured>
+  <ContentItemName>DolorSitAmet-4j0g8zk6</ContentItemName>
+</cms.contentitem>

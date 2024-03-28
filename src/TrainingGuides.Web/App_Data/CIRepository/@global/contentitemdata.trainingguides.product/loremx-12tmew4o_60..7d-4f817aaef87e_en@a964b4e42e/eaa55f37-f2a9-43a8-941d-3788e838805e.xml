@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.product>
+  <ContentItemDataCommonDataID>
+    <GUID>602c8fdf-0c53-4db3-bd7d-4f817aaef87e</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>LoremX-12tmew4o</CodeName>
+      <GUID>9f82e93c-d107-4614-9481-c41224249cae</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>eaa55f37-f2a9-43a8-941d-3788e838805e</ContentItemDataGUID>
+  <ProductBenefits>
+    <![CDATA[[{"Identifier":"e3994c1f-b91e-43d0-82ee-fca635fd8792"},{"Identifier":"15b4e527-dc69-4af3-95b3-95d995ede802"}]]]>
+  </ProductBenefits>
+  <ProductDescription>
+    <![CDATA[<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vulputate a neque vitae vulputate. Donec tempus varius orci, et facilisis purus condimentum et.</p>]]>
+  </ProductDescription>
+  <ProductFeatures>
+    <![CDATA[[{"Identifier":"3453b6bc-f36a-4203-8757-bba2562df298"},{"Identifier":"024469dc-5467-48a6-b09f-9b202ee2f510"},{"Identifier":"421baf9f-de34-4ace-b648-239c89ce614d"}]]]>
+  </ProductFeatures>
+  <ProductMedia>
+    <![CDATA[[{"Identifier":"b2bda33d-6094-4ea5-b56d-4d59fd202d72"}]]]>
+  </ProductMedia>
+  <ProductName>Lorem X</ProductName>
+  <ProductPrice>200</ProductPrice>
+  <ProductShortDescription>
+    <![CDATA[<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>]]>
+  </ProductShortDescription>
+</contentitemdata.trainingguides.product>

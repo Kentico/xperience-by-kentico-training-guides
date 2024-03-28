@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.productpage>
+  <ContentItemDataCommonDataID>
+    <GUID>66c10208-4161-48c6-8cd7-6359f27dcd89</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>LoremX-xts0c4n0</CodeName>
+      <GUID>92cc0b01-99a4-4e10-87bf-c0358470aafb</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>c78df3ba-cd75-44cf-8525-9502e02adc7e</ContentItemDataGUID>
+  <ProductPageProduct>
+    <![CDATA[[{"Identifier":"9f82e93c-d107-4614-9481-c41224249cae"}]]]>
+  </ProductPageProduct>
+</contentitemdata.trainingguides.productpage>

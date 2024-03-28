@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentitem>
+  <ContentItemContentTypeID>
+    <CodeName>TrainingGuides.Benefit</CodeName>
+    <GUID>6eb7df2d-2da5-4343-8e67-a5aa61017e18</GUID>
+    <ObjectType>cms.contenttype</ObjectType>
+  </ContentItemContentTypeID>
+  <ContentItemGUID>e3994c1f-b91e-43d0-82ee-fca635fd8792</ContentItemGUID>
+  <ContentItemIsReusable>True</ContentItemIsReusable>
+  <ContentItemIsSecured>False</ContentItemIsSecured>
+  <ContentItemName>LoremIpsumBenefit1-6hp9j4gq</ContentItemName>
+</cms.contentitem>

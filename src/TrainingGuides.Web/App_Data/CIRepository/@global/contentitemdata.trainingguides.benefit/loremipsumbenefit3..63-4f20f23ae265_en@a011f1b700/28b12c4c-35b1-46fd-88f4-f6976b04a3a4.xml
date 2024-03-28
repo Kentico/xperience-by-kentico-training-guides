@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.benefit>
+  <BenefitDescription>
+    <![CDATA[<p>Sed in dui a odio congue interdum et nec nunc</p>]]>
+  </BenefitDescription>
+  <BenefitIcon>
+    <![CDATA[[{"Identifier":"3bceb54a-b28d-4291-90b8-128efb530f16"}]]]>
+  </BenefitIcon>
+  <ContentItemDataCommonDataID>
+    <GUID>7e90da06-396d-44bb-a563-4f20f23ae265</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>LoremIpsumBenefit3-uq2rgfn6</CodeName>
+      <GUID>1c1d377a-0e51-4b18-83cf-05836881f131</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>28b12c4c-35b1-46fd-88f4-f6976b04a3a4</ContentItemDataGUID>
+</contentitemdata.trainingguides.benefit>

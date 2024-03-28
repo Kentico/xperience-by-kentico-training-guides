@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentitem>
+  <ContentItemContentTypeID>
+    <CodeName>TrainingGuides.Product</CodeName>
+    <GUID>54c89164-06fa-4984-a04c-cc2ec647463f</GUID>
+    <ObjectType>cms.contenttype</ObjectType>
+  </ContentItemContentTypeID>
+  <ContentItemGUID>85342550-f35f-4941-9ca9-21b0a0cf4918</ContentItemGUID>
+  <ContentItemIsReusable>True</ContentItemIsReusable>
+  <ContentItemIsSecured>False</ContentItemIsSecured>
+  <ContentItemName>IpsumZ-24ypp4el</ContentItemName>
+</cms.contentitem>
