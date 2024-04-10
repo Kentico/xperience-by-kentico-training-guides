@@ -1,9 +1,3 @@
-
-
-
-
-using System.Configuration;
-using Kentico.Xperience.Admin.Base.FormAnnotations;
 using Kentico.Xperience.Admin.Base.Forms;
 
 namespace TrainingGuides.Web.Features.Videos.Widgets.VideoEmbed;

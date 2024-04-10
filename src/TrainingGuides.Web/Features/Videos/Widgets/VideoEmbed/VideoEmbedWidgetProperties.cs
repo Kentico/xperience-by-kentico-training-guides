@@ -46,7 +46,6 @@ public class VideoEmbedWidgetProperties : IWidgetProperties
     /// Determines the width of the embed.
     /// </summary>
     [NumberInputComponent(Label = "Width (px)", Order = 4)]
-    //TODO CONFIGURATOR
     [FormComponentConfiguration(typeof(VideoEmbedWidgetConfigurator), [nameof(Service), nameof(DynamicSize)])]
     public int Width { get; set; } = 560;
 
@@ -55,7 +54,6 @@ public class VideoEmbedWidgetProperties : IWidgetProperties
     /// Detemines the height of the embed.
     /// </summary>
     [NumberInputComponent(Label = "Height (px)", Order = 5)]
-    //TODO CONFIGURATOR
     [FormComponentConfiguration(typeof(VideoEmbedWidgetConfigurator), [nameof(Service), nameof(DynamicSize)])]
     public int Height { get; set; } = 315;
 
