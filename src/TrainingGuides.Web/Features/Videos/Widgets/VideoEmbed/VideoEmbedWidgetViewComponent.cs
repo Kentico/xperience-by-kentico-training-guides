@@ -3,17 +3,24 @@ using Microsoft.AspNetCore.Mvc;
 using System.Web;
 using DancingGoat.Widgets;
 using Microsoft.Extensions.Localization;
+using TrainingGuides.Web.Features.Videos.Widgets.VideoEmbed;
 
-[assembly: RegisterWidget(VideoEmbedWidgetViewComponent.IDENTIFIER, typeof(VideoEmbedWidgetViewComponent), "Video embed", typeof(VideoEmbedWidgetProperties), Description = "Embeds a video in the page.", IconClass = "icon-triangle-right")]
+[assembly: RegisterWidget(
+    VideoEmbedWidgetViewComponent.IDENTIFIER,
+    typeof(VideoEmbedWidgetViewComponent),
+    "Video embed", typeof(VideoEmbedWidgetProperties),
+    Description = "Embeds a video in the page.",
+    IconClass = "icon-triangle-right")]
+
 namespace TrainingGuides.Web.Features.Videos.Widgets.VideoEmbed;
 
 public class VideoEmbedWidgetViewComponent : ViewComponent
 {
     public const string IDENTIFIER = "DancingGoat.VideoEmbedWidget";
 
-    private readonly IStringLocalizer localizer;
+    private readonly IStringLocalizer<SharedResources> localizer;
 
-    public VideoEmbedWidgetViewComponent(IStringLocalizer localizer)
+    public VideoEmbedWidgetViewComponent(IStringLocalizer<SharedResources> localizer)
     {
         this.localizer = localizer;
     }
@@ -21,13 +28,13 @@ public class VideoEmbedWidgetViewComponent : ViewComponent
     public IViewComponentResult Invoke(ComponentViewModel<VideoEmbedWidgetProperties> widgetProperties)
     {
         string markup = GetEmbedMarkup(widgetProperties.Properties);
-        return View("~/Components/Widgets/VideoEmbedWidget/_VideoEmbedWidget.cshtml", new VideoEmbedWidgetViewModel { Markup = markup });
+        return View("~/Features/Videos/Widgets/VideoEmbed/VideoEmbedWidget.cshtml", new VideoEmbedWidgetViewModel { Markup = markup });
     }
 
 
     private string GetEmbedMarkup(VideoEmbedWidgetProperties widgetProperties)
     {
-        if(widgetProperties != null && !string.IsNullOrEmpty(widgetProperties.Url))
+        if (widgetProperties != null && !string.IsNullOrEmpty(widgetProperties.Url))
         {
             return widgetProperties.Service switch
             {
@@ -38,7 +45,7 @@ public class VideoEmbedWidgetViewComponent : ViewComponent
                 _ => localizer["Specified video service not found."],
             };
         }
-        return localizer["Please make sure the URL property is filled in."];                
+        return localizer["Please make sure the URL property is filled in."];
     }
 
 
@@ -73,9 +80,9 @@ public class VideoEmbedWidgetViewComponent : ViewComponent
             if (!string.IsNullOrEmpty(videoId))
             {
                 string anchor = widgetProperties.PlayFromBeginning ? string.Empty : $"#t={widgetProperties.StartingTime}s";
-                if(widgetProperties.DynamicSize)
+                if (widgetProperties.DynamicSize)
                 {
-                    
+
                     return "<div style=\"padding: 56.25 % 0 0 0; position: relative;\"><iframe src=\"https://player.vimeo.com/video/{videoId}{anchor}\" style=\"position:absolute;top:0;left:0;width:100%;height:100%;\" frameborder=\"0\" allow=\"autoplay; fullscreen; picture-in-picture\" allowfullscreen></iframe></div><script src=\"https://player.vimeo.com/api/player.js\"></script>";
                 }
                 else
