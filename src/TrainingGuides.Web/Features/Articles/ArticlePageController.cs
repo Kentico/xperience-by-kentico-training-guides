@@ -15,17 +15,14 @@ public class ArticlePageController : Controller
 {
 
     private readonly IWebPageDataContextRetriever webPageDataContextRetriever;
-    private readonly IWebPageQueryResultMapper webPageQueryResultMapper;
     private readonly IContentItemRetrieverService<ArticlePage> articlePageRetrieverService;
     private readonly IArticlePageService articlePageService;
 
     public ArticlePageController(IWebPageDataContextRetriever webPageDataContextRetriever,
-        IWebPageQueryResultMapper webPageQueryResultMapper,
         IContentItemRetrieverService<ArticlePage> articlePageRetrieverService,
         IArticlePageService articlePageService)
     {
         this.webPageDataContextRetriever = webPageDataContextRetriever;
-        this.webPageQueryResultMapper = webPageQueryResultMapper;
         this.articlePageRetrieverService = articlePageRetrieverService;
         this.articlePageService = articlePageService;
     }
@@ -36,7 +33,6 @@ public class ArticlePageController : Controller
         var articlePage = await articlePageRetrieverService.RetrieveWebPageById(
             context.WebPage.WebPageItemID,
             ArticlePage.CONTENT_TYPE_NAME,
-            webPageQueryResultMapper.Map<ArticlePage>,
             2);
 
         var model = await articlePageService.GetArticlePageViewModel(articlePage);

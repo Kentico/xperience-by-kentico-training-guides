@@ -23,17 +23,14 @@ public class ProductComparatorWidgetViewComponent : ViewComponent
     public const string IDENTIFIER = "TrainingGuides.ProductComparatorWidget";
 
     private readonly IContentItemRetrieverService<ProductPage> productRetrieverService;
-    private readonly IWebPageQueryResultMapper webPageQueryResultMapper;
     private readonly IWebPageUrlRetriever webPageUrlRetriever;
     private readonly IHttpRequestService httpRequestService;
 
     public ProductComparatorWidgetViewComponent(IContentItemRetrieverService<ProductPage> productRetrieverService,
-        IWebPageQueryResultMapper webPageQueryResultMapper,
         IWebPageUrlRetriever webPageUrlRetriever,
         IHttpRequestService httpRequestService)
     {
         this.productRetrieverService = productRetrieverService;
-        this.webPageQueryResultMapper = webPageQueryResultMapper;
         this.webPageUrlRetriever = webPageUrlRetriever;
         this.httpRequestService = httpRequestService;
     }
@@ -77,7 +74,6 @@ public class ProductComparatorWidgetViewComponent : ViewComponent
         var productPage = await productRetrieverService.RetrieveWebPageByGuid(
                             guid,
                             ProductPage.CONTENT_TYPE_NAME,
-                            webPageQueryResultMapper.Map<ProductPage>,
                             4);
 
         if (productPage == null)

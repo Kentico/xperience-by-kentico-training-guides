@@ -16,16 +16,13 @@ public class FeaturedNewsWidgetViewComponent : ViewComponent
     public const string IDENTIFIER = "TrainingGuides.FeaturedNewsWidget";
 
     private readonly IContentItemRetrieverService<ArticlePage> articlePageRetrieverService;
-    private readonly IWebPageQueryResultMapper webPageQueryResultMapper;
     private readonly IArticlePageService articlePageService;
 
     public FeaturedNewsWidgetViewComponent(
         IContentItemRetrieverService<ArticlePage> articlePageRetrieverService,
-        IWebPageQueryResultMapper webPageQueryResultMapper,
         IArticlePageService articlePageService)
     {
         this.articlePageRetrieverService = articlePageRetrieverService;
-        this.webPageQueryResultMapper = webPageQueryResultMapper;
         this.articlePageService = articlePageService;
     }
 
@@ -36,7 +33,6 @@ public class FeaturedNewsWidgetViewComponent : ViewComponent
             ? await articlePageRetrieverService.RetrieveWebPageByGuid(
                 guid.Value,
                 ArticlePage.CONTENT_TYPE_NAME,
-                webPageQueryResultMapper.Map<ArticlePage>,
                 3)
             : null;
 

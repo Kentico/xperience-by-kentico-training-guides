@@ -13,15 +13,12 @@ namespace TrainingGuides.Web.Features.Downloads;
 public class DownloadsPageController : Controller
 {
     private readonly IWebPageDataContextRetriever webPageDataContextRetriever;
-    private readonly IWebPageQueryResultMapper webPageQueryResultMapper;
     private readonly IContentItemRetrieverService<DownloadsPage> contentItemRetriever;
 
     public DownloadsPageController(IWebPageDataContextRetriever webPageDataContextRetriever,
-        IWebPageQueryResultMapper webPageQueryResultMapper,
         IContentItemRetrieverService<DownloadsPage> contentItemRetriever)
     {
         this.webPageDataContextRetriever = webPageDataContextRetriever;
-        this.webPageQueryResultMapper = webPageQueryResultMapper;
         this.contentItemRetriever = contentItemRetriever;
     }
 
@@ -32,7 +29,6 @@ public class DownloadsPageController : Controller
         var downloadsPage = await contentItemRetriever.RetrieveWebPageById(
             context.WebPage.WebPageItemID,
             DownloadsPage.CONTENT_TYPE_NAME,
-            webPageQueryResultMapper.Map<DownloadsPage>,
             2);
 
         var model = DownloadsPageViewModel.GetViewModel(downloadsPage);

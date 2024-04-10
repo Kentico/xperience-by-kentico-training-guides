@@ -1,5 +1,4 @@
-﻿using CMS.ContentEngine;
-using TrainingGuides.Web.Features.LandingPages.Widgets.HeroBanner;
+﻿using TrainingGuides.Web.Features.LandingPages.Widgets.HeroBanner;
 using Kentico.Content.Web.Mvc;
 using Kentico.Content.Web.Mvc.Routing;
 using Kentico.PageBuilder.Web.Mvc;
@@ -24,8 +23,6 @@ namespace TrainingGuides.Web.Features.LandingPages.Widgets.HeroBanner;
 public class HeroBannerWidgetViewComponent : ViewComponent
 {
     private readonly IWebPageDataContextRetriever webPageDataContextRetriever;
-    private readonly IWebPageQueryResultMapper webPageQueryResultMapper;
-    private readonly IContentQueryResultMapper contentQueryResultMapper;
     private readonly IContentItemRetrieverService<ProductPage> productRetrieverService;
     private readonly IContentItemRetrieverService<Hero> heroRetrieverService;
     private readonly IWebPageUrlRetriever webPageUrlRetriever;
@@ -35,8 +32,6 @@ public class HeroBannerWidgetViewComponent : ViewComponent
     public const string IDENTIFIER = "TrainingGuides.HeroBanner";
 
     public HeroBannerWidgetViewComponent(IWebPageDataContextRetriever webPageDataContextRetriever,
-        IWebPageQueryResultMapper webPageQueryResultMapper,
-        IContentQueryResultMapper contentQueryResultMapper,
         IContentItemRetrieverService<ProductPage> productRetrieverService,
         IContentItemRetrieverService<Hero> heroRetrieverService,
         IWebPageUrlRetriever webPageUrlRetriever,
@@ -44,8 +39,6 @@ public class HeroBannerWidgetViewComponent : ViewComponent
         )
     {
         this.webPageDataContextRetriever = webPageDataContextRetriever;
-        this.webPageQueryResultMapper = webPageQueryResultMapper;
-        this.contentQueryResultMapper = contentQueryResultMapper;
         this.productRetrieverService = productRetrieverService;
         this.heroRetrieverService = heroRetrieverService;
         this.webPageUrlRetriever = webPageUrlRetriever;
@@ -64,7 +57,6 @@ public class HeroBannerWidgetViewComponent : ViewComponent
             var productPage = await productRetrieverService
                 .RetrieveWebPageById(context.WebPage.WebPageItemID,
                     ProductPage.CONTENT_TYPE_NAME,
-                    webPageQueryResultMapper.Map<ProductPage>,
                     3);
 
             if (productPage != null)
@@ -88,7 +80,6 @@ public class HeroBannerWidgetViewComponent : ViewComponent
                     ? await productRetrieverService
                         .RetrieveWebPageByGuid((Guid)productPageGuid,
                             ProductPage.CONTENT_TYPE_NAME,
-                            webPageQueryResultMapper.Map<ProductPage>,
                             3)
                     : null;
 
@@ -115,7 +106,6 @@ public class HeroBannerWidgetViewComponent : ViewComponent
                     ? await heroRetrieverService
                         .RetrieveContentItemByGuid((Guid)heroGuid,
                             Hero.CONTENT_TYPE_NAME,
-                            contentQueryResultMapper.Map<Hero>,
                             3)
                     : null;
 

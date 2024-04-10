@@ -18,6 +18,7 @@ namespace TrainingGuides
 	/// <summary>
 	/// Represents a content item of type <see cref="Article"/>.
 	/// </summary>
+	[RegisterContentTypeMapping(CONTENT_TYPE_NAME)]
 	public partial class Article : IContentItemFieldsSource
 	{
 		/// <summary>
@@ -29,6 +30,7 @@ namespace TrainingGuides
 		/// <summary>
 		/// Represents system properties for a content item.
 		/// </summary>
+		[SystemField]
 		public ContentItemFields SystemFields { get; set; }
 
 

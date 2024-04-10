@@ -19,19 +19,16 @@ public class ArticleListWidgetViewComponent : ViewComponent
 
     private readonly IContentItemRetrieverService<GenericPage> genericPageRetrieverService;
     private readonly IContentItemRetrieverService<ArticlePage> articlePageRetrieverService;
-    private readonly IWebPageQueryResultMapper webPageQueryResultMapper;
 
     private readonly IArticlePageService articlePageService;
 
     public ArticleListWidgetViewComponent(
         IContentItemRetrieverService<GenericPage> genericPageRetrieverService,
         IContentItemRetrieverService<ArticlePage> articlePageRetrieverService,
-        IWebPageQueryResultMapper webPageQueryResultMapper,
         IArticlePageService articlePageService)
     {
         this.genericPageRetrieverService = genericPageRetrieverService;
         this.articlePageRetrieverService = articlePageRetrieverService;
-        this.webPageQueryResultMapper = webPageQueryResultMapper;
         this.articlePageService = articlePageService;
     }
 
@@ -50,15 +47,13 @@ public class ArticleListWidgetViewComponent : ViewComponent
 
             var parentPage = await genericPageRetrieverService.RetrieveWebPageByGuid(
                 selectedPageGuid,
-                selectedPageContentTypeName,
-                webPageQueryResultMapper.Map<GenericPage>);
+                selectedPageContentTypeName);
 
             string selectedPagePath = parentPage.SystemFields.WebPageItemTreePath;
 
             var articlePages = await articlePageRetrieverService.RetrieveWebPageChildrenByPath(
                 selectedPageContentTypeName,
                 selectedPagePath,
-                webPageQueryResultMapper.Map<ArticlePage>,
                 3);
 
             model.Articles = (properties.OrderBy.Equals(OrderByOption.OldestFirst.ToString())

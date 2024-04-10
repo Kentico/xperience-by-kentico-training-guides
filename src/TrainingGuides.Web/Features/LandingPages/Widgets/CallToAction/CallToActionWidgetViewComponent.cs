@@ -1,4 +1,3 @@
-using CMS.ContentEngine;
 using Kentico.PageBuilder.Web.Mvc;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ViewComponents;
@@ -19,18 +18,15 @@ namespace TrainingGuides.Web.Features.LandingPages.Widgets.CallToAction;
 public class CallToActionWidgetViewComponent : ViewComponent
 {
     private readonly IContentItemRetrieverService<Asset> contentItemRetrieverService;
-    private readonly IContentQueryResultMapper contentQueryResultMapper;
 
     public const string IDENTIFIER = "TrainingGuides.CallToActionWidget";
 
     public const string NAME = "Call to action (CTA)";
 
     public CallToActionWidgetViewComponent(
-        IContentItemRetrieverService<Asset> contentItemRetrieverService,
-        IContentQueryResultMapper contentQueryResultMapper)
+        IContentItemRetrieverService<Asset> contentItemRetrieverService)
     {
         this.contentItemRetrieverService = contentItemRetrieverService;
-        this.contentQueryResultMapper = contentQueryResultMapper;
     }
 
     public async Task<ViewViewComponentResult> InvokeAsync(CallToActionWidgetProperties properties)
@@ -53,8 +49,7 @@ public class CallToActionWidgetViewComponent : ViewComponent
             var selectedItem = selectedId != null
                 ? await contentItemRetrieverService.RetrieveContentItemByGuid(
                     selectedId.Value,
-                    Asset.CONTENT_TYPE_NAME,
-                    container => contentQueryResultMapper.Map<Asset>(container))
+                    Asset.CONTENT_TYPE_NAME)
                 : null;
 
             if (selectedItem != null)
