@@ -15,7 +15,7 @@ namespace TrainingGuides.Web.Features.Videos.Widgets.VideoEmbed;
 
 public class VideoEmbedWidgetViewComponent : ViewComponent
 {
-    public const string IDENTIFIER = "DancingGoat.VideoEmbedWidget";
+    public const string IDENTIFIER = "TrainingGuides.VideoEmbedWidget";
 
     private readonly IStringLocalizer<SharedResources> localizer;
 
