@@ -2,7 +2,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ViewComponents;
 using CMS.DataEngine;
 using Kentico.PageBuilder.Web.Mvc;
-using TrainingGuides.Web.Features.Articles.Entities;
 using TrainingGuides.Web.Features.Articles.Widgets.ArticleList;
 using TrainingGuides.Web.Features.Shared.Services;
 using TrainingGuides.Web.Features.Articles.Services;
@@ -17,13 +16,13 @@ public class ArticleListWidgetViewComponent : ViewComponent
 {
     public const string IDENTIFIER = "TrainingGuides.ArticleListWidget";
 
-    private readonly IContentItemRetrieverService<GenericPage> genericPageRetrieverService;
+    private readonly IContentItemRetrieverService genericPageRetrieverService;
     private readonly IContentItemRetrieverService<ArticlePage> articlePageRetrieverService;
 
     private readonly IArticlePageService articlePageService;
 
     public ArticleListWidgetViewComponent(
-        IContentItemRetrieverService<GenericPage> genericPageRetrieverService,
+        IContentItemRetrieverService genericPageRetrieverService,
         IContentItemRetrieverService<ArticlePage> articlePageRetrieverService,
         IArticlePageService articlePageService)
     {
@@ -45,9 +44,7 @@ public class ArticleListWidgetViewComponent : ViewComponent
         {
             string selectedPageContentTypeName = await GetWebPageContentTypeName(selectedPageGuid!.Value);
 
-            var parentPage = await genericPageRetrieverService.RetrieveWebPageByGuid(
-                selectedPageGuid,
-                selectedPageContentTypeName);
+            var parentPage = await genericPageRetrieverService.RetrieveWebPageByGuid((Guid) selectedPageGuid);
 
             string selectedPagePath = parentPage.SystemFields.WebPageItemTreePath;
 
