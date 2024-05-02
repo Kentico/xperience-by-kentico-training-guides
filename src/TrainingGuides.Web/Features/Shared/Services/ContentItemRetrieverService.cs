@@ -34,7 +34,7 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
         int depth = 1)
     {
         var pages = await RetrieveWebPageContentItems(
-                contentTypeName ?? string.Empty,
+                contentTypeName,
                 config => config
                     .Where(where => where.WhereEquals(nameof(WebPageFields.WebPageItemID), webPageItemId))
                     .WithLinkedItems(depth));
@@ -173,14 +173,14 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
 public class ContentItemRetrieverService : IContentItemRetrieverService
 {
     private readonly IContentQueryExecutor contentQueryExecutor;
-    private readonly IWebsiteChannelContext webSiteChannelContext;
+    private readonly IWebsiteChannelContext websiteChannelContext;
 
     public ContentItemRetrieverService(
         IContentQueryExecutor contentQueryExecutor,
-        IWebsiteChannelContext webSiteChannelContext)
+        IWebsiteChannelContext websiteChannelContext)
     {
         this.contentQueryExecutor = contentQueryExecutor;
-        this.webSiteChannelContext = webSiteChannelContext;
+        this.websiteChannelContext = websiteChannelContext;
     }
 
     private async Task<IEnumerable<IWebPageFieldsSource>> RetrieveWebPages(Action<ContentQueryParameters> parameters)
@@ -189,7 +189,7 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
 
         builder.ForContentTypes(query =>
             {
-                query.ForWebsite(webSiteChannelContext.WebsiteChannelName);
+                query.ForWebsite(websiteChannelContext.WebsiteChannelName);
             })
             .Parameters(parameters);
 
