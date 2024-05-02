@@ -31,7 +31,7 @@ public class VideoEmbedWidgetProperties : IWidgetProperties
     /// Defines the URL of the embedded video.
     /// </summary>
     [TextInputComponent(Label = "Url", Order = 2)]
-    public string Url { get; set; }
+    public string? Url { get; set; }
 
 
     /// <summary>
@@ -51,7 +51,7 @@ public class VideoEmbedWidgetProperties : IWidgetProperties
 
 
     /// <summary>
-    /// Detemines the height of the embed.
+    /// Determines the height of the embed.
     /// </summary>
     [NumberInputComponent(Label = "Height (px)", Order = 5)]
     [FormComponentConfiguration(typeof(VideoEmbedWidgetConfigurator), [nameof(Service), nameof(DynamicSize)])]
