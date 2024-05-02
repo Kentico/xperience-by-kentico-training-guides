@@ -75,7 +75,7 @@ public class VideoEmbedWidgetViewComponent : ViewComponent
     {
         if (widgetProperties != null && !string.IsNullOrEmpty(widgetProperties.Url))
         {
-            var videoId = GetFinalPathComponent(widgetProperties.Url);
+            string videoId = GetFinalPathComponent(widgetProperties.Url);
             if (!string.IsNullOrEmpty(videoId))
             {
                 string anchor = widgetProperties.PlayFromBeginning ? string.Empty : $"#t={widgetProperties.StartingTime}s";
@@ -99,7 +99,7 @@ public class VideoEmbedWidgetViewComponent : ViewComponent
     {
         if (widgetProperties != null && !string.IsNullOrEmpty(widgetProperties.Url))
         {
-            var videoId = GetFinalPathComponent(widgetProperties.Url);
+            string videoId = GetFinalPathComponent(widgetProperties.Url);
             if (!string.IsNullOrEmpty(videoId))
             {
                 if (widgetProperties.DynamicSize)
@@ -137,18 +137,18 @@ public class VideoEmbedWidgetViewComponent : ViewComponent
     {
         if (!string.IsNullOrEmpty(url))
         {
-            string queryId = GetIdFromQuery(url, "v");
+            string? queryId = GetIdFromQuery(url, "v");
             return string.IsNullOrEmpty(queryId) ? GetFinalPathComponent(url) : queryId;
         }
         return string.Empty;
     }
 
 
-    private string GetIdFromQuery(string url, string paramName)
+    private string? GetIdFromQuery(string url, string paramName)
     {
         if (!string.IsNullOrEmpty(url) && !string.IsNullOrEmpty(paramName))
         {
-            Uri uri = new Uri(url);
+            var uri = new Uri(url);
             if (!string.IsNullOrEmpty(uri.Query))
             {
                 var query = HttpUtility.ParseQueryString(uri.Query);
@@ -167,11 +167,11 @@ public class VideoEmbedWidgetViewComponent : ViewComponent
         if (!string.IsNullOrEmpty(url))
         {
             string baseUrl = url.Split('?')[0];
-            var urlComponents = baseUrl.Split('/');
+            string[] urlComponents = baseUrl.Split('/');
 
             if (urlComponents.Length > 3)
             {
-                return urlComponents[urlComponents.Length - 1];
+                return urlComponents[^1];
             }
         }
         return string.Empty;
@@ -186,7 +186,7 @@ public class VideoEmbedWidgetViewComponent : ViewComponent
             string[] parts = finalComponent.Split('.');
             if (parts.Length > 1)
             {
-                return parts[parts.Length - 1];
+                return parts[^1];
             }
         }
         return string.Empty;
