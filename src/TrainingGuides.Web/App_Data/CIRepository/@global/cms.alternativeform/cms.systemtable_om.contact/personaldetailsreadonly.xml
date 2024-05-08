@@ -169,6 +169,17 @@
       <field column="ContactSalesForceLeadReplicationSuspensionDateTime" guid="d4655c8b-f017-45d4-863d-5f9283acd11d" order="32" />
       <field column="ContactSalesForceLeadReplicationRequired" guid="ed635ea1-58a9-40af-8429-501b10fe6f71" order="33" />
       <field column="ContactGender" guid="6eb0cdc8-d4f1-433c-a39d-9fef3487d29e" order="34" />
+      <field column="ContactIsMember" guid="5ac41daa-05fa-471a-ae04-9940dfbfe71f" visible="true" enabled="" order="35">
+        <settings>
+          <controlname>Kentico.Administration.Checkbox</controlname>
+        </settings>
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Contact is a member of the loyalty program</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+      </field>
+      <field column="ContactRegion" guid="6652532a-2ab5-4215-bfea-86821eed9380" enabled="" order="36" />
     </form>
   </FormDefinition>
   <FormDisplayName>Personal details - read only</FormDisplayName>

@@ -51,6 +51,16 @@
           <defaultvalue>False</defaultvalue>
         </properties>
       </field>
+      <field allowempty="true" column="ContactIsMember" columnprecision="0" columntype="boolean" enabled="true" guid="5ac41daa-05fa-471a-ae04-9940dfbfe71f">
+        <properties>
+          <defaultvalue>True</defaultvalue>
+        </properties>
+      </field>
+      <field allowempty="true" column="ContactRegion" columnprecision="0" columnsize="30" columntype="text" enabled="true" guid="6652532a-2ab5-4215-bfea-86821eed9380">
+        <properties>
+          <defaultvalue>EMEA</defaultvalue>
+        </properties>
+      </field>
     </form>
   </ClassFormDefinition>
   <ClassGUID>a7ca5324-19a5-4104-9579-ef54c7fca5fa</ClassGUID>
