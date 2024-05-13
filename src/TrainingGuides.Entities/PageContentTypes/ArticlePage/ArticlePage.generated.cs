@@ -11,6 +11,7 @@
 
 using System;
 using System.Collections.Generic;
+using CMS.ContentEngine;
 using CMS.Websites;
 
 namespace TrainingGuides
@@ -18,6 +19,7 @@ namespace TrainingGuides
 	/// <summary>
 	/// Represents a page of type <see cref="ArticlePage"/>.
 	/// </summary>
+	[RegisterContentTypeMapping(CONTENT_TYPE_NAME)]
 	public partial class ArticlePage : IWebPageFieldsSource
 	{
 		/// <summary>
@@ -29,6 +31,7 @@ namespace TrainingGuides
 		/// <summary>
 		/// Represents system properties for a web page item.
 		/// </summary>
+		[SystemField]
 		public WebPageFields SystemFields { get; set; }
 
 

@@ -29,20 +29,17 @@ public class ProductWidgetViewComponent : ViewComponent
     private const string BS_PADDING_CLASS_5 = "p-5";
 
     private readonly IContentItemRetrieverService<ProductPage> productRetrieverService;
-    private readonly IWebPageQueryResultMapper webPageQueryResultMapper;
     private readonly IComponentStyleEnumService componentStyleEnumService;
     private readonly IProductPageService productPageService;
     private readonly IWebPageDataContextRetriever webPageDataContextRetriever;
 
     public ProductWidgetViewComponent(
         IContentItemRetrieverService<ProductPage> productRetrieverService,
-        IWebPageQueryResultMapper webPageQueryResultMapper,
         IComponentStyleEnumService componentStyleEnumService,
         IProductPageService productPageService,
         IWebPageDataContextRetriever webPageDataContextRetriever)
     {
         this.productRetrieverService = productRetrieverService;
-        this.webPageQueryResultMapper = webPageQueryResultMapper;
         this.componentStyleEnumService = componentStyleEnumService;
         this.productPageService = productPageService;
         this.webPageDataContextRetriever = webPageDataContextRetriever;
@@ -88,7 +85,6 @@ public class ProductWidgetViewComponent : ViewComponent
             productPage = await productRetrieverService
                 .RetrieveWebPageById(webPageDataContextRetriever.Retrieve().WebPage.WebPageItemID,
                     ProductPage.CONTENT_TYPE_NAME,
-                    webPageQueryResultMapper.Map<ProductPage>,
                     3);
         }
         else
@@ -99,7 +95,6 @@ public class ProductWidgetViewComponent : ViewComponent
                 ? await productRetrieverService.RetrieveWebPageByGuid(
                     guid,
                     ProductPage.CONTENT_TYPE_NAME,
-                    webPageQueryResultMapper.Map<ProductPage>,
                     4)
                 : null;
         }

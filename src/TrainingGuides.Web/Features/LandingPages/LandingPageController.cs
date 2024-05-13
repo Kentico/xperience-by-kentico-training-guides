@@ -13,16 +13,13 @@ namespace TrainingGuides.Web.Features.LandingPages;
 public class LandingPageController : Controller
 {
     private readonly IWebPageDataContextRetriever webPageDataContextRetriever;
-    private readonly IWebPageQueryResultMapper webPageQueryResultMapper;
     private readonly IContentItemRetrieverService<LandingPage> contentItemRetriever;
 
     public LandingPageController(
         IWebPageDataContextRetriever webPageDataContextRetriever,
-        IWebPageQueryResultMapper webPageQueryResultMapper,
         IContentItemRetrieverService<LandingPage> contentItemRetriever)
     {
         this.webPageDataContextRetriever = webPageDataContextRetriever;
-        this.webPageQueryResultMapper = webPageQueryResultMapper;
         this.contentItemRetriever = contentItemRetriever;
     }
 
@@ -32,8 +29,7 @@ public class LandingPageController : Controller
 
         var landingPage = await contentItemRetriever.RetrieveWebPageById
             (context.WebPage.WebPageItemID,
-            LandingPage.CONTENT_TYPE_NAME,
-            webPageQueryResultMapper.Map<LandingPage>);
+            LandingPage.CONTENT_TYPE_NAME);
 
         var model = LandingPageViewModel.GetViewModel(landingPage);
 

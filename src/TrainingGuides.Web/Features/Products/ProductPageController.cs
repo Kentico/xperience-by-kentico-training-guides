@@ -16,18 +16,15 @@ namespace TrainingGuides.Web.Features.Products;
 public class ProductPageController : Controller
 {
     private readonly IWebPageDataContextRetriever webPageDataContextRetriever;
-    private readonly IWebPageQueryResultMapper webPageQueryResultMapper;
     private readonly IContentItemRetrieverService<ProductPage> contentItemRetriever;
     private readonly IProductPageService productPageService;
 
     public ProductPageController(
         IWebPageDataContextRetriever webPageDataContextRetriever,
-        IWebPageQueryResultMapper webPageQueryResultMapper,
         IContentItemRetrieverService<ProductPage> contentItemRetriever,
         IProductPageService productPageService)
     {
         this.webPageDataContextRetriever = webPageDataContextRetriever;
-        this.webPageQueryResultMapper = webPageQueryResultMapper;
         this.contentItemRetriever = contentItemRetriever;
         this.productPageService = productPageService;
     }
@@ -38,7 +35,6 @@ public class ProductPageController : Controller
         var productPage = await contentItemRetriever.RetrieveWebPageById
             (context.WebPage.WebPageItemID,
             ProductPage.CONTENT_TYPE_NAME,
-            webPageQueryResultMapper.Map<ProductPage>,
             3);
 
         var model = await productPageService.GetProductPageViewModel(productPage);

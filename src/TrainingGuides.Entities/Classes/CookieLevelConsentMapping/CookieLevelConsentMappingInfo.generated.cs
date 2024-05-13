@@ -2,6 +2,7 @@ using System;
 using System.Data;
 using System.Runtime.Serialization;
 using System.Collections.Generic;
+using System.Linq;
 
 using CMS;
 using CMS.DataEngine;
@@ -16,7 +17,7 @@ namespace TrainingGuides.Admin
     /// Data container class for <see cref="CookieLevelConsentMappingInfo"/>.
     /// </summary>
     [Serializable]
-    public partial class CookieLevelConsentMappingInfo : AbstractInfo<CookieLevelConsentMappingInfo, ICookieLevelConsentMappingInfoProvider>
+    public partial class CookieLevelConsentMappingInfo : AbstractInfo<CookieLevelConsentMappingInfo, ICookieLevelConsentMappingInfoProvider>, IInfoWithId, IInfoWithName, IInfoWithGuid
     {
         /// <summary>
         /// Object type.
@@ -30,7 +31,6 @@ namespace TrainingGuides.Admin
 #warning "You will need to configure the type info."
         public static readonly ObjectTypeInfo TYPEINFO = new ObjectTypeInfo(typeof(CookieLevelConsentMappingInfoProvider), OBJECT_TYPE, "TrainingGuides.CookieLevelConsentMapping", "CookieLevelConsentMappingID", null, "CookieLevelConsentMappingGuid", "CookieLevelConsentMappingGuid", "CookieLevelConsentMappingID", null, null, null)
         {
-            ModuleName = "TrainingGuides.Admin",
             TouchCacheDependencies = true,
             DependsOn = new List<ObjectDependency>()
             {
@@ -53,6 +53,7 @@ namespace TrainingGuides.Admin
         /// Preference consent code name.
         /// </summary>
         [DatabaseField]
+        [Obsolete("Property is deprecated and will be removed in the future. Use property PreferenceConsentCodeName instead.")]
         public virtual string mPreferenceConsentCodeName
         {
             get => ValidationHelper.GetString(GetValue(nameof(PreferenceConsentCodeName)), String.Empty);
@@ -63,16 +64,19 @@ namespace TrainingGuides.Admin
         /// <summary>
         /// Preference consent code name.
         /// </summary>
+        [DatabaseField(ValueType = typeof(string))]
         public IEnumerable<string> PreferenceConsentCodeName
         {
-            get => global::CMS.DataEngine.Internal.JsonDataTypeConverter.ConvertToModels<string>(mPreferenceConsentCodeName);
+            get => global::CMS.DataEngine.Internal.JsonDataTypeConverter.ConvertToModels<string>(GetValue(nameof(PreferenceConsentCodeName), String.Empty));
+            set => SetValue(nameof(PreferenceConsentCodeName), global::CMS.DataEngine.Internal.JsonDataTypeConverter.ConvertToString<IEnumerable<string>>(value, Enumerable.Empty<string>(), null));
         }
-
+        
 
         /// <summary>
         /// Analytical consent code name.
         /// </summary>
         [DatabaseField]
+        [Obsolete("Property is deprecated and will be removed in the future. Use property AnalyticalConsentCodeName instead.")]
         public virtual string mAnalyticalConsentCodeName
         {
             get => ValidationHelper.GetString(GetValue(nameof(AnalyticalConsentCodeName)), String.Empty);
@@ -83,16 +87,19 @@ namespace TrainingGuides.Admin
         /// <summary>
         /// Analytical consent code name.
         /// </summary>
+        [DatabaseField(ValueType = typeof(string))]
         public IEnumerable<string> AnalyticalConsentCodeName
         {
-            get => global::CMS.DataEngine.Internal.JsonDataTypeConverter.ConvertToModels<string>(mAnalyticalConsentCodeName);
+            get => global::CMS.DataEngine.Internal.JsonDataTypeConverter.ConvertToModels<string>(GetValue(nameof(AnalyticalConsentCodeName), String.Empty));
+            set => SetValue(nameof(AnalyticalConsentCodeName), global::CMS.DataEngine.Internal.JsonDataTypeConverter.ConvertToString<IEnumerable<string>>(value, Enumerable.Empty<string>(), null));
         }
-
+        
 
         /// <summary>
         /// Marketing consent code name.
         /// </summary>
         [DatabaseField]
+        [Obsolete("Property is deprecated and will be removed in the future. Use property MarketingConsentCodeName instead.")]
         public virtual string mMarketingConsentCodeName
         {
             get => ValidationHelper.GetString(GetValue(nameof(MarketingConsentCodeName)), String.Empty);
@@ -103,11 +110,13 @@ namespace TrainingGuides.Admin
         /// <summary>
         /// Marketing consent code name.
         /// </summary>
+        [DatabaseField(ValueType = typeof(string))]
         public IEnumerable<string> MarketingConsentCodeName
         {
-            get => global::CMS.DataEngine.Internal.JsonDataTypeConverter.ConvertToModels<string>(mMarketingConsentCodeName);
+            get => global::CMS.DataEngine.Internal.JsonDataTypeConverter.ConvertToModels<string>(GetValue(nameof(MarketingConsentCodeName), String.Empty));
+            set => SetValue(nameof(MarketingConsentCodeName), global::CMS.DataEngine.Internal.JsonDataTypeConverter.ConvertToString<IEnumerable<string>>(value, Enumerable.Empty<string>(), null));
         }
-
+        
 
         /// <summary>
         /// Cookie level consent mapping guid.

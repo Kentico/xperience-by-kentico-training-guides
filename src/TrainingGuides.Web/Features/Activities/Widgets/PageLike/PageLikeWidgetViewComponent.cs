@@ -5,6 +5,7 @@ using Kentico.PageBuilder.Web.Mvc;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ViewComponents;
 using TrainingGuides.Web.Features.Shared.Services;
+using CMS.DataEngine;
 
 [assembly: RegisterWidget(
     identifier: PageLikeWidgetViewComponent.IDENTIFIER,
@@ -17,14 +18,14 @@ namespace TrainingGuides.Web.Features.Activities.Widgets.PageLike;
 
 public class PageLikeWidgetViewComponent : ViewComponent
 {
-    private readonly IActivityInfoProvider activityInfoProvider;
+    private readonly IInfoProvider<ActivityInfo> activityInfoProvider;
     private readonly IContentItemRetrieverService contentItemRetrieverService;
     private readonly IHttpRequestService httpRequestService;
 
     public const string IDENTIFIER = "TrainingGuides.PageLikeWidget";
     public const string ACTIVITY_IDENTIFIER = "pagelike";
 
-    public PageLikeWidgetViewComponent(IActivityInfoProvider activityInfoProvider,
+    public PageLikeWidgetViewComponent(IInfoProvider<ActivityInfo> activityInfoProvider,
         IContentItemRetrieverService contentItemRetrieverService,
         IHttpRequestService httpRequestService)
     {
@@ -38,16 +39,15 @@ public class PageLikeWidgetViewComponent : ViewComponent
         var currentContact = ContactManagementContext.GetCurrentContact(false);
 
         var webPage = await contentItemRetrieverService.RetrieveWebPageById(
-            properties.Page.WebPageItemID,
-            properties.Page.ContentTypeName);
+            properties.Page.WebPageItemID);
 
         var likesOfThisPage = currentContact != null
             ? await activityInfoProvider.Get()
                 .WhereEquals("ActivityContactID", currentContact.ContactID)
                 .And().WhereEquals("ActivityType", ACTIVITY_IDENTIFIER)
-                .And().WhereEquals("ActivityValue", webPage.SystemFields.WebPageItemGUID.ToString())
+                .And().WhereEquals("ActivityValue", webPage?.SystemFields.WebPageItemGUID.ToString())
                 .GetEnumerableTypedResultAsync()
-            : new List<ActivityInfo>();
+            : [];
 
         bool showLikeButton = likesOfThisPage.Count() == 0;
 
@@ -55,7 +55,6 @@ public class PageLikeWidgetViewComponent : ViewComponent
         {
             ShowLikeButton = showLikeButton,
             WebPageItemID = properties.Page.WebPageItemID,
-            ContentTypeName = properties.Page.ContentTypeName,
             BaseUrl = httpRequestService.GetBaseUrl()
         };
 

@@ -10,6 +10,7 @@ using TrainingGuides.Web.Features.Products.Widgets.ProductComparator;
 using TrainingGuides.Web.Features.Shared.Sections.FormColumn;
 using TrainingGuides.Web.Features.Shared.Sections.General;
 using TrainingGuides.Web.Features.Shared.Sections.SingleColumn;
+using TrainingGuides.Web.Features.Videos.Widgets.VideoEmbed;
 
 namespace TrainingGuides.Web;
 
@@ -34,5 +35,6 @@ public static class ComponentIdentifiers
         public const string ARTICLE_LIST = ArticleListWidgetViewComponent.IDENTIFIER;
         public const string SIMPLE_CALL_TO_ACTION = SimpleCallToActionWidgetViewComponent.IDENTIFIER;
         public const string PRODUCT = ProductWidgetViewComponent.IDENTIFIER;
+        public const string VIDEO_EMBED = VideoEmbedWidgetViewComponent.IDENTIFIER;
     }
 }

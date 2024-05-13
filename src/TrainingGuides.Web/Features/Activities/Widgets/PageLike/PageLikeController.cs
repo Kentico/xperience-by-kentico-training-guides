@@ -35,12 +35,8 @@ public class PageLikeController : Controller
         if (!int.TryParse(requestModel.WebPageItemID, out int webPageItemID))
             return Content(BAD_PAGE_DATA_MESSAGE);
 
-        if (string.IsNullOrEmpty(requestModel.ContentTypeName))
-            return Content(BAD_PAGE_DATA_MESSAGE);
-
         var webPage = await contentItemRetrieverService.RetrieveWebPageById(
-            webPageItemID,
-            requestModel.ContentTypeName);
+            webPageItemID);
 
         if (webPage is null)
             return Content(BAD_PAGE_DATA_MESSAGE);
