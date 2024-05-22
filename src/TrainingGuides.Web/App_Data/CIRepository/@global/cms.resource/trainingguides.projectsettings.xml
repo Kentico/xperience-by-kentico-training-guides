@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.resource>
+  <ResourceDisplayName>Project settings</ResourceDisplayName>
+  <ResourceGUID>1dfa52f3-3609-4f5e-8037-eb17193b05ec</ResourceGUID>
+  <ResourceIsInDevelopment>False</ResourceIsInDevelopment>
+  <ResourceName>TrainingGuides.ProjectSettings</ResourceName>
+</cms.resource>

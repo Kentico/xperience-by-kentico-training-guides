@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.channel>
+  <ChannelDisplayName>Test Extra Channel</ChannelDisplayName>
+  <ChannelGUID>ad912cfa-89c6-4655-992c-1862acb12435</ChannelGUID>
+  <ChannelName>TestExtraChannel</ChannelName>
+  <ChannelType>Website</ChannelType>
+</cms.channel>

@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.class>
+  <ClassDisplayName>Global settings key</ClassDisplayName>
+  <ClassFormDefinition>
+    <form>
+      <field column="SettingsKeyID" columntype="integer" enabled="true" guid="fc2ee209-60fa-452a-a7b0-edb9f43b281c" isPK="true" />
+      <field column="GlobalSettingsKeyValue" columnprecision="0" columnsize="1000" columntype="text" enabled="true" guid="fd2f5ddd-e49c-468d-b81e-df5dd334f4c1" />
+      <field column="GlobalSettingsKeyName" columnprecision="0" columnsize="200" columntype="text" enabled="true" guid="57b7f824-5dee-4eb4-a78f-dcd349f9cd23" />
+      <field column="GlobalSettingsKeyDisplayName" columnprecision="0" columnsize="200" columntype="text" enabled="true" guid="16b9b8a5-12bc-4b5e-9aed-fb4d1668de06" />
+    </form>
+  </ClassFormDefinition>
+  <ClassGUID>cf0fa30f-bf86-4cf2-85ad-3efe86846ba3</ClassGUID>
+  <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
+  <ClassName>TrainingGuides.GlobalSettingsKey</ClassName>
+  <ClassResourceID>
+    <CodeName>TrainingGuides.ProjectSettings</CodeName>
+    <GUID>1dfa52f3-3609-4f5e-8037-eb17193b05ec</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ClassResourceID>
+  <ClassTableName>TrainingGuides_GlobalSettingsKey</ClassTableName>
+  <ClassType>Other</ClassType>
+</cms.class>
