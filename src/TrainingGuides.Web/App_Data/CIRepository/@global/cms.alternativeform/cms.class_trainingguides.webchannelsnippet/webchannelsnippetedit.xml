@@ -32,6 +32,9 @@ javascript;Javascripot
           <OptionsValueSeparator>;</OptionsValueSeparator>
         </settings>
         <properties>
+          <explanationtext>
+            <![CDATA[Determines where on the page the snippet should be rendered.]]>
+          </explanationtext>
           <explanationtextashtml>False</explanationtextashtml>
           <fieldcaption>Type</fieldcaption>
           <fielddescriptionashtml>False</fielddescriptionashtml>
@@ -45,6 +48,9 @@ javascript;Javascripot
           <MinRowsNumber>3</MinRowsNumber>
         </settings>
         <properties>
+          <explanationtext>
+            <![CDATA[Holds the code that you want to render. Make sure to include opening and closing tags if necessary.]]>
+          </explanationtext>
           <explanationtextashtml>False</explanationtextashtml>
           <fieldcaption>Code</fieldcaption>
           <fielddescriptionashtml>False</fielddescriptionashtml>

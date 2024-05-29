@@ -15,7 +15,7 @@ namespace TrainingGuides.ProjectSettings
     /// Data container class for <see cref="GlobalSettingsKeyInfo"/>.
     /// </summary>
     [Serializable]
-    public partial class GlobalSettingsKeyInfo : AbstractInfo<GlobalSettingsKeyInfo, IGlobalSettingsKeyInfoProvider>, IInfoWithId, IInfoWithName
+    public partial class GlobalSettingsKeyInfo : AbstractInfo<GlobalSettingsKeyInfo, IInfoProvider<GlobalSettingsKeyInfo>>, IInfoWithId, IInfoWithName
     {
         /// <summary>
         /// Object type.
@@ -27,7 +27,7 @@ namespace TrainingGuides.ProjectSettings
         /// Type information.
         /// </summary>
 #warning "You will need to configure the type info."
-        public static readonly ObjectTypeInfo TYPEINFO = new ObjectTypeInfo(typeof(GlobalSettingsKeyInfoProvider), OBJECT_TYPE, "TrainingGuides.GlobalSettingsKey", "SettingsKeyID", null, null, "GlobalSettingsKeyName", "GlobalSettingsKeyDisplayName", null, null, null)
+        public static readonly ObjectTypeInfo TYPEINFO = new ObjectTypeInfo(typeof(IInfoProvider<GlobalSettingsKeyInfo>), OBJECT_TYPE, "TrainingGuides.GlobalSettingsKey", "SettingsKeyID", null, null, "GlobalSettingsKeyName", "GlobalSettingsKeyDisplayName", null, null, null)
         {
             TouchCacheDependencies = true,
         };
@@ -74,6 +74,17 @@ namespace TrainingGuides.ProjectSettings
         {
             get => ValidationHelper.GetString(GetValue(nameof(GlobalSettingsKeyDisplayName)), String.Empty);
             set => SetValue(nameof(GlobalSettingsKeyDisplayName), value);
+        }
+
+
+        /// <summary>
+        /// Global settings key note.
+        /// </summary>
+        [DatabaseField]
+        public virtual string GlobalSettingsKeyNote
+        {
+            get => ValidationHelper.GetString(GetValue(nameof(GlobalSettingsKeyNote)), String.Empty);
+            set => SetValue(nameof(GlobalSettingsKeyNote), value);
         }
 
 

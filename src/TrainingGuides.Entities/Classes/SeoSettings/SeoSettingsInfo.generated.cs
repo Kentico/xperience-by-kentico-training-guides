@@ -17,7 +17,7 @@ namespace TrainingGuides.ProjectSettings
     /// Data container class for <see cref="SeoSettingsInfo"/>.
     /// </summary>
     [Serializable]
-    public partial class SeoSettingsInfo : AbstractInfo<SeoSettingsInfo, ISeoSettingsInfoProvider>, IInfoWithId
+    public partial class SeoSettingsInfo : AbstractInfo<SeoSettingsInfo, IInfoProvider<SeoSettingsInfo>>, IInfoWithId
     {
         /// <summary>
         /// Object type.
@@ -29,7 +29,7 @@ namespace TrainingGuides.ProjectSettings
         /// Type information.
         /// </summary>
 #warning "You will need to configure the type info."
-        public static readonly ObjectTypeInfo TYPEINFO = new ObjectTypeInfo(typeof(SeoSettingsInfoProvider), OBJECT_TYPE, "TrainingGuides.SeoSettings", "SeoSettingsID", null, null, null, null, null, null, null)
+        public static readonly ObjectTypeInfo TYPEINFO = new ObjectTypeInfo(typeof(IInfoProvider<SeoSettingsInfo>), OBJECT_TYPE, "TrainingGuides.SeoSettings", "SeoSettingsID", null, null, null, null, null, null, null)
         {
             TouchCacheDependencies = true,
             DependsOn = new List<ObjectDependency>()

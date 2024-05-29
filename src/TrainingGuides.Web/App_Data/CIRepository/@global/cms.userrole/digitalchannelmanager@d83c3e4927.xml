@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.userrole>
+  <Parent>
+    <CodeName>DigitalChannelManager</CodeName>
+    <GUID>93fb8806-31ba-4548-8a3b-24dbbeec6e3d</GUID>
+    <ObjectType>cms.role</ObjectType>
+  </Parent>
+  <Bindings>
+    <Binding id="cms.user_test2@localhost.local">
+      <UserID>
+        <CodeName>test2@localhost.local</CodeName>
+        <GUID>bf5b8dbf-c774-45db-9834-65d71df62594</GUID>
+        <ObjectType>cms.user</ObjectType>
+      </UserID>
+    </Binding>
+    <Binding id="cms.user_test3@localhost.local">
+      <UserID>
+        <CodeName>test3@localhost.local</CodeName>
+        <GUID>21a17f4d-57e2-4bc4-822c-28f74438c846</GUID>
+        <ObjectType>cms.user</ObjectType>
+      </UserID>
+    </Binding>
+    <Binding id="cms.user_test4@localhost.local">
+      <UserID>
+        <CodeName>test4@localhost.local</CodeName>
+        <GUID>7041e6c9-596c-4371-b2bd-601e8f460c58</GUID>
+        <ObjectType>cms.user</ObjectType>
+      </UserID>
+    </Binding>
+    <Binding id="cms.user_test5@localhost.local">
+      <UserID>
+        <CodeName>test5@localhost.local</CodeName>
+        <GUID>2eddca9e-dacd-4da0-93a8-760738647536</GUID>
+        <ObjectType>cms.user</ObjectType>
+      </UserID>
+    </Binding>
+  </Bindings>
+</cms.userrole>

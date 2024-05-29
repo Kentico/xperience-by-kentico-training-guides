@@ -2,7 +2,9 @@ using TrainingGuides.Web.Features.Articles.Services;
 using TrainingGuides.Web.Features.DataProtection.Services;
 using TrainingGuides.Web.Features.Html.Services;
 using TrainingGuides.Web.Features.Products.Services;
+using TrainingGuides.Web.Features.SEO;
 using TrainingGuides.Web.Features.Shared.Services;
+using TrainingGuides.Web.Features.EmailNotifications;
 
 namespace TrainingGuides.Web;
 
@@ -20,7 +22,15 @@ public static class ServiceCollectionExtensions
         services.AddSingleton<IComponentStyleEnumService, ComponentStyleEnumService>();
 
         services.AddScoped<IHeadTagStoreService, HeadTagStoreService>();
+        services.AddScoped<IEmailNotificationService, EmailNotificationService>();
 
         services.AddTransient(typeof(IContentItemRetrieverService<>), typeof(ContentItemRetrieverService<>));
+
+    }
+
+    public static void AddTrainingGuidesOptions(this IServiceCollection services)
+    {
+        services.ConfigureOptions<RobotsOptionsSetup>();
+        services.ConfigureOptions<EmailNotificationOptionsSetup>();
     }
 }

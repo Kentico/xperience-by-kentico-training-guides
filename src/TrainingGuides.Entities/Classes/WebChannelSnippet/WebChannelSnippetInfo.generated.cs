@@ -17,7 +17,7 @@ namespace TrainingGuides.ProjectSettings
     /// Data container class for <see cref="WebChannelSnippetInfo"/>.
     /// </summary>
     [Serializable]
-    public partial class WebChannelSnippetInfo : AbstractInfo<WebChannelSnippetInfo, IWebChannelSnippetInfoProvider>, IInfoWithId
+    public partial class WebChannelSnippetInfo : AbstractInfo<WebChannelSnippetInfo, IInfoProvider<WebChannelSnippetInfo>>, IInfoWithId
     {
         /// <summary>
         /// Object type.
@@ -29,7 +29,7 @@ namespace TrainingGuides.ProjectSettings
         /// Type information.
         /// </summary>
 #warning "You will need to configure the type info."
-        public static readonly ObjectTypeInfo TYPEINFO = new ObjectTypeInfo(typeof(WebChannelSnippetInfoProvider), OBJECT_TYPE, "TrainingGuides.WebChannelSnippet", "WebChannelSnippetID", null, null, null, "WebChannelSnippetDisplayName", null, null, null)
+        public static readonly ObjectTypeInfo TYPEINFO = new ObjectTypeInfo(typeof(IInfoProvider<WebChannelSnippetInfo>), OBJECT_TYPE, "TrainingGuides.WebChannelSnippet", "WebChannelSnippetID", null, null, null, "WebChannelSnippetDisplayName", null, null, null)
         {
             TouchCacheDependencies = true,
             DependsOn = new List<ObjectDependency>()

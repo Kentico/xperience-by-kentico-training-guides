@@ -28,7 +28,7 @@
           <fielddescriptionashtml>False</fielddescriptionashtml>
         </properties>
       </field>
-      <field column="GlobalSettingsKeyValue" enabled="true" guid="a1851f27-27e5-41ba-aaa3-fb41fae363f9" visible="true" order="3">
+      <field column="GlobalSettingsKeyValue" enabled="true" guid="fd2f5ddd-e49c-468d-b81e-df5dd334f4c1" visible="true" order="3">
         <settings>
           <controlname>Kentico.Administration.TextArea</controlname>
           <CopyButtonVisible>False</CopyButtonVisible>
@@ -38,6 +38,20 @@
         <properties>
           <explanationtextashtml>False</explanationtextashtml>
           <fieldcaption>Value</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+      </field>
+      <field column="GlobalSettingsKeyNote" enabled="true" guid="eb32c009-79db-4d12-a9bb-e91a71f19706" visible="true">
+        <settings>
+          <controlname>Kentico.Administration.TextArea</controlname>
+          <CopyButtonVisible>False</CopyButtonVisible>
+          <MaxRowsNumber>15</MaxRowsNumber>
+          <MinRowsNumber>3</MinRowsNumber>
+        </settings>
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Notes</fieldcaption>
+          <fielddescription>Explain the purpose of this settings key.</fielddescription>
           <fielddescriptionashtml>False</fielddescriptionashtml>
         </properties>
       </field>

@@ -9,7 +9,7 @@
     <form>
       <field column="SeoSettingsID" guid="23d71443-e848-47fe-88a2-b0fadbec066a" enabled="" />
       <field column="SeoSettingsWebChannelSettingId" guid="f5cfd971-cb7c-4d5b-8c76-7a578bba3c85" enabled="" order="1" />
-      <field column="SeoSettingsRobots" enabled="true" guid="de3badea-1186-4b48-ae6a-b6c86b9234ae" visible="true" order="2">
+      <field column="SeoSettingsRobots" enabled="true" guid="5f7bf9ac-703d-416a-8dbf-996eef9ae7a9" visible="true" order="2">
         <settings>
           <controlname>Kentico.Administration.TextArea</controlname>
           <CopyButtonVisible>False</CopyButtonVisible>
@@ -17,6 +17,7 @@
           <MinRowsNumber>3</MinRowsNumber>
         </settings>
         <properties>
+          <explanationtext>Enter the content of the Robots.txt file</explanationtext>
           <explanationtextashtml>False</explanationtextashtml>
           <fieldcaption>Robots.txt</fieldcaption>
           <fielddescriptionashtml>False</fielddescriptionashtml>

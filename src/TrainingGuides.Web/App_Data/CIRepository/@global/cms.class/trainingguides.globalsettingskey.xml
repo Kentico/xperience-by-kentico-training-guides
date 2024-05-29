@@ -7,6 +7,7 @@
       <field column="GlobalSettingsKeyValue" columnprecision="0" columnsize="1000" columntype="text" enabled="true" guid="fd2f5ddd-e49c-468d-b81e-df5dd334f4c1" />
       <field column="GlobalSettingsKeyName" columnprecision="0" columnsize="200" columntype="text" enabled="true" guid="57b7f824-5dee-4eb4-a78f-dcd349f9cd23" />
       <field column="GlobalSettingsKeyDisplayName" columnprecision="0" columnsize="200" columntype="text" enabled="true" guid="16b9b8a5-12bc-4b5e-9aed-fb4d1668de06" />
+      <field column="GlobalSettingsKeyNote" columnprecision="0" columnsize="2000" columntype="text" enabled="true" guid="3e041b6a-39ce-42ba-ab33-779182ff9dd5" />
     </form>
   </ClassFormDefinition>
   <ClassGUID>cf0fa30f-bf86-4cf2-85ad-3efe86846ba3</ClassGUID>

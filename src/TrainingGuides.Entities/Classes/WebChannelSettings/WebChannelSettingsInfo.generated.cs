@@ -17,7 +17,7 @@ namespace TrainingGuides.ProjectSettings
     /// Data container class for <see cref="WebChannelSettingsInfo"/>.
     /// </summary>
     [Serializable]
-    public partial class WebChannelSettingsInfo : AbstractInfo<WebChannelSettingsInfo, IWebChannelSettingsInfoProvider>, IInfoWithId
+    public partial class WebChannelSettingsInfo : AbstractInfo<WebChannelSettingsInfo, IInfoProvider<WebChannelSettingsInfo>>, IInfoWithId
     {
         /// <summary>
         /// Object type.
@@ -29,7 +29,7 @@ namespace TrainingGuides.ProjectSettings
         /// Type information.
         /// </summary>
 #warning "You will need to configure the type info."
-        public static readonly ObjectTypeInfo TYPEINFO = new ObjectTypeInfo(typeof(WebChannelSettingsInfoProvider), OBJECT_TYPE, "TrainingGuides.WebChannelSettings", "WebChannelSettingsID", null, null, null, "WebChannelSettingsChannelDisplayName", null, null, null)
+        public static readonly ObjectTypeInfo TYPEINFO = new ObjectTypeInfo(typeof(IInfoProvider<WebChannelSettingsInfo>), OBJECT_TYPE, "TrainingGuides.WebChannelSettings", "WebChannelSettingsID", null, null, null, "WebChannelSettingsChannelDisplayName", null, null, null)
         {
             TouchCacheDependencies = true,
             DependsOn = new List<ObjectDependency>()
