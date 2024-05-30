@@ -1,6 +1,7 @@
 using Kentico.Xperience.Admin.Base;
 using TrainingGuides.ProjectSettings;
 using TrainingGuides.Admin.ProjectSettings;
+using CMS.Membership;
 
 
 [assembly: UIPage(
@@ -36,6 +37,6 @@ public class GlobalSettingsList : ListingPage
 
     }
 
-    [PageCommand]
+    [PageCommand(Permission = SystemPermissions.DELETE)]
     public override Task<ICommandResponse<RowActionResult>> Delete(int id) => base.Delete(id);
 }

@@ -6,7 +6,7 @@
       <field column="WebChannelSnippetID" columntype="integer" enabled="true" guid="0931d952-146f-4fca-8b7b-128bc4067cfc" isPK="true" />
       <field column="WebChannelSnippetType" columnprecision="0" columnsize="200" columntype="text" enabled="true" guid="6aea4238-14b6-4bfd-8915-493887db9348" />
       <field column="WebChannelSnippetCode" columnprecision="0" columnsize="2000" columntype="text" enabled="true" guid="c870c725-87a9-4ca8-8062-4810aa05bdb1" />
-      <field column="WebChannelSnippetWebChannelSettingsId" columnprecision="0" columntype="integer" enabled="true" guid="f2978bc7-9cd2-4773-8c02-ebcdabe27363" refobjtype="trainingguides.webchannelsettings" reftype="Required">
+      <field column="WebChannelSnippetWebChannelSettingsID" columnprecision="0" columntype="integer" enabled="true" guid="f2978bc7-9cd2-4773-8c02-ebcdabe27363" refobjtype="trainingguides.webchannelsettings" reftype="Required">
         <properties>
           <defaultvalue>0</defaultvalue>
         </properties>

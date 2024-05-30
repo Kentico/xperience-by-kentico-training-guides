@@ -11,6 +11,7 @@ public class EmailNotificationHandlerModule : Module
 {
 
     private IServiceProvider serviceProvider;
+
     public EmailNotificationHandlerModule() : base("EmailNotificationHandler")
     {
     }
@@ -19,32 +20,22 @@ public class EmailNotificationHandlerModule : Module
     {
         base.OnInit();
 
-        serviceProvider = parameters.Services.GetRequiredService<IServiceProvider>();
+        serviceProvider = parameters.Services;
 
         UserInfo.TYPEINFO.Events.Insert.After += User_Insert_After;
     }
 
     private void User_Insert_After(object sender, ObjectEventArgs e)
     {
+        using var scope = serviceProvider.CreateScope();
 
-        using (var scope = serviceProvider.CreateScope())
+        var emailNotificationService = scope.ServiceProvider.GetRequiredService<IEmailNotificationService>();
+
+        if (e.Object is not UserInfo user)
         {
-            var emailNotificationService = scope.ServiceProvider.GetRequiredService<IEmailNotificationService>();
-            if (e.Object is not UserInfo user)
-            {
-                return;
-            }
-
-            emailNotificationService.SendEmailAsync($"New user created ({user.Email})", $"New user inserted with ID {user.UserID}, email {user.Email}, guid {user.UserGUID}");
-             // do something with context
+            return;
         }
-        //var emailNotificationService = Service.Resolve<IEmailNotificationService>();
 
-        // if (e.Object is not UserInfo user)
-        // {
-        //     return;
-        // }
-
-        // emailNotificationService.SendEmailAsync($"New user created ({user.Email})", $"New user inserted with ID {user.UserID}, email {user.Email}, guid {user.UserGUID}");
+        emailNotificationService.SendEmailAsync($"New user created ({user.Email})", $"New user inserted with ID {user.UserID}, email {user.Email}, guid {user.UserGUID}");
     }
 }

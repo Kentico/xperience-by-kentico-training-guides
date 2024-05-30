@@ -4,8 +4,8 @@
   <ClassFormDefinition>
     <form>
       <field column="WebChannelSettingsID" columntype="integer" enabled="true" guid="1c34f694-0831-45c8-bb23-eb72db14998f" isPK="true" />
-      <field column="WebChannelSettingsChannel" columnprecision="0" columntype="objectcodenames" enabled="true" guid="951de52b-87ce-4e03-9507-6a5869b572dd" />
       <field column="WebChannelSettingsChannelDisplayName" columnprecision="0" columnsize="200" columntype="text" enabled="true" guid="ec180bce-2d84-49b4-b440-2f81c0c67281" />
+      <field column="WebChannelSettingsChannelID" columnprecision="0" columntype="integer" enabled="true" guid="8d302798-a362-4d67-a9b3-a389deffc172" refobjtype="cms.channel" reftype="Required" />
     </form>
   </ClassFormDefinition>
   <ClassGUID>a6c1fe93-86c9-407c-b65f-a38681912450</ClassGUID>

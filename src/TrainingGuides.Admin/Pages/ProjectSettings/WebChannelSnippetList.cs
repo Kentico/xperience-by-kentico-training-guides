@@ -2,6 +2,7 @@ using Kentico.Xperience.Admin.Base;
 using TrainingGuides.ProjectSettings;
 using TrainingGuides.Admin.ProjectSettings;
 using CMS.DataEngine;
+using CMS.Membership;
 
 [assembly: UIPage(
     parentType: typeof(WebChannelSettingsEditSection),
@@ -39,12 +40,12 @@ public class WebChannelSnippetList : ListingPage
         PageConfiguration.QueryModifiers
             .AddModifier((query, _) =>
             {
-                return query.Where(new WhereCondition().WhereEquals(nameof(WebChannelSnippetInfo.WebChannelSnippetWebChannelSettingsId), WebChannelSettingsId));
+                return query.Where(new WhereCondition().WhereEquals(nameof(WebChannelSnippetInfo.WebChannelSnippetWebChannelSettingsID), WebChannelSettingsId));
             });
 
         return base.ConfigurePage();
     }
 
-    [PageCommand]
+    [PageCommand(Permission = SystemPermissions.DELETE)]
     public override Task<ICommandResponse<RowActionResult>> Delete(int id) => base.Delete(id);
 }

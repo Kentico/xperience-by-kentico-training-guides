@@ -33,7 +33,7 @@ public class WebChannelSnippetCreate : CreatePage<WebChannelSnippetInfo, WebChan
 
     protected override Task FinalizeInfoObject(WebChannelSnippetInfo infoObject, IFormFieldValueProvider fieldValueProvider, CancellationToken cancellationToken)
     {
-        infoObject.WebChannelSnippetWebChannelSettingsId = WebChannelSettingsId;
+        infoObject.WebChannelSnippetWebChannelSettingsID = WebChannelSettingsId;
 
         return base.FinalizeInfoObject(infoObject, fieldValueProvider, cancellationToken);
     }

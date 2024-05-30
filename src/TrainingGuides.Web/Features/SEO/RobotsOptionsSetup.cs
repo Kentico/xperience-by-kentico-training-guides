@@ -19,14 +19,14 @@ public class RobotsOptionsSetup : IConfigureOptions<RobotsOptions>
 
     public void Configure(RobotsOptions options)
     {
-        string context = websiteChannelContext.WebsiteChannelName;
+        int currentChannelID = websiteChannelContext.WebsiteChannelID;
 
         var channelSettings = webChannelSettingsInfoProvider.Get()
-            .WhereContains(nameof(WebChannelSettingsInfo.WebChannelSettingsChannel), context)
+            .WhereEquals(nameof(WebChannelSettingsInfo.WebChannelSettingsChannelID), currentChannelID)
             .FirstOrDefault();
 
         var seoSettings = seoSettingsInfoProvider.Get()
-            .WhereEquals(nameof(SeoSettingsInfo.SeoSettingsWebChannelSettingId), channelSettings?.WebChannelSettingsID ?? 0)
+            .WhereEquals(nameof(SeoSettingsInfo.SeoSettingsWebChannelSettingID), channelSettings?.WebChannelSettingsID ?? 0)
             .FirstOrDefault();
 
         options.RobotsText = seoSettings?.SeoSettingsRobots ?? string.Empty;

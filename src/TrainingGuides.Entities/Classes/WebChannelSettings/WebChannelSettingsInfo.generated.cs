@@ -34,6 +34,7 @@ namespace TrainingGuides.ProjectSettings
             TouchCacheDependencies = true,
             DependsOn = new List<ObjectDependency>()
             {
+                new ObjectDependency("WebChannelSettingsChannelID", "cms.channel", ObjectDependencyEnum.Required),
             },
         };
 
@@ -50,29 +51,6 @@ namespace TrainingGuides.ProjectSettings
 
 
         /// <summary>
-        /// Web channel settings channel.
-        /// </summary>
-        [DatabaseField]
-        [Obsolete("Property is deprecated and will be removed in the future. Use property WebChannelSettingsChannel instead.")]
-        public virtual string mWebChannelSettingsChannel
-        {
-            get => ValidationHelper.GetString(GetValue(nameof(WebChannelSettingsChannel)), String.Empty);
-            set => SetValue(nameof(WebChannelSettingsChannel), value);
-        }
-
-
-        /// <summary>
-        /// Web channel settings channel.
-        /// </summary>
-        [DatabaseField(ValueType = typeof(string))]
-        public IEnumerable<string> WebChannelSettingsChannel
-        {
-            get => global::CMS.DataEngine.Internal.JsonDataTypeConverter.ConvertToModels<string>(GetValue(nameof(WebChannelSettingsChannel), String.Empty));
-            set => SetValue(nameof(WebChannelSettingsChannel), global::CMS.DataEngine.Internal.JsonDataTypeConverter.ConvertToString<IEnumerable<string>>(value, Enumerable.Empty<string>(), null));
-        }
-        
-
-        /// <summary>
         /// Web channel settings channel display name.
         /// </summary>
         [DatabaseField]
@@ -80,6 +58,17 @@ namespace TrainingGuides.ProjectSettings
         {
             get => ValidationHelper.GetString(GetValue(nameof(WebChannelSettingsChannelDisplayName)), String.Empty);
             set => SetValue(nameof(WebChannelSettingsChannelDisplayName), value);
+        }
+
+
+        /// <summary>
+        /// Web channel settings channel ID.
+        /// </summary>
+        [DatabaseField]
+        public virtual int WebChannelSettingsChannelID
+        {
+            get => ValidationHelper.GetInteger(GetValue(nameof(WebChannelSettingsChannelID)), 0);
+            set => SetValue(nameof(WebChannelSettingsChannelID), value);
         }
 
 

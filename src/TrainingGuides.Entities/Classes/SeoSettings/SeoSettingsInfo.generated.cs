@@ -34,7 +34,7 @@ namespace TrainingGuides.ProjectSettings
             TouchCacheDependencies = true,
             DependsOn = new List<ObjectDependency>()
             {
-                new ObjectDependency("SeoSettingsWebChannelSettingId", "trainingguides.webchannelsettings", ObjectDependencyEnum.Required),
+                new ObjectDependency("SeoSettingsWebChannelSettingID", "trainingguides.webchannelsettings", ObjectDependencyEnum.Required),
             },
         };
 
@@ -62,13 +62,13 @@ namespace TrainingGuides.ProjectSettings
 
 
         /// <summary>
-        /// Seo settings web channel setting id.
+        /// Seo settings web channel setting ID.
         /// </summary>
         [DatabaseField]
-        public virtual int SeoSettingsWebChannelSettingId
+        public virtual int SeoSettingsWebChannelSettingID
         {
-            get => ValidationHelper.GetInteger(GetValue(nameof(SeoSettingsWebChannelSettingId)), 0);
-            set => SetValue(nameof(SeoSettingsWebChannelSettingId), value);
+            get => ValidationHelper.GetInteger(GetValue(nameof(SeoSettingsWebChannelSettingID)), 0);
+            set => SetValue(nameof(SeoSettingsWebChannelSettingID), value);
         }
 
 

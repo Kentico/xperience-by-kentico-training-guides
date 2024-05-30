@@ -21,16 +21,16 @@ public class CodeSnippetsViewComponent : ViewComponent
 
     public async Task<IViewComponentResult> InvokeAsync(CodeSnippetType codeSnippetType, bool addLabelComments = false)
     {
-        string channel = websiteChannelContext.WebsiteChannelName;
+        int currentChannelID = websiteChannelContext.WebsiteChannelID;
 
         var settings = await webChannelSettingsInfoProvider.Get()
-            .WhereContains(nameof(WebChannelSettingsInfo.WebChannelSettingsChannel), channel)
+            .WhereEquals(nameof(WebChannelSettingsInfo.WebChannelSettingsChannelID), currentChannelID)
             .GetEnumerableTypedResultAsync();
 
         var setting = settings.FirstOrDefault();
 
         var snippets = await webChannelSnippetInfoProvider.Get()
-            .WhereEquals(nameof(WebChannelSnippetInfo.WebChannelSnippetWebChannelSettingsId), setting?.WebChannelSettingsID ?? 0)
+            .WhereEquals(nameof(WebChannelSnippetInfo.WebChannelSnippetWebChannelSettingsID), setting?.WebChannelSettingsID ?? 0)
             .WhereEquals(nameof(WebChannelSnippetInfo.WebChannelSnippetType), codeSnippetType.ToString())
             .GetEnumerableTypedResultAsync();
 

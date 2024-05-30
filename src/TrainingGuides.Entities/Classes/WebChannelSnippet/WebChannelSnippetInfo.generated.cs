@@ -34,7 +34,7 @@ namespace TrainingGuides.ProjectSettings
             TouchCacheDependencies = true,
             DependsOn = new List<ObjectDependency>()
             {
-                new ObjectDependency("WebChannelSnippetWebChannelSettingsId", "trainingguides.webchannelsettings", ObjectDependencyEnum.Required),
+                new ObjectDependency("WebChannelSnippetWebChannelSettingsID", "trainingguides.webchannelsettings", ObjectDependencyEnum.Required),
             },
         };
 
@@ -73,13 +73,13 @@ namespace TrainingGuides.ProjectSettings
 
 
         /// <summary>
-        /// Web channel snippet web channel settings id.
+        /// Web channel snippet web channel settings ID.
         /// </summary>
         [DatabaseField]
-        public virtual int WebChannelSnippetWebChannelSettingsId
+        public virtual int WebChannelSnippetWebChannelSettingsID
         {
-            get => ValidationHelper.GetInteger(GetValue(nameof(WebChannelSnippetWebChannelSettingsId)), 0);
-            set => SetValue(nameof(WebChannelSnippetWebChannelSettingsId), value);
+            get => ValidationHelper.GetInteger(GetValue(nameof(WebChannelSnippetWebChannelSettingsID)), 0);
+            set => SetValue(nameof(WebChannelSnippetWebChannelSettingsID), value);
         }
 
 

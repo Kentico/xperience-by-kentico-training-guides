@@ -13,12 +13,5 @@
         <ObjectType>cms.user</ObjectType>
       </UserID>
     </Binding>
-    <Binding id="cms.user_test@localhost.local">
-      <UserID>
-        <CodeName>test@localhost.local</CodeName>
-        <GUID>409c4c4c-9be0-4ded-b856-21efef1c0c87</GUID>
-        <ObjectType>cms.user</ObjectType>
-      </UserID>
-    </Binding>
   </Bindings>
 </cms.userrole>

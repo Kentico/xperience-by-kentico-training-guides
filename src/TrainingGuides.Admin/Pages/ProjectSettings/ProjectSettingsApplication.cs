@@ -1,3 +1,4 @@
+using CMS.Membership;
 using Kentico.Xperience.Admin.Base;
 using Kentico.Xperience.Admin.Base.UIPages;
 using TrainingGuides.Admin.ProjectSettings;
@@ -13,7 +14,10 @@ using TrainingGuides.Admin.ProjectSettings;
 
 namespace TrainingGuides.Admin.ProjectSettings;
 
-
+[UIPermission(SystemPermissions.VIEW)]
+[UIPermission(SystemPermissions.CREATE)]
+[UIPermission(SystemPermissions.DELETE)]
+[UIPermission(SystemPermissions.UPDATE)]
 public class PojectSettingsApplication : ApplicationPage
 {
     public const string IDENTIFIER = "TrainingGuides.ProjectSettingsApplication";

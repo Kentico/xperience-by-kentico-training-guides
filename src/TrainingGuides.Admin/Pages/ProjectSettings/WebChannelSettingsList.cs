@@ -3,6 +3,7 @@ using TrainingGuides.ProjectSettings;
 using TrainingGuides.Admin.ProjectSettings;
 using CMS.DataEngine;
 using CMS.ContentEngine;
+using System.Threading.Channels;
 
 
 [assembly: UIPage(
@@ -55,33 +56,57 @@ public class WebChannelSettingsList : ListingPage
 
         foreach (var channel in channels)
         {
-            var currentChannelSettings = webChannelSettings.Where(setting => setting.WebChannelSettingsChannel.Contains(channel.ChannelName)).ToList();
+            var currentChannelSettings = webChannelSettings.Where(setting => setting.WebChannelSettingsChannelID.Equals(channel.ChannelID)).ToList();
 
-            if (currentChannelSettings.Count() == 0)
+            EnsureChannelSetting(currentChannelSettings, channel);
+
+            var currentChannelSetting = currentChannelSettings.FirstOrDefault();
+
+            EnsureChannelSettingDisplayName(channel, currentChannelSetting);
+
+            EnsureSeoSettings(currentChannelSetting, seoSettings);
+        }
+    }
+
+    private void EnsureChannelSetting(List<WebChannelSettingsInfo> currentChannelSettings, ChannelInfo channel)
+    {
+        if (currentChannelSettings.Count() == 0)
+        {
+            var newSetting = new WebChannelSettingsInfo
             {
-                var newSetting = new WebChannelSettingsInfo
-                {
-                    WebChannelSettingsChannel = [channel.ChannelName],
-                    WebChannelSettingsChannelDisplayName = channel.ChannelDisplayName,
-                };
-                webChannelSettingsInfoProvider.Set(newSetting);
-                currentChannelSettings.Add(newSetting);
-            }
-            int? webChannelSettingsId = currentChannelSettings.FirstOrDefault()?.WebChannelSettingsID;
+                WebChannelSettingsChannelID = channel.ChannelID,
+                WebChannelSettingsChannelDisplayName = channel.ChannelDisplayName,
+            };
+            webChannelSettingsInfoProvider.Set(newSetting);
+            currentChannelSettings.Add(newSetting);
+        }
+    }
 
-            var currentSeoSettings = seoSettings
-                .Where(setting => setting.SeoSettingsWebChannelSettingId == webChannelSettingsId).ToList();
+    private void EnsureChannelSettingDisplayName(ChannelInfo channel, WebChannelSettingsInfo? currentChannelSetting)
+    {
+        if (!channel.ChannelDisplayName.Equals(currentChannelSetting?.WebChannelSettingsChannelDisplayName) && currentChannelSetting != null)
+        {
+            currentChannelSetting.WebChannelSettingsChannelDisplayName = channel.ChannelDisplayName;
+            webChannelSettingsInfoProvider.Set(currentChannelSetting);
+        }
+    }
 
-            if (currentSeoSettings.Count() == 0 && webChannelSettingsId != null)
+    private void EnsureSeoSettings(WebChannelSettingsInfo? currentChannelSetting, IEnumerable<SeoSettingsInfo> seoSettings)
+    {
+        int? webChannelSettingsId = currentChannelSetting?.WebChannelSettingsID;
+
+        var currentSeoSettings = seoSettings
+            .Where(setting => setting.SeoSettingsWebChannelSettingID == webChannelSettingsId).ToList();
+
+        if (currentSeoSettings.Count() == 0 && webChannelSettingsId != null)
+        {
+            var newSeoSetting = new SeoSettingsInfo
             {
-                var newSeoSetting = new SeoSettingsInfo
-                {
-                    SeoSettingsWebChannelSettingId = (int)webChannelSettingsId,
-                    SeoSettingsRobots = string.Empty,
-                };
+                SeoSettingsWebChannelSettingID = (int)webChannelSettingsId,
+                SeoSettingsRobots = string.Empty,
+            };
 
-                seoSettingsInfoProvider.Set(newSeoSetting);
-            }
+            seoSettingsInfoProvider.Set(newSeoSetting);
         }
     }
 }

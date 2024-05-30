@@ -22,15 +22,15 @@ public class SeoSettingsEdit : InfoEditPage<SeoSettingsInfo>
     [PageParameter(typeof(IntPageModelBinder))]
     public int WebChannelSettingsId { get; set; }
 
-    // Retrieves the SEO settings ID based on the WebChannelSettingsId.
-    // The UI will try to set the ObjectID to value of the parent WebChannelSettingsId, so we have to ignore that.
     [PageParameter(typeof(IntPageModelBinder))]
     public override int ObjectId
     {
+        // Retrieves the SEO settings ID based on the WebChannelSettingsId.
         get => seoSettingsInfoProvider.Get()
-                .WhereEquals(nameof(SeoSettingsInfo.SeoSettingsWebChannelSettingId), WebChannelSettingsId)
+                .WhereEquals(nameof(SeoSettingsInfo.SeoSettingsWebChannelSettingID), WebChannelSettingsId)
                 .FirstOrDefault()?
                 .SeoSettingsID ?? 0;
+        // The UI will try to set the ObjectID to value of the parent WebChannelSettingsId, so we have to ignore that.
         set { }
     }
 

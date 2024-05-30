@@ -8,7 +8,7 @@
   <FormDefinition>
     <form>
       <field column="WebChannelSnippetID" guid="0931d952-146f-4fca-8b7b-128bc4067cfc" enabled="" />
-      <field column="WebChannelSnippetWebChannelSettingsId" guid="f2978bc7-9cd2-4773-8c02-ebcdabe27363" enabled="" order="1" />
+      <field column="WebChannelSnippetWebChannelSettingsID" guid="f2978bc7-9cd2-4773-8c02-ebcdabe27363" enabled="" order="1" />
       <field column="WebChannelSnippetDisplayName" enabled="true" guid="a466d965-7e09-4c17-bfd5-e13f8e1a6def" visible="true" order="2">
         <settings>
           <controlname>Kentico.Administration.TextInput</controlname>
