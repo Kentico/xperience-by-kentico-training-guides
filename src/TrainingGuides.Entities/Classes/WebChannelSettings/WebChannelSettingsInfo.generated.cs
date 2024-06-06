@@ -17,7 +17,7 @@ namespace TrainingGuides.ProjectSettings
     /// Data container class for <see cref="WebChannelSettingsInfo"/>.
     /// </summary>
     [Serializable]
-    public partial class WebChannelSettingsInfo : AbstractInfo<WebChannelSettingsInfo, IInfoProvider<WebChannelSettingsInfo>>, IInfoWithId
+    public partial class WebChannelSettingsInfo : AbstractInfo<WebChannelSettingsInfo, IInfoProvider<WebChannelSettingsInfo>>, IInfoWithId, IInfoWithGuid
     {
         /// <summary>
         /// Object type.
@@ -29,7 +29,7 @@ namespace TrainingGuides.ProjectSettings
         /// Type information.
         /// </summary>
 #warning "You will need to configure the type info."
-        public static readonly ObjectTypeInfo TYPEINFO = new ObjectTypeInfo(typeof(IInfoProvider<WebChannelSettingsInfo>), OBJECT_TYPE, "TrainingGuides.WebChannelSettings", "WebChannelSettingsID", null, null, null, "WebChannelSettingsChannelDisplayName", null, null, null)
+        public static readonly ObjectTypeInfo TYPEINFO = new ObjectTypeInfo(typeof(IInfoProvider<WebChannelSettingsInfo>), OBJECT_TYPE, "TrainingGuides.WebChannelSettings", "WebChannelSettingsID", null, "WebChannelSettingsGUID", null, "WebChannelSettingsChannelDisplayName", null, null, null)
         {
             TouchCacheDependencies = true,
             DependsOn = new List<ObjectDependency>()
@@ -69,6 +69,17 @@ namespace TrainingGuides.ProjectSettings
         {
             get => ValidationHelper.GetInteger(GetValue(nameof(WebChannelSettingsChannelID)), 0);
             set => SetValue(nameof(WebChannelSettingsChannelID), value);
+        }
+
+
+        /// <summary>
+        /// Web channel settings GUID.
+        /// </summary>
+        [DatabaseField]
+        public virtual Guid WebChannelSettingsGUID
+        {
+            get => ValidationHelper.GetGuid(GetValue(nameof(WebChannelSettingsGUID)), Guid.Empty);
+            set => SetValue(nameof(WebChannelSettingsGUID), value);
         }
 
 

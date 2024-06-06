@@ -24,7 +24,7 @@
         </settings>
         <properties>
           <explanationtextashtml>False</explanationtextashtml>
-          <fieldcaption>Settings key codename</fieldcaption>
+          <fieldcaption>Settings key code name</fieldcaption>
           <fielddescriptionashtml>False</fielddescriptionashtml>
         </properties>
       </field>
@@ -41,7 +41,7 @@
           <fielddescriptionashtml>False</fielddescriptionashtml>
         </properties>
       </field>
-      <field column="GlobalSettingsKeyNote" enabled="true" guid="eb32c009-79db-4d12-a9bb-e91a71f19706" visible="true">
+      <field column="GlobalSettingsKeyNote" enabled="true" guid="3e041b6a-39ce-42ba-ab33-779182ff9dd5" visible="true">
         <settings>
           <controlname>Kentico.Administration.TextArea</controlname>
           <CopyButtonVisible>False</CopyButtonVisible>

@@ -19,7 +19,19 @@
           <fielddescriptionashtml>False</fielddescriptionashtml>
         </properties>
       </field>
-      <field column="WebChannelSnippetType" enabled="true" guid="6aea4238-14b6-4bfd-8915-493887db9348" visible="true" order="3">
+      <field column="WebChannelSnippetCodeName" enabled="true" guid="2a9c3a4b-508e-4418-b3e6-1174c7db469f" visible="true" order="3">
+        <settings>
+          <controlname>Kentico.Administration.CodeName</controlname>
+          <HasAutomaticCodeNameGenerationOption>False</HasAutomaticCodeNameGenerationOption>
+          <IsCollapsed>False</IsCollapsed>
+        </settings>
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Code name</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+      </field>
+      <field column="WebChannelSnippetType" enabled="true" guid="6aea4238-14b6-4bfd-8915-493887db9348" visible="true" order="4">
         <settings>
           <controlname>Kentico.Administration.DropDownSelector</controlname>
           <Options>
@@ -40,7 +52,7 @@ javascript;Javascripot
           <fielddescriptionashtml>False</fielddescriptionashtml>
         </properties>
       </field>
-      <field column="WebChannelSnippetCode" enabled="true" guid="c870c725-87a9-4ca8-8062-4810aa05bdb1" visible="true" order="4">
+      <field column="WebChannelSnippetCode" enabled="true" guid="c870c725-87a9-4ca8-8062-4810aa05bdb1" visible="true" order="5">
         <settings>
           <controlname>Kentico.Administration.TextArea</controlname>
           <CopyButtonVisible>False</CopyButtonVisible>

@@ -17,7 +17,7 @@ namespace TrainingGuides.ProjectSettings
     /// Data container class for <see cref="SeoSettingsInfo"/>.
     /// </summary>
     [Serializable]
-    public partial class SeoSettingsInfo : AbstractInfo<SeoSettingsInfo, IInfoProvider<SeoSettingsInfo>>, IInfoWithId
+    public partial class SeoSettingsInfo : AbstractInfo<SeoSettingsInfo, IInfoProvider<SeoSettingsInfo>>, IInfoWithId, IInfoWithGuid
     {
         /// <summary>
         /// Object type.
@@ -29,7 +29,7 @@ namespace TrainingGuides.ProjectSettings
         /// Type information.
         /// </summary>
 #warning "You will need to configure the type info."
-        public static readonly ObjectTypeInfo TYPEINFO = new ObjectTypeInfo(typeof(IInfoProvider<SeoSettingsInfo>), OBJECT_TYPE, "TrainingGuides.SeoSettings", "SeoSettingsID", null, null, null, null, null, null, null)
+        public static readonly ObjectTypeInfo TYPEINFO = new ObjectTypeInfo(typeof(IInfoProvider<SeoSettingsInfo>), OBJECT_TYPE, "TrainingGuides.SeoSettings", "SeoSettingsID", null, "SeoSettingsGUID", null, null, null, null, null)
         {
             TouchCacheDependencies = true,
             DependsOn = new List<ObjectDependency>()
@@ -69,6 +69,17 @@ namespace TrainingGuides.ProjectSettings
         {
             get => ValidationHelper.GetInteger(GetValue(nameof(SeoSettingsWebChannelSettingID)), 0);
             set => SetValue(nameof(SeoSettingsWebChannelSettingID), value);
+        }
+
+
+        /// <summary>
+        /// Seo settings GUID.
+        /// </summary>
+        [DatabaseField]
+        public virtual Guid SeoSettingsGUID
+        {
+            get => ValidationHelper.GetGuid(GetValue(nameof(SeoSettingsGUID)), Guid.Empty);
+            set => SetValue(nameof(SeoSettingsGUID), value);
         }
 
 

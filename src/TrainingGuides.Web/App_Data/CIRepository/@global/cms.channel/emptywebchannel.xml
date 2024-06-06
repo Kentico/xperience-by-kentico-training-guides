@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<cms.channel>
-  <ChannelDisplayName>Empty web channel</ChannelDisplayName>
-  <ChannelGUID>b7196275-db94-437a-bec3-af7a72e663c7</ChannelGUID>
-  <ChannelName>EmptyWebChannel</ChannelName>
-  <ChannelType>Website</ChannelType>
-</cms.channel>

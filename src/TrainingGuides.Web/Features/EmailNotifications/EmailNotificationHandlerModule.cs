@@ -25,7 +25,7 @@ public class EmailNotificationHandlerModule : Module
         UserInfo.TYPEINFO.Events.Insert.After += User_Insert_After;
     }
 
-    private void User_Insert_After(object sender, ObjectEventArgs e)
+    private void User_Insert_After(object? sender, ObjectEventArgs e)
     {
         using var scope = serviceProvider.CreateScope();
 

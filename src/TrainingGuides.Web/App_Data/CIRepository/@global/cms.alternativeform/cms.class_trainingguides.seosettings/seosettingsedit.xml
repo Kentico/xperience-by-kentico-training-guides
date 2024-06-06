@@ -23,6 +23,7 @@
           <fielddescriptionashtml>False</fielddescriptionashtml>
         </properties>
       </field>
+      <field column="SeoSettingsGUID" guid="da670291-0211-4ffb-8db8-348354c45b66" enabled="" />
     </form>
   </FormDefinition>
   <FormDisplayName>SEO settings edit</FormDisplayName>

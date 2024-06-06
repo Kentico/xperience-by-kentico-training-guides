@@ -3,7 +3,6 @@ using TrainingGuides.ProjectSettings;
 using TrainingGuides.Admin.ProjectSettings;
 using CMS.DataEngine;
 using CMS.ContentEngine;
-using System.Threading.Channels;
 
 
 [assembly: UIPage(

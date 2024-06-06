@@ -10,6 +10,7 @@
           <defaultvalue>0</defaultvalue>
         </properties>
       </field>
+      <field column="SeoSettingsGUID" columnprecision="0" columntype="guid" enabled="true" guid="da670291-0211-4ffb-8db8-348354c45b66" />
     </form>
   </ClassFormDefinition>
   <ClassGUID>159923da-3cc4-4168-99fb-2c05d2bbf8d2</ClassGUID>

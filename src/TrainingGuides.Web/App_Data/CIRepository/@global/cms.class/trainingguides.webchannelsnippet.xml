@@ -12,6 +12,7 @@
         </properties>
       </field>
       <field column="WebChannelSnippetDisplayName" columnprecision="0" columnsize="200" columntype="text" enabled="true" guid="a466d965-7e09-4c17-bfd5-e13f8e1a6def" />
+      <field column="WebChannelSnippetCodeName" columnprecision="0" columnsize="200" columntype="text" enabled="true" guid="2a9c3a4b-508e-4418-b3e6-1174c7db469f" />
     </form>
   </ClassFormDefinition>
   <ClassGUID>ca32f2a3-25e1-4bf2-ac9c-36ef7c5dfb48</ClassGUID>

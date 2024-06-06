@@ -17,7 +17,7 @@ namespace TrainingGuides.ProjectSettings
     /// Data container class for <see cref="WebChannelSnippetInfo"/>.
     /// </summary>
     [Serializable]
-    public partial class WebChannelSnippetInfo : AbstractInfo<WebChannelSnippetInfo, IInfoProvider<WebChannelSnippetInfo>>, IInfoWithId
+    public partial class WebChannelSnippetInfo : AbstractInfo<WebChannelSnippetInfo, IInfoProvider<WebChannelSnippetInfo>>, IInfoWithId, IInfoWithName
     {
         /// <summary>
         /// Object type.
@@ -29,7 +29,7 @@ namespace TrainingGuides.ProjectSettings
         /// Type information.
         /// </summary>
 #warning "You will need to configure the type info."
-        public static readonly ObjectTypeInfo TYPEINFO = new ObjectTypeInfo(typeof(IInfoProvider<WebChannelSnippetInfo>), OBJECT_TYPE, "TrainingGuides.WebChannelSnippet", "WebChannelSnippetID", null, null, null, "WebChannelSnippetDisplayName", null, null, null)
+        public static readonly ObjectTypeInfo TYPEINFO = new ObjectTypeInfo(typeof(IInfoProvider<WebChannelSnippetInfo>), OBJECT_TYPE, "TrainingGuides.WebChannelSnippet", "WebChannelSnippetID", null, null, "WebChannelSnippetCodeName", "WebChannelSnippetDisplayName", null, null, null)
         {
             TouchCacheDependencies = true,
             DependsOn = new List<ObjectDependency>()
@@ -91,6 +91,17 @@ namespace TrainingGuides.ProjectSettings
         {
             get => ValidationHelper.GetString(GetValue(nameof(WebChannelSnippetDisplayName)), String.Empty);
             set => SetValue(nameof(WebChannelSnippetDisplayName), value);
+        }
+
+
+        /// <summary>
+        /// Web channel snippet code name.
+        /// </summary>
+        [DatabaseField]
+        public virtual string WebChannelSnippetCodeName
+        {
+            get => ValidationHelper.GetString(GetValue(nameof(WebChannelSnippetCodeName)), String.Empty);
+            set => SetValue(nameof(WebChannelSnippetCodeName), value);
         }
 
 
