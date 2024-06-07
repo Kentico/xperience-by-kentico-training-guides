@@ -23,7 +23,8 @@ public class CodeSnippetsViewComponent : ViewComponent
     {
         int currentChannelID = websiteChannelContext.WebsiteChannelID;
 
-        var settings = await webChannelSettingsInfoProvider.Get()
+        var settings = await webChannelSettingsInfoProvider
+            .Get()
             .WhereEquals(nameof(WebChannelSettingsInfo.WebChannelSettingsChannelID), currentChannelID)
             .GetEnumerableTypedResultAsync();
 

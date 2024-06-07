@@ -3,7 +3,6 @@ using TrainingGuides.ProjectSettings;
 using TrainingGuides.Admin.ProjectSettings;
 using Kentico.Xperience.Admin.Base.Forms;
 
-// Registers the UI page
 [assembly: UIPage(
     parentType: typeof(WebChannelSnippetList),
     slug: "create",
@@ -19,7 +18,9 @@ public class WebChannelSnippetCreate : CreatePage<WebChannelSnippetInfo, WebChan
     [PageParameter(typeof(IntPageModelBinder), typeof(WebChannelSettingsEditSection))]
     public int WebChannelSettingsId { get; set; }
 
-    public WebChannelSnippetCreate(IFormComponentMapper formComponentMapper, IFormDataBinder formDataBinder, IPageUrlGenerator pageUrlGenerator)
+    public WebChannelSnippetCreate(IFormComponentMapper formComponentMapper,
+        IFormDataBinder formDataBinder,
+        IPageUrlGenerator pageUrlGenerator)
         : base(formComponentMapper, formDataBinder, pageUrlGenerator)
     {
     }

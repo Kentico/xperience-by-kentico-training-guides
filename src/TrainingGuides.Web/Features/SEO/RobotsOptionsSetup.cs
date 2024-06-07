@@ -21,7 +21,8 @@ public class RobotsOptionsSetup : IConfigureOptions<RobotsOptions>
     {
         int currentChannelID = websiteChannelContext.WebsiteChannelID;
 
-        var channelSettings = webChannelSettingsInfoProvider.Get()
+        var channelSettings = webChannelSettingsInfoProvider
+            .Get()
             .WhereEquals(nameof(WebChannelSettingsInfo.WebChannelSettingsChannelID), currentChannelID)
             .FirstOrDefault();
 

@@ -3,6 +3,7 @@ using TrainingGuides.ProjectSettings;
 using TrainingGuides.Admin.ProjectSettings;
 using CMS.DataEngine;
 using CMS.Membership;
+using Microsoft.Extensions.Localization;
 
 [assembly: UIPage(
     parentType: typeof(WebChannelSettingsEditSection),
@@ -15,22 +16,24 @@ using CMS.Membership;
 namespace TrainingGuides.Admin.ProjectSettings;
 public class WebChannelSnippetList : ListingPage
 {
+    private readonly IStringLocalizer<SharedResources> localizer;
     protected override string ObjectType => WebChannelSnippetInfo.OBJECT_TYPE;
 
     [PageParameter(typeof(IntPageModelBinder))]
     public int WebChannelSettingsId { get; set; }
 
-    public WebChannelSnippetList() : base()
+    public WebChannelSnippetList(IStringLocalizer<SharedResources> localizer) : base()
     {
+        this.localizer = localizer;
     }
 
     public override Task ConfigurePage()
     {
         PageConfiguration.ColumnConfigurations
-                    .AddColumn(nameof(WebChannelSnippetInfo.WebChannelSnippetDisplayName), "Snippet")
-                    .AddColumn(nameof(WebChannelSnippetInfo.WebChannelSnippetType), "Type");
+                    .AddColumn(nameof(WebChannelSnippetInfo.WebChannelSnippetDisplayName), localizer["Snippet"])
+                    .AddColumn(nameof(WebChannelSnippetInfo.WebChannelSnippetType), localizer["Type"]);
 
-        PageConfiguration.HeaderActions.AddLink<WebChannelSnippetCreate>(LocalizationService.GetString("New snippet"), parameters: WebChannelSettingsId.ToString());
+        PageConfiguration.HeaderActions.AddLink<WebChannelSnippetCreate>(localizer["New snippet"], parameters: WebChannelSettingsId.ToString());
 
         PageConfiguration.AddEditRowAction<WebChannelSnippetEditSection>(parameters: WebChannelSettingsId.ToString());
 

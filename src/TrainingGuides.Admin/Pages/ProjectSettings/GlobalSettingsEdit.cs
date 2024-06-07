@@ -3,7 +3,6 @@ using TrainingGuides.ProjectSettings;
 using TrainingGuides.Admin.ProjectSettings;
 using Kentico.Xperience.Admin.Base.Forms;
 
-// Registers the UI page
 [assembly: UIPage(
     parentType: typeof(GlobalSettingsEditSection),
     slug: "edit",
@@ -19,8 +18,9 @@ public class GlobalSettingsEdit : InfoEditPage<GlobalSettingsKeyInfo>
     [PageParameter(typeof(IntPageModelBinder))]
     public override int ObjectId { get; set; }
 
-    public GlobalSettingsEdit(IFormComponentMapper formComponentMapper, IFormDataBinder formDataBinder)
-             : base(formComponentMapper, formDataBinder)
+    public GlobalSettingsEdit(IFormComponentMapper formComponentMapper,
+        IFormDataBinder formDataBinder)
+        : base(formComponentMapper, formDataBinder)
     {
     }
 

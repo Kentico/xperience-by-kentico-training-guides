@@ -4,8 +4,8 @@ using Kentico.Xperience.Admin.Base.UIPages;
 using TrainingGuides.Admin.ProjectSettings;
 
 [assembly: UIApplication(
-    identifier: PojectSettingsApplication.IDENTIFIER,
-    type: typeof(PojectSettingsApplication),
+    identifier: ProjectSettingsApplication.IDENTIFIER,
+    type: typeof(ProjectSettingsApplication),
     slug: "project-settings",
     name: "Project settings",
     category: BaseApplicationCategories.CONFIGURATION,
@@ -18,7 +18,7 @@ namespace TrainingGuides.Admin.ProjectSettings;
 [UIPermission(SystemPermissions.CREATE)]
 [UIPermission(SystemPermissions.DELETE)]
 [UIPermission(SystemPermissions.UPDATE)]
-public class PojectSettingsApplication : ApplicationPage
+public class ProjectSettingsApplication : ApplicationPage
 {
     public const string IDENTIFIER = "TrainingGuides.ProjectSettingsApplication";
 }

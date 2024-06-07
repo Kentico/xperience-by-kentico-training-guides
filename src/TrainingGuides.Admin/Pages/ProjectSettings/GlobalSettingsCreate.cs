@@ -3,7 +3,6 @@ using TrainingGuides.ProjectSettings;
 using TrainingGuides.Admin.ProjectSettings;
 using Kentico.Xperience.Admin.Base.Forms;
 
-// Registers the UI page
 [assembly: UIPage(
     parentType: typeof(GlobalSettingsList),
     slug: "create",
@@ -16,7 +15,9 @@ namespace TrainingGuides.Admin.ProjectSettings;
 
 public class GlobalSettingsCreate : CreatePage<GlobalSettingsKeyInfo, GlobalSettingsEdit>
 {
-    public GlobalSettingsCreate(IFormComponentMapper formComponentMapper, IFormDataBinder formDataBinder, IPageUrlGenerator pageUrlGenerator)
+    public GlobalSettingsCreate(IFormComponentMapper formComponentMapper,
+        IFormDataBinder formDataBinder,
+        IPageUrlGenerator pageUrlGenerator)
         : base(formComponentMapper, formDataBinder, pageUrlGenerator)
     {
     }

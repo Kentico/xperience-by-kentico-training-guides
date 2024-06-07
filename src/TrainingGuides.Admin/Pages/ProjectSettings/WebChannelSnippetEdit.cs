@@ -3,7 +3,6 @@ using TrainingGuides.ProjectSettings;
 using TrainingGuides.Admin.ProjectSettings;
 using Kentico.Xperience.Admin.Base.Forms;
 
-// Registers the UI page
 [assembly: UIPage(
     parentType: typeof(WebChannelSnippetEditSection),
     slug: "edit",

@@ -3,8 +3,8 @@ using TrainingGuides.ProjectSettings;
 using TrainingGuides.Admin.ProjectSettings;
 using Kentico.Xperience.Admin.Base.Forms;
 using CMS.DataEngine;
+using Microsoft.Extensions.Localization;
 
-// Registers the UI page
 [assembly: UIPage(
     parentType: typeof(WebChannelSettingsEditSection),
     slug: "edit",
@@ -19,11 +19,14 @@ public class SeoSettingsEdit : InfoEditPage<SeoSettingsInfo>
 {
     private readonly IInfoProvider<SeoSettingsInfo> seoSettingsInfoProvider;
     private readonly IInfoProvider<WebChannelSettingsInfo> webChannelSettingsInfoProvider;
+    private readonly IStringLocalizer<SharedResources> localizer;
 
-    private string WebChannelSettingsDisplayName => webChannelSettingsInfoProvider.Get()
-        .WhereEquals(nameof(WebChannelSettingsInfo.WebChannelSettingsID), WebChannelSettingsId)
-        .FirstOrDefault()?
-        .WebChannelSettingsChannelDisplayName ?? "Web channel settings";
+    private string WebChannelSettingsDisplayName =>
+        webChannelSettingsInfoProvider
+            .Get()
+            .WhereEquals(nameof(WebChannelSettingsInfo.WebChannelSettingsID), WebChannelSettingsId)
+            .FirstOrDefault()?
+            .WebChannelSettingsChannelDisplayName ?? localizer["Web channel settings"];
 
     [PageParameter(typeof(IntPageModelBinder))]
     public int WebChannelSettingsId { get; set; }
@@ -40,11 +43,16 @@ public class SeoSettingsEdit : InfoEditPage<SeoSettingsInfo>
         set { }
     }
 
-    public SeoSettingsEdit(IFormComponentMapper formComponentMapper, IFormDataBinder formDataBinder, IInfoProvider<SeoSettingsInfo> seoSettingsInfoProvider, IInfoProvider<WebChannelSettingsInfo> webChannelSettingsInfoProvider)
+    public SeoSettingsEdit(IFormComponentMapper formComponentMapper,
+        IFormDataBinder formDataBinder,
+        IInfoProvider<SeoSettingsInfo> seoSettingsInfoProvider,
+        IInfoProvider<WebChannelSettingsInfo> webChannelSettingsInfoProvider,
+        IStringLocalizer<SharedResources> localizer)
              : base(formComponentMapper, formDataBinder)
     {
         this.seoSettingsInfoProvider = seoSettingsInfoProvider;
         this.webChannelSettingsInfoProvider = webChannelSettingsInfoProvider;
+        this.localizer = localizer;
     }
 
     public override Task ConfigurePage()

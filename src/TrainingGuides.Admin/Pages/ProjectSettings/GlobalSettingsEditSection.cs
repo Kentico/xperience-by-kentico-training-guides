@@ -12,7 +12,6 @@ using TrainingGuides.Admin.ProjectSettings;
 
 namespace TrainingGuides.Admin.ProjectSettings;
 
-// Edit page for GlobalSettings objects
 public class GlobalSettingsEditSection : EditSectionPage<GlobalSettingsKeyInfo>
 {
 }

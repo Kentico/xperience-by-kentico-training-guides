@@ -3,10 +3,10 @@ using TrainingGuides.ProjectSettings;
 using TrainingGuides.Admin.ProjectSettings;
 using CMS.DataEngine;
 using CMS.ContentEngine;
-
+using Microsoft.Extensions.Localization;
 
 [assembly: UIPage(
-    parentType: typeof(PojectSettingsApplication),
+    parentType: typeof(ProjectSettingsApplication),
     slug: "channel-settings",
     uiPageType: typeof(WebChannelSettingsList),
     name: "Channel settings",
@@ -19,35 +19,36 @@ public class WebChannelSettingsList : ListingPage
     private readonly IInfoProvider<ChannelInfo> channelInfoProvider;
     private readonly IInfoProvider<WebChannelSettingsInfo> webChannelSettingsInfoProvider;
     private readonly IInfoProvider<SeoSettingsInfo> seoSettingsInfoProvider;
+    private readonly IStringLocalizer<SharedResources> localizer;
 
     protected override string ObjectType => WebChannelSettingsInfo.OBJECT_TYPE;
 
     public WebChannelSettingsList(
         IInfoProvider<ChannelInfo> channelInfoProvider,
         IInfoProvider<WebChannelSettingsInfo> webChannelSettingsInfoProvider,
-        IInfoProvider<SeoSettingsInfo> seoSettingsInfoProvider) : base()
+        IInfoProvider<SeoSettingsInfo> seoSettingsInfoProvider,
+        IStringLocalizer<SharedResources> localizer) : base()
     {
         this.channelInfoProvider = channelInfoProvider;
         this.webChannelSettingsInfoProvider = webChannelSettingsInfoProvider;
         this.seoSettingsInfoProvider = seoSettingsInfoProvider;
+        this.localizer = localizer;
 
-        GetOrCreateSettingsList();
-
+        EnsureSettingsListData();
     }
 
     public override async Task ConfigurePage()
     {
         PageConfiguration.ColumnConfigurations
                      .AddColumn(nameof(
-                        WebChannelSettingsInfo.WebChannelSettingsChannelDisplayName), "Channel");
+                        WebChannelSettingsInfo.WebChannelSettingsChannelDisplayName), localizer["Channel"]);
 
         PageConfiguration.AddEditRowAction<WebChannelSettingsEditSection>();
 
         await base.ConfigurePage();
-
     }
 
-    private void GetOrCreateSettingsList()
+    private void EnsureSettingsListData()
     {
         var channels = channelInfoProvider.Get();
         var webChannelSettings = webChannelSettingsInfoProvider.Get().ToList();
@@ -83,7 +84,7 @@ public class WebChannelSettingsList : ListingPage
 
     private void EnsureChannelSettingDisplayName(ChannelInfo channel, WebChannelSettingsInfo? currentChannelSetting)
     {
-        if (!channel.ChannelDisplayName.Equals(currentChannelSetting?.WebChannelSettingsChannelDisplayName) && currentChannelSetting != null)
+        if (currentChannelSetting != null && !channel.ChannelDisplayName.Equals(currentChannelSetting.WebChannelSettingsChannelDisplayName))
         {
             currentChannelSetting.WebChannelSettingsChannelDisplayName = channel.ChannelDisplayName;
             webChannelSettingsInfoProvider.Set(currentChannelSetting);
