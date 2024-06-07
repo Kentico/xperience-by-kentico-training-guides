@@ -8,18 +8,18 @@ using Microsoft.Extensions.Localization;
 [assembly: UIPage(
     parentType: typeof(ProjectSettingsApplication),
     slug: "global-settings",
-    uiPageType: typeof(GlobalSettingsList),
+    uiPageType: typeof(GlobalSettingsListingPage),
     name: "Global settings",
     templateName: TemplateNames.LISTING,
     order: 0)]
 
 namespace TrainingGuides.Admin.ProjectSettings;
-public class GlobalSettingsList : ListingPage
+public class GlobalSettingsListingPage : ListingPage
 {
     private readonly IStringLocalizer<SharedResources> localizer;
     protected override string ObjectType => GlobalSettingsKeyInfo.OBJECT_TYPE;
 
-    public GlobalSettingsList(IStringLocalizer<SharedResources> localizer) : base()
+    public GlobalSettingsListingPage(IStringLocalizer<SharedResources> localizer) : base()
     {
         this.localizer = localizer;
     }
@@ -32,7 +32,7 @@ public class GlobalSettingsList : ListingPage
                     .AddColumn(nameof(GlobalSettingsKeyInfo.GlobalSettingsKeyNote), localizer["Note"])
                     .AddColumn(nameof(GlobalSettingsKeyInfo.GlobalSettingsKeyName), localizer["Codename"]);
 
-        PageConfiguration.HeaderActions.AddLink<GlobalSettingsCreate>(localizer["New setting"]);
+        PageConfiguration.HeaderActions.AddLink<GlobalSettingsCreatePage>(localizer["New setting"]);
 
         PageConfiguration.AddEditRowAction<GlobalSettingsEditSection>();
 

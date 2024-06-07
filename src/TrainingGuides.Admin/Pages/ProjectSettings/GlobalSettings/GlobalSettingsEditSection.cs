@@ -3,15 +3,15 @@ using TrainingGuides.ProjectSettings;
 using TrainingGuides.Admin.ProjectSettings;
 
 [assembly: UIPage(
-    parentType: typeof(WebChannelSnippetList),
+    parentType: typeof(GlobalSettingsListingPage),
     slug: PageParameterConstants.PARAMETERIZED_SLUG,
-    uiPageType: typeof(WebChannelSnippetEditSection),
-    name: "Edit snippets",
+    uiPageType: typeof(GlobalSettingsEditSection),
+    name: "Edit",
     templateName: TemplateNames.SECTION_LAYOUT,
-    order: 0)]
+    order: 10)]
 
 namespace TrainingGuides.Admin.ProjectSettings;
 
-public class WebChannelSnippetEditSection : EditSectionPage<WebChannelSnippetInfo>
+public class GlobalSettingsEditSection : EditSectionPage<GlobalSettingsKeyInfo>
 {
 }

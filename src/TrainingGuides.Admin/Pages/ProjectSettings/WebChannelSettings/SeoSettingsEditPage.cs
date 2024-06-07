@@ -8,14 +8,14 @@ using Microsoft.Extensions.Localization;
 [assembly: UIPage(
     parentType: typeof(WebChannelSettingsEditSection),
     slug: "edit",
-    uiPageType: typeof(SeoSettingsEdit),
+    uiPageType: typeof(SeoSettingsEditPage),
     name: "SEO settings",
     templateName: TemplateNames.EDIT,
     order: 0)]
 
 namespace TrainingGuides.Admin.ProjectSettings;
 
-public class SeoSettingsEdit : InfoEditPage<SeoSettingsInfo>
+public class SeoSettingsEditPage : InfoEditPage<SeoSettingsInfo>
 {
     private readonly IInfoProvider<SeoSettingsInfo> seoSettingsInfoProvider;
     private readonly IInfoProvider<WebChannelSettingsInfo> webChannelSettingsInfoProvider;
@@ -43,7 +43,7 @@ public class SeoSettingsEdit : InfoEditPage<SeoSettingsInfo>
         set { }
     }
 
-    public SeoSettingsEdit(IFormComponentMapper formComponentMapper,
+    public SeoSettingsEditPage(IFormComponentMapper formComponentMapper,
         IFormDataBinder formDataBinder,
         IInfoProvider<SeoSettingsInfo> seoSettingsInfoProvider,
         IInfoProvider<WebChannelSettingsInfo> webChannelSettingsInfoProvider,

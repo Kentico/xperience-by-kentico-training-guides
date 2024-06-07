@@ -30,7 +30,8 @@ public class CodeSnippetsViewComponent : ViewComponent
 
         var setting = settings.FirstOrDefault();
 
-        var snippets = await webChannelSnippetInfoProvider.Get()
+        var snippets = await webChannelSnippetInfoProvider
+            .Get()
             .WhereEquals(nameof(WebChannelSnippetInfo.WebChannelSnippetWebChannelSettingsID), setting?.WebChannelSettingsID ?? 0)
             .WhereEquals(nameof(WebChannelSnippetInfo.WebChannelSnippetType), codeSnippetType.ToString())
             .GetEnumerableTypedResultAsync();
@@ -39,9 +40,10 @@ public class CodeSnippetsViewComponent : ViewComponent
         {
             CodeSnippet = new HtmlString(snippet.WebChannelSnippetCode),
             CodeSnippetType = snippet.WebChannelSnippetType,
-            CodeSnippetLabel = addLabelComments ?
-                snippet.WebChannelSnippetDisplayName : string.Empty
+            CodeSnippetLabel = addLabelComments
+            ? snippet.WebChannelSnippetDisplayName
+            : string.Empty
         });
-        return View("~/Features/CodeSnippets/CodeSnippetsViewComponent.cshtml", model: model);
+        return View("~/Features/CodeSnippets/CodeSnippetsViewComponent.cshtml", model);
     }
 }

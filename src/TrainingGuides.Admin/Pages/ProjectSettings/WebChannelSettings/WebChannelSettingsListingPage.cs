@@ -8,13 +8,13 @@ using Microsoft.Extensions.Localization;
 [assembly: UIPage(
     parentType: typeof(ProjectSettingsApplication),
     slug: "channel-settings",
-    uiPageType: typeof(WebChannelSettingsList),
+    uiPageType: typeof(WebChannelSettingsListingPage),
     name: "Channel settings",
     templateName: TemplateNames.LISTING,
     order: 0)]
 
 namespace TrainingGuides.Admin.ProjectSettings;
-public class WebChannelSettingsList : ListingPage
+public class WebChannelSettingsListingPage : ListingPage
 {
     private readonly IInfoProvider<ChannelInfo> channelInfoProvider;
     private readonly IInfoProvider<WebChannelSettingsInfo> webChannelSettingsInfoProvider;
@@ -23,7 +23,7 @@ public class WebChannelSettingsList : ListingPage
 
     protected override string ObjectType => WebChannelSettingsInfo.OBJECT_TYPE;
 
-    public WebChannelSettingsList(
+    public WebChannelSettingsListingPage(
         IInfoProvider<ChannelInfo> channelInfoProvider,
         IInfoProvider<WebChannelSettingsInfo> webChannelSettingsInfoProvider,
         IInfoProvider<SeoSettingsInfo> seoSettingsInfoProvider,
