@@ -169,17 +169,19 @@
       <field column="ContactSalesForceLeadReplicationSuspensionDateTime" guid="d4655c8b-f017-45d4-863d-5f9283acd11d" order="32" />
       <field column="ContactSalesForceLeadReplicationRequired" guid="ed635ea1-58a9-40af-8429-501b10fe6f71" order="33" />
       <field column="ContactGender" guid="6eb0cdc8-d4f1-433c-a39d-9fef3487d29e" order="34" />
-      <field column="ContactIsMember" guid="5ac41daa-05fa-471a-ae04-9940dfbfe71f" visible="true" enabled="" order="35">
-        <settings>
-          <controlname>Kentico.Administration.Checkbox</controlname>
-        </settings>
+      <field column="ContactIsMember" guid="36779b8b-7f4e-4522-8c5c-ec96e380ae21" visible="true" order="35">
         <properties>
           <explanationtextashtml>False</explanationtextashtml>
-          <fieldcaption>Contact is a member of the loyalty program</fieldcaption>
+          <fieldcaption>Contact is a member</fieldcaption>
           <fielddescriptionashtml>False</fielddescriptionashtml>
         </properties>
+        <settings>
+          <controlname>Kentico.Administration.TextWithLabel</controlname>
+        </settings>
       </field>
-      <field column="ContactRegion" guid="6652532a-2ab5-4215-bfea-86821eed9380" enabled="" order="36" />
+      <field column="TrainingGuidesContactMemberId" guid="78caac9a-f23c-4e5a-a96a-54b4ef094e10" enabled="" order="36" />
+      <field column="TrainingGuidesContactFavoriteCoffee" guid="a237d063-85ef-4191-ae93-bc1fae8fed69" enabled="" order="37" />
+      <field column="TrainingGuidesContactLatestOrderDate" guid="131dc9a6-7f22-42d2-a4ff-e731b3bf48e1" enabled="" order="38" />
     </form>
   </FormDefinition>
   <FormDisplayName>Personal details - read only</FormDisplayName>
