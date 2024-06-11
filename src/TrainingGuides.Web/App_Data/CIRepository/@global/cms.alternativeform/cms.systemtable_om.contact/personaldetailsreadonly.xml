@@ -179,9 +179,9 @@
           <controlname>Kentico.Administration.TextWithLabel</controlname>
         </settings>
       </field>
-      <field column="TrainingGuidesContactMemberId" guid="78caac9a-f23c-4e5a-a96a-54b4ef094e10" enabled="" order="36" />
-      <field column="TrainingGuidesContactFavoriteCoffee" guid="a237d063-85ef-4191-ae93-bc1fae8fed69" enabled="" order="37" />
-      <field column="TrainingGuidesContactLatestOrderDate" guid="131dc9a6-7f22-42d2-a4ff-e731b3bf48e1" enabled="" order="38" />
+      <field column="TrainingGuidesContactFavoriteCoffee" guid="a237d063-85ef-4191-ae93-bc1fae8fed69" enabled="" order="36" />
+      <field column="TrainingGuidesContactLastCommunitationDate" guid="4bca4c08-a464-4dc6-8f30-ce18a3fde2a4" enabled="" order="37" />
+      <field column="TrainingGuidesContactMemberId" guid="2ea2f027-7796-4f06-acd6-6189d5c10163" enabled="" order="38" />
     </form>
   </FormDefinition>
   <FormDisplayName>Personal details - read only</FormDisplayName>

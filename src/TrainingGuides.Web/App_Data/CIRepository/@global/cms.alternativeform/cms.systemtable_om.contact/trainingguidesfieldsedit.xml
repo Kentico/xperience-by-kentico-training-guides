@@ -37,37 +37,35 @@
       <field column="ContactSalesForceLeadReplicationDateTime" guid="531e86dc-3c94-4fdc-83ab-ddad002c26fa" />
       <field column="ContactSalesForceLeadReplicationSuspensionDateTime" guid="d4655c8b-f017-45d4-863d-5f9283acd11d" />
       <field column="ContactSalesForceLeadReplicationRequired" guid="ed635ea1-58a9-40af-8429-501b10fe6f71" />
-      <field column="TrainingGuidesContactMemberId" enabled="true" guid="78caac9a-f23c-4e5a-a96a-54b4ef094e10" visible="true">
+      <field column="TrainingGuidesContactMemberId" enabled="true" guid="2ea2f027-7796-4f06-acd6-6189d5c10163" visible="true">
         <settings>
           <controlname>Kentico.Administration.TextInput</controlname>
         </settings>
         <properties>
           <explanationtextashtml>False</explanationtextashtml>
-          <fieldcaption>Gold member ID</fieldcaption>
+          <fieldcaption>Contact member ID</fieldcaption>
           <fielddescriptionashtml>False</fielddescriptionashtml>
         </properties>
       </field>
-      <field column="TrainingGuidesContactLatestOrderDate" guid="131dc9a6-7f22-42d2-a4ff-e731b3bf48e1" visible="true" enabled="" order="31">
+      <field column="TrainingGuidesContactFavoriteCoffee" enabled="true" guid="a237d063-85ef-4191-ae93-bc1fae8fed69" visible="true">
         <settings>
-          <controlname>Kentico.Administration.DateTimeInput</controlname>
-        </settings>
-        <properties>
-          <defaultvalue>6/10/2024 12:22:00 PM</defaultvalue>
-          <explanationtext>Enter a date: MM/DD/YYYY hh:mm AM/PM</explanationtext>
-          <explanationtextashtml>False</explanationtextashtml>
-          <fieldcaption>Latest order date</fieldcaption>
-          <fielddescriptionashtml>False</fielddescriptionashtml>
-        </properties>
-      </field>
-      <field column="TrainingGuidesContactFavoriteCoffee" enabled="true" guid="a237d063-85ef-4191-ae93-bc1fae8fed69" visible="true" order="32">
-        <settings>
-          <controlname>Kentico.Administration.DropDownSelector</controlname>
-          <Options>Espresso;Latte;Drip coffee;French press;Other</Options>
-          <OptionsValueSeparator>;</OptionsValueSeparator>
+          <controlname>Kentico.Administration.TextInput</controlname>
         </settings>
         <properties>
           <explanationtextashtml>False</explanationtextashtml>
           <fieldcaption>Favorite coffee</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+      </field>
+      <field column="TrainingGuidesContactLastCommunitationDate" enabled="true" guid="4bca4c08-a464-4dc6-8f30-ce18a3fde2a4" visible="true">
+        <settings>
+          <controlname>Kentico.Administration.DateTimeInput</controlname>
+        </settings>
+        <properties>
+          <defaultvalue>6/11/2024 10:48:00 AM</defaultvalue>
+          <explanationtext>Enter a date: MM/DD/YYYY hh:mm AM/PM</explanationtext>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Last communication date</fieldcaption>
           <fielddescriptionashtml>False</fielddescriptionashtml>
         </properties>
       </field>
@@ -76,5 +74,5 @@
   <FormDisplayName>Training guides fields</FormDisplayName>
   <FormGUID>860e5acd-14f1-4213-8ef4-c79273bc9e81</FormGUID>
   <FormIsCustom>True</FormIsCustom>
-  <FormName>TrainingGuidesContactFields</FormName>
+  <FormName>TrainingGuidesFieldsEdit</FormName>
 </cms.alternativeform>

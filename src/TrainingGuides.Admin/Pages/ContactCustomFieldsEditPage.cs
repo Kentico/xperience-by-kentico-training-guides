@@ -3,10 +3,9 @@ using Kentico.Xperience.Admin.Base;
 using Kentico.Xperience.Admin.Base.Forms;
 using Kentico.Xperience.Admin.DigitalMarketing.UIPages;
 
-// Registers the UI page
 [assembly: UIPage(
     parentType: typeof(ContactEditSection),
-    slug: "trainingguidescontactfields",
+    slug: "trainingguidesfieldsedit",
     uiPageType: typeof(ContactCustomFieldsEditPage),
     name: "Custom fields",
     templateName: TemplateNames.EDIT,
@@ -24,7 +23,7 @@ public class ContactCustomFieldsEditPage : InfoEditPage<ContactInfo>
 
     public override Task ConfigurePage()
     {
-        PageConfiguration.UIFormName = "trainingguidescontactfields";
+        PageConfiguration.UIFormName = "trainingguidesfieldsedit";
         return base.ConfigurePage();
     }
 }
