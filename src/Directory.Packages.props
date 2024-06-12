@@ -5,10 +5,10 @@
   <ItemGroup>
     <PackageVersion Include="AspNetCore.Unobtrusive.Ajax" Version="2.0.0" />
     <PackageVersion Include="Enums.NET" Version="4.0.2" />
-    <PackageVersion Include="kentico.xperience.admin" Version="28.4.3" />
-    <PackageVersion Include="kentico.xperience.azurestorage" Version="28.4.3" />
-    <PackageVersion Include="kentico.xperience.imageprocessing" Version="28.4.3" />
-    <PackageVersion Include="kentico.xperience.webapp" Version="28.4.3" />
-    <PackageVersion Include="Kentico.Xperience.Core" Version="28.4.3" />
+    <PackageVersion Include="kentico.xperience.admin" Version="29.1.3" />
+    <PackageVersion Include="kentico.xperience.azurestorage" Version="29.1.3" />
+    <PackageVersion Include="kentico.xperience.imageprocessing" Version="29.1.3" />
+    <PackageVersion Include="kentico.xperience.webapp" Version="29.1.3" />
+    <PackageVersion Include="Kentico.Xperience.Core" Version="29.1.3" />
   </ItemGroup>
 </Project>
