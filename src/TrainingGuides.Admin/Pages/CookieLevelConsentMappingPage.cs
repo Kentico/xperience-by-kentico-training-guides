@@ -37,7 +37,7 @@ internal class CookieLevelConsentMappingPage : InfoEditPage<CookieLevelConsentMa
 
     public override Task ConfigurePage()
     {
-        PageConfiguration.UIFormName = "CookieLevelConsentMapping";
+        PageConfiguration.UIFormName = "cookielevelconsentmapping";
 
         return base.ConfigurePage();
     }

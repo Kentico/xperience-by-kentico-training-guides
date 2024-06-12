@@ -37,15 +37,15 @@
       <field column="ContactSalesForceLeadReplicationDateTime" guid="531e86dc-3c94-4fdc-83ab-ddad002c26fa" />
       <field column="ContactSalesForceLeadReplicationSuspensionDateTime" guid="d4655c8b-f017-45d4-863d-5f9283acd11d" />
       <field column="ContactSalesForceLeadReplicationRequired" guid="ed635ea1-58a9-40af-8429-501b10fe6f71" />
-      <field column="TrainingGuidesContactMemberId" enabled="true" guid="2ea2f027-7796-4f06-acd6-6189d5c10163" visible="true">
-        <settings>
-          <controlname>Kentico.Administration.TextInput</controlname>
-        </settings>
+      <field allowempty="true" column="TrainingGuidesContactIsMember" columnprecision="0" columnsize="200" columntype="text" dummy="altform" enabled="true" guid="c8e044d8-c162-4517-bbf0-1210fb648d14" visible="true" order="30">
         <properties>
           <explanationtextashtml>False</explanationtextashtml>
-          <fieldcaption>Contact member ID</fieldcaption>
+          <fieldcaption>Is member</fieldcaption>
           <fielddescriptionashtml>False</fielddescriptionashtml>
         </properties>
+        <settings>
+          <controlname>Kentico.Administration.TextWithLabel</controlname>
+        </settings>
       </field>
       <field column="TrainingGuidesContactFavoriteCoffee" enabled="true" guid="a237d063-85ef-4191-ae93-bc1fae8fed69" visible="true">
         <settings>
@@ -69,9 +69,10 @@
           <fielddescriptionashtml>False</fielddescriptionashtml>
         </properties>
       </field>
+      <field column="TrainingGuidesContactMemberId" guid="2ea2f027-7796-4f06-acd6-6189d5c10163" enabled="" order="33" />
     </form>
   </FormDefinition>
-  <FormDisplayName>Training guides fields</FormDisplayName>
+  <FormDisplayName>Training guides fields edit</FormDisplayName>
   <FormGUID>860e5acd-14f1-4213-8ef4-c79273bc9e81</FormGUID>
   <FormIsCustom>True</FormIsCustom>
   <FormName>TrainingGuidesFieldsEdit</FormName>
