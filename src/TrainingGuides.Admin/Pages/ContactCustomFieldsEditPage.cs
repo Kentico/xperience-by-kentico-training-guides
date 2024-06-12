@@ -1,4 +1,5 @@
 using CMS.ContactManagement;
+using CMS.DataEngine;
 using Kentico.Xperience.Admin.Base;
 using Kentico.Xperience.Admin.Base.Forms;
 using Kentico.Xperience.Admin.DigitalMarketing.UIPages;
@@ -16,7 +17,7 @@ public class ContactCustomFieldsEditPage : InfoEditPage<ContactInfo>
     [PageParameter(typeof(IntPageModelBinder))]
     public override int ObjectId { get; set; }
 
-    private readonly IContactInfoProvider contactInfoProvider;
+    private readonly IInfoProvider<ContactInfo> contactInfoProvider;
 
     private const string CONTACT_IS_MEMBER_FIELD_NAME = "TrainingGuidesContactIsMember";
     private const string CONTACT_MEMBER_ID_FIELD_NAME = "TrainingGuidesContactMemberId";
@@ -24,7 +25,7 @@ public class ContactCustomFieldsEditPage : InfoEditPage<ContactInfo>
     public ContactCustomFieldsEditPage(
         IFormComponentMapper formComponentMapper,
         IFormDataBinder formDataBinder,
-        IContactInfoProvider contactInfoProvider)
+        IInfoProvider<ContactInfo> contactInfoProvider)
              : base(formComponentMapper, formDataBinder)
     {
         this.contactInfoProvider = contactInfoProvider;
@@ -38,11 +39,8 @@ public class ContactCustomFieldsEditPage : InfoEditPage<ContactInfo>
 
     protected override async Task<ICollection<IFormItem>> GetFormItems()
     {
-        //TODO refactor usign extension methods
         var items = await base.GetFormItems();
-        await SetContactIsMember(items);
-
-        return items;
+        return await SetContactIsMember(items);
     }
 
     private async Task<string?> GetContactMemberId()
@@ -58,8 +56,8 @@ public class ContactCustomFieldsEditPage : InfoEditPage<ContactInfo>
     /// Sets the value of the "Is Member" field based on the value of the "Member ID" field.
     /// </summary>
     /// <param name="items">Collection of form items</param>
-    /// <returns></returns>
-    private async Task SetContactIsMember(ICollection<IFormItem> items)
+    /// <returns>The updated collection of items</returns>
+    private async Task<ICollection<IFormItem>> SetContactIsMember(ICollection<IFormItem> items)
     {
         var contactIsMemberField = items.OfType<IFormComponent>()
             .FirstOrDefault(i => i.Name == CONTACT_IS_MEMBER_FIELD_NAME) as TextWithLabelComponent;
@@ -69,5 +67,7 @@ public class ContactCustomFieldsEditPage : InfoEditPage<ContactInfo>
             : "Yes";
 
         contactIsMemberField?.SetValue(contactIsMember);
+
+        return items;
     }
 }
