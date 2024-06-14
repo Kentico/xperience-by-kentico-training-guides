@@ -2,7 +2,7 @@
   <!-- See https://aka.ms/dotnet/msbuild/customize for more details on customizing your build -->
   <PropertyGroup>
     <Company>Kentico Software</Company>
-    <PackageProjectUrl>https://github.com/Kentico/xperience-by-kentico-quickstart-guides</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/Kentico/xperience-by-kentico-training-guides</PackageProjectUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
