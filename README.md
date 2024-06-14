@@ -1,7 +1,7 @@
-# Xperience by Kentico Quickstart Guide starter repository
-This repository is the starting point for the [Xperience by Kentico technical quickstart guides](https://docs.xperience.io/tutorial/quickstart-guides/development). Use this branch to follow along with the training guides.
+# Xperience by Kentico Training Guides starter repository
+This repository is the starting point for the [Xperience by Kentico technical Training Guides](https://docs.kentico.com/guides/development). Use this branch to follow along with the training guides.
 
-The [finished branch](https://github.com/Kentico/xperience-by-kentico-quickguides/tree/finished) contains the cumulative results of the quickstart guides, as well as some sample widgets and can be used for reference. As it contains several independent examples, it is not built comprehensively, and we recommend against using it as a boilerplate.
+The [finished branch](https://github.com/Kentico/xperience-by-kentico-training-guides/tree/finished) contains the cumulative results of the training guides, as well as some sample widgets and can be used for reference. As it contains several independent examples, it is not built comprehensively, and we recommend against using it as a boilerplate.
 
 ## Installation requirements
 - The database backup included in this repository requires SQL Server 2022 or newer. 
