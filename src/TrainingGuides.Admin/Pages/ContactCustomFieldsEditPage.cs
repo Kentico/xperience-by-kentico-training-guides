@@ -3,6 +3,7 @@ using CMS.DataEngine;
 using Kentico.Xperience.Admin.Base;
 using Kentico.Xperience.Admin.Base.Forms;
 using Kentico.Xperience.Admin.DigitalMarketing.UIPages;
+using TrainingGuides.Admin.Pages;
 
 [assembly: UIPage(
     parentType: typeof(ContactEditSection),
@@ -12,6 +13,7 @@ using Kentico.Xperience.Admin.DigitalMarketing.UIPages;
     templateName: TemplateNames.EDIT,
     order: 150)]
 
+namespace TrainingGuides.Admin.Pages;
 public class ContactCustomFieldsEditPage : InfoEditPage<ContactInfo>
 {
     [PageParameter(typeof(IntPageModelBinder))]
