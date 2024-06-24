@@ -7,7 +7,7 @@ using TrainingGuides.Admin.Pages;
 
 [assembly: UIPage(
     parentType: typeof(ContactEditSection),
-    slug: "trainingguidesfieldsedit",
+    slug: "training-guides-fields-edit",
     uiPageType: typeof(ContactCustomFieldsEditPage),
     name: "Custom fields",
     templateName: TemplateNames.EDIT,
