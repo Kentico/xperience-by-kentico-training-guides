@@ -42,29 +42,26 @@ public class ContactCustomFieldsEditPage : InfoEditPage<ContactInfo>
     protected override async Task<ICollection<IFormItem>> GetFormItems()
     {
         var items = await base.GetFormItems();
-        return await SetContactIsMember(items);
+        return SetContactIsMember(items);
     }
 
-    private async Task<string?> GetContactMemberId()
-    {
-        var infoObject = await GetInfoObject();
-
-        return contactInfoProvider.Get()
-            .WhereEquals(nameof(ContactInfo.ContactID), infoObject.ContactID)
-            .First().GetValue(CONTACT_MEMBER_ID_FIELD_NAME) as string;
-    }
+    private string? GetContactMemberId() =>
+        contactInfoProvider.Get()
+            .WhereEquals(nameof(ContactInfo.ContactID), ObjectId)
+            .FirstOrDefault()
+            ?.GetValue(CONTACT_MEMBER_ID_FIELD_NAME) as string;
 
     /// <summary>
     /// Sets the value of the "Is Member" field based on the value of the "Member ID" field.
     /// </summary>
     /// <param name="items">Collection of form items</param>
     /// <returns>The updated collection of items</returns>
-    private async Task<ICollection<IFormItem>> SetContactIsMember(ICollection<IFormItem> items)
+    private ICollection<IFormItem> SetContactIsMember(ICollection<IFormItem> items)
     {
         var contactIsMemberField = items.OfType<IFormComponent>()
             .FirstOrDefault(i => i.Name == CONTACT_IS_MEMBER_FIELD_NAME) as TextWithLabelComponent;
 
-        string contactIsMember = string.IsNullOrEmpty(await GetContactMemberId())
+        string contactIsMember = string.IsNullOrEmpty(GetContactMemberId())
             ? "No"
             : "Yes";
 
