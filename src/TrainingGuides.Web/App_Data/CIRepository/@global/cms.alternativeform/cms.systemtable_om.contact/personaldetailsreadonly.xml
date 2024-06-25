@@ -169,6 +169,19 @@
       <field column="ContactSalesForceLeadReplicationSuspensionDateTime" guid="d4655c8b-f017-45d4-863d-5f9283acd11d" order="32" />
       <field column="ContactSalesForceLeadReplicationRequired" guid="ed635ea1-58a9-40af-8429-501b10fe6f71" order="33" />
       <field column="ContactGender" guid="6eb0cdc8-d4f1-433c-a39d-9fef3487d29e" order="34" />
+      <field column="TrainingGuidesContactMemberId" guid="2ea2f027-7796-4f06-acd6-6189d5c10163" enabled="" order="35" />
+      <field column="TrainingGuidesContactFavoriteCoffee" guid="a237d063-85ef-4191-ae93-bc1fae8fed69" enabled="" order="36" />
+      <field column="TrainingGuidesContactLastCommunitationDate" guid="4bca4c08-a464-4dc6-8f30-ce18a3fde2a4" enabled="" order="37" />
+      <field column="ContactIsMember" guid="36779b8b-7f4e-4522-8c5c-ec96e380ae21" visible="true" order="38">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Contact is a member</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.TextWithLabel</controlname>
+        </settings>
+      </field>
     </form>
   </FormDefinition>
   <FormDisplayName>Personal details - read only</FormDisplayName>

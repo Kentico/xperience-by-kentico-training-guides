@@ -61,7 +61,7 @@ public class FormCollectionService : IFormCollectionService
                 continue;
             }
 
-            IEnumerable<string> mappedEmailFields = new List<string>();
+            IEnumerable<string> mappedEmailFields = [];
 
             if (!string.IsNullOrEmpty(dataClassInfo.ClassContactMapping))
             {

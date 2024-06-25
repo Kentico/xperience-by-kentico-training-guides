@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<om.contactgroup>
+  <ContactGroupDisplayName>Espresso lovers</ContactGroupDisplayName>
+  <ContactGroupDynamicCondition>
+    <![CDATA[{%Rule("(Contact.TrainingGuidesContactFavoriteCoffee.Contains(\"Espresso\"))", "<rules><r pos=\"0\" par=\"\" op=\"and\" /><r pos=\"0\" par=\"0\" op=\"and\" n=\"CMSContactFieldContainsValue\" ><p n=\"field\"><t>#select field</t><v>TrainingGuidesContactFavoriteCoffee</v><r>1</r><d>select field</d><vt>text</vt><tv>0</tv></p><p n=\"value\"><t>#enter value</t><v>Espresso</v><r>1</r><d>enter value</d><vt>text</vt><tv>0</tv></p><p n=\"op\"><t>contains</t><v>Contains</v><r>1</r><d>select operator</d><vt>text</vt><tv>0</tv></p></r></rules>")|(identity)GlobalAdministrator|(hash)71d742fbfcd07d175b45cf7782d2d979227678507ecede45e9fb3705accb6338%}]]>
+  </ContactGroupDynamicCondition>
+  <ContactGroupEnabled>True</ContactGroupEnabled>
+  <ContactGroupGUID>4891d165-32b8-4575-97fe-a06dd12dfb15</ContactGroupGUID>
+  <ContactGroupIsRecipientList>False</ContactGroupIsRecipientList>
+  <ContactGroupName>EspressoLovers</ContactGroupName>
+</om.contactgroup>
