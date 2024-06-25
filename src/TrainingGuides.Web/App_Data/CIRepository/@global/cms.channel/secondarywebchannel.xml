@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.channel>
+  <ChannelDisplayName>Secondary web channel</ChannelDisplayName>
+  <ChannelGUID>c0a280dc-1a6e-4f76-be70-0c74a5d29338</ChannelGUID>
+  <ChannelName>SecondaryWebChannel</ChannelName>
+  <ChannelType>Website</ChannelType>
+</cms.channel>

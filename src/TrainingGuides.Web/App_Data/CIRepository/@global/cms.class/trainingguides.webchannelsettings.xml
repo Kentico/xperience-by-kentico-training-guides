@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.class>
+  <ClassDisplayName>Web channel settings</ClassDisplayName>
+  <ClassFormDefinition>
+    <form>
+      <field column="WebChannelSettingsID" columntype="integer" enabled="true" guid="1c34f694-0831-45c8-bb23-eb72db14998f" isPK="true" />
+      <field column="WebChannelSettingsChannelDisplayName" columnprecision="0" columnsize="200" columntype="text" enabled="true" guid="ec180bce-2d84-49b4-b440-2f81c0c67281" />
+      <field column="WebChannelSettingsChannelID" columnprecision="0" columntype="integer" enabled="true" guid="8d302798-a362-4d67-a9b3-a389deffc172" refobjtype="cms.channel" reftype="Required" />
+      <field column="WebChannelSettingsGUID" columnprecision="0" columntype="guid" enabled="true" guid="66df53de-2d63-4eda-acf0-c42a25e5431f" />
+    </form>
+  </ClassFormDefinition>
+  <ClassGUID>a6c1fe93-86c9-407c-b65f-a38681912450</ClassGUID>
+  <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
+  <ClassName>TrainingGuides.WebChannelSettings</ClassName>
+  <ClassResourceID>
+    <CodeName>TrainingGuides.ProjectSettings</CodeName>
+    <GUID>1dfa52f3-3609-4f5e-8037-eb17193b05ec</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ClassResourceID>
+  <ClassTableName>TrainingGuides_WebChannelSettings</ClassTableName>
+  <ClassType>Other</ClassType>
+</cms.class>

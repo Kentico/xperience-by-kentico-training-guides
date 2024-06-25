@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.class>
+  <ClassDisplayName>Web channel snippet</ClassDisplayName>
+  <ClassFormDefinition>
+    <form>
+      <field column="WebChannelSnippetID" columntype="integer" enabled="true" guid="0931d952-146f-4fca-8b7b-128bc4067cfc" isPK="true" />
+      <field column="WebChannelSnippetType" columnprecision="0" columnsize="200" columntype="text" enabled="true" guid="6aea4238-14b6-4bfd-8915-493887db9348" />
+      <field column="WebChannelSnippetCode" columnprecision="0" columnsize="2000" columntype="text" enabled="true" guid="c870c725-87a9-4ca8-8062-4810aa05bdb1" />
+      <field column="WebChannelSnippetWebChannelSettingsID" columnprecision="0" columntype="integer" enabled="true" guid="f2978bc7-9cd2-4773-8c02-ebcdabe27363" refobjtype="trainingguides.webchannelsettings" reftype="Required">
+        <properties>
+          <defaultvalue>0</defaultvalue>
+        </properties>
+      </field>
+      <field column="WebChannelSnippetDisplayName" columnprecision="0" columnsize="200" columntype="text" enabled="true" guid="a466d965-7e09-4c17-bfd5-e13f8e1a6def" />
+      <field column="WebChannelSnippetCodeName" columnprecision="0" columnsize="200" columntype="text" enabled="true" guid="2a9c3a4b-508e-4418-b3e6-1174c7db469f" />
+    </form>
+  </ClassFormDefinition>
+  <ClassGUID>ca32f2a3-25e1-4bf2-ac9c-36ef7c5dfb48</ClassGUID>
+  <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
+  <ClassName>TrainingGuides.WebChannelSnippet</ClassName>
+  <ClassResourceID>
+    <CodeName>TrainingGuides.ProjectSettings</CodeName>
+    <GUID>1dfa52f3-3609-4f5e-8037-eb17193b05ec</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ClassResourceID>
+  <ClassTableName>TrainingGuides_WebChannelSnippet</ClassTableName>
+  <ClassType>Other</ClassType>
+</cms.class>

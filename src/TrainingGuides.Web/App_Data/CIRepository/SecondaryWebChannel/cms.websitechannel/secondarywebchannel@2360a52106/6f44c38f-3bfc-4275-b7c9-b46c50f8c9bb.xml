@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.websitechannel>
+  <WebsiteChannelChannelID>
+    <CodeName>SecondaryWebChannel</CodeName>
+    <GUID>c0a280dc-1a6e-4f76-be70-0c74a5d29338</GUID>
+    <ObjectType>cms.channel</ObjectType>
+  </WebsiteChannelChannelID>
+  <WebsiteChannelDefaultCookieLevel>1000</WebsiteChannelDefaultCookieLevel>
+  <WebsiteChannelDomain>127.1.2.3</WebsiteChannelDomain>
+  <WebsiteChannelGUID>6f44c38f-3bfc-4275-b7c9-b46c50f8c9bb</WebsiteChannelGUID>
+  <WebsiteChannelPrimaryContentLanguageID>
+    <CodeName>en</CodeName>
+    <GUID>e81b5172-f240-4041-88b1-653089984e29</GUID>
+    <ObjectType>cms.contentlanguage</ObjectType>
+  </WebsiteChannelPrimaryContentLanguageID>
+  <WebsiteChannelStoreFormerUrls>True</WebsiteChannelStoreFormerUrls>
+</cms.websitechannel>

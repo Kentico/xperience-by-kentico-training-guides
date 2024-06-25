@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.alternativeform>
+  <FormClassID>
+    <CodeName>TrainingGuides.SeoSettings</CodeName>
+    <GUID>159923da-3cc4-4168-99fb-2c05d2bbf8d2</GUID>
+    <ObjectType>cms.class</ObjectType>
+  </FormClassID>
+  <FormDefinition>
+    <form>
+      <field column="SeoSettingsID" guid="23d71443-e848-47fe-88a2-b0fadbec066a" enabled="" />
+      <field column="SeoSettingsWebChannelSettingID" guid="f5cfd971-cb7c-4d5b-8c76-7a578bba3c85" enabled="" order="1" />
+      <field column="SeoSettingsRobots" enabled="true" guid="5f7bf9ac-703d-416a-8dbf-996eef9ae7a9" visible="true" order="2">
+        <settings>
+          <controlname>Kentico.Administration.TextArea</controlname>
+          <CopyButtonVisible>False</CopyButtonVisible>
+          <MaxRowsNumber>100</MaxRowsNumber>
+          <MinRowsNumber>3</MinRowsNumber>
+        </settings>
+        <properties>
+          <explanationtext>Enter the content of the Robots.txt file</explanationtext>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Robots.txt</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+      </field>
+      <field column="SeoSettingsGUID" guid="da670291-0211-4ffb-8db8-348354c45b66" enabled="" />
+    </form>
+  </FormDefinition>
+  <FormDisplayName>SEO settings edit</FormDisplayName>
+  <FormGUID>e32c1af1-bdc7-497e-a0bc-40f8fd05c2f8</FormGUID>
+  <FormIsCustom>True</FormIsCustom>
+  <FormName>seosettingsedit</FormName>
+</cms.alternativeform>

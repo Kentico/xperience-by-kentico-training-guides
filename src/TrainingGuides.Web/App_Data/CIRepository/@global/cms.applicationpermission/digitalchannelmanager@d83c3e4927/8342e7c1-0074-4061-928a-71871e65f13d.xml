@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.applicationpermission>
-  <ApplicationName>Kentico.Xperience.Application.Pages</ApplicationName>
-  <ApplicationPermissionGuid>6dd5310a-f65f-4073-94c3-7806d56da8bd</ApplicationPermissionGuid>
+  <ApplicationName>TrainingGuides.ProjectSettingsApplication</ApplicationName>
+  <ApplicationPermissionGuid>8342e7c1-0074-4061-928a-71871e65f13d</ApplicationPermissionGuid>
   <PermissionName>View</PermissionName>
   <RoleID>
     <CodeName>DigitalChannelManager</CodeName>

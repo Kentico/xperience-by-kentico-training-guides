@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<trainingguides.globalsettingskey>
+  <GlobalSettingsKeyDisplayName>Email notification recipients</GlobalSettingsKeyDisplayName>
+  <GlobalSettingsKeyName>EmailNotificationToAddresses</GlobalSettingsKeyName>
+  <GlobalSettingsKeyNote>
+<![CDATA[
+The email addresses that should receive custom email notifications.
+Separate addresses with a semi-colon.
+]]>
+  </GlobalSettingsKeyNote>
+  <GlobalSettingsKeyValue>admin@localhost.local;support@localhost.local</GlobalSettingsKeyValue>
+</trainingguides.globalsettingskey>
