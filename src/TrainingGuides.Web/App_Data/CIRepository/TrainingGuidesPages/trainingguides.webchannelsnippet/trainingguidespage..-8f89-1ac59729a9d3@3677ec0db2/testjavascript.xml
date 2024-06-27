@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<trainingguides.webchannelsnippet>
+  <WebChannelSnippetCode>
+<![CDATA[
+<script>
+    var toInsert = document.createElement("div");
+    toInsert.innerHTML = "This text was added through a javascript snippet in the <b>Project settings</b> application.";
+    document.body.appendChild(toInsert);
+</script>
+]]>
+  </WebChannelSnippetCode>
+  <WebChannelSnippetCodeName>TestJavascript</WebChannelSnippetCodeName>
+  <WebChannelSnippetDisplayName>Test javascript</WebChannelSnippetDisplayName>
+  <WebChannelSnippetType>javascript</WebChannelSnippetType>
+  <WebChannelSnippetWebChannelSettingsID>
+    <GUID>9a1b8d71-d961-4553-8f89-1ac59729a9d3</GUID>
+    <ObjectType>trainingguides.webchannelsettings</ObjectType>
+    <Parent>
+      <CodeName>TrainingGuidesPages</CodeName>
+      <GUID>5ba9c1e8-b61e-4570-b666-87a9b92bbe3b</GUID>
+      <ObjectType>cms.channel</ObjectType>
+    </Parent>
+  </WebChannelSnippetWebChannelSettingsID>
+</trainingguides.webchannelsnippet>

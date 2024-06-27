@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<trainingguides.webchannelsettings>
+  <WebChannelSettingsChannelDisplayName>Training guides pages</WebChannelSettingsChannelDisplayName>
+  <WebChannelSettingsChannelID>
+    <CodeName>TrainingGuidesPages</CodeName>
+    <GUID>5ba9c1e8-b61e-4570-b666-87a9b92bbe3b</GUID>
+    <ObjectType>cms.channel</ObjectType>
+  </WebChannelSettingsChannelID>
+  <WebChannelSettingsGUID>9a1b8d71-d961-4553-8f89-1ac59729a9d3</WebChannelSettingsGUID>
+</trainingguides.webchannelsettings>
