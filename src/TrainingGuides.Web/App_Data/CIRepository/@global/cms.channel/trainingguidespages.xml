@@ -3,5 +3,6 @@
   <ChannelDisplayName>Training guides pages</ChannelDisplayName>
   <ChannelGUID>5ba9c1e8-b61e-4570-b666-87a9b92bbe3b</ChannelGUID>
   <ChannelName>TrainingGuidesPages</ChannelName>
+  <ChannelSize>Standard</ChannelSize>
   <ChannelType>Website</ChannelType>
 </cms.channel>

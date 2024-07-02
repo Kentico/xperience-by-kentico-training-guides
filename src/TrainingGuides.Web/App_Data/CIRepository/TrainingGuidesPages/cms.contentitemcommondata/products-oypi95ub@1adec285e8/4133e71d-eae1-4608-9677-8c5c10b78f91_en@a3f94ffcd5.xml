@@ -10,10 +10,10 @@
     <GUID>e81b5172-f240-4041-88b1-653089984e29</GUID>
     <ObjectType>cms.contentlanguage</ObjectType>
   </ContentItemCommonDataContentLanguageID>
-  <ContentItemCommonDataFirstPublishedWhen>2024-02-06 21:49:32Z</ContentItemCommonDataFirstPublishedWhen>
+  <ContentItemCommonDataFirstPublishedWhen>2024-02-07 03:49:32Z</ContentItemCommonDataFirstPublishedWhen>
   <ContentItemCommonDataGUID>4133e71d-eae1-4608-9677-8c5c10b78f91</ContentItemCommonDataGUID>
   <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
-  <ContentItemCommonDataLastPublishedWhen>2024-03-21 18:27:57Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataLastPublishedWhen>2024-03-21 23:27:57Z</ContentItemCommonDataLastPublishedWhen>
   <ContentItemCommonDataPageBuilderWidgets>
     <![CDATA[{"editableAreas":[{"identifier":"areaMain","sections":[{"identifier":"55c7b4b9-95bf-4e38-a2eb-a1f55b2fe99d","type":"TrainingGuides.SingleColumnSection","properties":{"sectionAnchor":null},"zones":[{"identifier":"bc808fbd-27e6-4e4c-91e1-794f52417963","widgets":[{"identifier":"9040dbde-e19f-4e53-9430-840bd4870cbf","type":"Kentico.Widget.RichText","variants":[{"identifier":"54190100-5ba4-47a9-9401-d9eaf94d2304","properties":{"content":"<p>Welcome to the store</p>"},"fieldIdentifiers":{"content":"2be6cb40-ccb7-4615-9251-9b5a063c7baa"}}]}]}],"fieldIdentifiers":{"sectionAnchor":"c750f1a7-d050-4bfe-9786-028b9369cc16"}}]}]}]]>
   </ContentItemCommonDataPageBuilderWidgets>

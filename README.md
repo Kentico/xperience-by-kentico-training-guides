@@ -5,7 +5,7 @@ The [finished branch](https://github.com/Kentico/xperience-by-kentico-training-g
 
 ## Installation requirements
 - The database backup included in this repository requires SQL Server 2022 or newer. 
-  - If you are using an older version of SQL server, you can prepare a fresh database by installing a fresh instance of Xperience by Kentico version **29.1.3**
+  - If you are using an older version of SQL server, you can prepare a fresh database by installing a fresh instance of Xperience by Kentico version **29.2.0**
 - This repository targets the .NET 8 SDK.
   - If you are using a different .NET version, you can update the target framework in your solution. Note that the files in this repository use [C# 12 features and syntax](https://learn.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-12), some of which are not supported in lower versions.
 ## Getting started
