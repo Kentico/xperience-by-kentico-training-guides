@@ -60,5 +60,5 @@
   <FormDisplayName>Global settings key edit</FormDisplayName>
   <FormGUID>03f82fca-3ec0-47ce-b8f1-451874e054ef</FormGUID>
   <FormIsCustom>True</FormIsCustom>
-  <FormName>globalsettingskeyedit</FormName>
+  <FormName>GlobalSettingsKeyEdit</FormName>
 </cms.alternativeform>

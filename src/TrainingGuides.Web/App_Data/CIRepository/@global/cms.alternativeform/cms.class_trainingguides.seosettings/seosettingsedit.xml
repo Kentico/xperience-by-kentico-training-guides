@@ -29,5 +29,5 @@
   <FormDisplayName>SEO settings edit</FormDisplayName>
   <FormGUID>e32c1af1-bdc7-497e-a0bc-40f8fd05c2f8</FormGUID>
   <FormIsCustom>True</FormIsCustom>
-  <FormName>seosettingsedit</FormName>
+  <FormName>SeoSettingsEdit</FormName>
 </cms.alternativeform>
