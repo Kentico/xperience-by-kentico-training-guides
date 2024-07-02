@@ -179,7 +179,7 @@
           <fielddescriptionashtml>False</fielddescriptionashtml>
         </properties>
       </field>
-      <field column="TrainingGuidesContactLastCommunitationDate" enabled="true" guid="9d9fbaff-7959-4451-b22e-3b35f61a5119" visible="true">
+      <field column="TrainingGuidesContactLastCommunitationDate" enabled="true" guid="4bca4c08-a464-4dc6-8f30-ce18a3fde2a4" visible="true">
         <settings>
           <controlname>Kentico.Administration.DateTimeInput</controlname>
         </settings>

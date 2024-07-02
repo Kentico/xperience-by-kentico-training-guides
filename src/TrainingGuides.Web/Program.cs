@@ -1,4 +1,3 @@
-using System.Text;
 using AspNetCore.Unobtrusive.Ajax;
 using CMS.EmailEngine;
 using Kentico.Activities.Web.Mvc;
@@ -7,7 +6,6 @@ using Kentico.CrossSiteTracking.Web.Mvc;
 using Kentico.OnlineMarketing.Web.Mvc;
 using Kentico.PageBuilder.Web.Mvc;
 using Kentico.Web.Mvc;
-using Microsoft.Extensions.Options;
 using TrainingGuides;
 using TrainingGuides.Web;
 using TrainingGuides.Web.Features.DataProtection.Shared;
