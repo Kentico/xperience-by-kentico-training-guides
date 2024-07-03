@@ -1,0 +1,11 @@
+@using TrainingGuides.Web.Features.CodeSnippets
+@model IEnumerable<CodeSnippetViewModel>
+
+@foreach (var codeSnippet in Model)
+{
+    if (!string.IsNullOrWhiteSpace(codeSnippet.CodeSnippetLabel))
+    {
+        <!-- code snippet for @codeSnippet.CodeSnippetLabel -->
+    }
+    @codeSnippet.CodeSnippet
+}

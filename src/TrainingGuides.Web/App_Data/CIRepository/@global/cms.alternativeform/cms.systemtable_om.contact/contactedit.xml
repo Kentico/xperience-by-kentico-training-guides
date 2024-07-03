@@ -165,6 +165,31 @@
       <field column="ContactSalesForceLeadReplicationDateTime" guid="531e86dc-3c94-4fdc-83ab-ddad002c26fa" />
       <field column="ContactSalesForceLeadReplicationSuspensionDateTime" guid="d4655c8b-f017-45d4-863d-5f9283acd11d" />
       <field column="ContactSalesForceLeadReplicationRequired" guid="ed635ea1-58a9-40af-8429-501b10fe6f71" />
+      <field column="TrainingGuidesContactMemberId" guid="2ea2f027-7796-4f06-acd6-6189d5c10163" enabled="" />
+      <field column="TrainingGuidesContactFavoriteCoffee" enabled="true" guid="a237d063-85ef-4191-ae93-bc1fae8fed69" visible="true">
+        <settings>
+          <controlname>Kentico.Administration.TextArea</controlname>
+          <CopyButtonVisible>False</CopyButtonVisible>
+          <MaxRowsNumber>5</MaxRowsNumber>
+          <MinRowsNumber>3</MinRowsNumber>
+        </settings>
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Favorite coffee</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+      </field>
+      <field column="TrainingGuidesContactLastCommunitationDate" enabled="true" guid="4bca4c08-a464-4dc6-8f30-ce18a3fde2a4" visible="true">
+        <settings>
+          <controlname>Kentico.Administration.DateTimeInput</controlname>
+        </settings>
+        <properties>
+          <explanationtext>Enter a date: MM/DD/YYYY hh:mm AM/PM</explanationtext>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Last communication date</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+      </field>
     </form>
   </FormDefinition>
   <FormDisplayName>Contact edit</FormDisplayName>

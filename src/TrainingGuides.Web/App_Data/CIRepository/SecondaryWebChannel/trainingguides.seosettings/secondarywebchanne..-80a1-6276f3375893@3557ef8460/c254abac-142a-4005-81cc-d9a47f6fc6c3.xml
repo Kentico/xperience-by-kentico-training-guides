@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<trainingguides.seosettings>
+  <SeoSettingsGUID>c254abac-142a-4005-81cc-d9a47f6fc6c3</SeoSettingsGUID>
+  <SeoSettingsRobots />
+  <SeoSettingsWebChannelSettingID>
+    <GUID>5a5010fd-25ff-4663-80a1-6276f3375893</GUID>
+    <ObjectType>trainingguides.webchannelsettings</ObjectType>
+    <Parent>
+      <CodeName>SecondaryWebChannel</CodeName>
+      <GUID>c0a280dc-1a6e-4f76-be70-0c74a5d29338</GUID>
+      <ObjectType>cms.channel</ObjectType>
+    </Parent>
+  </SeoSettingsWebChannelSettingID>
+</trainingguides.seosettings>

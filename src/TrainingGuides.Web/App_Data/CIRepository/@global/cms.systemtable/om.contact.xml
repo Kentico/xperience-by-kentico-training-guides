@@ -51,6 +51,13 @@
           <defaultvalue>False</defaultvalue>
         </properties>
       </field>
+      <field allowempty="true" column="TrainingGuidesContactMemberId" columnprecision="0" columnsize="200" columntype="text" enabled="true" guid="2ea2f027-7796-4f06-acd6-6189d5c10163" />
+      <field allowempty="true" column="TrainingGuidesContactFavoriteCoffee" columnprecision="0" columnsize="200" columntype="text" enabled="true" guid="a237d063-85ef-4191-ae93-bc1fae8fed69">
+        <properties>
+          <defaultvalue>Espresso</defaultvalue>
+        </properties>
+      </field>
+      <field allowempty="true" column="TrainingGuidesContactLastCommunitationDate" columnprecision="7" columntype="datetime" enabled="true" guid="4bca4c08-a464-4dc6-8f30-ce18a3fde2a4" />
     </form>
   </ClassFormDefinition>
   <ClassGUID>a7ca5324-19a5-4104-9579-ef54c7fca5fa</ClassGUID>

@@ -1,4 +1,5 @@
 using AspNetCore.Unobtrusive.Ajax;
+using CMS.EmailEngine;
 using Kentico.Activities.Web.Mvc;
 using Kentico.Content.Web.Mvc.Routing;
 using Kentico.CrossSiteTracking.Web.Mvc;
@@ -59,6 +60,11 @@ builder.Services.AddKentico(async features =>
     features.UseWebPageRouting(new WebPageRoutingOptions { LanguageNameRouteValuesKey = ApplicationConstants.LANGUAGE_KEY });
 });
 
+builder.Services.AddXperienceSmtp(options =>
+{
+    options.Server = new SmtpServer { Host = "localhost", Port = 25 };
+});
+
 builder.Services.Configure<CookieLevelOptions>(options =>
 {
     options.CookieConfigurations.Add(CookieNames.COOKIE_CONSENT_LEVEL, CookieLevel.System);
@@ -70,6 +76,7 @@ builder.Services.AddAuthentication();
 builder.Services.AddUnobtrusiveAjax();
 
 builder.Services.AddTrainingGuidesServices();
+builder.Services.AddTrainingGuidesOptions();
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddMvc().AddMvcLocalization();

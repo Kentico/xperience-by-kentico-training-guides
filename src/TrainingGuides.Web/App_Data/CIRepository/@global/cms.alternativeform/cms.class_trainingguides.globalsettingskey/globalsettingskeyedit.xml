@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.alternativeform>
+  <FormClassID>
+    <CodeName>TrainingGuides.GlobalSettingsKey</CodeName>
+    <GUID>cf0fa30f-bf86-4cf2-85ad-3efe86846ba3</GUID>
+    <ObjectType>cms.class</ObjectType>
+  </FormClassID>
+  <FormDefinition>
+    <form>
+      <field column="SettingsKeyID" guid="fc2ee209-60fa-452a-a7b0-edb9f43b281c" enabled="" />
+      <field column="GlobalSettingsKeyDisplayName" enabled="true" guid="16b9b8a5-12bc-4b5e-9aed-fb4d1668de06" visible="true" order="1">
+        <settings>
+          <controlname>Kentico.Administration.TextInput</controlname>
+        </settings>
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Display name</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+      </field>
+      <field column="GlobalSettingsKeyName" enabled="true" guid="57b7f824-5dee-4eb4-a78f-dcd349f9cd23" visible="true">
+        <settings>
+          <controlname>Kentico.Administration.TextInput</controlname>
+        </settings>
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Settings key code name</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+      </field>
+      <field column="GlobalSettingsKeyValue" enabled="true" guid="fd2f5ddd-e49c-468d-b81e-df5dd334f4c1" visible="true" order="3">
+        <settings>
+          <controlname>Kentico.Administration.TextArea</controlname>
+          <CopyButtonVisible>False</CopyButtonVisible>
+          <MaxRowsNumber>5</MaxRowsNumber>
+          <MinRowsNumber>3</MinRowsNumber>
+        </settings>
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Value</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+      </field>
+      <field column="GlobalSettingsKeyNote" enabled="true" guid="3e041b6a-39ce-42ba-ab33-779182ff9dd5" visible="true">
+        <settings>
+          <controlname>Kentico.Administration.TextArea</controlname>
+          <CopyButtonVisible>False</CopyButtonVisible>
+          <MaxRowsNumber>15</MaxRowsNumber>
+          <MinRowsNumber>3</MinRowsNumber>
+        </settings>
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Notes</fieldcaption>
+          <fielddescription>Explain the purpose of this settings key.</fielddescription>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+      </field>
+    </form>
+  </FormDefinition>
+  <FormDisplayName>Global settings key edit</FormDisplayName>
+  <FormGUID>03f82fca-3ec0-47ce-b8f1-451874e054ef</FormGUID>
+  <FormIsCustom>True</FormIsCustom>
+  <FormName>GlobalSettingsKeyEdit</FormName>
+</cms.alternativeform>

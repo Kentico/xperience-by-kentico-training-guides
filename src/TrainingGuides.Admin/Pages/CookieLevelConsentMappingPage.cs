@@ -5,7 +5,7 @@ using Kentico.Xperience.Admin.DigitalMarketing.UIPages;
 
 [assembly: UIPage(
     parentType: typeof(DataProtectionContentLanguage),
-    slug: "cookielevelconsentmapping",
+    slug: "cookie-level-consent-mapping",
     uiPageType: typeof(CookieLevelConsentMappingPage),
     name: "Cookie level consent mapping",
     templateName: TemplateNames.EDIT,
@@ -37,7 +37,7 @@ internal class CookieLevelConsentMappingPage : InfoEditPage<CookieLevelConsentMa
 
     public override Task ConfigurePage()
     {
-        PageConfiguration.UIFormName = "CookieLevelConsentMapping";
+        PageConfiguration.UIFormName = "cookielevelconsentmapping";
 
         return base.ConfigurePage();
     }

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.applicationpermission>
-  <ApplicationName>Kentico.Xperience.Application.Pages</ApplicationName>
-  <ApplicationPermissionGuid>280351d7-5cba-467c-a4ac-26d012c4b80d</ApplicationPermissionGuid>
+  <ApplicationName>TrainingGuides.ProjectSettingsApplication</ApplicationName>
+  <ApplicationPermissionGuid>ffbd7ca3-48a6-494f-a0c0-90276d321ee5</ApplicationPermissionGuid>
   <PermissionName>Delete</PermissionName>
   <RoleID>
     <CodeName>DigitalChannelManager</CodeName>

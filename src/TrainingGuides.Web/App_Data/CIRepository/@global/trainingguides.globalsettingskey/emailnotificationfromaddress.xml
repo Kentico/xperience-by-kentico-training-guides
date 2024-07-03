@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<trainingguides.globalsettingskey>
+  <GlobalSettingsKeyDisplayName>Email notification sender</GlobalSettingsKeyDisplayName>
+  <GlobalSettingsKeyName>EmailNotificationFromAddress</GlobalSettingsKeyName>
+  <GlobalSettingsKeyNote>
+    <![CDATA[The email address that custom email notifications will be sent from]]>
+  </GlobalSettingsKeyNote>
+  <GlobalSettingsKeyValue>notifications@localhost.local</GlobalSettingsKeyValue>
+</trainingguides.globalsettingskey>

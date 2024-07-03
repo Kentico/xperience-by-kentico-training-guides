@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.alternativeform>
+  <FormClassID>
+    <CodeName>TrainingGuides.WebChannelSnippet</CodeName>
+    <GUID>ca32f2a3-25e1-4bf2-ac9c-36ef7c5dfb48</GUID>
+    <ObjectType>cms.class</ObjectType>
+  </FormClassID>
+  <FormDefinition>
+    <form>
+      <field column="WebChannelSnippetID" guid="0931d952-146f-4fca-8b7b-128bc4067cfc" enabled="" />
+      <field column="WebChannelSnippetWebChannelSettingsID" guid="f2978bc7-9cd2-4773-8c02-ebcdabe27363" enabled="" order="1" />
+      <field column="WebChannelSnippetDisplayName" enabled="true" guid="a466d965-7e09-4c17-bfd5-e13f8e1a6def" visible="true" order="2">
+        <settings>
+          <controlname>Kentico.Administration.TextInput</controlname>
+        </settings>
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Label</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+      </field>
+      <field column="WebChannelSnippetCodeName" enabled="true" guid="2a9c3a4b-508e-4418-b3e6-1174c7db469f" visible="true" order="3">
+        <settings>
+          <controlname>Kentico.Administration.CodeName</controlname>
+          <HasAutomaticCodeNameGenerationOption>False</HasAutomaticCodeNameGenerationOption>
+          <IsCollapsed>False</IsCollapsed>
+        </settings>
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Code name</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+      </field>
+      <field column="WebChannelSnippetType" enabled="true" guid="6aea4238-14b6-4bfd-8915-493887db9348" visible="true" order="4">
+        <settings>
+          <controlname>Kentico.Administration.DropDownSelector</controlname>
+          <Options>
+<![CDATA[
+metadata;Metadata
+css;CSS
+javascript;Javascripot
+]]>
+          </Options>
+          <OptionsValueSeparator>;</OptionsValueSeparator>
+        </settings>
+        <properties>
+          <explanationtext>
+            <![CDATA[Determines where on the page the snippet should be rendered.]]>
+          </explanationtext>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Type</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+      </field>
+      <field column="WebChannelSnippetCode" enabled="true" guid="c870c725-87a9-4ca8-8062-4810aa05bdb1" visible="true" order="5">
+        <settings>
+          <controlname>Kentico.Administration.TextArea</controlname>
+          <CopyButtonVisible>False</CopyButtonVisible>
+          <MaxRowsNumber>50</MaxRowsNumber>
+          <MinRowsNumber>3</MinRowsNumber>
+        </settings>
+        <properties>
+          <explanationtext>
+            <![CDATA[Holds the code that you want to render. Make sure to include opening and closing tags if necessary.]]>
+          </explanationtext>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Code</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+      </field>
+    </form>
+  </FormDefinition>
+  <FormDisplayName>Web channel code snippet edit</FormDisplayName>
+  <FormGUID>c7b790ff-28f9-4000-bc38-03ab9a90bc0e</FormGUID>
+  <FormIsCustom>True</FormIsCustom>
+  <FormName>WebChannelSnippetEdit</FormName>
+</cms.alternativeform>
