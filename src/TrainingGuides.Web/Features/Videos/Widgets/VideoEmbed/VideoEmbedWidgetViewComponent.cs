@@ -17,11 +17,11 @@ public class VideoEmbedWidgetViewComponent : ViewComponent
 {
     public const string IDENTIFIER = "TrainingGuides.VideoEmbedWidget";
 
-    private readonly IStringLocalizer<SharedResources> localizer;
+    private readonly IStringLocalizer<SharedResources> stringLocalizer;
 
-    public VideoEmbedWidgetViewComponent(IStringLocalizer<SharedResources> localizer)
+    public VideoEmbedWidgetViewComponent(IStringLocalizer<SharedResources> stringLocalizer)
     {
-        this.localizer = localizer;
+        this.stringLocalizer = stringLocalizer;
     }
 
     public IViewComponentResult Invoke(ComponentViewModel<VideoEmbedWidgetProperties> widgetProperties)
@@ -41,10 +41,10 @@ public class VideoEmbedWidgetViewComponent : ViewComponent
                 VideoEmbedWidgetProperties.VIMEO => GetVimeoMarkup(widgetProperties),
                 VideoEmbedWidgetProperties.DAILYMOTION => GetDailyMotionMarkup(widgetProperties),
                 VideoEmbedWidgetProperties.FILE => GetFileMarkup(widgetProperties),
-                _ => localizer["Specified video service not found."],
+                _ => stringLocalizer["Specified video service not found."],
             };
         }
-        return localizer["Please make sure the URL property is filled in."];
+        return stringLocalizer["Please make sure the URL property is filled in."];
     }
 
 
@@ -65,9 +65,9 @@ public class VideoEmbedWidgetViewComponent : ViewComponent
                     return $"<video width=\"{widgetProperties.Width}\" height=\"{widgetProperties.Height}\" controls><source src=\"{widgetProperties.Url}{anchor}\" type=\"video/{extension}\"></video>";
                 }
             }
-            return localizer["Unable to parse file extension from the provided Url."];
+            return stringLocalizer["Unable to parse file extension from the provided Url."];
         }
-        return localizer["Please make sure the URL property is filled in."];
+        return stringLocalizer["Please make sure the URL property is filled in."];
     }
 
 
@@ -89,9 +89,9 @@ public class VideoEmbedWidgetViewComponent : ViewComponent
                     return $"<iframe src=\"https://player.vimeo.com/video/{videoId}{anchor}\" width=\"{widgetProperties.Width}\" height=\"{widgetProperties.Height}\" frameborder=\"0\" allow=\"autoplay; fullscreen; picture-in-picture\" allowfullscreen ></iframe >";
                 }
             }
-            return localizer["Unable to parse Vimeo video ID from the provided Url."];
+            return stringLocalizer["Unable to parse Vimeo video ID from the provided Url."];
         }
-        return localizer["Please make sure the URL property is filled in."];
+        return stringLocalizer["Please make sure the URL property is filled in."];
     }
 
 
@@ -111,9 +111,9 @@ public class VideoEmbedWidgetViewComponent : ViewComponent
                     return $"<iframe src=\"https://www.dailymotion.com/embed/video/{videoId}\" width=\"{widgetProperties.Width}\" height=\"{widgetProperties.Height}\" frameborder=\"0\" type=\"text/html\" allowfullscreen title=\"Dailymotion Video Player\"></iframe>";
                 }
             }
-            return localizer["Unable to parse Dailymotion video ID from the provided Url."];
+            return stringLocalizer["Unable to parse Dailymotion video ID from the provided Url."];
         }
-        return localizer["Please make sure the URL property is filled in."];
+        return stringLocalizer["Please make sure the URL property is filled in."];
     }
 
 
@@ -127,9 +127,9 @@ public class VideoEmbedWidgetViewComponent : ViewComponent
                 string query = widgetProperties.PlayFromBeginning ? string.Empty : $"?start={widgetProperties.StartingTime}";
                 return $"<iframe width=\"{widgetProperties.Width}\" height=\"{widgetProperties.Height}\" src=\"https://www.youtube.com/embed/{videoId}{query}\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share\" allowfullscreen></iframe>";
             }
-            return localizer["Unable to parse Youtube video ID from the provided Url."];
+            return stringLocalizer["Unable to parse Youtube video ID from the provided Url."];
         }
-        return localizer["Please make sure the URL property is filled in."];
+        return stringLocalizer["Please make sure the URL property is filled in."];
     }
 
 

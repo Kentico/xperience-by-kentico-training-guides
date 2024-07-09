@@ -16,23 +16,23 @@ using Microsoft.Extensions.Localization;
 namespace TrainingGuides.Admin.ProjectSettings;
 public class GlobalSettingsListingPage : ListingPage
 {
-    private readonly IStringLocalizer<SharedResources> localizer;
+    private readonly IStringLocalizer<SharedResources> stringLocalizer;
     protected override string ObjectType => GlobalSettingsKeyInfo.OBJECT_TYPE;
 
-    public GlobalSettingsListingPage(IStringLocalizer<SharedResources> localizer) : base()
+    public GlobalSettingsListingPage(IStringLocalizer<SharedResources> stringLocalizer) : base()
     {
-        this.localizer = localizer;
+        this.stringLocalizer = stringLocalizer;
     }
 
     public override async Task ConfigurePage()
     {
         PageConfiguration.ColumnConfigurations
-                    .AddColumn(nameof(GlobalSettingsKeyInfo.GlobalSettingsKeyDisplayName), localizer["Name"])
-                    .AddColumn(nameof(GlobalSettingsKeyInfo.GlobalSettingsKeyValue), localizer["Value"])
-                    .AddColumn(nameof(GlobalSettingsKeyInfo.GlobalSettingsKeyNote), localizer["Note"])
-                    .AddColumn(nameof(GlobalSettingsKeyInfo.GlobalSettingsKeyName), localizer["Codename"]);
+                    .AddColumn(nameof(GlobalSettingsKeyInfo.GlobalSettingsKeyDisplayName), stringLocalizer["Name"])
+                    .AddColumn(nameof(GlobalSettingsKeyInfo.GlobalSettingsKeyValue), stringLocalizer["Value"])
+                    .AddColumn(nameof(GlobalSettingsKeyInfo.GlobalSettingsKeyNote), stringLocalizer["Note"])
+                    .AddColumn(nameof(GlobalSettingsKeyInfo.GlobalSettingsKeyName), stringLocalizer["Codename"]);
 
-        PageConfiguration.HeaderActions.AddLink<GlobalSettingsCreatePage>(localizer["New setting"]);
+        PageConfiguration.HeaderActions.AddLink<GlobalSettingsCreatePage>(stringLocalizer["New setting"]);
 
         PageConfiguration.AddEditRowAction<GlobalSettingsEditSection>();
 

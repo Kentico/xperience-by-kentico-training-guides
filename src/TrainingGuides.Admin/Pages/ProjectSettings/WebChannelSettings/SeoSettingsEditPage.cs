@@ -19,14 +19,14 @@ public class SeoSettingsEditPage : InfoEditPage<SeoSettingsInfo>
 {
     private readonly IInfoProvider<SeoSettingsInfo> seoSettingsInfoProvider;
     private readonly IInfoProvider<WebChannelSettingsInfo> webChannelSettingsInfoProvider;
-    private readonly IStringLocalizer<SharedResources> localizer;
+    private readonly IStringLocalizer<SharedResources> stringLocalizer;
 
     private string WebChannelSettingsDisplayName =>
         webChannelSettingsInfoProvider
             .Get()
             .WhereEquals(nameof(WebChannelSettingsInfo.WebChannelSettingsID), WebChannelSettingsId)
             .FirstOrDefault()?
-            .WebChannelSettingsChannelDisplayName ?? localizer["Web channel settings"];
+            .WebChannelSettingsChannelDisplayName ?? stringLocalizer["Web channel settings"];
 
     [PageParameter(typeof(IntPageModelBinder))]
     public int WebChannelSettingsId { get; set; }
@@ -47,12 +47,12 @@ public class SeoSettingsEditPage : InfoEditPage<SeoSettingsInfo>
         IFormDataBinder formDataBinder,
         IInfoProvider<SeoSettingsInfo> seoSettingsInfoProvider,
         IInfoProvider<WebChannelSettingsInfo> webChannelSettingsInfoProvider,
-        IStringLocalizer<SharedResources> localizer)
+        IStringLocalizer<SharedResources> stringLocalizer)
              : base(formComponentMapper, formDataBinder)
     {
         this.seoSettingsInfoProvider = seoSettingsInfoProvider;
         this.webChannelSettingsInfoProvider = webChannelSettingsInfoProvider;
-        this.localizer = localizer;
+        this.stringLocalizer = stringLocalizer;
     }
 
     public override Task ConfigurePage()
