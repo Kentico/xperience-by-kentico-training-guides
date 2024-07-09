@@ -18,9 +18,6 @@ public class WebChannelSnippetEditPage : InfoEditPage<WebChannelSnippetInfo>
     [PageParameter(typeof(IntPageModelBinder), typeof(WebChannelSnippetEditSection))]
     public override int ObjectId { get; set; }
 
-    [PageParameter(typeof(IntPageModelBinder), typeof(WebChannelSnippetEditSection))]
-    public int WebChannelSettingsId { get; set; }
-
     public WebChannelSnippetEditPage(IFormComponentMapper formComponentMapper, IFormDataBinder formDataBinder)
              : base(formComponentMapper, formDataBinder)
     {
