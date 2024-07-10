@@ -1,24 +1,24 @@
 using Kentico.Xperience.Admin.Base;
 using TrainingGuides.ProjectSettings;
-using TrainingGuides.Admin.ProjectSettings;
+using TrainingGuides.Admin.ProjectSettings.GlobalSettings;
 using Kentico.Xperience.Admin.Base.Forms;
 
 [assembly: UIPage(
     parentType: typeof(GlobalSettingsEditSection),
     slug: "edit",
-    uiPageType: typeof(GlobalSettingsEdit),
+    uiPageType: typeof(GlobalSettingsEditPage),
     name: "Edit global settings key",
     templateName: TemplateNames.EDIT,
     order: 0)]
 
-namespace TrainingGuides.Admin.ProjectSettings;
+namespace TrainingGuides.Admin.ProjectSettings.GlobalSettings;
 
-public class GlobalSettingsEdit : InfoEditPage<GlobalSettingsKeyInfo>
+public class GlobalSettingsEditPage : InfoEditPage<GlobalSettingsKeyInfo>
 {
     [PageParameter(typeof(IntPageModelBinder))]
     public override int ObjectId { get; set; }
 
-    public GlobalSettingsEdit(IFormComponentMapper formComponentMapper,
+    public GlobalSettingsEditPage(IFormComponentMapper formComponentMapper,
         IFormDataBinder formDataBinder)
         : base(formComponentMapper, formDataBinder)
     {
