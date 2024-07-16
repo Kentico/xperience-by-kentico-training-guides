@@ -1,6 +1,6 @@
 using Kentico.Xperience.Admin.Base;
 using TrainingGuides.ProjectSettings;
-using TrainingGuides.Admin.ProjectSettings;
+using TrainingGuides.Admin.ProjectSettings.GlobalSettings;
 
 [assembly: UIPage(
     parentType: typeof(GlobalSettingsListingPage),
@@ -10,7 +10,7 @@ using TrainingGuides.Admin.ProjectSettings;
     templateName: TemplateNames.SECTION_LAYOUT,
     order: 10)]
 
-namespace TrainingGuides.Admin.ProjectSettings;
+namespace TrainingGuides.Admin.ProjectSettings.GlobalSettings;
 
 public class GlobalSettingsEditSection : EditSectionPage<GlobalSettingsKeyInfo>
 {

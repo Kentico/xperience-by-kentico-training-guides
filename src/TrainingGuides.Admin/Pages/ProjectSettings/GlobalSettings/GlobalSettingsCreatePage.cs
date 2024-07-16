@@ -1,6 +1,6 @@
 using Kentico.Xperience.Admin.Base;
 using TrainingGuides.ProjectSettings;
-using TrainingGuides.Admin.ProjectSettings;
+using TrainingGuides.Admin.ProjectSettings.GlobalSettings;
 using Kentico.Xperience.Admin.Base.Forms;
 
 [assembly: UIPage(
@@ -11,9 +11,9 @@ using Kentico.Xperience.Admin.Base.Forms;
     templateName: TemplateNames.EDIT,
     order: 20)]
 
-namespace TrainingGuides.Admin.ProjectSettings;
+namespace TrainingGuides.Admin.ProjectSettings.GlobalSettings;
 
-public class GlobalSettingsCreatePage : CreatePage<GlobalSettingsKeyInfo, GlobalSettingsEdit>
+public class GlobalSettingsCreatePage : CreatePage<GlobalSettingsKeyInfo, GlobalSettingsEditPage>
 {
     public GlobalSettingsCreatePage(IFormComponentMapper formComponentMapper,
         IFormDataBinder formDataBinder,

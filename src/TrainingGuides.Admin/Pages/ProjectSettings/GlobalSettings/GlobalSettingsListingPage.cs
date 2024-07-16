@@ -1,6 +1,7 @@
 using Kentico.Xperience.Admin.Base;
 using TrainingGuides.ProjectSettings;
 using TrainingGuides.Admin.ProjectSettings;
+using TrainingGuides.Admin.ProjectSettings.GlobalSettings;
 using CMS.Membership;
 using Microsoft.Extensions.Localization;
 
@@ -13,7 +14,7 @@ using Microsoft.Extensions.Localization;
     templateName: TemplateNames.LISTING,
     order: 0)]
 
-namespace TrainingGuides.Admin.ProjectSettings;
+namespace TrainingGuides.Admin.ProjectSettings.GlobalSettings;
 public class GlobalSettingsListingPage : ListingPage
 {
     private readonly IStringLocalizer<SharedResources> stringLocalizer;
