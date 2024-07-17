@@ -1,5 +1,6 @@
 using Kentico.Xperience.Admin.Base;
 using TrainingGuides.ProjectSettings;
+using TrainingGuides.Admin.ProjectSettings.WebChannelSettings;
 using TrainingGuides.Admin.ProjectSettings;
 using CMS.DataEngine;
 using CMS.ContentEngine;
@@ -13,7 +14,7 @@ using Microsoft.Extensions.Localization;
     templateName: TemplateNames.LISTING,
     order: 0)]
 
-namespace TrainingGuides.Admin.ProjectSettings;
+namespace TrainingGuides.Admin.ProjectSettings.WebChannelSettings;
 public class WebChannelSettingsListingPage : ListingPage
 {
     private readonly IInfoProvider<ChannelInfo> channelInfoProvider;

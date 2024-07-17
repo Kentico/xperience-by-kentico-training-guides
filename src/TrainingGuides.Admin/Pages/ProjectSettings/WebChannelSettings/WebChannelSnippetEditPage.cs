@@ -1,6 +1,6 @@
 using Kentico.Xperience.Admin.Base;
 using TrainingGuides.ProjectSettings;
-using TrainingGuides.Admin.ProjectSettings;
+using TrainingGuides.Admin.ProjectSettings.WebChannelSettings;
 using Kentico.Xperience.Admin.Base.Forms;
 
 [assembly: UIPage(
@@ -11,7 +11,7 @@ using Kentico.Xperience.Admin.Base.Forms;
     templateName: TemplateNames.EDIT,
     order: 0)]
 
-namespace TrainingGuides.Admin.ProjectSettings;
+namespace TrainingGuides.Admin.ProjectSettings.WebChannelSettings;
 
 public class WebChannelSnippetEditPage : InfoEditPage<WebChannelSnippetInfo>
 {

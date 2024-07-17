@@ -1,6 +1,6 @@
 using Kentico.Xperience.Admin.Base;
 using TrainingGuides.ProjectSettings;
-using TrainingGuides.Admin.ProjectSettings;
+using TrainingGuides.Admin.ProjectSettings.WebChannelSettings;
 using CMS.DataEngine;
 using CMS.Membership;
 using Microsoft.Extensions.Localization;
@@ -13,7 +13,7 @@ using Microsoft.Extensions.Localization;
     templateName: TemplateNames.LISTING,
     order: 10)]
 
-namespace TrainingGuides.Admin.ProjectSettings;
+namespace TrainingGuides.Admin.ProjectSettings.WebChannelSettings;
 public class WebChannelSnippetListingPage : ListingPage
 {
     private readonly IStringLocalizer<SharedResources> stringLocalizer;

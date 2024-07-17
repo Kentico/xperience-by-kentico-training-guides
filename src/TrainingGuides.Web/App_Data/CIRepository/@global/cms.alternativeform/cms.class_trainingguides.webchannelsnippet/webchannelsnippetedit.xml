@@ -70,7 +70,7 @@ javascript;Javascript
       </field>
     </form>
   </FormDefinition>
-  <FormDisplayName>Web channel code snippet edit</FormDisplayName>
+  <FormDisplayName>Web channel snippet edit</FormDisplayName>
   <FormGUID>c7b790ff-28f9-4000-bc38-03ab9a90bc0e</FormGUID>
   <FormIsCustom>True</FormIsCustom>
   <FormName>WebChannelSnippetEdit</FormName>
