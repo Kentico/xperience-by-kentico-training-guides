@@ -23,16 +23,14 @@ public class CodeSnippetsViewComponent : ViewComponent
     {
         int currentChannelID = websiteChannelContext.WebsiteChannelID;
 
-        var settings = await webChannelSettingsInfoProvider
+        var settings = webChannelSettingsInfoProvider
             .Get()
             .WhereEquals(nameof(WebChannelSettingsInfo.WebChannelSettingsChannelID), currentChannelID)
-            .GetEnumerableTypedResultAsync();
-
-        var setting = settings.FirstOrDefault();
+            .AsSingleColumn(nameof(WebChannelSettingsInfo.WebChannelSettingsID));
 
         var snippets = await webChannelSnippetInfoProvider
             .Get()
-            .WhereEquals(nameof(WebChannelSnippetInfo.WebChannelSnippetWebChannelSettingsID), setting?.WebChannelSettingsID ?? 0)
+            .WhereIn(nameof(WebChannelSnippetInfo.WebChannelSnippetWebChannelSettingsID), settings)
             .WhereEquals(nameof(WebChannelSnippetInfo.WebChannelSnippetType), codeSnippetType.ToString())
             .GetEnumerableTypedResultAsync();
 

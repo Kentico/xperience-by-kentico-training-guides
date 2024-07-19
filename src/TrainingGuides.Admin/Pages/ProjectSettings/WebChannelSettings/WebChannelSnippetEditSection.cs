@@ -1,6 +1,6 @@
 using Kentico.Xperience.Admin.Base;
 using TrainingGuides.ProjectSettings;
-using TrainingGuides.Admin.ProjectSettings;
+using TrainingGuides.Admin.ProjectSettings.WebChannelSettings;
 
 [assembly: UIPage(
     parentType: typeof(WebChannelSnippetListingPage),
@@ -10,7 +10,7 @@ using TrainingGuides.Admin.ProjectSettings;
     templateName: TemplateNames.SECTION_LAYOUT,
     order: 0)]
 
-namespace TrainingGuides.Admin.ProjectSettings;
+namespace TrainingGuides.Admin.ProjectSettings.WebChannelSettings;
 
 public class WebChannelSnippetEditSection : EditSectionPage<WebChannelSnippetInfo>
 {

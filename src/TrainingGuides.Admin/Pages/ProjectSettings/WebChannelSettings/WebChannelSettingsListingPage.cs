@@ -1,5 +1,6 @@
 using Kentico.Xperience.Admin.Base;
 using TrainingGuides.ProjectSettings;
+using TrainingGuides.Admin.ProjectSettings.WebChannelSettings;
 using TrainingGuides.Admin.ProjectSettings;
 using CMS.DataEngine;
 using CMS.ContentEngine;
@@ -13,13 +14,13 @@ using Microsoft.Extensions.Localization;
     templateName: TemplateNames.LISTING,
     order: 0)]
 
-namespace TrainingGuides.Admin.ProjectSettings;
+namespace TrainingGuides.Admin.ProjectSettings.WebChannelSettings;
 public class WebChannelSettingsListingPage : ListingPage
 {
     private readonly IInfoProvider<ChannelInfo> channelInfoProvider;
     private readonly IInfoProvider<WebChannelSettingsInfo> webChannelSettingsInfoProvider;
     private readonly IInfoProvider<SeoSettingsInfo> seoSettingsInfoProvider;
-    private readonly IStringLocalizer<SharedResources> localizer;
+    private readonly IStringLocalizer<SharedResources> stringLocalizer;
 
     protected override string ObjectType => WebChannelSettingsInfo.OBJECT_TYPE;
 
@@ -27,12 +28,12 @@ public class WebChannelSettingsListingPage : ListingPage
         IInfoProvider<ChannelInfo> channelInfoProvider,
         IInfoProvider<WebChannelSettingsInfo> webChannelSettingsInfoProvider,
         IInfoProvider<SeoSettingsInfo> seoSettingsInfoProvider,
-        IStringLocalizer<SharedResources> localizer) : base()
+        IStringLocalizer<SharedResources> stringLocalizer) : base()
     {
         this.channelInfoProvider = channelInfoProvider;
         this.webChannelSettingsInfoProvider = webChannelSettingsInfoProvider;
         this.seoSettingsInfoProvider = seoSettingsInfoProvider;
-        this.localizer = localizer;
+        this.stringLocalizer = stringLocalizer;
 
         EnsureSettingsListData();
     }
@@ -41,7 +42,7 @@ public class WebChannelSettingsListingPage : ListingPage
     {
         PageConfiguration.ColumnConfigurations
                      .AddColumn(nameof(
-                        WebChannelSettingsInfo.WebChannelSettingsChannelDisplayName), localizer["Channel"]);
+                        WebChannelSettingsInfo.WebChannelSettingsChannelDisplayName), stringLocalizer["Channel"]);
 
         PageConfiguration.AddEditRowAction<WebChannelSettingsEditSection>();
 

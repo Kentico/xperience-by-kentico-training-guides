@@ -1,6 +1,6 @@
 using Kentico.Xperience.Admin.Base;
 using TrainingGuides.ProjectSettings;
-using TrainingGuides.Admin.ProjectSettings;
+using TrainingGuides.Admin.ProjectSettings.WebChannelSettings;
 using Kentico.Xperience.Admin.Base.Forms;
 
 [assembly: UIPage(
@@ -11,15 +11,12 @@ using Kentico.Xperience.Admin.Base.Forms;
     templateName: TemplateNames.EDIT,
     order: 0)]
 
-namespace TrainingGuides.Admin.ProjectSettings;
+namespace TrainingGuides.Admin.ProjectSettings.WebChannelSettings;
 
 public class WebChannelSnippetEditPage : InfoEditPage<WebChannelSnippetInfo>
 {
     [PageParameter(typeof(IntPageModelBinder), typeof(WebChannelSnippetEditSection))]
     public override int ObjectId { get; set; }
-
-    [PageParameter(typeof(IntPageModelBinder), typeof(WebChannelSnippetEditSection))]
-    public int WebChannelSettingsId { get; set; }
 
     public WebChannelSnippetEditPage(IFormComponentMapper formComponentMapper, IFormDataBinder formDataBinder)
              : base(formComponentMapper, formDataBinder)

@@ -1,6 +1,7 @@
 using Kentico.Xperience.Admin.Base;
 using TrainingGuides.ProjectSettings;
 using TrainingGuides.Admin.ProjectSettings;
+using TrainingGuides.Admin.ProjectSettings.GlobalSettings;
 using CMS.Membership;
 using Microsoft.Extensions.Localization;
 
@@ -13,26 +14,26 @@ using Microsoft.Extensions.Localization;
     templateName: TemplateNames.LISTING,
     order: 0)]
 
-namespace TrainingGuides.Admin.ProjectSettings;
+namespace TrainingGuides.Admin.ProjectSettings.GlobalSettings;
 public class GlobalSettingsListingPage : ListingPage
 {
-    private readonly IStringLocalizer<SharedResources> localizer;
+    private readonly IStringLocalizer<SharedResources> stringLocalizer;
     protected override string ObjectType => GlobalSettingsKeyInfo.OBJECT_TYPE;
 
-    public GlobalSettingsListingPage(IStringLocalizer<SharedResources> localizer) : base()
+    public GlobalSettingsListingPage(IStringLocalizer<SharedResources> stringLocalizer) : base()
     {
-        this.localizer = localizer;
+        this.stringLocalizer = stringLocalizer;
     }
 
     public override async Task ConfigurePage()
     {
         PageConfiguration.ColumnConfigurations
-                    .AddColumn(nameof(GlobalSettingsKeyInfo.GlobalSettingsKeyDisplayName), localizer["Name"])
-                    .AddColumn(nameof(GlobalSettingsKeyInfo.GlobalSettingsKeyValue), localizer["Value"])
-                    .AddColumn(nameof(GlobalSettingsKeyInfo.GlobalSettingsKeyNote), localizer["Note"])
-                    .AddColumn(nameof(GlobalSettingsKeyInfo.GlobalSettingsKeyName), localizer["Codename"]);
+                    .AddColumn(nameof(GlobalSettingsKeyInfo.GlobalSettingsKeyDisplayName), stringLocalizer["Name"])
+                    .AddColumn(nameof(GlobalSettingsKeyInfo.GlobalSettingsKeyValue), stringLocalizer["Value"])
+                    .AddColumn(nameof(GlobalSettingsKeyInfo.GlobalSettingsKeyNote), stringLocalizer["Note"])
+                    .AddColumn(nameof(GlobalSettingsKeyInfo.GlobalSettingsKeyName), stringLocalizer["Codename"]);
 
-        PageConfiguration.HeaderActions.AddLink<GlobalSettingsCreatePage>(localizer["New setting"]);
+        PageConfiguration.HeaderActions.AddLink<GlobalSettingsCreatePage>(stringLocalizer["New setting"]);
 
         PageConfiguration.AddEditRowAction<GlobalSettingsEditSection>();
 

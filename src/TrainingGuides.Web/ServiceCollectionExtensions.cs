@@ -30,7 +30,7 @@ public static class ServiceCollectionExtensions
 
     public static void AddTrainingGuidesOptions(this IServiceCollection services)
     {
-        services.ConfigureOptions<RobotsOptionsSetup>();
         services.ConfigureOptions<EmailNotificationOptionsSetup>();
+        services.ConfigureOptions<RobotsOptionsSetup>();
     }
 }

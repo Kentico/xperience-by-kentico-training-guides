@@ -6,7 +6,7 @@
     <GUID>5a5010fd-25ff-4663-80a1-6276f3375893</GUID>
     <ObjectType>trainingguides.webchannelsettings</ObjectType>
     <Parent>
-      <CodeName>SecondaryWebChannel</CodeName>
+      <CodeName>TrainingGuidesSecondaryWebChannel</CodeName>
       <GUID>c0a280dc-1a6e-4f76-be70-0c74a5d29338</GUID>
       <ObjectType>cms.channel</ObjectType>
     </Parent>

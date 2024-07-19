@@ -1,6 +1,6 @@
 using Kentico.Xperience.Admin.Base;
 using TrainingGuides.ProjectSettings;
-using TrainingGuides.Admin.ProjectSettings;
+using TrainingGuides.Admin.ProjectSettings.WebChannelSettings;
 using Kentico.Xperience.Admin.Base.Forms;
 using CMS.DataEngine;
 using Microsoft.Extensions.Localization;
@@ -13,20 +13,20 @@ using Microsoft.Extensions.Localization;
     templateName: TemplateNames.EDIT,
     order: 0)]
 
-namespace TrainingGuides.Admin.ProjectSettings;
+namespace TrainingGuides.Admin.ProjectSettings.WebChannelSettings;
 
 public class SeoSettingsEditPage : InfoEditPage<SeoSettingsInfo>
 {
     private readonly IInfoProvider<SeoSettingsInfo> seoSettingsInfoProvider;
     private readonly IInfoProvider<WebChannelSettingsInfo> webChannelSettingsInfoProvider;
-    private readonly IStringLocalizer<SharedResources> localizer;
+    private readonly IStringLocalizer<SharedResources> stringLocalizer;
 
     private string WebChannelSettingsDisplayName =>
         webChannelSettingsInfoProvider
             .Get()
             .WhereEquals(nameof(WebChannelSettingsInfo.WebChannelSettingsID), WebChannelSettingsId)
             .FirstOrDefault()?
-            .WebChannelSettingsChannelDisplayName ?? localizer["Web channel settings"];
+            .WebChannelSettingsChannelDisplayName ?? stringLocalizer["Web channel settings"];
 
     [PageParameter(typeof(IntPageModelBinder))]
     public int WebChannelSettingsId { get; set; }
@@ -47,12 +47,12 @@ public class SeoSettingsEditPage : InfoEditPage<SeoSettingsInfo>
         IFormDataBinder formDataBinder,
         IInfoProvider<SeoSettingsInfo> seoSettingsInfoProvider,
         IInfoProvider<WebChannelSettingsInfo> webChannelSettingsInfoProvider,
-        IStringLocalizer<SharedResources> localizer)
+        IStringLocalizer<SharedResources> stringLocalizer)
              : base(formComponentMapper, formDataBinder)
     {
         this.seoSettingsInfoProvider = seoSettingsInfoProvider;
         this.webChannelSettingsInfoProvider = webChannelSettingsInfoProvider;
-        this.localizer = localizer;
+        this.stringLocalizer = stringLocalizer;
     }
 
     public override Task ConfigurePage()
@@ -61,7 +61,7 @@ public class SeoSettingsEditPage : InfoEditPage<SeoSettingsInfo>
         return base.ConfigurePage();
     }
 
-    protected async override Task<ICommandResponse> GetSubmitSuccessResponse(SeoSettingsInfo savedInfoObject, ICollection<IFormItem> items)
+    protected override async Task<ICommandResponse> GetSubmitSuccessResponse(SeoSettingsInfo savedInfoObject, ICollection<IFormItem> items)
     {
         var result = new EditPageSuccessFormSubmissionResult()
         {
