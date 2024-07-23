@@ -22,10 +22,10 @@ public class EmailNotificationHandlerModule : Module
 
         serviceProvider = parameters.Services;
 
-        UserInfo.TYPEINFO.Events.Insert.After += User_Insert_After;
+        UserInfo.TYPEINFO.Events.Insert.After += User_InsertAfter;
     }
 
-    private void User_Insert_After(object? sender, ObjectEventArgs e)
+    private void User_InsertAfter(object? sender, ObjectEventArgs e)
     {
         using var scope = serviceProvider.CreateScope();
 
