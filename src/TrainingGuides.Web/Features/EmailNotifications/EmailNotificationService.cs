@@ -6,21 +6,27 @@ namespace TrainingGuides.Web.Features.EmailNotifications;
 public class EmailNotificationService : IEmailNotificationService
 {
     private readonly IEmailService emailService;
-    private readonly IOptionsSnapshot<EmailNotificationOptions> emailNotificationOptions;
+    private readonly IOptionsMonitor<EmailNotificationOptions> emailNotificationOptions;
+    private readonly IOptionsMonitorCache<EmailNotificationOptions> emailNotificationOptionsCache;
 
-    public EmailNotificationService(IEmailService emailService, IOptionsSnapshot<EmailNotificationOptions> emailNotificationOptions)
+    public EmailNotificationService(IEmailService emailService,
+    IOptionsMonitor<EmailNotificationOptions> emailNotificationOptions,
+    IOptionsMonitorCache<EmailNotificationOptions> emailNotificationOptionsCache)
     {
         this.emailService = emailService;
         this.emailNotificationOptions = emailNotificationOptions;
+        this.emailNotificationOptionsCache = emailNotificationOptionsCache;
     }
 
     public async Task SendEmailAsync(string subject, string message)
     {
+        emailNotificationOptionsCache.Clear();
+
         var msg = new EmailMessage()
         {
-            From = emailNotificationOptions.Value.SenderAddress,
+            From = emailNotificationOptions.CurrentValue.SenderAddress,
 
-            Recipients = emailNotificationOptions.Value.RecipientAddresses,
+            Recipients = emailNotificationOptions.CurrentValue.RecipientAddresses,
 
             Priority = EmailPriorityEnum.Normal,
 

@@ -10,7 +10,7 @@ namespace TrainingGuides.Web.Features.EmailNotifications;
 public class EmailNotificationHandlerModule : Module
 {
 
-    private IServiceProvider serviceProvider;
+    private IEmailNotificationService emailNotificationService;
 
     public EmailNotificationHandlerModule() : base("EmailNotificationHandler")
     {
@@ -20,17 +20,13 @@ public class EmailNotificationHandlerModule : Module
     {
         base.OnInit();
 
-        serviceProvider = parameters.Services;
+        emailNotificationService = parameters.Services.GetRequiredService<IEmailNotificationService>();
 
         UserInfo.TYPEINFO.Events.Insert.After += User_Insert_After;
     }
 
     private void User_Insert_After(object? sender, ObjectEventArgs e)
     {
-        using var scope = serviceProvider.CreateScope();
-
-        var emailNotificationService = scope.ServiceProvider.GetRequiredService<IEmailNotificationService>();
-
         if (e.Object is not UserInfo user)
         {
             return;
