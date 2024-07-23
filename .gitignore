@@ -7,7 +7,7 @@
 *.rsuser
 *.suo
 *.user
-!cms.systemtable_cms.user/
+!cms.systemtable_cms.user
 *.userosscache
 *.sln.docstates
 
