@@ -20,9 +20,9 @@ public static class ServiceCollectionExtensions
         services.AddSingleton<IArticlePageService, ArticlePageService>();
         services.AddSingleton<IProductPageService, ProductPageService>();
         services.AddSingleton<IComponentStyleEnumService, ComponentStyleEnumService>();
+        services.AddSingleton<IEmailNotificationService, EmailNotificationService>();
 
         services.AddScoped<IHeadTagStoreService, HeadTagStoreService>();
-        services.AddScoped<IEmailNotificationService, EmailNotificationService>();
 
         services.AddTransient(typeof(IContentItemRetrieverService<>), typeof(ContentItemRetrieverService<>));
 
