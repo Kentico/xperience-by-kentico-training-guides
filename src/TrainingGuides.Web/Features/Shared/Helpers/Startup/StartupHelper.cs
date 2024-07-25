@@ -1,5 +1,5 @@
 ﻿using CMS.DataEngine;
-using TrainingGuides.Admin;
+using TrainingGuides.DataProtectionCustomizations;
 
 namespace TrainingGuides.Web.Features.Shared.Helpers.Startup;
 

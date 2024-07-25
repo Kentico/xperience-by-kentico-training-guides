@@ -7,11 +7,11 @@ using System.Linq;
 using CMS;
 using CMS.DataEngine;
 using CMS.Helpers;
-using TrainingGuides.Admin;
+using TrainingGuides.DataProtectionCustomizations;
 
 [assembly: RegisterObjectType(typeof(CookieLevelConsentMappingInfo), CookieLevelConsentMappingInfo.OBJECT_TYPE)]
 
-namespace TrainingGuides.Admin
+namespace TrainingGuides.DataProtectionCustomizations
 {
     /// <summary>
     /// Data container class for <see cref="CookieLevelConsentMappingInfo"/>.

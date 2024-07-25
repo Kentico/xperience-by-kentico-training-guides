@@ -1,5 +1,5 @@
-﻿using TrainingGuides.Admin;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using TrainingGuides.DataProtectionCustomizations;
 using TrainingGuides.Web.Features.DataProtection.Services;
 
 namespace TrainingGuides.Web.Features.DataProtection.Controllers;
