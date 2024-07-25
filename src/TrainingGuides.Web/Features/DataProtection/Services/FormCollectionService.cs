@@ -9,9 +9,9 @@ namespace TrainingGuides.Web.Features.DataProtection.Services;
 
 public class FormCollectionService : IFormCollectionService
 {
-    private readonly IBizFormInfoProvider bizFormInfoProvider;
+    private readonly IInfoProvider<BizFormInfo> bizFormInfoProvider;
 
-    public FormCollectionService(IBizFormInfoProvider bizFormInfoProvider)
+    public FormCollectionService(IInfoProvider<BizFormInfo> bizFormInfoProvider)
     {
         this.bizFormInfoProvider = bizFormInfoProvider;
     }
