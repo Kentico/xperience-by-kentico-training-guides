@@ -10,8 +10,7 @@ public class CallToActionWidgetProperties : IWidgetProperties
     [TextInputComponent(
         Label = "CTA button text",
         ExplanationText = "Add your call to action. Keep it under 30 characters.",
-        Order = 10
-    )]
+        Order = 10)]
     public string? Text { get; set; }
 
     [RadioGroupComponent(

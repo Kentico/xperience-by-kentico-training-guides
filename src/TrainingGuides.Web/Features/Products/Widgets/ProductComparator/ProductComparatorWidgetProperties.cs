@@ -8,33 +8,44 @@ using TrainingGuides.Web.Features.Shared.OptionProviders.Heading;
 namespace TrainingGuides.Web.Features.Products.Widgets.ProductComparator;
 public class ProductComparatorWidgetProperties : IWidgetProperties
 {
-    [WebPageSelectorComponent(Label = "Selected products", Order = 1, MaximumPages = 0, Sortable = true, ItemModifierType = typeof(ProductComparatorWidgetItemModifier))]
+    [WebPageSelectorComponent(
+        Label = "Selected products",
+        Order = 10,
+        MaximumPages = 0,
+        Sortable = true,
+        ItemModifierType = typeof(ProductComparatorWidgetItemModifier))]
     public IEnumerable<WebPageRelatedItem> Products { get; set; } = null!;
 
-    [TextInputComponent(Label = "Comparator heading", Order = 2)]
+    [TextInputComponent(
+        Label = "Comparator heading",
+        Order = 20)]
     public string ComparatorHeading { get; set; } = null!;
 
     [DropDownComponent(
         Label = "Heading type",
         DataProviderType = typeof(DropdownEnumOptionProvider<ProductComparatorHeadingTypeOption>),
-        Order = 3
-    )]
+        Order = 30)]
     public string HeadingType { get; set; } = nameof(ProductComparatorHeadingTypeOption.H2);
 
     [DropDownComponent(
         Label = "Heading margin",
         DataProviderType = typeof(DropdownEnumOptionProvider<HeadingMarginOption>),
-        Order = 4
-    )]
+        Order = 40)]
     public string HeadingMargin { get; set; } = HeadingMarginOption.Default.ToString();
 
-    [TextInputComponent(Label = "CTA", Order = 5)]
+    [TextInputComponent(
+        Label = "CTA",
+        Order = 50)]
     public string CallToAction { get; set; } = null!;
 
-    [CheckBoxComponent(Label = "Show short description", Order = 6)]
+    [CheckBoxComponent(
+        Label = "Show short description",
+        Order = 60)]
     public bool ShowShortDescription { get; set; }
 
-    [CheckBoxComponent(Label = "Show price", Order = 7)]
+    [CheckBoxComponent(
+        Label = "Show price",
+        Order = 70)]
     public bool ShowPrice { get; set; }
 }
 

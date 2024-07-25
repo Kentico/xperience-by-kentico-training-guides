@@ -8,19 +8,27 @@ namespace TrainingGuides.Web.Features.Articles.Widgets.ArticleList;
 
 public class ArticleListWidgetProperties : IWidgetProperties
 {
-    [WebPageSelectorComponent(Label = "Select the content tree section", Order = 1, MaximumPages = 1, Sortable = true)]
+    [WebPageSelectorComponent(
+        Label = "Select the content tree section",
+        Order = 10,
+        MaximumPages = 1,
+        Sortable = true)]
     public IEnumerable<WebPageRelatedItem>? ContentTreeSection { get; set; }
 
-    [NumberInputComponent(Label = "Number of articles to display", Order = 2)]
+    [NumberInputComponent(
+        Label = "Number of articles to display",
+        Order = 20)]
     public int TopN { get; set; } = 10;
 
-    [TextInputComponent(Label = "CTA text", Order = 4)]
+    [TextInputComponent(
+        Label = "CTA text",
+        Order = 30)]
     public string? CtaText { get; set; }
 
     [DropDownComponent(
         Label = "Order articles by",
         DataProviderType = typeof(DropdownEnumOptionProvider<OrderByOption>),
-        Order = 4)]
+        Order = 40)]
     public string OrderBy { get; set; } = OrderByOption.NewestFirst.ToString();
 }
 
