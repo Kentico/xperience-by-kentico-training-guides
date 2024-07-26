@@ -25,7 +25,7 @@
   <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
   <ClassName>TrainingGuides.CookieLevelConsentMapping</ClassName>
   <ClassResourceID>
-    <CodeName>TrainingGuides.Admin</CodeName>
+    <CodeName>TrainingGuides.DataProtectionCustomizations</CodeName>
     <GUID>69fa2d87-24b7-4c29-9625-887d6f0da903</GUID>
     <ObjectType>cms.resource</ObjectType>
   </ClassResourceID>

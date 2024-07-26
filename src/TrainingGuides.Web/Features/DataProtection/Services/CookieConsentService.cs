@@ -1,9 +1,9 @@
 ﻿using CMS.ContactManagement;
+using CMS.DataEngine;
 using CMS.DataProtection;
 using CMS.Helpers;
-using CMS.DataEngine;
-using TrainingGuides.Admin;
 using Kentico.Web.Mvc;
+using TrainingGuides.DataProtectionCustomizations;
 using TrainingGuides.Web.Features.DataProtection.Shared;
 
 

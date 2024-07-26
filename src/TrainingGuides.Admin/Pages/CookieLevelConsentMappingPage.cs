@@ -1,4 +1,5 @@
 ﻿using TrainingGuides.Admin.Pages;
+using TrainingGuides.DataProtectionCustomizations;
 using Kentico.Xperience.Admin.Base;
 using Kentico.Xperience.Admin.Base.Forms;
 using Kentico.Xperience.Admin.DigitalMarketing.UIPages;

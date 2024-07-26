@@ -8,7 +8,7 @@ using Kentico.Web.Mvc;
 using Kentico.Content.Web.Mvc.Routing;
 using Kentico.PageBuilder.Web.Mvc;
 using Newtonsoft.Json;
-using TrainingGuides.Admin;
+using TrainingGuides.DataProtectionCustomizations;
 using TrainingGuides.Web.Features.DataProtection.Services;
 using TrainingGuides.Web.Features.DataProtection.Shared;
 using TrainingGuides.Web.Features.DataProtection.Widgets.CookiePreferences;
