@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ViewComponents;
 using Microsoft.Extensions.Localization;
 using CMS.DataProtection;
+using CMS.DataEngine;
 using Kentico.Web.Mvc;
 using Kentico.Content.Web.Mvc.Routing;
 using Kentico.PageBuilder.Web.Mvc;
@@ -37,7 +38,7 @@ public class CookiePreferencesWidgetViewComponent : ViewComponent
     /// </summary>
     public const string IDENTIFIER = "TrainingGuides.CookiePreferencesWidget";
 
-    private readonly IConsentInfoProvider consentInfoProvider;
+    private readonly IInfoProvider<ConsentInfo> consentInfoProvider;
     private readonly IStringEncryptionService stringEncryptionService;
     private readonly IPreferredLanguageRetriever preferredLanguageRetriever;
     private readonly ICookieConsentService cookieConsentService;
@@ -49,7 +50,7 @@ public class CookiePreferencesWidgetViewComponent : ViewComponent
     /// Creates an instance of <see cref="CookiePreferencesWidgetViewComponent"/> class.
     /// </summary>
     public CookiePreferencesWidgetViewComponent(
-        IConsentInfoProvider consentInfoProvider,
+        IInfoProvider<ConsentInfo> consentInfoProvider,
         IStringEncryptionService stringEncryptionService,
         IPreferredLanguageRetriever preferredLanguageRetriever,
         ICookieConsentService cookieConsentService,

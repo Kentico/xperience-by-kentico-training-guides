@@ -1,6 +1,5 @@
 ﻿using System.Data;
 using System.Xml;
-
 using CMS.Activities;
 using CMS.ContactManagement;
 using CMS.DataEngine;
@@ -105,10 +104,34 @@ public class ContactDataCollectorCore
     private readonly IFormCollectionService formCollectionService;
     private readonly Dictionary<Guid, FormDefinition> forms;
 
-    public ContactDataCollectorCore(IPersonalDataWriter personalDataWriter, IFormCollectionService formCollectionService)
+    private readonly IInfoProvider<ConsentAgreementInfo> consentAgreementInfoProvider;
+    private readonly IInfoProvider<ActivityInfo> activityInfoProvider;
+    private readonly IInfoProvider<BizFormInfo> bizFormInfoProvider;
+    private readonly IInfoProvider<AccountInfo> accountInfoProvider;
+    private readonly IInfoProvider<AccountContactInfo> accountContactInfoProvider;
+    private readonly IInfoProvider<CountryInfo> countryInfoProvider;
+    private readonly IInfoProvider<StateInfo> stateInfoProvider;
+
+
+    public ContactDataCollectorCore(IPersonalDataWriter personalDataWriter,
+        IFormCollectionService formCollectionService,
+        IInfoProvider<ConsentAgreementInfo> consentAgreementInfoProvider,
+        IInfoProvider<ActivityInfo> activityInfoProvider,
+        IInfoProvider<BizFormInfo> bizFormInfoProvider,
+        IInfoProvider<AccountInfo> accountInfoProvider,
+        IInfoProvider<AccountContactInfo> accountContactInfoProvider,
+        IInfoProvider<CountryInfo> countryInfoProvider,
+        IInfoProvider<StateInfo> stateInfoProvider)
     {
         this.personalDataWriter = personalDataWriter;
         this.formCollectionService = formCollectionService;
+        this.consentAgreementInfoProvider = consentAgreementInfoProvider;
+        this.activityInfoProvider = activityInfoProvider;
+        this.bizFormInfoProvider = bizFormInfoProvider;
+        this.accountInfoProvider = accountInfoProvider;
+        this.accountContactInfoProvider = accountContactInfoProvider;
+        this.countryInfoProvider = countryInfoProvider;
+        this.stateInfoProvider = stateInfoProvider;
 
         forms = this.formCollectionService.GetForms();
     }
@@ -124,7 +147,7 @@ public class ContactDataCollectorCore
         var contactIDs = contacts.Select(c => c.ContactID).ToList();
         var contactEmails = contacts.Select(c => c.ContactEmail).ToList();
 
-        var contactActivities = ActivityInfo.Provider.Get()
+        var contactActivities = activityInfoProvider.Get()
             .Columns(activityInfoColumns.Select(t => t.Name))
             .WhereIn("ActivityContactID", contactIDs).ToList();
 
@@ -215,12 +238,12 @@ public class ContactDataCollectorCore
 
             if (countryId != 0)
             {
-                personalDataWriter.WriteBaseInfo(CountryInfo.Provider.Get(countryId), countryInfoColumns);
+                personalDataWriter.WriteBaseInfo(countryInfoProvider.Get(countryId), countryInfoColumns);
             }
 
             if (stateId != 0)
             {
-                personalDataWriter.WriteBaseInfo(StateInfo.Provider.Get(stateId), stateInfoColumns);
+                personalDataWriter.WriteBaseInfo(stateInfoProvider.Get(stateId), stateInfoColumns);
             }
 
             personalDataWriter.WriteEndSection();
@@ -229,7 +252,7 @@ public class ContactDataCollectorCore
 
     private void WriteConsents(ICollection<int> contactIDs)
     {
-        DataSet consentsData = ConsentAgreementInfo.Provider.Get()
+        DataSet consentsData = consentAgreementInfoProvider.Get()
             .Source(s => s.Join<ConsentInfo>("CMS_ConsentAgreement.ConsentAgreementConsentID", "ConsentID"))
             .Source(s =>
                 s.LeftJoin<ConsentArchiveInfo>("CMS_ConsentAgreement.ConsentAgreementConsentHash",
@@ -390,19 +413,19 @@ public class ContactDataCollectorCore
 
     private void WriteContactAccounts(ICollection<int> contactIDs)
     {
-        var accountIDs = AccountContactInfo.Provider.Get()
+        var accountIDs = accountContactInfoProvider.Get()
             .WhereIn("ContactID", contactIDs)
             .Column("AccountID")
             .Distinct();
-        var accountInfos = AccountInfo.Provider.Get()
+        var accountInfos = accountInfoProvider.Get()
             .Columns(accountInfoColumns.Select(t => t.Name))
             .WhereIn("AccountID", accountIDs)
             .ToList();
 
-        var countryInfos = CountryInfo.Provider.Get()
+        var countryInfos = countryInfoProvider.Get()
             .WhereIn("CountryID", accountInfos.Select(r => r.AccountCountryID).ToList())
             .ToDictionary(ci => ci.CountryID);
-        var stateInfos = StateInfo.Provider.Get()
+        var stateInfos = stateInfoProvider.Get()
             .WhereIn("StateID", accountInfos.Select(r => r.AccountStateID).ToList())
             .ToDictionary(si => si.StateID);
 
@@ -441,11 +464,11 @@ public class ContactDataCollectorCore
 
     private void WriteSubmittedFormsData(ICollection<string> emails, ICollection<int> contactIDs)
     {
-        var consentAgreementGuids = ConsentAgreementInfo.Provider.Get()
+        var consentAgreementGuids = consentAgreementInfoProvider.Get()
             .Columns("ConsentAgreementGuid")
             .WhereIn("ConsentAgreementContactID", contactIDs);
 
-        var formClasses = BizFormInfo.Provider.Get()
+        var formClasses = bizFormInfoProvider.Get()
             .Source(s => s.InnerJoin<DataClassInfo>("CMS_Form.FormClassID", "ClassID"))
             .WhereIn("FormGUID", forms.Keys);
 

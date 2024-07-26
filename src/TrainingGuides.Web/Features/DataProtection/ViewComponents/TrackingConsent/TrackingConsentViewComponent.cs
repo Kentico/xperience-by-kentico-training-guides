@@ -4,6 +4,7 @@ using Microsoft.Extensions.Localization;
 using CMS.ContactManagement;
 using CMS.DataProtection;
 using CMS.Helpers;
+using CMS.DataEngine;
 using Kentico.Content.Web.Mvc.Routing;
 using Kentico.Web.Mvc;
 using TrainingGuides.DataProtectionCustomizations;
@@ -16,7 +17,7 @@ namespace TrainingGuides.Web.Features.DataProtection.ViewComponents.TrackingCons
 public class TrackingConsentViewComponent : ViewComponent
 {
     private readonly IConsentAgreementService consentAgreementService;
-    private readonly IConsentInfoProvider consentInfoProvider;
+    private readonly IInfoProvider<ConsentInfo> consentInfoProvider;
     private readonly IStringEncryptionService stringEncryptionService;
     private readonly ICookieAccessor cookieAccessor;
     private readonly IPreferredLanguageRetriever preferredLanguageRetriever;
@@ -27,7 +28,7 @@ public class TrackingConsentViewComponent : ViewComponent
 
     public TrackingConsentViewComponent(
         IConsentAgreementService consentAgreementService,
-        IConsentInfoProvider consentInfoProvider,
+        IInfoProvider<ConsentInfo> consentInfoProvider,
         IStringEncryptionService stringEncryptionService,
         ICookieAccessor cookieAccessor,
         IPreferredLanguageRetriever preferredLanguageRetriever,

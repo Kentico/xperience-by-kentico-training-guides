@@ -1,9 +1,11 @@
 ﻿using CMS.ContactManagement;
+using CMS.DataEngine;
 using CMS.DataProtection;
 using CMS.Helpers;
 using Kentico.Web.Mvc;
 using TrainingGuides.DataProtectionCustomizations;
 using TrainingGuides.Web.Features.DataProtection.Shared;
+
 
 namespace TrainingGuides.Web.Features.DataProtection.Services;
 
@@ -14,13 +16,13 @@ public class CookieConsentService : ICookieConsentService
 {
     private readonly ICurrentCookieLevelProvider cookieLevelProvider;
     private readonly IConsentAgreementService consentAgreementService;
-    private readonly IConsentInfoProvider consentInfoProvider;
+    private readonly IInfoProvider<ConsentInfo> consentInfoProvider;
     private readonly ICookieLevelConsentMappingInfoProvider cookieLevelConsentMappingInfoProvider;
     private readonly ICookieAccessor cookieAccessor;
 
     public CookieConsentService(ICurrentCookieLevelProvider cookieLevelProvider,
         IConsentAgreementService consentAgreementService,
-        IConsentInfoProvider consentInfoProvider,
+        IInfoProvider<ConsentInfo> consentInfoProvider,
         ICookieLevelConsentMappingInfoProvider cookieLevelConsentMappingInfoProvider,
         ICookieAccessor cookieAccessor)
     {
