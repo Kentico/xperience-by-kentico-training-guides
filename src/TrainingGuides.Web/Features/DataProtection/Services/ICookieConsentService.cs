@@ -1,4 +1,4 @@
-﻿using TrainingGuides.Admin;
+﻿using TrainingGuides.DataProtectionCustomizations;
 using TrainingGuides.Web.Features.DataProtection.Shared;
 
 namespace TrainingGuides.Web.Features.DataProtection.Services;

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.resource>
-  <ResourceDisplayName>Admin</ResourceDisplayName>
+  <ResourceDisplayName>Data protection customizations</ResourceDisplayName>
   <ResourceGUID>69fa2d87-24b7-4c29-9625-887d6f0da903</ResourceGUID>
   <ResourceIsInDevelopment>False</ResourceIsInDevelopment>
-  <ResourceName>TrainingGuides.Admin</ResourceName>
+  <ResourceName>TrainingGuides.DataProtectionCustomizations</ResourceName>
 </cms.resource>

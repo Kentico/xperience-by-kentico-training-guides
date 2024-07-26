@@ -1,4 +1,4 @@
-﻿namespace TrainingGuides.Admin;
+﻿namespace TrainingGuides.DataProtectionCustomizations;
 
 public partial class CookieLevelConsentMappingInfo
 {

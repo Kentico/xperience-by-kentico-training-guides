@@ -1,6 +1,6 @@
 using CMS.DataEngine;
 
-namespace TrainingGuides.Admin
+namespace TrainingGuides.DataProtectionCustomizations
 {
     /// <summary>
     /// Declares members for <see cref="CookieLevelConsentMappingInfo"/> management.

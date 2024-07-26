@@ -1,8 +1,8 @@
 ﻿using CMS.ContactManagement;
 using CMS.DataProtection;
 using CMS.Helpers;
-using TrainingGuides.Admin;
 using Kentico.Web.Mvc;
+using TrainingGuides.DataProtectionCustomizations;
 using TrainingGuides.Web.Features.DataProtection.Shared;
 
 namespace TrainingGuides.Web.Features.DataProtection.Services;

@@ -6,7 +6,7 @@ using CMS.DataProtection;
 using CMS.Helpers;
 using Kentico.Content.Web.Mvc.Routing;
 using Kentico.Web.Mvc;
-using TrainingGuides.Admin;
+using TrainingGuides.DataProtectionCustomizations;
 using TrainingGuides.Web.Features.DataProtection.Services;
 using TrainingGuides.Web.Features.DataProtection.Shared;
 using TrainingGuides.Web.Features.Shared.Services;
