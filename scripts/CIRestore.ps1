@@ -7,9 +7,11 @@ param (
 	[switch] $DisplayTimeElapsed
 )
 
+$originalLocation = Get-Location
+Set-Location -Path $PSScriptRoot
+
 . .\Get-ConnectionString.ps1
 
-$scriptsPath = Get-Location
 $beforeList = "Before.txt"
 $afterList = "After.txt"
 $repositoryPath = "App_data\CIRepository"
@@ -18,6 +20,20 @@ $migrationFolder = "@migrations"
 Set-Location -Path ../src/TrainingGuides.Web
 
 $path = Get-Location
+
+<#
+.DESCRIPTION
+   Handles errors by displaying a message and exiting the script.
+#>
+function Handle-Error {
+	param(
+		[string] $Message
+	)
+	Set-Location -Path $originalLocation
+    Write-Error $Message
+    Read-Host -Prompt "Press Enter to exit"
+    exit 1
+}
 
 <#
 .DESCRIPTION
@@ -169,16 +185,14 @@ function Run-Restore {
 		[string] $Path
 	)
 	
-	$connectionString = Get-ConnectionString -Path $Path	
+	$connectionString = Get-ConnectionString -Path $Path -OriginalLocation $originalLocation
 	
 	# Creates an 'App_Offline.htm' file to stop the website
 	"<html><head></head><body>Continuous Integration restore in progress...</body></html>" > "$Path\App_Offline.htm"
 
 	# Executes migration scripts before the restore
 	if (!(Run-MigrationList $connectionString $beforeList)) {
-		Write-Error "Database migrations before the restore failed."
-        Read-Host -Prompt "Press Enter to exit"
-		exit 1
+		Handle-Error "Database migrations before the restore failed."
 	}
 	
 	$configuration = "Release";
@@ -190,16 +204,12 @@ function Run-Restore {
 	# Runs the restore CLI command
 	dotnet run --project $Path --no-build -c "$configuration" -- --kxp-ci-restore
 	if ($LASTEXITCODE -ne 0) {
-		Write-Error "Restore failed."
-        Read-Host -Prompt "Press Enter to exit"
-		exit 1
+		Handle-Error "Restore failed."
 	}
 
 	# Executes migration scripts after the restore
 	if (!(Run-MigrationList $connectionString $afterList)) {
-		Write-Error "Database migrations after the restore failed."
-        Read-Host -Prompt "Press Enter to exit"
-		exit 1
+		Handle-Error "Database migrations after the restore failed."
 	}
 
 	# Removes the 'App_Offline.htm' file to bring the site back online
@@ -217,7 +227,10 @@ if ($DisplayTimeElapsed) {
 	Write-Host "Time Elapsed: $($sw.Elapsed)"
 }
 
+if ($LASTEXITCODE -ne 0) {
+	Handle-Error "Completed with errors. See above."
+}
 
-Set-Location -Path $scriptsPath
+Set-Location -Path $originalLocation
 
 Read-Host -Prompt "Press Enter to exit"

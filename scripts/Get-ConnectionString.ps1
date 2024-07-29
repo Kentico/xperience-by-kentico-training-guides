@@ -9,7 +9,8 @@
 #>
 function Get-ConnectionString {
     param(
-        [string] $Path
+        [string] $Path,
+        [string] $OriginalLocation
     )
 
     # Try to get the connection string from user secrets first
@@ -43,8 +44,9 @@ function Get-ConnectionString {
                 return $connectionString;
             }
         }
-    }
-    
+    }    
+
+    Set-Location $OriginalLocation
     Write-Error "Connection string not found."
     Read-Host -Prompt "Press Enter to exit"
     exit 1

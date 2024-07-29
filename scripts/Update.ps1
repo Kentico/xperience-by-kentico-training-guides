@@ -3,6 +3,19 @@
     Updates Xperience by Kentico to the version specified by the installed NuGet packages.
 #>
 
+$originalLocation = Get-Location
+Set-Location -Path $PSScriptRoot
+
+function Handle-Error {
+	param(
+		[string] $Message
+	)
+	Set-Location -Path $originalLocation
+    Write-Error $Message
+    Read-Host -Prompt "Press Enter to exit"
+    exit 1
+}
+
 . .\Get-ConnectionString.ps1
 
 #Query that executes a command without returning a dataset.
@@ -54,13 +67,11 @@ function Execute-SQL-Data-Query {
     return $dataset
 }
 
-$scriptsPath = Get-Location
-
 Set-Location -Path ..\src\TrainingGuides.Web
 
 $appPath = Get-Location
 
-$connectionString = Get-ConnectionString -Path $appPath
+$connectionString = Get-ConnectionString -Path $appPath -OriginalLocation $originalLocation
 
 $resultDataSet = Execute-SQL-Data-Query -ConnectionString $connectionString -CommandText "SELECT KeyValue FROM CMS_SettingsKey WHERE KeyName = N'CMSEnableCI'"
 
@@ -81,15 +92,11 @@ if($readyToUpdate){
     dotnet run --no-build --kxp-update
 
     if ($LASTEXITCODE -ne 0) {
-        Write-Error  "Update failed."
-        Read-Host -Prompt "Press any key to exit"
-        exit 1
+        Handle-Error "Update failed."
     }
 }
 else{
-    Write-Error 'Unable to disable continuous integration to perform the update.'
-    Read-Host -Prompt "Press any key to exit"
-    exit 1
+    Handle-Error 'Unable to disable continuous integration to perform the update.'
 }
 
 if($isUsingCD -eq 'True'){
@@ -98,12 +105,10 @@ if($isUsingCD -eq 'True'){
     $commandResult = Execute-SQL-Command -ConnectionString $connectionString -CommandText "UPDATE CMS_SettingsKey SET KeyValue = N'True' WHERE KeyName = N'CMSEnableCI'"    
     
     if(-not $commandResult){
-        Write-Error 'Unable to re-enable continuous integration.'
-        Read-Host -Prompt "Press any key to exit"
-        exit 1
+        Handle-Error 'Unable to re-enable continuous integration.'
     }
 }
 
-Set-Location -Path $scriptsPath
+Set-Location -Path $originalLocation
 
 Read-Host -Prompt "Press any key to exit"
