@@ -4,8 +4,8 @@
 #>
 $exitCode = 0
 
-$scriptsPath = Get-Location
-Set-Location -Path ../src/TrainingGuides.Web
+$originalLocation = Get-Location
+Set-Location -Path $PSScriptRoot/../src/TrainingGuides.Web
 
 # https://docs.xperience.io/xp/developers-and-admins/development/content-retrieval/generate-code-files-for-xperience-objects
 
@@ -57,12 +57,12 @@ else{
 }
 Write-Host
 
-Set-Location -Path $scriptsPath
-
 if ($exitCode -ne 0) {
+    Set-Location -Path $originalLocation
     Write-Error "Completed with errors. See above."
     Read-Host -Prompt "Press Enter to exit"
     exit $exitCode
 }
 
+Set-Location -Path $originalLocation
 Read-Host -Prompt "Press Enter to exit"

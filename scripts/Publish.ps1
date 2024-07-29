@@ -5,7 +5,9 @@
     [CmdletBinding()]
 param ([switch]$KeepProductVersion)
 
-$scriptsPath = Get-Location
+$originalLocation = Get-Location
+Set-Location -Path $PSScriptRoot
+
 $outputFolderPath = "./bin/Deployment/"
 $buildNumber = (Get-Date).ToUniversalTime().ToString("yyyyMMddHHmm")
 
@@ -23,11 +25,11 @@ Write-Host $publishCommand
 Invoke-Expression $publishCommand
 
 if ($LASTEXITCODE -ne 0) {
-    Set-Location -Path $scriptsPath
+    Set-Location -Path $originalLocation
     Write-Error "Publishing the website failed."
     Read-Host -Prompt "Press Enter to exit"
     exit 1
 }
 
-Set-Location -Path $scriptsPath
+Set-Location -Path $originalLocation
 Read-Host -Prompt "Press Enter to exit"
