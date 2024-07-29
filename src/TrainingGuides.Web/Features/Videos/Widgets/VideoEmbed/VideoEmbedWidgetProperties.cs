@@ -23,21 +23,29 @@ public class VideoEmbedWidgetProperties : IWidgetProperties
     /// <summary>
     /// Defines the video platform from which the embedded video originates.
     /// </summary>
-    [RadioGroupComponent(Label = "Video service", Inline = true, Order = 1, Options = SERVICE_OPTIONS)]
+    [RadioGroupComponent(
+        Label = "Video service",
+        Inline = true,
+        Options = SERVICE_OPTIONS,
+        Order = 10)]
     public string Service { get; set; } = YOUTUBE;
 
 
     /// <summary>
     /// Defines the URL of the embedded video.
     /// </summary>
-    [TextInputComponent(Label = "Url", Order = 2)]
+    [TextInputComponent(
+        Label = "Url",
+        Order = 20)]
     public string? Url { get; set; }
 
 
     /// <summary>
     /// Determines whether the video should be sized dynamically or with explicit dimensions.
     /// </summary>
-    [CheckBoxComponent(Label = "Size dynamically", Order = 3)]
+    [CheckBoxComponent(
+        Label = "Size dynamically",
+        Order = 30)]
     [VisibleIfNotEqualTo(nameof(Service), YOUTUBE)]
     public bool DynamicSize { get; set; } = true;
 
@@ -45,7 +53,9 @@ public class VideoEmbedWidgetProperties : IWidgetProperties
     /// <summary>
     /// Determines the width of the embed.
     /// </summary>
-    [NumberInputComponent(Label = "Width (px)", Order = 4)]
+    [NumberInputComponent(
+        Label = "Width (px)",
+        Order = 40)]
     [FormComponentConfiguration(typeof(VideoEmbedWidgetConfigurator), [nameof(Service), nameof(DynamicSize)])]
     public int Width { get; set; } = 560;
 
@@ -53,7 +63,9 @@ public class VideoEmbedWidgetProperties : IWidgetProperties
     /// <summary>
     /// Determines the height of the embed.
     /// </summary>
-    [NumberInputComponent(Label = "Height (px)", Order = 5)]
+    [NumberInputComponent(
+        Label = "Height (px)",
+        Order = 50)]
     [FormComponentConfiguration(typeof(VideoEmbedWidgetConfigurator), [nameof(Service), nameof(DynamicSize)])]
     public int Height { get; set; } = 315;
 
@@ -61,7 +73,9 @@ public class VideoEmbedWidgetProperties : IWidgetProperties
     /// <summary>
     /// Determines whether the video will start at the beginning, or at a specified timestamp.
     /// </summary>        
-    [CheckBoxComponent(Label = "Play from beginning", Order = 6)]
+    [CheckBoxComponent(
+        Label = "Play from beginning",
+        Order = 60)]
     [VisibleIfNotEqualTo(nameof(Service), DAILYMOTION)]
     public bool PlayFromBeginning { get; set; } = true;
 
@@ -69,7 +83,9 @@ public class VideoEmbedWidgetProperties : IWidgetProperties
     /// <summary>
     /// Defines the time to start the player at.
     /// </summary>
-    [NumberInputComponent(Label = "Starting time (seconds)", Order = 7)]
+    [NumberInputComponent(
+        Label = "Starting time (seconds)",
+        Order = 70)]
     [VisibleIfFalse(nameof(PlayFromBeginning))]
     [VisibleIfNotEqualTo(nameof(Service), DAILYMOTION)]
     public int StartingTime { get; set; } = 0;

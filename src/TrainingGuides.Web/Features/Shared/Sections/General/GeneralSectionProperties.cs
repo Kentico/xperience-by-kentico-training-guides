@@ -10,27 +10,27 @@ public class GeneralSectionProperties : ISectionProperties
 {
     [TextInputComponent(
         Label = "Section anchor",
-        Order = 0)]
+        Order = 10)]
     public string? SectionAnchor { get; set; }
 
     [DropDownComponent(
         Label = "Color scheme",
         ExplanationText = "Select the color scheme of the section.",
         DataProviderType = typeof(DropdownEnumOptionProvider<ColorSchemeOption>),
-        Order = 10)]
+        Order = 20)]
     public string? ColorScheme { get; set; } = nameof(ColorSchemeOption.TransparentDark);
 
     [DropDownComponent(
         Label = "Corner type",
         ExplanationText = "Select the corner type of the section.",
         DataProviderType = typeof(DropdownEnumOptionProvider<CornerStyleOption>),
-        Order = 20)]
+        Order = 30)]
     public string? CornerStyle { get; set; } = nameof(CornerStyleOption.Round);
 
     [DropDownComponent(
         Label = "Column layout",
         ExplanationText = "Select the layout of the widget zones in the section.",
         DataProviderType = typeof(DropdownEnumOptionProvider<ColumnLayoutOption>),
-        Order = 30)]
+        Order = 40)]
     public string? ColumnLayout { get; set; } = nameof(ColumnLayoutOption.OneColumn);
 }

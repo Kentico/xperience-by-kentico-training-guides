@@ -14,8 +14,7 @@ public class ProductWidgetProperties : IWidgetProperties
         Label = "Select which Product page to display",
         Options = $"{ProductWidgetMode.CURRENT_PAGE};{ProductWidgetMode.CURRENT_PAGE_DESCRIPTION}"
             + $"\n{ProductWidgetMode.SELECT_PAGE};{ProductWidgetMode.SELECT_PAGE_DESCRIPTION}",
-        Order = 10
-    )]
+        Order = 10)]
     public string Mode { get; set; } = ProductWidgetMode.CURRENT_PAGE;
 
     [VisibleIfEqualTo(nameof(Mode), ProductWidgetMode.CURRENT_PAGE, StringComparison.OrdinalIgnoreCase)]
@@ -40,8 +39,8 @@ public class ProductWidgetProperties : IWidgetProperties
     [CheckBoxComponent(
         Label = "Display product benefits",
         Order = 50)]
-
     public bool ShowProductBenefits { get; set; } = true;
+
     [CheckBoxComponent(
         Label = "Display product features",
         Order = 60)]
@@ -107,8 +106,7 @@ public class ProductWidgetProperties : IWidgetProperties
     [DropDownComponent(
         Label = "CTA button style",
         DataProviderType = typeof(DropdownEnumOptionProvider<LinkStyleOption>),
-        Order = 150
-    )]
+        Order = 150)]
     public string? CallToActionStyle { get; set; } = nameof(LinkStyleOption.Medium);
 }
 
