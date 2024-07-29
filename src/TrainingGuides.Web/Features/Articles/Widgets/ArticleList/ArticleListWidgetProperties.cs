@@ -10,9 +10,9 @@ public class ArticleListWidgetProperties : IWidgetProperties
 {
     [WebPageSelectorComponent(
         Label = "Select the content tree section",
-        Order = 10,
         MaximumPages = 1,
-        Sortable = true)]
+        Sortable = true,
+        Order = 10)]
     public IEnumerable<WebPageRelatedItem>? ContentTreeSection { get; set; }
 
     [NumberInputComponent(

@@ -7,8 +7,8 @@ public class FeaturedNewsWidgetProperties : IWidgetProperties
 {
     [WebPageSelectorComponent(
         Label = "Selected article",
-        Order = 10,
         MaximumPages = 1,
-        Sortable = true)]
+        Sortable = true,
+        Order = 10)]
     public IEnumerable<WebPageRelatedItem> Article { get; set; } = null!;
 }

@@ -26,8 +26,8 @@ public class VideoEmbedWidgetProperties : IWidgetProperties
     [RadioGroupComponent(
         Label = "Video service",
         Inline = true,
-        Order = 10,
-        Options = SERVICE_OPTIONS)]
+        Options = SERVICE_OPTIONS,
+        Order = 10)]
     public string Service { get; set; } = YOUTUBE;
 
 

@@ -39,8 +39,8 @@ public class ProductWidgetProperties : IWidgetProperties
     [CheckBoxComponent(
         Label = "Display product benefits",
         Order = 50)]
-
     public bool ShowProductBenefits { get; set; } = true;
+
     [CheckBoxComponent(
         Label = "Display product features",
         Order = 60)]

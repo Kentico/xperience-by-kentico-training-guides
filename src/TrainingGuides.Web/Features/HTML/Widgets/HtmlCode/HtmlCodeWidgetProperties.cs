@@ -5,9 +5,13 @@ namespace TrainingGuides.Web.Features.Html.Widgets.HtmlCode;
 
 public class HtmlCodeWidgetProperties : IWidgetProperties
 {
-    [TextAreaComponent(Order = 10, Label = "Code", MinRowsNumber = 10)]
+    [TextAreaComponent(
+        Label = "Code", MinRowsNumber = 10,
+        Order = 10)]
     public string Code { get; set; } = null!;
 
-    [CheckBoxComponent(Order = 20, Label = "Insert to page <head>")]
+    [CheckBoxComponent(
+        Label = "Insert to page <head>",
+        Order = 20)]
     public bool InsertToHead { get; set; }
 }

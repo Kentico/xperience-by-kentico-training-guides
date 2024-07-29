@@ -10,10 +10,10 @@ public class ProductComparatorWidgetProperties : IWidgetProperties
 {
     [WebPageSelectorComponent(
         Label = "Selected products",
-        Order = 10,
         MaximumPages = 0,
         Sortable = true,
-        ItemModifierType = typeof(ProductComparatorWidgetItemModifier))]
+        ItemModifierType = typeof(ProductComparatorWidgetItemModifier),
+        Order = 10)]
     public IEnumerable<WebPageRelatedItem> Products { get; set; } = null!;
 
     [TextInputComponent(

@@ -14,7 +14,7 @@ public class SimpleCallToActionWidgetProperties : IWidgetProperties
         Order = 10)]
     public string? Text { get; set; }
 
-    // see the same property implemented using RadioGroupComponent instead in CallToAction widget
+    // See the same property implemented using RadioGroupComponent instead in CallToAction widget.
     [DropDownComponent(
         Label = "Target content",
         ExplanationText = "Select what happens when a visitor clicks your button.",
