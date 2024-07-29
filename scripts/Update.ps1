@@ -6,6 +6,8 @@
 $originalLocation = Get-Location
 Set-Location -Path $PSScriptRoot
 
+. .\Get-ConnectionString.ps1
+
 function Handle-Error {
 	param(
 		[string] $Message
@@ -15,8 +17,6 @@ function Handle-Error {
     Read-Host -Prompt "Press Enter to exit"
     exit 1
 }
-
-. .\Get-ConnectionString.ps1
 
 #Query that executes a command without returning a dataset.
 function Execute-SQL-Command {
