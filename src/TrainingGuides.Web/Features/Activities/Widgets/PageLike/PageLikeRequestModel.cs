@@ -2,5 +2,5 @@
 
 public class PageLikeRequestModel
 {
-    public string WebPageItemID { get; set; }
+    public string WebPageItemID { get; set; } = string.Empty;
 }

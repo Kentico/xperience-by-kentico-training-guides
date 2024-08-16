@@ -1,14 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using TrainingGuides.DataProtectionCustomizations;
 using TrainingGuides.Web.Features.DataProtection.Services;
 
 namespace TrainingGuides.Web.Features.DataProtection.Controllers;
 
-public class ConsentCodnameController : Controller
+public class ConsentCodenameController : Controller
 {
     private readonly ICookieConsentService cookieConsentService;
 
-    public ConsentCodnameController(ICookieConsentService cookieConsentService)
+    public ConsentCodenameController(ICookieConsentService cookieConsentService)
     {
         this.cookieConsentService = cookieConsentService;
     }
@@ -17,8 +16,8 @@ public class ConsentCodnameController : Controller
     [HttpGet("consent/marketing")]
     public async Task<IActionResult> MarketingConsent()
     {
-        CookieLevelConsentMappingInfo mapping = await cookieConsentService.GetCurrentMapping();
-        string marketingConsent = mapping.MarketingConsentCodeName.FirstOrDefault();
+        var cookieLevelConsentMapping = await cookieConsentService.GetCurrentMapping();
+        string marketingConsent = cookieLevelConsentMapping.MarketingConsentCodeName.FirstOrDefault() ?? string.Empty;
         return Json(marketingConsent);
     }
 }

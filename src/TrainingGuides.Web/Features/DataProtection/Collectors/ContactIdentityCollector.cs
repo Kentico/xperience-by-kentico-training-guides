@@ -10,12 +10,9 @@ public class ContactIdentityCollector : IIdentityCollector
 
     public void Collect(IDictionary<string, object> dataSubjectFilter, List<BaseInfo> identities)
     {
-        if (!dataSubjectFilter.ContainsKey(EMAIL_KEY))
-        {
-            return;
-        }
-
-        string email = dataSubjectFilter[EMAIL_KEY] as string;
+        string? email = dataSubjectFilter.ContainsKey(EMAIL_KEY)
+            ? dataSubjectFilter[EMAIL_KEY] as string
+            : string.Empty;
 
         if (string.IsNullOrWhiteSpace(email))
         {
