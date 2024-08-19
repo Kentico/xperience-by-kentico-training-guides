@@ -9,17 +9,17 @@ public class LanguageDropdownViewComponent : ViewComponent
 {
     private readonly IInfoProvider<ContentLanguageInfo> contentLanguageInfoProvider;
     private readonly IPreferredLanguageRetriever preferredLanguageRetriever;
-    private readonly IHttpRequestService httpRequestservice;
+    private readonly IHttpRequestService httpRequestService;
 
 
     public LanguageDropdownViewComponent(
         IInfoProvider<ContentLanguageInfo> contentLanguageInfoProvider,
         IPreferredLanguageRetriever preferredLanguageRetriever,
-        IHttpRequestService httpRequestservice)
+        IHttpRequestService httpRequestService)
     {
         this.contentLanguageInfoProvider = contentLanguageInfoProvider;
         this.preferredLanguageRetriever = preferredLanguageRetriever;
-        this.httpRequestservice = httpRequestservice;
+        this.httpRequestService = httpRequestService;
     }
 
     public async Task<LanguageDropdownViewModel> GetLanguageMenu()
@@ -32,7 +32,7 @@ public class LanguageDropdownViewComponent : ViewComponent
         {
             string languageCode = language.ContentLanguageName;
             string languageDisplayName = language.ContentLanguageDisplayName;
-            string url = await httpRequestservice.GetCurrentPageUrlForLanguage(languageCode);
+            string url = await httpRequestService.GetCurrentPageUrlForLanguage(languageCode);
 
             languagesDictionary.Add(
                 languageCode,

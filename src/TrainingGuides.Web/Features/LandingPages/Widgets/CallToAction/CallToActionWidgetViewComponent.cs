@@ -31,7 +31,7 @@ public class CallToActionWidgetViewComponent : ViewComponent
 
     public async Task<ViewViewComponentResult> InvokeAsync(CallToActionWidgetProperties properties)
     {
-        string? targetUrl = string.Empty;
+        string targetUrl = string.Empty;
 
         if (properties.Type.Equals("page", StringComparison.InvariantCultureIgnoreCase))
         {
@@ -54,7 +54,7 @@ public class CallToActionWidgetViewComponent : ViewComponent
 
             if (selectedItem != null)
             {
-                targetUrl = selectedItem.AssetFile?.Url;
+                targetUrl = selectedItem.AssetFile?.Url ?? string.Empty;
             }
         }
 

@@ -1,4 +1,5 @@
 ﻿using Kentico.PageBuilder.Web.Mvc;
+using Microsoft.AspNetCore.Html;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ViewComponents;
 using TrainingGuides.Web.Features.Html.Services;
@@ -32,7 +33,7 @@ public class HtmlCodeWidgetViewComponent : ViewComponent
         if (properties.InsertToHead)
         {
             await headTagStoreService.StoreCodeAsync(CodeLocation.Head, properties.Code);
-            model.Code = null;
+            model.Code = HtmlString.Empty;
         }
         else
         {

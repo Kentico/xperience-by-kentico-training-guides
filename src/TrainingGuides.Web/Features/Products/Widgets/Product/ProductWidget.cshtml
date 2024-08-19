@@ -26,9 +26,9 @@
 }
 
 <div class="@Model.ParentElementCssClasses">
-    <a href="@Model.Product!.Link?.LinkUrl"
-        target="@(Model.Product!.Link?.OpenInNewTab ?? false ? "_blank": "")"
-        title="@Model.Product!.Link?.LinkTitleText">
+    <a href="@Model.Product.Link.LinkUrl"
+        target="@(Model.Product.Link.OpenInNewTab ? "_blank": "")"
+        title="@Model.Product.Link.LinkTitleText">
 
         @* image *@
         @if (Model.ProductImage != null && !string.IsNullOrEmpty(Model.ProductImage.FilePath) && !Model.IsImagePositionSide)
@@ -103,7 +103,7 @@
                 </div>
             }
             @* cta *@
-            @if (Model.Product!.Link != null && !string.IsNullOrEmpty(Model.Product!.Link.CallToAction))
+            @if (!string.IsNullOrEmpty(Model.Product.Link.CallToAction))
             {
                 <div class="mt-2">
                     <a type="submit"

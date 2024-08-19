@@ -175,7 +175,7 @@ public class HeroBannerWidgetViewComponent : ViewComponent
                 Benefits = benefits.Select(BenefitViewModel.GetViewModel).ToList(),
                 Media = media != null
                     ? AssetViewModel.GetViewModel(media)
-                    : null
+                    : new AssetViewModel()
             };
         }
 
@@ -207,7 +207,7 @@ public class HeroBannerWidgetViewComponent : ViewComponent
             },
             Media = media != null
                 ? AssetViewModel.GetViewModel(media)
-                : null
+                : new AssetViewModel()
         };
 
         return model;

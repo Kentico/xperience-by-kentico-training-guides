@@ -12,7 +12,7 @@ public class SimpleCallToActionWidgetProperties : IWidgetProperties
         Label = "Call to action text",
         ExplanationText = "Add your call to action. Keep it under 30 characters.",
         Order = 10)]
-    public string? Text { get; set; }
+    public string Text { get; set; } = string.Empty;
 
     // See the same property implemented using RadioGroupComponent instead in CallToAction widget.
     [DropDownComponent(
@@ -28,14 +28,14 @@ public class SimpleCallToActionWidgetProperties : IWidgetProperties
         MaximumPages = 1,
         Order = 30)]
     [VisibleIfEqualTo(nameof(TargetContent), nameof(TargetContentOption.Page), StringComparison.OrdinalIgnoreCase)]
-    public IEnumerable<WebPageRelatedItem>? TargetContentPage { get; set; }
+    public IEnumerable<WebPageRelatedItem> TargetContentPage { get; set; } = [];
 
     [TextInputComponent(
         Label = "Absolute URL",
         ExplanationText = "Add a hyperlink to an external site, or use the product's URL + anchor tag # for referencing an anchor on the page, for example, \"https://your-doma.in/contact-us#form\"",
         Order = 40)]
     [VisibleIfEqualTo(nameof(TargetContent), nameof(TargetContentOption.AbsoluteUrl), StringComparison.OrdinalIgnoreCase)]
-    public string? TargetContentAbsoluteUrl { get; set; }
+    public string TargetContentAbsoluteUrl { get; set; } = string.Empty;
 
     [CheckBoxComponent(
         Label = "Open in new tab",

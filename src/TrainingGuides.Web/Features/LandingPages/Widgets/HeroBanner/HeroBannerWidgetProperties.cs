@@ -21,7 +21,7 @@ public class HeroBannerWidgetProperties : IWidgetProperties
     [TextInputComponent(
         Label = "Product page anchor",
         Order = 20)]
-    public string ProductPageAnchor { get; set; } = null!;
+    public string ProductPageAnchor { get; set; } = string.Empty;
 
     [VisibleIfEqualTo(nameof(Mode), "productPage", StringComparison.OrdinalIgnoreCase)]
     [WebPageSelectorComponent(
@@ -30,7 +30,7 @@ public class HeroBannerWidgetProperties : IWidgetProperties
         Sortable = true,
         ExplanationText = "The widget will display the default product's content.",
         Order = 20)]
-    public IEnumerable<WebPageRelatedItem> ProductPage { get; set; } = null!;
+    public IEnumerable<WebPageRelatedItem> ProductPage { get; set; } = Enumerable.Empty<WebPageRelatedItem>();
 
     [VisibleIfEqualTo(nameof(Mode), "heroContentItem", StringComparison.OrdinalIgnoreCase)]
     [ContentItemSelectorComponent(
@@ -39,19 +39,19 @@ public class HeroBannerWidgetProperties : IWidgetProperties
         ExplanationTextAsHtml = true,
         ExplanationText = "The widget will display the content from the selected Hero content item.",
         Order = 20)]
-    public IEnumerable<ContentItemReference> Hero { get; set; } = null!;
+    public IEnumerable<ContentItemReference> Hero { get; set; } = Enumerable.Empty<ContentItemReference>();
 
     [VisibleIfEqualTo(nameof(Mode), "productPage", StringComparison.OrdinalIgnoreCase)]
     [TextInputComponent(
         Label = "Product page anchor",
         Order = 30)]
-    public string SelectedProductPageAnchor { get; set; } = null!;
+    public string SelectedProductPageAnchor { get; set; } = string.Empty;
 
     [TextInputComponent(
         Label = "CTA text",
         ExplanationText = "Text of the call to action. (Overrides that of the selected content item)",
         Order = 40)]
-    public string CTA { get; set; } = null!;
+    public string CTA { get; set; } = string.Empty;
 
     [CheckBoxComponent(
         Label = "Display CTA",

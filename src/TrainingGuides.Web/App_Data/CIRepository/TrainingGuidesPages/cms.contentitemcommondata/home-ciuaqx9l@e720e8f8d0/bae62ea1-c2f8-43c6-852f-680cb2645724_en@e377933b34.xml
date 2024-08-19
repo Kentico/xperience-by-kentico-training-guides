@@ -12,7 +12,7 @@
   </ContentItemCommonDataContentLanguageID>
   <ContentItemCommonDataGUID>bae62ea1-c2f8-43c6-852f-680cb2645724</ContentItemCommonDataGUID>
   <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
-  <ContentItemCommonDataLastPublishedWhen>2024-03-13 21:34:12Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataLastPublishedWhen>2024-08-19 20:34:25Z</ContentItemCommonDataLastPublishedWhen>
   <ContentItemCommonDataPageBuilderWidgets>
     <![CDATA[{"editableAreas":[{"identifier":"areaMain","sections":[{"identifier":"b23942e8-ea2f-4754-9c81-b221abee820c","type":"TrainingGuides.SingleColumnSection","properties":{"sectionAnchor":null},"zones":[{"identifier":"d8798668-95ef-4ef4-b4fb-ed7480c4a161","widgets":[{"identifier":"3ffd6e80-6eda-4eb2-ac26-55f8d5dcba61","type":"Kentico.Widget.RichText","variants":[{"identifier":"24ca3365-1c4b-468d-8515-389ad1400aca","properties":{"content":"<p>Hello world!</p>"},"fieldIdentifiers":{"content":"cc1f8cc3-c9bf-4042-aeda-45d63e955f84"}}]}]}],"fieldIdentifiers":{"sectionAnchor":"6a4bb2cf-9e6c-4d16-b9e8-6c33ca63a9ae"}}]}]}]]>
   </ContentItemCommonDataPageBuilderWidgets>
@@ -23,7 +23,7 @@
   <ContentItemReferences>
     <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>133d8674-12ff-40b6-b552-560e01989c56</ContentItemReferenceGroupGUID>
-      <ContentItemReferenceGUID>231023c0-f211-4108-af7c-73c0a54b5643</ContentItemReferenceGUID>
+      <ContentItemReferenceGUID>73bdf73a-01d8-4bde-bc3e-22537ac4f5ef</ContentItemReferenceGUID>
       <ContentItemReferenceSourceCommonDataID>
         <GUID>bae62ea1-c2f8-43c6-852f-680cb2645724</GUID>
         <ObjectType>cms.contentitemcommondata</ObjectType>

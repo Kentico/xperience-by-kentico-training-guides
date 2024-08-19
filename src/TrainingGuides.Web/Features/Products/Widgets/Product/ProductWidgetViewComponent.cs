@@ -9,6 +9,7 @@ using TrainingGuides.Web.Features.Products.Services;
 using TrainingGuides.Web.Features.Products.Widgets.Product;
 using TrainingGuides.Web.Features.Shared.Services;
 using TrainingGuides.Web.Features.Shared.OptionProviders.CornerStyle;
+using TrainingGuides.Web.Features.Shared.Models;
 
 [assembly: RegisterWidget(
     identifier: ProductWidgetViewComponent.IDENTIFIER,
@@ -62,7 +63,9 @@ public class ProductWidgetViewComponent : ViewComponent
         {
             Product = productPageViewModel,
             ShowProductFeatures = properties.ShowProductFeatures,
-            ProductImage = properties.ShowProductImage ? productPageViewModel?.Media.FirstOrDefault() : null,
+            ProductImage = properties.ShowProductImage
+                ? productPageViewModel?.Media.FirstOrDefault() ?? new AssetViewModel()
+                : new AssetViewModel(),
             ShowAdvanced = properties.ShowAdvanced,
             ColorScheme = properties.ColorScheme,
             CornerStyle = properties.CornerStyle,

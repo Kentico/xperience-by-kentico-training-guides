@@ -13,8 +13,7 @@ public class EmailNotificationHandlerModule : Module
     private IEmailNotificationService emailNotificationService;
 
     public EmailNotificationHandlerModule() : base("EmailNotificationHandler")
-    {
-    }
+    { }
 
     protected override void OnInit(ModuleInitParameters parameters)
     {
