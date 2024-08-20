@@ -23,7 +23,7 @@ public class ArticleListWidgetProperties : IWidgetProperties
     [TextInputComponent(
         Label = "CTA text",
         Order = 30)]
-    public string? CtaText { get; set; }
+    public string CtaText { get; set; } = string.Empty;
 
     [DropDownComponent(
         Label = "Order articles by",

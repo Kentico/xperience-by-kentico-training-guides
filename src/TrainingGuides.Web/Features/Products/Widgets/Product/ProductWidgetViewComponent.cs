@@ -240,12 +240,12 @@ public class ProductWidgetViewComponent : ViewComponent
         return cssClasses;
     }
 
-    private bool IsImagePositionFullSize(string? imagePosition) =>
+    private bool IsImagePositionFullSize(string imagePosition) =>
         Equals(imagePosition, nameof(ImagePositionOption.FullWidth));
 
-    private bool IsImagePositionSide(string? imagePosition) =>
+    private bool IsImagePositionSide(string imagePosition) =>
         Equals(imagePosition, nameof(ImagePositionOption.Left)) || Equals(imagePosition, nameof(ImagePositionOption.Right));
 
-    private bool HasRoundCorners(string? cornerStyle) =>
+    private bool HasRoundCorners(string cornerStyle) =>
         Equals(cornerStyle, nameof(CornerStyleOption.Round)) || Equals(cornerStyle, nameof(CornerStyleOption.VeryRound));
 }

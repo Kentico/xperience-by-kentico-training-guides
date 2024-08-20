@@ -13,7 +13,7 @@ namespace TrainingGuides.Web.Features.Shared.Helpers.TagHelpers;
 public class ConfigureWidgetInstructionsTagHelper : TagHelper
 {
     private readonly IHttpContextAccessor accessor;
-    public string? Message { get; set; }
+    public string Message { get; set; } = string.Empty;
 
     private const string P_TAG = "p";
     private const string INSTRUCTIONS_EDIT_MODE = "This widget needs some setup. Click the <strong>Configure widget</strong> gear icon in the top right to configure content and design for this widget.";

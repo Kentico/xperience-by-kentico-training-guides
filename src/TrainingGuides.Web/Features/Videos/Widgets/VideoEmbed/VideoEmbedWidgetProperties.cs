@@ -37,7 +37,7 @@ public class VideoEmbedWidgetProperties : IWidgetProperties
     [TextInputComponent(
         Label = "Url",
         Order = 20)]
-    public string? Url { get; set; }
+    public string Url { get; set; } = string.Empty;
 
 
     /// <summary>

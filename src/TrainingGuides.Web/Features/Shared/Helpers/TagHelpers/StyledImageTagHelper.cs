@@ -8,7 +8,7 @@ namespace TrainingGuides.Web.Features.Shared.Helpers.TagHelpers;
 [HtmlTargetElement("tg-styled-image", TagStructure = TagStructure.WithoutEndTag)]
 public class StyledImageTagHelper : TagHelper
 {
-    public string? CornerStyle { get; set; }
+    public string CornerStyle { get; set; } = string.Empty;
 
     private const string IMG_TAG = "img";
 
