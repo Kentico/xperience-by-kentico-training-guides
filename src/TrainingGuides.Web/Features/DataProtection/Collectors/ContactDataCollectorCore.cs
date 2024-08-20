@@ -136,7 +136,7 @@ public class ContactDataCollectorCore
         forms = this.formCollectionService.GetForms();
     }
 
-    public string CollectData(IEnumerable<BaseInfo> identities)
+    public string? CollectData(IEnumerable<BaseInfo> identities)
     {
         var contacts = identities.OfType<ContactInfo>().ToList();
         if (!contacts.Any())
@@ -252,7 +252,7 @@ public class ContactDataCollectorCore
 
     private void WriteConsents(ICollection<int> contactIDs)
     {
-        DataSet consentsData = consentAgreementInfoProvider.Get()
+        var consentsDataSet = consentAgreementInfoProvider.Get()
             .Source(s => s.Join<ConsentInfo>("CMS_ConsentAgreement.ConsentAgreementConsentID", "ConsentID"))
             .Source(s =>
                 s.LeftJoin<ConsentArchiveInfo>("CMS_ConsentAgreement.ConsentAgreementConsentHash",
@@ -262,7 +262,7 @@ public class ContactDataCollectorCore
             .OrderByDescending("ConsentAgreementTime")
             .Result;
 
-        if (DataHelper.DataSourceIsEmpty(consentsData))
+        if (DataHelper.DataSourceIsEmpty(consentsDataSet))
         {
             return;
         }
@@ -273,7 +273,7 @@ public class ContactDataCollectorCore
         var consentContentAgreements =
             new Dictionary<string, List<ConsentAgreementInfo>>(StringComparer.OrdinalIgnoreCase);
 
-        foreach (var row in consentsData.Tables[0].AsEnumerable())
+        foreach (var row in consentsDataSet.Tables[0].AsEnumerable())
         {
             var consentAgreementInfo = new ConsentAgreementInfo(row);
 
@@ -351,9 +351,9 @@ public class ContactDataCollectorCore
         }
     }
 
-    private void WriteConsent(ConsentInfo consentInfo, ConsentArchiveInfo consentArchiveInfo,
+    private void WriteConsent(ConsentInfo consentInfo, ConsentArchiveInfo? consentArchiveInfo,
         IEnumerable<ConsentAgreementInfo> consentAgreements,
-        IEnumerable<ConsentAgreementInfo> consentRevocations)
+        IEnumerable<ConsentAgreementInfo>? consentRevocations)
     {
         personalDataWriter.WriteStartSection(ConsentInfo.OBJECT_TYPE, "Consent");
 
@@ -367,7 +367,7 @@ public class ContactDataCollectorCore
         personalDataWriter.WriteEndSection();
     }
 
-    private void WriteConsentContent(ConsentInfo consentInfo, ConsentArchiveInfo consentArchiveInfo)
+    private void WriteConsentContent(ConsentInfo consentInfo, ConsentArchiveInfo? consentArchiveInfo)
     {
         if (consentArchiveInfo == null)
         {
@@ -388,7 +388,7 @@ public class ContactDataCollectorCore
         }
     }
 
-    private void WriteConsentRevocations(IEnumerable<ConsentAgreementInfo> consentRevocations)
+    private void WriteConsentRevocations(IEnumerable<ConsentAgreementInfo>? consentRevocations)
     {
         if (consentRevocations == null)
         {

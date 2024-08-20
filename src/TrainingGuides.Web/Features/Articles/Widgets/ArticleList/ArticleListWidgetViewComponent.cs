@@ -44,9 +44,9 @@ public class ArticleListWidgetViewComponent : ViewComponent
         {
             string selectedPageContentTypeName = await GetWebPageContentTypeName(selectedPageGuid!.Value);
 
-            var parentPage = await genericPageRetrieverService.RetrieveWebPageByGuid((Guid) selectedPageGuid);
+            var parentPage = await genericPageRetrieverService.RetrieveWebPageByGuid((Guid)selectedPageGuid);
 
-            string selectedPagePath = parentPage.SystemFields.WebPageItemTreePath;
+            string selectedPagePath = parentPage?.SystemFields.WebPageItemTreePath ?? string.Empty;
 
             var articlePages = await articlePageRetrieverService.RetrieveWebPageChildrenByPath(
                 selectedPageContentTypeName,

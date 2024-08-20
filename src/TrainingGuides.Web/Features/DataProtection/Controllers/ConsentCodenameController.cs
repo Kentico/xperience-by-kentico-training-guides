@@ -17,7 +17,7 @@ public class ConsentCodenameController : Controller
     public async Task<IActionResult> MarketingConsent()
     {
         var cookieLevelConsentMapping = await cookieConsentService.GetCurrentMapping();
-        string marketingConsent = cookieLevelConsentMapping.MarketingConsentCodeName.FirstOrDefault() ?? string.Empty;
+        string marketingConsent = cookieLevelConsentMapping?.MarketingConsentCodeName.FirstOrDefault() ?? string.Empty;
         return Json(marketingConsent);
     }
 }
