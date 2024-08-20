@@ -15,6 +15,9 @@ public class HttpRequestService : IHttpRequestService
 
         return string.IsNullOrWhiteSpace(pathBase) ? baseUrl : $"{baseUrl}{pathBase}";
     }
+    private HttpRequest RetrieveCurrentRequest() => httpContextAccessor?.HttpContext?.Request
+     ?? throw new NullReferenceException("Unable to retrieve current request context.");
+
 
     /// <summary>
     /// Retrieves Base URL from the current request context.
@@ -22,7 +25,7 @@ public class HttpRequestService : IHttpRequestService
     /// <returns>The base URL. If current request contains language, it will NOT be returned with the base URL.</returns>
     public string GetBaseUrl()
     {
-        var currentRequest = httpContextAccessor?.HttpContext?.Request;
+        var currentRequest = RetrieveCurrentRequest();
         return GetBaseUrl(currentRequest);
     }
 }

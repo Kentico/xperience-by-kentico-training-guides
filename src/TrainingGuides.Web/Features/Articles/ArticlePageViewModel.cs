@@ -13,7 +13,7 @@ public class ArticlePageViewModel
     public List<ArticlePageViewModel> RelatedNews { get; set; } = [];
     public string? Url { get; set; }
 
-    public static ArticlePageViewModel GetViewModel(ArticlePage articlePage)
+    public static ArticlePageViewModel GetViewModel(ArticlePage? articlePage)
     {
         if (articlePage == null)
         {

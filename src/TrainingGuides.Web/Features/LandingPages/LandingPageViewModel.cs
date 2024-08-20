@@ -4,7 +4,7 @@ public class LandingPageViewModel
 {
     public string? Message { get; set; }
 
-    public static LandingPageViewModel GetViewModel(LandingPage landingPage)
+    public static LandingPageViewModel GetViewModel(LandingPage? landingPage)
     {
         if (landingPage == null)
         {
