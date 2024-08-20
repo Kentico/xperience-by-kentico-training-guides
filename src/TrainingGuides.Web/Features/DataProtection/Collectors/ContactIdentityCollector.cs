@@ -8,6 +8,13 @@ public class ContactIdentityCollector : IIdentityCollector
 {
     private const string EMAIL_KEY = "email";
 
+    private readonly IInfoProvider<ContactInfo> contactInfoProvider;
+
+    public ContactIdentityCollector(IInfoProvider<ContactInfo> contactInfoProvider)
+    {
+        this.contactInfoProvider = contactInfoProvider;
+    }
+
     public void Collect(IDictionary<string, object> dataSubjectFilter, List<BaseInfo> identities)
     {
         string? email = dataSubjectFilter.ContainsKey(EMAIL_KEY)
@@ -19,7 +26,7 @@ public class ContactIdentityCollector : IIdentityCollector
             return;
         }
 
-        var contacts = ContactInfo.Provider
+        var contacts = contactInfoProvider
             .Get()
             .WhereEquals(nameof(ContactInfo.ContactEmail), email)
             .ToList();
