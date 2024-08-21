@@ -30,9 +30,11 @@ public class ConfigureWidgetInstructionsTagHelper : TagHelper
         output.TagMode = TagMode.StartTagAndEndTag;
 
         var httpContext = accessor.HttpContext;
-        string messageToShow = Message ?? (httpContext.Kentico().PageBuilder().EditMode
+        string messageToShow = string.IsNullOrEmpty(Message)
+            ? (httpContext.Kentico().PageBuilder().EditMode
                 ? INSTRUCTIONS_EDIT_MODE
-                : INSTRUCTIONS_PREVIEW_MODE);
+                : INSTRUCTIONS_PREVIEW_MODE)
+            : Message;
 
         output.Content.SetHtmlContent(new HtmlString(messageToShow));
     }
