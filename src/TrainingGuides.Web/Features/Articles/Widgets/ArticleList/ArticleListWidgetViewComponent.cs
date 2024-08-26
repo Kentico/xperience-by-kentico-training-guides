@@ -53,7 +53,7 @@ public class ArticleListWidgetViewComponent : ViewComponent
                 selectedPagePath,
                 3);
 
-            model.Articles = (properties.OrderBy.Equals(OrderByOption.OldestFirst.ToString())
+            model.Articles = (properties.OrderBy.Equals("OldestFirst", StringComparison.OrdinalIgnoreCase)
                 ? (await GetArticlePageViewModels(articlePages)).OrderBy(article => article.CreatedOn)
                 : (await GetArticlePageViewModels(articlePages)).OrderByDescending(article => article.CreatedOn))
                 .Take(properties.TopN)

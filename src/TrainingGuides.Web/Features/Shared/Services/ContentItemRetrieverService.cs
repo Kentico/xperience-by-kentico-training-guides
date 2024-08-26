@@ -120,33 +120,6 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
         return pages;
     }
 
-    public async Task<IEnumerable<T>> RetrieveWebPageChildrenByPath(
-        string parentPageContentTypeName,
-        string parentPagePath,
-        Action<ContentTypeQueryParameters> contentTypeQueryParameters,
-        int depth = 1)
-    {
-        var builder = new ContentItemQueryBuilder()
-                            .ForContentType(
-                                parentPageContentTypeName,
-                                config => contentTypeQueryParameters(
-                                    config
-                                        .ForWebsite(webSiteChannelContext.WebsiteChannelName, [PathMatch.Children(parentPagePath)])
-                                        .WithLinkedItems(depth)
-                                    )
-                                )
-                            .InLanguage(preferredLanguageRetriever.Get());
-
-        var queryExecutorOptions = new ContentQueryExecutionOptions
-        {
-            ForPreview = webSiteChannelContext.IsPreview
-        };
-
-        var pages = await contentQueryExecutor.GetMappedWebPageResult<T>(builder, queryExecutorOptions);
-
-        return pages;
-    }
-
 
 
     /// <summary>
@@ -222,18 +195,6 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
         return await contentQueryExecutor.GetMappedResult<IContentItemFieldsSource>(builder);
     }
 
-    /// <summary>
-    /// Retrieeves reusable content items based on the provided reusable field schema name, further filtring by the provided content query parameters.
-    /// </summary>
-    /// <param name="schemaName">The name of the reusable field schema</param>
-    /// <param name="contentQueryParameters">Content query filter</param>
-    /// <returns>Enumerable list of content items</returns>
-    public async Task<IEnumerable<IContentItemFieldsSource>> RetrieveContentItemsBySchema(string schemaName, Action<ContentQueryParameters> contentQueryParameters) =>
-        await RetrieveContentItems(contentQueryParameters, contentTypesQueryParameters =>
-                {
-                    contentTypesQueryParameters.OfReusableSchema(schemaName);
-                });
-
     private async Task<IEnumerable<IWebPageFieldsSource>> RetrieveWebPages(Action<ContentQueryParameters> parameters)
     {
         var builder = new ContentItemQueryBuilder();
@@ -258,6 +219,22 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
         var pages = await RetrieveWebPages(parameters =>
             {
                 parameters.Where(where => where.WhereEquals(nameof(WebPageFields.WebPageItemID), webPageItemId));
+            });
+
+        return pages.FirstOrDefault();
+    }
+
+        /// <summary>
+    /// Retrieves the IWebPageFieldsSource of a web page item by Guid.
+    /// </summary>
+    /// <param name="webPageItemGuid">the Guid of the web page item</param>
+    /// <returns><see cref="IWebPageFieldsSource"/> object containing generic <see cref="WebPageFields"/> for the item</returns>
+    public async Task<IWebPageFieldsSource?> RetrieveWebPageByGuid(
+        Guid webPageItemGuid)
+    {
+        var pages = await RetrieveWebPages(parameters =>
+            {
+                parameters.Where(where => where.WhereEquals(nameof(WebPageFields.WebPageItemGUID), webPageItemGuid));
             });
 
         return pages.FirstOrDefault();

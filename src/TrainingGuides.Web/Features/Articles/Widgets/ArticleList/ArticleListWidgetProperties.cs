@@ -2,7 +2,6 @@ using System.ComponentModel;
 using Kentico.PageBuilder.Web.Mvc;
 using Kentico.Xperience.Admin.Base.FormAnnotations;
 using Kentico.Xperience.Admin.Websites.FormAnnotations;
-using TrainingGuides.Web.Features.Shared.OptionProviders;
 
 namespace TrainingGuides.Web.Features.Articles.Widgets.ArticleList;
 
@@ -27,16 +26,7 @@ public class ArticleListWidgetProperties : IWidgetProperties
 
     [DropDownComponent(
         Label = "Order articles by",
-        DataProviderType = typeof(DropdownEnumOptionProvider<OrderByOption>),
+        Options = "NewestFirst;Newest first\r\nOldestFirst;Oldest first",
         Order = 40)]
-    public string OrderBy { get; set; } = OrderByOption.NewestFirst.ToString();
-}
-
-public enum OrderByOption
-{
-    [Description("Newest first")]
-    NewestFirst,
-    [Description("Oldest first")]
-    OldestFirst
-
+    public string OrderBy { get; set; } = "NewstFirst";
 }
