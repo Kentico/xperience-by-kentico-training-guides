@@ -120,6 +120,35 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
         return pages;
     }
 
+    public async Task<IEnumerable<T>> RetrieveWebPageChildrenByPath(
+        string parentPageContentTypeName,
+        string parentPagePath,
+        Action<ContentTypeQueryParameters> contentTypeQueryParameters,
+        int depth = 1)
+    {
+        var builder = new ContentItemQueryBuilder()
+                            .ForContentType(
+                                parentPageContentTypeName,
+                                config => contentTypeQueryParameters(
+                                    config
+                                        .ForWebsite(webSiteChannelContext.WebsiteChannelName, [PathMatch.Children(parentPagePath)])
+                                        .WithLinkedItems(depth)
+                                    )
+                                )
+                            .InLanguage(preferredLanguageRetriever.Get());
+
+        var queryExecutorOptions = new ContentQueryExecutionOptions
+        {
+            ForPreview = webSiteChannelContext.IsPreview
+        };
+
+        var pages = await contentQueryExecutor.GetMappedWebPageResult<T>(builder, queryExecutorOptions);
+
+        return pages;
+    }
+
+
+
     /// <summary>
     /// Retrieves Web page content item by Id using ContentItemQueryBuilder
     /// </summary>
@@ -168,3 +197,69 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
     }
 }
 
+
+public class ContentItemRetrieverService : IContentItemRetrieverService
+{
+    private readonly IContentQueryExecutor contentQueryExecutor;
+    private readonly IWebsiteChannelContext websiteChannelContext;
+
+    public ContentItemRetrieverService(
+        IContentQueryExecutor contentQueryExecutor,
+        IWebsiteChannelContext websiteChannelContext)
+    {
+        this.contentQueryExecutor = contentQueryExecutor;
+        this.websiteChannelContext = websiteChannelContext;
+    }
+
+    private async Task<IEnumerable<IContentItemFieldsSource>> RetrieveContentItems(Action<ContentQueryParameters> contentQueryParameters,
+        Action<ContentTypesQueryParameters> contentTypesQueryParameters)
+    {
+        var builder = new ContentItemQueryBuilder();
+
+        builder.ForContentTypes(contentTypesQueryParameters)
+            .Parameters(contentQueryParameters);
+
+        return await contentQueryExecutor.GetMappedResult<IContentItemFieldsSource>(builder);
+    }
+
+    /// <summary>
+    /// Retrieeves reusable content items based on the provided reusable field schema name, further filtring by the provided content query parameters.
+    /// </summary>
+    /// <param name="schemaName">The name of the reusable field schema</param>
+    /// <param name="contentQueryParameters">Content query filter</param>
+    /// <returns>Enumerable list of content items</returns>
+    public async Task<IEnumerable<IContentItemFieldsSource>> RetrieveContentItemsBySchema(string schemaName, Action<ContentQueryParameters> contentQueryParameters) =>
+        await RetrieveContentItems(contentQueryParameters, contentTypesQueryParameters =>
+                {
+                    contentTypesQueryParameters.OfReusableSchema(schemaName);
+                });
+
+    private async Task<IEnumerable<IWebPageFieldsSource>> RetrieveWebPages(Action<ContentQueryParameters> parameters)
+    {
+        var builder = new ContentItemQueryBuilder();
+
+        builder.ForContentTypes(query =>
+            {
+                query.ForWebsite(websiteChannelContext.WebsiteChannelName);
+            })
+            .Parameters(parameters);
+
+        return await contentQueryExecutor.GetMappedResult<IWebPageFieldsSource>(builder);
+    }
+
+    /// <summary>
+    /// Retrieves the IWebPageFieldsSource of a web page item by Id.
+    /// </summary>
+    /// <param name="webPageItemId">the Id of the web page item</param>
+    /// <returns><see cref="IWebPageFieldsSource"/> object containing generic <see cref="WebPageFields"/> for the item</returns>
+    public async Task<IWebPageFieldsSource?> RetrieveWebPageById(
+        int webPageItemId)
+    {
+        var pages = await RetrieveWebPages(parameters =>
+            {
+                parameters.Where(where => where.WhereEquals(nameof(WebPageFields.WebPageItemID), webPageItemId));
+            });
+
+        return pages.FirstOrDefault();
+    }
+}

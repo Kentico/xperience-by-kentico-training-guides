@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.newsarticle>
+  <ContentItemDataCommonDataID>
+    <GUID>78a4697f-3565-4b1f-81ac-22dc97b0e571</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>AboutFrogs-fgk2dl5o</CodeName>
+      <GUID>ea6d110c-d9be-4a69-a193-4758bb0c9efa</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>b18169c8-4e30-4058-bfb2-55eaf8fc81cc</ContentItemDataGUID>
+</contentitemdata.trainingguides.newsarticle>

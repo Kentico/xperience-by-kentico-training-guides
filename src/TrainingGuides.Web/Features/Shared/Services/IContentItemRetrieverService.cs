@@ -20,6 +20,12 @@ public interface IContentItemRetrieverService<T>
         string path,
         int depth = 1);
 
+    public Task<IEnumerable<T>> RetrieveWebPageChildrenByPath(
+        string parentPageContentTypeName,
+        string path,
+        Action<ContentTypeQueryParameters> contentTypeQueryParameters,
+        int depth = 1);
+
     public Task<T?> RetrieveContentItemByGuid(
         Guid contentItemGuid,
         string contentTypeName,
@@ -28,4 +34,13 @@ public interface IContentItemRetrieverService<T>
     public Task<IEnumerable<T>> RetrieveReusableContentItems(
         string contentTypeName,
         Func<ContentTypeQueryParameters, ContentTypeQueryParameters> queryFilter);
+}
+
+public interface IContentItemRetrieverService
+{
+    public Task<IWebPageFieldsSource?> RetrieveWebPageById(int webPageItemId);
+
+    public Task<IWebPageFieldsSource?> RetrieveWebPageByGuid(Guid webPageItemGuid);
+
+    public Task<IEnumerable<IContentItemFieldsSource>> RetrieveContentItemsBySchema(string schemaName, Action<ContentQueryParameters> contentQueryParameters);
 }
