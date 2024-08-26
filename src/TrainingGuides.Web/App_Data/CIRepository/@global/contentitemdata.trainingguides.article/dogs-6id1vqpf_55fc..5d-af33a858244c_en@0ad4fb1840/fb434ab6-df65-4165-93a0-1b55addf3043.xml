@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.article>
+  <ArticleRelatedArticles>
+    <![CDATA[[{"Identifier":"65e38d4a-5957-46cd-9267-3d612f8f9dc8"}]]]>
+  </ArticleRelatedArticles>
+  <ArticleSummary>
+    <![CDATA[Lorem ipsum dolor sit amet dogs, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lacus sed turpis tincidunt id aliquet risus. Feugiat in fermentum posuere urna nec tincidunt praesent semper.]]>
+  </ArticleSummary>
+  <ArticleTeaser>
+    <![CDATA[[{"Identifier":"8b84d201-7063-477d-ada8-ef635d5d248b"}]]]>
+  </ArticleTeaser>
+  <ArticleText>
+    <![CDATA[<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><p>Lacus vel facilisis volutpat est velit egestas dui. Ac felis donec et odio pellentesque diam volutpat commodo sed. Nunc lobortis mattis aliquam faucibus purus in massa tempor. Tellus at urna condimentum mattis. Ornare suspendisse sed nisi lacus. Eget gravida cum sociis natoque penatibus et magnis dis. Velit euismod in pellentesque massa placerat duis ultricies lacus. Ut enim blandit volutpat maecenas volutpat. Tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada proin libero. Cum sociis natoque penatibus et magnis dis parturient. Viverra justo nec ultrices dui sapien eget mi proin. Est pellentesque elit ullamcorper dignissim. Nunc congue nisi vitae suscipit tellus mauris a diam maecenas.</p>]]>
+  </ArticleText>
+  <ArticleTitle>About dogs</ArticleTitle>
+  <ContentItemDataCommonDataID>
+    <GUID>55fcd57d-8ddb-41a2-8a5d-af33a858244c</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>Dogs-6id1vqpf</CodeName>
+      <GUID>89ae27da-cd71-48f3-9a49-df9680ea98f9</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>fb434ab6-df65-4165-93a0-1b55addf3043</ContentItemDataGUID>
+</contentitemdata.trainingguides.article>

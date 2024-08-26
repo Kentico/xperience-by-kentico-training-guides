@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.asset>
+  <AssetDescription>Border collie</AssetDescription>
+  <AssetFile>
+    <![CDATA[{"Identifier":"483fa4a6-613e-4703-80f6-bb4f4f1f48ed","Name":"puppy_small.jpg","Extension":".jpg","Size":120133,"LastModified":"2024-02-13T02:17:37.8007811Z"}]]>
+  </AssetFile>
+  <AssetUseInternalOnly>False</AssetUseInternalOnly>
+  <ContentItemDataCommonDataID>
+    <GUID>e4a594cd-7728-4237-a89a-542813a171c8</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>Dog-sqz0uhux</CodeName>
+      <GUID>8b84d201-7063-477d-ada8-ef635d5d248b</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>52d95b6c-8d1a-4638-91ef-21fad581ba6b</ContentItemDataGUID>
+</contentitemdata.trainingguides.asset>

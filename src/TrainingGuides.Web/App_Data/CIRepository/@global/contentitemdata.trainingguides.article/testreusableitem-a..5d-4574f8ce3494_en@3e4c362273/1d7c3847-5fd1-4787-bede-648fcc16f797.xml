@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.article>
+  <ArticleTeaser>
+    <![CDATA[[{"Identifier":"0be1acdf-48c2-48c7-bfab-a26ba46c50a2"}]]]>
+  </ArticleTeaser>
+  <ArticleTitle>TestRusableArticle</ArticleTitle>
+  <ContentItemDataCommonDataID>
+    <GUID>1e51f78e-789e-4e98-ae5d-4574f8ce3494</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>TestReusableItem-a7civg5l</CodeName>
+      <GUID>23c269a6-1d04-4216-89a8-6890787e802f</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>1d7c3847-5fd1-4787-bede-648fcc16f797</ContentItemDataGUID>
+</contentitemdata.trainingguides.article>

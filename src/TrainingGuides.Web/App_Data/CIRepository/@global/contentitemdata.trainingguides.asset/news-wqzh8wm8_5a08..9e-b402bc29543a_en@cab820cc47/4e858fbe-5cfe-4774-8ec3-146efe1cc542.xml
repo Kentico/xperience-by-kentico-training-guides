@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.asset>
+  <AssetDescription>Typewriter news</AssetDescription>
+  <AssetFile>
+    <![CDATA[{"Identifier":"3f08f56b-096c-4329-8e4c-2f1125806933","Name":"markus-winkler-k_Am9hKISLM-unsplash.jpg","Extension":".jpg","Size":1457290,"LastModified":"2024-02-06T21:55:37.750991Z"}]]>
+  </AssetFile>
+  <AssetUseInternalOnly>False</AssetUseInternalOnly>
+  <ContentItemDataCommonDataID>
+    <GUID>5a08b65f-5778-4761-9f9e-b402bc29543a</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>News-wqzh8wm8</CodeName>
+      <GUID>f10c1c58-15ca-401d-8214-77b9f0e8a7eb</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>4e858fbe-5cfe-4774-8ec3-146efe1cc542</ContentItemDataGUID>
+</contentitemdata.trainingguides.asset>

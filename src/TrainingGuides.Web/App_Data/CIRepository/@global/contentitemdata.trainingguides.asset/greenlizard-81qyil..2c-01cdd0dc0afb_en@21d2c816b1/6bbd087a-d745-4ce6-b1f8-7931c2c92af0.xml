@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.asset>
+  <AssetDescription>Green lizard sitting on a branch</AssetDescription>
+  <AssetFile>
+    <![CDATA[{"Identifier":"a3c62469-920f-4e63-bf37-bfc2b320a5c9","Name":"lizzard.jpg","Extension":".jpg","Size":236225,"LastModified":"2024-02-13T02:25:41.2164551Z"}]]>
+  </AssetFile>
+  <AssetUseInternalOnly>False</AssetUseInternalOnly>
+  <ContentItemDataCommonDataID>
+    <GUID>fef42389-099a-41a6-8a2c-01cdd0dc0afb</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>GreenLizard-81qyilza</CodeName>
+      <GUID>08344fdd-086e-4a54-8328-eb57a5c89052</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>6bbd087a-d745-4ce6-b1f8-7931c2c92af0</ContentItemDataGUID>
+</contentitemdata.trainingguides.asset>

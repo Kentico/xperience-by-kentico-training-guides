@@ -1,20 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.webpageurlpath>
-  <WebPageUrlPath>es/NewsES/About-frogs</WebPageUrlPath>
+  <WebPageUrlPath>News/TestArticlePage</WebPageUrlPath>
   <WebPageUrlPathContentLanguageID>
-    <CodeName>es</CodeName>
-    <GUID>b2e99971-c2dd-4a47-bb64-0d9a0d28d226</GUID>
+    <CodeName>en</CodeName>
+    <GUID>e81b5172-f240-4041-88b1-653089984e29</GUID>
     <ObjectType>cms.contentlanguage</ObjectType>
   </WebPageUrlPathContentLanguageID>
-  <WebPageUrlPathGUID>6852af8a-8e86-438e-9ae7-9b53a2aed9b6</WebPageUrlPathGUID>
+  <WebPageUrlPathGUID>d7f1da20-313a-4165-a801-a4c59b5164a1</WebPageUrlPathGUID>
   <WebPageUrlPathHash>
-    <![CDATA[D87A24F1378D2CC14E1B09040697AE2286365F7094EAA6CE974A9B7C2D45CE5B]]>
+    <![CDATA[37184FE7226AA8C79415E1C2EE612AD3A8B70759CC27D0BA68A0F90A77C5E483]]>
   </WebPageUrlPathHash>
   <WebPageUrlPathIsDraft>False</WebPageUrlPathIsDraft>
   <WebPageUrlPathIsLatest>True</WebPageUrlPathIsLatest>
   <WebPageUrlPathWebPageItemID>
-    <CodeName>AboutFrogs-l30ila6d</CodeName>
-    <GUID>c48419d1-41d5-4fb5-91a3-32968bd8aeb3</GUID>
+    <CodeName>TestArticlePage-kkvlekad</CodeName>
+    <GUID>3b8fa098-e79b-4146-9a7c-489528e608c0</GUID>
     <ObjectType>cms.webpageitem</ObjectType>
   </WebPageUrlPathWebPageItemID>
   <WebPageUrlPathWebsiteChannelID>

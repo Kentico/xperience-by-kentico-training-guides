@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.articlepage>
+  <ArticlePageContent>
+    <![CDATA[[{"Identifier":"23c269a6-1d04-4216-89a8-6890787e802f"}]]]>
+  </ArticlePageContent>
+  <ContentItemDataCommonDataID>
+    <GUID>c59e1026-efea-473a-8389-a68f3aea1d07</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>TestArticlePage-kkvlekad</CodeName>
+      <GUID>1bf6ddc3-9f38-4954-a23c-85cccc9411be</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>bfa70952-daff-429e-a9c4-e94026169b5f</ContentItemDataGUID>
+</contentitemdata.trainingguides.articlepage>

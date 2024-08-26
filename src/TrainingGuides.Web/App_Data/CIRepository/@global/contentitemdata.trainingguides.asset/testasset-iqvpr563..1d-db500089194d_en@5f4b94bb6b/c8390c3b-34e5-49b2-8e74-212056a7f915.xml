@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.asset>
+  <AssetDescription>TestAsset</AssetDescription>
+  <AssetFile>
+    <![CDATA[{"Identifier":"ab1ededa-5a86-4eb5-947f-ae4bfbc9858c","Name":"TestImage1.png","Extension":".png","Size":5558,"LastModified":"2024-08-26T18:19:21.2683623Z"}]]>
+  </AssetFile>
+  <AssetUseInternalOnly>False</AssetUseInternalOnly>
+  <ContentItemDataCommonDataID>
+    <GUID>e7d23b4d-b377-4107-811d-db500089194d</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>TestAsset-iqvpr563</CodeName>
+      <GUID>0be1acdf-48c2-48c7-bfab-a26ba46c50a2</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>c8390c3b-34e5-49b2-8e74-212056a7f915</ContentItemDataGUID>
+</contentitemdata.trainingguides.asset>

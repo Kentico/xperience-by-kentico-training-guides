@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentitemcommondata>
+  <ContentItemCommonDataContentItemID>
+    <CodeName>TestArticlePage-kkvlekad</CodeName>
+    <GUID>1bf6ddc3-9f38-4954-a23c-85cccc9411be</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </ContentItemCommonDataContentItemID>
+  <ContentItemCommonDataContentLanguageID>
+    <CodeName>en</CodeName>
+    <GUID>e81b5172-f240-4041-88b1-653089984e29</GUID>
+    <ObjectType>cms.contentlanguage</ObjectType>
+  </ContentItemCommonDataContentLanguageID>
+  <ContentItemCommonDataFirstPublishedWhen>2024-08-26 18:20:25Z</ContentItemCommonDataFirstPublishedWhen>
+  <ContentItemCommonDataGUID>c59e1026-efea-473a-8389-a68f3aea1d07</ContentItemCommonDataGUID>
+  <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
+  <ContentItemCommonDataLastPublishedWhen>2024-08-26 18:20:25Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataPageTemplateConfiguration>
+    <![CDATA[{"identifier":"TrainingGuides.ArticlePagePageTemplate","properties":null,"fieldIdentifiers":null}]]>
+  </ContentItemCommonDataPageTemplateConfiguration>
+  <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
+  <ContentItemReferences>
+    <cms.contentitemreference>
+      <ContentItemReferenceGroupGUID>e121ff3d-c221-4f60-9acb-0063ed2739f1</ContentItemReferenceGroupGUID>
+      <ContentItemReferenceGUID>77ef1650-6725-4139-a015-c7b71e7ddf93</ContentItemReferenceGUID>
+      <ContentItemReferenceSourceCommonDataID>
+        <GUID>c59e1026-efea-473a-8389-a68f3aea1d07</GUID>
+        <ObjectType>cms.contentitemcommondata</ObjectType>
+      </ContentItemReferenceSourceCommonDataID>
+      <ContentItemReferenceTargetItemID>
+        <CodeName>TestReusableItem-a7civg5l</CodeName>
+        <GUID>23c269a6-1d04-4216-89a8-6890787e802f</GUID>
+        <ObjectType>cms.contentitem</ObjectType>
+      </ContentItemReferenceTargetItemID>
+    </cms.contentitemreference>
+  </ContentItemReferences>
+</cms.contentitemcommondata>
