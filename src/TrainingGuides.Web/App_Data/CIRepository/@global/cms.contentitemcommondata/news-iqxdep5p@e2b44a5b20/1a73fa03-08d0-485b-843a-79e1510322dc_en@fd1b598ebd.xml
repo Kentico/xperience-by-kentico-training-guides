@@ -12,7 +12,7 @@
   </ContentItemCommonDataContentLanguageID>
   <ContentItemCommonDataGUID>1a73fa03-08d0-485b-843a-79e1510322dc</ContentItemCommonDataGUID>
   <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
-  <ContentItemCommonDataLastPublishedWhen>2024-02-06 21:53:54Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataLastPublishedWhen>2024-08-26 19:44:43Z</ContentItemCommonDataLastPublishedWhen>
   <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
   <ContentItemReferences>
     <cms.contentitemreference>
@@ -25,6 +25,19 @@
       <ContentItemReferenceTargetItemID>
         <CodeName>Cat-t8ar0wa4</CodeName>
         <GUID>81ef9c03-36f9-46d5-b46d-93da73716a96</GUID>
+        <ObjectType>cms.contentitem</ObjectType>
+      </ContentItemReferenceTargetItemID>
+    </cms.contentitemreference>
+    <cms.contentitemreference>
+      <ContentItemReferenceGroupGUID>c7b231b7-871f-4d94-8647-f9ecc578420a</ContentItemReferenceGroupGUID>
+      <ContentItemReferenceGUID>0d618f8d-6685-4819-9977-56e4cabbf3a3</ContentItemReferenceGUID>
+      <ContentItemReferenceSourceCommonDataID>
+        <GUID>1a73fa03-08d0-485b-843a-79e1510322dc</GUID>
+        <ObjectType>cms.contentitemcommondata</ObjectType>
+      </ContentItemReferenceSourceCommonDataID>
+      <ContentItemReferenceTargetItemID>
+        <CodeName>Cat-ktj9godr</CodeName>
+        <GUID>f4dafef5-f7d3-486b-87f6-2e1360d5c28b</GUID>
         <ObjectType>cms.contentitem</ObjectType>
       </ContentItemReferenceTargetItemID>
     </cms.contentitemreference>
