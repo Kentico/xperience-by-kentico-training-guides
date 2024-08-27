@@ -23,10 +23,27 @@ public class ArticlePageService : IArticlePageService
             return new ArticlePageViewModel();
         }
 
+        string articleUrl = (await webPageUrlRetriever.Retrieve(articlePage)).RelativePath;
+
+        var articleSchema = articlePage.ArticlePageArticleContent.FirstOrDefault();
+
+        if (articleSchema != null)
+        {
+            var articleSchemaTeaserImage = articleSchema?.ArticleSchemaTeaser.FirstOrDefault();
+
+            return new ArticlePageViewModel
+            {
+                Title = articleSchema?.ArticleSchemaTitle ?? string.Empty,
+                Summary = new HtmlString(articleSchema?.ArticleSchemaSummary),
+                Text = new HtmlString(articleSchema?.ArticleSchemaText),
+                CreatedOn = articlePage.ArticlePagePublishDate,
+                TeaserImage = AssetViewModel.GetViewModel(articleSchemaTeaserImage!),
+                Url = articleUrl
+            };
+        }
+
         var article = articlePage.ArticlePageContent.FirstOrDefault();
         var articleTeaserImage = article?.ArticleTeaser.FirstOrDefault();
-
-        string articleUrl = (await webPageUrlRetriever.Retrieve(articlePage)).RelativePath;
 
         return new ArticlePageViewModel
         {

@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentitemcommondata>
+  <ArticleSchemaSummary>Learn some facts about frogs</ArticleSchemaSummary>
+  <ArticleSchemaTaxonomy>
+    <![CDATA[[{"Identifier":"04ab8b7e-f25b-4d3e-9e78-bf319a5f9140"}]]]>
+  </ArticleSchemaTaxonomy>
+  <ArticleSchemaTeaser>
+    <![CDATA[[{"Identifier":"e1f1110e-93f1-4fec-94c8-571f6fbd2e26"}]]]>
+  </ArticleSchemaTeaser>
+  <ArticleSchemaText>
+    <![CDATA[<p>Frogs are a diverse and largely carnivorous group of short-bodied, tailless amphibians composing the order Anura. They are known for their smooth, moist skin, bulging eyes, and powerful hind legs adapted for leaping. Frogs inhabit a wide range of ecosystems, from the tropics to subarctic regions, but the greatest concentration of species diversity is found in tropical rainforests. They play key roles in the ecosystem as both predators and prey, consuming insects, small mammals, and even other frogs, while simultaneously serving as a crucial food source for a variety of larger animals. Frogs are also notable for their vocalizations, which are often used to attract mates during the breeding season.</p>]]>
+  </ArticleSchemaText>
+  <ArticleSchemaTitle>About frogs</ArticleSchemaTitle>
+  <ContentItemCommonDataContentItemID>
+    <CodeName>AboutFrogs-fgk2dl5o</CodeName>
+    <GUID>ea6d110c-d9be-4a69-a193-4758bb0c9efa</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </ContentItemCommonDataContentItemID>
+  <ContentItemCommonDataContentLanguageID>
+    <CodeName>en</CodeName>
+    <GUID>e81b5172-f240-4041-88b1-653089984e29</GUID>
+    <ObjectType>cms.contentlanguage</ObjectType>
+  </ContentItemCommonDataContentLanguageID>
+  <ContentItemCommonDataFirstPublishedWhen>2024-08-21 18:35:26Z</ContentItemCommonDataFirstPublishedWhen>
+  <ContentItemCommonDataGUID>78a4697f-3565-4b1f-81ac-22dc97b0e571</ContentItemCommonDataGUID>
+  <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
+  <ContentItemCommonDataLastPublishedWhen>2024-08-21 18:35:26Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
+  <ContentItemReferences>
+    <cms.contentitemreference>
+      <ContentItemReferenceGroupGUID>a66eef38-b296-4172-9f69-dda2e1840fec</ContentItemReferenceGroupGUID>
+      <ContentItemReferenceGUID>56cc063f-3589-4203-bb2b-7ee174c59252</ContentItemReferenceGUID>
+      <ContentItemReferenceSourceCommonDataID>
+        <GUID>78a4697f-3565-4b1f-81ac-22dc97b0e571</GUID>
+        <ObjectType>cms.contentitemcommondata</ObjectType>
+      </ContentItemReferenceSourceCommonDataID>
+      <ContentItemReferenceTargetItemID>
+        <CodeName>Frog-1fdh3ccm</CodeName>
+        <GUID>e1f1110e-93f1-4fec-94c8-571f6fbd2e26</GUID>
+        <ObjectType>cms.contentitem</ObjectType>
+      </ContentItemReferenceTargetItemID>
+    </cms.contentitemreference>
+  </ContentItemReferences>
+</cms.contentitemcommondata>

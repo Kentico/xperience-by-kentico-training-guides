@@ -17,6 +17,100 @@
       <field allowempty="true" column="ContentItemCommonDataPageTemplateConfiguration" columnprecision="0" columntype="longtext" enabled="true" guid="0d5a573b-759a-4dd7-a86b-be2ef2f5bac4" system="true" />
       <field allowempty="true" column="ContentItemCommonDataFirstPublishedWhen" columnprecision="7" columntype="datetime" enabled="true" guid="1318327e-9a4c-47e7-be2e-3da0fe99c15e" system="true" />
       <field allowempty="true" column="ContentItemCommonDataLastPublishedWhen" columnprecision="7" columntype="datetime" enabled="true" guid="169ce320-e362-4b70-b4dd-cc055082c254" system="true" />
+      <schema guid="c3b4896f-ba7c-4b75-9cd4-47afa7489ff1" name="ArticleSchema">
+        <properties>
+          <fieldcaption>Article schema</fieldcaption>
+        </properties>
+      </schema>
+      <field allowempty="true" column="ArticleSchemaTitle" columnprecision="0" columnsize="300" columntype="text" enabled="true" guid="7f920142-174c-41cd-8e92-cc40e80aabdb" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Title</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+          <kxp_schema_identifier>c3b4896f-ba7c-4b75-9cd4-47afa7489ff1</kxp_schema_identifier>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.TextInput</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="ArticleSchemaTeaser" columnprecision="0" columntype="contentitemreference" enabled="true" guid="a66eef38-b296-4172-9f69-dda2e1840fec" visible="true">
+        <properties>
+          <explanationtext>
+            <![CDATA[Upload a vivid image to spark the user’s imagination. Use jpeg, jpg, png, or WebP format. Serve the image in resolution 3840 x 2160px for clarity across devices. Keep the image size under 1.7 MB to optimize speed.]]>
+          </explanationtext>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Add teaser image</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+          <kxp_schema_identifier>c3b4896f-ba7c-4b75-9cd4-47afa7489ff1</kxp_schema_identifier>
+        </properties>
+        <settings>
+          <AllowedContentItemTypeIdentifiers>
+            <![CDATA[["9ecde825-735e-4967-a995-cc97b55adb0f"]]]>
+          </AllowedContentItemTypeIdentifiers>
+          <controlname>Kentico.Administration.ContentItemSelector</controlname>
+          <SelectionType>contentTypes</SelectionType>
+        </settings>
+      </field>
+      <field allowempty="true" column="ArticleSchemaSummary" columnprecision="0" columnsize="250" columntype="text" enabled="true" guid="c93e2bfc-78be-4cb9-bed2-9632279136e9" visible="true">
+        <properties>
+          <explanationtext>
+            <![CDATA[Keep the summary under 250 characters. Different channels will truncate content if necessary.]]>
+          </explanationtext>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Summary</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+          <kxp_schema_identifier>c3b4896f-ba7c-4b75-9cd4-47afa7489ff1</kxp_schema_identifier>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.TextArea</controlname>
+          <CopyButtonVisible>False</CopyButtonVisible>
+          <MaxRowsNumber>5</MaxRowsNumber>
+          <MinRowsNumber>3</MinRowsNumber>
+        </settings>
+      </field>
+      <field allowempty="true" column="ArticleSchemaText" columnprecision="0" columntype="longtext" enabled="true" guid="f474940d-642c-482d-b497-87d3db3b0958" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Text</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+          <kxp_schema_identifier>c3b4896f-ba7c-4b75-9cd4-47afa7489ff1</kxp_schema_identifier>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.RichTextEditor</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="ArticleSchemaRelatedArticles" columnprecision="0" columntype="contentitemreference" enabled="true" guid="21100f23-0278-412c-b2d5-95308980c1de" visible="true">
+        <properties>
+          <explanationtext>
+            <![CDATA[Add default related article to your item. Editors can override the default and select different related items in their channel.]]>
+          </explanationtext>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Select related articles</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+          <kxp_schema_identifier>c3b4896f-ba7c-4b75-9cd4-47afa7489ff1</kxp_schema_identifier>
+        </properties>
+        <settings>
+          <AllowedContentItemTypeIdentifiers>
+            <![CDATA[["17a2abf5-c412-4cee-8b6b-e5209bcd3e8c"]]]>
+          </AllowedContentItemTypeIdentifiers>
+          <controlname>Kentico.Administration.ContentItemSelector</controlname>
+          <SelectionType>contentTypes</SelectionType>
+        </settings>
+      </field>
+      <field allowempty="true" column="ArticleSchemaTaxonomy" columnprecision="0" columntype="taxonomy" enabled="true" guid="7a10c083-cc91-4cf0-88af-66f580c90aa3" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Tags</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+          <kxp_schema_identifier>c3b4896f-ba7c-4b75-9cd4-47afa7489ff1</kxp_schema_identifier>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.TagSelector</controlname>
+          <TaxonomyGroup>
+            <![CDATA[["06b56c2a-463b-422a-b8d8-d9bbc352d958"]]]>
+          </TaxonomyGroup>
+        </settings>
+      </field>
     </form>
   </ClassFormDefinition>
   <ClassGUID>a6581fb3-892a-45b4-981a-012ce4b50b43</ClassGUID>
