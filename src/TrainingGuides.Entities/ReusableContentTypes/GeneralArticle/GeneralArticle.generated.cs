@@ -16,15 +16,15 @@ using CMS.ContentEngine;
 namespace TrainingGuides
 {
 	/// <summary>
-	/// Represents a content item of type <see cref="NewsArticle"/>.
+	/// Represents a content item of type <see cref="GeneralArticle"/>.
 	/// </summary>
 	[RegisterContentTypeMapping(CONTENT_TYPE_NAME)]
-	public partial class NewsArticle : IContentItemFieldsSource, IArticleSchema
+	public partial class GeneralArticle : IContentItemFieldsSource, IArticleSchema
 	{
 		/// <summary>
 		/// Code name of the content type.
 		/// </summary>
-		public const string CONTENT_TYPE_NAME = "TrainingGuides.NewsArticle";
+		public const string CONTENT_TYPE_NAME = "TrainingGuides.GeneralArticle";
 
 
 		/// <summary>

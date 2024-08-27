@@ -6,12 +6,14 @@
     <ObjectType>cms.contentfolder</ObjectType>
   </ContentItemContentFolderID>
   <ContentItemContentTypeID>
-    <CodeName>TrainingGuides.GeneralArticle</CodeName>
-    <GUID>8afff782-a445-4e6b-a237-821fca0db4fb</GUID>
+    <CodeName>TrainingGuides.Interview</CodeName>
+    <GUID>da713409-64bd-4bdd-bf21-3ec8294ab1b6</GUID>
     <ObjectType>cms.contenttype</ObjectType>
   </ContentItemContentTypeID>
-  <ContentItemGUID>ea6d110c-d9be-4a69-a193-4758bb0c9efa</ContentItemGUID>
+  <ContentItemGUID>1dc0414d-27d3-4527-8b11-6492f5d6929b</ContentItemGUID>
   <ContentItemIsReusable>True</ContentItemIsReusable>
   <ContentItemIsSecured>False</ContentItemIsSecured>
-  <ContentItemName>AboutFrogs-fgk2dl5o</ContentItemName>
+  <ContentItemName>
+    <![CDATA[BeanPlantHusbandry_AnInterviewWithJackTrott-52rzr7c8]]>
+  </ContentItemName>
 </cms.contentitem>

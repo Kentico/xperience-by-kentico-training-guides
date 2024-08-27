@@ -6,12 +6,12 @@
     <ObjectType>cms.contentfolder</ObjectType>
   </ContentItemContentFolderID>
   <ContentItemContentTypeID>
-    <CodeName>TrainingGuides.GeneralArticle</CodeName>
-    <GUID>8afff782-a445-4e6b-a237-821fca0db4fb</GUID>
+    <CodeName>TrainingGuides.Interview</CodeName>
+    <GUID>da713409-64bd-4bdd-bf21-3ec8294ab1b6</GUID>
     <ObjectType>cms.contenttype</ObjectType>
   </ContentItemContentTypeID>
-  <ContentItemGUID>ea6d110c-d9be-4a69-a193-4758bb0c9efa</ContentItemGUID>
+  <ContentItemGUID>e3f18149-b8a4-4965-80c9-e55c255ea0a0</ContentItemGUID>
   <ContentItemIsReusable>True</ContentItemIsReusable>
   <ContentItemIsSecured>False</ContentItemIsSecured>
-  <ContentItemName>AboutFrogs-fgk2dl5o</ContentItemName>
+  <ContentItemName>SheepCare_AnInterviewWithLittleBo-Peep-igkjtmw8</ContentItemName>
 </cms.contentitem>

@@ -6,12 +6,12 @@
     <ObjectType>cms.contentfolder</ObjectType>
   </ContentItemContentFolderID>
   <ContentItemContentTypeID>
-    <CodeName>TrainingGuides.GeneralArticle</CodeName>
-    <GUID>8afff782-a445-4e6b-a237-821fca0db4fb</GUID>
+    <CodeName>TrainingGuides.Asset</CodeName>
+    <GUID>9ecde825-735e-4967-a995-cc97b55adb0f</GUID>
     <ObjectType>cms.contenttype</ObjectType>
   </ContentItemContentTypeID>
-  <ContentItemGUID>ea6d110c-d9be-4a69-a193-4758bb0c9efa</ContentItemGUID>
+  <ContentItemGUID>0886d8a4-9c55-44a4-90f2-6346c878beed</ContentItemGUID>
   <ContentItemIsReusable>True</ContentItemIsReusable>
   <ContentItemIsSecured>False</ContentItemIsSecured>
-  <ContentItemName>AboutFrogs-fgk2dl5o</ContentItemName>
+  <ContentItemName>ConiferousTrees-rr3h62nr</ContentItemName>
 </cms.contentitem>
