@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.contenttype>
   <ClassContentTypeType>Reusable</ClassContentTypeType>
-  <ClassDisplayName>Article (news)</ClassDisplayName>
+  <ClassDisplayName>Article (general)</ClassDisplayName>
   <ClassFormDefinition>
     <form>
       <field column="ContentItemDataID" columntype="integer" enabled="true" guid="d6b95639-377e-49cd-9bb7-19bfb046f3cb" isPK="true" />
@@ -15,9 +15,9 @@
   <ClassGUID>8afff782-a445-4e6b-a237-821fca0db4fb</ClassGUID>
   <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
   <ClassIconClass>xp-newspaper</ClassIconClass>
-  <ClassName>TrainingGuides.NewsArticle</ClassName>
-  <ClassShortName>TrainingGuidesNewsArticle</ClassShortName>
-  <ClassTableName>TrainingGuides_NewsArticle</ClassTableName>
+  <ClassName>TrainingGuides.GeneralArticle</ClassName>
+  <ClassShortName>TrainingGuidesGeneralArticle</ClassShortName>
+  <ClassTableName>TrainingGuides_GeneralArticle</ClassTableName>
   <ClassType>Content</ClassType>
   <ClassWebPageHasUrl>False</ClassWebPageHasUrl>
 </cms.contenttype>

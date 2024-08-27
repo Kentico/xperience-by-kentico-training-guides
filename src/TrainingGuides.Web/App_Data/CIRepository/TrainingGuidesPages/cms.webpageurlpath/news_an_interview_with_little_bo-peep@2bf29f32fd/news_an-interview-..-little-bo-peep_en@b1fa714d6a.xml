@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpageurlpath>
+  <WebPageUrlPath>News/An-interview-with-Little-Bo-Peep</WebPageUrlPath>
+  <WebPageUrlPathContentLanguageID>
+    <CodeName>en</CodeName>
+    <GUID>e81b5172-f240-4041-88b1-653089984e29</GUID>
+    <ObjectType>cms.contentlanguage</ObjectType>
+  </WebPageUrlPathContentLanguageID>
+  <WebPageUrlPathGUID>70456160-035e-4e31-9d33-055e763f7e6a</WebPageUrlPathGUID>
+  <WebPageUrlPathHash>
+    <![CDATA[71800602108643A1E48711EB59A4BF78D2A18B75C96C34C8F68D3DA6F43392CE]]>
+  </WebPageUrlPathHash>
+  <WebPageUrlPathIsDraft>False</WebPageUrlPathIsDraft>
+  <WebPageUrlPathIsLatest>True</WebPageUrlPathIsLatest>
+  <WebPageUrlPathWebPageItemID>
+    <CodeName>AnInterviewWithLittleBo-Peep-jnv3k9yl</CodeName>
+    <GUID>6b46e6ea-503e-40a6-8d8d-4dd101914ecf</GUID>
+    <ObjectType>cms.webpageitem</ObjectType>
+  </WebPageUrlPathWebPageItemID>
+  <WebPageUrlPathWebsiteChannelID>
+    <GUID>fdba40fe-1ece-4821-9d57-eaa1d89e13b1</GUID>
+    <ObjectType>cms.websitechannel</ObjectType>
+    <Parent>
+      <CodeName>TrainingGuidesPages</CodeName>
+      <GUID>5ba9c1e8-b61e-4570-b666-87a9b92bbe3b</GUID>
+      <ObjectType>cms.channel</ObjectType>
+    </Parent>
+  </WebPageUrlPathWebsiteChannelID>
+</cms.webpageurlpath>
