@@ -24,7 +24,7 @@ public class DataProtectionRegistrationModule : Module
     {
         var serviceProvider = parameters.Services.GetRequiredService<IServiceProvider>();
 
-        var contactInfoProvider = Service.Resolve<IInfoProvider<ContactInfo>>();
+        var contactInfoProvider = parameters.Services.GetRequiredService<IInfoProvider<ContactInfo>>();
 
         base.OnInit(parameters);
 
