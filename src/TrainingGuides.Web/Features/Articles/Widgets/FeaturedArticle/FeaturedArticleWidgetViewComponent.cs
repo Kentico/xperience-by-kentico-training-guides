@@ -34,14 +34,14 @@ public class FeaturedArticleWidgetViewComponent : ViewComponent
                 guid.Value,
                 ArticlePage.CONTENT_TYPE_NAME,
                 3)
-            : new ArticlePage();
+            : null;
 
         var model = articlePage != null
             ? new FeaturedArticleWidgetViewModel()
             {
                 Article = await articlePageService.GetArticlePageViewModel(articlePage)
             }
-            : new FeaturedArticleWidgetViewModel();
+            : null;
 
         return View("~/Features/Articles/Widgets/FeaturedArticle/FeaturedArticleWidget.cshtml", model);
     }

@@ -4,10 +4,7 @@ namespace TrainingGuides.Web.Features.Articles.Widgets.FeaturedArticle;
 
 public class FeaturedArticleWidgetViewModel : WidgetViewModel
 {
-    public ArticlePageViewModel Article { get; set; } = new ArticlePageViewModel();
+    public ArticlePageViewModel? Article { get; set; }
 
-    public override bool IsMisconfigured => string.IsNullOrWhiteSpace(Article.Title)
-        || string.IsNullOrWhiteSpace(Article.Summary.ToString())
-        || Article.TeaserImage == null
-        || string.IsNullOrWhiteSpace(Article.Url);
+    public override bool IsMisconfigured => Article == null;
 }
