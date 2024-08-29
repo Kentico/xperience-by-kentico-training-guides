@@ -29,11 +29,11 @@ public class ArticlePageService : IArticlePageService
 
         if (articleSchema != null)
         {
-            var articleSchemaTeaserImage = articleSchema?.ArticleSchemaTeaser.FirstOrDefault();
+            var articleSchemaTeaserImage = articleSchema.ArticleSchemaTeaser.FirstOrDefault();
 
             return new ArticlePageViewModel
             {
-                Title = articleSchema?.ArticleSchemaTitle ?? string.Empty,
+                Title = articleSchema.ArticleSchemaTitle,
                 Summary = new HtmlString(articleSchema?.ArticleSchemaSummary),
                 Text = new HtmlString(articleSchema?.ArticleSchemaText),
                 CreatedOn = articlePage.ArticlePagePublishDate,
