@@ -24,7 +24,7 @@
       <field allowempty="true" column="ArticlePageArticleContent" columnprecision="0" columntype="contentitemreference" enabled="true" guid="b660d800-8f44-4311-af7d-f5073bda6ab3" visible="true">
         <properties>
           <explanationtextashtml>False</explanationtextashtml>
-          <fieldcaption>Content</fieldcaption>
+          <fieldcaption>Article page content</fieldcaption>
           <fielddescriptionashtml>False</fielddescriptionashtml>
         </properties>
         <settings>

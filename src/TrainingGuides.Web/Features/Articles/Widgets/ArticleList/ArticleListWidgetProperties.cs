@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using Kentico.PageBuilder.Web.Mvc;
 using Kentico.Xperience.Admin.Base.FormAnnotations;
 using Kentico.Xperience.Admin.Websites.FormAnnotations;
@@ -37,5 +38,4 @@ public enum OrderByOption
     NewestFirst,
     [Description("Oldest first")]
     OldestFirst
-
 }
