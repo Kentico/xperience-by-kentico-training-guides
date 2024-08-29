@@ -1,4 +1,3 @@
-using System.ComponentModel;
 using Kentico.PageBuilder.Web.Mvc;
 using Kentico.Xperience.Admin.Base.FormAnnotations;
 using Kentico.Xperience.Admin.Websites.FormAnnotations;
@@ -13,7 +12,7 @@ public class ArticleListWidgetProperties : IWidgetProperties
         MaximumPages = 1,
         Sortable = true,
         Order = 10)]
-    public IEnumerable<WebPageRelatedItem>? ContentTreeSection { get; set; }
+    public IEnumerable<WebPageRelatedItem> ContentTreeSection { get; set; } = Enumerable.Empty<WebPageRelatedItem>();
 
     [NumberInputComponent(
         Label = "Number of articles to display",

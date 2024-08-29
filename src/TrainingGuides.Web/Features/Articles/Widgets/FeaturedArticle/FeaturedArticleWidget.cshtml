@@ -1,22 +1,20 @@
 @using TrainingGuides.Web
 
-@model TrainingGuides.Web.Features.Articles.Widgets.FeaturedNews.FeaturedNewsWidgetViewModel?
+@model TrainingGuides.Web.Features.Articles.Widgets.FeaturedArticle.FeaturedArticleWidgetViewModel?
 
 @if (Model is null || Model.IsMisconfigured)
 {
     <tg-page-builder-content>
         <div class="c-card md bg-1 u-border-02 text-center">
-            <tg-configure-widget-instructions/>
+            <h3>Featured article</h3>
+            <p>No valid article selected</p>
         </div>    
     </tg-page-builder-content>
-
-    return;
 }
-
-@if (Model is {Article: not null })
+else
 {
     <div class="c-card md bg-1 u-border-02 text-center mt-4">
-        @if (Model.Article.TeaserImage != null)
+        @if (Model.Article!.TeaserImage != null)
         {
             <img src="@Url.Content(Model.Article.TeaserImage.FilePath)" alt="@Model.Article.TeaserImage.AltText" class="u-border-02 img-fluid" />
         }
