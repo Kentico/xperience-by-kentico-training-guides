@@ -2,18 +2,16 @@
 
 @model TrainingGuides.Web.Features.Articles.Widgets.FeaturedArticle.FeaturedArticleWidgetViewModel?
 
-@if (Model is null || Model.IsMisconfigured)
+@if (Model is null || Model.IsMisconfigured || Model.Article is null )
 {
     <tg-page-builder-content>
         <div class="c-card md bg-1 u-border-02 text-center">
-            <tg-configure-widget-instructions/>
+            <h3>Featured article</h3>
+            <p>No valid article selected</p>
         </div>    
     </tg-page-builder-content>
-
-    return;
 }
-
-@if (Model is {Article: not null })
+else
 {
     <div class="c-card md bg-1 u-border-02 text-center mt-4">
         @if (Model.Article.TeaserImage != null)

@@ -57,8 +57,8 @@ namespace TrainingGuides
 
 
 		/// <summary>
-		/// ArticleSchemaTaxonomy.
+		/// ArticleSchemaCategory.
 		/// </summary>
-		public IEnumerable<TagReference> ArticleSchemaTaxonomy { get; set; }
+		public IEnumerable<TagReference> ArticleSchemaCategory { get; set; }
 	}
 }

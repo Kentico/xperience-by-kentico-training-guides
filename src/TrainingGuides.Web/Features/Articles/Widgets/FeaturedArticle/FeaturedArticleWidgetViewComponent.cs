@@ -6,8 +6,8 @@ using TrainingGuides.Web.Features.Shared.Services;
 using TrainingGuides.Web.Features.Articles.Services;
 
 [assembly:
-    RegisterWidget(FeaturedArticleWidgetViewComponent.IDENTIFIER, typeof(FeaturedArticleWidgetViewComponent), "Featured news",
-        typeof(FeaturedArticleWidgetProperties), Description = "Displays the featured news.", IconClass = "icon-ribbon")]
+    RegisterWidget(FeaturedArticleWidgetViewComponent.IDENTIFIER, typeof(FeaturedArticleWidgetViewComponent), "Featured article",
+        typeof(FeaturedArticleWidgetProperties), Description = "Displays a featured article of your choosing.", IconClass = "icon-ribbon")]
 
 namespace TrainingGuides.Web.Features.Articles.Widgets.FeaturedArticle;
 
@@ -34,14 +34,14 @@ public class FeaturedArticleWidgetViewComponent : ViewComponent
                 guid.Value,
                 ArticlePage.CONTENT_TYPE_NAME,
                 3)
-            : null;
+            : new ArticlePage();
 
         var model = articlePage != null
             ? new FeaturedArticleWidgetViewModel()
             {
                 Article = await articlePageService.GetArticlePageViewModel(articlePage)
             }
-            : null;
+            : new FeaturedArticleWidgetViewModel();
 
         return View("~/Features/Articles/Widgets/FeaturedArticle/FeaturedArticleWidget.cshtml", model);
     }

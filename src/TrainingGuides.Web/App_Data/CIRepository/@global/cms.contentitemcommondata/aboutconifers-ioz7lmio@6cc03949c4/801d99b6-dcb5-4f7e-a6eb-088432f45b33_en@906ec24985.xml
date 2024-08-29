@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.contentitemcommondata>
-  <ArticleSchemaSummary>Information about coniferous trees</ArticleSchemaSummary>
-  <ArticleSchemaTaxonomy>
+  <ArticleSchemaCategory>
     <![CDATA[[{"Identifier":"34ebdcf5-20d6-4ecc-90e6-fc150dd5b36f"}]]]>
-  </ArticleSchemaTaxonomy>
+  </ArticleSchemaCategory>
+  <ArticleSchemaSummary>Information about coniferous trees</ArticleSchemaSummary>
   <ArticleSchemaTeaser>
     <![CDATA[[{"Identifier":"0886d8a4-9c55-44a4-90f2-6346c878beed"}]]]>
   </ArticleSchemaTeaser>

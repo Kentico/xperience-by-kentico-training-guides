@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.contentitemcommondata>
-  <ArticleSchemaSummary>Learn some facts about frogs</ArticleSchemaSummary>
-  <ArticleSchemaTaxonomy>
+  <ArticleSchemaCategory>
     <![CDATA[[{"Identifier":"04ab8b7e-f25b-4d3e-9e78-bf319a5f9140"}]]]>
-  </ArticleSchemaTaxonomy>
+  </ArticleSchemaCategory>
+  <ArticleSchemaSummary>Learn some facts about frogs</ArticleSchemaSummary>
   <ArticleSchemaTeaser>
     <![CDATA[[{"Identifier":"e1f1110e-93f1-4fec-94c8-571f6fbd2e26"}]]]>
   </ArticleSchemaTeaser>
