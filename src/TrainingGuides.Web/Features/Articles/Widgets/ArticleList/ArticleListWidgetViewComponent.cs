@@ -40,7 +40,7 @@ public class ArticleListWidgetViewComponent : ViewComponent
             CtaText = properties.CtaText,
         };
 
-        if (selectedPageGuid.HasValue)
+        if (selectedPageGuid.HasValue && !Guid.Empty.Equals(selectedPageGuid))
         {
             string selectedPageContentTypeName = await GetWebPageContentTypeName(selectedPageGuid!.Value);
 
