@@ -21,7 +21,8 @@ public class ArticlePageService : IArticlePageService
         var article = articlePage.ArticlePageContent.FirstOrDefault();
         var articleTeaserImage = article?.ArticleTeaser.FirstOrDefault();
 
-        string articleUrl = (await webPageUrlRetriever.Retrieve(articlePage)).RelativePath;
+        var x = await webPageUrlRetriever.Retrieve(articlePage);
+        var articleUrl = x.RelativePath;
 
         return new ArticlePageViewModel
         {
