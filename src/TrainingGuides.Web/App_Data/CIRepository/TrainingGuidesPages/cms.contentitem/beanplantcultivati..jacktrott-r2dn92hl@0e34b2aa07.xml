@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentitem>
+  <ContentItemChannelID>
+    <CodeName>TrainingGuidesPages</CodeName>
+    <GUID>5ba9c1e8-b61e-4570-b666-87a9b92bbe3b</GUID>
+    <ObjectType>cms.channel</ObjectType>
+  </ContentItemChannelID>
+  <ContentItemContentTypeID>
+    <CodeName>TrainingGuides.ArticlePage</CodeName>
+    <GUID>c5201839-8fe2-4d8d-a19a-f080592dc7d3</GUID>
+    <ObjectType>cms.contenttype</ObjectType>
+  </ContentItemContentTypeID>
+  <ContentItemGUID>82600b91-1df6-4008-a003-f4ffffbfe697</ContentItemGUID>
+  <ContentItemIsReusable>False</ContentItemIsReusable>
+  <ContentItemIsSecured>False</ContentItemIsSecured>
+  <ContentItemName>
+    <![CDATA[BeanPlantCultivation_AnInterviewWithJackTrott-r2dn92hl]]>
+  </ContentItemName>
+</cms.contentitem>

@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentitemcommondata>
+  <ContentItemCommonDataContentItemID>
+    <CodeName>News-7svum83c</CodeName>
+    <GUID>0159fcda-0fc5-48b4-82e7-b742f21bceaa</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </ContentItemCommonDataContentItemID>
+  <ContentItemCommonDataContentLanguageID>
+    <CodeName>en</CodeName>
+    <GUID>e81b5172-f240-4041-88b1-653089984e29</GUID>
+    <ObjectType>cms.contentlanguage</ObjectType>
+  </ContentItemCommonDataContentLanguageID>
+  <ContentItemCommonDataFirstPublishedWhen>2024-02-06 21:56:35Z</ContentItemCommonDataFirstPublishedWhen>
+  <ContentItemCommonDataGUID>9256f7cf-fc95-45c9-b757-c85c9348aa03</ContentItemCommonDataGUID>
+  <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
+  <ContentItemCommonDataLastPublishedWhen>2024-08-27 13:06:53Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
+  <ContentItemReferences>
+    <cms.contentitemreference>
+      <ContentItemReferenceGroupGUID>51ebb9a1-0d3b-4b01-870d-b3fd70133d96</ContentItemReferenceGroupGUID>
+      <ContentItemReferenceGUID>480aacc1-12bb-499c-9f21-82f81c6a428f</ContentItemReferenceGUID>
+      <ContentItemReferenceSourceCommonDataID>
+        <GUID>9256f7cf-fc95-45c9-b757-c85c9348aa03</GUID>
+        <ObjectType>cms.contentitemcommondata</ObjectType>
+      </ContentItemReferenceSourceCommonDataID>
+      <ContentItemReferenceTargetItemID>
+        <CodeName>News-wqzh8wm8</CodeName>
+        <GUID>f10c1c58-15ca-401d-8214-77b9f0e8a7eb</GUID>
+        <ObjectType>cms.contentitem</ObjectType>
+      </ContentItemReferenceTargetItemID>
+    </cms.contentitemreference>
+    <cms.contentitemreference>
+      <ContentItemReferenceGroupGUID>c7b231b7-871f-4d94-8647-f9ecc578420a</ContentItemReferenceGroupGUID>
+      <ContentItemReferenceGUID>178ae454-e4e6-4579-a973-d7fcbbb621ed</ContentItemReferenceGUID>
+      <ContentItemReferenceSourceCommonDataID>
+        <GUID>9256f7cf-fc95-45c9-b757-c85c9348aa03</GUID>
+        <ObjectType>cms.contentitemcommondata</ObjectType>
+      </ContentItemReferenceSourceCommonDataID>
+      <ContentItemReferenceTargetItemID>
+        <CodeName>News-wqzh8wm8</CodeName>
+        <GUID>f10c1c58-15ca-401d-8214-77b9f0e8a7eb</GUID>
+        <ObjectType>cms.contentitem</ObjectType>
+      </ContentItemReferenceTargetItemID>
+    </cms.contentitemreference>
+  </ContentItemReferences>
+</cms.contentitemcommondata>

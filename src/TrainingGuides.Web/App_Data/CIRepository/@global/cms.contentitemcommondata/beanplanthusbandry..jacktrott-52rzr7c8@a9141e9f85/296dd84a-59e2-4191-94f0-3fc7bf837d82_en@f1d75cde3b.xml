@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentitemcommondata>
+  <ArticleSchemaCategory>
+    <![CDATA[[{"Identifier":"34ebdcf5-20d6-4ecc-90e6-fc150dd5b36f"}]]]>
+  </ArticleSchemaCategory>
+  <ArticleSchemaSummary>
+    <![CDATA[Exclusive interview with Jack Trott, a well-known figure in the world of bean plant husbandry.]]>
+  </ArticleSchemaSummary>
+  <ArticleSchemaTeaser>
+    <![CDATA[[{"Identifier":"e97fb6c2-06cf-4b82-bc92-ff4cf3dcd37c"}]]]>
+  </ArticleSchemaTeaser>
+  <ArticleSchemaText>
+    <![CDATA[<h2>Q: How did you get started in bean plant husbandry?</h2><p>A: It all started with a single magic bean. I was fascinated by its rapid growth and since then, I've dedicated my life to understanding and nurturing these plants.</p><h2>Q: What's the most important aspect of bean plant care?</h2><p>A: Regular watering and ensuring they have plenty of sunlight is crucial. But more than that, understanding the soil conditions and climate can really help in their growth.</p><h2>Q: Any advice for those interested in bean plant husbandry?</h2><p>A: Start small, learn from each plant, and don't be afraid to make mistakes. Each bean plant has something to teach us.</p>]]>
+  </ArticleSchemaText>
+  <ArticleSchemaTitle>
+    <![CDATA[Bean plant cultivation: an interview with Jack Trott]]>
+  </ArticleSchemaTitle>
+  <ContentItemCommonDataContentItemID>
+    <CodeName>BeanPlantHusbandry_AnInterviewWithJackTrott-52rzr7c8</CodeName>
+    <GUID>1dc0414d-27d3-4527-8b11-6492f5d6929b</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </ContentItemCommonDataContentItemID>
+  <ContentItemCommonDataContentLanguageID>
+    <CodeName>en</CodeName>
+    <GUID>e81b5172-f240-4041-88b1-653089984e29</GUID>
+    <ObjectType>cms.contentlanguage</ObjectType>
+  </ContentItemCommonDataContentLanguageID>
+  <ContentItemCommonDataFirstPublishedWhen>2024-08-27 14:19:57Z</ContentItemCommonDataFirstPublishedWhen>
+  <ContentItemCommonDataGUID>296dd84a-59e2-4191-94f0-3fc7bf837d82</ContentItemCommonDataGUID>
+  <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
+  <ContentItemCommonDataLastPublishedWhen>2024-08-27 14:20:30Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
+  <ContentItemReferences>
+    <cms.contentitemreference>
+      <ContentItemReferenceGroupGUID>a66eef38-b296-4172-9f69-dda2e1840fec</ContentItemReferenceGroupGUID>
+      <ContentItemReferenceGUID>fb482b72-c586-4128-9dd0-a1091099be18</ContentItemReferenceGUID>
+      <ContentItemReferenceSourceCommonDataID>
+        <GUID>296dd84a-59e2-4191-94f0-3fc7bf837d82</GUID>
+        <ObjectType>cms.contentitemcommondata</ObjectType>
+      </ContentItemReferenceSourceCommonDataID>
+      <ContentItemReferenceTargetItemID>
+        <CodeName>BeanPlant-0ga55s30</CodeName>
+        <GUID>e97fb6c2-06cf-4b82-bc92-ff4cf3dcd37c</GUID>
+        <ObjectType>cms.contentitem</ObjectType>
+      </ContentItemReferenceTargetItemID>
+    </cms.contentitemreference>
+  </ContentItemReferences>
+</cms.contentitemcommondata>

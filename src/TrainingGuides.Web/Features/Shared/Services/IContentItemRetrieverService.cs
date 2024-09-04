@@ -29,3 +29,9 @@ public interface IContentItemRetrieverService<T>
         string contentTypeName,
         Func<ContentTypeQueryParameters, ContentTypeQueryParameters> queryFilter);
 }
+
+public interface IContentItemRetrieverService
+{
+    public Task<IWebPageFieldsSource?> RetrieveWebPageByGuid(Guid webPageItemGuid);
+
+}
