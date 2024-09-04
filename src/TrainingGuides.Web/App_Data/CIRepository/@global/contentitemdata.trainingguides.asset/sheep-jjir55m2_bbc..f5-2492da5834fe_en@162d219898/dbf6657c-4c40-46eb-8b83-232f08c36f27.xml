@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.asset>
+  <AssetAltText>Picture of a sheep</AssetAltText>
+  <AssetDescription>Sheep</AssetDescription>
+  <AssetFile>
+    <![CDATA[{"Identifier":"8b69ef60-8664-4452-bb2b-dd11a7a9e171","Name":"sheep-photo-by-rod-long-small.jpg","Extension":".jpg","Size":268720,"LastModified":"2024-08-27T13:19:36.135655Z"}]]>
+  </AssetFile>
+  <AssetUseInternalOnly>False</AssetUseInternalOnly>
+  <ContentItemDataCommonDataID>
+    <GUID>bbc820d2-1c37-4732-a5f5-2492da5834fe</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>Sheep-jjir55m2</CodeName>
+      <GUID>4e50366d-a316-4ec0-8909-c97868aa7597</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>dbf6657c-4c40-46eb-8b83-232f08c36f27</ContentItemDataGUID>
+</contentitemdata.trainingguides.asset>

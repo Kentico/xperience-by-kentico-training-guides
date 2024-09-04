@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.asset>
+  <AssetAltText>Frog in water</AssetAltText>
+  <AssetDescription>Frog</AssetDescription>
+  <AssetFile>
+    <![CDATA[{"Identifier":"cdbf9d1a-740e-417d-a0f5-f73b74599177","Name":"pascal-van-de-vendel--PS3nNer00c-unsplash.jpg","Extension":".jpg","Size":350099,"LastModified":"2024-08-21T18:35:12.0764116Z"}]]>
+  </AssetFile>
+  <AssetUseInternalOnly>False</AssetUseInternalOnly>
+  <ContentItemDataCommonDataID>
+    <GUID>f214a4d3-e2ff-4a83-9514-9158b972488c</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>Frog-1fdh3ccm</CodeName>
+      <GUID>e1f1110e-93f1-4fec-94c8-571f6fbd2e26</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>b93839da-325a-44a6-b984-57d4f5c0fbeb</ContentItemDataGUID>
+</contentitemdata.trainingguides.asset>

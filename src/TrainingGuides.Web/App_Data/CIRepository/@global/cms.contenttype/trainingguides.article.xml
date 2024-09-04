@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.contenttype>
   <ClassContentTypeType>Reusable</ClassContentTypeType>
-  <ClassDisplayName>Article</ClassDisplayName>
+  <ClassDisplayName>Article (DEPRECATED, DO NOT USE)</ClassDisplayName>
   <ClassFormDefinition>
     <form>
       <field column="ContentItemDataID" columntype="integer" enabled="true" guid="6ce5a7b2-aa76-44fd-a02c-f4a9a8624855" isPK="true" />

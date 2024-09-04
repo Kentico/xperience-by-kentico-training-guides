@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.asset>
+  <AssetAltText>photo of a bean plant</AssetAltText>
+  <AssetDescription>Bean plant in front of blue sky</AssetDescription>
+  <AssetFile>
+    <![CDATA[{"Identifier":"dae3747e-7620-4a8f-95d0-23a0c6f9b5d2","Name":"bean-plant-photo-by-irfan-simsar-small.jpg","Extension":".jpg","Size":319656,"LastModified":"2024-08-27T13:29:45.7438993Z"}]]>
+  </AssetFile>
+  <AssetUseInternalOnly>False</AssetUseInternalOnly>
+  <ContentItemDataCommonDataID>
+    <GUID>7d902953-61f5-45d4-9c9d-872b5276f777</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>BeanPlant-0ga55s30</CodeName>
+      <GUID>e97fb6c2-06cf-4b82-bc92-ff4cf3dcd37c</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>6acb2702-c62b-45eb-baa4-058f712b7815</ContentItemDataGUID>
+</contentitemdata.trainingguides.asset>
