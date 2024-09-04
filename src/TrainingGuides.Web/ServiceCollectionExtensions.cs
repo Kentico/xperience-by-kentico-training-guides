@@ -9,7 +9,8 @@ public static class ServiceCollectionExtensions
     {
         services.AddSingleton<IHttpRequestService, HttpRequestService>();
         services.AddSingleton<IArticlePageService, ArticlePageService>();
-        
+        services.AddSingleton<IContentItemRetrieverService, ContentItemRetrieverService>();
+
         services.AddTransient(typeof(IContentItemRetrieverService<>), typeof(ContentItemRetrieverService<>));
     }
 }

@@ -184,17 +184,6 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
         this.websiteChannelContext = websiteChannelContext;
     }
 
-    private async Task<IEnumerable<IContentItemFieldsSource>> RetrieveContentItems(Action<ContentQueryParameters> contentQueryParameters,
-        Action<ContentTypesQueryParameters> contentTypesQueryParameters)
-    {
-        var builder = new ContentItemQueryBuilder();
-
-        builder.ForContentTypes(contentTypesQueryParameters)
-            .Parameters(contentQueryParameters);
-
-        return await contentQueryExecutor.GetMappedResult<IContentItemFieldsSource>(builder);
-    }
-
     private async Task<IEnumerable<IWebPageFieldsSource>> RetrieveWebPages(Action<ContentQueryParameters> parameters)
     {
         var builder = new ContentItemQueryBuilder();
@@ -209,22 +198,6 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
     }
 
     /// <summary>
-    /// Retrieves the IWebPageFieldsSource of a web page item by Id.
-    /// </summary>
-    /// <param name="webPageItemId">the Id of the web page item</param>
-    /// <returns><see cref="IWebPageFieldsSource"/> object containing generic <see cref="WebPageFields"/> for the item</returns>
-    public async Task<IWebPageFieldsSource?> RetrieveWebPageById(
-        int webPageItemId)
-    {
-        var pages = await RetrieveWebPages(parameters =>
-            {
-                parameters.Where(where => where.WhereEquals(nameof(WebPageFields.WebPageItemID), webPageItemId));
-            });
-
-        return pages.FirstOrDefault();
-    }
-
-        /// <summary>
     /// Retrieves the IWebPageFieldsSource of a web page item by Guid.
     /// </summary>
     /// <param name="webPageItemGuid">the Guid of the web page item</param>
