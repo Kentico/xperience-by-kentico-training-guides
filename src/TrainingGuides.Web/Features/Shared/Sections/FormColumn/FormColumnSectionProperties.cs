@@ -8,5 +8,5 @@ public class FormColumnSectionProperties : ISectionProperties
     [TextInputComponent(
         Label = "Section anchor",
         Order = 10)]
-    public string SectionAnchor { get; set; }
+    public string SectionAnchor { get; set; } = string.Empty;
 }

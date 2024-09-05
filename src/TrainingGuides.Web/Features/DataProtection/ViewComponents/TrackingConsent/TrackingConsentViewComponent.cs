@@ -65,14 +65,15 @@ public class TrackingConsentViewComponent : ViewComponent
         var consents = await consentInfoProvider
             .Get()
             .WhereIn("ConsentName", new string[] {
-                currentMapping.PreferenceConsentCodeName.FirstOrDefault(),
-                currentMapping.AnalyticalConsentCodeName.FirstOrDefault(),
-                currentMapping.MarketingConsentCodeName.FirstOrDefault() })
+                currentMapping.PreferenceConsentCodeName.First(),
+                currentMapping.AnalyticalConsentCodeName.First(),
+                currentMapping.MarketingConsentCodeName.First()
+            })
             .GetEnumerableTypedResultAsync();
 
         if (consents.Count() > 0)
         {
-            ContactInfo currentContact = ContactManagementContext.GetCurrentContact(false);
+            var currentContactInfo = ContactManagementContext.GetCurrentContact(false);
 
             string text = "<ul>";
             List<string> codenames = [];
@@ -84,7 +85,7 @@ public class TrackingConsentViewComponent : ViewComponent
                 text += $"<li>{(await consent.GetConsentTextAsync(preferredLanguageRetriever.Get())).ShortText}</li>";
 
                 //agreed will end up being true if the contact has agreed to at least one consent
-                isAgreed = isAgreed || ((currentContact != null) && consentAgreementService.IsAgreed(currentContact, consent));
+                isAgreed = isAgreed || ((currentContactInfo != null) && consentAgreementService.IsAgreed(currentContactInfo, consent));
             }
             text += "</ul>";
 
@@ -92,7 +93,7 @@ public class TrackingConsentViewComponent : ViewComponent
 
             // Sets the cookie level according to which consents have been accepted
             // Required for scenarios where one contact uses multiple browsers, in case of revoked consent
-            EnsureCorrectCookieLevel(currentContact, consents, currentMapping);
+            EnsureCorrectCookieLevel(currentContactInfo, consents, currentMapping);
 
             var consentModel = new TrackingConsentViewModel
             {
@@ -135,7 +136,7 @@ public class TrackingConsentViewComponent : ViewComponent
     /// <param name="mapping">Cookie level consent mapping</param>
     /// <returns>true if cookie levels were updated or alredy up-to-date, false if there is an exception</returns>
     private bool EnsureCorrectCookieLevel(
-        ContactInfo contact,
+        ContactInfo? contact,
         IEnumerable<ConsentInfo> consents,
         CookieLevelConsentMappingInfo mapping)
     {

@@ -20,14 +20,14 @@ public class ProductPagePageTemplateProperties : IPageTemplateProperties
         ExplanationText = "Select the color scheme of the template.",
         DataProviderType = typeof(DropdownEnumOptionProvider<ColorSchemeOption>),
         Order = 20)]
-    public string? ColorScheme { get; set; } = nameof(ColorSchemeOption.TransparentDark);
+    public string ColorScheme { get; set; } = nameof(ColorSchemeOption.TransparentDark);
 
     [DropDownComponent(
         Label = "Corner style",
         ExplanationText = "Select the corner type of the template.",
         DataProviderType = typeof(DropdownEnumOptionProvider<CornerStyleOption>),
         Order = 30)]
-    public string? CornerStyle { get; set; } = nameof(CornerStyleOption.Round);
+    public string CornerStyle { get; set; } = nameof(CornerStyleOption.Round);
 
     [DropDownComponent(
         Label = "Column layout",
@@ -35,5 +35,5 @@ public class ProductPagePageTemplateProperties : IPageTemplateProperties
         DataProviderType = typeof(DropdownEnumOptionProvider<ColumnLayoutOption>),
         Order = 40)]
     [VisibleIfTrue(nameof(UsePageBuilder))]
-    public string? ColumnLayout { get; set; } = nameof(ColumnLayoutOption.OneColumn);
+    public string ColumnLayout { get; set; } = nameof(ColumnLayoutOption.OneColumn);
 }

@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpageitem>
+  <WebPageItemContentItemID>
+    <CodeName>BeanPlantCultivation_AnInterviewWithJackTrott-r2dn92hl</CodeName>
+    <GUID>82600b91-1df6-4008-a003-f4ffffbfe697</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </WebPageItemContentItemID>
+  <WebPageItemGUID>d980ca3e-a737-4025-88ad-2ed561c0f3da</WebPageItemGUID>
+  <WebPageItemName>
+    <![CDATA[BeanPlantCultivation_AnInterviewWithJackTrott-r2dn92hl]]>
+  </WebPageItemName>
+  <WebPageItemOrder>2</WebPageItemOrder>
+  <WebPageItemParentID>
+    <CodeName>News-bgt05j82</CodeName>
+    <GUID>77c7aa1f-e0e3-4b74-a66f-8c0c87523c15</GUID>
+    <ObjectType>cms.webpageitem</ObjectType>
+  </WebPageItemParentID>
+  <WebPageItemTreePath>
+    <![CDATA[/News/Bean_plant_cultivation_an_interview_with_Jack_Trot]]>
+  </WebPageItemTreePath>
+  <WebPageItemWebsiteChannelID>
+    <GUID>fdba40fe-1ece-4821-9d57-eaa1d89e13b1</GUID>
+    <ObjectType>cms.websitechannel</ObjectType>
+    <Parent>
+      <CodeName>TrainingGuidesPages</CodeName>
+      <GUID>5ba9c1e8-b61e-4570-b666-87a9b92bbe3b</GUID>
+      <ObjectType>cms.channel</ObjectType>
+    </Parent>
+  </WebPageItemWebsiteChannelID>
+</cms.webpageitem>

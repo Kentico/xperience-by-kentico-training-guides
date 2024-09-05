@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.asset>
+  <AssetAltText>Image of coniferous trees</AssetAltText>
+  <AssetDescription>Coniferous trees</AssetDescription>
+  <AssetFile>
+    <![CDATA[{"Identifier":"45317c9f-cffb-4a36-b810-988a23fe1b26","Name":"confierous-tree-photo-olena-bohovyk-small.jpg","Extension":".jpg","Size":499258,"LastModified":"2024-08-27T14:42:22.7141881Z"}]]>
+  </AssetFile>
+  <AssetUseInternalOnly>False</AssetUseInternalOnly>
+  <ContentItemDataCommonDataID>
+    <GUID>4fa2e7ed-1b28-4f59-9e9f-ac61b73bd246</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>ConiferousTrees-rr3h62nr</CodeName>
+      <GUID>0886d8a4-9c55-44a4-90f2-6346c878beed</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>1179c2a1-fc2c-470f-a25a-36cd279c613e</ContentItemDataGUID>
+</contentitemdata.trainingguides.asset>

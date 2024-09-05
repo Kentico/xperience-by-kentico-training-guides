@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.tag>
+  <TagGUID>34ebdcf5-20d6-4ecc-90e6-fc150dd5b36f</TagGUID>
+  <TagMetadata>
+    <![CDATA[{"Translations":{"b2e99971-c2dd-4a47-bb64-0d9a0d28d226":{"Title":"Plantas","Description":null}}}]]>
+  </TagMetadata>
+  <TagName>Plants</TagName>
+  <TagOrder>2</TagOrder>
+  <TagTaxonomyID>
+    <CodeName>ArticleCategory</CodeName>
+    <GUID>06b56c2a-463b-422a-b8d8-d9bbc352d958</GUID>
+    <ObjectType>cms.taxonomy</ObjectType>
+  </TagTaxonomyID>
+  <TagTitle>Plants</TagTitle>
+</cms.tag>

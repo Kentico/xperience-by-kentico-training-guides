@@ -1,4 +1,5 @@
 ﻿using CMS;
+using CMS.ContactManagement;
 using CMS.Core;
 using CMS.DataEngine;
 using CMS.DataProtection;
@@ -23,10 +24,12 @@ public class DataProtectionRegistrationModule : Module
     {
         var serviceProvider = parameters.Services.GetRequiredService<IServiceProvider>();
 
+        var contactInfoProvider = parameters.Services.GetRequiredService<IInfoProvider<ContactInfo>>();
+
         base.OnInit(parameters);
 
         // Adds the ContactIdentityCollector to the collection of registered identity collectors
-        IdentityCollectorRegister.Instance.Add(new ContactIdentityCollector());
+        IdentityCollectorRegister.Instance.Add(new ContactIdentityCollector(contactInfoProvider));
 
         // Adds the ContactDataCollector to the collection of registered personal data collectors
         PersonalDataCollectorRegister.Instance.Add(ActivatorUtilities.CreateInstance<ContactDataCollector>(serviceProvider));

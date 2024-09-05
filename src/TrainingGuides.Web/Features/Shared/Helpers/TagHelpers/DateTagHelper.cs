@@ -6,7 +6,7 @@ using System.Text.Encodings.Web;
 namespace TrainingGuides.Web.Features.Shared.Helpers.TagHelpers;
 
 /// <summary>
-/// Formatts DateTime value into 'd MMMM yyyy' shape.
+/// Formats DateTime value into 'd MMMM yyyy' shape.
 /// </summary>
 [HtmlTargetElement("tg-date", TagStructure = TagStructure.WithoutEndTag)]
 public class DateTagHelper : TagHelper

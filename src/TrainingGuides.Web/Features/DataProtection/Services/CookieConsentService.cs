@@ -247,10 +247,10 @@ public class CookieConsentService : ICookieConsentService
     /// <summary>
     /// Sets CMSCookieLevel if it is different from the new one.
     /// </summary>
-    /// <param name="newLevel">The new cooie level to which the contact should be set</param>
+    /// <param name="newLevel">The new cookie level to which the contact should be set</param>
     private void SetCookieLevelIfChanged(int newLevel)
     {
-        var currentCookieLevel = cookieLevelProvider.GetCurrentCookieLevel();
+        int currentCookieLevel = cookieLevelProvider.GetCurrentCookieLevel();
 
         if (newLevel != currentCookieLevel)
             cookieLevelProvider.SetCurrentCookieLevel(newLevel);
@@ -258,10 +258,10 @@ public class CookieConsentService : ICookieConsentService
 
 
     /// <summary>
-    /// Gets the current cookie level consent mapping if it exists
+    /// Gets the current cookie level consent mapping if it exists.
     /// </summary>
     /// <returns>A <see cref="CookieLevelConsentMappingInfo"/> object representing the site's current mappings, <see cref="null"/> if no mapping exists.</returns>
-    public async Task<CookieLevelConsentMappingInfo> GetCurrentMapping()
+    public async Task<CookieLevelConsentMappingInfo?> GetCurrentMapping()
     {
         var currentMapping = await cookieLevelConsentMappingInfoProvider.Get().GetEnumerableTypedResultAsync();
 
@@ -272,7 +272,7 @@ public class CookieConsentService : ICookieConsentService
     /// <summary>
     /// Checks if the current contact's CMSCookieLevel is All (1000) or higher
     /// </summary>
-    /// <returns>True if CMSCookieLevel is greather than or equal to 1000, false otherwise</returns>
+    /// <returns>True if CMSCookieLevel is greater than or equal to 1000, false otherwise</returns>
     public bool CurrentContactCanBeTracked()
     {
         bool isAllOrHigher = false;

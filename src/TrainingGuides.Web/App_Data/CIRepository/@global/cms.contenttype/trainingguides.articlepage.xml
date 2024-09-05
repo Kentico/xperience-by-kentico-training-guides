@@ -10,7 +10,7 @@
       <field allowempty="true" column="ArticlePageContent" columnprecision="0" columntype="contentitemreference" enabled="true" guid="e121ff3d-c221-4f60-9acb-0063ed2739f1" visible="true">
         <properties>
           <explanationtextashtml>False</explanationtextashtml>
-          <fieldcaption>Article page content</fieldcaption>
+          <fieldcaption>Article page content (DEPRECATED, DO NOT USE)</fieldcaption>
           <fielddescriptionashtml>False</fielddescriptionashtml>
         </properties>
         <settings>
@@ -18,6 +18,21 @@
             <![CDATA[["17a2abf5-c412-4cee-8b6b-e5209bcd3e8c"]]]>
           </AllowedContentItemTypeIdentifiers>
           <controlname>Kentico.Administration.ContentItemSelector</controlname>
+          <SelectionType>contentTypes</SelectionType>
+        </settings>
+      </field>
+      <field allowempty="true" column="ArticlePageArticleContent" columnprecision="0" columntype="contentitemreference" enabled="true" guid="b660d800-8f44-4311-af7d-f5073bda6ab3" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Article page content</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <AllowedSchemaIdentifiers>
+            <![CDATA[["c3b4896f-ba7c-4b75-9cd4-47afa7489ff1"]]]>
+          </AllowedSchemaIdentifiers>
+          <controlname>Kentico.Administration.ContentItemSelector</controlname>
+          <SelectionType>reusableFieldSchemas</SelectionType>
         </settings>
       </field>
       <field column="ArticlePagePublishDate" columnprecision="7" columntype="datetime" enabled="true" guid="1a9dfa8f-99c5-4847-ab95-7a19e5ecdf0f" visible="true">

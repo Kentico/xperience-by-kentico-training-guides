@@ -4,11 +4,11 @@ namespace TrainingGuides.Web.Features.Products.Models;
 
 public class ProductFeatureViewModel
 {
-    public string Key { get; set; } = null!;
-    public string Name { get; set; } = null!;
-    public HtmlString Label { get; set; } = null!;
+    public string Key { get; set; } = string.Empty;
+    public string Name { get; set; } = string.Empty;
+    public HtmlString Label { get; set; } = HtmlString.Empty;
     public decimal Price { get; set; }
-    public HtmlString Value { get; set; } = null!;
+    public HtmlString Value { get; set; } = HtmlString.Empty;
     public bool FeatureIncluded { get; set; }
     public ProductFeatureValueType ValueType { get; set; }
     public bool ShowInComparator { get; set; }

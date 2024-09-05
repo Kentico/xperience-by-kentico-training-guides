@@ -23,7 +23,7 @@ public class XmlPersonalDataWriter : IPersonalDataWriter
     private string TransformElementName(string originalName) => originalName.Replace('.', '_');
 
     public void WriteBaseInfo(BaseInfo baseInfo, List<CollectedColumn> columns,
-        Func<string, object, object> valueTransformationFunction = null)
+        Func<string, object, object>? valueTransformationFunction = null)
     {
         if (baseInfo == null)
         {

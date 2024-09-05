@@ -2,11 +2,11 @@
 
 public class AssetViewModel
 {
-    public string? Title { get; set; }
-    public string? Description { get; set; }
-    public string? AltText { get; set; }
+    public string Title { get; set; } = string.Empty;
+    public string Description { get; set; } = string.Empty;
+    public string AltText { get; set; } = string.Empty;
     public bool UseInternalOnly { get; set; }
-    public string? FilePath { get; set; }
+    public string FilePath { get; set; } = string.Empty;
 
     public static AssetViewModel GetViewModel(Asset asset) => asset is null
         ? new()
@@ -16,6 +16,6 @@ public class AssetViewModel
             Description = asset.AssetDescription,
             AltText = asset.AssetAltText,
             UseInternalOnly = asset.AssetUseInternalOnly,
-            FilePath = asset.AssetFile?.Url
+            FilePath = asset.AssetFile.Url
         };
 }

@@ -89,16 +89,16 @@ public class CookiePreferencesWidgetViewComponent : ViewComponent
             EssentialHeader = properties.EssentialHeader,
             EssentialDescription = properties.EssentialDescription,
 
-            // alternatively, use preferenceCookiesConsent?.ConsentDisplayName preperty for header.
-            // Be advised, this propery does not support multiple language versions in Xperience.
+            // alternatively, use preferenceCookiesConsent.ConsentDisplayName property for header.
+            // Be advised, this property does not support multiple language versions in Xperience.
             PreferenceHeader = stringLocalizer[PREFERENCE_COOKIES_HEADER],
-            PreferenceDescription = new HtmlString((await preferenceCookiesConsent?.GetConsentTextAsync(language)).FullText) ?? consentMissingDescription,
+            PreferenceDescription = new HtmlString((await preferenceCookiesConsent.GetConsentTextAsync(language)).FullText) ?? consentMissingDescription,
 
             AnalyticalHeader = stringLocalizer[ANALYTICAL_COOKIES_HEADER],
-            AnalyticalDescription = new HtmlString((await analyticalCookiesConsent?.GetConsentTextAsync(language)).FullText) ?? consentMissingDescription,
+            AnalyticalDescription = new HtmlString((await analyticalCookiesConsent.GetConsentTextAsync(language)).FullText) ?? consentMissingDescription,
 
             MarketingHeader = stringLocalizer[MARKETING_COOKIES_HEADER],
-            MarketingDescription = new HtmlString((await marketingCookiesConsent?.GetConsentTextAsync(language)).FullText) ?? consentMissingDescription,
+            MarketingDescription = new HtmlString((await marketingCookiesConsent.GetConsentTextAsync(language)).FullText) ?? consentMissingDescription,
 
             CookieLevelSelected = CMS.Helpers.ValidationHelper.GetInteger(cookieAccessor.Get(CookieNames.COOKIE_CONSENT_LEVEL), 1),
 
@@ -115,14 +115,16 @@ public class CookiePreferencesWidgetViewComponent : ViewComponent
     /// </summary>
     /// <param name="currentMapping">A CookieLevelConsentMappingInfo object</param>
     /// <returns>A JSON serialized sting representation of the mapping</returns>
-    private string GetMappingString(CookieLevelConsentMappingInfo currentMapping)
+    private string GetMappingString(CookieLevelConsentMappingInfo? currentMapping)
     {
-        var mapping = new Dictionary<int, string>
-        {
-            { (int)CookieConsentLevel.Preference, currentMapping?.PreferenceConsentCodeName.FirstOrDefault() ?? string.Empty },
-            { (int)CookieConsentLevel.Analytical, currentMapping?.AnalyticalConsentCodeName.FirstOrDefault() ?? string.Empty },
-            { (int)CookieConsentLevel.Marketing, currentMapping?.MarketingConsentCodeName.FirstOrDefault() ?? string.Empty }
-        };
+        var mapping = currentMapping != null
+            ? new Dictionary<int, string>
+            {
+                { (int)CookieConsentLevel.Preference, currentMapping.PreferenceConsentCodeName.FirstOrDefault() ?? string.Empty },
+                { (int)CookieConsentLevel.Analytical, currentMapping.AnalyticalConsentCodeName.FirstOrDefault() ?? string.Empty },
+                { (int)CookieConsentLevel.Marketing, currentMapping.MarketingConsentCodeName.FirstOrDefault() ?? string.Empty }
+            }
+            : [];
 
         return JsonConvert.SerializeObject(mapping).ToString();
     }

@@ -6,7 +6,7 @@ public interface ICookieConsentService
 {
     bool CurrentContactCanBeTracked();
     CookieConsentLevel GetCurrentCookieConsentLevel();
-    Task<CookieLevelConsentMappingInfo> GetCurrentMapping();
+    Task<CookieLevelConsentMappingInfo?> GetCurrentMapping();
     Task<bool> SetCurrentCookieConsentLevel(CookieConsentLevel level, IDictionary<int, string> mapping);
     Task<bool> SetCurrentCookieConsentLevel(CookieConsentLevel level, IEnumerable<string> acceptAllList);
     bool UpdateCookieLevels(CookieConsentLevel level);

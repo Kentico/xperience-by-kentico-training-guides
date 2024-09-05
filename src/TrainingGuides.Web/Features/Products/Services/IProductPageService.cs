@@ -5,12 +5,12 @@ namespace TrainingGuides.Web.Features.Products.Services;
 public interface IProductPageService
 {
     public Task<ProductPageViewModel> GetProductPageViewModel(
-        ProductPage productPage,
+        ProductPage? productPage,
         bool getMedia = true,
         bool getFeatures = true,
         bool getBenefits = true,
-        string? callToAction = "",
-        string? callToActionLink = "",
+        string callToAction = "",
+        string callToActionLink = "",
         bool openInNewTab = true,
         bool getPrice = true);
 }

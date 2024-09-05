@@ -2,5 +2,5 @@
 
 public class HeaderViewModel
 {
-    public string Heading { get; set; }
+    public string Heading { get; set; } = string.Empty;
 }

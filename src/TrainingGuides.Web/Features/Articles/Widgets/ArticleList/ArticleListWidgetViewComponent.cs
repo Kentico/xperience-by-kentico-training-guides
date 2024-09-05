@@ -40,13 +40,13 @@ public class ArticleListWidgetViewComponent : ViewComponent
             CtaText = properties.CtaText,
         };
 
-        if (selectedPageGuid.HasValue)
+        if (selectedPageGuid.HasValue && !Guid.Empty.Equals(selectedPageGuid))
         {
             string selectedPageContentTypeName = await GetWebPageContentTypeName(selectedPageGuid!.Value);
 
-            var parentPage = await genericPageRetrieverService.RetrieveWebPageByGuid((Guid) selectedPageGuid);
+            var parentPage = await genericPageRetrieverService.RetrieveWebPageByGuid((Guid)selectedPageGuid);
 
-            string selectedPagePath = parentPage.SystemFields.WebPageItemTreePath;
+            string selectedPagePath = parentPage?.SystemFields.WebPageItemTreePath ?? string.Empty;
 
             var articlePages = await articlePageRetrieverService.RetrieveWebPageChildrenByPath(
                 selectedPageContentTypeName,

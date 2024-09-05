@@ -16,16 +16,38 @@ public class ArticlePageService : IArticlePageService
     /// </summary>
     /// <param name="articlePage">Corresponding Article page object.</param>
     /// <returns>New instance of ArticlePageViewModel.</returns>
-    public async Task<ArticlePageViewModel> GetArticlePageViewModel(ArticlePage articlePage)
+    public async Task<ArticlePageViewModel> GetArticlePageViewModel(ArticlePage? articlePage)
     {
-        var article = articlePage.ArticlePageContent.FirstOrDefault();
-        var articleTeaserImage = article?.ArticleTeaser.FirstOrDefault();
+        if (articlePage == null)
+        {
+            return new ArticlePageViewModel();
+        }
 
         string articleUrl = (await webPageUrlRetriever.Retrieve(articlePage)).RelativePath;
 
+        var articleSchema = articlePage.ArticlePageArticleContent.FirstOrDefault();
+
+        if (articleSchema != null)
+        {
+            var articleSchemaTeaserImage = articleSchema.ArticleSchemaTeaser.FirstOrDefault();
+
+            return new ArticlePageViewModel
+            {
+                Title = articleSchema.ArticleSchemaTitle,
+                Summary = new HtmlString(articleSchema?.ArticleSchemaSummary),
+                Text = new HtmlString(articleSchema?.ArticleSchemaText),
+                CreatedOn = articlePage.ArticlePagePublishDate,
+                TeaserImage = AssetViewModel.GetViewModel(articleSchemaTeaserImage!),
+                Url = articleUrl
+            };
+        }
+
+        var article = articlePage.ArticlePageContent.FirstOrDefault();
+        var articleTeaserImage = article?.ArticleTeaser.FirstOrDefault();
+
         return new ArticlePageViewModel
         {
-            Title = article?.ArticleTitle,
+            Title = article?.ArticleTitle ?? string.Empty,
             Summary = new HtmlString(article?.ArticleSummary),
             Text = new HtmlString(article?.ArticleText),
             CreatedOn = articlePage.ArticlePagePublishDate,
