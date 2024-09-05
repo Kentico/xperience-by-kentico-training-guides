@@ -9,8 +9,8 @@ namespace TrainingGuides.Web.Features.Shared.Helpers.TagHelpers;
 [HtmlTargetElement("tg-component-style")]
 public class ComponentStyleTagHelper : TagHelper
 {
-    public string? ColorScheme { get; set; }
-    public string? CornerStyle { get; set; }
+    public string ColorScheme { get; set; } = string.Empty;
+    public string CornerStyle { get; set; } = string.Empty;
 
     private const string DIV_TAG = "div";
 
@@ -26,10 +26,10 @@ public class ComponentStyleTagHelper : TagHelper
 
         List<string> cssClasses = [];
 
-        var colorScheme = componentStyleEnumService.GetColorScheme(ColorScheme ?? string.Empty);
+        var colorScheme = componentStyleEnumService.GetColorScheme(ColorScheme);
         cssClasses.AddRange(componentStyleEnumService.GetColorSchemeClasses(colorScheme));
 
-        var cornerStyle = componentStyleEnumService.GetCornerStyle(CornerStyle ?? string.Empty);
+        var cornerStyle = componentStyleEnumService.GetCornerStyle(CornerStyle);
         cssClasses.AddRange(componentStyleEnumService.GetCornerStyleClasses(cornerStyle));
 
         if (cssClasses.Count > 0)

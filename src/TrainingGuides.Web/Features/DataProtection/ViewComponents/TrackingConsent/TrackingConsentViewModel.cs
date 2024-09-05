@@ -5,12 +5,12 @@ public class TrackingConsentViewModel
 {
     public bool CookieAccepted { get; set; }
     public bool IsAgreed { get; set; }
-    public HtmlString CookieHeader { get; set; }
-    public HtmlString CookieMessage { get; set; }
-    public string AcceptMessage { get; set; }
-    public string RedirectUrl { get; set; }
-    public string ConfigureMessage { get; set; }
-    public string ConsentMapping { get; set; }
-    public string BaseUrl { get; set; }
-    public string BaseUrlWithLanguage { get; set; }
+    public HtmlString CookieHeader { get; set; } = HtmlString.Empty;
+    public HtmlString CookieMessage { get; set; } = HtmlString.Empty;
+    public string AcceptMessage { get; set; } = string.Empty;
+    public string RedirectUrl { get; set; } = string.Empty;
+    public string ConfigureMessage { get; set; } = string.Empty;
+    public string ConsentMapping { get; set; } = string.Empty;
+    public string BaseUrl { get; set; } = string.Empty;
+    public string BaseUrlWithLanguage { get; set; } = string.Empty;
 }

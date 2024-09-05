@@ -37,7 +37,7 @@ public class CookiesController : Controller
         }
 
         CookieConsentLevel selectedConsentValue;
-        if (requestModel.CookieLevelSelected > 0 && requestModel.CookieLevelSelected < 5)
+        if (requestModel.CookieLevelSelected is > 0 and < 5)
         {
             selectedConsentValue = (CookieConsentLevel)requestModel.CookieLevelSelected;
         }
@@ -100,24 +100,26 @@ public class CookiesController : Controller
     {
         if (string.IsNullOrEmpty(mappingEncrypted))
         {
-            throw new Exception();
+            throw new Exception("No encrypted string.");
         }
 
         Dictionary<int, string> consentMapping;
 
         try
         {
-            string mapping = stringEncryptionService.DecryptString(mappingEncrypted);
-            consentMapping = JsonConvert.DeserializeObject<Dictionary<int, string>>(mapping);
+            string mappingDecrypted = stringEncryptionService.DecryptString(mappingEncrypted);
+            consentMapping = JsonConvert.DeserializeObject<Dictionary<int, string>>(mappingDecrypted) ?? [];
         }
         catch
         {
-            throw new Exception();
+            throw new Exception("Dictionary can't be decrypted or deserialized.");
         }
 
-        if (!(consentMapping.ContainsKey((int)CookieConsentLevel.Preference) && consentMapping.ContainsKey((int)CookieConsentLevel.Analytical) && consentMapping.ContainsKey((int)CookieConsentLevel.Marketing)))
+        if (!(consentMapping.ContainsKey((int)CookieConsentLevel.Preference)
+            && consentMapping.ContainsKey((int)CookieConsentLevel.Analytical)
+            && consentMapping.ContainsKey((int)CookieConsentLevel.Marketing)))
         {
-            throw new Exception();
+            throw new Exception("Mapping does not contain the required cookie level keys.");
         }
 
         return consentMapping;

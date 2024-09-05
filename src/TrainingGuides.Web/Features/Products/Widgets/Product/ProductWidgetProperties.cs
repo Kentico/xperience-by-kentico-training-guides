@@ -22,7 +22,7 @@ public class ProductWidgetProperties : IWidgetProperties
         Label = "Product page anchor",
         ExplanationText = "If displaying current page, optionally set what page anchor to navigate to when visitor clicks the widget or its call to action link.",
         Order = 20)]
-    public string? PageAnchor { get; set; }
+    public string PageAnchor { get; set; } = string.Empty;
 
     [VisibleIfEqualTo(nameof(Mode), ProductWidgetMode.SELECT_PAGE, StringComparison.OrdinalIgnoreCase)]
     [WebPageSelectorComponent(
@@ -50,7 +50,7 @@ public class ProductWidgetProperties : IWidgetProperties
         Label = "Call to action (CTA) text",
         ExplanationText = "Add a call to action text, e.g., \"Read more\".",
         Order = 70)]
-    public string? CallToAction { get; set; } = string.Empty;
+    public string CallToAction { get; set; } = string.Empty;
 
     [CheckBoxComponent(
         Label = "Open in new tab",
@@ -70,14 +70,14 @@ public class ProductWidgetProperties : IWidgetProperties
         ExplanationText = "Select widget color scheme.",
         DataProviderType = typeof(DropdownEnumOptionProvider<ColorSchemeOption>),
         Order = 100)]
-    public string? ColorScheme { get; set; } = nameof(ColorSchemeOption.Dark1);
+    public string ColorScheme { get; set; } = nameof(ColorSchemeOption.Dark1);
 
     [VisibleIfTrue(nameof(ShowAdvanced))]
     [DropDownComponent(
         Label = "Corner style",
         DataProviderType = typeof(DropdownEnumOptionProvider<CornerStyleOption>),
         Order = 110)]
-    public string? CornerStyle { get; set; } = nameof(CornerStyleOption.Sharp);
+    public string CornerStyle { get; set; } = nameof(CornerStyleOption.Sharp);
 
     [VisibleIfTrue(nameof(ShowAdvanced))]
     [CheckBoxComponent(
@@ -92,14 +92,14 @@ public class ProductWidgetProperties : IWidgetProperties
         ExplanationText = "Select the image position with respect to text.",
         DataProviderType = typeof(DropdownEnumOptionProvider<ImagePositionOption>),
         Order = 130)]
-    public string? ImagePosition { get; set; } = nameof(ImagePositionOption.FullWidth);
+    public string ImagePosition { get; set; } = nameof(ImagePositionOption.FullWidth);
 
     [VisibleIfTrue(nameof(ShowAdvanced))]
     [DropDownComponent(
         Label = "Text alignment",
         DataProviderType = typeof(DropdownEnumOptionProvider<ContentAlignmentOption>),
         Order = 140)]
-    public string? TextAlignment { get; set; } = nameof(ContentAlignmentOption.Left);
+    public string TextAlignment { get; set; } = nameof(ContentAlignmentOption.Left);
 
     [VisibleIfTrue(nameof(ShowAdvanced))]
     [VisibleIfNotEmpty(nameof(CallToAction))]
@@ -107,7 +107,7 @@ public class ProductWidgetProperties : IWidgetProperties
         Label = "CTA button style",
         DataProviderType = typeof(DropdownEnumOptionProvider<LinkStyleOption>),
         Order = 150)]
-    public string? CallToActionStyle { get; set; } = nameof(LinkStyleOption.Medium);
+    public string CallToActionStyle { get; set; } = nameof(LinkStyleOption.Medium);
 }
 
 public enum ImagePositionOption

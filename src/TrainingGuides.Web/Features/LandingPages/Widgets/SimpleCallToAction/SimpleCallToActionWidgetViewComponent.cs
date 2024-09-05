@@ -34,16 +34,16 @@ public class SimpleCallToActionWidgetViewComponent : ViewComponent
     public async Task<ViewViewComponentResult> InvokeAsync(SimpleCallToActionWidgetProperties properties)
     {
 
-        string? targetUrl = properties.TargetContent switch
+        string targetUrl = properties.TargetContent switch
         {
-            nameof(TargetContentOption.Page) => await GetWebPageUrl(properties.TargetContentPage?.FirstOrDefault()!),
+            nameof(TargetContentOption.Page) => await GetWebPageUrl(properties.TargetContentPage?.FirstOrDefault()) ?? string.Empty,
             nameof(TargetContentOption.AbsoluteUrl) => properties.TargetContentAbsoluteUrl,
             _ => string.Empty
         };
 
         var model = new SimpleCallToActionWidgetViewModel()
         {
-            Text = properties?.Text,
+            Text = properties.Text,
             Url = targetUrl,
             OpenInNewTab = properties?.OpenInNewTab ?? false,
         };
@@ -51,7 +51,7 @@ public class SimpleCallToActionWidgetViewComponent : ViewComponent
         return View("~/Features/LandingPages/Widgets/SimpleCallToAction/SimpleCallToACtionWidget.cshtml", model);
     }
 
-    private async Task<string?> GetWebPageUrl(WebPageRelatedItem webPage) =>
+    private async Task<string?> GetWebPageUrl(WebPageRelatedItem? webPage) =>
         webPage != null
         ? (await webPageUrlRetriever.Retrieve(webPage.WebPageGuid, preferredLanguageRetriever.Get()))
             .RelativePath

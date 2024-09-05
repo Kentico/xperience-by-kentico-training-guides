@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentitemcommondata>
+  <ArticleSchemaCategory>
+    <![CDATA[[{"Identifier":"04ab8b7e-f25b-4d3e-9e78-bf319a5f9140"}]]]>
+  </ArticleSchemaCategory>
+  <ArticleSchemaSummary>
+    <![CDATA[Exclusive interview with Little Bo-Peep, a renowned shepherdess known for her unique approach to sheep care.]]>
+  </ArticleSchemaSummary>
+  <ArticleSchemaTeaser>
+    <![CDATA[[{"Identifier":"4e50366d-a316-4ec0-8909-c97868aa7597"}]]]>
+  </ArticleSchemaTeaser>
+  <ArticleSchemaText>
+    <![CDATA[<h2>Q: How did you get started in sheep care?</h2><p>A: I grew up on a farm, and caring for sheep was a part of daily life. I've always felt a special connection with these gentle creatures.</p><h2>Q: What's the most important aspect of sheep care?</h2><p>A: Regular health checks are crucial. Sheep can be prone to certain diseases, so it's important to monitor their health closely.</p><h2>Q: Any advice for those interested in sheep care?</h2><p>A: Patience and love for the animals are key. Sheep are sensitive creatures and respond well to a calm and gentle approach.</p>]]>
+  </ArticleSchemaText>
+  <ArticleSchemaTitle>Sheep care: an interview with Little Bo-Peep</ArticleSchemaTitle>
+  <ContentItemCommonDataContentItemID>
+    <CodeName>SheepCare_AnInterviewWithLittleBo-Peep-igkjtmw8</CodeName>
+    <GUID>e3f18149-b8a4-4965-80c9-e55c255ea0a0</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </ContentItemCommonDataContentItemID>
+  <ContentItemCommonDataContentLanguageID>
+    <CodeName>en</CodeName>
+    <GUID>e81b5172-f240-4041-88b1-653089984e29</GUID>
+    <ObjectType>cms.contentlanguage</ObjectType>
+  </ContentItemCommonDataContentLanguageID>
+  <ContentItemCommonDataFirstPublishedWhen>2024-08-27 13:23:47Z</ContentItemCommonDataFirstPublishedWhen>
+  <ContentItemCommonDataGUID>ccfcc109-5789-4bf9-99e4-904726433c95</ContentItemCommonDataGUID>
+  <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
+  <ContentItemCommonDataLastPublishedWhen>2024-08-27 13:23:47Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
+  <ContentItemReferences>
+    <cms.contentitemreference>
+      <ContentItemReferenceGroupGUID>a66eef38-b296-4172-9f69-dda2e1840fec</ContentItemReferenceGroupGUID>
+      <ContentItemReferenceGUID>7a6b0034-ee7a-45a2-a4ae-b92465001576</ContentItemReferenceGUID>
+      <ContentItemReferenceSourceCommonDataID>
+        <GUID>ccfcc109-5789-4bf9-99e4-904726433c95</GUID>
+        <ObjectType>cms.contentitemcommondata</ObjectType>
+      </ContentItemReferenceSourceCommonDataID>
+      <ContentItemReferenceTargetItemID>
+        <CodeName>Sheep-jjir55m2</CodeName>
+        <GUID>4e50366d-a316-4ec0-8909-c97868aa7597</GUID>
+        <ObjectType>cms.contentitem</ObjectType>
+      </ContentItemReferenceTargetItemID>
+    </cms.contentitemreference>
+  </ContentItemReferences>
+</cms.contentitemcommondata>

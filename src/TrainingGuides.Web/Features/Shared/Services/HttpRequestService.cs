@@ -27,13 +27,17 @@ public class HttpRequestService : IHttpRequestService
         return string.IsNullOrWhiteSpace(pathBase) ? baseUrl : $"{baseUrl}{pathBase}";
     }
 
+    private HttpRequest RetrieveCurrentRequest() => httpContextAccessor?.HttpContext?.Request
+            ?? throw new NullReferenceException("Unable to retrieve current request context.");
+
     /// <summary>
     /// Retrieves Base URL from the current request context.
     /// </summary>
     /// <returns>The base URL. If current request contains language, it will NOT be returned with the base URL.</returns>
+    /// <exception cref="NullReferenceException">Thrown when unable to retrieve current request context.</exception>
     public string GetBaseUrl()
     {
-        var currentRequest = httpContextAccessor?.HttpContext?.Request;
+        var currentRequest = RetrieveCurrentRequest();
         return GetBaseUrl(currentRequest);
     }
 
@@ -43,9 +47,9 @@ public class HttpRequestService : IHttpRequestService
     /// <returns>The base URL in current language variant. (e.g. website.com or website.com/es)</returns>
     public string GetBaseUrlWithLanguage()
     {
-        var currentRequest = httpContextAccessor?.HttpContext?.Request;
-        string language = (string)currentRequest.RouteValues[ApplicationConstants.LANGUAGE_KEY];
-        var webPageUrlPathList = ((string)currentRequest.RouteValues[WEB_PAGE_URL_PATHS])?.Split('/').ToList() ?? [];
+        var currentRequest = RetrieveCurrentRequest();
+        string language = (string?)currentRequest.RouteValues[ApplicationConstants.LANGUAGE_KEY] ?? string.Empty;
+        var webPageUrlPathList = ((string?)currentRequest.RouteValues[WEB_PAGE_URL_PATHS])?.Split('/').ToList() ?? [];
 
         bool notPrimaryLanguage = webPageUrlPathList.Contains(language);
 
@@ -56,7 +60,7 @@ public class HttpRequestService : IHttpRequestService
     }
 
     /// <summary>
-    /// Retrieves URL of the currently displayed page for a spacific language
+    /// Retrieves URL of the currently displayed page for a specific language
     /// </summary>
     /// <param name="language">Two-letter language code (e.g., "es" for Spanish, "en" for English)</param>
     /// <returns>Language specific URL of the current page (e.g. website.com/es/page)</returns>

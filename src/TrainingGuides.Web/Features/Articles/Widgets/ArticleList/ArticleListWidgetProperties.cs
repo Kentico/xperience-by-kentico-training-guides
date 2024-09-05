@@ -13,7 +13,7 @@ public class ArticleListWidgetProperties : IWidgetProperties
         MaximumPages = 1,
         Sortable = true,
         Order = 10)]
-    public IEnumerable<WebPageRelatedItem>? ContentTreeSection { get; set; }
+    public IEnumerable<WebPageRelatedItem> ContentTreeSection { get; set; } = Enumerable.Empty<WebPageRelatedItem>();
 
     [NumberInputComponent(
         Label = "Number of articles to display",
@@ -23,7 +23,7 @@ public class ArticleListWidgetProperties : IWidgetProperties
     [TextInputComponent(
         Label = "CTA text",
         Order = 30)]
-    public string? CtaText { get; set; }
+    public string CtaText { get; set; } = string.Empty;
 
     [DropDownComponent(
         Label = "Order articles by",
@@ -38,5 +38,4 @@ public enum OrderByOption
     NewestFirst,
     [Description("Oldest first")]
     OldestFirst
-
 }

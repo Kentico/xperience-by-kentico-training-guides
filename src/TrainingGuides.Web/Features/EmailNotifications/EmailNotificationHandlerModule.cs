@@ -10,11 +10,10 @@ namespace TrainingGuides.Web.Features.EmailNotifications;
 public class EmailNotificationHandlerModule : Module
 {
 
-    private IEmailNotificationService emailNotificationService;
+    private IEmailNotificationService? emailNotificationService;
 
     public EmailNotificationHandlerModule() : base("EmailNotificationHandler")
-    {
-    }
+    { }
 
     protected override void OnInit(ModuleInitParameters parameters)
     {
@@ -32,6 +31,6 @@ public class EmailNotificationHandlerModule : Module
             return;
         }
 
-        emailNotificationService.SendEmailAsync($"New user created ({user.Email})", $"New user inserted with ID {user.UserID}, email {user.Email}, guid {user.UserGUID}");
+        emailNotificationService?.SendEmailAsync($"New user created ({user.Email})", $"New user inserted with ID {user.UserID}, email {user.Email}, guid {user.UserGUID}");
     }
 }

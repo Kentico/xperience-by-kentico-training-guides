@@ -2,18 +2,14 @@
 
 public class LandingPageViewModel
 {
-    public string? Message { get; set; }
+    public string Message { get; set; } = string.Empty;
 
-    public static LandingPageViewModel GetViewModel(LandingPage landingPage)
-    {
-        if (landingPage == null)
-        {
-            return new LandingPageViewModel();
-        }
-        return new LandingPageViewModel
-        {
-            Message = landingPage.LandingPageContent.FirstOrDefault()?.LandingContentMessage
-        };
-    }
+    public static LandingPageViewModel GetViewModel(LandingPage? landingPage) =>
+        landingPage == null
+            ? new LandingPageViewModel()
+            : new LandingPageViewModel
+            {
+                Message = landingPage.LandingPageContent.FirstOrDefault()?.LandingContentMessage ?? string.Empty
+            };
 }
 

@@ -4,10 +4,10 @@ namespace TrainingGuides.Web.Features.Downloads;
 
 public class DownloadsPageViewModel
 {
-    public string Heading { get; set; }
-    public IEnumerable<AssetViewModel> Assets { get; set; }
+    public string Heading { get; set; } = string.Empty;
+    public IEnumerable<AssetViewModel> Assets { get; set; } = Enumerable.Empty<AssetViewModel>();
 
-    public static DownloadsPageViewModel GetViewModel(DownloadsPage downloadsPage)
+    public static DownloadsPageViewModel GetViewModel(DownloadsPage? downloadsPage)
     {
         if (downloadsPage == null)
         {
@@ -15,8 +15,9 @@ public class DownloadsPageViewModel
         }
         return new DownloadsPageViewModel
         {
-            Heading = downloadsPage.DownloadsPageContent.FirstOrDefault()?.DownloadsHeading,
-            Assets = downloadsPage.DownloadsPageContent.FirstOrDefault()?.DownloadsAssets?.Select(asset => AssetViewModel.GetViewModel(asset))
+            Heading = downloadsPage.DownloadsPageContent.FirstOrDefault()?.DownloadsHeading ?? string.Empty,
+            Assets = downloadsPage.DownloadsPageContent.FirstOrDefault()?.DownloadsAssets?.Select(AssetViewModel.GetViewModel)
+                ?? Enumerable.Empty<AssetViewModel>()
         };
     }
 }

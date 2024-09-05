@@ -2,5 +2,5 @@
 
 public class PageViewModel
 {
-    public LinkViewModel? Link { get; set; }
+    public LinkViewModel Link { get; set; } = new();
 }

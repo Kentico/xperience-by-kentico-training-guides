@@ -31,7 +31,7 @@ public class CallToActionWidgetViewComponent : ViewComponent
 
     public async Task<ViewViewComponentResult> InvokeAsync(CallToActionWidgetProperties properties)
     {
-        string? targetUrl = string.Empty;
+        string targetUrl = string.Empty;
 
         if (properties.Type.Equals("page", StringComparison.InvariantCultureIgnoreCase))
         {
@@ -45,7 +45,7 @@ public class CallToActionWidgetViewComponent : ViewComponent
 
         if (properties.Type.Equals("content", StringComparison.InvariantCultureIgnoreCase))
         {
-            var selectedId = properties?.ContentItem?.Select(i => i.Identifier).ToList().FirstOrDefault();
+            var selectedId = properties.ContentItem?.Select(i => i.Identifier).ToList().FirstOrDefault();
             var selectedItem = selectedId != null
                 ? await contentItemRetrieverService.RetrieveContentItemByGuid(
                     selectedId.Value,
@@ -54,13 +54,13 @@ public class CallToActionWidgetViewComponent : ViewComponent
 
             if (selectedItem != null)
             {
-                targetUrl = selectedItem.AssetFile?.Url;
+                targetUrl = selectedItem.AssetFile?.Url ?? string.Empty;
             }
         }
 
         var model = new CallToActionWidgetViewModel()
         {
-            Identifier = properties.Identifier,
+            Identifier = properties!.Identifier,
             Text = properties.Text,
             Url = targetUrl,
             OpenInNewTab = properties.OpenInNewTab,

@@ -60,7 +60,7 @@ public class ContactDataEraser : IPersonalDataEraser
     private void DeleteSubmittedFormsActivities(ICollection<int> contactIds,
         IDictionary<string, object> configuration)
     {
-        if (configuration.TryGetValue("DeleteSubmittedFormsActivities", out var deleteSubmittedFormsActivities)
+        if (configuration.TryGetValue("DeleteSubmittedFormsActivities", out object? deleteSubmittedFormsActivities)
             && ValidationHelper.GetBoolean(deleteSubmittedFormsActivities, false))
         {
             activityInfoProvider.BulkDelete(new WhereCondition()
@@ -72,7 +72,7 @@ public class ContactDataEraser : IPersonalDataEraser
     private void DeleteSiteSubmittedFormsData(ICollection<string> emails, ICollection<int> contactIDs,
         IDictionary<string, object> configuration)
     {
-        if (configuration.TryGetValue("DeleteSubmittedFormsData", out var deleteSubmittedForms)
+        if (configuration.TryGetValue("DeleteSubmittedFormsData", out object? deleteSubmittedForms)
             && ValidationHelper.GetBoolean(deleteSubmittedForms, false))
         {
             var consentAgreementGuids = consentAgreementInfoProvider.Get()
@@ -100,7 +100,7 @@ public class ContactDataEraser : IPersonalDataEraser
 
     private void DeleteActivities(List<int> contactIds, IDictionary<string, object> configuration)
     {
-        if (configuration.TryGetValue("DeleteActivities", out object deleteActivities)
+        if (configuration.TryGetValue("DeleteActivities", out object? deleteActivities)
             && ValidationHelper.GetBoolean(deleteActivities, false))
         {
             activityInfoProvider.BulkDelete(
@@ -110,10 +110,10 @@ public class ContactDataEraser : IPersonalDataEraser
 
     private void DeleteContacts(IEnumerable<ContactInfo> contacts, IDictionary<string, object> configuration)
     {
-        if (configuration.TryGetValue("DeleteContacts", out object deleteContacts) &&
+        if (configuration.TryGetValue("DeleteContacts", out object? deleteContacts) &&
             ValidationHelper.GetBoolean(deleteContacts, false))
         {
-            foreach (ContactInfo contactInfo in contacts.Where(contact => contact.ContactID > 0))
+            foreach (var contactInfo in contacts.Where(contact => contact.ContactID > 0))
             {
                 contactInfoProvider.Delete(contactInfo);
             }

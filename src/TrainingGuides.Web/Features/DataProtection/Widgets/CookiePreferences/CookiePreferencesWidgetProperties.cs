@@ -11,7 +11,7 @@ public class CookiePreferencesWidgetProperties : IWidgetProperties
     [TextInputComponent(
         Label = "Essential cookie header",
         Order = 10)]
-    public string EssentialHeader { get; set; }
+    public string EssentialHeader { get; set; } = string.Empty;
 
     /// <summary>
     /// Essential cookie description.
@@ -19,7 +19,7 @@ public class CookiePreferencesWidgetProperties : IWidgetProperties
     [TextInputComponent(
         Label = "Essential cookie description",
         Order = 20)]
-    public string EssentialDescription { get; set; }
+    public string EssentialDescription { get; set; } = string.Empty;
 
     /// <summary>
     /// Button text.
@@ -27,5 +27,5 @@ public class CookiePreferencesWidgetProperties : IWidgetProperties
     [TextInputComponent(
         Label = "Button text",
         Order = 30)]
-    public string ButtonText { get; set; }
+    public string ButtonText { get; set; } = string.Empty;
 }

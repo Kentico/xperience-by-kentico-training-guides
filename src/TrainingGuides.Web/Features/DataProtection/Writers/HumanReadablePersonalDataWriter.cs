@@ -36,7 +36,7 @@ public class HumanReadablePersonalDataWriter : IPersonalDataWriter
     private void Indent() => stringBuilder.Append('\t', indentationLevel);
 
     public void WriteBaseInfo(BaseInfo baseInfo, List<CollectedColumn> columns,
-        Func<string, object, object> valueTransformationFunction = null)
+        Func<string, object, object>? valueTransformationFunction = null)
     {
         if (baseInfo == null)
         {

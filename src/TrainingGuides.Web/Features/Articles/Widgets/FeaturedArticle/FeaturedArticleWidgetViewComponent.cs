@@ -1,4 +1,4 @@
-using TrainingGuides.Web.Features.Articles.Widgets.FeaturedNews;
+using TrainingGuides.Web.Features.Articles.Widgets.FeaturedArticle;
 using Kentico.PageBuilder.Web.Mvc;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ViewComponents;
@@ -6,19 +6,19 @@ using TrainingGuides.Web.Features.Shared.Services;
 using TrainingGuides.Web.Features.Articles.Services;
 
 [assembly:
-    RegisterWidget(FeaturedNewsWidgetViewComponent.IDENTIFIER, typeof(FeaturedNewsWidgetViewComponent), "Featured news",
-        typeof(FeaturedNewsWidgetProperties), Description = "Displays the featured news.", IconClass = "icon-ribbon")]
+    RegisterWidget(FeaturedArticleWidgetViewComponent.IDENTIFIER, typeof(FeaturedArticleWidgetViewComponent), "Featured article",
+        typeof(FeaturedArticleWidgetProperties), Description = "Displays a featured article of your choosing.", IconClass = "icon-ribbon")]
 
-namespace TrainingGuides.Web.Features.Articles.Widgets.FeaturedNews;
+namespace TrainingGuides.Web.Features.Articles.Widgets.FeaturedArticle;
 
-public class FeaturedNewsWidgetViewComponent : ViewComponent
+public class FeaturedArticleWidgetViewComponent : ViewComponent
 {
-    public const string IDENTIFIER = "TrainingGuides.FeaturedNewsWidget";
+    public const string IDENTIFIER = "TrainingGuides.FeaturedArticleWidget";
 
     private readonly IContentItemRetrieverService<ArticlePage> articlePageRetrieverService;
     private readonly IArticlePageService articlePageService;
 
-    public FeaturedNewsWidgetViewComponent(
+    public FeaturedArticleWidgetViewComponent(
         IContentItemRetrieverService<ArticlePage> articlePageRetrieverService,
         IArticlePageService articlePageService)
     {
@@ -26,7 +26,7 @@ public class FeaturedNewsWidgetViewComponent : ViewComponent
         this.articlePageService = articlePageService;
     }
 
-    public async Task<ViewViewComponentResult> InvokeAsync(FeaturedNewsWidgetProperties properties)
+    public async Task<ViewViewComponentResult> InvokeAsync(FeaturedArticleWidgetProperties properties)
     {
         var guid = properties.Article?.Select(i => i.WebPageGuid).FirstOrDefault();
         var articlePage = guid.HasValue
@@ -37,12 +37,12 @@ public class FeaturedNewsWidgetViewComponent : ViewComponent
             : null;
 
         var model = articlePage != null
-            ? new FeaturedNewsWidgetViewModel()
+            ? new FeaturedArticleWidgetViewModel()
             {
                 Article = await articlePageService.GetArticlePageViewModel(articlePage)
             }
             : null;
 
-        return View("~/Features/Articles/Widgets/FeaturedNews/FeaturedNewsWidget.cshtml", model);
+        return View("~/Features/Articles/Widgets/FeaturedArticle/FeaturedArticleWidget.cshtml", model);
     }
 }

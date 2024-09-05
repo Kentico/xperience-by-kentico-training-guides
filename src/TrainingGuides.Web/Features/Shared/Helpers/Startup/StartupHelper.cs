@@ -24,7 +24,7 @@ public class StartupHelper
 
             var consent = consentQuery.FirstOrDefault();
 
-            consentCodeName = consent?.MarketingConsentCodeName?.FirstOrDefault();
+            consentCodeName = consent?.MarketingConsentCodeName?.FirstOrDefault() ?? string.Empty;
         }
         catch (DataClassNotFoundException)
         {

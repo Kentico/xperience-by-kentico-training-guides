@@ -14,12 +14,12 @@ public class ProductComparatorWidgetProperties : IWidgetProperties
         Sortable = true,
         ItemModifierType = typeof(ProductComparatorWidgetItemModifier),
         Order = 10)]
-    public IEnumerable<WebPageRelatedItem> Products { get; set; } = null!;
+    public IEnumerable<WebPageRelatedItem> Products { get; set; } = Enumerable.Empty<WebPageRelatedItem>();
 
     [TextInputComponent(
         Label = "Comparator heading",
         Order = 20)]
-    public string ComparatorHeading { get; set; } = null!;
+    public string ComparatorHeading { get; set; } = string.Empty;
 
     [DropDownComponent(
         Label = "Heading type",
@@ -36,7 +36,7 @@ public class ProductComparatorWidgetProperties : IWidgetProperties
     [TextInputComponent(
         Label = "CTA",
         Order = 50)]
-    public string CallToAction { get; set; } = null!;
+    public string CallToAction { get; set; } = string.Empty;
 
     [CheckBoxComponent(
         Label = "Show short description",

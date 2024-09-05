@@ -2,5 +2,5 @@
 
 public class ContactTrackingAllowedViewModel
 {
-    public bool ContactTrackingAllowed { get; set; }
+    public bool ContactTrackingAllowed { get; set; } = false;
 }

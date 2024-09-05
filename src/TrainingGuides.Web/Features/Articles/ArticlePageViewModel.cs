@@ -8,7 +8,7 @@ public class ArticlePageViewModel
     public string Title { get; set; } = string.Empty;
     public HtmlString Summary { get; set; } = HtmlString.Empty;
     public HtmlString Text { get; set; } = HtmlString.Empty;
-    public AssetViewModel TeaserImage { get; set; } = new();
+    public AssetViewModel? TeaserImage { get; set; } = null;
     public DateTime CreatedOn { get; set; }
     public List<ArticlePageViewModel> RelatedNews { get; set; } = [];
     public string Url { get; set; } = string.Empty;

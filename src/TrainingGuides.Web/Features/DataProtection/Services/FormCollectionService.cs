@@ -34,7 +34,7 @@ public class FormCollectionService : IFormCollectionService
 
     private bool IsNotID(XElement fieldElement)
     {
-        string isPK = fieldElement.Attribute("isPK")?.Value;
+        string? isPK = fieldElement.Attribute("isPK")?.Value;
         return !bool.Parse(isPK ?? "false");
     }
 
@@ -43,10 +43,11 @@ public class FormCollectionService : IFormCollectionService
             .Descendants()
             .Where(desc => desc.Name == "fieldcaption")
             .FirstOrDefault()?
-            .Value;
+            .Value
+        ?? string.Empty;
 
     /// <summary>
-    /// Gets infromation about all forms in the database, including which of the form's fields are email fields
+    /// Gets information about all forms in the database, including which of the form's fields are email fields
     /// </summary>
     /// <returns>A <see cref="Dictionary{TKey, TValue}"/> mapping a form's <see cref="Guid"/> to a <see cref="FormDefinition"/>, which specifies the form's email fields and non-email fields.</returns>
     public Dictionary<Guid, FormDefinition> GetForms()
@@ -69,24 +70,30 @@ public class FormCollectionService : IFormCollectionService
 
                 //gets lowercase names of fields mapped to contact email (there should be only one unless they mess with the database directly)
                 mappedEmailFields = contactMapping?.Elements()
-                .Where(child => child.Attribute("column")?.Value == "ContactEmail").Select(field => field.Attribute("mappedtofield")?.Value);
+                    .Where(field => field.Attribute("column")?.Value == "ContactEmail")
+                    .Select(field => field.Attribute("mappedtofield")?.Value ?? string.Empty)
+                ?? [];
             }
 
             var formDefinition = XElement.Parse(dataClassInfo.ClassFormDefinition);
 
-            //gets all form fields which are either mapped to the ContactEmail colun, or which use the Kentico.EmailInput form control
+            //gets all form fields which are either mapped to the ContactEmail column, or which use the Kentico.EmailInput form control
             var emailFields = formDefinition?.Elements()
-                .Where(child => IsField(child) && (IsInList(child, mappedEmailFields) || UsesComponent(child, "Kentico.EmailInput")));
+                .Where(element => IsField(element) && (IsInList(element, mappedEmailFields) || UsesComponent(element, "Kentico.EmailInput"))) ?? [];
 
             //gets the remaining fields
             var otherFields = formDefinition?.Elements()
-                .Where(child => IsField(child) && IsNotInCollection(child, emailFields) && IsNotID(child));
+                .Where(element => IsField(element) && IsNotInCollection(element, emailFields) && IsNotID(element)) ?? [];
 
             result.Add(
                 bizForm.FormGUID,
                 new FormDefinition(
-                    emailFields.Select(element => element.Attribute("column")?.Value).ToList(),
-                    otherFields.Select(element => new CollectedColumn(element.Attribute("column")?.Value, GetCaption(element))).ToList()
+                    emailFields
+                        .Select(element => element.Attribute("column")?.Value ?? string.Empty)
+                        .ToList(),
+                    otherFields
+                        .Select(element => new CollectedColumn(element.Attribute("column")?.Value ?? string.Empty, GetCaption(element)))
+                        .ToList()
                     )
                 );
         }

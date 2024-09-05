@@ -6,14 +6,14 @@ namespace TrainingGuides.Web.Features.Shared.OptionProviders.Heading;
 public class HeadingTagHelper : TagHelper
 {
     [HtmlAttributeName("headingType")]
-    public string? HeadingType { get; set; }
+    public string HeadingType { get; set; } = string.Empty;
 
     [HtmlAttributeName("headingTypeDefault")]
     public HeadingTypeOption HeadingTypeDefault { get; set; }
 
     public override void Process(TagHelperContext context, TagHelperOutput output)
     {
-        var headingType = new DropdownEnumOptionProvider<HeadingTypeOption>().Parse(HeadingType ?? string.Empty, HeadingTypeDefault);
+        var headingType = new DropdownEnumOptionProvider<HeadingTypeOption>().Parse(string.Empty, HeadingTypeDefault);
         output.TagName = GetSafeTagText(headingType);
     }
 

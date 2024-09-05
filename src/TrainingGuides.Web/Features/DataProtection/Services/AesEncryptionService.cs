@@ -4,26 +4,27 @@ namespace TrainingGuides.Web.Features.DataProtection.Services;
 
 public class AesEncryptionService : IStringEncryptionService
 {
-    private readonly IConfiguration configuration;
     private readonly string key;
     private readonly string iv;
 
     public AesEncryptionService(IConfiguration configuration)
     {
-        this.configuration = configuration;
-        key = this.configuration["AesEncryptionKey"];
-        iv = this.configuration["AesEncryptionIv"];
+        key = configuration["AesEncryptionKey"] ?? string.Empty;
+        iv = configuration["AesEncryptionIv"] ?? string.Empty;
     }
 
-
     /// <summary>
-    /// Encryptes the provided string using Aes
+    /// Encrypts the provided string using Aes
     /// </summary>
     /// <param name="plainText">The string to be encrypted</param>
     /// <returns>An encrypted string</returns>
     /// <remarks>Relies on AesEncryptionKey and AesEncryptionIV in appsettings.json</remarks>
+    /// <exception cref="ArgumentException">Thrown when AesEncryptionKey or AesEncryptionIV are not set in appsettings.json</exception>
     public string EncryptString(string plainText)
     {
+        if (string.IsNullOrEmpty(key) || string.IsNullOrEmpty(iv))
+            throw new ArgumentException("AesEncryptionKey and AesEncryptionIV must be set in appsettings.json");
+
         if (string.IsNullOrEmpty(plainText))
             return plainText;
 
@@ -68,7 +69,7 @@ public class AesEncryptionService : IStringEncryptionService
 
         // Declare the string used to hold
         // the decrypted text.
-        string plaintext = null;
+        string plaintext = string.Empty;
 
         // Create an Aes object
         // with the specified key and IV.

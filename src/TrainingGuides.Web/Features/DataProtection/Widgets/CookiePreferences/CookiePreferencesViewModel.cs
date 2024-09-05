@@ -4,5 +4,5 @@ public class CookiePreferencesViewModel
 {
     public int CookieLevelSelected { get; set; }
 
-    public string ConsentMapping { get; set; }
+    public string ConsentMapping { get; set; } = string.Empty;
 }

@@ -1,8 +1,8 @@
 using TrainingGuides.Web.Features.Shared.Models;
 
-namespace TrainingGuides.Web.Features.Articles.Widgets.FeaturedNews;
+namespace TrainingGuides.Web.Features.Articles.Widgets.FeaturedArticle;
 
-public class FeaturedNewsWidgetViewModel : WidgetViewModel
+public class FeaturedArticleWidgetViewModel : WidgetViewModel
 {
     public ArticlePageViewModel? Article { get; set; }
 

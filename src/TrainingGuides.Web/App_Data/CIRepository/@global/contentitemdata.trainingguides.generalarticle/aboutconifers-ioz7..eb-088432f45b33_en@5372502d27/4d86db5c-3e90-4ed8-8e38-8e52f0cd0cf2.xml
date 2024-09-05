@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.generalarticle>
+  <ContentItemDataCommonDataID>
+    <GUID>801d99b6-dcb5-4f7e-a6eb-088432f45b33</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>AboutConifers-ioz7lmio</CodeName>
+      <GUID>d829d7bc-7228-4962-aa63-12e0cc74773f</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>4d86db5c-3e90-4ed8-8e38-8e52f0cd0cf2</ContentItemDataGUID>
+</contentitemdata.trainingguides.generalarticle>

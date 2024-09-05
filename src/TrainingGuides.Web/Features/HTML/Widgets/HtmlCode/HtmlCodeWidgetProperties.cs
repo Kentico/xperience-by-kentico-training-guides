@@ -8,7 +8,7 @@ public class HtmlCodeWidgetProperties : IWidgetProperties
     [TextAreaComponent(
         Label = "Code", MinRowsNumber = 10,
         Order = 10)]
-    public string Code { get; set; } = null!;
+    public string Code { get; set; } = string.Empty;
 
     [CheckBoxComponent(
         Label = "Insert to page <head>",

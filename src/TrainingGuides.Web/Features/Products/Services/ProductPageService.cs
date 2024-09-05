@@ -18,7 +18,7 @@ public class ProductPageService : IProductPageService
     /// <param name="productPage">Corresponding Product page object.</param>
     /// <returns>New instance of ProductPageViewModel.</returns>
     public async Task<ProductPageViewModel> GetProductPageViewModel(
-        ProductPage productPage,
+        ProductPage? productPage,
         bool getMedia = true,
         bool getFeatures = true,
         bool getBenefits = true,

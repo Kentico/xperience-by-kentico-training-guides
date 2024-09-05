@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.interview>
+  <ContentItemDataCommonDataID>
+    <GUID>ccfcc109-5789-4bf9-99e4-904726433c95</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>SheepCare_AnInterviewWithLittleBo-Peep-igkjtmw8</CodeName>
+      <GUID>e3f18149-b8a4-4965-80c9-e55c255ea0a0</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>509bc03a-22a3-4e8c-a242-bedabbc88bf0</ContentItemDataGUID>
+  <InterviewRespondantName>Little Bo-Peep</InterviewRespondantName>
+</contentitemdata.trainingguides.interview>
