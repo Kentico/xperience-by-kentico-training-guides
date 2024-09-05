@@ -17,7 +17,7 @@ public class ArticlePageViewModelTests
     }
 
     [Fact]
-    public void ViewModel_TitleInitialized()
+    public void ViewModel_Initialized_TitleIsEmpty()
     {
         ArticlePageViewModel referenceViewModel = new()
         {
@@ -32,9 +32,9 @@ public class ArticlePageViewModelTests
     }
 
     [Fact]
-    public void ViewModel_TeaserNotNull()
+    public void ViewModel_Initialized_TeaserIsNull()
     {
-        Assert.NotNull(viewModel.TeaserImage);
-        output.WriteLine("teaser not null.");
+        Assert.Null(viewModel.TeaserImage);
+        output.WriteLine("Teaser is null.");
     }
 }

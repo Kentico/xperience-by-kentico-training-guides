@@ -23,8 +23,7 @@ public class ArticlePageService : IArticlePageService
             return new ArticlePageViewModel();
         }
 
-        var x = await webPageUrlRetriever.Retrieve(articlePage);
-        var articleUrl = x.RelativePath;
+        string articleUrl = (await webPageUrlRetriever.Retrieve(articlePage)).RelativePath;
 
         var articleSchema = articlePage.ArticlePageArticleContent.FirstOrDefault();
 
