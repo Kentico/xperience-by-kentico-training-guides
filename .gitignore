@@ -364,3 +364,4 @@ MigrationBackup/
 FodyWeavers.xsd
 src/TrainingGuides.Web/.config/dotnet-tools.json
 src/TrainingGuides.Web/License/
+.vscode/settings.json

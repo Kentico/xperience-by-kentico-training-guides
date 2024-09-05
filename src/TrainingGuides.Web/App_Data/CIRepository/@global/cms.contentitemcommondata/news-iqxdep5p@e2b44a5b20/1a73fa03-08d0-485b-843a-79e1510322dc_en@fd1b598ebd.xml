@@ -12,12 +12,25 @@
   </ContentItemCommonDataContentLanguageID>
   <ContentItemCommonDataGUID>1a73fa03-08d0-485b-843a-79e1510322dc</ContentItemCommonDataGUID>
   <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
-  <ContentItemCommonDataLastPublishedWhen>2024-02-15 23:07:22Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataLastPublishedWhen>2024-08-26 19:44:43Z</ContentItemCommonDataLastPublishedWhen>
   <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
   <ContentItemReferences>
     <cms.contentitemreference>
+      <ContentItemReferenceGroupGUID>51ebb9a1-0d3b-4b01-870d-b3fd70133d96</ContentItemReferenceGroupGUID>
+      <ContentItemReferenceGUID>9102d67f-47d8-4dc6-87fe-38609b2293c4</ContentItemReferenceGUID>
+      <ContentItemReferenceSourceCommonDataID>
+        <GUID>1a73fa03-08d0-485b-843a-79e1510322dc</GUID>
+        <ObjectType>cms.contentitemcommondata</ObjectType>
+      </ContentItemReferenceSourceCommonDataID>
+      <ContentItemReferenceTargetItemID>
+        <CodeName>Cat-t8ar0wa4</CodeName>
+        <GUID>81ef9c03-36f9-46d5-b46d-93da73716a96</GUID>
+        <ObjectType>cms.contentitem</ObjectType>
+      </ContentItemReferenceTargetItemID>
+    </cms.contentitemreference>
+    <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>c7b231b7-871f-4d94-8647-f9ecc578420a</ContentItemReferenceGroupGUID>
-      <ContentItemReferenceGUID>66e4e184-9d4a-45aa-a9b3-518e7b93e729</ContentItemReferenceGUID>
+      <ContentItemReferenceGUID>0d618f8d-6685-4819-9977-56e4cabbf3a3</ContentItemReferenceGUID>
       <ContentItemReferenceSourceCommonDataID>
         <GUID>1a73fa03-08d0-485b-843a-79e1510322dc</GUID>
         <ObjectType>cms.contentitemcommondata</ObjectType>

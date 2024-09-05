@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentitemcommondata>
+  <ArticleSchemaCategory>
+    <![CDATA[[{"Identifier":"34ebdcf5-20d6-4ecc-90e6-fc150dd5b36f"}]]]>
+  </ArticleSchemaCategory>
+  <ArticleSchemaSummary>Information about coniferous trees</ArticleSchemaSummary>
+  <ArticleSchemaTeaser>
+    <![CDATA[[{"Identifier":"0886d8a4-9c55-44a4-90f2-6346c878beed"}]]]>
+  </ArticleSchemaTeaser>
+  <ArticleSchemaText>
+    <![CDATA[<p id="isPasted">Coniferous trees are a unique group of gymnosperms, characterized by their cone-bearing seed structures and needle-like leaves. They are predominantly evergreen, maintaining their foliage throughout the year. Conifers are found across the globe, particularly in cooler temperate and boreal regions, where they form vast forests that are critical to the planet's carbon cycle.</p><p>Species such as pines, firs, spruces, and cedars fall under this category. These trees are known for their resilience, able to thrive in a variety of soil types and withstand harsh weather conditions. Their wood is widely used in construction and paper production due to its strength and density.</p><p>Coniferous forests play a vital role in biodiversity, providing habitat for a wide range of wildlife. They also have cultural significance, with many traditions and folklore centered around these majestic trees. From the towering sequoias of North America to the aromatic junipers of the Mediterranean, coniferous trees are a fascinating and essential part of our global ecosystem.</p>]]>
+  </ArticleSchemaText>
+  <ArticleSchemaTitle>About conifers</ArticleSchemaTitle>
+  <ContentItemCommonDataContentItemID>
+    <CodeName>AboutConifers-ioz7lmio</CodeName>
+    <GUID>d829d7bc-7228-4962-aa63-12e0cc74773f</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </ContentItemCommonDataContentItemID>
+  <ContentItemCommonDataContentLanguageID>
+    <CodeName>en</CodeName>
+    <GUID>e81b5172-f240-4041-88b1-653089984e29</GUID>
+    <ObjectType>cms.contentlanguage</ObjectType>
+  </ContentItemCommonDataContentLanguageID>
+  <ContentItemCommonDataFirstPublishedWhen>2024-08-27 14:59:48Z</ContentItemCommonDataFirstPublishedWhen>
+  <ContentItemCommonDataGUID>801d99b6-dcb5-4f7e-a6eb-088432f45b33</ContentItemCommonDataGUID>
+  <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
+  <ContentItemCommonDataLastPublishedWhen>2024-08-27 14:59:48Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
+  <ContentItemReferences>
+    <cms.contentitemreference>
+      <ContentItemReferenceGroupGUID>a66eef38-b296-4172-9f69-dda2e1840fec</ContentItemReferenceGroupGUID>
+      <ContentItemReferenceGUID>a89afb2b-11dd-4aad-ad51-1b370c0cd397</ContentItemReferenceGUID>
+      <ContentItemReferenceSourceCommonDataID>
+        <GUID>801d99b6-dcb5-4f7e-a6eb-088432f45b33</GUID>
+        <ObjectType>cms.contentitemcommondata</ObjectType>
+      </ContentItemReferenceSourceCommonDataID>
+      <ContentItemReferenceTargetItemID>
+        <CodeName>ConiferousTrees-rr3h62nr</CodeName>
+        <GUID>0886d8a4-9c55-44a4-90f2-6346c878beed</GUID>
+        <ObjectType>cms.contentitem</ObjectType>
+      </ContentItemReferenceTargetItemID>
+    </cms.contentitemreference>
+  </ContentItemReferences>
+</cms.contentitemcommondata>

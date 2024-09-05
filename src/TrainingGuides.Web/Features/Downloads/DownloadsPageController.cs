@@ -12,19 +12,19 @@ using TrainingGuides.Web.Features.Shared.Services;
 namespace TrainingGuides.Web.Features.Downloads;
 public class DownloadsPageController : Controller
 {
-    private readonly IWebPageDataContextRetriever webPageDataContextRetriver;
+    private readonly IWebPageDataContextRetriever webPageDataContextRetriever;
     private readonly IContentItemRetrieverService<DownloadsPage> contentItemRetriever;
 
-    public DownloadsPageController(IWebPageDataContextRetriever webPageDataContextRetriver,
+    public DownloadsPageController(IWebPageDataContextRetriever webPageDataContextRetriever,
         IContentItemRetrieverService<DownloadsPage> contentItemRetriever)
     {
-        this.webPageDataContextRetriver = webPageDataContextRetriver;
+        this.webPageDataContextRetriever = webPageDataContextRetriever;
         this.contentItemRetriever = contentItemRetriever;
     }
 
     public async Task<IActionResult> Index()
     {
-        var context = webPageDataContextRetriver.Retrieve();
+        var context = webPageDataContextRetriever.Retrieve();
 
         var downloadsPage = await contentItemRetriever.RetrieveWebPageById(
             context.WebPage.WebPageItemID,

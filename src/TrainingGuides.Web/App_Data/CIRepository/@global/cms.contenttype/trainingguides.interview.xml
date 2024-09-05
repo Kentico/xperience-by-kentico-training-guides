@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contenttype>
+  <ClassContentTypeType>Reusable</ClassContentTypeType>
+  <ClassDisplayName>Article (interview)</ClassDisplayName>
+  <ClassFormDefinition>
+    <form>
+      <field column="ContentItemDataID" columntype="integer" enabled="true" guid="a8303487-5e89-4544-8882-b93a6fede8e3" isPK="true" />
+      <field column="ContentItemDataCommonDataID" columntype="integer" enabled="true" guid="64d59893-b974-4efb-b7af-542d5934ed87" refobjtype="cms.contentitemcommondata" reftype="Required" system="true" />
+      <field column="ContentItemDataGUID" columntype="guid" enabled="true" guid="61c0c094-83fd-4d39-8849-2a48d26cb1be" isunique="true" system="true" />
+      <schema guid="c3b4896f-ba7c-4b75-9cd4-47afa7489ff1" name="c3b4896f-ba7c-4b75-9cd4-47afa7489ff1">
+        <properties />
+      </schema>
+      <field column="InterviewRespondantName" columnprecision="0" columnsize="200" columntype="text" enabled="true" guid="ac44aca7-5682-46e2-8c55-dd0c0c75a152" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Name of the interview respondant</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.TextInput</controlname>
+        </settings>
+      </field>
+    </form>
+  </ClassFormDefinition>
+  <ClassGUID>da713409-64bd-4bdd-bf21-3ec8294ab1b6</ClassGUID>
+  <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
+  <ClassIconClass>xp-bubble</ClassIconClass>
+  <ClassName>TrainingGuides.Interview</ClassName>
+  <ClassShortName>TrainingGuidesInterview</ClassShortName>
+  <ClassTableName>TrainingGuides_Interview</ClassTableName>
+  <ClassType>Content</ClassType>
+  <ClassWebPageHasUrl>False</ClassWebPageHasUrl>
+</cms.contenttype>

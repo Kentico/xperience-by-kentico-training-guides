@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.article>
+  <ArticleRelatedArticles>
+    <![CDATA[[{"Identifier":"65e38d4a-5957-46cd-9267-3d612f8f9dc8"},{"Identifier":"89ae27da-cd71-48f3-9a49-df9680ea98f9"}]]]>
+  </ArticleRelatedArticles>
+  <ArticleSummary>
+    <![CDATA[Birds felis bibendum ut tristique et egestas quis ipsum suspendisse. Accumsan in nisl nisi scelerisque. At tempor commodo ullamcorper a lacus vestibulum sed.]]>
+  </ArticleSummary>
+  <ArticleTeaser>
+    <![CDATA[[{"Identifier":"b35b01ec-efda-4d54-a0ab-98e0b8987da4"}]]]>
+  </ArticleTeaser>
+  <ArticleText>
+    <![CDATA[<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Cras semper auctor neque vitae tempus quam pellentesque nec nam. Ultricies mi quis hendrerit dolor magna eget est lorem ipsum. Sit amet venenatis urna cursus. Hac habitasse platea dictumst vestibulum rhoncus. Ut tortor pretium viverra suspendisse. Egestas pretium aenean pharetra magna. Lectus quam id leo in vitae turpis massa sed elementum. Gravida rutrum quisque non tellus. Senectus et netus et malesuada fames ac turpis. Condimentum id venenatis a condimentum. Integer quis auctor elit sed vulputate mi sit amet mauris.&nbsp;</p>]]>
+  </ArticleText>
+  <ArticleTitle>Birds</ArticleTitle>
+  <ContentItemDataCommonDataID>
+    <GUID>1077f580-0aff-42e6-807f-4b8f813ef23a</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>AboutBirds-mhz679ij</CodeName>
+      <GUID>018c60ab-7808-48fa-80c9-e59420d02e32</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>22baeaf2-a5bd-4a2b-8403-4fcf19abee6e</ContentItemDataGUID>
+</contentitemdata.trainingguides.article>
