@@ -99,27 +99,28 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
     public async Task<IEnumerable<T>> RetrieveWebPageChildrenByPath(
         string parentPageContentTypeName,
         string parentPagePath,
-        int depth = 1)
-    {
-        var builder = new ContentItemQueryBuilder()
-                            .ForContentType(
-                                parentPageContentTypeName,
-                                config => config
-                                    .ForWebsite(webSiteChannelContext.WebsiteChannelName, [PathMatch.Children(parentPagePath)])
-                                    .WithLinkedItems(depth))
-                            .InLanguage(preferredLanguageRetriever.Get());
+        int depth = 1) => await RetrieveWebPageChildrenByPath(parentPageContentTypeName, parentPagePath, null, depth);
 
-        var queryExecutorOptions = new ContentQueryExecutionOptions
-        {
-            ForPreview = webSiteChannelContext.IsPreview
-        };
-
-        var pages = await contentQueryExecutor.GetMappedWebPageResult<T>(builder, queryExecutorOptions);
-
-        return pages;
-    }
-
-
+    /// <summary>
+    /// Retrieves child pages of a given web page that are linked to specific content items, specified by list of reference IDs.
+    /// </summary>
+    /// <param name="parentPageContentTypeName">Content type of the parent page</param>
+    /// <param name="parentPagePath">Path of the parent page</param>
+    /// <param name="referenceFieldName">The page field name that contains the reference</param>
+    /// <param name="referenceIds">Enumerable of IDs of content items</param>
+    /// <param name="depth">The maximum level of recursively linked content items that should be included in the results. Default value is 1.</param>
+    /// <returns></returns>
+    public async Task<IEnumerable<T>> RetrieveWebPageChildrenByPathAndReference(
+        string parentPageContentTypeName,
+        string parentPagePath,
+        string referenceFieldName,
+        IEnumerable<int> referenceIds,
+        int depth = 1
+    ) => await RetrieveWebPageChildrenByPath(
+            parentPageContentTypeName,
+            parentPagePath,
+            config => config.Linking(referenceFieldName, referenceIds),
+            depth);
 
     /// <summary>
     /// Retrieves Web page content item by Id using ContentItemQueryBuilder
@@ -127,7 +128,7 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
     /// <param name="contentItemGuid">The Guid of the reusable content item.</param>
     /// <param name="contentTypeName">Content type name of the Web page.</param>
     /// <param name="depth">The maximum level of recursively linked content items that should be included in the results. Default value is 1.</param>
-    /// <returns>A Web page content item of specified type, with the specifiied Id</returns>
+    /// <returns>A Web page content item of specified type, with the specified Id</returns>
     public async Task<T?> RetrieveContentItemByGuid(
         Guid contentItemGuid,
         string contentTypeName,
@@ -142,7 +143,7 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
     }
 
     /// <summary>
-    /// Retrievesreusable content items using ContentItemQueryBuilder
+    /// Retrieves reusable content items using ContentItemQueryBuilder
     /// </summary>
     /// <param name="contentTypeName">Content type name of the reusable item.</param>
     /// <param name="queryFilter">A delegate used to configure query for given contentTypeName</param>
@@ -167,6 +168,38 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
 
         return items;
     }
+
+    private async Task<IEnumerable<T>> RetrieveWebPageChildrenByPath(
+        string parentPageContentTypeName,
+        string parentPagePath,
+        Action<ContentTypeQueryParameters>? customContentTypeQueryParameters,
+        int depth = 1)
+    {
+        Action<ContentTypeQueryParameters> contentQueryParameters = customContentTypeQueryParameters != null
+            ? config => customContentTypeQueryParameters(config
+                .ForWebsite(webSiteChannelContext.WebsiteChannelName, [PathMatch.Children(parentPagePath)])
+                .WithLinkedItems(depth)
+            )
+            : config => config
+                .ForWebsite(webSiteChannelContext.WebsiteChannelName, [PathMatch.Children(parentPagePath)])
+                .WithLinkedItems(depth);
+
+        var builder = new ContentItemQueryBuilder()
+                            .ForContentType(
+                                parentPageContentTypeName,
+                                contentQueryParameters
+                                )
+                            .InLanguage(preferredLanguageRetriever.Get());
+
+        var queryExecutorOptions = new ContentQueryExecutionOptions
+        {
+            ForPreview = webSiteChannelContext.IsPreview
+        };
+
+        var pages = await contentQueryExecutor.GetMappedWebPageResult<T>(builder, queryExecutorOptions);
+
+        return pages;
+    }
 }
 
 
@@ -182,6 +215,41 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
         this.contentQueryExecutor = contentQueryExecutor;
         this.websiteChannelContext = websiteChannelContext;
     }
+
+    private async Task<IEnumerable<IContentItemFieldsSource>> RetrieveContentItems(Action<ContentQueryParameters> contentQueryParameters,
+        Action<ContentTypesQueryParameters> contentTypesQueryParameters)
+    {
+        var builder = new ContentItemQueryBuilder();
+
+        builder.ForContentTypes(contentTypesQueryParameters)
+            .Parameters(contentQueryParameters);
+
+        return await contentQueryExecutor.GetMappedResult<IContentItemFieldsSource>(builder);
+    }
+
+    /// <summary>
+    /// Retrieves reusable content items based on the provided reusable field schema name, further filtering by the provided content query parameters.
+    /// </summary>
+    /// <param name="schemaName">The name of the reusable field schema</param>
+    /// <param name="contentQueryParameters">Content query filter</param>
+    /// <returns>Enumerable list of content items</returns>
+    private async Task<IEnumerable<IContentItemFieldsSource>> RetrieveContentItemsBySchema(string schemaName, Action<ContentQueryParameters> contentQueryParameters) =>
+        await RetrieveContentItems(contentQueryParameters, contentTypesQueryParameters =>
+                {
+                    contentTypesQueryParameters.OfReusableSchema(schemaName);
+                });
+
+    /// <summary>
+    /// Retrieves content items based on the provided schema name and tag guids.
+    /// </summary>
+    /// <param name="schemaName">The name of the reusable field schema</param>
+    /// <param name="taxonomyColumnName">The name of the column that holds the taxonomy value</param>
+    /// <param name="tagGuids">Guids of tags to filter the output by</param>
+    /// <returns>Enumerable list of content items</returns>
+    public async Task<IEnumerable<IContentItemFieldsSource>> RetrieveContentItemsBySchemaAndTags(string schemaName, string taxonomyColumnName, IEnumerable<Guid> tagGuids) =>
+        await RetrieveContentItemsBySchema(
+            schemaName,
+            parameters => parameters.Where(where => where.WhereContainsTags(taxonomyColumnName, tagGuids)));
 
     private async Task<IEnumerable<IWebPageFieldsSource>> RetrieveWebPages(Action<ContentQueryParameters> parameters)
     {

@@ -1,4 +1,5 @@
 using System.ComponentModel;
+using CMS.ContentEngine;
 using Kentico.PageBuilder.Web.Mvc;
 using Kentico.Xperience.Admin.Base.FormAnnotations;
 using Kentico.Xperience.Admin.Websites.FormAnnotations;
@@ -14,6 +15,13 @@ public class ArticleListWidgetProperties : IWidgetProperties
         Sortable = true,
         Order = 10)]
     public IEnumerable<WebPageRelatedItem> ContentTreeSection { get; set; } = Enumerable.Empty<WebPageRelatedItem>();
+
+    [TagSelectorComponent(
+        "ArticleCategory",
+        Label = "Filter to categories",
+        ExplanationText = "Select 0, 1 or more Article Type tags. Shows all if none are selected",
+        Order = 15)]
+    public IEnumerable<TagReference> Tags { get; set; } = Enumerable.Empty<TagReference>();
 
     [NumberInputComponent(
         Label = "Number of articles to display",
