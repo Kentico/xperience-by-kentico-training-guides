@@ -13,8 +13,7 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
     public ContentItemRetrieverService(
         IContentQueryExecutor contentQueryExecutor,
         IWebsiteChannelContext webSiteChannelContext,
-        IPreferredLanguageRetriever preferredLanguageRetriever
-        )
+        IPreferredLanguageRetriever preferredLanguageRetriever)
     {
         this.contentQueryExecutor = contentQueryExecutor;
         this.webSiteChannelContext = webSiteChannelContext;
@@ -35,7 +34,7 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
         int depth = 1)
     {
         var pages = await RetrieveWebPageContentItems(
-                contentTypeName ?? string.Empty,
+                contentTypeName,
                 config => config
                     .Where(where => where.WhereEquals(nameof(WebPageFields.WebPageItemID), webPageItemId))
                     .WithLinkedItems(depth));
@@ -100,27 +99,28 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
     public async Task<IEnumerable<T>> RetrieveWebPageChildrenByPath(
         string parentPageContentTypeName,
         string parentPagePath,
-        int depth = 1)
-    {
-        var builder = new ContentItemQueryBuilder()
-                            .ForContentType(
-                                parentPageContentTypeName,
-                                config => config
-                                    .ForWebsite(webSiteChannelContext.WebsiteChannelName, [PathMatch.Children(parentPagePath)])
-                                    .WithLinkedItems(depth))
-                            .InLanguage(preferredLanguageRetriever.Get());
+        int depth = 1) => await RetrieveWebPageChildrenByPath(parentPageContentTypeName, parentPagePath, null, depth);
 
-        var queryExecutorOptions = new ContentQueryExecutionOptions
-        {
-            ForPreview = webSiteChannelContext.IsPreview
-        };
-
-        var pages = await contentQueryExecutor.GetMappedWebPageResult<T>(builder, queryExecutorOptions);
-
-        return pages;
-    }
-
-
+    /// <summary>
+    /// Retrieves child pages of a given web page that are linked to specific content items, specified by list of reference IDs.
+    /// </summary>
+    /// <param name="parentPageContentTypeName">Content type of the parent page</param>
+    /// <param name="parentPagePath">Path of the parent page</param>
+    /// <param name="referenceFieldName">The page field name that contains the reference</param>
+    /// <param name="referenceIds">Enumerable of IDs of content items</param>
+    /// <param name="depth">The maximum level of recursively linked content items that should be included in the results. Default value is 1.</param>
+    /// <returns></returns>
+    public async Task<IEnumerable<T>> RetrieveWebPageChildrenByPathAndReference(
+        string parentPageContentTypeName,
+        string parentPagePath,
+        string referenceFieldName,
+        IEnumerable<int> referenceIds,
+        int depth = 1
+    ) => await RetrieveWebPageChildrenByPath(
+            parentPageContentTypeName,
+            parentPagePath,
+            config => config.Linking(referenceFieldName, referenceIds),
+            depth);
 
     /// <summary>
     /// Retrieves Web page content item by Id using ContentItemQueryBuilder
@@ -128,7 +128,7 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
     /// <param name="contentItemGuid">The Guid of the reusable content item.</param>
     /// <param name="contentTypeName">Content type name of the Web page.</param>
     /// <param name="depth">The maximum level of recursively linked content items that should be included in the results. Default value is 1.</param>
-    /// <returns>A Web page content item of specified type, with the specifiied Id</returns>
+    /// <returns>A Web page content item of specified type, with the specified Id</returns>
     public async Task<T?> RetrieveContentItemByGuid(
         Guid contentItemGuid,
         string contentTypeName,
@@ -143,7 +143,7 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
     }
 
     /// <summary>
-    /// Retrievesreusable content items using ContentItemQueryBuilder
+    /// Retrieves reusable content items using ContentItemQueryBuilder
     /// </summary>
     /// <param name="contentTypeName">Content type name of the reusable item.</param>
     /// <param name="queryFilter">A delegate used to configure query for given contentTypeName</param>
@@ -168,6 +168,38 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
 
         return items;
     }
+
+    private async Task<IEnumerable<T>> RetrieveWebPageChildrenByPath(
+        string parentPageContentTypeName,
+        string parentPagePath,
+        Action<ContentTypeQueryParameters>? customContentTypeQueryParameters,
+        int depth = 1)
+    {
+        Action<ContentTypeQueryParameters> contentQueryParameters = customContentTypeQueryParameters != null
+            ? config => customContentTypeQueryParameters(config
+                .ForWebsite(webSiteChannelContext.WebsiteChannelName, [PathMatch.Children(parentPagePath)])
+                .WithLinkedItems(depth)
+            )
+            : config => config
+                .ForWebsite(webSiteChannelContext.WebsiteChannelName, [PathMatch.Children(parentPagePath)])
+                .WithLinkedItems(depth);
+
+        var builder = new ContentItemQueryBuilder()
+                            .ForContentType(
+                                parentPageContentTypeName,
+                                contentQueryParameters
+                                )
+                            .InLanguage(preferredLanguageRetriever.Get());
+
+        var queryExecutorOptions = new ContentQueryExecutionOptions
+        {
+            ForPreview = webSiteChannelContext.IsPreview
+        };
+
+        var pages = await contentQueryExecutor.GetMappedWebPageResult<T>(builder, queryExecutorOptions);
+
+        return pages;
+    }
 }
 
 
@@ -184,19 +216,6 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
         this.websiteChannelContext = websiteChannelContext;
     }
 
-    private async Task<IEnumerable<IWebPageFieldsSource>> RetrieveWebPages(Action<ContentQueryParameters> parameters)
-    {
-        var builder = new ContentItemQueryBuilder();
-
-        builder.ForContentTypes(query =>
-            {
-                query.ForWebsite(websiteChannelContext.WebsiteChannelName);
-            })
-            .Parameters(parameters);
-
-        return await contentQueryExecutor.GetMappedResult<IWebPageFieldsSource>(builder);
-    }
-
     /// <summary>
     /// Retrieves the IWebPageFieldsSource of a web page item by Guid.
     /// </summary>
@@ -211,5 +230,29 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
             });
 
         return pages.FirstOrDefault();
+    }
+
+    private async Task<IEnumerable<IContentItemFieldsSource>> RetrieveContentItems(Action<ContentQueryParameters> contentQueryParameters,
+        Action<ContentTypesQueryParameters> contentTypesQueryParameters)
+    {
+        var builder = new ContentItemQueryBuilder();
+
+        builder.ForContentTypes(contentTypesQueryParameters)
+            .Parameters(contentQueryParameters);
+
+        return await contentQueryExecutor.GetMappedResult<IContentItemFieldsSource>(builder);
+    }
+
+    private async Task<IEnumerable<IWebPageFieldsSource>> RetrieveWebPages(Action<ContentQueryParameters> parameters)
+    {
+        var builder = new ContentItemQueryBuilder();
+
+        builder.ForContentTypes(query =>
+            {
+                query.ForWebsite(websiteChannelContext.WebsiteChannelName);
+            })
+            .Parameters(parameters);
+
+        return await contentQueryExecutor.GetMappedResult<IWebPageFieldsSource>(builder);
     }
 }
