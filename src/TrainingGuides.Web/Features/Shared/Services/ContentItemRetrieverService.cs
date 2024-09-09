@@ -228,28 +228,22 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
     }
 
     /// <summary>
-    /// Retrieves reusable content items based on the provided reusable field schema name, further filtering by the provided content query parameters.
-    /// </summary>
-    /// <param name="schemaName">The name of the reusable field schema</param>
-    /// <param name="contentQueryParameters">Content query filter</param>
-    /// <returns>Enumerable list of content items</returns>
-    private async Task<IEnumerable<IContentItemFieldsSource>> RetrieveContentItemsBySchema(string schemaName, Action<ContentQueryParameters> contentQueryParameters) =>
-        await RetrieveContentItems(contentQueryParameters, contentTypesQueryParameters =>
-                {
-                    contentTypesQueryParameters.OfReusableSchema(schemaName);
-                });
-
-    /// <summary>
     /// Retrieves content items based on the provided schema name and tag guids.
     /// </summary>
     /// <param name="schemaName">The name of the reusable field schema</param>
     /// <param name="taxonomyColumnName">The name of the column that holds the taxonomy value</param>
     /// <param name="tagGuids">Guids of tags to filter the output by</param>
     /// <returns>Enumerable list of content items</returns>
-    public async Task<IEnumerable<IContentItemFieldsSource>> RetrieveContentItemsBySchemaAndTags(string schemaName, string taxonomyColumnName, IEnumerable<Guid> tagGuids) =>
-        await RetrieveContentItemsBySchema(
-            schemaName,
-            parameters => parameters.Where(where => where.WhereContainsTags(taxonomyColumnName, tagGuids)));
+    public async Task<IEnumerable<IContentItemFieldsSource>> RetrieveContentItemsBySchemaAndTags(string schemaName, string taxonomyColumnName, IEnumerable<Guid> tagGuids)
+    {
+        Action<ContentQueryParameters> contentQueryParameters = parameters
+            => parameters.Where(where => where.WhereContainsTags(taxonomyColumnName, tagGuids));
+
+        Action<ContentTypesQueryParameters> contentTypesQueryParameters = parameters
+            => parameters.OfReusableSchema(schemaName);
+
+        return await RetrieveContentItems(contentQueryParameters, contentTypesQueryParameters);
+    }
 
     private async Task<IEnumerable<IWebPageFieldsSource>> RetrieveWebPages(Action<ContentQueryParameters> parameters)
     {
