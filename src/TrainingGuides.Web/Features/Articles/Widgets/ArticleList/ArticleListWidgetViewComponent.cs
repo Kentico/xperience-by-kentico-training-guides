@@ -75,7 +75,7 @@ public class ArticleListWidgetViewComponent : ViewComponent
             var taggedArticleIds = (
                 await genericPageRetrieverService.RetrieveContentItemsBySchemaAndTags(
                     IArticleSchema.REUSABLE_FIELD_SCHEMA_NAME,
-                    nameof(GeneralArticle.ArticleSchemaCategory),
+                    nameof(IArticleSchema.ArticleSchemaCategory),
                     tagGuids)
                 ).Select(article => article.SystemFields.ContentItemID);
 
