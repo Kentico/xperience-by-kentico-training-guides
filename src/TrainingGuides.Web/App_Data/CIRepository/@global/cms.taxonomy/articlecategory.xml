@@ -1,6 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.taxonomy>
   <TaxonomyGUID>06b56c2a-463b-422a-b8d8-d9bbc352d958</TaxonomyGUID>
+  <TaxonomyMetadata>
+    <![CDATA[{"Translations":{"b2e99971-c2dd-4a47-bb64-0d9a0d28d226":{"Title":null}}}]]>
+  </TaxonomyMetadata>
   <TaxonomyName>ArticleCategory</TaxonomyName>
-  <TaxonomyTitle>Article Category</TaxonomyTitle>
+  <TaxonomyTitle>Article category</TaxonomyTitle>
 </cms.taxonomy>
