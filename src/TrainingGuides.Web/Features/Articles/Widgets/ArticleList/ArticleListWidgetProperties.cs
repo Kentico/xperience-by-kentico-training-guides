@@ -27,5 +27,5 @@ public class ArticleListWidgetProperties : IWidgetProperties
         Label = "Order articles by",
         Options = "NewestFirst;Newest first\r\nOldestFirst;Oldest first",
         Order = 40)]
-    public string OrderBy { get; set; } = "NewstFirst";
+    public string OrderBy { get; set; } = "NewestFirst";
 }
