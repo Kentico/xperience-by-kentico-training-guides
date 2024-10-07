@@ -5,48 +5,78 @@ using TrainingGuides.Web.Features.Articles.Services;
 using TrainingGuides.Web.Features.Articles;
 using Microsoft.AspNetCore.Html;
 
-namespace TrainingGuides.Web.Tests;
+namespace TrainingGuides.Web.Tests.Features.Articles.Services;
 
 public class ArticlePageServiceTests
 {
     private readonly Mock<ArticlePageService> articlePageServiceMock;
     private readonly Mock<IWebPageUrlRetriever> webPageUrlRetrieverMock;
 
-    private const string TEST_URL = "test";
+    private const string ARTICLE_TITLE = "Title";
+    private const string ARTICLE_SUMMARY = "Summary";
+    private const string ARTICLE_TEXT = "Text";
+    private const string ARTICLE_URL = "test";
+
+    private readonly ArticlePageViewModel referenceArticleViewModel;
 
     public ArticlePageServiceTests()
     {
         webPageUrlRetrieverMock = new Mock<IWebPageUrlRetriever>();
         webPageUrlRetrieverMock.Setup(x => x.Retrieve(It.IsAny<ArticlePage>(), It.IsAny<CancellationToken>()))
-            .ReturnsAsync(new WebPageUrl(TEST_URL));
+            .ReturnsAsync(new WebPageUrl(ARTICLE_URL));
 
         articlePageServiceMock = new Mock<ArticlePageService>(webPageUrlRetrieverMock.Object);
+
+        referenceArticleViewModel = new()
+        {
+            Title = ARTICLE_TITLE,
+            Summary = new HtmlString(ARTICLE_SUMMARY),
+            Text = new HtmlString(ARTICLE_TEXT),
+            Url = ARTICLE_URL
+        };
+    }
+
+    private ArticlePage BuildSampleArticlePage() => new()
+    {
+        ArticlePageArticleContent = [new GeneralArticle()
+        {
+            ArticleSchemaTitle = ARTICLE_TITLE,
+            ArticleSchemaSummary = ARTICLE_SUMMARY,
+            ArticleSchemaText = ARTICLE_TEXT,
+            ArticleSchemaTeaser = []
+        }],
+        ArticlePagePublishDate = DateTime.Now
+    };
+
+    [Fact]
+    public async Task GetArticlePageViewModel_ReturnsModel_WithArticleTitleSet()
+    {
+        var articlePage = BuildSampleArticlePage();
+        var articlePageViewModel = await articlePageServiceMock.Object.GetArticlePageViewModel(articlePage);
+        Assert.Equal(referenceArticleViewModel.Title, articlePageViewModel.Title);
     }
 
     [Fact]
-    public async Task GetArticlePageViewModel_ShouldReturnArticleWithUrl()
+    public async Task GetArticlePageViewModel_ReturnsModel_WithArticleSummarySet()
     {
-        ArticlePageViewModel referenceViewModel = new()
-        {
-            Title = string.Empty,
-            Summary = HtmlString.Empty,
-            Text = HtmlString.Empty,
-            Url = TEST_URL
-        };
+        var articlePage = BuildSampleArticlePage();
+        var articlePageViewModel = await articlePageServiceMock.Object.GetArticlePageViewModel(articlePage);
+        Assert.Equal(referenceArticleViewModel.Summary.Value, articlePageViewModel.Summary.Value);
+    }
 
-        var articlePage = new ArticlePage()
-        {
-            ArticlePageArticleContent = [new GeneralArticle()
-            {
-                ArticleSchemaTitle = "Title",
-                ArticleSchemaSummary = "Summary",
-                ArticleSchemaText = "Text",
-                ArticleSchemaTeaser = []
-            }],
-            ArticlePagePublishDate = DateTime.Now
-        };
-        var viewModelWithUrl = await articlePageServiceMock.Object.GetArticlePageViewModel(articlePage);
+    [Fact]
+    public async Task GetArticlePageViewModel_ReturnsModel_WithArticleTextSet()
+    {
+        var articlePage = BuildSampleArticlePage();
+        var articlePageViewModel = await articlePageServiceMock.Object.GetArticlePageViewModel(articlePage);
+        Assert.Equal(referenceArticleViewModel.Text.Value, articlePageViewModel.Text.Value);
+    }
 
-        Assert.Equal(referenceViewModel.Url, viewModelWithUrl.Url);
+    [Fact]
+    public async Task GetArticlePageViewModel_ReturnsModel_WithArticleUrlSet()
+    {
+        var articlePage = BuildSampleArticlePage();
+        var articlePageViewModel = await articlePageServiceMock.Object.GetArticlePageViewModel(articlePage);
+        Assert.Equal(referenceArticleViewModel.Url, articlePageViewModel.Url);
     }
 }

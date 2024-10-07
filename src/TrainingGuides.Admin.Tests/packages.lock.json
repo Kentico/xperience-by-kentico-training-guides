@@ -38,12 +38,6 @@
           "xunit.core": "[2.9.0]"
         }
       },
-      "xunit.abstractions": {
-        "type": "Direct",
-        "requested": "[2.0.3, )",
-        "resolved": "2.0.3",
-        "contentHash": "pot1I4YOxlWjIb5jmwvvQNbTrZ3lJQ+jUGkGjWE3hEFM0l5gOnBWS+H3qsex68s5cO52g+44vpGzhAt+42vwKg=="
-      },
       "xunit.runner.visualstudio": {
         "type": "Direct",
         "requested": "[2.8.2, )",
@@ -69,8 +63,8 @@
       },
       "Azure.Core": {
         "type": "Transitive",
-        "resolved": "1.39.0",
-        "contentHash": "9vaV4ZICtVQp+2wjOKrIAjEjMzBkUohaBbKGqqcTW993MRfHA0N4L1BszQjWynS7lRvlYQLxaFK4wh9ewNm4HQ==",
+        "resolved": "1.38.0",
+        "contentHash": "IuEgCoVA0ef7E4pQtpC3+TkPbzaoQfa77HlfJDmfuaJUCVJmn7fT0izamZiryW5sYUFKizsftIxMkXKbgIcPMQ==",
         "dependencies": {
           "Microsoft.Bcl.AsyncInterfaces": "1.1.1",
           "System.ClientModel": "1.0.0",
@@ -94,34 +88,6 @@
           "System.Security.Cryptography.ProtectedData": "4.7.0",
           "System.Text.Json": "4.7.2",
           "System.Threading.Tasks.Extensions": "4.5.4"
-        }
-      },
-      "Azure.Storage.Blobs": {
-        "type": "Transitive",
-        "resolved": "12.20.0",
-        "contentHash": "96HBFceJCwfv9Kg51F4C+MVIRhbAPtX2KupRaZqpGJW1FSWmo4JjOhi1sl3ZpZfPAiixYgTxhewMxSc/yd47/Q==",
-        "dependencies": {
-          "Azure.Storage.Common": "12.19.0",
-          "System.Text.Json": "4.7.2"
-        }
-      },
-      "Azure.Storage.Common": {
-        "type": "Transitive",
-        "resolved": "12.19.0",
-        "contentHash": "aKW5fK4ZSQb9VjENSDbsQoKCDSG6d6mgsBA+groGoHyG2F38QCXThuwcmC7R1XLQOSIh28viE7CJw1BpNdl11A==",
-        "dependencies": {
-          "Azure.Core": "1.39.0",
-          "System.IO.Hashing": "6.0.0"
-        }
-      },
-      "Azure.Storage.Queues": {
-        "type": "Transitive",
-        "resolved": "12.18.0",
-        "contentHash": "lj1RKVqrTdQtQls9O23kQ/ZWVYDYH8NV9ImiYUdT3JkWhGJJ3LxdT1oogxgScwOOP4Q9P+3IkGnpsDsadzE1/Q==",
-        "dependencies": {
-          "Azure.Storage.Common": "12.19.0",
-          "System.Memory.Data": "1.0.2",
-          "System.Text.Json": "4.7.2"
         }
       },
       "BananaCakePop.Middleware": {
@@ -745,33 +711,6 @@
         "resolved": "13.0.3",
         "contentHash": "HrC5BXdl00IP9zeV+0Z848QWPAoCr9P3bDEZguI+gkLcBKAOxix/tLEAAHC+UvDNPv4a2d18lOReHMOagPa+zQ=="
       },
-      "SkiaSharp": {
-        "type": "Transitive",
-        "resolved": "2.88.8",
-        "contentHash": "bRkp3uKp5ZI8gXYQT57uKwil1uobb2p8c69n7v5evlB/2JNcMAXVcw9DZAP5Ig3WSvgzGm2YSn27UVeOi05NlA==",
-        "dependencies": {
-          "SkiaSharp.NativeAssets.Win32": "2.88.8",
-          "SkiaSharp.NativeAssets.macOS": "2.88.8"
-        }
-      },
-      "SkiaSharp.NativeAssets.Linux.NoDependencies": {
-        "type": "Transitive",
-        "resolved": "2.88.8",
-        "contentHash": "/DoKtdyvRgCC5GR/SH+ps3ZiOjmf0BYpAyrhWQELFOO1hdcqddrDVJjDNCOJ41vV+NlS5b3kcDoZZ7jLhFjyXg==",
-        "dependencies": {
-          "SkiaSharp": "2.88.8"
-        }
-      },
-      "SkiaSharp.NativeAssets.macOS": {
-        "type": "Transitive",
-        "resolved": "2.88.8",
-        "contentHash": "6Kn5TSkKlfyS6azWHF3Jk2sW5C4jCE5uSshM/5AbfFrR+5n6qM5XEnz9h4VaVl7LTxBvHvMkuPb/3bpbq0vxTw=="
-      },
-      "SkiaSharp.NativeAssets.Win32": {
-        "type": "Transitive",
-        "resolved": "2.88.8",
-        "contentHash": "O9QXoWEXA+6cweR4h3BOnwMz+pO9vL9mXdjLrpDd0w1QzCgWmLQBxa1VgySDITiH7nQndrDG1h6937zm9pLj1Q=="
-      },
       "System.Buffers": {
         "type": "Transitive",
         "resolved": "4.5.1",
@@ -982,34 +921,6 @@
           "Kentico.Xperience.Core": "[29.2.0, )"
         }
       },
-      "trainingguides.web": {
-        "type": "Project",
-        "dependencies": {
-          "AspNetCore.Unobtrusive.Ajax": "[2.0.0, )",
-          "Enums.NET": "[4.0.2, )",
-          "TrainingGuides.Admin": "[1.0.0, )",
-          "TrainingGuides.Entities": "[1.0.0, )",
-          "kentico.xperience.admin": "[29.2.0, )",
-          "kentico.xperience.azurestorage": "[29.2.0, )",
-          "kentico.xperience.imageprocessing": "[29.2.0, )",
-          "kentico.xperience.webapp": "[29.2.0, )"
-        }
-      },
-      "AspNetCore.Unobtrusive.Ajax": {
-        "type": "CentralTransitive",
-        "requested": "[2.0.0, )",
-        "resolved": "2.0.0",
-        "contentHash": "hFzcqL7PWw1shrtFlm/2vUlToGruTXSijq60M4FI+0C5KKI+q2oRk0InPcO8jyuC9/nEtsLX20D1sDwhLNFeNw==",
-        "dependencies": {
-          "Microsoft.Extensions.FileProviders.Embedded": "6.0.1"
-        }
-      },
-      "Enums.NET": {
-        "type": "CentralTransitive",
-        "requested": "[4.0.2, )",
-        "resolved": "4.0.2",
-        "contentHash": "Nwa4XxZ7fsuh9SpMiLUXmFT+NntALGXEvufLaQT+A0bQUH5ToNTtG0QDCoCiChdhp+4F/rtwyxpoJSgDmObIXg=="
-      },
       "Kentico.Xperience.Admin": {
         "type": "CentralTransitive",
         "requested": "[29.2.0, )",
@@ -1020,18 +931,6 @@
           "Kentico.Xperience.WebApp": "[29.2.0]",
           "Microsoft.AspNetCore.SpaServices.Extensions": "6.0.31",
           "Microsoft.Extensions.FileProviders.Embedded": "6.0.31"
-        }
-      },
-      "Kentico.Xperience.AzureStorage": {
-        "type": "CentralTransitive",
-        "requested": "[29.2.0, )",
-        "resolved": "29.2.0",
-        "contentHash": "phEbE0HYmqauDih8FuyHwyPjoUAOHa1vZz0d90JVooG0skO7RzCH8xlr8zGutTgYWvD604FHE/HXVzTZOGz36w==",
-        "dependencies": {
-          "Azure.Storage.Blobs": "12.20.0",
-          "Azure.Storage.Queues": "12.18.0",
-          "Kentico.Xperience.Core": "29.2.0",
-          "Newtonsoft.Json": "13.0.3"
         }
       },
       "Kentico.Xperience.Core": {
@@ -1056,17 +955,6 @@
           "System.CodeDom": "8.0.0"
         }
       },
-      "Kentico.Xperience.ImageProcessing": {
-        "type": "CentralTransitive",
-        "requested": "[29.2.0, )",
-        "resolved": "29.2.0",
-        "contentHash": "pQtoy0Xgmnn5l+Kg9jtB3f19ZBnrhuPls+tmlYETad9eYu4PeiqnduCiQldWi6UajhfA5i0HBep9WplTIXd/Yg==",
-        "dependencies": {
-          "Kentico.Xperience.Core": "29.2.0",
-          "SkiaSharp": "2.88.8",
-          "SkiaSharp.NativeAssets.Linux.NoDependencies": "2.88.8"
-        }
-      },
       "Kentico.Xperience.WebApp": {
         "type": "CentralTransitive",
         "requested": "[29.2.0, )",
@@ -1082,6 +970,12 @@
           "Microsoft.Extensions.FileProviders.Embedded": "6.0.31",
           "Microsoft.Extensions.Localization": "6.0.31"
         }
+      },
+      "xunit.abstractions": {
+        "type": "CentralTransitive",
+        "requested": "[2.0.3, )",
+        "resolved": "2.0.3",
+        "contentHash": "pot1I4YOxlWjIb5jmwvvQNbTrZ3lJQ+jUGkGjWE3hEFM0l5gOnBWS+H3qsex68s5cO52g+44vpGzhAt+42vwKg=="
       }
     }
   }

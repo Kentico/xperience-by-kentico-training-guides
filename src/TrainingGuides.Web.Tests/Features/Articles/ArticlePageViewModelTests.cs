@@ -1,40 +1,30 @@
+using Xunit;
 using Microsoft.AspNetCore.Html;
 using TrainingGuides.Web.Features.Articles;
-using TrainingGuides.Web.Features.Shared.Models;
-using Xunit;
-using Xunit.Abstractions;
 
-namespace TrainingGuides.Web.Tests;
+namespace TrainingGuides.Web.Tests.Features.Articles;
 
 public class ArticlePageViewModelTests
 {
-    private readonly ArticlePageViewModel viewModel = new();
-    private readonly ITestOutputHelper output;
+    private readonly ArticlePageViewModel articlePageViewModel;
 
-    public ArticlePageViewModelTests(ITestOutputHelper output)
+    public ArticlePageViewModelTests()
     {
-        this.output = output;
+        articlePageViewModel = new();
     }
 
     [Fact]
-    public void ViewModel_Initialized_TitleIsEmpty()
-    {
-        ArticlePageViewModel referenceViewModel = new()
-        {
-            Title = string.Empty,
-            Summary = HtmlString.Empty,
-            Text = HtmlString.Empty,
-            TeaserImage = new AssetViewModel(),
-            Url = string.Empty
-        };
-        Assert.Equal(referenceViewModel.Title, viewModel.Title);
-        output.WriteLine("Title initialized.");
-    }
+    public void WhenInitialized_TitleIsEmpty() => Assert.Equal(string.Empty, articlePageViewModel.Title);
 
     [Fact]
-    public void ViewModel_Initialized_TeaserIsNull()
-    {
-        Assert.Null(viewModel.TeaserImage);
-        output.WriteLine("Teaser is null.");
-    }
+    public void WhenInitialized_SummaryIsEmpty() => Assert.Equal(HtmlString.Empty, articlePageViewModel.Summary);
+
+    [Fact]
+    public void WhenInitialized_TextIsEmpty() => Assert.Equal(HtmlString.Empty, articlePageViewModel.Text);
+
+    [Fact]
+    public void WhenInitialized_RelatedNewsIsEmpty() => Assert.Empty(articlePageViewModel.RelatedNews);
+
+    [Fact]
+    public void WhenInitialized_UrlIsEmpty() => Assert.Equal(string.Empty, articlePageViewModel.Url);
 }
