@@ -34,18 +34,6 @@ public class ArticlePageServiceTests
             Text = new HtmlString(ARTICLE_TEXT),
             Url = ARTICLE_URL
         };
-
-        var sampleArticlePage = new ArticlePage()
-        {
-            ArticlePageContent = [new Article()
-            {
-                ArticleTitle = ARTICLE_TITLE,
-                ArticleSummary = ARTICLE_SUMMARY,
-                ArticleText = ARTICLE_TEXT,
-                ArticleTeaser = []
-            }],
-            ArticlePagePublishDate = DateTime.Now
-        };
     }
 
     private ArticlePage BuildSampleArticlePage() => new()
