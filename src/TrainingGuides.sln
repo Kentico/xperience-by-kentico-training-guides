@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TrainingGuides.Entities", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TrainingGuides.Admin", "TrainingGuides.Admin\TrainingGuides.Admin.csproj", "{E7068071-BC8C-4460-B6B1-EAF82C445C49}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrainingGuides.Tests", "TrainingGuides.Tests\TrainingGuides.Tests.csproj", "{E5E262F4-A8AB-4D78-8779-7B2C324AFC9A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrainingGuides.Web.Tests", "TrainingGuides.Web.Tests\TrainingGuides.Web.Tests.csproj", "{E5E262F4-A8AB-4D78-8779-7B2C324AFC9A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

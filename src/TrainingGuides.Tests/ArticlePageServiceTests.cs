@@ -5,20 +5,22 @@ using TrainingGuides.Web.Features.Articles.Services;
 using TrainingGuides.Web.Features.Articles;
 using Microsoft.AspNetCore.Html;
 
-namespace TrainingGuides.Tests;
+namespace TrainingGuides.Web.Tests;
 
 public class ArticlePageServiceTests
 {
     private readonly Mock<ArticlePageService> articlePageServiceMock;
     private readonly Mock<IWebPageUrlRetriever> webPageUrlRetrieverMock;
 
+    private const string TEST_URL = "test";
+
     public ArticlePageServiceTests()
     {
         webPageUrlRetrieverMock = new Mock<IWebPageUrlRetriever>();
-        articlePageServiceMock = new Mock<ArticlePageService>(webPageUrlRetrieverMock.Object);
+        webPageUrlRetrieverMock.Setup(x => x.Retrieve(It.IsAny<ArticlePage>(), It.IsAny<CancellationToken>()))
+            .ReturnsAsync(new WebPageUrl(TEST_URL));
 
-        webPageUrlRetrieverMock.Setup(x => x.Retrieve(It.IsAny<ArticlePage>(), It.IsAny<string>(), It.IsAny<CancellationToken>()))
-            .ReturnsAsync(new WebPageUrl("test"));
+        articlePageServiceMock = new Mock<ArticlePageService>(webPageUrlRetrieverMock.Object);
     }
 
     [Fact]
@@ -29,10 +31,20 @@ public class ArticlePageServiceTests
             Title = string.Empty,
             Summary = HtmlString.Empty,
             Text = HtmlString.Empty,
-            Url = "test"
+            Url = TEST_URL
         };
 
-        var articlePage = new ArticlePage() { ArticlePageContent = [new Article() { ArticleTeaser = Enumerable.Empty<Asset>() }], ArticlePagePublishDate = DateTime.Now };
+        var articlePage = new ArticlePage()
+        {
+            ArticlePageArticleContent = [new GeneralArticle()
+            {
+                ArticleSchemaTitle = "Title",
+                ArticleSchemaSummary = "Summary",
+                ArticleSchemaText = "Text",
+                ArticleSchemaTeaser = []
+            }],
+            ArticlePagePublishDate = DateTime.Now
+        };
         var viewModelWithUrl = await articlePageServiceMock.Object.GetArticlePageViewModel(articlePage);
 
         Assert.Equal(referenceViewModel.Url, viewModelWithUrl.Url);

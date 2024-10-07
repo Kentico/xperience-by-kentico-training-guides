@@ -4,7 +4,7 @@ using TrainingGuides.Web.Features.Shared.Models;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace TrainingGuides.Tests;
+namespace TrainingGuides.Web.Tests;
 
 public class ArticlePageViewModelTests
 {
@@ -28,7 +28,7 @@ public class ArticlePageViewModelTests
             Url = string.Empty
         };
         Assert.Equal(referenceViewModel.Title, viewModel.Title);
-        output.WriteLine("Title initialized");
+        output.WriteLine("Title initialized.");
     }
 
     [Fact]
