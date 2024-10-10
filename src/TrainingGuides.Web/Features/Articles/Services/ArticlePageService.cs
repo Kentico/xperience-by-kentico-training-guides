@@ -24,7 +24,6 @@ public class ArticlePageService : IArticlePageService
         }
 
         string articleUrl = (await webPageUrlRetriever.Retrieve(articlePage)).RelativePath;
-
         var articleSchema = articlePage.ArticlePageArticleContent.FirstOrDefault();
 
         if (articleSchema != null)
