@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TrainingGuides.Web", "Train
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TrainingGuides.Entities", "TrainingGuides.Entities\TrainingGuides.Entities.csproj", "{E20685D5-8E97-4A1A-8C24-5612C6760BDB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrainingGuides.Web.Tests", "TrainingGuides.Web.Tests\TrainingGuides.Web.Tests.csproj", "{CCA6A3FD-A577-4C0B-BC09-35B611819A17}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{E20685D5-8E97-4A1A-8C24-5612C6760BDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E20685D5-8E97-4A1A-8C24-5612C6760BDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E20685D5-8E97-4A1A-8C24-5612C6760BDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CCA6A3FD-A577-4C0B-BC09-35B611819A17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCA6A3FD-A577-4C0B-BC09-35B611819A17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCA6A3FD-A577-4C0B-BC09-35B611819A17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCA6A3FD-A577-4C0B-BC09-35B611819A17}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
