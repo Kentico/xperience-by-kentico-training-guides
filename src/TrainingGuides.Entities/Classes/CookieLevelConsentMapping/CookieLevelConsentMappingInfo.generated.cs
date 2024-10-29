@@ -1,6 +1,5 @@
 using System;
 using System.Data;
-using System.Runtime.Serialization;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -16,8 +15,7 @@ namespace TrainingGuides.DataProtectionCustomizations
     /// <summary>
     /// Data container class for <see cref="CookieLevelConsentMappingInfo"/>.
     /// </summary>
-    [Serializable]
-    public partial class CookieLevelConsentMappingInfo : AbstractInfo<CookieLevelConsentMappingInfo, ICookieLevelConsentMappingInfoProvider>, IInfoWithId, IInfoWithName, IInfoWithGuid
+    public partial class CookieLevelConsentMappingInfo : AbstractInfo<CookieLevelConsentMappingInfo, IInfoProvider<CookieLevelConsentMappingInfo>>, IInfoWithId, IInfoWithName, IInfoWithGuid
     {
         /// <summary>
         /// Object type.
@@ -29,7 +27,7 @@ namespace TrainingGuides.DataProtectionCustomizations
         /// Type information.
         /// </summary>
 #warning "You will need to configure the type info."
-        public static readonly ObjectTypeInfo TYPEINFO = new ObjectTypeInfo(typeof(CookieLevelConsentMappingInfoProvider), OBJECT_TYPE, "TrainingGuides.CookieLevelConsentMapping", "CookieLevelConsentMappingID", null, "CookieLevelConsentMappingGuid", "CookieLevelConsentMappingGuid", "CookieLevelConsentMappingID", null, null, null)
+        public static readonly ObjectTypeInfo TYPEINFO = new ObjectTypeInfo(typeof(IInfoProvider<CookieLevelConsentMappingInfo>), OBJECT_TYPE, "TrainingGuides.CookieLevelConsentMapping", "CookieLevelConsentMappingID", null, "CookieLevelConsentMappingGuid", "CookieLevelConsentMappingGuid", "CookieLevelConsentMappingID", null, null, null)
         {
             TouchCacheDependencies = true,
             DependsOn = new List<ObjectDependency>()
@@ -144,17 +142,6 @@ namespace TrainingGuides.DataProtectionCustomizations
         protected override void SetObject()
         {
             Provider.Set(this);
-        }
-
-
-        /// <summary>
-        /// Constructor for de-serialization.
-        /// </summary>
-        /// <param name="info">Serialization info.</param>
-        /// <param name="context">Streaming context.</param>
-        protected CookieLevelConsentMappingInfo(SerializationInfo info, StreamingContext context)
-            : base(info, context)
-        {
         }
 
 

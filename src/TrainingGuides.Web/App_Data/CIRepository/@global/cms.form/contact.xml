@@ -44,7 +44,7 @@
   </FormClassID>
   <FormDisplayName>Contact</FormDisplayName>
   <FormGUID>af0af8d7-38f1-4b13-814b-fff891fa9246</FormGUID>
-  <FormItems>1</FormItems>
+  <FormItems>0</FormItems>
   <FormLogActivity>True</FormLogActivity>
   <FormName>Contact</FormName>
 </cms.form>

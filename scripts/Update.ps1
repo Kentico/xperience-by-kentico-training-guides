@@ -111,4 +111,4 @@ if($isUsingCD -eq 'True'){
 
 Set-Location -Path $originalLocation
 
-Read-Host -Prompt "Press any key to exit"
+Read-Host -Prompt "Press Enter to exit"

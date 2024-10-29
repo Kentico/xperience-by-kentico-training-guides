@@ -17,7 +17,7 @@
           <controlname>Kentico.Administration.TextInput</controlname>
         </settings>
       </field>
-      <field allowempty="true" column="ProductShortDescription" columnprecision="0" columntype="longtext" enabled="true" guid="fb91f0dc-0b7e-4413-944e-66cdd503b7b1" visible="true">
+      <field allowempty="true" column="ProductShortDescription" columnprecision="0" columntype="richtexthtml" enabled="true" guid="fb91f0dc-0b7e-4413-944e-66cdd503b7b1" visible="true">
         <properties>
           <explanationtext>
             <![CDATA[Keep the summary under 250 characters. Different channels will truncate content if necessary.]]>
@@ -55,7 +55,7 @@
           </ValidationRuleConfiguration>
         </validationrulesdata>
       </field>
-      <field allowempty="true" column="ProductDescription" columnprecision="0" columntype="longtext" enabled="true" guid="8ae7154c-3b5d-41f4-8e52-19a728ecc465" visible="true">
+      <field allowempty="true" column="ProductDescription" columnprecision="0" columntype="richtexthtml" enabled="true" guid="8ae7154c-3b5d-41f4-8e52-19a728ecc465" visible="true">
         <properties>
           <explanationtextashtml>False</explanationtextashtml>
           <fieldcaption>Description</fieldcaption>
