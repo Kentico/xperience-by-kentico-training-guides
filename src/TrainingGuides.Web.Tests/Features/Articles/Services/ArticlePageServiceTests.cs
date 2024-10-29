@@ -49,6 +49,13 @@ public class ArticlePageServiceTests
     };
 
     [Fact]
+    public async Task GetArticlePageViewModel_IfArticlePageNull_ReturnsEmptyModel()
+    {
+        var articlePageViewModel = await articlePageServiceMock.Object.GetArticlePageViewModel(null);
+        Assert.Equivalent(new ArticlePageViewModel(), articlePageViewModel);
+    }
+
+    [Fact]
     public async Task GetArticlePageViewModel_ReturnsModel_WithArticleTitleSet()
     {
         var articlePage = BuildSampleArticlePage();
