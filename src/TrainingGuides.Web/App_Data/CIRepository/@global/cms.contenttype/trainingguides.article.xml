@@ -49,7 +49,7 @@
           <MinRowsNumber>3</MinRowsNumber>
         </settings>
       </field>
-      <field allowempty="true" column="ArticleText" columnprecision="0" columntype="longtext" enabled="true" guid="d98a2eb5-1419-4504-a0cd-6591a71c5605" visible="true">
+      <field allowempty="true" column="ArticleText" columnprecision="0" columntype="richtexthtml" enabled="true" guid="d98a2eb5-1419-4504-a0cd-6591a71c5605" visible="true">
         <properties>
           <explanationtextashtml>False</explanationtextashtml>
           <fieldcaption>Text</fieldcaption>

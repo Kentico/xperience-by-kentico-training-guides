@@ -7,7 +7,7 @@
       <field column="ContentItemDataID" columntype="integer" enabled="true" guid="7e17171a-850d-4c4b-8df5-64e7dcd3b58c" isPK="true" />
       <field column="ContentItemDataCommonDataID" columntype="integer" enabled="true" guid="3fa7f61f-564f-46cc-9ebc-447dcc7a278b" refobjtype="cms.contentitemcommondata" reftype="Required" system="true" />
       <field column="ContentItemDataGUID" columntype="guid" enabled="true" guid="9f2ef22a-62ac-423b-974e-6bc9af5f687f" isunique="true" system="true" />
-      <field column="BenefitDescription" columnprecision="0" columntype="longtext" enabled="true" guid="15c3fdd5-1b6b-4825-9742-34c65e3e1f22" visible="true">
+      <field column="BenefitDescription" columnprecision="0" columntype="richtexthtml" enabled="true" guid="15c3fdd5-1b6b-4825-9742-34c65e3e1f22" visible="true">
         <properties>
           <explanationtextashtml>False</explanationtextashtml>
           <fieldcaption>Description</fieldcaption>
