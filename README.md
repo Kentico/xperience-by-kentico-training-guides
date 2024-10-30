@@ -24,7 +24,8 @@ However, keep in mind that the code in this repository is intended to be examine
 1. Clean and rebuild the solution
 1. Log in with the username **administrator** and the password **TrainingGuides123\***
 1. Access the **Settings** application and paste your license key into the **License key** field under **System → License**.
-    - > [!TIP] You can obtain a license key from your agency, supervisor, or team lead.  
+    - > [!TIP]
+      > You can obtain a license key from your agency, supervisor, or team lead.  
       > Alternatively, you can create an account at the [Client Portal](https://client.kentico.com/), and generate a [temporary key](https://client.kentico.com/evaluation-keys) valid for 30 days.  
       > Learn more about licensing in our [documentation](https://docs.kentico.com/developers-and-admins/installation/licenses).
 
