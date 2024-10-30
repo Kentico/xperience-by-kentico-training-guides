@@ -15,7 +15,7 @@ namespace TrainingGuides.DataProtectionCustomizations
     /// <summary>
     /// Data container class for <see cref="CookieLevelConsentMappingInfo"/>.
     /// </summary>
-    public partial class CookieLevelConsentMappingInfo : AbstractInfo<CookieLevelConsentMappingInfo, IInfoProvider<CookieLevelConsentMappingInfo>>, IInfoWithId, IInfoWithName, IInfoWithGuid
+    public partial class CookieLevelConsentMappingInfo : AbstractInfo<CookieLevelConsentMappingInfo, ICookieLevelConsentMappingInfoProvider>, IInfoWithId, IInfoWithName, IInfoWithGuid
     {
         /// <summary>
         /// Object type.
@@ -27,7 +27,7 @@ namespace TrainingGuides.DataProtectionCustomizations
         /// Type information.
         /// </summary>
 #warning "You will need to configure the type info."
-        public static readonly ObjectTypeInfo TYPEINFO = new ObjectTypeInfo(typeof(IInfoProvider<CookieLevelConsentMappingInfo>), OBJECT_TYPE, "TrainingGuides.CookieLevelConsentMapping", "CookieLevelConsentMappingID", null, "CookieLevelConsentMappingGuid", "CookieLevelConsentMappingGuid", "CookieLevelConsentMappingID", null, null, null)
+        public static readonly ObjectTypeInfo TYPEINFO = new ObjectTypeInfo(typeof(CookieLevelConsentMappingInfoProvider), OBJECT_TYPE, "TrainingGuides.CookieLevelConsentMapping", "CookieLevelConsentMappingID", null, "CookieLevelConsentMappingGuid", "CookieLevelConsentMappingGuid", "CookieLevelConsentMappingID", null, null, null)
         {
             TouchCacheDependencies = true,
             DependsOn = new List<ObjectDependency>()
