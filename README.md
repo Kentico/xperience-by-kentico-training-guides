@@ -2,6 +2,9 @@
 
 This repository is the starting point for the [Xperience by Kentico technical Training Guides](https://docs.kentico.com/guides/development). Use this branch to follow along with the Training guides.
 
+> [!NOTE]  
+> This repository uses Xperience by Kentico version **29.6.1**.
+
 The [finished branch](https://github.com/Kentico/xperience-by-kentico-training-guides/tree/finished) contains the cumulative results of the Training guides, as well as some sample widgets and can be used for reference. As it contains several independent examples, it is not built comprehensively, and we recommend against using it as a boilerplate. We continuously add new features to this repository as we create new Training guide materials. 
 
 The goal of the [Training Guides](https://docs.kentico.com/guides/development) is to teach recommended development practices with Xperience by Kentico.
@@ -10,7 +13,7 @@ However, keep in mind that the code in this repository is intended to be examine
 ## Installation requirements
 
 - The database backup included in this repository requires SQL Server 2022 or newer. 
-  - If you are using an older version of SQL server, you can prepare a fresh database by installing a fresh instance of Xperience by Kentico version **29.2.0**
+  - If you are using an older version of SQL server, you can prepare a fresh database by installing a fresh instance of Xperience by Kentico version **29.6.1**
 - This repository targets the .NET 8 SDK.
   - If you are using a different .NET version, you can update the target framework in your solution. Note that the files in this repository use [C# 12 features and syntax](https://learn.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-12), some of which are not supported in lower versions.
 
@@ -23,7 +26,12 @@ However, keep in mind that the code in this repository is intended to be examine
 1. Run a [*Continuous integration restore*](https://docs.xperience.io/xp/developers-and-admins/ci-cd/continuous-integration#ContinuousIntegration-Restorerepositoryfilestothedatabase) to populate the database with the necessary data
 1. Clean and rebuild the solution
 1. Log in with the username **administrator** and the password **TrainingGuides123\***
-1. Access the **Settings** application and paste your license key into the **License key** field under **System → License**.
+1. Apply your license key to the instance.
+    - If you are using an up-to-date license key , access the **Settings** application and paste your license key into the **License key** field under the **System → License** category.
+    ![Screenshot of Settings application](/images/SettingsApp.png)
+    ![Screenshot of license key settings](/images/SettingsLicense.png)
+    - If you are using an old-format license key, access the **License keys** application and paste your key there.
+
 > [!TIP]
 > You can obtain a license key from your agency, supervisor, or team lead.  
 > Alternatively, you can create an account at the [Client Portal](https://client.kentico.com/), and generate a [temporary key](https://client.kentico.com/evaluation-keys) valid for 30 days.  
