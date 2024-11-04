@@ -73,7 +73,7 @@ public class CookieConsentService : ICookieConsentService
             return false;
 
         // Get original contact before changes to the cookie level
-        var originalContact = ContactManagementContext.GetCurrentContact();
+        var originalContact = ContactManagementContext.GetCurrentContact(false);
 
         bool cookiesUpToDate = UpdateCookieLevels(level);
 
