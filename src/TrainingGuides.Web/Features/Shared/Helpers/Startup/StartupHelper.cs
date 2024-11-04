@@ -1,36 +1,38 @@
-﻿using CMS.DataEngine;
-using TrainingGuides.DataProtectionCustomizations;
+﻿// Functionality related to cross-site tracking is currently disabled while we investigate an issue (#85 on GitHub)
 
-namespace TrainingGuides.Web.Features.Shared.Helpers.Startup;
+// using CMS.DataEngine;
+// using TrainingGuides.DataProtectionCustomizations;
 
-public class StartupHelper
-{
-    /// <summary>
-    /// Retrieves the codename of the currently mapped Marketing consent, returning an empty string if it is not found
-    /// </summary>
-    /// <remarks>
-    /// Used in Program.cs to prevent <see cref="DataClassNotFoundException"/> when running CI restore for the first time.
-    /// </remarks>
-    /// <returns></returns>
-    public static async Task<string> GetMarketingConsentCodeName()
-    {
-        string consentCodeName;
-        try
-        {
-            //Do not resolve ICookieLevelConsentMappingInfoProvider or ICookieConsentService--
-            //This code runs on startup before the app is built, so no ServiceProvider exists.
-            var consentQuery = await CookieLevelConsentMappingInfo.Provider.Get()
-                .GetEnumerableTypedResultAsync();
+// namespace TrainingGuides.Web.Features.Shared.Helpers.Startup;
 
-            var consent = consentQuery.FirstOrDefault();
+// public class StartupHelper
+// {
+//     /// <summary>
+//     /// Retrieves the codename of the currently mapped Marketing consent, returning an empty string if it is not found
+//     /// </summary>
+//     /// <remarks>
+//     /// Used in Program.cs to prevent <see cref="DataClassNotFoundException"/> when running CI restore for the first time.
+//     /// </remarks>
+//     /// <returns></returns>
+//     public static async Task<string> GetMarketingConsentCodeName()
+//     {
+//         string consentCodeName;
+//         try
+//         {
+//             //Do not resolve ICookieLevelConsentMappingInfoProvider or ICookieConsentService--
+//             //This code runs on startup before the app is built, so no ServiceProvider exists.
+//             var consentQuery = await CookieLevelConsentMappingInfo.Provider.Get()
+//                 .GetEnumerableTypedResultAsync();
 
-            consentCodeName = consent?.MarketingConsentCodeName?.FirstOrDefault() ?? string.Empty;
-        }
-        catch (DataClassNotFoundException)
-        {
-            consentCodeName = string.Empty;
-        }
+//             var consent = consentQuery.FirstOrDefault();
 
-        return consentCodeName ?? string.Empty;
-    }
-}
+//             consentCodeName = consent?.MarketingConsentCodeName?.FirstOrDefault() ?? string.Empty;
+//         }
+//         catch (DataClassNotFoundException)
+//         {
+//             consentCodeName = string.Empty;
+//         }
+
+//         return consentCodeName ?? string.Empty;
+//     }
+// }

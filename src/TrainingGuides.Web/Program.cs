@@ -2,32 +2,34 @@ using AspNetCore.Unobtrusive.Ajax;
 using CMS.EmailEngine;
 using Kentico.Activities.Web.Mvc;
 using Kentico.Content.Web.Mvc.Routing;
-using Kentico.CrossSiteTracking.Web.Mvc;
-using Kentico.OnlineMarketing.Web.Mvc;
+// using Kentico.CrossSiteTracking.Web.Mvc;
+// using Kentico.OnlineMarketing.Web.Mvc;
 using Kentico.PageBuilder.Web.Mvc;
 using Kentico.Web.Mvc;
 using TrainingGuides;
 using TrainingGuides.Web;
 using TrainingGuides.Web.Features.DataProtection.Shared;
 using TrainingGuides.Web.Features.Shared.Helpers;
-using TrainingGuides.Web.Features.Shared.Helpers.Startup;
+//using TrainingGuides.Web.Features.Shared.Helpers.Startup;
 
-string trainingGuidesAllowSpecificOrigins = "_trainingGuidesAllowSpecificOrigins";
+// Functionality related to cross-site tracking is currently disabled while we investigate an issue (#85 on GitHub)
+// string trainingGuidesAllowSpecificOrigins = "_trainingGuidesAllowSpecificOrigins";
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy(name: trainingGuidesAllowSpecificOrigins,
-        policy =>
-        {
-            policy
-            .WithOrigins("https://The-URL-of-your-external-site.com")
-            .WithHeaders("content-type")
-            .AllowAnyMethod()
-            .AllowCredentials();
-        });
-});
+// Functionality related to cross-site tracking is currently disabled while we investigate an issue (#85 on GitHub)
+// builder.Services.AddCors(options =>
+// {
+//     options.AddPolicy(name: trainingGuidesAllowSpecificOrigins,
+//         policy =>
+//         {
+//             policy
+//             .WithOrigins("https://The-URL-of-your-external-site.com")
+//             .WithHeaders("content-type")
+//             .AllowAnyMethod()
+//             .AllowCredentials();
+//         });
+// });
 
 // Enable desired Kentico Xperience features
 builder.Services.AddKentico(async features =>
@@ -44,18 +46,19 @@ builder.Services.AddKentico(async features =>
             ProductPage.CONTENT_TYPE_NAME
         }
     });
-    features.UseCrossSiteTracking(
-        new CrossSiteTrackingOptions
-        {
-            ConsentSettings = new[] {
-                new CrossSiteTrackingConsentOptions
-                {
-                    WebsiteChannelName = "TrainingGuidesPages",
-                    ConsentName = await StartupHelper.GetMarketingConsentCodeName(),
-                    AgreeCookieLevel = CookieLevel.All.Level
-                }
-            },
-        });
+    // Functionality related to cross-site tracking is currently disabled while we investigate an issue (#85 on GitHub)
+    // features.UseCrossSiteTracking(
+    //     new CrossSiteTrackingOptions
+    //     {
+    //         ConsentSettings = new[] {
+    //             new CrossSiteTrackingConsentOptions
+    //             {
+    //                 WebsiteChannelName = "TrainingGuidesPages",
+    //                 ConsentName = await StartupHelper.GetMarketingConsentCodeName(),
+    //                 AgreeCookieLevel = CookieLevel.All.Level
+    //             }
+    //         },
+    //     });
     features.UseActivityTracking();
     features.UseWebPageRouting(new WebPageRoutingOptions { LanguageNameRouteValuesKey = ApplicationConstants.LANGUAGE_KEY });
 });
@@ -95,6 +98,7 @@ app.UseAuthentication();
 
 app.Kentico().MapRoutes();
 
-app.UseCors(trainingGuidesAllowSpecificOrigins);
+// Functionality related to cross-site tracking is currently disabled while we investigate an issue (#85 on GitHub)
+// app.UseCors(trainingGuidesAllowSpecificOrigins);
 
 app.Run();
