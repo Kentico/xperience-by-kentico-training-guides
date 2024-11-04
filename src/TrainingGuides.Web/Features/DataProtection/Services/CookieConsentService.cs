@@ -73,7 +73,7 @@ public class CookieConsentService : ICookieConsentService
             return false;
 
         // Get original contact before changes to the cookie level
-        var originalContact = ContactManagementContext.GetCurrentContact(false);
+        var originalContact = ContactManagementContext.GetCurrentContact();
 
         bool cookiesUpToDate = UpdateCookieLevels(level);
 
@@ -233,8 +233,10 @@ public class CookieConsentService : ICookieConsentService
             case CookieConsentLevel.Essential:
             case CookieConsentLevel.Preference:
             case CookieConsentLevel.Analytical:
-            case CookieConsentLevel.Marketing:
                 SetCookieLevelIfChanged(Kentico.Web.Mvc.CookieLevel.Visitor.Level);
+                break;
+            case CookieConsentLevel.Marketing:
+                SetCookieLevelIfChanged(Kentico.Web.Mvc.CookieLevel.All.Level);
                 break;
             default:
                 throw new NotSupportedException($"CookieConsentLevel {level} is not supported.");
@@ -273,13 +275,13 @@ public class CookieConsentService : ICookieConsentService
     /// <returns>True if CMSCookieLevel is greater than or equal to 1000, false otherwise</returns>
     public bool CurrentContactCanBeTracked()
     {
-        bool canBeTracked = false;
-        string cookieLevelString = cookieAccessor.Get(CookieNames.COOKIE_CONSENT_LEVEL);
+        bool isAllOrHigher = false;
+        string cookieLevelString = cookieAccessor.Get("CMSCookieLevel");
 
         if (int.TryParse(cookieLevelString, out int cookieLevel))
-            canBeTracked = cookieLevel >= (int)CookieConsentLevel.Marketing;
+            isAllOrHigher = cookieLevel >= 1000;
 
-        return canBeTracked;
+        return isAllOrHigher;
     }
 
     private void SetCookieAcceptanceCookie() =>

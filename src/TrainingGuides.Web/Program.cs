@@ -52,7 +52,7 @@ builder.Services.AddKentico(async features =>
                 {
                     WebsiteChannelName = "TrainingGuidesPages",
                     ConsentName = await StartupHelper.GetMarketingConsentCodeName(),
-                    AgreeCookieLevel = CookieLevel.Visitor.Level
+                    AgreeCookieLevel = CookieLevel.All.Level
                 }
             },
         });
