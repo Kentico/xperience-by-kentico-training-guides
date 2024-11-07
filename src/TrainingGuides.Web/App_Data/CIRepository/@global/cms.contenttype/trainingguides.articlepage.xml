@@ -54,6 +54,7 @@
   <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
   <ClassIconClass>xp-l-text</ClassIconClass>
   <ClassName>TrainingGuides.ArticlePage</ClassName>
+  <ClassShortName>TrainingGuidesArticlePage</ClassShortName>
   <ClassTableName>TrainingGuides_ArticlePage</ClassTableName>
   <ClassType>Content</ClassType>
   <ClassWebPageHasUrl>True</ClassWebPageHasUrl>
