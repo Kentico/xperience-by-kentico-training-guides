@@ -8,7 +8,7 @@ public class RegistrationWidgetProperties : IWidgetProperties
     /// <summary>
     /// Determines whether the widget should display the Given name and Family name fields.
     /// </summary>
-    [CheckboxComponent(
+    [CheckBoxComponent(
         Label = "Show name",
         Order = 10)]
     public bool ShowName { get; set; } = true;
@@ -16,7 +16,7 @@ public class RegistrationWidgetProperties : IWidgetProperties
     /// <summary>
     /// Determines whether the widget should display extra fields.
     /// </summary>
-    [CheckboxComponent(
+    [CheckBoxComponent(
         Label = "Show extra fields",
         Order = 20)]
     public bool ShowExtraFields { get; set; } = true;
@@ -81,9 +81,8 @@ public class RegistrationWidgetProperties : IWidgetProperties
     /// Label for checkbox that indicates that the family name should display first.
     /// </summary>
     [TextInputComponent(
-        PasswordLabel = "'Family name first' checkbox label",
+        Label = "'Family name first' checkbox label",
         Order = 100)]
-    )]
     public bool FamilyNameFirstLabel { get; set; }
 
     /// <summary>
