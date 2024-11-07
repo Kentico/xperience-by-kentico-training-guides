@@ -26,6 +26,7 @@
   <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
   <ClassIconClass>xp-arrow-down-line</ClassIconClass>
   <ClassName>TrainingGuides.DownloadsPage</ClassName>
+  <ClassShortName>TrainingGuidesDownloadsPage</ClassShortName>
   <ClassTableName>TrainingGuides_DownloadsPage</ClassTableName>
   <ClassType>Content</ClassType>
   <ClassWebPageHasUrl>True</ClassWebPageHasUrl>

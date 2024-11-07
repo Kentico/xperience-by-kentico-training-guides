@@ -26,6 +26,7 @@
   <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
   <ClassIconClass>xp-market</ClassIconClass>
   <ClassName>TrainingGuides.LandingPage</ClassName>
+  <ClassShortName>TrainingGuidesLandingPage</ClassShortName>
   <ClassTableName>TrainingGuides_HomePage</ClassTableName>
   <ClassType>Content</ClassType>
   <ClassWebPageHasUrl>True</ClassWebPageHasUrl>

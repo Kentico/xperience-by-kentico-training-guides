@@ -1,6 +1,5 @@
 using System;
 using System.Data;
-using System.Runtime.Serialization;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -16,7 +15,6 @@ namespace TrainingGuides.ProjectSettings
     /// <summary>
     /// Data container class for <see cref="WebChannelSettingsInfo"/>.
     /// </summary>
-    [Serializable]
     public partial class WebChannelSettingsInfo : AbstractInfo<WebChannelSettingsInfo, IInfoProvider<WebChannelSettingsInfo>>, IInfoWithId, IInfoWithGuid
     {
         /// <summary>
@@ -98,17 +96,6 @@ namespace TrainingGuides.ProjectSettings
         protected override void SetObject()
         {
             Provider.Set(this);
-        }
-
-
-        /// <summary>
-        /// Constructor for de-serialization.
-        /// </summary>
-        /// <param name="info">Serialization info.</param>
-        /// <param name="context">Streaming context.</param>
-        protected WebChannelSettingsInfo(SerializationInfo info, StreamingContext context)
-            : base(info, context)
-        {
         }
 
 

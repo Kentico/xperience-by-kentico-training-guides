@@ -17,7 +17,7 @@
           <controlname>Kentico.Administration.TextInput</controlname>
         </settings>
       </field>
-      <field allowempty="true" column="HeroSubheader" columnprecision="0" columnsize="400" columntype="text" enabled="true" guid="35184d34-6e80-41ea-9f12-c9ef6591d167" visible="true">
+      <field allowempty="true" column="HeroSubheader" columnprecision="0" columntype="richtexthtml" enabled="true" guid="35184d34-6e80-41ea-9f12-c9ef6591d167" visible="true">
         <properties>
           <explanationtext>
             <![CDATA[Describe your product or promoted event. Don't forget to add a unique selling proposition.]]>

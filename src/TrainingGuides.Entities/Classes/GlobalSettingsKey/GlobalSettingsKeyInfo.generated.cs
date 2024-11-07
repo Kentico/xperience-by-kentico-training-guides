@@ -1,6 +1,5 @@
 using System;
 using System.Data;
-using System.Runtime.Serialization;
 
 using CMS;
 using CMS.DataEngine;
@@ -14,7 +13,6 @@ namespace TrainingGuides.ProjectSettings
     /// <summary>
     /// Data container class for <see cref="GlobalSettingsKeyInfo"/>.
     /// </summary>
-    [Serializable]
     public partial class GlobalSettingsKeyInfo : AbstractInfo<GlobalSettingsKeyInfo, IInfoProvider<GlobalSettingsKeyInfo>>, IInfoWithId, IInfoWithName
     {
         /// <summary>
@@ -103,17 +101,6 @@ namespace TrainingGuides.ProjectSettings
         protected override void SetObject()
         {
             Provider.Set(this);
-        }
-
-
-        /// <summary>
-        /// Constructor for de-serialization.
-        /// </summary>
-        /// <param name="info">Serialization info.</param>
-        /// <param name="context">Streaming context.</param>
-        protected GlobalSettingsKeyInfo(SerializationInfo info, StreamingContext context)
-            : base(info, context)
-        {
         }
 
 
