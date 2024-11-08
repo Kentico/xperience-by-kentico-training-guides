@@ -1,0 +1,11 @@
+@using TrainingGuides.Web.Features.Membership.Widgets.Registration
+
+@model RegistrationWidgetViewModel
+
+@{
+    var registerModel = new RegisterModel();
+    registerModel.WidgetViewModel = Model;
+}
+
+
+<partial name="~/Features/Membership/Widgets/Registration/_RegisterForm.cshtml" model="registerModel" />

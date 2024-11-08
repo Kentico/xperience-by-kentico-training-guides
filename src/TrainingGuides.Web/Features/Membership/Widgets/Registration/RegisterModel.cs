@@ -1,7 +1,9 @@
 using System.ComponentModel.DataAnnotations;
+using TrainingGuides.Web.Features.Membership.Widgets.Registration;
 
 public class RegisterModel
 {
+    public RegistrationWidgetViewModel WidgetViewModel = new();
 
     [DataType(DataType.Text)]
     [Required()]
@@ -23,6 +25,7 @@ public class RegisterModel
     [DataType(DataType.Password)]
     [Required()]
     [MaxLength(100)]
+    [Compare(nameof(Password))]
     public string ConfirmPassword { get; set; } = "";
 
     [DataType(DataType.Text)]

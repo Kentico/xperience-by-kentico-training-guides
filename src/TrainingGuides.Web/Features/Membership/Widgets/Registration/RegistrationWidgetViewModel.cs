@@ -5,6 +5,11 @@ namespace TrainingGuides.Web.Features.Membership.Widgets.Registration;
 public class RegistrationWidgetViewModel
 {
     /// <summary>
+    /// Determines whether the widget should display the form.
+    /// </summary>
+    public bool DisplayForm { get; set; }
+
+    /// <summary>
     /// Determines whether the widget should display name-related fields.
     /// </summary>
     public bool ShowName { get; set; }
@@ -18,6 +23,11 @@ public class RegistrationWidgetViewModel
     /// Form title
     /// </summary>
     public string FormTitle { get; set; } = "";
+
+    /// <summary>
+    /// Submit button text
+    /// </summary>
+    public string SubmitButtonText { get; set; } = "";
 
     /// <summary>
     /// User name label.
@@ -52,7 +62,7 @@ public class RegistrationWidgetViewModel
     /// <summary>
     /// Label for checkbox that indicates that the family name should display first.
     /// </summary>
-    public bool FamilyNameFirstLabel { get; set; }
+    public string FamilyNameFirstLabel { get; set; } = "";
 
     /// <summary>
     /// Favorite coffee label.

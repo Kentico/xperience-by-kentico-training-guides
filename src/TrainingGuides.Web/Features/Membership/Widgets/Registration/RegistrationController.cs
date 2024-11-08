@@ -7,7 +7,7 @@ using TrainingGuides.Web.Features.Membership;
 public class RegistrationController(UserManager<GuidesMember> userManager, IEventLogService log, IStringLocalizer localizer) : Controller
 {
 
-    [HttpPost]
+    [HttpPost("/Registration/Register")]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Register(RegisterModel model)
     {

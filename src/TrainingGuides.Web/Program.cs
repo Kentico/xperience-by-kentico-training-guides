@@ -2,13 +2,17 @@ using AspNetCore.Unobtrusive.Ajax;
 using CMS.EmailEngine;
 using Kentico.Activities.Web.Mvc;
 using Kentico.Content.Web.Mvc.Routing;
+using Kentico.Membership;
+
 // using Kentico.CrossSiteTracking.Web.Mvc;
 // using Kentico.OnlineMarketing.Web.Mvc;
 using Kentico.PageBuilder.Web.Mvc;
 using Kentico.Web.Mvc;
+using Microsoft.AspNetCore.Identity;
 using TrainingGuides;
 using TrainingGuides.Web;
 using TrainingGuides.Web.Features.DataProtection.Shared;
+using TrainingGuides.Web.Features.Membership;
 using TrainingGuides.Web.Features.Shared.Helpers;
 //using TrainingGuides.Web.Features.Shared.Helpers.Startup;
 
@@ -73,6 +77,19 @@ builder.Services.Configure<CookieLevelOptions>(options =>
     options.CookieConfigurations.Add(CookieNames.COOKIE_CONSENT_LEVEL, CookieLevel.System);
     options.CookieConfigurations.Add(CookieNames.COOKIE_ACCEPTANCE, CookieLevel.System);
 });
+
+
+builder.Services.AddIdentity<ApplicationUser, NoOpApplicationRole>(options =>
+{
+    options.SignIn.RequireConfirmedAccount = true;
+    options.User.RequireUniqueEmail = false;//change this once we add email functionality
+})
+    .AddUserStore<ApplicationUserStore<GuidesMember>>()
+    .AddRoleStore<NoOpApplicationRoleStore>()
+    .AddUserManager<UserManager<GuidesMember>>()
+    .AddSignInManager<SignInManager<GuidesMember>>();
+
+builder.Services.AddAuthorization();
 
 builder.Services.AddAuthentication();
 

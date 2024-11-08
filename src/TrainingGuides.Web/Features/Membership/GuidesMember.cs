@@ -14,12 +14,12 @@ public class GuidesMember : ApplicationUser
             ("", "") => "",
             (string given, "") => given,
             ("", string family) => family,
-            (string given, string family) => 
+            (string given, string family) =>
                 FamilyNameFirst ? $"{family} {given}" : $"{given} {family}",
             (null, null) or _ => "",
         };
 
-    public string FavoriteCoffee { get; set; }
+    public string FavoriteCoffee { get; set; } = "";
     public DateTime Created { get; set; }
 
 
@@ -64,10 +64,10 @@ public class GuidesMember : ApplicationUser
 
     public static GuidesMember FromMemberInfo(MemberInfo memberInfo)
     {
-        var member = new Member();
-        member.MapFromMemberInfo(memberInfo);
+        var guidesMember = new GuidesMember();
+        guidesMember.MapFromMemberInfo(memberInfo);
 
-        return member;
+        return guidesMember;
     }
 }
 

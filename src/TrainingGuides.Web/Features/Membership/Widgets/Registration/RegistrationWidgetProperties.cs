@@ -30,11 +30,19 @@ public class RegistrationWidgetProperties : IWidgetProperties
     public string FormTitle { get; set; } = "Sign up";
 
     /// <summary>
+    /// Submit button text   
+    /// </summary>
+    [TextInputComponent(
+        Label = "Submit button text",
+        Order = 40)]
+    public string SubmitButtonText { get; set; } = "Submit";
+
+    /// <summary>
     /// User name label.
     /// </summary>
     [TextInputComponent(
         Label = "User name label",
-        Order = 40)]
+        Order = 50)]
     public string UserNameLabel { get; set; } = "User name";
 
     /// <summary>
@@ -42,7 +50,7 @@ public class RegistrationWidgetProperties : IWidgetProperties
     /// </summary>
     [TextInputComponent(
         Label = "Email address label",
-        Order = 50)]
+        Order = 60)]
     public string EmailAddressLabel { get; set; } = "Email address";
 
     /// <summary>
@@ -50,7 +58,7 @@ public class RegistrationWidgetProperties : IWidgetProperties
     /// </summary>
     [TextInputComponent(
         Label = "Password label",
-        Order = 60)]
+        Order = 70)]
     public string PasswordLabel { get; set; } = "Password";
 
     /// <summary>
@@ -58,7 +66,7 @@ public class RegistrationWidgetProperties : IWidgetProperties
     /// </summary>
     [TextInputComponent(
         Label = "Confirm password label",
-        Order = 70)]
+        Order = 80)]
     public string ConfirmPasswordLabel { get; set; } = "Confirm your password";
 
     /// <summary>
@@ -66,7 +74,7 @@ public class RegistrationWidgetProperties : IWidgetProperties
     /// </summary>
     [TextInputComponent(
         Label = "Given name label",
-        Order = 80)]
+        Order = 90)]
     public string GivenNameLabel { get; set; } = "Given name";
 
     /// <summary>
@@ -74,7 +82,7 @@ public class RegistrationWidgetProperties : IWidgetProperties
     /// </summary>
     [TextInputComponent(
         Label = "Family name label",
-        Order = 90)]
+        Order = 100)]
     public string FamilyNameLabel { get; set; } = "Family name";
 
     /// <summary>
@@ -82,15 +90,15 @@ public class RegistrationWidgetProperties : IWidgetProperties
     /// </summary>
     [TextInputComponent(
         Label = "'Family name first' checkbox label",
-        Order = 100)]
-    public bool FamilyNameFirstLabel { get; set; }
+        Order = 110)]
+    public string FamilyNameFirstLabel { get; set; } = "Family name goes first";
 
     /// <summary>
     /// Favorite coffee label.
     /// </summary>
     [TextInputComponent(
         Label = "Favorite coffee label",
-        Order = 110)]
+        Order = 120)]
     public string FavoriteCoffeeLabel { get; set; } = "Favorite coffee";
 
 }
