@@ -1,11 +1,17 @@
 @using TrainingGuides.Web.Features.Membership.Widgets.Registration
 
-@model RegistrationWidgetViewModel
+@model RegisterModel
 
 @{
-    var registerModel = new RegisterModel();
-    registerModel.WidgetViewModel = Model;
+    var formDivId = $"registerForm{Guid.NewGuid()}";
 }
 
-
-<partial name="~/Features/Membership/Widgets/Registration/_RegisterForm.cshtml" model="registerModel" />
+@using (Html.AjaxBeginForm("Register", "Registration", new AjaxOptions
+ {
+     HttpMethod = "POST",
+     InsertionMode = InsertionMode.Replace,
+     UpdateTargetId = formDivId
+ }, new { action = $"{Model.WidgetViewModel.BaseUrl}/Registration/Register" }))
+ {
+    <partial name="~/Features/Membership/Widgets/Registration/RegistrationForm.cshtml" model="Model" />
+ }

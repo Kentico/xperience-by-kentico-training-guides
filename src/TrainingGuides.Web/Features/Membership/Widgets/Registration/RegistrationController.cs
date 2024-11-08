@@ -2,9 +2,10 @@ using CMS.Core;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Localization;
+using TrainingGuides.Admin;
 using TrainingGuides.Web.Features.Membership;
 
-public class RegistrationController(UserManager<GuidesMember> userManager, IEventLogService log, IStringLocalizer localizer) : Controller
+public class RegistrationController(UserManager<GuidesMember> userManager, IEventLogService log, IStringLocalizer<SharedResources> localizer) : Controller
 {
 
     [HttpPost("/Registration/Register")]
@@ -29,7 +30,7 @@ public class RegistrationController(UserManager<GuidesMember> userManager, IEven
         catch (Exception ex)
         {
             log.LogException(nameof(RegistrationController), nameof(Register), ex);
-            result = IdentityResult.Failed([new() { Code = "Failure", Description = "Your registration was not successful." }]);
+            result = IdentityResult.Failed([new() { Code = "Failure", Description = localizer["Registration failed"] }]);
         }
 
         if (result.Succeeded)
@@ -43,7 +44,7 @@ public class RegistrationController(UserManager<GuidesMember> userManager, IEven
                 ModelState.AddModelError(string.Empty, error);
             }
 
-            return PartialView("~/Features/Registration/_RegisterForm.cshtml", model);
+            return PartialView("~/Features/Membership/Widgets/Registration/RegistrationForm.cshtml", model);
         }
     }
 }

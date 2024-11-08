@@ -5,6 +5,11 @@ namespace TrainingGuides.Web.Features.Membership.Widgets.Registration;
 public class RegistrationWidgetViewModel
 {
     /// <summary>
+    /// The Base URL of the site
+    /// </summary>
+    public string BaseUrl { get; set; } = "";
+
+    /// <summary>
     /// Determines whether the widget should display the form.
     /// </summary>
     public bool DisplayForm { get; set; }

@@ -3,6 +3,7 @@
 using Kentico.PageBuilder.Web.Mvc;
 using Microsoft.AspNetCore.Mvc;
 using TrainingGuides.Web.Features.Membership.Widgets.Registration;
+using TrainingGuides.Web.Features.Shared.Services;
 
 
 
@@ -17,11 +18,19 @@ using TrainingGuides.Web.Features.Membership.Widgets.Registration;
 namespace TrainingGuides.Web.Features.Membership.Widgets.Registration;
 public class RegistrationWidgetViewComponent : ViewComponent
 {
+    private readonly IHttpRequestService httpRequestService;
     public const string IDENTIFIER = "TrainingGuides.RegistrationWidget";
 
-    public IViewComponentResult Invoke(RegistrationWidgetProperties properties) =>
-        View("~/Features/Membership/Widgets/Registration/RegistrationWidget.cshtml", new RegistrationWidgetViewModel
+    public RegistrationWidgetViewComponent(IHttpRequestService httpRequestService)
+    {
+        this.httpRequestService = httpRequestService;
+    }
+
+    public IViewComponentResult Invoke(RegistrationWidgetProperties properties)
+    {
+        var widgetViewModel = new RegistrationWidgetViewModel
         {
+            BaseUrl = httpRequestService.GetBaseUrl(),
             DisplayForm = true, //TODO add service method to check if member is currently signed in/out
             ShowName = properties.ShowName,
             ShowExtraFields = properties.ShowExtraFields,
@@ -35,6 +44,13 @@ public class RegistrationWidgetViewComponent : ViewComponent
             FamilyNameLabel = properties.FamilyNameLabel,
             FamilyNameFirstLabel = properties.FamilyNameFirstLabel,
             FavoriteCoffeeLabel = properties.FavoriteCoffeeLabel
+        };
+
+        return View("~/Features/Membership/Widgets/Registration/RegistrationWidget.cshtml", new RegisterModel
+        {
+            WidgetViewModel = widgetViewModel
         });
+    }
+
 
 }

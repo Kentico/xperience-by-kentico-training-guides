@@ -3,17 +3,17 @@ using TrainingGuides.Web.Features.Membership.Widgets.Registration;
 
 public class RegisterModel
 {
-    public RegistrationWidgetViewModel WidgetViewModel = new();
+    public RegistrationWidgetViewModel WidgetViewModel = new();//TODO replace with flat properties, do hiddenfor, so they can be used in the controller
 
     [DataType(DataType.Text)]
-    [Required()]
+    [Required(ErrorMessage = "Please enter a valid email address")]
     [RegularExpression("^[a-zA-Z0-9_\\-\\.]+$")]
     [MaxLength(100)]
     public string UserName { get; set; } = "";
 
     [DataType(DataType.EmailAddress)]
     [Required()]
-    [EmailAddress()]
+    [EmailAddress(ErrorMessage = "Please enter a valid email address")]
     [MaxLength(100)]
     public string EmailAddress { get; set; } = "";
 
