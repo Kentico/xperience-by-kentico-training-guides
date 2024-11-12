@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using TrainingGuides.Web.Features.Membership.Services;
 using TrainingGuides.Web.Features.Membership.Widgets.Authentication;
 using TrainingGuides.Web.Features.Shared.Services;
-using TrainingGuides.Web.Features.Widgets.Authentication;
 
 [assembly: RegisterWidget(
     identifier: SignInWidgetViewComponent.IDENTIFIER,
@@ -11,7 +10,7 @@ using TrainingGuides.Web.Features.Widgets.Authentication;
     name: "SignIn",
     propertiesType: typeof(SignInWidgetProperties),
     Description = "Displays a sign in form for members.",
-    IconClass = "icon-lines-rectangle-o")]
+    IconClass = "icon-user")]
 
 namespace TrainingGuides.Web.Features.Membership.Widgets.Authentication;
 public class SignInWidgetViewComponent : ViewComponent
@@ -41,10 +40,7 @@ public class SignInWidgetViewComponent : ViewComponent
             StaySignedInLabel = properties.StaySignedInLabel
         };
 
-        return View("~/Features/Membership/Widgets/Authentication/AuthenticationWidget.cshtml", new SignInViewModel
-        {
-            Labels = widgetViewModel
-        });
+        return View("~/Features/Membership/Widgets/Authentication/SignInWidget.cshtml", widgetViewModel);
     }
 
 

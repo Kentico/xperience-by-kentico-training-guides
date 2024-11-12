@@ -2,11 +2,10 @@ using CMS.Core;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Localization;
-using TrainingGuides.Admin;
-using TrainingGuides.Web.Features.Membership;
 using TrainingGuides.Web.Features.Membership.Services;
 
-public class RegistrationController(IMembershipService membershipService, IEventLogService log, IStringLocalizer<SharedResources> localizer) : Controller
+namespace TrainingGuides.Web.Features.Membership.Controllers;
+public class AuthenticationController(IMembershipService membershipService, IEventLogService log, IStringLocalizer<SharedResources> localizer) : Controller
 {
 
     [HttpPost("/Registration/Register")]
@@ -34,7 +33,7 @@ public class RegistrationController(IMembershipService membershipService, IEvent
             }
             catch (Exception ex)
             {
-                log.LogException(nameof(RegistrationController), nameof(Register), ex);
+                log.LogException(nameof(AuthenticationController), nameof(Register), ex);
                 result = IdentityResult.Failed([new() { Code = "Failure", Description = localizer["Registration failed."] }]);
             }
         }

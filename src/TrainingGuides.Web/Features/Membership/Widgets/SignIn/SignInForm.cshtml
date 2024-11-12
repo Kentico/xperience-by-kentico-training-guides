@@ -1,5 +1,6 @@
-@using TrainingGuides.Web.Features.Widgets.Authentication
-@model SignInViewModel
+@using TrainingGuides.Web.Features.Membership.Widgets.Authentication
+
+@model SignInWidgetViewModel
 
 <form id="signInForm" method="post" asp-controller="Authentication" asp-action="SignIn" id="signInForm">
     <div class="form-horizontal">
@@ -8,7 +9,7 @@
 
         <div class="form-group">
             <div class="editing-form-label-cell">
-                <label class="control-label form-label mt-3">@Model.Labels.UserNameOrEmailLabel</label>
+                <label class="control-label form-label mt-3">@Model.UserNameOrEmailLabel</label>
             </div>
             <div class="editing-form-value-cell">
                 <input asp-for="UserNameOrEmail" class="form-control">
@@ -18,7 +19,7 @@
 
         <div class="form-group">
             <div class="editing-form-label-cell">
-                <label class="control-label form-label mt-3">@nameof(Model.Labels.PasswordLabel)"</label>
+                <label class="control-label form-label mt-3">@Model.PasswordLabel</label>
             </div>
             <div class="editing-form-value-cell">
                 <input asp-for="Password" class="form-control">
@@ -28,7 +29,7 @@
     </div>
     <div class="mt-3 form-check">
         <input asp-for="StaySignedIn" class="form-check-input">
-        <label class="form-check-label">@nameof(Model.Labels.StaySignedInLabel)"</label>
+        <label class="form-check-label">@Model.StaySignedInLabel</label>
     </div>
-    <button id="signIn" type="submit" class="btn btn-primary mt-3">@Model.Labels.SubmitButtonText</button>
+    <button id="signIn" type="submit" class="btn btn-primary mt-3">@Model.SubmitButtonText</button>
 </form>
