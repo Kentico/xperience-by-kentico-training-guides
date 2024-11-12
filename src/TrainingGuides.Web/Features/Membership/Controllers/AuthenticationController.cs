@@ -1,31 +1,21 @@
 using System.Web;
-using CMS.Core;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using TrainingGuides.Web.Features.Membership.Widgets.Authentication;
-using SignInResult = Microsoft.AspNetCore.Identity.SignInResult;
+using CMS.Core;
 using Htmx;
 using TrainingGuides.Web.Features.Membership.Services;
-
+using TrainingGuides.Web.Features.Membership.Widgets.Authentication;
 
 namespace TrainingGuides.Web.Features.Membership.Controllers;
 
 [Route("[controller]/[action]")]
 public class AccountController : Controller
 {
-    private readonly IEventLogService eventLogService;
     private readonly IMembershipService membershipService;
-    private readonly SignInManager<GuidesMember> signInManager;
 
-    public AccountController(
-        IMembershipService membershipService,
-        SignInManager<GuidesMember> signInManager,
-        IEventLogService eventLogService)
+    public AccountController(IMembershipService membershipService)
     {
         this.membershipService = membershipService;
-        this.signInManager = signInManager;
-        this.eventLogService = eventLogService;
     }
 
     [HttpPost]
@@ -38,21 +28,7 @@ public class AccountController : Controller
             return PartialView("~/Features/Widgets/Authentication/SignInForm.cshtml", model);
         }
 
-        var signInResult = SignInResult.Failed;
-        try
-        {
-            var member = await membershipService.GetMemberByUserNameOrEmail(model.UserNameOrEmail);
-
-            signInResult = member is null
-                ? SignInResult.Failed
-                : await signInManager.PasswordSignInAsync(member.UserName!, model.Password, model.StaySignedIn, false);
-        }
-        catch (Exception ex)
-        {
-            eventLogService.LogException(nameof(AuthenticationController), nameof(SignIn), ex);
-
-            signInResult = SignInResult.Failed;
-        }
+        var signInResult = await membershipService.SignIn(model.UserNameOrEmail, model.Password, model.StaySignedIn);
 
         if (!signInResult.Succeeded)
         {
@@ -70,15 +46,5 @@ public class AccountController : Controller
         return Request.IsHtmx()
             ? Ok()
             : Redirect(redirectUrl);
-    }
-
-    [Authorize]
-    [HttpPost]
-    [ValidateAntiForgeryToken]
-    public async Task<ActionResult> Logout()
-    {
-        await signInManager.SignOutAsync();
-
-        return Redirect($"{Request.PathBase}/profile");
     }
 }
