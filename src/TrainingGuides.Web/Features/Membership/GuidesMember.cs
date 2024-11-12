@@ -47,7 +47,7 @@ public class GuidesMember : ApplicationUser
 
         _ = target.SetValue("MemberGivenName", GivenName);
         _ = target.SetValue("MemberFamilyName", FamilyName);
-        _ = target.SetValue("FamilyNameFirst", FamilyNameFirst);
+        _ = target.SetValue("MemberFamilyNameFirst", FamilyNameFirst);
         _ = target.SetValue("MemberFavoriteCoffee", FavoriteCoffee);
     }
 
@@ -57,7 +57,7 @@ public class GuidesMember : ApplicationUser
 
         GivenName = source.GetValue("MemberGivenName", "");
         FamilyName = source.GetValue("MemberFamilyName", "");
-        FamilyNameFirst = source.GetValue("FamilyNameFirst", false);
+        FamilyNameFirst = source.GetValue("MemberFamilyNameFirst", false);
         FavoriteCoffee = source.GetValue("MemberFavoriteCoffee", "");
         Created = source.MemberCreated;
     }
