@@ -1,6 +1,6 @@
 @using TrainingGuides.Web.Features.Membership.Widgets.Registration
 
-@model RegisterModel
+@model RegistrationWidgetViewModel
 
 @{
     var formDivId = $"registerForm{Guid.NewGuid()}";
@@ -11,7 +11,9 @@
      HttpMethod = "POST",
      InsertionMode = InsertionMode.Replace,
      UpdateTargetId = formDivId
- }, new { action = $"{Model.WidgetViewModel.BaseUrl}/Registration/Register" }))
+ }, new { action = $"{Model.BaseUrl}/Registration/Register" }))
  {
-    <partial name="~/Features/Membership/Widgets/Registration/RegistrationForm.cshtml" model="Model" />
+    <div id="@formDivId">
+        <partial name="~/Features/Membership/Widgets/Registration/RegistrationForm.cshtml" model="Model" />
+    </div>
  }

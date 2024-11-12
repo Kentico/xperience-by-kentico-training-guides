@@ -1,11 +1,29 @@
-@model RegisterModel
+@model RegistrationWidgetViewModel
 <form id="registerForm" method="post" asp-controller="Registration" asp-action="Register"
     test-id="register">
     <div class="form-horizontal">
         <div asp-validation-summary="ModelOnly" class="text-danger field-validation-error"></div>
+
+        @* Include hidden inputs for widget display and links. 
+           If server-side validation fails, these values will allow the form to be properly re-rendered. *@
+        <input asp-for="BaseUrl">
+        <input asp-for="DisplayForm">
+        <input asp-for="ShowName">
+        <input asp-for="ShowExtraFields">
+        <input asp-for="FormTitle">
+        <input asp-for="SubmitButtonText">
+        <input asp-for="UserNameLabel">
+        <input asp-for="EmailAddressLabel">
+        <input asp-for="PasswordLabel">
+        <input asp-for="ConfirmPasswordLabel">
+        <input asp-for="GivenNameLabel">
+        <input asp-for="FamilyNameLabel">
+        <input asp-for="FamilyNameFirstLabel">
+        <input asp-for="FavoriteCoffeeLabel">
+
         <div class="form-group">
             <div class="editing-form-label-cell">
-                <label asp-for="UserName" class="control-label form-label mt-3"></label>
+                <label asp-for="BaseUrl" class="control-label form-label mt-3"></label>
             </div>
             <div class="editing-form-value-cell">
                 <input asp-for="UserName" class="form-control" test-id="userName">
@@ -14,7 +32,7 @@
         </div>
         <div class="form-group">
             <div class="editing-form-label-cell">
-                <label for="@nameof(Model.EmailAddress)" class="control-label form-label mt-3">@Model.WidgetViewModel.EmailAddressLabel</label>
+                <label for="@nameof(Model.EmailAddress)" class="control-label form-label mt-3">@Model.EmailAddressLabel</label>
             </div>
             <div class="editing-form-value-cell">
                 <input asp-for="EmailAddress" class="form-control" test-id="emailAddress">
@@ -23,7 +41,7 @@
         </div>
         <div class="form-group">
             <div class="editing-form-label-cell">
-                <label for="@nameof(Model.Password)" class="control-label form-label mt-3">@Model.WidgetViewModel.PasswordLabel</label>
+                <label for="@nameof(Model.Password)" class="control-label form-label mt-3">@Model.PasswordLabel</label>
             </div>
             <div class="editing-form-value-cell">
                 <input asp-for="Password" class="form-control" test-id="password">
@@ -33,18 +51,18 @@
 
         <div class="form-group">
             <div class="editing-form-label-cell">
-                <label for="@nameof(Model.ConfirmPassword)" class="control-label form-label mt-3">@Model.WidgetViewModel.ConfirmPasswordLabel</label>
+                <label for="@nameof(Model.ConfirmPassword)" class="control-label form-label mt-3">@Model.ConfirmPasswordLabel</label>
             </div>
             <div class="editing-form-value-cell">
                 <input asp-for="ConfirmPassword" class="form-control" test-id="confirmPassword">
                 <span asp-validation-for="ConfirmPassword" class="text-danger field-validation-error"></span>
             </div>
         </div>
-        @if (Model.WidgetViewModel.ShowName)
+        @if (Model.ShowName)
         {
             <div class="form-group">
                 <div class="editing-form-label-cell">
-                    <label for="@nameof(Model.GivenName)" class="control-label form-label mt-3">@Model.WidgetViewModel.GivenNameLabel</label>
+                    <label for="@nameof(Model.GivenName)" class="control-label form-label mt-3">@Model.GivenNameLabel</label>
                 </div>
                 <div class="editing-form-value-cell">
                     <input asp-for="GivenName" class="form-control" test-id="givenName">
@@ -54,7 +72,7 @@
 
             <div class="form-group">
                 <div class="editing-form-label-cell">
-                    <label for="@nameof(Model.FamilyName)" class="control-label form-label mt-3">@Model.WidgetViewModel.FamilyNameLabel</label>
+                    <label for="@nameof(Model.FamilyName)" class="control-label form-label mt-3">@Model.FamilyNameLabel</label>
                 </div>
                 <div class="editing-form-value-cell">
                     <input asp-for="FamilyName" class="form-control" test-id="familyName">
@@ -64,7 +82,7 @@
 
             <div class="form-group">
                 <div class="editing-form-label-cell">
-                    <label for="@nameof(Model.FamilyNameFirst)" class="control-label form-label mt-3">@Model.WidgetViewModel.FamilyNameFirstLabel</label>
+                    <label for="@nameof(Model.FamilyNameFirst)" class="control-label form-label mt-3">@Model.FamilyNameFirstLabel</label>
                 </div>
                 <div class="editing-form-value-cell">
                     <input asp-for="FamilyNameFirst" class="form-check" test-id="familyNameFirst">
@@ -72,11 +90,11 @@
                 </div>
             </div>
         }
-        @if (Model.WidgetViewModel.ShowExtraFields)
+        @if (Model.ShowExtraFields)
         {
             <div class="form-group">
                 <div class="editing-form-label-cell">
-                    <label for="@nameof(Model.FavoriteCoffee)" class="control-label form-label mt-3">@Model.WidgetViewModel.FavoriteCoffeeLabel</label>
+                    <label for="@nameof(Model.FavoriteCoffee)" class="control-label form-label mt-3">@Model.FavoriteCoffeeLabel</label>
                 </div>
                 <div class="editing-form-value-cell">
                     <input asp-for="FavoriteCoffee" class="form-control" test-id="favoriteCoffee">
@@ -86,6 +104,6 @@
         }
         
 
-        <button id="register" type="submit" class="btn btn-primary mt-3">@Model.WidgetViewModel.SubmitButtonText</button>
+        <button id="register" type="submit" class="btn btn-primary mt-3">@Model.SubmitButtonText</button>
     </div>
 </form>

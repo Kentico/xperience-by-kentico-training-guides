@@ -10,32 +10,36 @@ public class RegistrationController(UserManager<GuidesMember> userManager, IEven
 
     [HttpPost("/Registration/Register")]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Register(RegisterModel model)
+    public async Task<IActionResult> Register(RegistrationWidgetViewModel model)
     {
-        var guidesMember = new GuidesMember
-        {
-            UserName = model.UserName,
-            Email = model.EmailAddress,
-            GivenName = model.GivenName,
-            FamilyName = model.FamilyName,
-            FamilyNameFirst = model.FamilyNameFirst,
-            FavoriteCoffee = model.FavoriteCoffee
-        };
-
         var result = IdentityResult.Failed();
-        try
+
+        if (ModelState.IsValid)
         {
-            result = await userManager.CreateAsync(guidesMember, model.Password);
-        }
-        catch (Exception ex)
-        {
-            log.LogException(nameof(RegistrationController), nameof(Register), ex);
-            result = IdentityResult.Failed([new() { Code = "Failure", Description = localizer["Registration failed"] }]);
+            var guidesMember = new GuidesMember
+            {
+                UserName = model.UserName,
+                Email = model.EmailAddress,
+                GivenName = model.GivenName,
+                FamilyName = model.FamilyName,
+                FamilyNameFirst = model.FamilyNameFirst,
+                FavoriteCoffee = model.FavoriteCoffee
+            };
+
+            try
+            {
+                result = await userManager.CreateAsync(guidesMember, model.Password);
+            }
+            catch (Exception ex)
+            {
+                log.LogException(nameof(RegistrationController), nameof(Register), ex);
+                result = IdentityResult.Failed([new() { Code = "Failure", Description = localizer["Registration failed."] }]);
+            }
         }
 
         if (result.Succeeded)
         {
-            return Ok(localizer["Success"]);
+            return Content(localizer["Success!"]);
         }
         else
         {

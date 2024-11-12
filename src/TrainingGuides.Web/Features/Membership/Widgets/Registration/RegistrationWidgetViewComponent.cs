@@ -28,7 +28,7 @@ public class RegistrationWidgetViewComponent : ViewComponent
 
     public IViewComponentResult Invoke(RegistrationWidgetProperties properties)
     {
-        var widgetViewModel = new RegistrationWidgetViewModel
+        var registerModel = new RegistrationWidgetViewModel
         {
             BaseUrl = httpRequestService.GetBaseUrl(),
             DisplayForm = true, //TODO add service method to check if member is currently signed in/out
@@ -46,10 +46,7 @@ public class RegistrationWidgetViewComponent : ViewComponent
             FavoriteCoffeeLabel = properties.FavoriteCoffeeLabel
         };
 
-        return View("~/Features/Membership/Widgets/Registration/RegistrationWidget.cshtml", new RegisterModel
-        {
-            WidgetViewModel = widgetViewModel
-        });
+        return View("~/Features/Membership/Widgets/Registration/RegistrationWidget.cshtml", registerModel);
     }
 
 
