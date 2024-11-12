@@ -5,6 +5,7 @@ using TrainingGuides.Web.Features.Products.Services;
 using TrainingGuides.Web.Features.SEO;
 using TrainingGuides.Web.Features.Shared.Services;
 using TrainingGuides.Web.Features.EmailNotifications;
+using TrainingGuides.Web.Features.Membership.Services;
 
 namespace TrainingGuides.Web;
 
@@ -22,6 +23,7 @@ public static class ServiceCollectionExtensions
         services.AddSingleton<IComponentStyleEnumService, ComponentStyleEnumService>();
         services.AddSingleton<IEmailNotificationService, EmailNotificationService>();
 
+        services.AddScoped<IMembershipService, MembershipService>();
         services.AddScoped<IHeadTagStoreService, HeadTagStoreService>();
 
         services.AddTransient(typeof(IContentItemRetrieverService<>), typeof(ContentItemRetrieverService<>));

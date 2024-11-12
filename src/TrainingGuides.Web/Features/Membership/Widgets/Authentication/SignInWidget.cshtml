@@ -1,0 +1,17 @@
+@using TrainingGuides.Web.Features.Membership.Widgets.Authentication
+
+@model SignInWidgetViewModel
+
+@{
+    var formDivId = $"signInForm{Guid.NewGuid()}";
+}
+
+@using (Html.AjaxBeginForm("Autheticate", "Authentication", new AjaxOptions
+ {
+     HttpMethod = "POST",
+     InsertionMode = InsertionMode.Replace,
+     UpdateTargetId = formDivId
+ }, new { action = $"{Model.BaseUrl}/Authentication/Authenticate" }))
+ {
+    <partial name="~/Features/Membership/Widgets/Authentication/SignInForm.cshtml" model="Model" />
+ }
