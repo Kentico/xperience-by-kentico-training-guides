@@ -10,6 +10,7 @@ public class RegistrationWidgetProperties : IWidgetProperties
     /// </summary>
     [CheckBoxComponent(
         Label = "Show name",
+        ExplanationText = "Checkbox that determines if the registration form should display given name and family name fields.",
         Order = 10)]
     public bool ShowName { get; set; } = true;
 
@@ -18,6 +19,7 @@ public class RegistrationWidgetProperties : IWidgetProperties
     /// </summary>
     [CheckBoxComponent(
         Label = "Show extra fields",
+        ExplanationText = "Checkbox that determines if the registration form should display extra fields.",
         Order = 20)]
     public bool ShowExtraFields { get; set; } = true;
 
@@ -26,6 +28,7 @@ public class RegistrationWidgetProperties : IWidgetProperties
     /// </summary>
     [TextInputComponent(
         Label = "Form title",
+        ExplanationText = "Title to display above the registration form.",
         Order = 30)]
     public string FormTitle { get; set; } = "Sign up";
 
@@ -34,6 +37,7 @@ public class RegistrationWidgetProperties : IWidgetProperties
     /// </summary>
     [TextInputComponent(
         Label = "Submit button text",
+        ExplanationText = "Text for the button that submits the registration form.",
         Order = 40)]
     public string SubmitButtonText { get; set; } = "Submit";
 
@@ -42,6 +46,7 @@ public class RegistrationWidgetProperties : IWidgetProperties
     /// </summary>
     [TextInputComponent(
         Label = "User name label",
+        ExplanationText = "Label for the text box where registrants can input their UserName.",
         Order = 50)]
     public string UserNameLabel { get; set; } = "User name";
 
@@ -50,6 +55,7 @@ public class RegistrationWidgetProperties : IWidgetProperties
     /// </summary>
     [TextInputComponent(
         Label = "Email address label",
+        ExplanationText = "Label for the text box where registrants can input their email address.",
         Order = 60)]
     public string EmailAddressLabel { get; set; } = "Email address";
 
@@ -58,6 +64,7 @@ public class RegistrationWidgetProperties : IWidgetProperties
     /// </summary>
     [TextInputComponent(
         Label = "Password label",
+        ExplanationText = "Label for the text box where registrants can input their password.",
         Order = 70)]
     public string PasswordLabel { get; set; } = "Password";
 
@@ -66,6 +73,7 @@ public class RegistrationWidgetProperties : IWidgetProperties
     /// </summary>
     [TextInputComponent(
         Label = "Confirm password label",
+        ExplanationText = "Label for the text box where registrants can confirm their password.",
         Order = 80)]
     public string ConfirmPasswordLabel { get; set; } = "Confirm your password";
 
@@ -74,6 +82,7 @@ public class RegistrationWidgetProperties : IWidgetProperties
     /// </summary>
     [TextInputComponent(
         Label = "Given name label",
+        ExplanationText = "Label for the text box where registrants can input their given name.",
         Order = 90)]
     public string GivenNameLabel { get; set; } = "Given name";
 
@@ -82,6 +91,7 @@ public class RegistrationWidgetProperties : IWidgetProperties
     /// </summary>
     [TextInputComponent(
         Label = "Family name label",
+        ExplanationText = "Label for the text box where registrants can input their family name.",
         Order = 100)]
     public string FamilyNameLabel { get; set; } = "Family name";
 
@@ -90,6 +100,7 @@ public class RegistrationWidgetProperties : IWidgetProperties
     /// </summary>
     [TextInputComponent(
         Label = "'Family name first' checkbox label",
+        ExplanationText = "Label for the checkbox that indicates whether the family name comes before the given name.",
         Order = 110)]
     public string FamilyNameFirstLabel { get; set; } = "Family name goes first";
 
@@ -98,6 +109,7 @@ public class RegistrationWidgetProperties : IWidgetProperties
     /// </summary>
     [TextInputComponent(
         Label = "Favorite coffee label",
+        ExplanationText = "Label for the text box where registrants can input their favorite coffee.",
         Order = 120)]
     public string FavoriteCoffeeLabel { get; set; } = "Favorite coffee";
 

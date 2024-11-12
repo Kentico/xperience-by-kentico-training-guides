@@ -2,6 +2,7 @@
 
 using Kentico.PageBuilder.Web.Mvc;
 using Microsoft.AspNetCore.Mvc;
+using TrainingGuides.Web.Features.Membership.Services;
 using TrainingGuides.Web.Features.Membership.Widgets.Registration;
 using TrainingGuides.Web.Features.Shared.Services;
 
@@ -19,19 +20,21 @@ namespace TrainingGuides.Web.Features.Membership.Widgets.Registration;
 public class RegistrationWidgetViewComponent : ViewComponent
 {
     private readonly IHttpRequestService httpRequestService;
+    private readonly IMembershipService membershipService;
     public const string IDENTIFIER = "TrainingGuides.RegistrationWidget";
 
-    public RegistrationWidgetViewComponent(IHttpRequestService httpRequestService)
+    public RegistrationWidgetViewComponent(IHttpRequestService httpRequestService, IMembershipService membershipService)
     {
         this.httpRequestService = httpRequestService;
+        this.membershipService = membershipService;
     }
 
-    public IViewComponentResult Invoke(RegistrationWidgetProperties properties)
+    public async Task<IViewComponentResult> InvokeAsync(RegistrationWidgetProperties properties)
     {
         var registerModel = new RegistrationWidgetViewModel
         {
             BaseUrl = httpRequestService.GetBaseUrl(),
-            DisplayForm = true, //TODO add service method to check if member is currently signed in/out
+            DisplayForm = await membershipService.IsMemberAuthenticated(),
             ShowName = properties.ShowName,
             ShowExtraFields = properties.ShowExtraFields,
             FormTitle = properties.FormTitle,

@@ -3,6 +3,7 @@
 @model RegistrationWidgetViewModel
 
 @{
+    // Using a new guid ensures no conflict if, for some reason, multiple widgets are on the same page.
     var formDivId = $"registerForm{Guid.NewGuid()}";
 }
 

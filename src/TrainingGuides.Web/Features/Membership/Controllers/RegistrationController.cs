@@ -2,9 +2,9 @@ using CMS.Core;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Localization;
-using TrainingGuides.Admin;
-using TrainingGuides.Web.Features.Membership;
 using TrainingGuides.Web.Features.Membership.Services;
+
+namespace TrainingGuides.Web.Features.Membership.Controllers;
 
 public class RegistrationController(IMembershipService membershipService, IEventLogService log, IStringLocalizer<SharedResources> localizer) : Controller
 {
