@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.webpageitem>
   <WebPageItemContentItemID>
-    <CodeName>WidgetSamples-qyagaxb2</CodeName>
-    <GUID>d3e7f041-c1d9-4225-bb91-72813912b8af</GUID>
+    <CodeName>Register-wfb2l0pn</CodeName>
+    <GUID>67f3dec8-3741-4570-9adb-399a61f47569</GUID>
     <ObjectType>cms.contentitem</ObjectType>
   </WebPageItemContentItemID>
-  <WebPageItemGUID>dc747040-b424-4f3d-9383-5f651b96415b</WebPageItemGUID>
-  <WebPageItemName>WidgetSamples-qyagaxb2</WebPageItemName>
-  <WebPageItemOrder>10</WebPageItemOrder>
-  <WebPageItemTreePath>/Widget_samples</WebPageItemTreePath>
+  <WebPageItemGUID>9008b16a-3a70-41c9-92ba-2d289c940e2f</WebPageItemGUID>
+  <WebPageItemName>Register-wfb2l0pn</WebPageItemName>
+  <WebPageItemOrder>11</WebPageItemOrder>
+  <WebPageItemTreePath>/Register</WebPageItemTreePath>
   <WebPageItemWebsiteChannelID>
     <GUID>fdba40fe-1ece-4821-9d57-eaa1d89e13b1</GUID>
     <ObjectType>cms.websitechannel</ObjectType>

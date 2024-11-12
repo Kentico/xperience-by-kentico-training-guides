@@ -98,7 +98,7 @@ builder.Services.AddUnobtrusiveAjax();
 builder.Services.AddTrainingGuidesServices();
 builder.Services.AddTrainingGuidesOptions();
 
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews( options => options.SuppressImplicitRequiredAttributeForNonNullableReferenceTypes = true);
 builder.Services.AddMvc().AddMvcLocalization();
 
 builder.Services.AddDistributedMemoryCache();
