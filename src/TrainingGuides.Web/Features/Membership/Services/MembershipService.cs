@@ -28,4 +28,6 @@ public class MembershipService : IMembershipService
         var member = await GetMember();
         return member is not null;
     }
+
+    public async Task<IdentityResult> CreateMember(GuidesMember member, string password) => await userManager.CreateAsync(member, password);
 }

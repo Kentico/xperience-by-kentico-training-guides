@@ -16,6 +16,10 @@
       <field allowempty="true" column="MemberPassword" columnprecision="0" columnsize="100" columntype="text" enabled="true" guid="61911700-cd6c-4d73-943a-985a57342b4f" system="true" />
       <field column="MemberIsExternal" columnprecision="0" columntype="boolean" enabled="true" guid="5cf88feb-d217-4a33-8039-63b46bf2c672" system="true" />
       <field allowempty="true" column="MemberSecurityStamp" columnprecision="0" columnsize="72" columntype="text" enabled="true" guid="d127bfec-d965-4888-8836-0b22ef2e1010" system="true" />
+      <field allowempty="true" column="MemberGivenName" columnprecision="0" columnsize="100" columntype="text" enabled="true" guid="401a3ef1-1b62-4a54-bf9a-a1e0d81eeb1e" />
+      <field allowempty="true" column="MemberFamilyName" columnprecision="0" columnsize="100" columntype="text" enabled="true" guid="bc18c144-3b97-452e-9c50-96a34d966793" />
+      <field allowempty="true" column="MemberFamilyNameFirst" columnprecision="0" columntype="boolean" enabled="true" guid="dd3d9f58-66ca-4a78-ac7e-a4adea5f0215" />
+      <field allowempty="true" column="MemberFavoriteCoffee" columnprecision="0" columnsize="100" columntype="text" enabled="true" guid="fdcffe5d-932b-457e-a298-2c2229199433" />
     </form>
   </ClassFormDefinition>
   <ClassGUID>07c5d145-7cbc-4c75-9a96-6d4948bf6c73</ClassGUID>

@@ -4,8 +4,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Localization;
 using TrainingGuides.Admin;
 using TrainingGuides.Web.Features.Membership;
+using TrainingGuides.Web.Features.Membership.Services;
 
-public class RegistrationController(UserManager<GuidesMember> userManager, IEventLogService log, IStringLocalizer<SharedResources> localizer) : Controller
+public class RegistrationController(IMembershipService membershipService, IEventLogService log, IStringLocalizer<SharedResources> localizer) : Controller
 {
 
     [HttpPost("/Registration/Register")]
@@ -28,7 +29,8 @@ public class RegistrationController(UserManager<GuidesMember> userManager, IEven
 
             try
             {
-                result = await userManager.CreateAsync(guidesMember, model.Password);
+
+                result = await membershipService.CreateMember(guidesMember, model.Password);
             }
             catch (Exception ex)
             {
