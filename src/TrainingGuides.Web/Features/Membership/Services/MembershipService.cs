@@ -13,7 +13,7 @@ public class MembershipService : IMembershipService
         this.contextAccessor = contextAccessor;
     }
 
-    public async Task<GuidesMember?> GetMember()
+    public async Task<GuidesMember?> GetCurrentMember()
     {
         var context = contextAccessor.HttpContext;
         if (context is null)
@@ -25,9 +25,12 @@ public class MembershipService : IMembershipService
     }
     public async Task<bool> IsMemberAuthenticated()
     {
-        var member = await GetMember();
+        var member = await GetCurrentMember();
         return member is not null;
     }
 
     public async Task<IdentityResult> CreateMember(GuidesMember member, string password) => await userManager.CreateAsync(member, password);
+
+    public async Task<GuidesMember?> GetMemberByUserNameOrEmail(string userNameOrEmail) =>
+        await userManager.FindByNameAsync(userNameOrEmail) ?? await userManager.FindByEmailAsync(userNameOrEmail);
 }
