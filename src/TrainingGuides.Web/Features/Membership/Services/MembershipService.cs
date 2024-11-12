@@ -1,6 +1,5 @@
 using CMS.Core;
 using Microsoft.AspNetCore.Identity;
-using TrainingGuides.Web.Features.Membership.Controllers;
 
 namespace TrainingGuides.Web.Features.Membership.Services;
 public class MembershipService : IMembershipService
@@ -57,8 +56,10 @@ public class MembershipService : IMembershipService
         }
         catch (Exception ex)
         {
-            eventLogService.LogException(nameof(AuthenticationController), nameof(SignIn), ex);
+            eventLogService.LogException(nameof(MembershipService), nameof(SignIn), ex);
             return SignInResult.Failed;
         }
     }
+
+    public async Task SignOut() => await signInManager.SignOutAsync();
 }

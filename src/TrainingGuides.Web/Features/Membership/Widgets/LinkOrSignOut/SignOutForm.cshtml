@@ -1,7 +1,7 @@
 @using TrainingGuides.Web.Features.Membership.Widgets.LinkOrSignOut
 @model SignOutFormModel
 
-<form id="signOutForm" method="post" asp-controller="Authentication" asp-action="SignOut"
+<form id="signOutForm" method="post" asp-controller="Account" asp-action="SignOut"
     test-id="signout">
     <input asp-for="RedirectUrl">
     <button id="signout" type="submit" class="btn tg-btn-secondary text-uppercase my-4">@Model.ButtonText</button>

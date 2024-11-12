@@ -55,8 +55,7 @@ public class LinkOrSignOutWidgetViewComponent : ViewComponent
             {
                 Text = properties.AuthenticatedText,
                 ButtonText = properties.AuthenticatedButtonText,
-                Url = $"{baseUrl}/Membership/SignOut",
-                RedirectUrl = string.IsNullOrWhiteSpace(CurrentPageUrl) ? baseUrl : CurrentPageUrl,
+                Url = string.IsNullOrWhiteSpace(CurrentPageUrl) ? baseUrl : CurrentPageUrl,
                 IsAuthenticated = isAuthenticated,
             };
         }

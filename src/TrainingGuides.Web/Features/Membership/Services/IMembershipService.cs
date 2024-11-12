@@ -7,4 +7,5 @@ public interface IMembershipService
     public Task<bool> IsMemberAuthenticated();
     public Task<IdentityResult> CreateMember(GuidesMember member, string password);
     public Task<SignInResult> SignIn(string userNameOrEmail, string password, bool staySignedIn);
+    public Task SignOut();
 }

@@ -5,6 +5,7 @@ using CMS.Core;
 using Htmx;
 using TrainingGuides.Web.Features.Membership.Services;
 using TrainingGuides.Web.Features.Membership.Widgets.Authentication;
+using TrainingGuides.Web.Features.Membership.Widgets.LinkOrSignOut;
 
 namespace TrainingGuides.Web.Features.Membership.Controllers;
 
@@ -46,5 +47,14 @@ public class AccountController : Controller
         return Request.IsHtmx()
             ? Ok()
             : Redirect(redirectUrl);
+    }
+
+    [Authorize]
+    [HttpPost("/Account/Logout")]
+    [ValidateAntiForgeryToken]
+    public async Task<ActionResult> Logout(SignOutFormModel model)
+    {
+        await membershipService.SignOut();
+        return Redirect(model.RedirectUrl);
     }
 }
