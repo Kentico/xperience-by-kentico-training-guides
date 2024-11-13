@@ -1,4 +1,6 @@
-﻿@model TrainingGuides.Web.Features.Header.HeaderViewModel
+﻿@using TrainingGuides.Web.Features.Membership.Widgets.LinkOrSignOut
+
+@model TrainingGuides.Web.Features.Header.HeaderViewModel
 
 <header class="c-header sticky-top">
     <nav class="navbar d-flex p-2 container">
@@ -6,5 +8,18 @@
             <h1>@Model.Heading</h1>
         </div>
         <vc:language-dropdown />
+        <div>
+            @{
+                // Prepares properties for redering the "Link or sign out" widget
+                var widgetProperties = new LinkOrSignOutWidgetProperties()
+                {
+                    UnauthenticatedButtonText = "Sign in",
+                    UnauthenticatedTargetContentPage = Enumerable.Empty<WebPageRelatedItem>(), //TODO: retrieve and add the sign in page (by path?)
+                    AuthenticatedButtonText = "Sign out"
+                };
+            }
+            @* Renders the Form widget *@
+            @await Html.Kentico().RenderStandaloneWidgetAsync(ComponentIdentifiers.Widgets.LINK_OR_SIGN_OUT, widgetProperties)
+        </div>
     </nav>
 </header>
