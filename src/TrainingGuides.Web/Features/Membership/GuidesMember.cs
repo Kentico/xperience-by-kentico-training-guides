@@ -32,7 +32,7 @@ public class GuidesMember : ApplicationUser
         }
 
         /*
-         * base.MapToMemberInfo will set target.MemberPassword everytime
+         * base.MapToMemberInfo will set target.MemberPassword every time
          * however we do not want to set it if PasswordHash is null,
          * and this stores the original so we can revert it
          */
@@ -45,20 +45,20 @@ public class GuidesMember : ApplicationUser
             target.MemberPassword = originalPasswordHash;
         }
 
-        _ = target.SetValue("MemberGivenName", GivenName);
-        _ = target.SetValue("MemberFamilyName", FamilyName);
-        _ = target.SetValue("MemberFamilyNameFirst", FamilyNameFirst);
-        _ = target.SetValue("MemberFavoriteCoffee", FavoriteCoffee);
+        _ = target.SetValue("GuidesMemberGivenName", GivenName);
+        _ = target.SetValue("GuidesMemberFamilyName", FamilyName);
+        _ = target.SetValue("GuidesMemberFamilyNameFirst", FamilyNameFirst);
+        _ = target.SetValue("GuidesMemberFavoriteCoffee", FavoriteCoffee);
     }
 
     public override void MapFromMemberInfo(MemberInfo source)
     {
         base.MapFromMemberInfo(source);
 
-        GivenName = source.GetValue("MemberGivenName", "");
-        FamilyName = source.GetValue("MemberFamilyName", "");
-        FamilyNameFirst = source.GetValue("MemberFamilyNameFirst", false);
-        FavoriteCoffee = source.GetValue("MemberFavoriteCoffee", "");
+        GivenName = source.GetValue("GuidesMemberGivenName", string.Empty);
+        FamilyName = source.GetValue("GuidesMemberFamilyName", string.Empty);
+        FamilyNameFirst = source.GetValue("GuidesMemberFamilyNameFirst", false);
+        FavoriteCoffee = source.GetValue("GuidesMemberFavoriteCoffee", string.Empty);
         Created = source.MemberCreated;
     }
 
@@ -73,6 +73,6 @@ public class GuidesMember : ApplicationUser
 
 public static class MemberInfoExtensions
 {
-    public static GuidesMember AsMember(this MemberInfo member) =>
+    public static GuidesMember AsGuidesMember(this MemberInfo member) =>
         GuidesMember.FromMemberInfo(member);
 }

@@ -24,7 +24,8 @@ public class RegistrationController(IMembershipService membershipService, IEvent
                 GivenName = model.GivenName,
                 FamilyName = model.FamilyName,
                 FamilyNameFirst = model.FamilyNameFirst,
-                FavoriteCoffee = model.FavoriteCoffee
+                FavoriteCoffee = model.FavoriteCoffee,
+                Enabled = true // TODO: remove the Enabled property when email confirmation is implemented
             };
 
             try
