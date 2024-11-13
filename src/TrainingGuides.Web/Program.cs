@@ -98,7 +98,7 @@ builder.Services.AddUnobtrusiveAjax();
 builder.Services.AddTrainingGuidesServices();
 builder.Services.AddTrainingGuidesOptions();
 
-builder.Services.AddControllersWithViews( options => options.SuppressImplicitRequiredAttributeForNonNullableReferenceTypes = true);
+builder.Services.AddControllersWithViews(options => options.SuppressImplicitRequiredAttributeForNonNullableReferenceTypes = true);
 builder.Services.AddMvc().AddMvcLocalization();
 
 builder.Services.AddDistributedMemoryCache();
@@ -112,6 +112,8 @@ app.UseKentico();
 app.UseCookiePolicy();
 
 app.UseAuthentication();
+
+app.UseAuthorization();
 
 app.Kentico().MapRoutes();
 

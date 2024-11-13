@@ -28,14 +28,19 @@
 
 <h3>@Model.FormTitle</h3>
 
-@using (Html.AjaxBeginForm("Register", "Registration", new AjaxOptions
- {
-     HttpMethod = "POST",
-     InsertionMode = InsertionMode.Replace,
-     UpdateTargetId = formDivId
- }, new { action = $"{Model.BaseUrl}/Registration/Register" }))
- {
-    <div id="@formDivId">
-        <partial name="~/Features/Membership/Widgets/Registration/RegistrationForm.cshtml" model="Model" />
-    </div>
- }
+@if (Model.DisplayForm)
+{
+    @using (Html.AjaxBeginForm("Register", "Registration", new AjaxOptions
+    {
+        HttpMethod = "POST",
+        InsertionMode = InsertionMode.Replace,
+        UpdateTargetId = formDivId
+    }, new { action = $"{Model.BaseUrl}/Registration/Register" }))
+    {
+        <div id="@formDivId">
+            <partial name="~/Features/Membership/Widgets/Registration/RegistrationForm.cshtml" model="Model" />
+        </div>
+    }
+}
+
+

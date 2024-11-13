@@ -34,6 +34,6 @@ public class LinkOrSignOutWidgetProperties : IWidgetProperties
     [TextInputComponent(
     Label = "Authenticated button text",
     ExplanationText = "Text for the 'Sign out' link button when the visitor is authenticated.",
-    Order = 40)]
+    Order = 50)]
     public string AuthenticatedButtonText { get; set; } = string.Empty;
 }

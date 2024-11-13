@@ -45,9 +45,9 @@ public class AuthenticationController : Controller
     }
 
     [Authorize]
-    [HttpPost("/Authentication/Logout")]
+    [HttpPost("/Authentication/SignOut")]
     [ValidateAntiForgeryToken]
-    public async Task<ActionResult> Logout(SignOutFormModel model)
+    public async Task<ActionResult> SignOut(SignOutFormModel model)
     {
         await membershipService.SignOut();
         return Redirect(model.RedirectUrl);

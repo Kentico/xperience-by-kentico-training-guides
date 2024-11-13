@@ -13,7 +13,7 @@ using TrainingGuides.Web.Features.Shared.Services;
         name: "Link or Sign Out",
         propertiesType: typeof(LinkOrSignOutWidgetProperties),
         Description = $"Displays a line of text and a link button that will log out a member if they are authenticated and link to a specified page (such as Sign-in or Registration) if not.",
-        IconClass = "icon-bubble")]
+        IconClass = "icon-arrow-leave-square")]
 
 namespace TrainingGuides.Web.Features.Membership.Widgets.LinkOrSignOut;
 

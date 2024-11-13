@@ -34,7 +34,7 @@ public class RegistrationWidgetViewComponent : ViewComponent
         var registerModel = new RegistrationWidgetViewModel
         {
             BaseUrl = httpRequestService.GetBaseUrl(),
-            DisplayForm = await membershipService.IsMemberAuthenticated(),
+            DisplayForm = !await membershipService.IsMemberAuthenticated(),
             ShowName = properties.ShowName,
             ShowExtraFields = properties.ShowExtraFields,
             FormTitle = properties.FormTitle,
