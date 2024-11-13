@@ -22,7 +22,9 @@
     return;
 }
 
-<h1>@Model.FormTitle</h1>
+<div class="text-center">
+    <h3>@Model.FormTitle</h3>
+</div>
 
 @if(Model.DisplayForm)
 {
@@ -37,8 +39,4 @@
             <partial name="~/Features/Membership/Widgets/SignIn/SignInForm.cshtml" model="Model" />
         </div>
     }
-}
-else
-{
-    <p>already signed in, the signout button will go here</p>
 }
