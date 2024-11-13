@@ -14,6 +14,12 @@ public class SignInWidgetViewModel
     public string BaseUrl { get; set; } = string.Empty;
 
     /// <summary>
+    /// URL of the site to redirect to after successful sing in
+    /// </summary>
+    [HiddenInput]
+    public string RedirectUrl { get; set; } = string.Empty;
+
+    /// <summary>
     /// Determines whether the widget should display the form. E.g., if the user is already authenticated, the form should not be displayed. Instead they should see a sign out button
     /// </summary>
     [HiddenInput]

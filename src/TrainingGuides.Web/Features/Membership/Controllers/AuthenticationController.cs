@@ -35,13 +35,9 @@ public class AuthenticationController : Controller
 
         var signInResult = await membershipService.SignIn(model.UserNameOrEmail, model.Password, model.StaySignedIn);
 
-        if (signInResult.Succeeded)
-        {
-            string redirectUrl = $"{model.BaseUrl}/home";
-            return Redirect(redirectUrl);
-        }
-
-        return RenderError(model);
+        return signInResult.Succeeded
+            ? Content("Success!")
+            : RenderError(model);
     }
 
     [Authorize]

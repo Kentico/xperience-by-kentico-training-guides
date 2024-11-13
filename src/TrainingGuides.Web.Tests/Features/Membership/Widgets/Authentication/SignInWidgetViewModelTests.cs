@@ -16,6 +16,9 @@ public class SignInWidgetViewModelTests
     public void WhenInitialized_BaseUrl_IsEmpty() => Assert.Equal(string.Empty, viewModel.BaseUrl);
 
     [Fact]
+    public void WhenInitialized_RedirectUrl_IsEmpty() => Assert.Equal(string.Empty, viewModel.RedirectUrl);
+
+    [Fact]
     public void WhenInitialized_DisplayForm_IsTrue() => Assert.True(viewModel.DisplayForm);
 
     [Fact]

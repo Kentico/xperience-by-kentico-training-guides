@@ -1,3 +1,4 @@
+using Kentico.Content.Web.Mvc.Routing;
 using Kentico.PageBuilder.Web.Mvc;
 using Microsoft.AspNetCore.Mvc;
 using TrainingGuides.Web.Features.Membership.Services;
@@ -17,21 +18,27 @@ public class SignInWidgetViewComponent : ViewComponent
 {
     private readonly IHttpRequestService httpRequestService;
     private readonly IMembershipService membershipService;
+    private readonly IPreferredLanguageRetriever preferredLanguageRetriever;
+
     public const string IDENTIFIER = "TrainingGuides.SignInWidget";
 
     public SignInWidgetViewComponent(
         IHttpRequestService httpRequestService,
-        IMembershipService membershipService)
+        IMembershipService membershipService,
+        IPreferredLanguageRetriever preferredLanguageRetriever)
     {
         this.httpRequestService = httpRequestService;
         this.membershipService = membershipService;
+        this.preferredLanguageRetriever = preferredLanguageRetriever;
     }
 
     public async Task<IViewComponentResult> InvokeAsync(SignInWidgetProperties properties)
     {
+        // var redirectUrl = httpRequestService.GetPageUrlForLanguage(properties.RedirectPage.FirstOrDefault()., preferredLanguageRetriever.Get());
         var widgetViewModel = new SignInWidgetViewModel
         {
             BaseUrl = httpRequestService.GetBaseUrl(),
+            RedirectUrl = "/", //TODO retrieve URL of set properties.RedirectPage
             DisplayForm = !await membershipService.IsMemberAuthenticated(),
             FormTitle = properties.FormTitle,
             SubmitButtonText = properties.SubmitButtonText,

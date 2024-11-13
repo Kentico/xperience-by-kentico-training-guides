@@ -70,4 +70,16 @@ public class HttpRequestService : IHttpRequestService
         var url = await webPageUrlRetriever.Retrieve(currentPage.WebPageItemID, language);
         return url.RelativePath;
     }
+
+    /// <summary>
+    /// Retrieves URL of the specified page for a specific language
+    /// </summary>
+    /// <param name="webpage">Webpage to retrieve a URL of.</param>
+    /// <param name="language">Two-letter language code (e.g., "es" for Spanish, "en" for English)</param>
+    /// <returns>Language specific URL of the current page (e.g. website.com/es/page)</returns>
+    public async Task<string> GetPageUrlForLanguage(RoutedWebPage webpage, string language)
+    {
+        var url = await webPageUrlRetriever.Retrieve(webpage.WebPageItemID, language);
+        return url.RelativePath;
+    }
 }
