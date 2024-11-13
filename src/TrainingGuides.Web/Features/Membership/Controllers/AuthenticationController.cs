@@ -1,32 +1,28 @@
-using System.Web;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using CMS.Core;
-using Htmx;
 using TrainingGuides.Web.Features.Membership.Services;
 using TrainingGuides.Web.Features.Membership.Widgets.Authentication;
 using TrainingGuides.Web.Features.Membership.Widgets.LinkOrSignOut;
 
 namespace TrainingGuides.Web.Features.Membership.Controllers;
 
-[Route("[controller]/[action]")]
-public class AccountController : Controller
+public class AuthenticationController : Controller
 {
     private readonly IMembershipService membershipService;
 
-    public AccountController(IMembershipService membershipService)
+    public AuthenticationController(IMembershipService membershipService)
     {
         this.membershipService = membershipService;
     }
 
-    [HttpPost]
-    [AllowAnonymous]
+    [HttpPost("/Authentication/Authenticate")]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> SignIn(SignInWidgetViewModel model, string returnUrl)
+    public async Task<IActionResult> Authenticate(SignInWidgetViewModel model)
     {
         if (!ModelState.IsValid)
         {
-            return PartialView("~/Features/Widgets/Authentication/SignInForm.cshtml", model);
+            ModelState.AddModelError(string.Empty, "Your sign-in attempt was not successful. Please try again.");
+            return PartialView("~/Features/Membership/Widgets/Authentication/SignInForm.cshtml", model);
         }
 
         var signInResult = await membershipService.SignIn(model.UserNameOrEmail, model.Password, model.StaySignedIn);
@@ -34,23 +30,15 @@ public class AccountController : Controller
         if (!signInResult.Succeeded)
         {
             ModelState.AddModelError(string.Empty, "Your sign-in attempt was not successful. Please try again.");
-
-            return PartialView("~/Features/Widgets/Authentication/SignInForm.cshtml", model);
+            return PartialView("~/Features/Membership/Widgets/Authentication/SignInForm.cshtml", model);
         }
 
-        string decodedReturnUrl = HttpUtility.UrlDecode(returnUrl) ?? "";
-
         string redirectUrl = $"{Request.PathBase}/home";
-
-        Response.Htmx(h => h.Redirect(redirectUrl));
-
-        return Request.IsHtmx()
-            ? Ok()
-            : Redirect(redirectUrl);
+        return Redirect(redirectUrl);
     }
 
     [Authorize]
-    [HttpPost("/Account/Logout")]
+    [HttpPost("/Authentication/Logout")]
     [ValidateAntiForgeryToken]
     public async Task<ActionResult> Logout(SignOutFormModel model)
     {

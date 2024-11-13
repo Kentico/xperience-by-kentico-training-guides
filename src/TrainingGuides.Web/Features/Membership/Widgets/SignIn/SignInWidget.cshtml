@@ -2,16 +2,23 @@
 
 @model SignInWidgetViewModel
 
-@{
-    var formDivId = $"signInForm{Guid.NewGuid()}";
-}
 
-@using (Html.AjaxBeginForm("Autheticate", "Authentication", new AjaxOptions
- {
-     HttpMethod = "POST",
-     InsertionMode = InsertionMode.Replace,
-     UpdateTargetId = formDivId
- }, new { action = $"{Model.BaseUrl}/Authentication/Authenticate" }))
- {
-    <partial name="~/Features/Membership/Widgets/Authentication/SignInForm.cshtml" model="Model" />
- }
+<h1>@Model.FormTitle</h1>
+
+@if(Model.DisplayForm)
+{
+    var formDivId = $"signInForm{Guid.NewGuid()}";
+    @using (Html.AjaxBeginForm("Autheticate", "Authentication", new AjaxOptions
+    {
+        HttpMethod = "POST",
+        InsertionMode = InsertionMode.Replace,
+        UpdateTargetId = formDivId
+    }, new { action = $"{Model.BaseUrl}/Authentication/Authenticate" }))
+    {
+        <partial name="~/Features/Membership/Widgets/SignIn/SignInForm.cshtml" model="Model" />
+    }
+}
+else
+{
+    <p>already signed in</p>
+}

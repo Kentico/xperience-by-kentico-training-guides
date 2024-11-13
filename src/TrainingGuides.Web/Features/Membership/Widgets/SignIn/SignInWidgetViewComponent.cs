@@ -32,7 +32,7 @@ public class SignInWidgetViewComponent : ViewComponent
         var widgetViewModel = new SignInWidgetViewModel
         {
             BaseUrl = httpRequestService.GetBaseUrl(),
-            DisplayForm = await membershipService.IsMemberAuthenticated(),
+            DisplayForm = !await membershipService.IsMemberAuthenticated(),
             FormTitle = properties.FormTitle,
             SubmitButtonText = properties.SubmitButtonText,
             UserNameOrEmailLabel = properties.UserNameLabel,
@@ -40,8 +40,6 @@ public class SignInWidgetViewComponent : ViewComponent
             StaySignedInLabel = properties.StaySignedInLabel
         };
 
-        return View("~/Features/Membership/Widgets/Authentication/SignInWidget.cshtml", widgetViewModel);
+        return View("~/Features/Membership/Widgets/SignIn/SignInWidget.cshtml", widgetViewModel);
     }
-
-
 }
