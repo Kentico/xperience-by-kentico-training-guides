@@ -6,13 +6,22 @@ using TrainingGuides.Web.Features.Membership.Widgets.LinkOrSignOut;
 
 namespace TrainingGuides.Web.Features.Membership.Controllers;
 
+
+
 public class AuthenticationController : Controller
 {
     private readonly IMembershipService membershipService;
+    private const string SIGN_IN_FAILED = "Your sign-in attempt was not successful. Please try again.";
 
     public AuthenticationController(IMembershipService membershipService)
     {
         this.membershipService = membershipService;
+    }
+
+    private IActionResult RenderError(SignInWidgetViewModel model)
+    {
+        ModelState.AddModelError(string.Empty, SIGN_IN_FAILED);
+        return PartialView("~/Features/Membership/Widgets/SignIn/SignInForm.cshtml", model);
     }
 
     [HttpPost("/Authentication/Authenticate")]
@@ -21,20 +30,18 @@ public class AuthenticationController : Controller
     {
         if (!ModelState.IsValid)
         {
-            ModelState.AddModelError(string.Empty, "Your sign-in attempt was not successful. Please try again.");
-            return PartialView("~/Features/Membership/Widgets/Authentication/SignInForm.cshtml", model);
+            return RenderError(model);
         }
 
         var signInResult = await membershipService.SignIn(model.UserNameOrEmail, model.Password, model.StaySignedIn);
 
-        if (!signInResult.Succeeded)
+        if (signInResult.Succeeded)
         {
-            ModelState.AddModelError(string.Empty, "Your sign-in attempt was not successful. Please try again.");
-            return PartialView("~/Features/Membership/Widgets/Authentication/SignInForm.cshtml", model);
+            string redirectUrl = $"{model.BaseUrl}/home";
+            return Redirect(redirectUrl);
         }
 
-        string redirectUrl = $"{Request.PathBase}/home";
-        return Redirect(redirectUrl);
+        return RenderError(model);
     }
 
     [Authorize]

@@ -52,7 +52,7 @@ public class MembershipService : IMembershipService
                 return SignInResult.Failed;
             }
 
-            return await signInManager.PasswordSignInAsync(member.UserName, password, staySignedIn, false);
+            return await signInManager.PasswordSignInAsync(member.UserName!, password, staySignedIn, false);
         }
         catch (Exception ex)
         {

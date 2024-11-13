@@ -52,7 +52,7 @@ public class SignInWidgetViewModel
     //FORM PROPERTIES
 
     [DataType(DataType.Text)]
-    [Required()]
+    [Required(ErrorMessage = "Please enter your user name or email address.")]
     [MaxLength(100)]
     public string UserNameOrEmail { get; set; } = string.Empty;
 
