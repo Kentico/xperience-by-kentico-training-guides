@@ -48,4 +48,5 @@ public interface IContentItemRetrieverService
         string schemaName,
         string taxonomyColumnName,
         IEnumerable<Guid> tagGuids);
+    public Task<IWebPageFieldsSource?> RetrieveWebPageByPath(string pathToMatch);
 }

@@ -7,19 +7,14 @@
         <div id="navbar-container">
             <h1>@Model.Heading</h1>
         </div>
-        <vc:language-dropdown />
-        <div>
-            @{
-                // Prepares properties for redering the "Link or sign out" widget
-                var widgetProperties = new LinkOrSignOutWidgetProperties()
-                {
-                    UnauthenticatedButtonText = "Sign in",
-                    UnauthenticatedTargetContentPage = Enumerable.Empty<WebPageRelatedItem>(), //TODO: retrieve and add the sign in page (by path?)
-                    AuthenticatedButtonText = "Sign out"
-                };
-            }
-            @* Renders the Form widget *@
-            @await Html.Kentico().RenderStandaloneWidgetAsync(ComponentIdentifiers.Widgets.LINK_OR_SIGN_OUT, widgetProperties)
+        <div class="d-flex p-2">
+            <div class="p-2">
+                <vc:language-dropdown />
+            </div>
+            <div>
+                @* Renders the Form widget *@
+                @await Html.Kentico().RenderStandaloneWidgetAsync(ComponentIdentifiers.Widgets.LINK_OR_SIGN_OUT, Model.LinkOrSignOutWidgetProperties)
+            </div>
         </div>
     </nav>
 </header>

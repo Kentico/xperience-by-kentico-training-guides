@@ -245,13 +245,17 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
         return await RetrieveContentItems(contentQueryParameters, contentTypesQueryParameters);
     }
 
-    private async Task<IEnumerable<IWebPageFieldsSource>> RetrieveWebPages(Action<ContentQueryParameters> parameters)
+    private async Task<IEnumerable<IWebPageFieldsSource>> RetrieveWebPages(Action<ContentQueryParameters> parameters, string? pathToMatch = null)
     {
         var builder = new ContentItemQueryBuilder();
 
-        builder.ForContentTypes(query =>
+        builder
+            .ForContentTypes(query =>
             {
-                query.ForWebsite(websiteChannelContext.WebsiteChannelName);
+                if (pathToMatch == null)
+                    query.ForWebsite(websiteChannelContext.WebsiteChannelName);
+                else
+                    query.ForWebsite(websiteChannelContext.WebsiteChannelName, PathMatch.Single(pathToMatch));
             })
             .Parameters(parameters);
 
@@ -286,6 +290,25 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
             {
                 parameters.Where(where => where.WhereEquals(nameof(WebPageFields.WebPageItemGUID), webPageItemGuid));
             });
+
+        return pages.FirstOrDefault();
+    }
+
+    /// <summary>
+    /// Retrieves the IWebPageFieldsSource of a web page item by path.
+    /// </summary>
+    /// <param name="pathToMatch">the path of the web page item</param>
+    ///<returns><see cref="IWebPageFieldsSource"/> object containing generic <see cref="WebPageFields"/> for the item</returns>
+    public async Task<IWebPageFieldsSource?> RetrieveWebPageByPath(string pathToMatch)
+    {
+        var builder = new ContentItemQueryBuilder();
+
+        builder.ForContentTypes(query =>
+            {
+                query.ForWebsite(websiteChannelContext.WebsiteChannelName, PathMatch.Single(pathToMatch));
+            });
+
+        var pages = await contentQueryExecutor.GetMappedResult<IWebPageFieldsSource>(builder);
 
         return pages.FirstOrDefault();
     }
