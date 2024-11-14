@@ -276,7 +276,7 @@ public class CookieConsentService : ICookieConsentService
     public bool CurrentContactCanBeTracked()
     {
         bool isAllOrHigher = false;
-        string cookieLevelString = cookieAccessor.Get("CMSCookieLevel");
+        string cookieLevelString = cookieAccessor.Get(CookieNames.CMS_COOKIE_LEVEL);
 
         if (int.TryParse(cookieLevelString, out int cookieLevel))
             isAllOrHigher = cookieLevel >= 1000;

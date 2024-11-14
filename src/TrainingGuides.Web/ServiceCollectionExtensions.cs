@@ -22,6 +22,7 @@ public static class ServiceCollectionExtensions
         services.AddSingleton<IProductPageService, ProductPageService>();
         services.AddSingleton<IComponentStyleEnumService, ComponentStyleEnumService>();
         services.AddSingleton<IEmailNotificationService, EmailNotificationService>();
+        services.AddSingleton<IMemberContactService, MemberContactService>();
 
         services.AddScoped<IMembershipService, MembershipService>();
         services.AddScoped<IHeadTagStoreService, HeadTagStoreService>();
