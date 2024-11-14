@@ -11,9 +11,10 @@ public class HttpRequestService : IHttpRequestService
     private readonly IWebPageUrlRetriever webPageUrlRetriever;
     private const string WEB_PAGE_URL_PATHS = "Kentico.WebPageUrlPaths";
 
-    public HttpRequestService(IHttpContextAccessor httpContextAccessor,
-    IWebPageDataContextRetriever webPageDataContextRetriever,
-    IWebPageUrlRetriever webPageUrlRetriever)
+    public HttpRequestService(
+        IHttpContextAccessor httpContextAccessor,
+        IWebPageDataContextRetriever webPageDataContextRetriever,
+        IWebPageUrlRetriever webPageUrlRetriever)
     {
         this.httpContextAccessor = httpContextAccessor;
         this.webPageDataContextRetriever = webPageDataContextRetriever;
@@ -77,9 +78,9 @@ public class HttpRequestService : IHttpRequestService
     /// <param name="webpage">Webpage to retrieve a URL of.</param>
     /// <param name="language">Two-letter language code (e.g., "es" for Spanish, "en" for English)</param>
     /// <returns>Language specific URL of the current page (e.g. website.com/es/page)</returns>
-    public async Task<string> GetPageUrlForLanguage(RoutedWebPage webpage, string language)
+    public async Task<string> GetPageRelativeUrl(Guid webpageGuid, string language)
     {
-        var url = await webPageUrlRetriever.Retrieve(webpage.WebPageItemID, language);
+        var url = await webPageUrlRetriever.Retrieve(webpageGuid, language);
         return url.RelativePath;
     }
 }

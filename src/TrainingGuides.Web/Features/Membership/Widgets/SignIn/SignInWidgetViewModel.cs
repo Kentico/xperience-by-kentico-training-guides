@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Mvc;
 
-namespace TrainingGuides.Web.Features.Membership.Widgets.Authentication;
+namespace TrainingGuides.Web.Features.Membership.Widgets.SignIn;
 
 public class SignInWidgetViewModel
 {

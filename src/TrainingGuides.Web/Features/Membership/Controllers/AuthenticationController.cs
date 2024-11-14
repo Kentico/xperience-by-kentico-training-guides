@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using TrainingGuides.Web.Features.Membership.Services;
-using TrainingGuides.Web.Features.Membership.Widgets.Authentication;
+using TrainingGuides.Web.Features.Membership.Widgets.SignIn;
 using TrainingGuides.Web.Features.Membership.Widgets.LinkOrSignOut;
 
 namespace TrainingGuides.Web.Features.Membership.Controllers;

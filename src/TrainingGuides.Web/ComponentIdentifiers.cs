@@ -5,7 +5,7 @@ using TrainingGuides.Web.Features.Html.Widgets.HtmlCode;
 using TrainingGuides.Web.Features.LandingPages.Widgets.CallToAction;
 using TrainingGuides.Web.Features.LandingPages.Widgets.HeroBanner;
 using TrainingGuides.Web.Features.LandingPages.Widgets.SimpleCallToAction;
-using TrainingGuides.Web.Features.Membership.Widgets.Authentication;
+using TrainingGuides.Web.Features.Membership.Widgets.SignIn;
 using TrainingGuides.Web.Features.Membership.Widgets.LinkOrSignOut;
 using TrainingGuides.Web.Features.Products.Widgets.Product;
 using TrainingGuides.Web.Features.Products.Widgets.ProductComparator;

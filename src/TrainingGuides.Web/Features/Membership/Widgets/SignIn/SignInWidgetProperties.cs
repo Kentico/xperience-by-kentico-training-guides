@@ -2,7 +2,7 @@ using Kentico.PageBuilder.Web.Mvc;
 using Kentico.Xperience.Admin.Base.FormAnnotations;
 using Kentico.Xperience.Admin.Websites.FormAnnotations;
 
-namespace TrainingGuides.Web.Features.Membership.Widgets.Authentication;
+namespace TrainingGuides.Web.Features.Membership.Widgets.SignIn;
 
 public class SignInWidgetProperties : IWidgetProperties
 {
