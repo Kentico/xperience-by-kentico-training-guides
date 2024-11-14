@@ -33,7 +33,7 @@
         HttpMethod = "POST",
         InsertionMode = InsertionMode.Replace,
         UpdateTargetId = formDivId,
-        OnSuccess = $"window.location.href = '{Model.RedirectUrl}'"
+        OnSuccess = "RedirectOnAuthenticationSuccess(data)"
     }, new { action = $"{Model.BaseUrl}/Authentication/Authenticate" }))
     {
         <div id="@formDivId">
