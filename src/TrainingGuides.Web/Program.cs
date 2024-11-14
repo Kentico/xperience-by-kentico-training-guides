@@ -108,12 +108,10 @@ var app = builder.Build();
 
 app.InitKentico();
 app.UseStaticFiles();
-app.UseKentico();
 
 app.UseCookiePolicy();
-
 app.UseAuthentication();
-
+app.UseKentico();
 app.UseAuthorization();
 
 app.Kentico().MapRoutes();
