@@ -8,4 +8,6 @@ public static class CookieNames
     // System cookies
     public const string COOKIE_CONSENT_LEVEL = "trainingguides.cookieconsentlevel";
     public const string COOKIE_ACCEPTANCE = "trainingguides.cookielevelselection";
+    public const string CMS_COOKIE_LEVEL = "CMSCookieLevel";
+    public const string CURRENT_CONTACT = "CurrentContact";
 }

@@ -9,16 +9,20 @@ public class MembershipService : IMembershipService
     private readonly IHttpContextAccessor contextAccessor;
     private readonly IEventLogService eventLogService;
 
+    private readonly ICookieAccessor cookieAccessor;
+
     public MembershipService(
         UserManager<GuidesMember> userManager,
         SignInManager<GuidesMember> signInManager,
         IHttpContextAccessor contextAccessor,
-        IEventLogService eventLogService)
+        IEventLogService eventLogService,
+        ICookieAccessor cookieAccessor)
     {
         this.userManager = userManager;
         this.signInManager = signInManager;
         this.contextAccessor = contextAccessor;
         this.eventLogService = eventLogService;
+        this.cookieAccessor = cookieAccessor;
     }
 
     public async Task<GuidesMember?> GetCurrentMember()
@@ -61,5 +65,18 @@ public class MembershipService : IMembershipService
         }
     }
 
-    public async Task SignOut() => await signInManager.SignOutAsync();
+    public async Task SignOut() 
+    {
+        await signInManager.SignOutAsync();
+        
+        RemoveCookies();
+    }
+
+    private void RemoveCookies()
+    {
+        cookieAccessor.Remove(CookieNames.CURRENT_CONTACT);
+        cookieAccessor.Remove(CookieNames.CMS_COOKIE_LEVEL);
+        cookieAccessor.Remove(CookieNames.COOKIE_ACCEPTANCE);
+        cookieAccessor.Remove(CookieNames.COOKIE_CONSENT_LEVEL);
+    }
 }
