@@ -1,7 +1,8 @@
 using Kentico.PageBuilder.Web.Mvc;
 using Kentico.Xperience.Admin.Base.FormAnnotations;
+using Kentico.Xperience.Admin.Websites.FormAnnotations;
 
-namespace TrainingGuides.Web.Features.Membership.Widgets.Authentication;
+namespace TrainingGuides.Web.Features.Membership.Widgets.SignIn;
 
 public class SignInWidgetProperties : IWidgetProperties
 {
@@ -44,4 +45,11 @@ public class SignInWidgetProperties : IWidgetProperties
         Label = "Stay signed in label",
         Order = 50)]
     public string StaySignedInLabel { get; set; } = "Stay signed in";
+
+    [WebPageSelectorComponent(
+        Label = "Redirect page",
+        ExplanationText = "Page to redirect to after successful sign in. If empty, the the site visitor will be navigated to home page.",
+        MaximumPages = 1,
+        Order = 60)]
+    public IEnumerable<WebPageRelatedItem> RedirectPage { get; set; } = Enumerable.Empty<WebPageRelatedItem>();
 }

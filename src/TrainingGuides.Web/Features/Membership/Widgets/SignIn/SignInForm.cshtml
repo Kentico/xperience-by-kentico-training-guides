@@ -1,4 +1,4 @@
-@using TrainingGuides.Web.Features.Membership.Widgets.Authentication
+@using TrainingGuides.Web.Features.Membership.Widgets.SignIn
 
 @model SignInWidgetViewModel
 
@@ -8,6 +8,7 @@
     @* Include hidden inputs for widget display and links. 
         If server-side validation fails, these values will allow the form to be properly re-rendered. *@
     <input asp-for="BaseUrl">
+    <input asp-for="RedirectUrl">
     <input asp-for="DisplayForm">
     <input asp-for="FormTitle">
     <input asp-for="SubmitButtonText">

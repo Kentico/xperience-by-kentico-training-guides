@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using TrainingGuides.Web.Features.Membership.Services;
-using TrainingGuides.Web.Features.Membership.Widgets.Authentication;
+using TrainingGuides.Web.Features.Membership.Widgets.SignIn;
 using TrainingGuides.Web.Features.Membership.Widgets.LinkOrSignOut;
 
 namespace TrainingGuides.Web.Features.Membership.Controllers;
@@ -35,13 +35,9 @@ public class AuthenticationController : Controller
 
         var signInResult = await membershipService.SignIn(model.UserNameOrEmail, model.Password, model.StaySignedIn);
 
-        if (signInResult.Succeeded)
-        {
-            string redirectUrl = $"{model.BaseUrl}/home";
-            return Redirect(redirectUrl);
-        }
-
-        return RenderError(model);
+        return signInResult.Succeeded
+            ? Content("Success!")
+            : RenderError(model);
     }
 
     [Authorize]
