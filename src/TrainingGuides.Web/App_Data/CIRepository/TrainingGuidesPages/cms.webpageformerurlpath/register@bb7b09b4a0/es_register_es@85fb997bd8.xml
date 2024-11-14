@@ -1,25 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<cms.webpageurlpath>
-  <WebPageUrlPath>es/Register</WebPageUrlPath>
-  <WebPageUrlPathContentLanguageID>
+<cms.webpageformerurlpath>
+  <WebPageFormerUrlPath>es/Register</WebPageFormerUrlPath>
+  <WebPageFormerUrlPathContentLanguageID>
     <CodeName>es</CodeName>
     <GUID>b2e99971-c2dd-4a47-bb64-0d9a0d28d226</GUID>
     <ObjectType>cms.contentlanguage</ObjectType>
-  </WebPageUrlPathContentLanguageID>
-  <WebPageUrlPathGUID>265f57e1-a961-45e7-9119-867782ae0ea6</WebPageUrlPathGUID>
-  <WebPageUrlPathHash>
+  </WebPageFormerUrlPathContentLanguageID>
+  <WebPageFormerUrlPathHash>
     <![CDATA[13CC10FDA911D7B8ADDCB69E3ECBC7945D9FA830CEC50585D0A19CCE9B628660]]>
-  </WebPageUrlPathHash>
-  <WebPageUrlPathIsCanonical>True</WebPageUrlPathIsCanonical>
-  <WebPageUrlPathIsDraft>False</WebPageUrlPathIsDraft>
-  <WebPageUrlPathIsLatest>True</WebPageUrlPathIsLatest>
-  <WebPageUrlPathType>0</WebPageUrlPathType>
-  <WebPageUrlPathWebPageItemID>
+  </WebPageFormerUrlPathHash>
+  <WebPageFormerUrlPathWebPageItemID>
     <CodeName>Register-wfb2l0pn</CodeName>
     <GUID>9008b16a-3a70-41c9-92ba-2d289c940e2f</GUID>
     <ObjectType>cms.webpageitem</ObjectType>
-  </WebPageUrlPathWebPageItemID>
-  <WebPageUrlPathWebsiteChannelID>
+  </WebPageFormerUrlPathWebPageItemID>
+  <WebPageFormerUrlPathWebsiteChannelID>
     <GUID>fdba40fe-1ece-4821-9d57-eaa1d89e13b1</GUID>
     <ObjectType>cms.websitechannel</ObjectType>
     <Parent>
@@ -27,5 +22,5 @@
       <GUID>5ba9c1e8-b61e-4570-b666-87a9b92bbe3b</GUID>
       <ObjectType>cms.channel</ObjectType>
     </Parent>
-  </WebPageUrlPathWebsiteChannelID>
-</cms.webpageurlpath>
+  </WebPageFormerUrlPathWebsiteChannelID>
+</cms.webpageformerurlpath>

@@ -149,4 +149,17 @@
   <data name="Marketing cookies" xml:space="preserve">
     <value>Cookies de marketing</value>
   </data>
+
+  <data name="Sign in" xml:space="preserve">
+    <value>Iniciar sesión</value>
+  </data>
+  <data name="Sign out" xml:space="preserve">
+    <value>Cerrar sesión</value>
+  </data>
+  <data name="Success!" xml:space="preserve">
+    <value>¡Éxito!</value>
+  </data>
+  <data name="Registration failed." xml:space="preserve">
+    <value>Error en el registro.</value>
+  </data>
 </root>

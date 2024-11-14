@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.emptypage>
+  <ContentItemDataCommonDataID>
+    <GUID>c9c07ec5-c40a-4a78-89eb-09c9d2f08f05</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>SignIn-x4a1nygh</CodeName>
+      <GUID>4f88daba-f579-43fb-acdd-d80c43d7317a</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>890db758-8369-4674-9212-0706460c9438</ContentItemDataGUID>
+</contentitemdata.trainingguides.emptypage>

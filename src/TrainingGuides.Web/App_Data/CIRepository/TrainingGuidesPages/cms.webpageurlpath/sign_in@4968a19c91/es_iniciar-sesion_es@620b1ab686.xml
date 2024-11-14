@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.webpageurlpath>
-  <WebPageUrlPath>es/Sign-in</WebPageUrlPath>
+  <WebPageUrlPath>es/Iniciar-sesion</WebPageUrlPath>
   <WebPageUrlPathContentLanguageID>
     <CodeName>es</CodeName>
     <GUID>b2e99971-c2dd-4a47-bb64-0d9a0d28d226</GUID>
@@ -8,7 +8,7 @@
   </WebPageUrlPathContentLanguageID>
   <WebPageUrlPathGUID>a7bbb92d-4ea8-4d71-b99e-852098ccd504</WebPageUrlPathGUID>
   <WebPageUrlPathHash>
-    <![CDATA[FE07118305E60C5BEDD5B26A035CDD251E324F28832DE357F68DDAFC20C9FC57]]>
+    <![CDATA[9A6C5C870177BA02A5D3868AB68F5032D5DC8DDAD42A9ADBFB3E447FB2043292]]>
   </WebPageUrlPathHash>
   <WebPageUrlPathIsCanonical>True</WebPageUrlPathIsCanonical>
   <WebPageUrlPathIsDraft>False</WebPageUrlPathIsDraft>
