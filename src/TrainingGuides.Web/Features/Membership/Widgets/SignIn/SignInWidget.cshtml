@@ -2,18 +2,7 @@
 
 @model SignInWidgetViewModel
 
-@{
-    // Using a new guid ensures no conflict if, for some reason, multiple widgets are on the same page.
-    var formDivId = $"signInForm{Guid.NewGuid()}";
-
-    bool isMisconfigured = Model == null
-        || string.IsNullOrWhiteSpace(Model.BaseUrl)
-        || string.IsNullOrWhiteSpace(Model.SubmitButtonText)
-        || string.IsNullOrWhiteSpace(Model.UserNameOrEmailLabel)
-        || string.IsNullOrWhiteSpace(Model.PasswordLabel)
-        || string.IsNullOrWhiteSpace(Model.StaySignedInLabel);
-}
-@if (isMisconfigured)
+@if (Model == null || Model.IsMisconfigured)
 {
     <tg-page-builder-content>
         <tg-configure-widget-instructions />
@@ -28,6 +17,9 @@
 
 @if(Model.DisplayForm)
 {
+    // Using a new guid ensures no conflict if, for some reason, multiple widgets are on the same page.
+    var formDivId = $"signInForm{Guid.NewGuid()}";
+
     @using (Html.AjaxBeginForm("Autheticate", "Authentication", new AjaxOptions
     {
         HttpMethod = "POST",

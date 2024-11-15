@@ -988,7 +988,6 @@
         "dependencies": {
           "AspNetCore.Unobtrusive.Ajax": "[2.0.0, )",
           "Enums.NET": "[4.0.2, )",
-          "Htmx": "[1.8.0, )",
           "TrainingGuides.Admin": "[1.0.0, )",
           "TrainingGuides.Entities": "[1.0.0, )",
           "kentico.xperience.admin": "[29.6.1, )",
@@ -1011,15 +1010,6 @@
         "requested": "[4.0.2, )",
         "resolved": "4.0.2",
         "contentHash": "Nwa4XxZ7fsuh9SpMiLUXmFT+NntALGXEvufLaQT+A0bQUH5ToNTtG0QDCoCiChdhp+4F/rtwyxpoJSgDmObIXg=="
-      },
-      "Htmx": {
-        "type": "CentralTransitive",
-        "requested": "[1.8.0, )",
-        "resolved": "1.8.0",
-        "contentHash": "bdsdNw8RWcj8HmoD9qmVHDf9F/xbN9ac3xsHu8dMekj2jLQFzu6sQiry4cE7Od7rokgL819qW9gNOUkee1Hgfg==",
-        "dependencies": {
-          "System.Text.Json": "6.0.5"
-        }
       },
       "Kentico.Xperience.Admin": {
         "type": "CentralTransitive",

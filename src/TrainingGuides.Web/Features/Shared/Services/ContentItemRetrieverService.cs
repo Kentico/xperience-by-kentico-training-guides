@@ -245,17 +245,14 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
         return await RetrieveContentItems(contentQueryParameters, contentTypesQueryParameters);
     }
 
-    private async Task<IEnumerable<IWebPageFieldsSource>> RetrieveWebPages(Action<ContentQueryParameters> parameters, string? pathToMatch = null)
+    private async Task<IEnumerable<IWebPageFieldsSource>> RetrieveWebPages(Action<ContentQueryParameters> parameters)
     {
         var builder = new ContentItemQueryBuilder();
 
         builder
             .ForContentTypes(query =>
             {
-                if (pathToMatch == null)
-                    query.ForWebsite(websiteChannelContext.WebsiteChannelName);
-                else
-                    query.ForWebsite(websiteChannelContext.WebsiteChannelName, PathMatch.Single(pathToMatch));
+                query.ForWebsite(websiteChannelContext.WebsiteChannelName);
             })
             .Parameters(parameters);
 
