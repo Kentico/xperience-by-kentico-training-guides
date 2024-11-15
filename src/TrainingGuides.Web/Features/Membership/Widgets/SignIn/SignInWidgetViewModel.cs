@@ -1,9 +1,10 @@
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Mvc;
+using TrainingGuides.Web.Features.Shared.Models;
 
 namespace TrainingGuides.Web.Features.Membership.Widgets.SignIn;
 
-public class SignInWidgetViewModel
+public class SignInWidgetViewModel : WidgetViewModel
 {
     //WIDGET DISPLAY PROPERTIES
 
@@ -68,4 +69,10 @@ public class SignInWidgetViewModel
     public string Password { get; set; } = string.Empty;
 
     public bool StaySignedIn { get; set; } = false;
+
+    public override bool IsMisconfigured => string.IsNullOrWhiteSpace(BaseUrl)
+        || string.IsNullOrWhiteSpace(SubmitButtonText)
+        || string.IsNullOrWhiteSpace(UserNameOrEmailLabel)
+        || string.IsNullOrWhiteSpace(PasswordLabel)
+        || string.IsNullOrWhiteSpace(StaySignedInLabel);
 }

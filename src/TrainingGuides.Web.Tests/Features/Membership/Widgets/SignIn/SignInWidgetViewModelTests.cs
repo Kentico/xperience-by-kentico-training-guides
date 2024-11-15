@@ -44,4 +44,65 @@ public class SignInWidgetViewModelTests
 
     [Fact]
     public void WhenModelInitialized_StaySignedIn_IsFalse() => Assert.False(viewModel.StaySignedIn);
+
+    [Fact]
+    public void IsMisconfigured_WhenBaseUrlAndAllLabelsAreSet_ReturnsFalse()
+    {
+        var viewModelAllFieldsSet = new SignInWidgetViewModel
+        {
+            BaseUrl = "https://www.example.com",
+            SubmitButtonText = "Submit",
+            UserNameOrEmailLabel = "Username",
+            PasswordLabel = "Password",
+            StaySignedInLabel = "Stay signed in"
+        };
+
+        Assert.False(viewModelAllFieldsSet.IsMisconfigured);
+    }
+
+    [Fact]
+    public void IsMisconfigured_WhenBaseUrlAnyLabelIsMissing_ReturnsTrue()
+    {
+        var viewModelBaseUrlMissing = new SignInWidgetViewModel
+        {
+            SubmitButtonText = "Submit",
+            UserNameOrEmailLabel = "Username",
+            PasswordLabel = "Password",
+            StaySignedInLabel = "Stay signed in"
+        };
+        var viewModelSubmitButtonTextMissing = new SignInWidgetViewModel
+        {
+            BaseUrl = "https://www.example.com",
+            UserNameOrEmailLabel = "Username",
+            PasswordLabel = "Password",
+            StaySignedInLabel = "Stay signed in"
+        };
+        var viewModelUserNameOrEmailLabelMissing = new SignInWidgetViewModel
+        {
+            BaseUrl = "https://www.example.com",
+            SubmitButtonText = "Submit",
+            PasswordLabel = "Password",
+            StaySignedInLabel = "Stay signed in"
+        };
+        var viewModelPasswordLabelMissing = new SignInWidgetViewModel
+        {
+            BaseUrl = "https://www.example.com",
+            SubmitButtonText = "Submit",
+            UserNameOrEmailLabel = "Username",
+            StaySignedInLabel = "Stay signed in"
+        };
+        var viewModelStaySignedInLabelMissing = new SignInWidgetViewModel
+        {
+            BaseUrl = "https://www.example.com",
+            SubmitButtonText = "Submit",
+            UserNameOrEmailLabel = "Username",
+            PasswordLabel = "Password"
+        };
+        Assert.True(viewModel.IsMisconfigured);
+        Assert.True(viewModelBaseUrlMissing.IsMisconfigured);
+        Assert.True(viewModelSubmitButtonTextMissing.IsMisconfigured);
+        Assert.True(viewModelUserNameOrEmailLabelMissing.IsMisconfigured);
+        Assert.True(viewModelPasswordLabelMissing.IsMisconfigured);
+        Assert.True(viewModelStaySignedInLabelMissing.IsMisconfigured);
+    }
 }
