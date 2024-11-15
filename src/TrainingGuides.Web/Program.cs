@@ -82,8 +82,8 @@ builder.Services.Configure<CookieLevelOptions>(options =>
 builder.Services
     .AddIdentity<GuidesMember, NoOpApplicationRole>(options =>
     {
-        options.SignIn.RequireConfirmedAccount = false;
-        options.User.RequireUniqueEmail = false;//change this once we add email functionality
+        options.SignIn.RequireConfirmedAccount = false;//TODO: change this once we add email functionality
+        options.User.RequireUniqueEmail = true;
     })
     .AddUserStore<ApplicationUserStore<GuidesMember>>()
     .AddRoleStore<NoOpApplicationRoleStore>()

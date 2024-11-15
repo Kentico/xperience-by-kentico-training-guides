@@ -1,7 +1,7 @@
 @using TrainingGuides.Web.Features.Membership.Widgets.LinkOrSignOut;
 @model LinkOrSignOutWidgetViewModel
 
-@if (Model == null || string.IsNullOrWhiteSpace(Model.ButtonText) || string.IsNullOrWhiteSpace(Model.Url))
+@if (Model == null || Model.IsMisconfigured)
 {
     <tg-page-builder-content>
         <tg-configure-widget-instructions />

@@ -32,29 +32,31 @@ public class MemberContactService : IMemberContactService
     /// <inheritdoc />
     public ContactInfo TransferMemberFieldsToContact(GuidesMember guidesMember, ContactInfo contact)
     {
+        var newContact = contact.Clone();
+
         if (!string.IsNullOrWhiteSpace(guidesMember.GivenName))
         {
-            contact.ContactFirstName = guidesMember.GivenName;
+            newContact.ContactFirstName = guidesMember.GivenName;
         }
         if (!string.IsNullOrWhiteSpace(guidesMember.FamilyName))
         {
-            _ = contact.ContactLastName = guidesMember.FamilyName;
+            newContact.ContactLastName = guidesMember.FamilyName;
         }
         if (!string.IsNullOrWhiteSpace(guidesMember.FavoriteCoffee))
         {
-            _ = contact.SetValue("TrainingGuidesContactFavoriteCoffee", guidesMember.FavoriteCoffee);
+            _ = newContact.SetValue("TrainingGuidesContactFavoriteCoffee", guidesMember.FavoriteCoffee);
         }
 
         // Sets the Member ID of the current contact
-        contact.SetValue("TrainingGuidesContactMemberId", guidesMember.Id);
+        _ = newContact.SetValue("TrainingGuidesContactMemberId", guidesMember.Id);
 
         // For data security, do not overwrite contact email address if it is already set
         if (string.IsNullOrWhiteSpace(contact.ContactEmail) && !string.IsNullOrWhiteSpace(guidesMember.Email))
         {
-            contact.ContactEmail = guidesMember.Email;
+            newContact.ContactEmail = guidesMember.Email;
         }
 
-        return contact;
+        return newContact;
     }
 
     /// <inheritdoc />

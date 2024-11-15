@@ -29,9 +29,8 @@ public class RegistrationWidgetViewComponent : ViewComponent
         this.membershipService = membershipService;
     }
 
-    public async Task<IViewComponentResult> InvokeAsync(RegistrationWidgetProperties properties)
-    {
-        var registerModel = new RegistrationWidgetViewModel
+    public async Task<RegistrationWidgetViewModel> BuildWidgetViewModel(RegistrationWidgetProperties properties) =>
+        new()
         {
             BaseUrl = httpRequestService.GetBaseUrl(),
             DisplayForm = !await membershipService.IsMemberAuthenticated(),
@@ -48,6 +47,10 @@ public class RegistrationWidgetViewComponent : ViewComponent
             FamilyNameFirstLabel = properties.FamilyNameFirstLabel,
             FavoriteCoffeeLabel = properties.FavoriteCoffeeLabel
         };
+
+    public async Task<IViewComponentResult> InvokeAsync(RegistrationWidgetProperties properties)
+    {
+        var registerModel = await BuildWidgetViewModel(properties);
 
         return View("~/Features/Membership/Widgets/Registration/RegistrationWidget.cshtml", registerModel);
     }

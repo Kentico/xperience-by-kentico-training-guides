@@ -5,6 +5,7 @@ using TrainingGuides.Web.Features.Html.Widgets.HtmlCode;
 using TrainingGuides.Web.Features.LandingPages.Widgets.CallToAction;
 using TrainingGuides.Web.Features.LandingPages.Widgets.HeroBanner;
 using TrainingGuides.Web.Features.LandingPages.Widgets.SimpleCallToAction;
+using TrainingGuides.Web.Features.Membership.Widgets.Registration;
 using TrainingGuides.Web.Features.Membership.Widgets.SignIn;
 using TrainingGuides.Web.Features.Membership.Widgets.LinkOrSignOut;
 using TrainingGuides.Web.Features.Products.Widgets.Product;
@@ -40,6 +41,7 @@ public static class ComponentIdentifiers
         public const string VIDEO_EMBED = VideoEmbedWidgetViewComponent.IDENTIFIER;
         public const string SING_IN = SignInWidgetViewComponent.IDENTIFIER;
         public const string LINK_OR_SIGN_OUT = LinkOrSignOutWidgetViewComponent.IDENTIFIER;
+        public const string REGISTRATION = RegistrationWidgetViewComponent.IDENTIFIER;
 
     }
 }

@@ -5,21 +5,21 @@ namespace TrainingGuides.Web.Features.Membership;
 
 public class GuidesMember : ApplicationUser
 {
-    public string GivenName { get; set; } = "";
-    public string FamilyName { get; set; } = "";
+    public string GivenName { get; set; } = string.Empty;
+    public string FamilyName { get; set; } = string.Empty;
     public bool FamilyNameFirst { get; set; } = false;
     public string FullName =>
         (GivenName, FamilyName) switch
         {
-            ("", "") => "",
+            ("", "") => string.Empty,
             (string given, "") => given,
             ("", string family) => family,
             (string given, string family) =>
                 FamilyNameFirst ? $"{family} {given}" : $"{given} {family}",
-            (null, null) or _ => "",
+            (null, null) or _ => string.Empty,
         };
 
-    public string FavoriteCoffee { get; set; } = "";
+    public string FavoriteCoffee { get; set; } = string.Empty;
     public DateTime Created { get; set; }
 
 

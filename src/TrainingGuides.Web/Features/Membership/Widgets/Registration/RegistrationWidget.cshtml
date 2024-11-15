@@ -5,19 +5,9 @@
 @{
     // Using a new guid ensures no conflict if, for some reason, multiple widgets are on the same page.
     var formDivId = $"registerForm{Guid.NewGuid()}";
-
-    bool isMisconfigured = Model == null
-        || string.IsNullOrWhiteSpace(Model.BaseUrl)
-        || string.IsNullOrWhiteSpace(Model.SubmitButtonText)
-        || string.IsNullOrWhiteSpace(Model.UserNameLabel)
-        || string.IsNullOrWhiteSpace(Model.EmailAddressLabel)
-        || string.IsNullOrWhiteSpace(Model.PasswordLabel)
-        || string.IsNullOrWhiteSpace(Model.ConfirmPasswordLabel)
-        || (Model.ShowName && (string.IsNullOrWhiteSpace(Model.GivenNameLabel) || string.IsNullOrWhiteSpace(Model.FamilyNameLabel) || string.IsNullOrWhiteSpace(Model.FamilyNameFirstLabel)))
-        || (Model.ShowExtraFields && string.IsNullOrWhiteSpace(Model.FavoriteCoffeeLabel));
 }
 
-@if (isMisconfigured)
+@if (Model == null || Model.IsMisconfigured)
 {
     <tg-page-builder-content>
         <tg-configure-widget-instructions />
