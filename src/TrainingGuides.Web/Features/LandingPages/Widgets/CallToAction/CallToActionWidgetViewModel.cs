@@ -10,5 +10,4 @@ public class CallToActionWidgetViewModel : WidgetViewModel
     public string Identifier { get; set; } = string.Empty;
     public bool IsDownload { get; set; }
     public override bool IsMisconfigured => string.IsNullOrWhiteSpace(Text) || string.IsNullOrWhiteSpace(Url);
-
 }

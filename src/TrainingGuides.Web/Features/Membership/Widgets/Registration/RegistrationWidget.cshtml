@@ -16,7 +16,7 @@
     return;
 }
 
-<h3>@Model.FormTitle</h3>
+<h3 class="text-center px-2">@Model.FormTitle</h3>
 
 @if (Model.DisplayForm)
 {
@@ -27,7 +27,7 @@
         UpdateTargetId = formDivId
     }, new { action = $"{Model.BaseUrl}/Registration/Register" }))
     {
-        <div id="@formDivId">
+        <div id="@formDivId" class="px-2">
             <partial name="~/Features/Membership/Widgets/Registration/RegistrationForm.cshtml" model="Model" />
         </div>
     }
