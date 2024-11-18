@@ -40,6 +40,13 @@ public class LinkOrSignOutWidgetViewComponent : ViewComponent
 
     public async Task<ViewViewComponentResult> InvokeAsync(LinkOrSignOutWidgetProperties properties)
     {
+        var model = await BuildWidgetViewModel(properties);
+
+        return View("~/Features/Membership/Widgets/LinkOrSignOut/LinkOrSignOutWidget.cshtml", model);
+    }
+
+    public async Task<LinkOrSignOutWidgetViewModel> BuildWidgetViewModel(LinkOrSignOutWidgetProperties properties)
+    {
         bool isAuthenticated = await membershipService.IsMemberAuthenticated();
 
         string preferredLanguageCode = preferredLanguageRetriever.Get();
@@ -49,13 +56,13 @@ public class LinkOrSignOutWidgetViewComponent : ViewComponent
         if (isAuthenticated)
         {
             string baseUrl = httpRequestService.GetBaseUrl();
-            string CurrentPageUrl = await httpRequestService.GetCurrentPageUrlForLanguage(preferredLanguageCode);
+            string currentPageUrl = await httpRequestService.GetCurrentPageUrlForLanguage(preferredLanguageCode);
 
             model = new LinkOrSignOutWidgetViewModel()
             {
                 Text = properties.AuthenticatedText,
                 ButtonText = properties.AuthenticatedButtonText,
-                Url = string.IsNullOrWhiteSpace(CurrentPageUrl) ? baseUrl : CurrentPageUrl,
+                Url = string.IsNullOrWhiteSpace(currentPageUrl) ? baseUrl : currentPageUrl,
                 IsAuthenticated = isAuthenticated,
             };
         }
@@ -73,7 +80,7 @@ public class LinkOrSignOutWidgetViewComponent : ViewComponent
             };
         }
 
-        return View("~/Features/Membership/Widgets/LinkOrSignOut/LinkOrSignOutWidget.cshtml", model);
+        return model;
     }
 
     private async Task<string?> GetWebPageUrl(WebPageRelatedItem? webPage, string preferredLanguageCode) =>
