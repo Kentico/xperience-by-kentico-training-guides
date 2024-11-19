@@ -1,15 +1,72 @@
 using Microsoft.AspNetCore.Identity;
 
 namespace TrainingGuides.Web.Features.Membership.Services;
+
+/// <summary>
+/// Interface for membership services.
+/// </summary>
 public interface IMembershipService
 {
-    public Task<GuidesMember?> GetCurrentMember();
-    public Task<bool> IsMemberAuthenticated();
-    public Task<IdentityResult> CreateMember(GuidesMember guidesMember, string password);
-    public Task<GuidesMember?> FindMemberByEmail(string email);
-    public Task<GuidesMember?> FindMemberByName(string userName);
-    public Task<IdentityResult> ConfirmEmail(GuidesMember member, string confirmToken);
-    public Task<SignInResult> SignIn(string userNameOrEmail, string password, bool staySignedIn);
-    public Task SignOut();
-    public Task<string> GenerateEmailConfirmationToken(GuidesMember member);
+    /// <summary>
+    /// Gets the current member.
+    /// </summary>
+    /// <returns>The current <see cref="GuidesMember"/> if found; otherwise, null.</returns>
+    Task<GuidesMember?> GetCurrentMember();
+
+    /// <summary>
+    /// Checks if the member is authenticated.
+    /// </summary>
+    /// <returns>True if the member is authenticated; otherwise, false.</returns>
+    Task<bool> IsMemberAuthenticated();
+
+    /// <summary>
+    /// Creates a new member.
+    /// </summary>
+    /// <param name="guidesMember">The member to create.</param>
+    /// <param name="password">The password for the member.</param>
+    /// <returns>The result of the creation operation.</returns>
+    Task<IdentityResult> CreateMember(GuidesMember guidesMember, string password);
+
+    /// <summary>
+    /// Finds a member by email.
+    /// </summary>
+    /// <param name="email">The email of the member to find.</param>
+    /// <returns>The <see cref="GuidesMember"/> if found; otherwise, null.</returns>
+    Task<GuidesMember?> FindMemberByEmail(string email);
+
+    /// <summary>
+    /// Finds a member by username.
+    /// </summary>
+    /// <param name="userName">The username of the member to find.</param>
+    /// <returns>The <see cref="GuidesMember"/> if found; otherwise, null.</returns>
+    Task<GuidesMember?> FindMemberByName(string userName);
+
+    /// <summary>
+    /// Confirms the email of a member.
+    /// </summary>
+    /// <param name="member">The member whose email is to be confirmed.</param>
+    /// <param name="confirmToken">The confirmation token.</param>
+    /// <returns>The result of the confirmation operation.</returns>
+    Task<IdentityResult> ConfirmEmail(GuidesMember member, string confirmToken);
+
+    /// <summary>
+    /// Signs in a member.
+    /// </summary>
+    /// <param name="userNameOrEmail">The username or email of the member.</param>
+    /// <param name="password">The password of the member.</param>
+    /// <param name="staySignedIn">Whether to keep the member signed in.</param>
+    /// <returns>The result of the sign-in operation.</returns>
+    Task<SignInResult> SignIn(string userNameOrEmail, string password, bool staySignedIn);
+
+    /// <summary>
+    /// Signs out the current member.
+    /// </summary>
+    Task SignOut();
+
+    /// <summary>
+    /// Generates an email confirmation token for a member.
+    /// </summary>
+    /// <param name="member">The member for whom to generate the token.</param>
+    /// <returns>The email confirmation token.</returns>
+    Task<string> GenerateEmailConfirmationToken(GuidesMember member);
 }
