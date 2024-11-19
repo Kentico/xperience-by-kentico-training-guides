@@ -83,4 +83,6 @@ public class HttpRequestService : IHttpRequestService
         var url = await webPageUrlRetriever.Retrieve(webpageGuid, language);
         return url.RelativePath;
     }
+
+    public void RedirectToUrl(string url) => httpContextAccessor.HttpContext?.Response.Redirect(url, true);
 }

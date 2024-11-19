@@ -1,7 +1,12 @@
 @using TrainingGuides.Web.Features.Membership.Widgets.SignIn
+@using TrainingGuides.Web.Features.Membership.ViewComponents.Redirect
 
 @model SignInWidgetViewModel
 
+@if(Model.AuthenticationSuccessful)
+{
+    <vc:redirect redirect-url="@Model.RedirectUrl"/>
+}
 <div class="form-horizontal">
 
     <div asp-validation-summary="ModelOnly" class="text-danger validation-summary"></div>

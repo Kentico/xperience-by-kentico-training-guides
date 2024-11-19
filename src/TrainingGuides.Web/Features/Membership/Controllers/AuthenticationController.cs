@@ -36,6 +36,18 @@ public class AuthenticationController : Controller
         return PartialView("~/Features/Membership/Widgets/SignIn/SignInForm.cshtml", model);
     }
 
+    private IActionResult RenderSuccess(string redirectUrl)
+    {
+        var model = new SignInWidgetViewModel
+        {
+            DisplayForm = true,
+            AuthenticationSuccessful = true,
+            RedirectUrl = redirectUrl
+
+        };
+        return PartialView("~/Features/Membership/Widgets/SignIn/SignInForm.cshtml", model);
+    }
+
     [HttpPost("/Authentication/Authenticate")]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Authenticate(SignInWidgetViewModel model)
@@ -48,7 +60,7 @@ public class AuthenticationController : Controller
         var signInResult = await membershipService.SignIn(model.UserNameOrEmail, model.Password, model.StaySignedIn);
 
         return signInResult.Succeeded
-            ? Json(new { success = true, redirectUrl = model.RedirectUrl })
+            ? RenderSuccess(model.RedirectUrl)
             : RenderError(model);
     }
 

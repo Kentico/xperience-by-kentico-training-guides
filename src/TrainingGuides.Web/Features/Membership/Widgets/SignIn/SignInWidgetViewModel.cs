@@ -27,6 +27,11 @@ public class SignInWidgetViewModel : WidgetViewModel
     public bool DisplayForm { get; set; } = true;
 
     /// <summary>
+    /// Determines whether the authentication was successful. If true, the widget will display an a view component that handles the redirection to home page.
+    [HiddenInput]
+    public bool AuthenticationSuccessful { get; set; } = false;
+
+    /// <summary>
     /// Form title
     /// </summary>
     [HiddenInput]

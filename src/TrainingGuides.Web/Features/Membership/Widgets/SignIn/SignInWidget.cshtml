@@ -25,7 +25,7 @@
         HttpMethod = "POST",
         InsertionMode = InsertionMode.Replace,
         UpdateTargetId = formDivId,
-        OnSuccess = "RedirectOnAuthenticationSuccess(data)"
+        @* OnSuccess = "RedirectOnAuthenticationSuccess(data)" *@
     }, new { action = $"{Model.BaseUrl}/Authentication/Authenticate" }))
     {
         <div id="@formDivId" class="px-2">
