@@ -3,6 +3,7 @@ using Kentico.PageBuilder.Web.Mvc;
 using Microsoft.AspNetCore.Mvc;
 using TrainingGuides.Web.Features.Membership.Services;
 using TrainingGuides.Web.Features.Membership.Widgets.SignIn;
+using TrainingGuides.Web.Features.Shared.Helpers;
 using TrainingGuides.Web.Features.Shared.Services;
 
 [assembly: RegisterWidget(
@@ -37,10 +38,14 @@ public class SignInWidgetViewComponent : ViewComponent
 
     public async Task<SignInWidgetViewModel> BuildWidgetViewModel(SignInWidgetProperties properties)
     {
+        string? returnUrl = GetReturnUrl();
+
         var redirectPage = properties.RedirectPage.FirstOrDefault();
-        string redirectUrl = redirectPage == null
-            ? "/"
-            : (await httpRequestService.GetPageRelativeUrl(redirectPage.WebPageGuid, preferredLanguageRetriever.Get())).Replace("~", "");
+
+        string redirectUrl = returnUrl
+            ?? (redirectPage == null
+                ? "/"
+                : (await httpRequestService.GetPageRelativeUrl(redirectPage.WebPageGuid, preferredLanguageRetriever.Get())).Replace("~", ""));
 
         return new SignInWidgetViewModel
         {
@@ -53,5 +58,18 @@ public class SignInWidgetViewComponent : ViewComponent
             PasswordLabel = properties.PasswordLabel,
             StaySignedInLabel = properties.StaySignedInLabel
         };
+    }
+
+    private string? GetReturnUrl()
+    {
+        string returnUrl = httpRequestService.GetQueryStringValue(ApplicationConstants.RETURN_URL_PARAMETER);
+
+        // If there is no return URL or it is not a relative URL, return null
+        if (string.IsNullOrWhiteSpace(returnUrl) || !returnUrl.StartsWith("/"))
+        {
+            return null;
+        }
+
+        return returnUrl;
     }
 }

@@ -6,5 +6,5 @@ public interface IHttpRequestService
     public string GetBaseUrlWithLanguage();
     public Task<string> GetCurrentPageUrlForLanguage(string language);
     public Task<string> GetPageRelativeUrl(Guid webpageGuid, string language);
-    public void RedirectToUrl(string url);
+    public string GetQueryStringValue(string parameter);
 }

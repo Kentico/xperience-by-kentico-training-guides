@@ -84,5 +84,5 @@ public class HttpRequestService : IHttpRequestService
         return url.RelativePath;
     }
 
-    public void RedirectToUrl(string url) => httpContextAccessor.HttpContext?.Response.Redirect(url, true);
+    public string GetQueryStringValue(string parameter) => httpContextAccessor.HttpContext?.Request.Query[parameter].ToString() ?? string.Empty;
 }
