@@ -91,6 +91,12 @@ builder.Services
     .AddSignInManager<SignInManager<GuidesMember>>()
     .AddDefaultTokenProviders();
 
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.AccessDeniedPath = new PathString(ApplicationConstants.ACCESS_DENIED_CONTROLLER_PATH);
+    options.ReturnUrlParameter = ApplicationConstants.RETURN_URL_PARAMETER;
+});
+
 builder.Services.AddAuthorization();
 
 builder.Services.AddAuthentication();

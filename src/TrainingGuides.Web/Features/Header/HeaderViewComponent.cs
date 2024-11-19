@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Localization;
+using TrainingGuides.Web.Features.Shared.Helpers;
 using TrainingGuides.Web.Features.Shared.Services;
 
 namespace TrainingGuides.Web.Features.Header;
@@ -25,8 +26,7 @@ public class HeaderViewComponent : ViewComponent
 
     private async Task<IEnumerable<WebPageRelatedItem>> GetSignInPageForWidget()
     {
-        const string EXPECTED_SIGN_IN_PATH = "/Sign_in";
-        var page = await contentItemRetrieverService.RetrieveWebPageByPath(EXPECTED_SIGN_IN_PATH);
+        var page = await contentItemRetrieverService.RetrieveWebPageByPath(ApplicationConstants.EXPECTED_SIGN_IN_PATH);
 
         return page != null
             ? [new WebPageRelatedItem() { WebPageGuid = page.SystemFields.WebPageItemGUID }]

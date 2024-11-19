@@ -25,9 +25,11 @@ public class RegistrationController(
     IHttpRequestService httpRequestService) : Controller
 {
 
+    private readonly IMembershipService membershipService = membershipService;
+    private readonly IEventLogService log = log;
+    private readonly IStringLocalizer<SharedResources> stringLocalizer = stringLocalizer;
     private readonly IEmailService emailService = emailService;
     private readonly SystemEmailOptions systemEmailOptions = systemEmailOptions.Value;
-
     private readonly IHttpRequestService httpRequestService = httpRequestService;
 
     [HttpPost("/Registration/Register")]
