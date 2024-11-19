@@ -17,13 +17,13 @@ public class HeaderViewComponent : ViewComponent
         this.contentItemRetrieverService = contentItemRetrieverService;
     }
 
-    public async Task<IViewComponentResult> InvokeAsync()
+    public async Task<IViewComponentResult> InvokeAsync(bool showNavigation = true)
     {
-        var model = BuildViewModel(await GetSignInPage());
+        var model = BuildViewModel(await GetSignInPageForWidget(), showNavigation);
         return View("~/Features/Header/Header.cshtml", model);
     }
 
-    private async Task<IEnumerable<WebPageRelatedItem>> GetSignInPage()
+    private async Task<IEnumerable<WebPageRelatedItem>> GetSignInPageForWidget()
     {
         const string EXPECTED_SIGN_IN_PATH = "/Sign_in";
         var page = await contentItemRetrieverService.RetrieveWebPageByPath(EXPECTED_SIGN_IN_PATH);
@@ -32,7 +32,7 @@ public class HeaderViewComponent : ViewComponent
             ? [new WebPageRelatedItem() { WebPageGuid = page.SystemFields.WebPageItemGUID }]
             : Enumerable.Empty<WebPageRelatedItem>();
     }
-    public HeaderViewModel BuildViewModel(IEnumerable<WebPageRelatedItem> signInPage)
+    public HeaderViewModel BuildViewModel(IEnumerable<WebPageRelatedItem> signInPage, bool showNavigation = true)
     {
         var model = new HeaderViewModel()
         {
@@ -42,7 +42,8 @@ public class HeaderViewComponent : ViewComponent
                 UnauthenticatedButtonText = stringLocalizer["Sign in"],
                 UnauthenticatedTargetContentPage = signInPage,
                 AuthenticatedButtonText = stringLocalizer["Sign out"]
-            }
+            },
+            ShowNavigation = showNavigation
         };
 
         return model;

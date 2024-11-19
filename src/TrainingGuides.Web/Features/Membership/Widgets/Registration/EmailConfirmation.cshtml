@@ -1,0 +1,89 @@
+@using TrainingGuides.Web.Features.Membership.Widgets.Registration
+
+@model EmailConfirmationViewModel
+
+@{ 
+    Layout = "";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head id="head">
+
+    <title>@Model.Title</title>
+
+    <meta data-hid="apple-mobile-web-app-title" name="apple-mobile-web-app-title" content="@Model.Title">
+    <meta data-hid="mobile-web-app-capable" name="mobile-web-app-capable" content="yes">
+    <meta data-hid="author" name="author" content="Kentico software s.r.o.">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8" />
+    <meta name="msapplication-TileColor" content="#da532c">
+    <vc:code-snippets code-snippet-type="@CodeSnippetType.Metadata" add-label-comments="true"/>
+
+    <link rel="icon" href="~/content/images/favicon.ico" type="image/x-icon" />
+    <link rel="icon" type="image/png" sizes="32x32" href="~/content/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="~/content/images/favicon-16x16.png">
+    <link rel="mask-icon" href="~/content/images/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="apple-touch-icon" sizes="180x180" href="~/content/images/apple-touch-icon.png">
+    <link rel="manifest" href="~/content/images/site.webmanifest">    
+    <link rel="stylesheet" type="text/css" href="~/assets/css/styles.min.css">
+    <link rel="stylesheet" href="~/assets/css/bootstrap.min.css">
+</head>
+<body class="t-default">
+    <div>
+        <vc:header show-navigation=false/>       
+        <div class="content-wrapper container">
+            <section class="c-section default">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-xl-10 col-xxl-9">
+                            <div class="main">
+
+                                
+                                @switch(Model.State)
+                                {
+                                    case EmailConfirmationState.SuccessConfirmed:
+                                    case EmailConfirmationState.SuccessAlreadyConfirmed:
+                                    case EmailConfirmationState.FailureNotYetConfirmed:
+                                        <h4 test-id="confirmationMessage" class="text-center k-dot">@Model.Message</h4>
+                                    
+                                        <div class="d-flex justify-content-center">
+                                            <div class="p-2">
+                                                <a href="@Model.SignInOrRegisterPageUrl" class="btn tg-btn-secondary text-uppercase my-4">
+                                                    @Model.ActionButtonText
+                                                </a>
+                                            </div>
+                                            <div class="p-2">
+                                                <a href="@Model.HomePageUrl" class="btn tg-btn-secondary text-uppercase my-4">
+                                                    @Model.HomePageButtonText
+                                                </a>
+                                            </div>
+                                        </div>
+                                        break;
+                                    case EmailConfirmationState.FailureConfirmationFailed:
+                                        <h4 test-id="confirmationMessage" class="text-center k-dot">@Model.Message</h4>
+                                    
+                                        <form id="resendVerificationForm" method="post" asp-controller="Registration" asp-action="ResendVerificationEmail">
+                                            <input asp-for="Username">
+                                            <button id="resendVerification" type="submit" class="btn tg-btn-secondary text-uppercase my-4">@Model.ActionButtonText</button>
+                                        </form>
+                                        break;
+                                    case EmailConfirmationState.ConfirmationResent:
+                                    default:
+                                        <p class="text-center k-dot">@Model.Message</p>
+                                        break;
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <script src="~/assets/jquery/jquery-3.6.4.min.js"></script>
+    <script src="~/assets/jquery/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="~/assets/js/main.min.js?v=1.0.0"></script>
+</body>
+</html>

@@ -5,7 +5,7 @@ using TrainingGuides.Web.Features.Header;
 using TrainingGuides.Web.Features.Shared.Services;
 using Xunit;
 
-namespace TrainingGuides.Web.Tests.Features.Membership.Widgets.SignIn;
+namespace TrainingGuides.Web.Tests.Features.Shared.Header;
 
 public class HeaderViewComponentTests
 {
@@ -39,5 +39,25 @@ public class HeaderViewComponentTests
         Assert.Equal(SIGN_OUT, viewModel.LinkOrSignOutWidgetProperties.AuthenticatedButtonText);
         Assert.Single(viewModel.LinkOrSignOutWidgetProperties.UnauthenticatedTargetContentPage);
         Assert.Equal(testGuid, viewModel.LinkOrSignOutWidgetProperties.UnauthenticatedTargetContentPage.First().WebPageGuid);
+    }
+
+    [Fact]
+    public void BuildViewModel_IfShowNavigationNotSpecified_SetsUpShowNavigationInViewModel_ToTrue()
+    {
+        var testGuid = Guid.NewGuid();
+
+        var viewModel = viewComponent.BuildViewModel([new WebPageRelatedItem() { WebPageGuid = testGuid }]);
+        Assert.True(viewModel.ShowNavigation);
+    }
+
+    [Fact]
+    public void BuildViewModel_IfShowNavigationIsSpecified_SetsUpShowNavigationInViewModel_ToThisValue()
+    {
+        var testGuid = Guid.NewGuid();
+
+        var viewModelWithNavigation = viewComponent.BuildViewModel([new WebPageRelatedItem() { WebPageGuid = testGuid }], true);
+        var viewModelWithoutNavigation = viewComponent.BuildViewModel([new WebPageRelatedItem() { WebPageGuid = testGuid }], false);
+        Assert.True(viewModelWithNavigation.ShowNavigation);
+        Assert.False(viewModelWithoutNavigation.ShowNavigation);
     }
 }

@@ -6,4 +6,5 @@ public class HeaderViewModel
 {
     public string Heading { get; set; } = string.Empty;
     public LinkOrSignOutWidgetProperties LinkOrSignOutWidgetProperties { get; set; } = new();
+    public bool ShowNavigation { get; set; } = true;
 }

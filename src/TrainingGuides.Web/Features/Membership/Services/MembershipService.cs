@@ -42,16 +42,26 @@ public class MembershipService : IMembershipService
         return member is not null;
     }
 
-    public async Task<IdentityResult> CreateMember(GuidesMember member, string password) => await userManager.CreateAsync(member, password);
+    public async Task<IdentityResult> CreateMember(GuidesMember guidesMember, string password) =>
+        await userManager.CreateAsync(guidesMember, password);
 
-    private async Task<GuidesMember?> GetMemberByUserNameOrEmail(string userNameOrEmail) =>
+    private async Task<GuidesMember?> FindMemberByUserNameOrEmail(string userNameOrEmail) =>
         await userManager.FindByNameAsync(userNameOrEmail) ?? await userManager.FindByEmailAsync(userNameOrEmail);
+
+    public async Task<GuidesMember?> FindMemberByName(string userName) =>
+        await userManager.FindByNameAsync(userName);
+
+    public async Task<GuidesMember?> FindMemberByEmail(string email) =>
+        await userManager.FindByEmailAsync(email);
+
+    public async Task<IdentityResult> ConfirmEmail(GuidesMember member, string confirmToken) =>
+        await userManager.ConfirmEmailAsync(member, confirmToken);
 
     public async Task<SignInResult> SignIn(string userNameOrEmail, string password, bool staySignedIn)
     {
         try
         {
-            var member = await GetMemberByUserNameOrEmail(userNameOrEmail);
+            var member = await FindMemberByUserNameOrEmail(userNameOrEmail);
             if (member is null)
             {
                 return SignInResult.Failed;
@@ -85,4 +95,7 @@ public class MembershipService : IMembershipService
 
         memberContactService.RemoveContactCookies();
     }
+
+    public async Task<string> GenerateEmailConfirmationToken(GuidesMember member) =>
+        await userManager.GenerateEmailConfirmationTokenAsync(member);
 }
