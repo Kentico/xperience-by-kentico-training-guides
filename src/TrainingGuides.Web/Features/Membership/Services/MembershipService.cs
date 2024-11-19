@@ -25,6 +25,7 @@ public class MembershipService : IMembershipService
         this.memberContactService = memberContactService;
     }
 
+    /// <inheritdoc />
     public async Task<GuidesMember?> GetCurrentMember()
     {
         var context = contextAccessor.HttpContext;
@@ -36,27 +37,33 @@ public class MembershipService : IMembershipService
         return await userManager.GetUserAsync(context.User);
     }
 
+    /// <inheritdoc />
     public async Task<bool> IsMemberAuthenticated()
     {
         var member = await GetCurrentMember();
         return member is not null;
     }
 
+    /// <inheritdoc />
     public async Task<IdentityResult> CreateMember(GuidesMember guidesMember, string password) =>
         await userManager.CreateAsync(guidesMember, password);
 
     private async Task<GuidesMember?> FindMemberByUserNameOrEmail(string userNameOrEmail) =>
         await userManager.FindByNameAsync(userNameOrEmail) ?? await userManager.FindByEmailAsync(userNameOrEmail);
 
+    /// <inheritdoc />
     public async Task<GuidesMember?> FindMemberByName(string userName) =>
         await userManager.FindByNameAsync(userName);
 
+    /// <inheritdoc />
     public async Task<GuidesMember?> FindMemberByEmail(string email) =>
         await userManager.FindByEmailAsync(email);
 
+    /// <inheritdoc />
     public async Task<IdentityResult> ConfirmEmail(GuidesMember member, string confirmToken) =>
         await userManager.ConfirmEmailAsync(member, confirmToken);
 
+    /// <inheritdoc />
     public async Task<SignInResult> SignIn(string userNameOrEmail, string password, bool staySignedIn)
     {
         try
@@ -89,6 +96,7 @@ public class MembershipService : IMembershipService
         }
     }
 
+    /// <inheritdoc />
     public async Task SignOut()
     {
         await signInManager.SignOutAsync();
@@ -96,6 +104,7 @@ public class MembershipService : IMembershipService
         memberContactService.RemoveContactCookies();
     }
 
+    /// <inheritdoc />
     public async Task<string> GenerateEmailConfirmationToken(GuidesMember member) =>
         await userManager.GenerateEmailConfirmationTokenAsync(member);
 }
