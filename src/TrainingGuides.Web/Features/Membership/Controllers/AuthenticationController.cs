@@ -6,6 +6,8 @@ using TrainingGuides.Web.Features.Membership.Widgets.LinkOrSignOut;
 using TrainingGuides.Web.Features.Shared.Helpers;
 using CMS.Websites.Routing;
 using Kentico.Content.Web.Mvc.Routing;
+using CMS.DataEngine;
+using CMS.ContentEngine;
 
 namespace TrainingGuides.Web.Features.Membership.Controllers;
 
@@ -17,17 +19,20 @@ public class AuthenticationController : Controller
     private readonly IWebPageUrlRetriever webPageUrlRetriever;
     private readonly IWebsiteChannelContext websiteChannelContext;
     private readonly IPreferredLanguageRetriever preferredLanguageRetriever;
+    private readonly IInfoProvider<ContentLanguageInfo> contentLanguageInfoProvider;
     private const string SIGN_IN_FAILED = "Your sign-in attempt was not successful. Please try again.";
 
     public AuthenticationController(IMembershipService membershipService,
         IWebPageUrlRetriever webPageUrlRetriever,
         IWebsiteChannelContext websiteChannelContext,
-        IPreferredLanguageRetriever preferredLanguageRetriever)
+        IPreferredLanguageRetriever preferredLanguageRetriever,
+        IInfoProvider<ContentLanguageInfo> contentLanguageInfoProvider)
     {
         this.membershipService = membershipService;
         this.webPageUrlRetriever = webPageUrlRetriever;
         this.websiteChannelContext = websiteChannelContext;
         this.preferredLanguageRetriever = preferredLanguageRetriever;
+        this.contentLanguageInfoProvider = contentLanguageInfoProvider;
     }
 
     private IActionResult RenderError(SignInWidgetViewModel model)
@@ -76,14 +81,32 @@ public class AuthenticationController : Controller
     [HttpGet(ApplicationConstants.ACCESS_DENIED_CONTROLLER_PATH)]
     public async Task<IActionResult> AccessDenied([FromQuery(Name = ApplicationConstants.RETURN_URL_PARAMETER)] string returnUrl)
     {
+        string language = GetLanguageFromReturnUrl(returnUrl);
+
         var signInUrl = await webPageUrlRetriever.Retrieve(
             webPageTreePath: ApplicationConstants.EXPECTED_SIGN_IN_PATH,
             websiteChannelName: websiteChannelContext.WebsiteChannelName,
-            languageName: preferredLanguageRetriever.Get()
+            languageName: language
         );
 
         string redirectUrl = signInUrl.RelativePath + QueryString.Create(ApplicationConstants.RETURN_URL_PARAMETER, returnUrl);
 
         return Redirect(redirectUrl);
+    }
+
+    private string GetLanguageFromReturnUrl(string returnUrl)
+    {
+        var languages = contentLanguageInfoProvider.Get()
+            .Column(nameof(ContentLanguageInfo.ContentLanguageName));
+
+        foreach (var language in languages)
+        {
+            if (returnUrl.StartsWith($"/{language.ContentLanguageName}/") || returnUrl.StartsWith($"~/{language.ContentLanguageName}/"))
+            {
+                return language.ContentLanguageName;
+            }
+        }
+        // Since this controller action has no language in its path, this will return the channel default.
+        return preferredLanguageRetriever.Get();
     }
 }
