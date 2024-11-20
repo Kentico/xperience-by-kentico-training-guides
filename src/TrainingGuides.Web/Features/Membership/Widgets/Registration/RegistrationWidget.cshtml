@@ -25,7 +25,7 @@
         HttpMethod = "POST",
         InsertionMode = InsertionMode.Replace,
         UpdateTargetId = formDivId
-    }, new { action = $"{Model.BaseUrl}/Registration/Register" }))
+    }, new { action = $"{Model.BaseUrl}/{Model.Language}/Registration/Register" }))
     {
         <div id="@formDivId" class="px-2">
             <partial name="~/Features/Membership/Widgets/Registration/RegistrationForm.cshtml" model="Model" />

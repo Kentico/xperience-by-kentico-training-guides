@@ -27,6 +27,12 @@ public class RegistrationWidgetViewModel : WidgetViewModel
     public string BaseUrl { get; set; } = string.Empty;
 
     /// <summary>
+    /// The language of the current request
+    /// </summary>
+    [HiddenInput]
+    public string Language { get; set; } = string.Empty;
+
+    /// <summary>
     /// Determines whether the widget should display the form.
     /// </summary>
     [HiddenInput]

@@ -159,6 +159,9 @@
   <data name="Success!" xml:space="preserve">
     <value>¡Éxito!</value>
   </data>
+  <data name="Success! We've sent you an email. Please confirm your membership by clicking on the link contained in the email." xml:space="preserve">
+    <value>¡Éxito! Se hemos enviado un email. Confirme su membresía haciendo clic en el enlace incluido en el correo electrónico.</value>
+  </data>
   <data name="Registration failed." xml:space="preserve">
     <value>Error en el registro.</value>
   </data>

@@ -1,5 +1,6 @@
 
 
+using Kentico.Content.Web.Mvc.Routing;
 using Kentico.PageBuilder.Web.Mvc;
 using Microsoft.AspNetCore.Mvc;
 using TrainingGuides.Web.Features.Membership.Services;
@@ -21,18 +22,23 @@ public class RegistrationWidgetViewComponent : ViewComponent
 {
     private readonly IHttpRequestService httpRequestService;
     private readonly IMembershipService membershipService;
+    private readonly IPreferredLanguageRetriever preferredLanguageRetriever;
     public const string IDENTIFIER = "TrainingGuides.RegistrationWidget";
 
-    public RegistrationWidgetViewComponent(IHttpRequestService httpRequestService, IMembershipService membershipService)
+    public RegistrationWidgetViewComponent(IHttpRequestService httpRequestService,
+        IMembershipService membershipService,
+        IPreferredLanguageRetriever preferredLanguageRetriever)
     {
         this.httpRequestService = httpRequestService;
         this.membershipService = membershipService;
+        this.preferredLanguageRetriever = preferredLanguageRetriever;
     }
 
     public async Task<RegistrationWidgetViewModel> BuildWidgetViewModel(RegistrationWidgetProperties properties) =>
         new()
         {
             BaseUrl = httpRequestService.GetBaseUrl(),
+            Language = preferredLanguageRetriever.Get(),
             DisplayForm = !await membershipService.IsMemberAuthenticated(),
             ShowName = properties.ShowName,
             ShowExtraFields = properties.ShowExtraFields,

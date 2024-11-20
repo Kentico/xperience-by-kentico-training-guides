@@ -13,6 +13,7 @@ using Kentico.Web.Mvc;
 using TrainingGuides.Web.Features.Membership.Services;
 using TrainingGuides.Web.Features.Membership.Widgets.Registration;
 using TrainingGuides.Web.Features.Shared.Services;
+using TrainingGuides.Web.Features.Shared.Helpers;
 
 namespace TrainingGuides.Web.Features.Membership.Controllers;
 
@@ -32,7 +33,7 @@ public class RegistrationController(
     private readonly SystemEmailOptions systemEmailOptions = systemEmailOptions.Value;
     private readonly IHttpRequestService httpRequestService = httpRequestService;
 
-    [HttpPost("/Registration/Register")]
+    [HttpPost("{" + ApplicationConstants.LANGUAGE_KEY + "}/Registration/Register")]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Register(RegistrationWidgetViewModel model)
     {
