@@ -84,6 +84,8 @@ public class MembershipService : IMembershipService
 
                 memberContactService.UpdateContactIfChanged(contact);
 
+                memberContactService.MergeContactByEmail(contact);
+
                 memberContactService.SetCurrentContactForMember(member);
             }
 

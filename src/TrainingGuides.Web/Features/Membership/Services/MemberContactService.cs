@@ -11,14 +11,17 @@ public class MemberContactService : IMemberContactService
     private readonly IInfoProvider<ContactInfo> contactInfoProvider;
     private readonly ICookieAccessor cookieAccessor;
     private readonly ICurrentContactProvider currentContactProvider;
+    private readonly IContactMergeService contactMergeService;
 
     public MemberContactService(IInfoProvider<ContactInfo> contactInfoProvider,
         ICookieAccessor cookieAccessor,
-        ICurrentContactProvider currentContactProvider)
+        ICurrentContactProvider currentContactProvider,
+        IContactMergeService contactMergeService)
     {
         this.contactInfoProvider = contactInfoProvider;
         this.cookieAccessor = cookieAccessor;
         this.currentContactProvider = currentContactProvider;
+        this.contactMergeService = contactMergeService;
     }
 
     /// <inheritdoc />
@@ -91,6 +94,9 @@ public class MemberContactService : IMemberContactService
             currentContactProvider.SetCurrentContact(contact);
         }
     }
+
+    /// <inheritdoc />
+    public void MergeContactByEmail(ContactInfo contact) => contactMergeService.MergeContactByEmail(contact);
 
     /// <inheritdoc />
     public void RemoveContactCookies()

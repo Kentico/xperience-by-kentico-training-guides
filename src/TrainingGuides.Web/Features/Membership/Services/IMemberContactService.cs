@@ -41,6 +41,12 @@ public interface IMemberContactService
     void SetCurrentContactForMember(GuidesMember member);
 
     /// <summary>
+    /// Merges the provided contact based on the provided email address
+    /// </summary>
+    /// <param name="contact">The contact to merge</param>
+    public void MergeContactByEmail(ContactInfo contact);
+
+    /// <summary>
     /// Removes contact related cookies 
     /// </summary>
     void RemoveContactCookies();
