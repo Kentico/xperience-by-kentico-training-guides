@@ -33,7 +33,7 @@ public class ArticlePageService : IArticlePageService
             return new ArticlePageViewModel();
         }
 
-        string articleUrl = (await webPageUrlRetriever.Retrieve(articlePage.SystemFields.WebPageItemGUID, preferredLanguageRetriever.Get())).RelativePath;
+        string articleUrl = (await webPageUrlRetriever.Retrieve(articlePage, preferredLanguageRetriever.Get())).RelativePath;
         var articleSchema = articlePage.ArticlePageArticleContent.FirstOrDefault();
 
         if (articleSchema != null)
@@ -80,7 +80,7 @@ public class ArticlePageService : IArticlePageService
             {
                 string signInUrl = await membershipService.GetSignInUrl(preferredLanguageRetriever.Get());
 
-                string signInUrlWithReturn = signInUrl + QueryString.Create(ApplicationConstants.RETURN_URL_PARAMETER, originalViewModel.Url).ToString();
+                string signInUrlWithReturn = signInUrl + QueryString.Create(ApplicationConstants.RETURN_URL_PARAMETER, originalViewModel.Url.Replace("~", "")).ToString();
 
                 return new ArticlePageViewModel
                 {

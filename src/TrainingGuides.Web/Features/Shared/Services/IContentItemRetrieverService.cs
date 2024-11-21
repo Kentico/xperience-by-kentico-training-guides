@@ -13,12 +13,13 @@ public interface IContentItemRetrieverService<T>
         int depth = 1);
 
     public Task<IEnumerable<T>> RetrieveWebPageContentItems(string contentTypeName,
-        Func<ContentTypeQueryParameters, ContentTypeQueryParameters> queryFilter);
+        Func<ContentTypeQueryParameters, ContentTypeQueryParameters> queryFilter,
+        bool includeSecuredItems = true);
 
     public Task<IEnumerable<T>> RetrieveWebPageChildrenByPath(
         string parentPageContentTypeName,
         string path,
-        bool includeSecuredItems,
+        bool includeSecuredItems = true,
         int depth = 1);
 
     public Task<IEnumerable<T>> RetrieveWebPageChildrenByPathAndReference(
@@ -26,7 +27,7 @@ public interface IContentItemRetrieverService<T>
         string parentPagePath,
         string referenceFieldName,
         IEnumerable<int> referenceIds,
-        bool includeSecuredItems,
+        bool includeSecuredItems = true,
         int depth = 1
     );
 
@@ -37,7 +38,8 @@ public interface IContentItemRetrieverService<T>
 
     public Task<IEnumerable<T>> RetrieveReusableContentItems(
         string contentTypeName,
-        Func<ContentTypeQueryParameters, ContentTypeQueryParameters> queryFilter);
+        Func<ContentTypeQueryParameters, ContentTypeQueryParameters> queryFilter,
+        bool includeSecuredItems = true);
 }
 
 public interface IContentItemRetrieverService
@@ -50,5 +52,6 @@ public interface IContentItemRetrieverService
         string schemaName,
         string taxonomyColumnName,
         IEnumerable<Guid> tagGuids);
-    public Task<IWebPageFieldsSource?> RetrieveWebPageByPath(string pathToMatch);
+    public Task<IWebPageFieldsSource?> RetrieveWebPageByPath(string pathToMatch,
+        bool includeSecuredItems = true);
 }
