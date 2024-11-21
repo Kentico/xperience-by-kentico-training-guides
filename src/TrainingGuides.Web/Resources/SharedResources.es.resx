@@ -165,4 +165,10 @@
   <data name="Registration failed." xml:space="preserve">
     <value>Error en el registro.</value>
   </data>
+  <data name="(🔒 Locked)" xml:space="preserve">
+    <value>(🔒 Bloqueada)</value>
+  </data>
+  <data name="Sign in to view this content." xml:space="preserve">
+    <value>Inicie sesión para ver este contenido.</value>
+  </data>
 </root>

@@ -82,11 +82,12 @@ public class ArticlePageService : IArticlePageService
 
                 string signInUrlWithReturn = signInUrl + QueryString.Create(ApplicationConstants.RETURN_URL_PARAMETER, originalViewModel.Url.Replace("~", "")).ToString();
 
+                var message = new HtmlString(stringLocalizer["Sign in to view this content."]);
                 return new ArticlePageViewModel
                 {
                     Title = $"{stringLocalizer["(🔒 Locked)"]} {originalViewModel.Title}",
-                    Summary = new HtmlString(stringLocalizer["Sign in to view this content."]),
-                    Text = new HtmlString(stringLocalizer["Sign in to view this content."]),
+                    Summary = message,
+                    Text = message,
                     CreatedOn = articlePage.ArticlePagePublishDate,
                     TeaserImage = originalViewModel.TeaserImage,
                     Url = signInUrlWithReturn
