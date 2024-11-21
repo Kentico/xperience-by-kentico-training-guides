@@ -39,11 +39,11 @@ public class ArticleListWidgetViewComponent : ViewComponent
 
         if (!properties.ContentTreeSection.IsNullOrEmpty())
         {
-            var articlePages = await RetrieveArticlePages(properties.ContentTreeSection.First(), properties.Tags);
+            var articlePages = await RetrieveArticlePages(properties.ContentTreeSection.First(), properties.Tags, properties.SecuredItems);
 
             model.Articles = (properties.OrderBy.Equals(OrderByOption.OldestFirst.ToString())
-                ? (await GetArticlePageViewModels(articlePages)).OrderBy(article => article.CreatedOn)
-                : (await GetArticlePageViewModels(articlePages)).OrderByDescending(article => article.CreatedOn))
+                ? (await GetArticlePageViewModels(articlePages, properties.SecuredItems)).OrderBy(article => article.CreatedOn)
+                : (await GetArticlePageViewModels(articlePages, properties.SecuredItems)).OrderByDescending(article => article.CreatedOn))
                 .Take(properties.TopN)
                 .ToList();
 
@@ -53,8 +53,11 @@ public class ArticleListWidgetViewComponent : ViewComponent
         return View("~/Features/Articles/Widgets/ArticleList/ArticleListWidget.cshtml", model);
     }
 
-    private async Task<IEnumerable<ArticlePage>> RetrieveArticlePages(WebPageRelatedItem parentPageSelection, IEnumerable<TagReference> tags)
+    private async Task<IEnumerable<ArticlePage>> RetrieveArticlePages(WebPageRelatedItem parentPageSelection, IEnumerable<TagReference> tags, string securedItems)
     {
+        bool includeSecuredItems = securedItems.Equals(SecuredOption.IncludeEverything.ToString())
+            || securedItems.Equals(SecuredOption.PromptForLogin.ToString());
+
         var selectedPageGuid = parentPageSelection.WebPageGuid;
 
         var selectedPage = await genericPageRetrieverService.RetrieveWebPageByGuid(selectedPageGuid);
@@ -66,6 +69,7 @@ public class ArticleListWidgetViewComponent : ViewComponent
             return await articlePageRetrieverService.RetrieveWebPageChildrenByPath(
                 selectedPageContentTypeName,
                 selectedPagePath,
+                includeSecuredItems,
                 3);
         }
         else
@@ -84,6 +88,7 @@ public class ArticleListWidgetViewComponent : ViewComponent
                 selectedPagePath,
                 nameof(ArticlePage.ArticlePageArticleContent),
                 taggedArticleIds,
+                includeSecuredItems,
                 3);
         }
     }
@@ -115,7 +120,7 @@ public class ArticleListWidgetViewComponent : ViewComponent
         return await query.GetScalarResultAsync<string>();
     }
 
-    private async Task<List<ArticlePageViewModel>> GetArticlePageViewModels(IEnumerable<ArticlePage?>? articlePages)
+    private async Task<List<ArticlePageViewModel>> GetArticlePageViewModels(IEnumerable<ArticlePage?>? articlePages, string securedItems)
     {
         var models = new List<ArticlePageViewModel>();
         if (articlePages != null)
@@ -124,7 +129,10 @@ public class ArticleListWidgetViewComponent : ViewComponent
             {
                 if (articlePage != null)
                 {
-                    var model = await articlePageService.GetArticlePageViewModel(articlePage);
+                    var model = securedItems.Equals(SecuredOption.PromptForLogin.ToString()) 
+                        ? await articlePageService.GetArticlePageViewModelWithSecurity(articlePage)
+                        : await articlePageService.GetArticlePageViewModel(articlePage);
+
                     models.Add(model);
                 }
             }

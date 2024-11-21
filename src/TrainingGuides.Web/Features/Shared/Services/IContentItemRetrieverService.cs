@@ -18,6 +18,7 @@ public interface IContentItemRetrieverService<T>
     public Task<IEnumerable<T>> RetrieveWebPageChildrenByPath(
         string parentPageContentTypeName,
         string path,
+        bool includeSecuredItems,
         int depth = 1);
 
     public Task<IEnumerable<T>> RetrieveWebPageChildrenByPathAndReference(
@@ -25,6 +26,7 @@ public interface IContentItemRetrieverService<T>
         string parentPagePath,
         string referenceFieldName,
         IEnumerable<int> referenceIds,
+        bool includeSecuredItems,
         int depth = 1
     );
 

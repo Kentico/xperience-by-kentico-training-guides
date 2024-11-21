@@ -38,6 +38,12 @@ public class ArticleListWidgetProperties : IWidgetProperties
         DataProviderType = typeof(DropdownEnumOptionProvider<OrderByOption>),
         Order = 40)]
     public string OrderBy { get; set; } = OrderByOption.NewestFirst.ToString();
+
+    [DropDownComponent(
+        Label = "Secured items",
+        DataProviderType = typeof(DropdownEnumOptionProvider<SecuredOption>),
+        Order = 50)]
+    public string SecuredItems { get; set; } = SecuredOption.IncludeEverything.ToString();
 }
 
 public enum OrderByOption
@@ -46,4 +52,14 @@ public enum OrderByOption
     NewestFirst,
     [Description("Oldest first")]
     OldestFirst
+}
+
+public enum SecuredOption
+{
+    [Description("Include everything")]
+    IncludeEverything,
+    [Description("Prompt for login")]
+    PromptForLogin,
+    [Description("Hide secured items")]
+    HideSecuredItems
 }

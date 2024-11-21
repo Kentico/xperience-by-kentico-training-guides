@@ -94,12 +94,19 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
     /// </summary>
     /// <param name="parentPageContentTypeName">Content type of the parent page</param>
     /// <param name="parentPagePath">Path of the parent page</param>
+    /// <param name="includeSecuredItems">Determines whether secured items should be included in the results.</param>
     /// <param name="depth">The maximum level of recursively linked content items that should be included in the results. Default value is 1.</param>
     /// <returns></returns>
     public async Task<IEnumerable<T>> RetrieveWebPageChildrenByPath(
         string parentPageContentTypeName,
         string parentPagePath,
-        int depth = 1) => await RetrieveWebPageChildrenByPath(parentPageContentTypeName, parentPagePath, null, depth);
+        bool includeSecuredItems,
+        int depth = 1) => await RetrieveWebPageChildrenByPath(
+            parentPageContentTypeName: parentPageContentTypeName,
+            parentPagePath: parentPagePath,
+            customContentTypeQueryParameters: null,
+            includeSecuredItems: includeSecuredItems,
+            depth: depth);
 
     /// <summary>
     /// Retrieves child pages of a given web page that are linked to specific content items, specified by list of reference IDs.
@@ -115,12 +122,14 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
         string parentPagePath,
         string referenceFieldName,
         IEnumerable<int> referenceIds,
+        bool includeSecuredItems,
         int depth = 1
     ) => await RetrieveWebPageChildrenByPath(
-            parentPageContentTypeName,
-            parentPagePath,
-            config => config.Linking(referenceFieldName, referenceIds),
-            depth);
+            parentPageContentTypeName: parentPageContentTypeName,
+            parentPagePath: parentPagePath,
+            customContentTypeQueryParameters: config => config.Linking(referenceFieldName, referenceIds),
+            includeSecuredItems: includeSecuredItems,
+            depth: depth);
 
     /// <summary>
     /// Retrieves Web page content item by Id using ContentItemQueryBuilder
@@ -173,6 +182,7 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
         string parentPageContentTypeName,
         string parentPagePath,
         Action<ContentTypeQueryParameters>? customContentTypeQueryParameters,
+        bool includeSecuredItems = true,
         int depth = 1)
     {
         Action<ContentTypeQueryParameters> contentQueryParameters = customContentTypeQueryParameters != null
@@ -193,7 +203,8 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
 
         var queryExecutorOptions = new ContentQueryExecutionOptions
         {
-            ForPreview = webSiteChannelContext.IsPreview
+            ForPreview = webSiteChannelContext.IsPreview,
+            IncludeSecuredItems = includeSecuredItems
         };
 
         var pages = await contentQueryExecutor.GetMappedWebPageResult<T>(builder, queryExecutorOptions);

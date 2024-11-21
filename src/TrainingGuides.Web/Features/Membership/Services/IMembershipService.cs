@@ -69,4 +69,11 @@ public interface IMembershipService
     /// <param name="member">The member for whom to generate the token.</param>
     /// <returns>The email confirmation token.</returns>
     Task<string> GenerateEmailConfirmationToken(GuidesMember member);
+
+    /// <summary>
+    /// Gets the URL of the expected sign in page in the provided language.
+    /// </summary>
+    /// <param name="language">The required language to retrieve.</param>
+    /// <returns>The relative path of the sign in page.</returns>
+    Task<string> GetSignInUrl(string language);
 }

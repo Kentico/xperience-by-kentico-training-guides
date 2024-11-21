@@ -1,6 +1,8 @@
 using CMS.ContactManagement;
 using CMS.Core;
+using CMS.Websites.Routing;
 using Microsoft.AspNetCore.Identity;
+using TrainingGuides.Web.Features.Shared.Helpers;
 
 namespace TrainingGuides.Web.Features.Membership.Services;
 public class MembershipService : IMembershipService
@@ -10,19 +12,25 @@ public class MembershipService : IMembershipService
     private readonly IHttpContextAccessor contextAccessor;
     private readonly IEventLogService eventLogService;
     private readonly IMemberContactService memberContactService;
+    private readonly IWebPageUrlRetriever webPageUrlRetriever;
+    private readonly IWebsiteChannelContext websiteChannelContext;
 
     public MembershipService(
         UserManager<GuidesMember> userManager,
         SignInManager<GuidesMember> signInManager,
         IHttpContextAccessor contextAccessor,
         IEventLogService eventLogService,
-        IMemberContactService memberContactService)
+        IMemberContactService memberContactService,
+        IWebPageUrlRetriever webPageUrlRetriever,
+        IWebsiteChannelContext websiteChannelContext)
     {
         this.userManager = userManager;
         this.signInManager = signInManager;
         this.contextAccessor = contextAccessor;
         this.eventLogService = eventLogService;
         this.memberContactService = memberContactService;
+        this.webPageUrlRetriever = webPageUrlRetriever;
+        this.websiteChannelContext = websiteChannelContext;
     }
 
     /// <inheritdoc />
@@ -109,4 +117,16 @@ public class MembershipService : IMembershipService
     /// <inheritdoc />
     public async Task<string> GenerateEmailConfirmationToken(GuidesMember member) =>
         await userManager.GenerateEmailConfirmationTokenAsync(member);
+
+    /// <inheritdoc />
+    public async Task<string> GetSignInUrl(string language)
+    {
+        var signInUrl = await webPageUrlRetriever.Retrieve(
+            webPageTreePath: ApplicationConstants.EXPECTED_SIGN_IN_PATH,
+            websiteChannelName: websiteChannelContext.WebsiteChannelName,
+            languageName: language
+        );
+
+        return signInUrl.RelativePath;
+    }
 }
