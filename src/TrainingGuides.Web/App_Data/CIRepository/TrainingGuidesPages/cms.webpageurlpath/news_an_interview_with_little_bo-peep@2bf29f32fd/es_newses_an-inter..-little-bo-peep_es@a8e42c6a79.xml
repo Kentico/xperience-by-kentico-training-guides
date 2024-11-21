@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.webpageurlpath>
-  <WebPageUrlPath>es/News/An-interview-with-Little-Bo-Peep</WebPageUrlPath>
+  <WebPageUrlPath>es/NewsES/An-interview-with-Little-Bo-Peep</WebPageUrlPath>
   <WebPageUrlPathContentLanguageID>
     <CodeName>es</CodeName>
     <GUID>b2e99971-c2dd-4a47-bb64-0d9a0d28d226</GUID>
@@ -8,7 +8,7 @@
   </WebPageUrlPathContentLanguageID>
   <WebPageUrlPathGUID>b4203823-e746-4513-bc00-fa5546abdc06</WebPageUrlPathGUID>
   <WebPageUrlPathHash>
-    <![CDATA[291ED8145EAF81BEAEDF9C17B01E1CB7CA4E665F69BE43F81A662635F4B7E469]]>
+    <![CDATA[AF80AB513EF6C5E30D383DC04B53C996A608A4B9A5C74FC70CD633C07A76909A]]>
   </WebPageUrlPathHash>
   <WebPageUrlPathIsCanonical>True</WebPageUrlPathIsCanonical>
   <WebPageUrlPathIsDraft>False</WebPageUrlPathIsDraft>

@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.webpageurlpath>
-  <WebPageUrlPath>News/About-confiers</WebPageUrlPath>
+  <WebPageUrlPath>es/NewsES/About-conifers</WebPageUrlPath>
   <WebPageUrlPathContentLanguageID>
-    <CodeName>en</CodeName>
-    <GUID>e81b5172-f240-4041-88b1-653089984e29</GUID>
+    <CodeName>es</CodeName>
+    <GUID>b2e99971-c2dd-4a47-bb64-0d9a0d28d226</GUID>
     <ObjectType>cms.contentlanguage</ObjectType>
   </WebPageUrlPathContentLanguageID>
-  <WebPageUrlPathGUID>9e9da690-8c9a-4173-a6d7-5ab2f71fa8f2</WebPageUrlPathGUID>
+  <WebPageUrlPathGUID>25add121-e097-49c3-87cc-132d056ba8c2</WebPageUrlPathGUID>
   <WebPageUrlPathHash>
-    <![CDATA[659144CD605B42B44600DD9F7834A7215E637E92C734D27D5615B618764E135F]]>
+    <![CDATA[671B32B9BD45EFEE03BE1298DE2F9542924311827B176E949CF0F14AA94F6BBA]]>
   </WebPageUrlPathHash>
   <WebPageUrlPathIsCanonical>True</WebPageUrlPathIsCanonical>
   <WebPageUrlPathIsDraft>False</WebPageUrlPathIsDraft>

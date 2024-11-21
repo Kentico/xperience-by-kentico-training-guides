@@ -1,24 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.webpageurlpath>
-  <WebPageUrlPath>
-    <![CDATA[es/News/Bean-plant-cultivation-an-interview-with-Jack-Trott]]>
-  </WebPageUrlPath>
+  <WebPageUrlPath>News/About-conifers</WebPageUrlPath>
   <WebPageUrlPathContentLanguageID>
-    <CodeName>es</CodeName>
-    <GUID>b2e99971-c2dd-4a47-bb64-0d9a0d28d226</GUID>
+    <CodeName>en</CodeName>
+    <GUID>e81b5172-f240-4041-88b1-653089984e29</GUID>
     <ObjectType>cms.contentlanguage</ObjectType>
   </WebPageUrlPathContentLanguageID>
-  <WebPageUrlPathGUID>25ea6bb6-bd9e-44e7-8c5d-8356d7dc8a5d</WebPageUrlPathGUID>
+  <WebPageUrlPathGUID>9e9da690-8c9a-4173-a6d7-5ab2f71fa8f2</WebPageUrlPathGUID>
   <WebPageUrlPathHash>
-    <![CDATA[EFB2B5A5D3F2E87A56205546EBD347219E6DC08608D680F6F66CCC17FE8D18D5]]>
+    <![CDATA[216F12EA7F0CE75196266FE5A5EFFDE54351D7B7E319C9C385B0120FC6A745C4]]>
   </WebPageUrlPathHash>
   <WebPageUrlPathIsCanonical>True</WebPageUrlPathIsCanonical>
   <WebPageUrlPathIsDraft>False</WebPageUrlPathIsDraft>
   <WebPageUrlPathIsLatest>True</WebPageUrlPathIsLatest>
   <WebPageUrlPathType>0</WebPageUrlPathType>
   <WebPageUrlPathWebPageItemID>
-    <CodeName>BeanPlantCultivation_AnInterviewWithJackTrott-r2dn92hl</CodeName>
-    <GUID>d980ca3e-a737-4025-88ad-2ed561c0f3da</GUID>
+    <CodeName>AboutConfiers-43kzvzza</CodeName>
+    <GUID>0c82ddd0-c520-4bb8-9692-56b59b82e667</GUID>
     <ObjectType>cms.webpageitem</ObjectType>
   </WebPageUrlPathWebPageItemID>
   <WebPageUrlPathWebsiteChannelID>

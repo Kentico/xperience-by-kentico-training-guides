@@ -1,22 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.webpageurlpath>
-  <WebPageUrlPath>es/News/About-confiers</WebPageUrlPath>
+  <WebPageUrlPath>
+    <![CDATA[es/NewsES/Bean-plant-cultivation-an-interview-with-Jack-Trott]]>
+  </WebPageUrlPath>
   <WebPageUrlPathContentLanguageID>
     <CodeName>es</CodeName>
     <GUID>b2e99971-c2dd-4a47-bb64-0d9a0d28d226</GUID>
     <ObjectType>cms.contentlanguage</ObjectType>
   </WebPageUrlPathContentLanguageID>
-  <WebPageUrlPathGUID>25add121-e097-49c3-87cc-132d056ba8c2</WebPageUrlPathGUID>
+  <WebPageUrlPathGUID>25ea6bb6-bd9e-44e7-8c5d-8356d7dc8a5d</WebPageUrlPathGUID>
   <WebPageUrlPathHash>
-    <![CDATA[3CE4FF5E02844124904A28FD30829B86C5872426D9FD0C80E3A66B5B297CB375]]>
+    <![CDATA[1AB2400317F9123D5FD203DB13548809C1A64F5770A8275A83C01D90CC975676]]>
   </WebPageUrlPathHash>
   <WebPageUrlPathIsCanonical>True</WebPageUrlPathIsCanonical>
   <WebPageUrlPathIsDraft>False</WebPageUrlPathIsDraft>
   <WebPageUrlPathIsLatest>True</WebPageUrlPathIsLatest>
   <WebPageUrlPathType>0</WebPageUrlPathType>
   <WebPageUrlPathWebPageItemID>
-    <CodeName>AboutConfiers-43kzvzza</CodeName>
-    <GUID>0c82ddd0-c520-4bb8-9692-56b59b82e667</GUID>
+    <CodeName>BeanPlantCultivation_AnInterviewWithJackTrott-r2dn92hl</CodeName>
+    <GUID>d980ca3e-a737-4025-88ad-2ed561c0f3da</GUID>
     <ObjectType>cms.webpageitem</ObjectType>
   </WebPageUrlPathWebPageItemID>
   <WebPageUrlPathWebsiteChannelID>
