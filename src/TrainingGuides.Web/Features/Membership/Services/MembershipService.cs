@@ -119,6 +119,21 @@ public class MembershipService : IMembershipService
         await userManager.GenerateEmailConfirmationTokenAsync(member);
 
     /// <inheritdoc />
+    public async Task<string> GeneratePasswordResetToken(GuidesMember member) =>
+        await userManager.GeneratePasswordResetTokenAsync(member);
+
+    /// <inheritdoc />
+    public async Task<bool> VerifyPasswordResetToken(GuidesMember member, string token) =>
+        await userManager.VerifyUserTokenAsync(user: member,
+            tokenProvider: userManager.Options.Tokens.PasswordResetTokenProvider,
+            purpose: UserManager<GuidesMember>.ResetPasswordTokenPurpose,
+            token: token);
+
+    /// <inheritdoc />
+    public async Task<IdentityResult> ResetPassword(GuidesMember member, string token, string password) =>
+        await userManager.ResetPasswordAsync(member, token, password);
+
+    /// <inheritdoc />
     public async Task<string> GetSignInUrl(string language)
     {
         var signInUrl = await webPageUrlRetriever.Retrieve(

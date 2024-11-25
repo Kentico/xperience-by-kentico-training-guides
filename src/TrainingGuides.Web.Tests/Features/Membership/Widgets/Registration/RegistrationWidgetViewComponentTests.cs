@@ -1,3 +1,4 @@
+using Kentico.Content.Web.Mvc.Routing;
 using Moq;
 using TrainingGuides.Web.Features.Membership.Services;
 using TrainingGuides.Web.Features.Membership.Widgets.Registration;
@@ -10,6 +11,7 @@ public class RegistrationWidgetViewComponentTests
     private readonly RegistrationWidgetViewComponent viewComponent;
     private readonly Mock<IHttpRequestService> httpRequestServiceMock;
     private readonly Mock<IMembershipService> membershipServiceMock;
+    private readonly Mock<IPreferredLanguageRetriever> preferredLanguageRetrieverMock;
     private readonly RegistrationWidgetProperties referenceProperties;
 
     private const string FORM_TITLE = "Register";
@@ -27,12 +29,16 @@ public class RegistrationWidgetViewComponentTests
     public RegistrationWidgetViewComponentTests()
     {
         httpRequestServiceMock = new Mock<IHttpRequestService>();
+        httpRequestServiceMock.Setup(x => x.GetBaseUrlWithLanguage()).Returns(BASE_URL);
         httpRequestServiceMock.Setup(x => x.GetBaseUrl()).Returns(BASE_URL);
+
+        preferredLanguageRetrieverMock = new Mock<IPreferredLanguageRetriever>();
+        preferredLanguageRetrieverMock.Setup(x => x.Get()).Returns("en");
 
         membershipServiceMock = new Mock<IMembershipService>();
         membershipServiceMock.Setup(x => x.IsMemberAuthenticated()).ReturnsAsync(true);
 
-        viewComponent = new RegistrationWidgetViewComponent(httpRequestServiceMock.Object, membershipServiceMock.Object);
+        viewComponent = new RegistrationWidgetViewComponent(httpRequestServiceMock.Object, membershipServiceMock.Object, preferredLanguageRetrieverMock.Object);
 
         referenceProperties = new RegistrationWidgetProperties()
         {

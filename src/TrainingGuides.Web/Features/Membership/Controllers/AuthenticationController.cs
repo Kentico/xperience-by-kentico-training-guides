@@ -4,7 +4,6 @@ using TrainingGuides.Web.Features.Membership.Services;
 using TrainingGuides.Web.Features.Membership.Widgets.SignIn;
 using TrainingGuides.Web.Features.Membership.Widgets.LinkOrSignOut;
 using TrainingGuides.Web.Features.Shared.Helpers;
-using CMS.Websites.Routing;
 using Kentico.Content.Web.Mvc.Routing;
 using CMS.DataEngine;
 using CMS.ContentEngine;
@@ -16,21 +15,15 @@ namespace TrainingGuides.Web.Features.Membership.Controllers;
 public class AuthenticationController : Controller
 {
     private readonly IMembershipService membershipService;
-    private readonly IWebPageUrlRetriever webPageUrlRetriever;
-    private readonly IWebsiteChannelContext websiteChannelContext;
     private readonly IPreferredLanguageRetriever preferredLanguageRetriever;
     private readonly IInfoProvider<ContentLanguageInfo> contentLanguageInfoProvider;
     private const string SIGN_IN_FAILED = "Your sign-in attempt was not successful. Please try again.";
 
     public AuthenticationController(IMembershipService membershipService,
-        IWebPageUrlRetriever webPageUrlRetriever,
-        IWebsiteChannelContext websiteChannelContext,
         IPreferredLanguageRetriever preferredLanguageRetriever,
         IInfoProvider<ContentLanguageInfo> contentLanguageInfoProvider)
     {
         this.membershipService = membershipService;
-        this.webPageUrlRetriever = webPageUrlRetriever;
-        this.websiteChannelContext = websiteChannelContext;
         this.preferredLanguageRetriever = preferredLanguageRetriever;
         this.contentLanguageInfoProvider = contentLanguageInfoProvider;
     }
@@ -78,18 +71,14 @@ public class AuthenticationController : Controller
         return Redirect(model.RedirectUrl);
     }
 
-    [HttpGet(ApplicationConstants.ACCESS_DENIED_CONTROLLER_PATH)]
+    [HttpGet(ApplicationConstants.ACCESS_DENIED_ACTION_PATH)]
     public async Task<IActionResult> AccessDenied([FromQuery(Name = ApplicationConstants.RETURN_URL_PARAMETER)] string returnUrl)
     {
         string language = GetLanguageFromReturnUrl(returnUrl);
 
-        var signInUrl = await webPageUrlRetriever.Retrieve(
-            webPageTreePath: ApplicationConstants.EXPECTED_SIGN_IN_PATH,
-            websiteChannelName: websiteChannelContext.WebsiteChannelName,
-            languageName: language
-        );
+        string signInUrl = await membershipService.GetSignInUrl(language);
 
-        string redirectUrl = signInUrl.RelativePath + QueryString.Create(ApplicationConstants.RETURN_URL_PARAMETER, returnUrl);
+        string redirectUrl = signInUrl + QueryString.Create(ApplicationConstants.RETURN_URL_PARAMETER, returnUrl);
 
         return Redirect(redirectUrl);
     }

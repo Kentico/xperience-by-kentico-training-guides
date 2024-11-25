@@ -93,7 +93,7 @@ builder.Services
 
 builder.Services.ConfigureApplicationCookie(options =>
 {
-    options.AccessDeniedPath = new PathString(ApplicationConstants.ACCESS_DENIED_CONTROLLER_PATH);
+    options.AccessDeniedPath = new PathString(ApplicationConstants.ACCESS_DENIED_ACTION_PATH);
     options.ReturnUrlParameter = ApplicationConstants.RETURN_URL_PARAMETER;
 });
 
@@ -107,7 +107,14 @@ builder.Services.AddTrainingGuidesServices();
 builder.Services.AddTrainingGuidesOptions();
 
 builder.Services.AddControllersWithViews(options => options.SuppressImplicitRequiredAttributeForNonNullableReferenceTypes = true);
-builder.Services.AddMvc().AddMvcLocalization();
+
+builder.Services.AddMvc()
+    .AddMvcLocalization()
+    .AddDataAnnotationsLocalization(options =>
+    {
+        options.DataAnnotationLocalizerProvider = (type, factory) =>
+            factory.Create(typeof(SharedResources));
+    });
 
 builder.Services.AddDistributedMemoryCache();
 

@@ -71,6 +71,30 @@ public interface IMembershipService
     Task<string> GenerateEmailConfirmationToken(GuidesMember member);
 
     /// <summary>
+    /// Generates a password reset token for a member.
+    /// </summary>
+    /// <param name="member">The member for whom to generate the token.</param>
+    /// <returns>The password reset token.</returns>
+    Task<string> GeneratePasswordResetToken(GuidesMember member);
+
+    /// <summary>
+    /// Verifies a password reset token for a member.
+    /// </summary>
+    /// <param name="member">The member whose email was used for the request.</param>
+    /// <param name="token">The token used for the request.</param>
+    /// <returns>True if the token is valid.</returns>
+    Task<bool> VerifyPasswordResetToken(GuidesMember member, string token);
+
+    /// <summary>
+    /// Resets the password of a member.
+    /// </summary>
+    /// <param name="member">The member whose password will be updated.</param>
+    /// <param name="token">The token used for the request.</param>
+    /// <param name="newPassword">The new password.</param>
+    /// <returns>The task that represents the async result of the operation, containing an IdentityResult</returns>
+    Task<IdentityResult> ResetPassword(GuidesMember member, string token, string newPassword);
+
+    /// <summary>
     /// Gets the URL of the expected sign in page in the provided language.
     /// </summary>
     /// <param name="language">The required language to retrieve.</param>

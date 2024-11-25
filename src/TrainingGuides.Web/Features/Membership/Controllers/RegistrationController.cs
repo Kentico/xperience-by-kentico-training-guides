@@ -33,7 +33,7 @@ public class RegistrationController(
     private readonly SystemEmailOptions systemEmailOptions = systemEmailOptions.Value;
     private readonly IHttpRequestService httpRequestService = httpRequestService;
 
-    [HttpPost("{" + ApplicationConstants.LANGUAGE_KEY + "}/Registration/Register")]
+    [HttpPost($"{{{ApplicationConstants.LANGUAGE_KEY}}}{ApplicationConstants.REGISTER_ACTION_PATH}")]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Register(RegistrationWidgetViewModel model)
     {
