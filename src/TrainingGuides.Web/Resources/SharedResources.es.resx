@@ -159,9 +159,6 @@
   <data name="Reset password" xml:space="preserve">
     <value>Restablecer contraseña</value>
   </data>
-  <data name="Submit" xml:space="preserve">
-    <value>Enviar</value>
-  </data>
   <data name="Success!" xml:space="preserve">
     <value>¡Éxito!</value>
   </data>
@@ -188,6 +185,7 @@
   </data>
   <data name="Password reset request" xml:space="preserve">
     <value>Solicitud de restablecimiento de contraseña</value>
+  </data>
   <data name="Registration failed." xml:space="preserve">
     <value>Error en el registro.</value>
   </data>
@@ -199,5 +197,27 @@
   </data>
   <data name="Return to the home page" xml:space="preserve">
     <value>Repasar al inicio</value>
+  </data>
+  <data name="Given name" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="Family name" xml:space="preserve">
+    <value>Apellido</value>
+  </data>
+  <data name="Family name goes first" xml:space="preserve">
+    <value>Apellido antes de nombre</value>
+  </data>
+  <data name="Favorite coffee" xml:space="preserve">
+    <value>Café favorito</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Contraseña</value>
+  </data>
+  <data name="Confirm your password" xml:space="preserve">
+    <value>Confirme su contraseña</value>
+  </data>
+
+  <data name="Submit" xml:space="preserve">
+    <value>Enviar</value>
   </data>
 </root>

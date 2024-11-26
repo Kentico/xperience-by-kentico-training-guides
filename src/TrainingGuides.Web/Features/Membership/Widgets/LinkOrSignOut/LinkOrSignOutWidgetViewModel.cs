@@ -2,9 +2,9 @@ using TrainingGuides.Web.Features.Shared.Models;
 
 namespace TrainingGuides.Web.Features.Membership.Widgets.LinkOrSignOut;
 
-public class LinkOrSignOutWidgetViewModel : WidgetViewModel
+public class LinkOrSignOutWidgetViewModel : IWidgetViewModel
 {
-    public override bool IsMisconfigured =>
+    public bool IsMisconfigured =>
         string.IsNullOrWhiteSpace(ButtonText)
         || string.IsNullOrWhiteSpace(Url);
     public string Text { get; set; } = string.Empty;

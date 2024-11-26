@@ -4,6 +4,7 @@ using Kentico.Content.Web.Mvc.Routing;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Localization;
 using TrainingGuides.Web.Features.Membership.Services;
+using TrainingGuides.Web.Features.Membership.Profile;
 using TrainingGuides.Web.Features.Membership.Widgets.ResetPassword;
 using TrainingGuides.Web.Features.Shared.Helpers;
 using TrainingGuides.Web.Features.Shared.Services;
@@ -31,6 +32,43 @@ public class MemberManagementController : Controller
         this.stringLocalizer = stringLocalizer;
         this.httpRequestService = httpRequestService;
         this.preferredLanguageRetriever = preferredLanguageRetriever;
+    }
+
+    /// <summary>
+    /// Updates a user profile.
+    /// </summary>
+    /// <param name="model">View model with profile fields to update.</param>
+    /// <returns></returns>
+    [HttpPost($"{{{ApplicationConstants.LANGUAGE_KEY}}}{ApplicationConstants.UPDATE_PROFILE_ACTION_PATH}")]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> UpdateProfile(UpdateProfileViewModel model)
+    {
+        if (!ModelState.IsValid)
+        {
+            return PartialView("~/Features/Membership/Widgets/UpdateProfile/UpdateProfileForm.cshtml", model);
+        }
+
+        //Get the current member instead of pulling from the model, so that members cannot attempt to change each others information.
+        var guidesMember = await membershipService.GetCurrentMember();
+
+        if (guidesMember != null)
+        {
+            var result = await membershipService.UpdateMemberProfile(guidesMember, model);
+
+            if (result.Succeeded)
+            {
+                model.SuccessMessage = stringLocalizer["Profile updated successfully."];
+            }
+            else
+            {
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError(string.Empty, error.Description);
+                }
+            }
+        }
+
+        return PartialView("~/Features/Membership/Widgets/UpdateProfile/UpdateProfileForm.cshtml", model);
     }
 
     /// <summary>
@@ -136,6 +174,11 @@ public class MemberManagementController : Controller
 
     }
 
+    /// <summary>
+    /// Resets the password of the member.
+    /// </summary>
+    /// <param name="model">The view model with information about whose password to reset and how</param>
+    /// <returns>Model with errors or success message</returns>
     [HttpPost($"{{{ApplicationConstants.LANGUAGE_KEY}}}{ApplicationConstants.PASSWORD_RESET_ACTION_PATH}")]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> ResetPassword(ResetPasswordViewModel model)
@@ -146,8 +189,9 @@ public class MemberManagementController : Controller
         }
 
         string decodedToken = model.Token.Replace("%2f", "/");
+        string decodedEmail = model.Email.Replace("%2f", "/");
 
-        var guidesMember = await membershipService.FindMemberByEmail(model.Email);
+        var guidesMember = await membershipService.FindMemberByEmail(decodedEmail);
 
         if (guidesMember != null)
         {
@@ -155,7 +199,7 @@ public class MemberManagementController : Controller
 
             if (result.Succeeded)
             {
-                return Content(await GetSuccessContent());
+                return Content(await GetResetPasswordSuccessContent());
             }
             else
             {
@@ -174,7 +218,7 @@ public class MemberManagementController : Controller
         return PartialView("~/Features/Membership/Widgets/ResetPassword/ResetPasswordForm.cshtml", model);
     }
 
-    private async Task<string> GetSuccessContent()
+    private async Task<string> GetResetPasswordSuccessContent()
     {
         string language = preferredLanguageRetriever.Get();
         string signInUrl = await membershipService.GetSignInUrl(language, absoluteURl: true);

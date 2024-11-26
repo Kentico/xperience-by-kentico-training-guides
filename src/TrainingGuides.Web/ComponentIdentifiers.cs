@@ -14,6 +14,7 @@ using TrainingGuides.Web.Features.Shared.Sections.FormColumn;
 using TrainingGuides.Web.Features.Shared.Sections.General;
 using TrainingGuides.Web.Features.Shared.Sections.SingleColumn;
 using TrainingGuides.Web.Features.Videos.Widgets.VideoEmbed;
+using TrainingGuides.Web.Features.Membership.Widgets.ResetPassword;
 
 namespace TrainingGuides.Web;
 
@@ -42,6 +43,7 @@ public static class ComponentIdentifiers
         public const string SING_IN = SignInWidgetViewComponent.IDENTIFIER;
         public const string LINK_OR_SIGN_OUT = LinkOrSignOutWidgetViewComponent.IDENTIFIER;
         public const string REGISTRATION = RegistrationWidgetViewComponent.IDENTIFIER;
+        public const string RESET_PASSWORD = ResetPasswordWidgetViewComponent.IDENTIFIER;
 
     }
 }

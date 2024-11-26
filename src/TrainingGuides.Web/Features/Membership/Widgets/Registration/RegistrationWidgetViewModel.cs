@@ -1,16 +1,16 @@
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Mvc;
+using TrainingGuides.Web.Features.Membership.Profile;
 using TrainingGuides.Web.Features.Shared.Models;
-// using TrainingGuides.Web.Features.Membership.Widgets.Registration;
 
-public class RegistrationWidgetViewModel : WidgetViewModel
+public class RegistrationWidgetViewModel : GuidesMemberProfileViewModel, IWidgetViewModel
 {
     //WIDGET DISPLAY PROPERTIES
 
     /// <summary>
     /// Determines whether the widget is misconfigured.
     /// </summary>
-    public override bool IsMisconfigured =>
+    public bool IsMisconfigured =>
         string.IsNullOrWhiteSpace(BaseUrl)
         || string.IsNullOrWhiteSpace(SubmitButtonText)
         || string.IsNullOrWhiteSpace(UserNameLabel)
@@ -135,17 +135,4 @@ public class RegistrationWidgetViewModel : WidgetViewModel
     [Compare(nameof(Password))]
     public string ConfirmPassword { get; set; } = string.Empty;
 
-    [DataType(DataType.Text)]
-    [MaxLength(100)]
-    public string GivenName { get; set; } = string.Empty;
-
-    [DataType(DataType.Text)]
-    [MaxLength(100)]
-    public string FamilyName { get; set; } = string.Empty;
-
-    public bool FamilyNameFirst { get; set; } = false;
-
-    [DataType(DataType.Text)]
-    [MaxLength(100)]
-    public string FavoriteCoffee { get; set; } = string.Empty;
 }

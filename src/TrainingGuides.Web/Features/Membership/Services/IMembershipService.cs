@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Identity;
+using TrainingGuides.Web.Features.Membership.Profile;
 
 namespace TrainingGuides.Web.Features.Membership.Services;
 
@@ -7,6 +8,12 @@ namespace TrainingGuides.Web.Features.Membership.Services;
 /// </summary>
 public interface IMembershipService
 {
+    /// <summary>
+    /// Generates a dummy member for display in page builder and preview modes.
+    /// </summary>
+    /// <returns> A dummy member</returns>
+    GuidesMember DummyMember { get; }
+
     /// <summary>
     /// Gets the current member.
     /// </summary>
@@ -101,4 +108,13 @@ public interface IMembershipService
     /// <param name="absoluteURl">Whether to return an absolute URL.</param>
     /// <returns>The relative path of the sign in page.</returns>
     Task<string> GetSignInUrl(string language, bool absoluteURl = false);
+
+    /// <summary>
+    /// Updates the profile of a member.
+    /// </summary>
+    /// <param name="member">Member to update.</param>
+    /// <param name="updateProfileViewModel">ViewModel with updated fields.</param>
+    /// <returns></returns>
+    Task<IdentityResult> UpdateMemberProfile(GuidesMember member, UpdateProfileViewModel updateProfileViewModel);
+
 }

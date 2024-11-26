@@ -4,7 +4,7 @@ using TrainingGuides.Web.Features.Shared.Models;
 
 namespace TrainingGuides.Web.Features.Products.Widgets.ProductComparator;
 
-public class ProductComparatorWidgetViewModel : WidgetViewModel
+public class ProductComparatorWidgetViewModel : IWidgetViewModel
 {
     public List<ProductPageViewModel> Products { get; set; } = [];
     public List<KeyValuePair<string, HtmlString>> GroupedFeatures { get; set; } = [];
@@ -13,5 +13,5 @@ public class ProductComparatorWidgetViewModel : WidgetViewModel
     public string HeadingMargin { get; set; } = string.Empty;
     public bool ShowShortDescription { get; set; }
     public string CheckboxIconUrl { get; set; } = string.Empty;
-    public override bool IsMisconfigured => Products.Count == 0;
+    public bool IsMisconfigured => Products.Count == 0;
 }

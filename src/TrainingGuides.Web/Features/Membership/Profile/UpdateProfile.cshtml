@@ -1,0 +1,22 @@
+@using TrainingGuides.Web.Features.Membership.Profile;
+@using TrainingGuides.Web.Features.Shared.Helpers;
+
+@model UpdateProfileViewModel
+
+@{
+    string formDivId = $"updateProfileForm{Guid.NewGuid()}";
+}
+<h3>@Model.FullName</h3>
+<div><span>@Model.EmailAddress</span></div>
+
+@using (Html.AjaxBeginForm("UpdateProfile", "MembershipManagement", new AjaxOptions
+{
+    HttpMethod = "POST",
+    InsertionMode = InsertionMode.Replace,
+    UpdateTargetId = formDivId
+}, new { action = $"{Model.BaseUrl}/{Model.Language}{ApplicationConstants.UPDATE_PROFILE_ACTION_PATH}" }))
+{
+    <div id="@formDivId" class="px-2">
+        <partial name="~/Features/Membership/ViewComponents/UpdateProfile/UpdateProfileForm.cshtml" model="Model" />
+    </div>
+}

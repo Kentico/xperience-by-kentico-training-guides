@@ -4,9 +4,9 @@ using TrainingGuides.Web.Features.Shared.Models;
 
 namespace TrainingGuides.Web.Features.Membership.Widgets.ResetPassword;
 
-public class ResetPasswordWidgetViewModel : WidgetViewModel
+public class ResetPasswordWidgetViewModel : IWidgetViewModel
 {
-    public override bool IsMisconfigured =>
+    public bool IsMisconfigured =>
         string.IsNullOrWhiteSpace(BaseUrlWithLanguage)
         || string.IsNullOrWhiteSpace(SubmitButtonText)
         || string.IsNullOrWhiteSpace(EmailAddressLabel);

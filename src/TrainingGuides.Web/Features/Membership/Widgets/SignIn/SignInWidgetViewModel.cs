@@ -4,7 +4,7 @@ using TrainingGuides.Web.Features.Shared.Models;
 
 namespace TrainingGuides.Web.Features.Membership.Widgets.SignIn;
 
-public class SignInWidgetViewModel : WidgetViewModel
+public class SignInWidgetViewModel : IWidgetViewModel
 {
     //WIDGET DISPLAY PROPERTIES
 
@@ -75,7 +75,7 @@ public class SignInWidgetViewModel : WidgetViewModel
 
     public bool StaySignedIn { get; set; } = false;
 
-    public override bool IsMisconfigured => string.IsNullOrWhiteSpace(BaseUrl)
+    public bool IsMisconfigured => string.IsNullOrWhiteSpace(BaseUrl)
         || string.IsNullOrWhiteSpace(SubmitButtonText)
         || string.IsNullOrWhiteSpace(UserNameOrEmailLabel)
         || string.IsNullOrWhiteSpace(PasswordLabel)

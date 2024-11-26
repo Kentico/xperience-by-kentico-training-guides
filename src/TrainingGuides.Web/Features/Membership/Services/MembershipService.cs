@@ -2,11 +2,25 @@ using CMS.ContactManagement;
 using CMS.Core;
 using CMS.Websites.Routing;
 using Microsoft.AspNetCore.Identity;
+using TrainingGuides.Web.Features.Membership.Profile;
 using TrainingGuides.Web.Features.Shared.Helpers;
 
 namespace TrainingGuides.Web.Features.Membership.Services;
 public class MembershipService : IMembershipService
 {
+    public GuidesMember DummyMember => new()
+    {
+        UserName = "JohnDoe",
+        Email = "JohnDoe@localhost.local",
+        GivenName = "John",
+        FamilyName = "Doe",
+        FamilyNameFirst = false,
+        FavoriteCoffee = "Latte",
+        Enabled = true,
+        Created = DateTime.Now,
+        Id = 0
+    };
+
     private readonly UserManager<GuidesMember> userManager;
     private readonly SignInManager<GuidesMember> signInManager;
     private readonly IHttpContextAccessor contextAccessor;
@@ -143,5 +157,16 @@ public class MembershipService : IMembershipService
         );
 
         return absoluteURl ? signInUrl.AbsoluteUrl : signInUrl.RelativePath;
+    }
+
+    /// <inheritdoc />
+    public async Task<IdentityResult> UpdateMemberProfile(GuidesMember guidesMember, UpdateProfileViewModel updateProfileViewModel)
+    {
+        guidesMember.GivenName = updateProfileViewModel.GivenName;
+        guidesMember.FamilyName = updateProfileViewModel.FamilyName;
+        guidesMember.FamilyNameFirst = updateProfileViewModel.FamilyNameFirst;
+        guidesMember.FavoriteCoffee = updateProfileViewModel.FavoriteCoffee;
+
+        return await userManager.UpdateAsync(guidesMember);
     }
 }
