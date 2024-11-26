@@ -134,7 +134,7 @@ public class MembershipService : IMembershipService
         await userManager.ResetPasswordAsync(member, token, password);
 
     /// <inheritdoc />
-    public async Task<string> GetSignInUrl(string language)
+    public async Task<string> GetSignInUrl(string language, bool absoluteURl = false)
     {
         var signInUrl = await webPageUrlRetriever.Retrieve(
             webPageTreePath: ApplicationConstants.EXPECTED_SIGN_IN_PATH,
@@ -142,6 +142,6 @@ public class MembershipService : IMembershipService
             languageName: language
         );
 
-        return signInUrl.RelativePath;
+        return absoluteURl ? signInUrl.AbsoluteUrl : signInUrl.RelativePath;
     }
 }

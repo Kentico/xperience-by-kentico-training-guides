@@ -12,8 +12,16 @@ public interface IHttpRequestService
     /// <summary>
     /// Retrieves Base URL from the current request context. If current site is in a language variant, returns language with the base URL as well
     /// </summary>
-    /// <returns>The base URL in current language variant. (e.g. website.com or website.com/es)</returns>
+    /// <returns>The base URL in current language variant, (e.g. website.com or website.com/es).</returns>
     public string GetBaseUrlWithLanguage();
+
+    /// <summary>
+    /// Retrieves Base URL from the current request context. If current site is in a language variant, returns language with the base URL as well
+    /// </summary>
+    /// <param name="checkDatabaseForDefaultLanguage">Determines whether to query the database for the default language when it cannot be determined from route data.</param>
+    /// <returns>The base URL in current language variant. (e.g. website.com or website.com/es)</returns>
+    /// <remarksThis overload exists to avoid adjusting the logic of the original method, which would affect an existing training guide</remarks>
+    public string GetBaseUrlWithLanguage(bool checkDatabaseForDefaultLanguage);
 
     /// <summary>
     /// Retrieves URL of the currently displayed page for a specific language

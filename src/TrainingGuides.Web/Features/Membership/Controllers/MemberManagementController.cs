@@ -92,7 +92,7 @@ public class MemberManagementController : Controller
             error = invalid;
 
         string decodedToken = token.Replace("%2f", "/");
-        string decodedEmail = HttpUtility.UrlDecode(email);
+        string decodedEmail = email.Replace("%2f", "/");
 
         var guidesMember = await membershipService.FindMemberByEmail(decodedEmail);
 
@@ -177,8 +177,8 @@ public class MemberManagementController : Controller
     private async Task<string> GetSuccessContent()
     {
         string language = preferredLanguageRetriever.Get();
-        string signInUrl = await membershipService.GetSignInUrl(language);
-        string baseUrl = httpRequestService.GetBaseUrlWithLanguage();
+        string signInUrl = await membershipService.GetSignInUrl(language, absoluteURl: true);
+        string baseUrl = httpRequestService.GetBaseUrlWithLanguage(checkDatabaseForDefaultLanguage: true);
 
         string success = stringLocalizer["Success!"];
         string signIn = stringLocalizer["Sign in"];

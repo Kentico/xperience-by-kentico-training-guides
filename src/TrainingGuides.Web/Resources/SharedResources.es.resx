@@ -156,12 +156,38 @@
   <data name="Sign out" xml:space="preserve">
     <value>Cerrar sesión</value>
   </data>
+  <data name="Reset password" xml:space="preserve">
+    <value>Restablecer contraseña</value>
+  </data>
+  <data name="Submit" xml:space="preserve">
+    <value>Enviar</value>
+  </data>
   <data name="Success!" xml:space="preserve">
     <value>¡Éxito!</value>
   </data>
   <data name="Success! We've sent you an email. Please confirm your membership by clicking on the link contained in the email." xml:space="preserve">
-    <value>¡Éxito! Se hemos enviado un email. Confirme su membresía haciendo clic en el enlace incluido en el correo electrónico.</value>
+    <value>¡Éxito! Hemos enviado un email a usted. Confirme su membresía haciendo clic en el enlace incluido en el correo electrónico.</value>
   </data>
+  <data name="Your password reset request is expired or invalid." xml:space="preserve">
+    <value>Su solicitud de restablecimiento de contraseña ha expirado o no es válida</value>
+  </data>
+  <data name="To reset your account's password, click" xml:space="preserve">
+    <value>Para restablecer la contraseña de su cuenta, haga clic</value>
+  </data>
+  <data name="here" xml:space="preserve">
+    <value>aquí</value>
+  </data>
+  <data name="If you did not request a password reset, please ignore this email, and do not click the link." xml:space="preserve">
+    <value>Si no solicitó un restablecimiento de contraseña, ignore este email y no haga clic en el enlace.</value>
+  </data>
+  <data name="You can also copy-paste the following URL into your browser:" xml:space="preserve">
+    <value>También puede copiar y pegar la siguiente URL en su navegador:</value>
+  </data>
+  <data name="If there is an account with this email address, we will send a link right away." xml:space="preserve">
+    <value>Si hay una cuenta con esta dirección de correo electrónico, le enviaremos un enlace de inmediato.</value>
+  </data>
+  <data name="Password reset request" xml:space="preserve">
+    <value>Solicitud de restablecimiento de contraseña</value>
   <data name="Registration failed." xml:space="preserve">
     <value>Error en el registro.</value>
   </data>
@@ -170,5 +196,8 @@
   </data>
   <data name="Sign in to view this content." xml:space="preserve">
     <value>Inicie sesión para ver este contenido.</value>
+  </data>
+  <data name="Return to the home page" xml:space="preserve">
+    <value>Repasar al inicio</value>
   </data>
 </root>
