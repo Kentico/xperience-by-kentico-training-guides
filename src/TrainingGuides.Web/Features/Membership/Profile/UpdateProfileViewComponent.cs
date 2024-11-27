@@ -34,7 +34,7 @@ public class UpdateProfileViewComponent : ViewComponent
 
         var model = updateProfileService.GetViewModel(currentMember);
 
-        return View("~/Features/Membership/ViewComponents/UpdateProfile/UpdateProfile.cshtml", model);
+        return View("~/Features/Membership/Profile/UpdateProfile.cshtml", model);
     }
 
 }

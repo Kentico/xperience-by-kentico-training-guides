@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.webpageitem>
   <WebPageItemContentItemID>
-    <CodeName>Products-oypi95ub</CodeName>
-    <GUID>196b3926-f820-4bd4-bed0-42e4db92ce40</GUID>
+    <CodeName>Profile-pn1ia5w4</CodeName>
+    <GUID>ecca8e9a-945b-48c1-8a4a-17c7422a0ae6</GUID>
     <ObjectType>cms.contentitem</ObjectType>
   </WebPageItemContentItemID>
-  <WebPageItemGUID>5a0c83e1-2ad8-40b2-aa00-d01980daf01d</WebPageItemGUID>
-  <WebPageItemName>Products-oypi95ub</WebPageItemName>
-  <WebPageItemOrder>3</WebPageItemOrder>
-  <WebPageItemTreePath>/Products</WebPageItemTreePath>
+  <WebPageItemGUID>ae86b29d-4737-4503-9bb7-4558a5fd86c9</WebPageItemGUID>
+  <WebPageItemName>Profile-pn1ia5w4</WebPageItemName>
+  <WebPageItemOrder>12</WebPageItemOrder>
+  <WebPageItemTreePath>/Profile</WebPageItemTreePath>
   <WebPageItemWebsiteChannelID>
     <GUID>fdba40fe-1ece-4821-9d57-eaa1d89e13b1</GUID>
     <ObjectType>cms.websitechannel</ObjectType>

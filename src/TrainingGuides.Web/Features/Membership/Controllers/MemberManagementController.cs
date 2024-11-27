@@ -20,6 +20,7 @@ public class MemberManagementController : Controller
     private readonly IPreferredLanguageRetriever preferredLanguageRetriever;
 
     private const string INVALID_PASSWORD_RESET_REQUEST = "Your password reset request is expired or invalid.";
+    private const string LINK_STYLES = "btn tg-btn-secondary text-uppercase my-4";
 
     public MemberManagementController(IMembershipService membershipService,
         IEmailService emailService,
@@ -57,7 +58,7 @@ public class MemberManagementController : Controller
 
             if (result.Succeeded)
             {
-                model.SuccessMessage = stringLocalizer["Profile updated successfully."];
+                return Content(GetUpdateProfileSuccessContent());
             }
             else
             {
@@ -67,8 +68,7 @@ public class MemberManagementController : Controller
                 }
             }
         }
-
-        return PartialView("~/Features/Membership/Widgets/UpdateProfile/UpdateProfileForm.cshtml", model);
+        return PartialView("~/Features/Membership/Profile/UpdateProfileForm.cshtml", model);
     }
 
     /// <summary>
@@ -225,11 +225,20 @@ public class MemberManagementController : Controller
         string baseUrl = httpRequestService.GetBaseUrlWithLanguage(checkDatabaseForDefaultLanguage: true);
 
         string success = stringLocalizer["Success!"];
-        string signIn = stringLocalizer["Sign in"];
-        string goHome = stringLocalizer["Return to the home page"];
+        string signInLinkText = stringLocalizer["Sign in"];
+        string homeLinkText = stringLocalizer["Return to the home page"];
 
         return $"<div><span>{success}</span></div>"
-            + $"<div><span><a href=\"{signInUrl}\">{signIn}</a></span></div>"
-            + $"<div><span><a href=\"{baseUrl}\">{goHome}</a></span></div>";
+            + $"<div class=\"p-2\"><a href=\"{signInUrl}\" class=\"{LINK_STYLES}\">{signInLinkText}</a></div>"
+            + $"<div class=\"p-2\"><a href=\"{baseUrl}\" class=\"{LINK_STYLES}\">{homeLinkText}</a></div>";
+    }
+
+    public string GetUpdateProfileSuccessContent()
+    {
+        string success = stringLocalizer["Profile updated successfully."];
+        string refreshLinkText = stringLocalizer["Refresh"];
+
+        return $"<div><span><strong>{success}</span></strong></div>"
+            + $"<div class=\"p-2\"><a href=\".\" class=\"{LINK_STYLES}\">{refreshLinkText}</a></div>";
     }
 }

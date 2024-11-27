@@ -47,7 +47,8 @@ builder.Services.AddKentico(async features =>
             ArticlePage.CONTENT_TYPE_NAME,
             DownloadsPage.CONTENT_TYPE_NAME,
             EmptyPage.CONTENT_TYPE_NAME,
-            ProductPage.CONTENT_TYPE_NAME
+            ProductPage.CONTENT_TYPE_NAME,
+            ProfilePage.CONTENT_TYPE_NAME
         }
     });
     // Functionality related to cross-site tracking is currently disabled while we investigate an issue (#85 on GitHub)

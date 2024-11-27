@@ -4,7 +4,7 @@ using TrainingGuides.Web.Features.Shared.Services;
 
 namespace TrainingGuides.Web.Features.Membership.Profile;
 
-public class UpdateProfileService
+public class UpdateProfileService : IUpdateProfileService
 {
     private readonly IHttpRequestService httpRequestService;
     private readonly IPreferredLanguageRetriever preferredLanguageRetriever;
@@ -33,6 +33,5 @@ public class UpdateProfileService
             BaseUrl = httpRequestService.GetBaseUrl(),
             Language = preferredLanguageRetriever.Get(),
             SubmitButtonText = stringLocalizer["Submit"],
-            SuccessMessage = string.Empty
         };
 }

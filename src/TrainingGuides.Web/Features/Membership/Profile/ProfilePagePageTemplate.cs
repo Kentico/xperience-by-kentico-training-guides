@@ -4,10 +4,10 @@ using TrainingGuides.Web.Features.Membership.Profile;
 
 [assembly: RegisterPageTemplate(
     identifier: ProfilePagePageTemplate.IDENTIFIER,
-    name: "Article page content type template",
-    customViewName: "~/Features/Articles/ArticlePagePageTemplate.cshtml",
+    name: "Profile page content type template",
+    customViewName: "~/Features/Membership/Profile/ProfilePagePageTemplate.cshtml",
     ContentTypeNames = [ProfilePage.CONTENT_TYPE_NAME],
-    IconClass = "xp-a-lowercase")]
+    IconClass = "xp-personalisation")]
 
 namespace TrainingGuides.Web.Features.Membership.Profile;
 public static class ProfilePagePageTemplate

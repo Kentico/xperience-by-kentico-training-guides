@@ -14,8 +14,6 @@ public class UpdateProfileViewModel : GuidesMemberProfileViewModel
 
     public string Language { get; set; } = string.Empty;
 
-    public string SuccessMessage { get; set; } = string.Empty;
-
     [HiddenInput]
     public string SubmitButtonText { get; set; } = string.Empty;
 
