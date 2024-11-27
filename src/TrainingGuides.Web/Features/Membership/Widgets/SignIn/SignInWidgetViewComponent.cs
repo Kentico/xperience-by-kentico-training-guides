@@ -44,7 +44,7 @@ public class SignInWidgetViewComponent : ViewComponent
 
         string redirectUrl = returnUrl
             ?? (redirectPage == null
-                ? $"/{preferredLanguageRetriever.Get()}"
+                ? httpRequestService.GetBaseUrlWithLanguage()
                 : (await httpRequestService.GetPageRelativeUrl(redirectPage.WebPageGuid, preferredLanguageRetriever.Get())).Replace("~", ""));
 
         return new SignInWidgetViewModel

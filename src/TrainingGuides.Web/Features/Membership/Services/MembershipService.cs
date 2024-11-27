@@ -4,6 +4,7 @@ using CMS.Websites.Routing;
 using Microsoft.AspNetCore.Identity;
 using TrainingGuides.Web.Features.Membership.Profile;
 using TrainingGuides.Web.Features.Shared.Helpers;
+using TrainingGuides.Web.Features.Shared.Services;
 
 namespace TrainingGuides.Web.Features.Membership.Services;
 public class MembershipService : IMembershipService
@@ -28,6 +29,8 @@ public class MembershipService : IMembershipService
     private readonly IMemberContactService memberContactService;
     private readonly IWebPageUrlRetriever webPageUrlRetriever;
     private readonly IWebsiteChannelContext websiteChannelContext;
+    private readonly IHttpRequestService httpRequestService;
+
 
     public MembershipService(
         UserManager<GuidesMember> userManager,
@@ -36,7 +39,8 @@ public class MembershipService : IMembershipService
         IEventLogService eventLogService,
         IMemberContactService memberContactService,
         IWebPageUrlRetriever webPageUrlRetriever,
-        IWebsiteChannelContext websiteChannelContext)
+        IWebsiteChannelContext websiteChannelContext,
+        IHttpRequestService httpRequestService)
     {
         this.userManager = userManager;
         this.signInManager = signInManager;
@@ -45,6 +49,7 @@ public class MembershipService : IMembershipService
         this.memberContactService = memberContactService;
         this.webPageUrlRetriever = webPageUrlRetriever;
         this.websiteChannelContext = websiteChannelContext;
+        this.httpRequestService = httpRequestService;
     }
 
     /// <inheritdoc />
@@ -147,17 +152,29 @@ public class MembershipService : IMembershipService
     public async Task<IdentityResult> ResetPassword(GuidesMember member, string token, string password) =>
         await userManager.ResetPasswordAsync(member, token, password);
 
-    /// <inheritdoc />
-    public async Task<string> GetSignInUrl(string language, bool absoluteURl = false)
+    private async Task<string> GetPageUrl(string expectedPagePath, string language, bool absoluteURL = false)
     {
         var signInUrl = await webPageUrlRetriever.Retrieve(
-            webPageTreePath: ApplicationConstants.EXPECTED_SIGN_IN_PATH,
+            webPageTreePath: expectedPagePath,
             websiteChannelName: websiteChannelContext.WebsiteChannelName,
             languageName: language
         );
 
-        return absoluteURl ? signInUrl.AbsoluteUrl : signInUrl.RelativePath;
+        // using the relative URL with Replace instead of the absolute URL to avoid having the "https" in cases when we need https
+        // (absolute URL always contains https) 
+        return absoluteURL ?
+            signInUrl.RelativePath.Replace("~", httpRequestService.GetBaseUrl())
+            : signInUrl.RelativePath;
     }
+
+    /// <inheritdoc />
+    public async Task<string> GetSignInUrl(string language, bool absoluteURL = false)
+        => await GetPageUrl(ApplicationConstants.EXPECTED_SIGN_IN_PATH, language, absoluteURL);
+
+    /// <inheritdoc />
+    public async Task<string> GetRegisterUrl(string language, bool absoluteURL = false)
+        => await GetPageUrl(ApplicationConstants.EXPECTED_REGISTER_PATH, language, absoluteURL);
+
 
     /// <inheritdoc />
     public async Task<IdentityResult> UpdateMemberProfile(GuidesMember guidesMember, UpdateProfileViewModel updateProfileViewModel)

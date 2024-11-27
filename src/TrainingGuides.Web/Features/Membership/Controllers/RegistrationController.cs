@@ -91,18 +91,14 @@ public class RegistrationController(
         return View("~/Features/Membership/Widgets/Registration/EmailConfirmation.cshtml", emailConfirmationViewModel);
     }
 
-    // the system counts on an existence of a sign in anf registration pages with the following URLs
-    private string GetSignInUrl() => $"{httpRequestService.GetBaseUrlWithLanguage()}/sign-in";
-    private string GetRegisterUrl() => $"{httpRequestService.GetBaseUrlWithLanguage()}/register";
-
-    private EmailConfirmationViewModel GetMemberNotFoundViewModel() => new()
+    private async Task<EmailConfirmationViewModel> GetMemberNotFoundViewModel() => new()
     {
         State = EmailConfirmationState.FailureNotYetConfirmed,
         Message = stringLocalizer["Email confirmation failed. This user does not exist."],
         ActionButtonText = stringLocalizer["Register"],
-        SignInOrRegisterPageUrl = GetRegisterUrl(),
+        SignInOrRegisterPageUrl = await membershipService.GetRegisterUrl(preferredLanguageRetriever.Get(), true),
         HomePageButtonText = stringLocalizer["Go to homepage"],
-        HomePageUrl = httpRequestService.GetBaseUrlWithLanguage()
+        HomePageUrl = httpRequestService.GetBaseUrlWithLanguage(true)
     };
 
 
@@ -118,7 +114,7 @@ public class RegistrationController(
 
             if (member is null)
             {
-                return ReturnEmailConfirmationView(GetMemberNotFoundViewModel());
+                return ReturnEmailConfirmationView(await GetMemberNotFoundViewModel());
             }
 
             if (member.Enabled)
@@ -128,9 +124,9 @@ public class RegistrationController(
                     State = EmailConfirmationState.SuccessAlreadyConfirmed,
                     Message = stringLocalizer["Your email is already verified."],
                     ActionButtonText = stringLocalizer["Sign in"],
-                    SignInOrRegisterPageUrl = GetSignInUrl(),
+                    SignInOrRegisterPageUrl = await membershipService.GetSignInUrl(preferredLanguageRetriever.Get(), true),
                     HomePageButtonText = stringLocalizer["Go to homepage"],
-                    HomePageUrl = httpRequestService.GetBaseUrlWithLanguage()
+                    HomePageUrl = httpRequestService.GetBaseUrlWithLanguage(true)
                 });
             }
 
@@ -151,9 +147,9 @@ public class RegistrationController(
                     State = EmailConfirmationState.SuccessConfirmed,
                     Message = stringLocalizer["Success! Email confirmed."],
                     ActionButtonText = stringLocalizer["Sign in"],
-                    SignInOrRegisterPageUrl = GetSignInUrl(),
+                    SignInOrRegisterPageUrl = await membershipService.GetSignInUrl(preferredLanguageRetriever.Get(), true),
                     HomePageButtonText = stringLocalizer["Go to homepage"],
-                    HomePageUrl = httpRequestService.GetBaseUrlWithLanguage()
+                    HomePageUrl = httpRequestService.GetBaseUrlWithLanguage(true)
                 });
             }
 
@@ -212,7 +208,7 @@ public class RegistrationController(
 
         if (member is null)
         {
-            return ReturnEmailConfirmationView(GetMemberNotFoundViewModel());
+            return ReturnEmailConfirmationView(await GetMemberNotFoundViewModel());
         }
 
         await SendVerificationEmail(member);
