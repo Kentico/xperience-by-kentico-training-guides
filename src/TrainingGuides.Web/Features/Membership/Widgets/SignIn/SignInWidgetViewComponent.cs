@@ -44,12 +44,13 @@ public class SignInWidgetViewComponent : ViewComponent
 
         string redirectUrl = returnUrl
             ?? (redirectPage == null
-                ? "/"
+                ? $"/{preferredLanguageRetriever.Get()}"
                 : (await httpRequestService.GetPageRelativeUrl(redirectPage.WebPageGuid, preferredLanguageRetriever.Get())).Replace("~", ""));
 
         return new SignInWidgetViewModel
         {
             BaseUrl = httpRequestService.GetBaseUrl(),
+            Language = preferredLanguageRetriever.Get(),
             RedirectUrl = redirectUrl,
             DisplayForm = !await membershipService.IsMemberAuthenticated(),
             FormTitle = properties.FormTitle,

@@ -20,13 +20,12 @@
     // Using a new guid ensures no conflict if, for some reason, multiple widgets are on the same page.
     var formDivId = $"signInForm{Guid.NewGuid()}";
 
-    @using (Html.AjaxBeginForm("Autheticate", "Authentication", new AjaxOptions
+    @using (Html.AjaxBeginForm("Authenticate", "Authentication", new AjaxOptions
     {
         HttpMethod = "POST",
         InsertionMode = InsertionMode.Replace,
         UpdateTargetId = formDivId,
-        @* OnSuccess = "RedirectOnAuthenticationSuccess(data)" *@
-    }, new { action = $"{Model.BaseUrl}/Authentication/Authenticate" }))
+    }, new { action = $"{Model.BaseUrl}/{Model.Language}/Authentication/Authenticate" }))
     {
         <div id="@formDivId" class="px-2">
             <partial name="~/Features/Membership/Widgets/SignIn/SignInForm.cshtml" model="Model" />

@@ -12,5 +12,8 @@ internal static class ApplicationConstants
     public const string UPDATE_PROFILE_ACTION_PATH = "/MembershipManagement/UpdateProfile";
     public const string PASSWORD_RESET_ACTION_PATH = "/MembershipManagement/ResetPassword";
     public const string REGISTER_ACTION_PATH = "/Registration/Register";
+    public const string CONFIRM_REGISTRATION_ACTION_PATH = "/Registration/Confirm";
+    public const string RESEND_VERIFICATION_EMAIL = "/Registration/ResendVerificationEmail";
+    public const string AUTHENTICATE_ACTION_PATH = "/Authentication/Authenticate";
     public const string RETURN_URL_PARAMETER = "returnUrl";
 }

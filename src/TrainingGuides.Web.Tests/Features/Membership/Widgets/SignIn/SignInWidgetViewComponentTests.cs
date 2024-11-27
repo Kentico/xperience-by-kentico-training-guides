@@ -15,6 +15,7 @@ public class SignInWidgetViewComponentTests
     private readonly Mock<IPreferredLanguageRetriever> preferredLanguageRetrieverMock;
 
     private const string BASE_URL = "http://localhost:5000";
+    private const string LANGUAGE_KEY = "en";
     private const string PAGE_URL = "/page";
     private const string ROOT_URL = "/";
     private const string SIGN_IN = "Sign In";
@@ -34,7 +35,7 @@ public class SignInWidgetViewComponentTests
         membershipServiceMock.Setup(x => x.IsMemberAuthenticated()).ReturnsAsync(true);
 
         preferredLanguageRetrieverMock = new Mock<IPreferredLanguageRetriever>();
-        preferredLanguageRetrieverMock.Setup(x => x.Get()).Returns("en");
+        preferredLanguageRetrieverMock.Setup(x => x.Get()).Returns(LANGUAGE_KEY);
 
         viewComponent = new SignInWidgetViewComponent(httpRequestServiceMock.Object, membershipServiceMock.Object, preferredLanguageRetrieverMock.Object);
 
@@ -56,13 +57,20 @@ public class SignInWidgetViewComponentTests
     }
 
     [Fact]
-    public async Task BuildWidgetViewModel_WhenUserSetsRedirectPage_SetsRedirectUrl_ToPageUrl()
+    public async Task BuildWidgetViewModel_ReturnsWidgetViewModel_WithLanguageSet_ToCurrentLanguage()
     {
-        httpRequestServiceMock.Setup(x => x.GetPageRelativeUrl(It.IsAny<Guid>(), It.IsAny<string>())).ReturnsAsync($"~{PAGE_URL}");
+        var viewModel = await viewComponent.BuildWidgetViewModel(referenceProperties);
+        Assert.Equal(LANGUAGE_KEY, viewModel.Language);
+    }
+
+    [Fact]
+    public async Task BuildWidgetViewModel_WhenUserSetsRedirectPage_SetsRedirectUrl_ToPageUrlInCurrentLanguage()
+    {
+        httpRequestServiceMock.Setup(x => x.GetPageRelativeUrl(It.IsAny<Guid>(), It.IsAny<string>())).ReturnsAsync($"~/{LANGUAGE_KEY}{PAGE_URL}");
         referenceProperties.RedirectPage = [new() { WebPageGuid = Guid.NewGuid() }];
 
         var viewModel = await viewComponent.BuildWidgetViewModel(referenceProperties);
-        Assert.Equal(PAGE_URL, viewModel.RedirectUrl);
+        Assert.Equal($"/{LANGUAGE_KEY + PAGE_URL}", viewModel.RedirectUrl);
     }
 
     [Fact]
