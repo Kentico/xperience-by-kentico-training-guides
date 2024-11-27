@@ -106,14 +106,10 @@ public class RegistrationController(
     };
 
 
-    [HttpGet("/Registration/Confirm")]
-    // [HttpGet($"{{{ApplicationConstants.LANGUAGE_KEY}}}{ApplicationConstants.CONFIRM_REGISTRATION_ACTION_PATH}")]
+    [HttpGet($"{ApplicationConstants.CONFIRM_REGISTRATION_ACTION_PATH}/{{{ApplicationConstants.LANGUAGE_KEY}}}")]
     public async Task<ActionResult> Confirm(string memberEmail, string confirmToken)
     {
         string userName;
-        //TODO
-        // var language = preferredLanguageRetriever.Get();
-        
         if (!(HttpContext.Kentico().PageBuilder().EditMode || HttpContext.Kentico().Preview().Enabled))
         {
             IdentityResult confirmResult;
