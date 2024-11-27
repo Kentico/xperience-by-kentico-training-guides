@@ -15,6 +15,12 @@ public class SignInWidgetViewModel : IWidgetViewModel
     public string BaseUrl { get; set; } = string.Empty;
 
     /// <summary>
+    /// The language of the current request
+    /// </summary>
+    [HiddenInput]
+    public string Language { get; set; } = string.Empty;
+
+    /// <summary>
     /// URL of the site to redirect to after successful sing in
     /// </summary>
     [HiddenInput]

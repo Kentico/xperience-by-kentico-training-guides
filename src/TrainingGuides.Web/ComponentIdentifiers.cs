@@ -40,7 +40,7 @@ public static class ComponentIdentifiers
         public const string SIMPLE_CALL_TO_ACTION = SimpleCallToActionWidgetViewComponent.IDENTIFIER;
         public const string PRODUCT = ProductWidgetViewComponent.IDENTIFIER;
         public const string VIDEO_EMBED = VideoEmbedWidgetViewComponent.IDENTIFIER;
-        public const string SING_IN = SignInWidgetViewComponent.IDENTIFIER;
+        public const string SIGN_IN = SignInWidgetViewComponent.IDENTIFIER;
         public const string LINK_OR_SIGN_OUT = LinkOrSignOutWidgetViewComponent.IDENTIFIER;
         public const string REGISTRATION = RegistrationWidgetViewComponent.IDENTIFIER;
         public const string RESET_PASSWORD = ResetPasswordWidgetViewComponent.IDENTIFIER;

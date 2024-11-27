@@ -291,7 +291,7 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
     /// <summary>
     /// Retrieves the IWebPageFieldsSource of a web page item by Id.
     /// </summary>
-    /// <param name="webPageItemId">the Id of the web page item</param>
+    /// <param name="webPageItemId">The Id of the web page item</param>
     /// <returns><see cref="IWebPageFieldsSource"/> object containing generic <see cref="WebPageFields"/> for the item</returns>
     public async Task<IWebPageFieldsSource?> RetrieveWebPageById(
         int webPageItemId)
@@ -323,7 +323,7 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
     /// <summary>
     /// Retrieves the IWebPageFieldsSource of a web page item by path.
     /// </summary>
-    /// <param name="pathToMatch">the path of the web page item</param>
+    /// <param name="pathToMatch">The Tree path of the web page item (can be found in the administration under the Properties tab).</param>
     ///<returns><see cref="IWebPageFieldsSource"/> object containing generic <see cref="WebPageFields"/> for the item</returns>
     public async Task<IWebPageFieldsSource?> RetrieveWebPageByPath(string pathToMatch,
         bool includeSecuredItems = true)

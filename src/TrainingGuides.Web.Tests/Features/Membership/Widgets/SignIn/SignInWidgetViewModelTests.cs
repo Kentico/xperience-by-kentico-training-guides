@@ -16,6 +16,9 @@ public class SignInWidgetViewModelTests
     public void WhenModelInitialized_BaseUrl_IsEmpty() => Assert.Equal(string.Empty, viewModel.BaseUrl);
 
     [Fact]
+    public void WhenModelInitialized_Language_IsEmpty() => Assert.Equal(string.Empty, viewModel.Language);
+
+    [Fact]
     public void WhenModelInitialized_RedirectUrl_IsEmpty() => Assert.Equal(string.Empty, viewModel.RedirectUrl);
 
     [Fact]

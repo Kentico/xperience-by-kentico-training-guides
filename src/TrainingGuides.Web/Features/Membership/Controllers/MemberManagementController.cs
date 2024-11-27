@@ -221,8 +221,8 @@ public class MemberManagementController : Controller
     private async Task<string> GetResetPasswordSuccessContent()
     {
         string language = preferredLanguageRetriever.Get();
-        string signInUrl = await membershipService.GetSignInUrl(language, absoluteURl: true);
-        string baseUrl = httpRequestService.GetBaseUrlWithLanguage(checkDatabaseForDefaultLanguage: true);
+        string signInUrl = await membershipService.GetSignInUrl(language, true);
+        string baseUrl = httpRequestService.GetBaseUrlWithLanguage(true);
 
         string success = stringLocalizer["Success!"];
         string signInLinkText = stringLocalizer["Sign in"];

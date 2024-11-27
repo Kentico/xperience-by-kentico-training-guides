@@ -105,9 +105,17 @@ public interface IMembershipService
     /// Gets the URL of the expected sign in page in the provided language.
     /// </summary>
     /// <param name="language">The required language to retrieve.</param>
-    /// <param name="absoluteURl">Whether to return an absolute URL.</param>
+    /// <param name="absoluteURL">Whether to return an absolute URL.</param>
     /// <returns>The relative path of the sign in page.</returns>
-    Task<string> GetSignInUrl(string language, bool absoluteURl = false);
+    Task<string> GetSignInUrl(string language, bool absoluteURL = false);
+
+    /// <summary>
+    /// Gets the URL of the expected registration page in the provided language.
+    /// </summary>
+    /// <param name="language">The required language to retrieve.</param>
+    /// <param name="absoluteURL">Whether to return an absolute URL.</param>
+    /// <returns>The relative path of the sign in page.</returns>
+    Task<string> GetRegisterUrl(string language, bool absoluteURL = false);
 
     /// <summary>
     /// Updates the profile of a member.

@@ -14,6 +14,7 @@ using TrainingGuides.Web.Features.Membership.Services;
 using TrainingGuides.Web.Features.Membership.Widgets.Registration;
 using TrainingGuides.Web.Features.Shared.Services;
 using TrainingGuides.Web.Features.Shared.Helpers;
+using Kentico.Content.Web.Mvc.Routing;
 
 namespace TrainingGuides.Web.Features.Membership.Controllers;
 
@@ -23,7 +24,8 @@ public class RegistrationController(
     IStringLocalizer<SharedResources> stringLocalizer,
     IEmailService emailService,
     IOptions<SystemEmailOptions> systemEmailOptions,
-    IHttpRequestService httpRequestService) : Controller
+    IHttpRequestService httpRequestService,
+    IPreferredLanguageRetriever preferredLanguageRetriever) : Controller
 {
 
     private readonly IMembershipService membershipService = membershipService;
@@ -32,6 +34,8 @@ public class RegistrationController(
     private readonly IEmailService emailService = emailService;
     private readonly SystemEmailOptions systemEmailOptions = systemEmailOptions.Value;
     private readonly IHttpRequestService httpRequestService = httpRequestService;
+
+    private readonly IPreferredLanguageRetriever preferredLanguageRetriever = preferredLanguageRetriever;
 
     [HttpPost($"{{{ApplicationConstants.LANGUAGE_KEY}}}{ApplicationConstants.REGISTER_ACTION_PATH}")]
     [ValidateAntiForgeryToken]
@@ -87,22 +91,18 @@ public class RegistrationController(
         return View("~/Features/Membership/Widgets/Registration/EmailConfirmation.cshtml", emailConfirmationViewModel);
     }
 
-    // the system counts on an existence of a sign in anf registration pages with the following URLs
-    private string GetSignInUrl() => $"{httpRequestService.GetBaseUrlWithLanguage()}/sign-in";
-    private string GetRegisterUrl() => $"{httpRequestService.GetBaseUrlWithLanguage()}/register";
-
-    private EmailConfirmationViewModel GetMemberNotFoundViewModel() => new()
+    private async Task<EmailConfirmationViewModel> GetMemberNotFoundViewModel() => new()
     {
         State = EmailConfirmationState.FailureNotYetConfirmed,
         Message = stringLocalizer["Email confirmation failed. This user does not exist."],
         ActionButtonText = stringLocalizer["Register"],
-        SignInOrRegisterPageUrl = GetRegisterUrl(),
+        SignInOrRegisterPageUrl = await membershipService.GetRegisterUrl(preferredLanguageRetriever.Get(), true),
         HomePageButtonText = stringLocalizer["Go to homepage"],
-        HomePageUrl = httpRequestService.GetBaseUrlWithLanguage()
+        HomePageUrl = httpRequestService.GetBaseUrlWithLanguage(true)
     };
 
 
-    [HttpGet("/Registration/Confirm")]
+    [HttpGet($"{ApplicationConstants.CONFIRM_REGISTRATION_ACTION_PATH}/{{{ApplicationConstants.LANGUAGE_KEY}}}")]
     public async Task<ActionResult> Confirm(string memberEmail, string confirmToken)
     {
         string userName;
@@ -114,7 +114,7 @@ public class RegistrationController(
 
             if (member is null)
             {
-                return ReturnEmailConfirmationView(GetMemberNotFoundViewModel());
+                return ReturnEmailConfirmationView(await GetMemberNotFoundViewModel());
             }
 
             if (member.Enabled)
@@ -124,9 +124,9 @@ public class RegistrationController(
                     State = EmailConfirmationState.SuccessAlreadyConfirmed,
                     Message = stringLocalizer["Your email is already verified."],
                     ActionButtonText = stringLocalizer["Sign in"],
-                    SignInOrRegisterPageUrl = GetSignInUrl(),
+                    SignInOrRegisterPageUrl = await membershipService.GetSignInUrl(preferredLanguageRetriever.Get(), true),
                     HomePageButtonText = stringLocalizer["Go to homepage"],
-                    HomePageUrl = httpRequestService.GetBaseUrlWithLanguage()
+                    HomePageUrl = httpRequestService.GetBaseUrlWithLanguage(true)
                 });
             }
 
@@ -147,9 +147,9 @@ public class RegistrationController(
                     State = EmailConfirmationState.SuccessConfirmed,
                     Message = stringLocalizer["Success! Email confirmed."],
                     ActionButtonText = stringLocalizer["Sign in"],
-                    SignInOrRegisterPageUrl = GetSignInUrl(),
+                    SignInOrRegisterPageUrl = await membershipService.GetSignInUrl(preferredLanguageRetriever.Get(), true),
                     HomePageButtonText = stringLocalizer["Go to homepage"],
-                    HomePageUrl = httpRequestService.GetBaseUrlWithLanguage()
+                    HomePageUrl = httpRequestService.GetBaseUrlWithLanguage(true)
                 });
             }
 
@@ -172,29 +172,35 @@ public class RegistrationController(
     private async Task SendVerificationEmail(GuidesMember member)
     {
         string confirmToken = await membershipService.GenerateEmailConfirmationToken(member);
+        string memberEmail = member.Email ?? string.Empty;
 
-        string confirmationURL = Url.Action(nameof(Confirm), "Registration",
-        new
+        var routeValues = new RouteValueDictionary
         {
-            memberEmail = member.Email,
-            confirmToken
-        },
-        Request.Scheme) ?? string.Empty;
+            { ApplicationConstants.LANGUAGE_KEY, preferredLanguageRetriever.Get() },
+            { nameof(memberEmail), memberEmail },
+            { nameof(confirmToken), confirmToken }
+        };
+
+        string confirmationURL = Url.Action(
+            nameof(Confirm),
+            "Registration",
+            routeValues,
+            Request.Scheme) ?? string.Empty;
 
         await emailService.SendEmail(new EmailMessage()
         {
             From = $"no-reply@{systemEmailOptions.SendingDomain}",
             Recipients = member.Email,
-            Subject = $"Confirm your email here",
+            Subject = $"{stringLocalizer["Confirm your email here"]}",
             Body = $"""
-                <p>To confirm your email address, click <a data-confirmation-url href="{confirmationURL}">here</a>.</p>
-                <p style="margin-bottom: 1rem;">You can also copy and paste this URL into your browser.</p>
+                <p>{stringLocalizer["To confirm your email address, click "]}<a data-confirmation-url href="{confirmationURL}">{stringLocalizer["here"]}</a>.</p>
+                <p style="margin-bottom: 1rem;">{stringLocalizer["You can also copy and paste this URL into your browser."]}</p>
                 <p>{confirmationURL}</p>
                 """
         });
     }
 
-    [HttpPost("/Registration/ResendVerificationEmail")]
+    [HttpPost($"{{{ApplicationConstants.LANGUAGE_KEY}}}{ApplicationConstants.RESEND_VERIFICATION_EMAIL}")]
     public async Task<ActionResult> ResendVerificationEmail(EmailConfirmationViewModel model)
     {
         string userName = model.Username;
@@ -202,7 +208,7 @@ public class RegistrationController(
 
         if (member is null)
         {
-            return ReturnEmailConfirmationView(GetMemberNotFoundViewModel());
+            return ReturnEmailConfirmationView(await GetMemberNotFoundViewModel());
         }
 
         await SendVerificationEmail(member);

@@ -7,6 +7,7 @@ using TrainingGuides.Web.Features.Shared.Helpers;
 using Kentico.Content.Web.Mvc.Routing;
 using CMS.DataEngine;
 using CMS.ContentEngine;
+using Microsoft.Extensions.Localization;
 
 namespace TrainingGuides.Web.Features.Membership.Controllers;
 
@@ -17,20 +18,24 @@ public class AuthenticationController : Controller
     private readonly IMembershipService membershipService;
     private readonly IPreferredLanguageRetriever preferredLanguageRetriever;
     private readonly IInfoProvider<ContentLanguageInfo> contentLanguageInfoProvider;
+    private readonly IStringLocalizer<SharedResources> stringLocalizer;
+
     private const string SIGN_IN_FAILED = "Your sign-in attempt was not successful. Please try again.";
 
     public AuthenticationController(IMembershipService membershipService,
         IPreferredLanguageRetriever preferredLanguageRetriever,
-        IInfoProvider<ContentLanguageInfo> contentLanguageInfoProvider)
+        IInfoProvider<ContentLanguageInfo> contentLanguageInfoProvider,
+        IStringLocalizer<SharedResources> stringLocalizer)
     {
         this.membershipService = membershipService;
         this.preferredLanguageRetriever = preferredLanguageRetriever;
         this.contentLanguageInfoProvider = contentLanguageInfoProvider;
+        this.stringLocalizer = stringLocalizer;
     }
 
     private IActionResult RenderError(SignInWidgetViewModel model)
     {
-        ModelState.AddModelError(string.Empty, SIGN_IN_FAILED);
+        ModelState.AddModelError(string.Empty, stringLocalizer[SIGN_IN_FAILED]);
         return PartialView("~/Features/Membership/Widgets/SignIn/SignInForm.cshtml", model);
     }
 
@@ -46,7 +51,7 @@ public class AuthenticationController : Controller
         return PartialView("~/Features/Membership/Widgets/SignIn/SignInForm.cshtml", model);
     }
 
-    [HttpPost("/Authentication/Authenticate")]
+    [HttpPost($"{{{ApplicationConstants.LANGUAGE_KEY}}}{ApplicationConstants.AUTHENTICATE_ACTION_PATH}")]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Authenticate(SignInWidgetViewModel model)
     {
