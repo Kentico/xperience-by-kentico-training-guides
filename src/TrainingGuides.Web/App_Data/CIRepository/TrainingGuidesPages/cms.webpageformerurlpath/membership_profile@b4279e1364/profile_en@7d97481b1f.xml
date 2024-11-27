@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpageformerurlpath>
+  <WebPageFormerUrlPath>Profile</WebPageFormerUrlPath>
+  <WebPageFormerUrlPathContentLanguageID>
+    <CodeName>en</CodeName>
+    <GUID>e81b5172-f240-4041-88b1-653089984e29</GUID>
+    <ObjectType>cms.contentlanguage</ObjectType>
+  </WebPageFormerUrlPathContentLanguageID>
+  <WebPageFormerUrlPathHash>
+    <![CDATA[CCFE24D2F661561CB8E087D497277AFB9D87B80362EAFE89A9B32026249B98D3]]>
+  </WebPageFormerUrlPathHash>
+  <WebPageFormerUrlPathWebPageItemID>
+    <CodeName>Profile-pn1ia5w4</CodeName>
+    <GUID>ae86b29d-4737-4503-9bb7-4558a5fd86c9</GUID>
+    <ObjectType>cms.webpageitem</ObjectType>
+  </WebPageFormerUrlPathWebPageItemID>
+  <WebPageFormerUrlPathWebsiteChannelID>
+    <GUID>fdba40fe-1ece-4821-9d57-eaa1d89e13b1</GUID>
+    <ObjectType>cms.websitechannel</ObjectType>
+    <Parent>
+      <CodeName>TrainingGuidesPages</CodeName>
+      <GUID>5ba9c1e8-b61e-4570-b666-87a9b92bbe3b</GUID>
+      <ObjectType>cms.channel</ObjectType>
+    </Parent>
+  </WebPageFormerUrlPathWebsiteChannelID>
+</cms.webpageformerurlpath>

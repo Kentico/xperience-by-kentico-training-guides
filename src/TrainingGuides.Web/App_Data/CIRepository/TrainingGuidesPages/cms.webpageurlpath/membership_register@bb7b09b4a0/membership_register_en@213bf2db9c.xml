@@ -1,22 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.webpageurlpath>
-  <WebPageUrlPath>es/Iniciar-sesion</WebPageUrlPath>
+  <WebPageUrlPath>Membership/Register</WebPageUrlPath>
   <WebPageUrlPathContentLanguageID>
-    <CodeName>es</CodeName>
-    <GUID>b2e99971-c2dd-4a47-bb64-0d9a0d28d226</GUID>
+    <CodeName>en</CodeName>
+    <GUID>e81b5172-f240-4041-88b1-653089984e29</GUID>
     <ObjectType>cms.contentlanguage</ObjectType>
   </WebPageUrlPathContentLanguageID>
-  <WebPageUrlPathGUID>a7bbb92d-4ea8-4d71-b99e-852098ccd504</WebPageUrlPathGUID>
+  <WebPageUrlPathGUID>f4a8cc70-29a4-48ac-b816-0d38abd62d5e</WebPageUrlPathGUID>
   <WebPageUrlPathHash>
-    <![CDATA[9A6C5C870177BA02A5D3868AB68F5032D5DC8DDAD42A9ADBFB3E447FB2043292]]>
+    <![CDATA[8C13206017B2391AA38CA4279D2DC87E7BA62BABAD71FBC3A18167981A31DDF7]]>
   </WebPageUrlPathHash>
   <WebPageUrlPathIsCanonical>True</WebPageUrlPathIsCanonical>
   <WebPageUrlPathIsDraft>False</WebPageUrlPathIsDraft>
   <WebPageUrlPathIsLatest>True</WebPageUrlPathIsLatest>
   <WebPageUrlPathType>0</WebPageUrlPathType>
   <WebPageUrlPathWebPageItemID>
-    <CodeName>SignIn-x4a1nygh</CodeName>
-    <GUID>18fe09dc-c0f3-4136-863f-db59732e3658</GUID>
+    <CodeName>Register-wfb2l0pn</CodeName>
+    <GUID>9008b16a-3a70-41c9-92ba-2d289c940e2f</GUID>
     <ObjectType>cms.webpageitem</ObjectType>
   </WebPageUrlPathWebPageItemID>
   <WebPageUrlPathWebsiteChannelID>

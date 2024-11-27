@@ -1,22 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.webpageurlpath>
-  <WebPageUrlPath>Reset-password</WebPageUrlPath>
+  <WebPageUrlPath>es/Membresia/Perfil</WebPageUrlPath>
   <WebPageUrlPathContentLanguageID>
-    <CodeName>en</CodeName>
-    <GUID>e81b5172-f240-4041-88b1-653089984e29</GUID>
+    <CodeName>es</CodeName>
+    <GUID>b2e99971-c2dd-4a47-bb64-0d9a0d28d226</GUID>
     <ObjectType>cms.contentlanguage</ObjectType>
   </WebPageUrlPathContentLanguageID>
-  <WebPageUrlPathGUID>b5552221-6c08-417b-9210-9bd386c2f89f</WebPageUrlPathGUID>
+  <WebPageUrlPathGUID>d7d73827-7055-40e2-9c2d-19f3e5396448</WebPageUrlPathGUID>
   <WebPageUrlPathHash>
-    <![CDATA[690B44937D4EEC5A216AF420925AFE0DBE7E0754174EA330F018AC1BB5FD8CD5]]>
+    <![CDATA[C7D13A43BC4E2224C447C15AF376443C60106DBCB41C2F5019A8B5601A7609C7]]>
   </WebPageUrlPathHash>
   <WebPageUrlPathIsCanonical>True</WebPageUrlPathIsCanonical>
   <WebPageUrlPathIsDraft>False</WebPageUrlPathIsDraft>
   <WebPageUrlPathIsLatest>True</WebPageUrlPathIsLatest>
   <WebPageUrlPathType>0</WebPageUrlPathType>
   <WebPageUrlPathWebPageItemID>
-    <CodeName>ResetPassword-bt12pytq</CodeName>
-    <GUID>87a87bf7-17b0-403d-b751-d06dc1b64daa</GUID>
+    <CodeName>Profile-pn1ia5w4</CodeName>
+    <GUID>ae86b29d-4737-4503-9bb7-4558a5fd86c9</GUID>
     <ObjectType>cms.webpageitem</ObjectType>
   </WebPageUrlPathWebPageItemID>
   <WebPageUrlPathWebsiteChannelID>

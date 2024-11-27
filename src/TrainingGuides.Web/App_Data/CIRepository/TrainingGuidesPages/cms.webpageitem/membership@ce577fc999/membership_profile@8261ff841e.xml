@@ -7,8 +7,13 @@
   </WebPageItemContentItemID>
   <WebPageItemGUID>ae86b29d-4737-4503-9bb7-4558a5fd86c9</WebPageItemGUID>
   <WebPageItemName>Profile-pn1ia5w4</WebPageItemName>
-  <WebPageItemOrder>12</WebPageItemOrder>
-  <WebPageItemTreePath>/Profile</WebPageItemTreePath>
+  <WebPageItemOrder>5</WebPageItemOrder>
+  <WebPageItemParentID>
+    <CodeName>Membership-0ia66os8</CodeName>
+    <GUID>78f7f287-494e-4a23-a562-20c3e7a9a638</GUID>
+    <ObjectType>cms.webpageitem</ObjectType>
+  </WebPageItemParentID>
+  <WebPageItemTreePath>/Membership/Profile</WebPageItemTreePath>
   <WebPageItemWebsiteChannelID>
     <GUID>fdba40fe-1ece-4821-9d57-eaa1d89e13b1</GUID>
     <ObjectType>cms.websitechannel</ObjectType>

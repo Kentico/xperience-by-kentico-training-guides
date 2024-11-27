@@ -239,6 +239,6 @@ public class MemberManagementController : Controller
         string refreshLinkText = stringLocalizer["Refresh"];
 
         return $"<div><span><strong>{success}</span></strong></div>"
-            + $"<div class=\"p-2\"><a href=\".\" class=\"{LINK_STYLES}\">{refreshLinkText}</a></div>";
+            + $"<div class=\"p-2\"><a href=\"\" class=\"{LINK_STYLES}\">{refreshLinkText}</a></div>";
     }
 }

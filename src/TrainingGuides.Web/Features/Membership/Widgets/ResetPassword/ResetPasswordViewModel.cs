@@ -50,7 +50,7 @@ public class ResetPasswordViewModel
 
     [DataType(DataType.Password)]
     [Required()]
-    [DisplayName("Confirm your Password")]
+    [DisplayName("Confirm your password")]
     [MaxLength(100)]
     [Compare(nameof(Password))]
     public string ConfirmPassword { get; set; } = string.Empty;

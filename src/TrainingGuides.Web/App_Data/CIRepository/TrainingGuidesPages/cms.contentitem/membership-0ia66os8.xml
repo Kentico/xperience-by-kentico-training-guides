@@ -6,12 +6,12 @@
     <ObjectType>cms.channel</ObjectType>
   </ContentItemChannelID>
   <ContentItemContentTypeID>
-    <CodeName>TrainingGuides.ProfilePage</CodeName>
-    <GUID>d1a0f27c-fb65-463d-8ebd-5bbbb00866f8</GUID>
+    <CodeName>TrainingGuides.EmptyPage</CodeName>
+    <GUID>58018c9d-5b6c-4251-b3a8-8c1a6d124780</GUID>
     <ObjectType>cms.contenttype</ObjectType>
   </ContentItemContentTypeID>
-  <ContentItemGUID>ecca8e9a-945b-48c1-8a4a-17c7422a0ae6</ContentItemGUID>
+  <ContentItemGUID>af7304be-f23d-427a-bf6d-0261b04d15f6</ContentItemGUID>
   <ContentItemIsReusable>False</ContentItemIsReusable>
-  <ContentItemIsSecured>True</ContentItemIsSecured>
-  <ContentItemName>Profile-pn1ia5w4</ContentItemName>
+  <ContentItemIsSecured>False</ContentItemIsSecured>
+  <ContentItemName>Membership-0ia66os8</ContentItemName>
 </cms.contentitem>

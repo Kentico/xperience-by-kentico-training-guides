@@ -1,22 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.webpageurlpath>
-  <WebPageUrlPath>Register</WebPageUrlPath>
+  <WebPageUrlPath>Membership/Sign-in</WebPageUrlPath>
   <WebPageUrlPathContentLanguageID>
     <CodeName>en</CodeName>
     <GUID>e81b5172-f240-4041-88b1-653089984e29</GUID>
     <ObjectType>cms.contentlanguage</ObjectType>
   </WebPageUrlPathContentLanguageID>
-  <WebPageUrlPathGUID>f4a8cc70-29a4-48ac-b816-0d38abd62d5e</WebPageUrlPathGUID>
+  <WebPageUrlPathGUID>59486e9d-e407-46e7-9982-18162f98a38e</WebPageUrlPathGUID>
   <WebPageUrlPathHash>
-    <![CDATA[63571E5CB5CC41B15260978EFA75348576FB9B1F3E7EABBB44AD34791E551108]]>
+    <![CDATA[43DFB487697A350FEA0CCA188D8953E2F02CDA4FF2BD088FDABDAD8E57061859]]>
   </WebPageUrlPathHash>
   <WebPageUrlPathIsCanonical>True</WebPageUrlPathIsCanonical>
   <WebPageUrlPathIsDraft>False</WebPageUrlPathIsDraft>
   <WebPageUrlPathIsLatest>True</WebPageUrlPathIsLatest>
   <WebPageUrlPathType>0</WebPageUrlPathType>
   <WebPageUrlPathWebPageItemID>
-    <CodeName>Register-wfb2l0pn</CodeName>
-    <GUID>9008b16a-3a70-41c9-92ba-2d289c940e2f</GUID>
+    <CodeName>SignIn-x4a1nygh</CodeName>
+    <GUID>18fe09dc-c0f3-4136-863f-db59732e3658</GUID>
     <ObjectType>cms.webpageitem</ObjectType>
   </WebPageUrlPathWebPageItemID>
   <WebPageUrlPathWebsiteChannelID>

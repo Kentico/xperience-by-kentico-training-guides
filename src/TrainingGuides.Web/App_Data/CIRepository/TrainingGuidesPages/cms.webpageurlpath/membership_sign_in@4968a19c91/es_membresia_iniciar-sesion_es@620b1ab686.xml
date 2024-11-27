@@ -1,22 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.webpageurlpath>
-  <WebPageUrlPath>Profile</WebPageUrlPath>
+  <WebPageUrlPath>es/Membresia/Iniciar-sesion</WebPageUrlPath>
   <WebPageUrlPathContentLanguageID>
-    <CodeName>en</CodeName>
-    <GUID>e81b5172-f240-4041-88b1-653089984e29</GUID>
+    <CodeName>es</CodeName>
+    <GUID>b2e99971-c2dd-4a47-bb64-0d9a0d28d226</GUID>
     <ObjectType>cms.contentlanguage</ObjectType>
   </WebPageUrlPathContentLanguageID>
-  <WebPageUrlPathGUID>eecceeac-5359-4d9f-bdc0-a920a6bf4d8e</WebPageUrlPathGUID>
+  <WebPageUrlPathGUID>a7bbb92d-4ea8-4d71-b99e-852098ccd504</WebPageUrlPathGUID>
   <WebPageUrlPathHash>
-    <![CDATA[CCFE24D2F661561CB8E087D497277AFB9D87B80362EAFE89A9B32026249B98D3]]>
+    <![CDATA[01A7CB43208B8FAC0B8C466992FE0B9C5FD7671E6BF26FBFF8175E038AE294EB]]>
   </WebPageUrlPathHash>
   <WebPageUrlPathIsCanonical>True</WebPageUrlPathIsCanonical>
   <WebPageUrlPathIsDraft>False</WebPageUrlPathIsDraft>
   <WebPageUrlPathIsLatest>True</WebPageUrlPathIsLatest>
   <WebPageUrlPathType>0</WebPageUrlPathType>
   <WebPageUrlPathWebPageItemID>
-    <CodeName>Profile-pn1ia5w4</CodeName>
-    <GUID>ae86b29d-4737-4503-9bb7-4558a5fd86c9</GUID>
+    <CodeName>SignIn-x4a1nygh</CodeName>
+    <GUID>18fe09dc-c0f3-4136-863f-db59732e3658</GUID>
     <ObjectType>cms.webpageitem</ObjectType>
   </WebPageUrlPathWebPageItemID>
   <WebPageUrlPathWebsiteChannelID>

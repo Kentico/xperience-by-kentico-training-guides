@@ -216,6 +216,36 @@
   <data name="Confirm your password" xml:space="preserve">
     <value>Confirme su contraseña</value>
   </data>
+  <data name="Your sign-in attempt was not successful. Please try again." xml:space="preserve">
+    <value>Su intento de inicio de sesión no fue exitoso. Vuelve a intentarlo.</value>
+  </data>
+  <data name="Profile updated successfully." xml:space="preserve">
+    <value>Perfil actualizado exitosamente.</value>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>Actualizar</value>
+  </data>
+  <data name="Please fill in all required fields." xml:space="preserve">
+    <value>Por favor, rellene todos los campos obligatorios.</value>
+  </data>
+  <data name="Success! We've sent you an email. Please confirm your membership by clicking on the link contained in the email." xml:space="preserve">
+    <value>¡Éxito! Hemos enviado a usted un email. Confirme su membresía haciendo clic en el enlace contenido en el correo electrónico.</value>
+  </data>
+  <data name="Kentico training guides" xml:space="preserve">
+    <value>Guías de formación de Kentico</value>
+  </data>
+  <data name="Email confirmation failed" xml:space="preserve">
+    <value>La confirmación del correo electrónico falló.</value>
+  </data>
+  <data name="Send again" xml:space="preserve">
+    <value>Enviar de nuevo</value>
+  </data>
+  <data name="To confirm your email address, click" xml:space="preserve">
+    <value>Para confirmar su dirección de correo electrónico, haga clic</value>
+  </data>
+  <data name="We have sent you confirmation email containing an email verification link. Please confirm your membership by clicking on the link contained in the email." xml:space="preserve">
+    <value>Le hemos enviado un correo electrónico de confirmación que contiene un enlace de verificación de email. Confirme su membresía haciendo clic en el enlace incluido en el correo electrónico.</value>
+  </data>
 
   <data name="Submit" xml:space="preserve">
     <value>Enviar</value>

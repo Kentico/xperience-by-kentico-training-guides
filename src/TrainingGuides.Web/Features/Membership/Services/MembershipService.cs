@@ -160,8 +160,6 @@ public class MembershipService : IMembershipService
             languageName: language
         );
 
-        // using the relative URL with Replace instead of the absolute URL to avoid having the "https" in cases when we need https
-        // (absolute URL always contains https) 
         return absoluteURL ?
             signInUrl.RelativePath.Replace("~", httpRequestService.GetBaseUrl())
             : signInUrl.RelativePath;

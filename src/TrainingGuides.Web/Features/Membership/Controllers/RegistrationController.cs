@@ -94,10 +94,10 @@ public class RegistrationController(
     private async Task<EmailConfirmationViewModel> GetMemberNotFoundViewModel() => new()
     {
         State = EmailConfirmationState.FailureNotYetConfirmed,
-        Message = stringLocalizer["Email confirmation failed. This user does not exist."],
+        Message = stringLocalizer["Email confirmation failed."],
         ActionButtonText = stringLocalizer["Register"],
         SignInOrRegisterPageUrl = await membershipService.GetRegisterUrl(preferredLanguageRetriever.Get(), true),
-        HomePageButtonText = stringLocalizer["Go to homepage"],
+        HomePageButtonText = stringLocalizer["Return to the home page"],
         HomePageUrl = httpRequestService.GetBaseUrlWithLanguage(true)
     };
 
@@ -125,7 +125,7 @@ public class RegistrationController(
                     Message = stringLocalizer["Your email is already verified."],
                     ActionButtonText = stringLocalizer["Sign in"],
                     SignInOrRegisterPageUrl = await membershipService.GetSignInUrl(preferredLanguageRetriever.Get(), true),
-                    HomePageButtonText = stringLocalizer["Go to homepage"],
+                    HomePageButtonText = stringLocalizer["Return to the home page"],
                     HomePageUrl = httpRequestService.GetBaseUrlWithLanguage(true)
                 });
             }
@@ -148,7 +148,7 @@ public class RegistrationController(
                     Message = stringLocalizer["Success! Email confirmed."],
                     ActionButtonText = stringLocalizer["Sign in"],
                     SignInOrRegisterPageUrl = await membershipService.GetSignInUrl(preferredLanguageRetriever.Get(), true),
-                    HomePageButtonText = stringLocalizer["Go to homepage"],
+                    HomePageButtonText = stringLocalizer["Return to the home page"],
                     HomePageUrl = httpRequestService.GetBaseUrlWithLanguage(true)
                 });
             }
@@ -164,7 +164,7 @@ public class RegistrationController(
         {
             State = EmailConfirmationState.FailureConfirmationFailed,
             Message = stringLocalizer["Email Confirmation failed"],
-            ActionButtonText = stringLocalizer["Send Again"],
+            ActionButtonText = stringLocalizer["Send again"],
             Username = userName
         });
     }
@@ -193,8 +193,8 @@ public class RegistrationController(
             Recipients = member.Email,
             Subject = $"{stringLocalizer["Confirm your email here"]}",
             Body = $"""
-                <p>{stringLocalizer["To confirm your email address, click "]}<a data-confirmation-url href="{confirmationURL}">{stringLocalizer["here"]}</a>.</p>
-                <p style="margin-bottom: 1rem;">{stringLocalizer["You can also copy and paste this URL into your browser."]}</p>
+                <p>{stringLocalizer["To confirm your email address, click"]} <a data-confirmation-url href="{confirmationURL}">{stringLocalizer["here"]}</a>.</p>
+                <p style="margin-bottom: 1rem;">{stringLocalizer["You can also copy-paste the following URL into your browser:"]}</p>
                 <p>{confirmationURL}</p>
                 """
         });
