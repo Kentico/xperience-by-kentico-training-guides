@@ -5,8 +5,6 @@ namespace TrainingGuides.Web.Features.Membership.Profile;
 
 public class UpdateProfileViewModel : GuidesMemberProfileViewModel
 {
-    public string Title { get; set; } = string.Empty;
-
     [DisplayName("Full name")]
     public string FullName { get; set; } = string.Empty;
 
@@ -16,13 +14,14 @@ public class UpdateProfileViewModel : GuidesMemberProfileViewModel
     [DisplayName("Member since")]
     public DateTime Created { get; set; }
 
+    [HiddenInput]
+    public string SubmitButtonText { get; set; } = string.Empty;
+
+    public string Title { get; set; } = string.Empty;
+
     public string BaseUrl { get; set; } = string.Empty;
 
     public string Language { get; set; } = string.Empty;
 
     public string SuccessMessage { get; set; } = string.Empty;
-
-    [HiddenInput]
-    public string SubmitButtonText { get; set; } = string.Empty;
-
 }

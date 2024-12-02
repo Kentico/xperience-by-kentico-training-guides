@@ -246,6 +246,18 @@
   <data name="We have sent you confirmation email containing an email verification link. Please confirm your membership by clicking on the link contained in the email." xml:space="preserve">
     <value>Le hemos enviado un correo electrónico de confirmación que contiene un enlace de verificación de email. Confirme su membresía haciendo clic en el enlace incluido en el correo electrónico.</value>
   </data>
+  <data name="Update profile" xml:space="preserve">
+    <value>Actualizar perfil</value>
+  </data>
+  <data name="Full name" xml:space="preserve">
+    <value>Nombre completo</value>
+  </data>
+  <data name="Email address" xml:space="preserve">
+    <value>Dirección de correo electrónico</value>
+  </data>
+  <data name="Member since" xml:space="preserve">
+    <value>Miembro desde</value>
+  </data>
 
   <data name="Submit" xml:space="preserve">
     <value>Enviar</value>
