@@ -11,7 +11,7 @@ internal static class ApplicationConstants
     public const string ACCESS_DENIED_ACTION_PATH = "/Authentication/AccessDenied";
     public const string REQUEST_RESET_PASSWORD_ACTION_PATH = "/MemberManagement/RequestResetPassword";
     public const string UPDATE_PROFILE_ACTION_PATH = "/MemberManagement/UpdateProfile";
-    public const string PASSWORD_RESET_ACTION_PATH = "/MembershipManagement/ResetPassword";
+    public const string PASSWORD_RESET_ACTION_PATH = "/MemberManagement/ResetPassword";
     public const string REGISTER_ACTION_PATH = "/Registration/Register";
     public const string CONFIRM_REGISTRATION_ACTION_PATH = "/Registration/Confirm";
     public const string RESEND_VERIFICATION_EMAIL = "/Registration/ResendVerificationEmail";
