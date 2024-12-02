@@ -38,7 +38,7 @@ public class SignInWidgetViewComponent : ViewComponent
 
     public async Task<SignInWidgetViewModel> BuildWidgetViewModel(SignInWidgetProperties properties)
     {
-        string? returnUrl = GetReturnUrl();
+        string? returnUrl = GetReturnUrlFromQueryString();
 
         var redirectPage = properties.RedirectPage.FirstOrDefault();
 
@@ -61,7 +61,7 @@ public class SignInWidgetViewComponent : ViewComponent
         };
     }
 
-    private string? GetReturnUrl()
+    private string? GetReturnUrlFromQueryString()
     {
         string returnUrl = httpRequestService.GetQueryStringValue(ApplicationConstants.RETURN_URL_PARAMETER);
 
