@@ -18,24 +18,33 @@ using Kentico.Content.Web.Mvc.Routing;
 
 namespace TrainingGuides.Web.Features.Membership.Controllers;
 
-public class RegistrationController(
+public class RegistrationController : Controller
+{
+    private readonly IMembershipService membershipService;
+    private readonly IEventLogService log;
+    private readonly IStringLocalizer<SharedResources> stringLocalizer;
+    private readonly IEmailService emailService;
+    private readonly SystemEmailOptions systemEmailOptions;
+    private readonly IHttpRequestService httpRequestService;
+    private readonly IPreferredLanguageRetriever preferredLanguageRetriever;
+
+    public RegistrationController(
     IMembershipService membershipService,
     IEventLogService log,
     IStringLocalizer<SharedResources> stringLocalizer,
     IEmailService emailService,
     IOptions<SystemEmailOptions> systemEmailOptions,
     IHttpRequestService httpRequestService,
-    IPreferredLanguageRetriever preferredLanguageRetriever) : Controller
-{
-
-    private readonly IMembershipService membershipService = membershipService;
-    private readonly IEventLogService log = log;
-    private readonly IStringLocalizer<SharedResources> stringLocalizer = stringLocalizer;
-    private readonly IEmailService emailService = emailService;
-    private readonly SystemEmailOptions systemEmailOptions = systemEmailOptions.Value;
-    private readonly IHttpRequestService httpRequestService = httpRequestService;
-
-    private readonly IPreferredLanguageRetriever preferredLanguageRetriever = preferredLanguageRetriever;
+    IPreferredLanguageRetriever preferredLanguageRetriever)
+    {
+        this.membershipService = membershipService;
+        this.log = log;
+        this.stringLocalizer = stringLocalizer;
+        this.emailService = emailService;
+        this.systemEmailOptions = systemEmailOptions.Value;
+        this.httpRequestService = httpRequestService;
+        this.preferredLanguageRetriever = preferredLanguageRetriever;
+    }
 
     [HttpPost($"{{{ApplicationConstants.LANGUAGE_KEY}}}{ApplicationConstants.REGISTER_ACTION_PATH}")]
     [ValidateAntiForgeryToken]
