@@ -5,7 +5,7 @@ using TrainingGuides.Web.Features.Membership.Profile;
 [assembly: RegisterPageTemplate(
     identifier: ProfilePagePageTemplate.IDENTIFIER,
     name: "Profile page content type template",
-    customViewName: "~/Features/Membership/Profile/ProfilePagePageTemplate.cshtml",
+    customViewName: "~/Features/Membership/Profile/ProfilePage/ProfilePagePageTemplate.cshtml",
     ContentTypeNames = [ProfilePage.CONTENT_TYPE_NAME],
     IconClass = "xp-personalisation")]
 
