@@ -18,21 +18,26 @@ public class MemberManagementController : Controller
     private readonly IStringLocalizer<SharedResources> stringLocalizer;
     private readonly IHttpRequestService httpRequestService;
     private readonly IPreferredLanguageRetriever preferredLanguageRetriever;
+    private readonly SystemEmailOptions systemEmailOptions;
 
     private const string INVALID_PASSWORD_RESET_REQUEST = "Your password reset request is expired or invalid.";
     private const string LINK_STYLES = "btn tg-btn-secondary text-uppercase my-4";
+    private const string UPDATE_PROFILE_FORM_VIEW_PATH = "~/Features/Membership/Profile/ViewComponents/UpdateProfileForm.cshtml";
+    private const string RESET_PASSWORD_FORM_VIEW_PATH = "~/Features/Membership/Widgets/ResetPassword/ResetPasswordForm.cshtml";
 
     public MemberManagementController(IMembershipService membershipService,
         IEmailService emailService,
         IStringLocalizer<SharedResources> stringLocalizer,
         IHttpRequestService httpRequestService,
-        IPreferredLanguageRetriever preferredLanguageRetriever)
+        IPreferredLanguageRetriever preferredLanguageRetriever,
+        SystemEmailOptions systemEmailOptions)
     {
         this.membershipService = membershipService;
         this.emailService = emailService;
         this.stringLocalizer = stringLocalizer;
         this.httpRequestService = httpRequestService;
         this.preferredLanguageRetriever = preferredLanguageRetriever;
+        this.systemEmailOptions = systemEmailOptions;
     }
 
     /// <summary>
@@ -46,7 +51,7 @@ public class MemberManagementController : Controller
     {
         if (!ModelState.IsValid)
         {
-            return PartialView("~/Features/Membership/Widgets/UpdateProfile/UpdateProfileForm.cshtml", model);
+            return PartialView(UPDATE_PROFILE_FORM_VIEW_PATH, model);
         }
 
         //Get the current member instead of pulling from the model, so that members cannot attempt to change each others information.
@@ -68,7 +73,7 @@ public class MemberManagementController : Controller
                 }
             }
         }
-        return PartialView("~/Features/Membership/Profile/UpdateProfileForm.cshtml", model);
+        return PartialView(UPDATE_PROFILE_FORM_VIEW_PATH, model);
     }
 
     /// <summary>
@@ -101,7 +106,7 @@ public class MemberManagementController : Controller
             await emailService
                 .SendEmail(new EmailMessage()
                 {
-                    From = "admin@localhost.local",
+                    From = $"no-reply@{systemEmailOptions.SendingDomain}",
                     Recipients = guidesMember.Email,
                     Subject = stringLocalizer["Password reset request"],
                     Body = $"{stringLocalizer["To reset your account's password, click"]} <a href=\"{resetUrl}\">{stringLocalizer["here"]}</a>.<br/><br/>"
@@ -185,7 +190,7 @@ public class MemberManagementController : Controller
     {
         if (!ModelState.IsValid)
         {
-            return PartialView("~/Features/Membership/Widgets/ResetPassword/ResetPasswordForm.cshtml", model);
+            return PartialView(RESET_PASSWORD_FORM_VIEW_PATH, model);
         }
 
         string decodedToken = model.Token.Replace("%2f", "/");
@@ -215,7 +220,7 @@ public class MemberManagementController : Controller
             ModelState.AddModelError(string.Empty, stringLocalizer[INVALID_PASSWORD_RESET_REQUEST]);
         }
 
-        return PartialView("~/Features/Membership/Widgets/ResetPassword/ResetPasswordForm.cshtml", model);
+        return PartialView(RESET_PASSWORD_FORM_VIEW_PATH, model);
     }
 
     private async Task<string> GetResetPasswordSuccessContent()
