@@ -8,6 +8,7 @@ using TrainingGuides.Web.Features.Membership.Profile;
 using TrainingGuides.Web.Features.Membership.Widgets.ResetPassword;
 using TrainingGuides.Web.Features.Shared.Helpers;
 using TrainingGuides.Web.Features.Shared.Services;
+using Microsoft.Extensions.Options;
 
 namespace TrainingGuides.Web.Features.Membership.Controllers;
 
@@ -30,14 +31,14 @@ public class MemberManagementController : Controller
         IStringLocalizer<SharedResources> stringLocalizer,
         IHttpRequestService httpRequestService,
         IPreferredLanguageRetriever preferredLanguageRetriever,
-        SystemEmailOptions systemEmailOptions)
+        IOptions<SystemEmailOptions> systemEmailOptions)
     {
         this.membershipService = membershipService;
         this.emailService = emailService;
         this.stringLocalizer = stringLocalizer;
         this.httpRequestService = httpRequestService;
         this.preferredLanguageRetriever = preferredLanguageRetriever;
-        this.systemEmailOptions = systemEmailOptions;
+        this.systemEmailOptions = systemEmailOptions.Value;
     }
 
     /// <summary>
@@ -63,7 +64,11 @@ public class MemberManagementController : Controller
 
             if (result.Succeeded)
             {
-                return Content(GetUpdateProfileSuccessContent());
+                var newModel = GetNewUpdateProfileViewModel(model, guidesMember);
+
+                newModel.SuccessMessage = stringLocalizer["Profile updated successfully."];
+
+                return PartialView(UPDATE_PROFILE_FORM_VIEW_PATH, newModel);
             }
             else
             {
@@ -246,4 +251,18 @@ public class MemberManagementController : Controller
         return $"<div><span><strong>{success}</span></strong></div>"
             + $"<div class=\"p-2\"><a href=\"\" class=\"{LINK_STYLES}\">{refreshLinkText}</a></div>";
     }
+
+    private UpdateProfileViewModel GetNewUpdateProfileViewModel(UpdateProfileViewModel model, GuidesMember guidesMember) =>
+        new()
+        {
+            Title = model.Title,
+            EmailAddress = guidesMember.Email ?? string.Empty,
+            Created = guidesMember.Created,
+            FullName = guidesMember.FullName,
+            GivenName = guidesMember.GivenName,
+            FamilyName = guidesMember.FamilyName,
+            FamilyNameFirst = guidesMember.FamilyNameFirst,
+            FavoriteCoffee = guidesMember.FavoriteCoffee,
+            SubmitButtonText = model.SubmitButtonText,
+        };
 }

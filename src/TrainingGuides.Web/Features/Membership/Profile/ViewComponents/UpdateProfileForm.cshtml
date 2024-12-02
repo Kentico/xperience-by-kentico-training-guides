@@ -2,11 +2,43 @@
 
 @model UpdateProfileViewModel
 
+@{
+    string fullName = Model.FullName;
+    if (string.IsNullOrEmpty(fullName))
+    {
+        fullName = $"{Model.GivenName} {Model.FamilyName}";
+    }
+}
+
 <div class="form-horizontal">
     <div asp-validation-summary="ModelOnly" class="text-danger field-validation-error"></div>
 
     <input asp-for="SubmitButtonText">
 
+    <div class="form-group">
+        <div class="editing-form-label-cell">
+            <label asp-for="FullName" class="control-label form-label mt-3"></label>
+        </div>
+        <div class="ms-2">
+            <strong>@Model.FullName</strong>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="editing-form-label-cell">
+            <label asp-for="EmailAddress" class="control-label form-label mt-3"></label>
+        </div>
+        <div class="ms-2">
+            <strong>@Model.EmailAddress</strong>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="editing-form-label-cell">
+            <label asp-for="Created" class="control-label form-label mt-3"></label>
+        </div>
+        <div class="ms-2">
+            <strong>@Model.Created</strong>
+        </div>
+    </div>
     <div class="form-group">
         <div class="editing-form-label-cell">
             <label asp-for="GivenName" class="control-label form-label mt-3"></label>
@@ -47,4 +79,10 @@
     <div class="text-center">
         <button id="register" type="submit" class="btn tg-btn-secondary text-uppercase my-4">@Model.SubmitButtonText</button>
     </div>
+    @if (!string.IsNullOrEmpty(Model.SuccessMessage))
+    {
+        <div class="text-center">
+            <strong>@Model.SuccessMessage</strong>
+        </div>
+    }
 </div>

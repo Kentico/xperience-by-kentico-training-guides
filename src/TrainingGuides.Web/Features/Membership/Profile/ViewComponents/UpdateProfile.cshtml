@@ -6,8 +6,7 @@
 @{
     string formDivId = $"updateProfileForm";
 }
-<h3>@Model.FullName</h3>
-<div><span>@Model.EmailAddress</span></div>
+<h3>@Model.Title</h3>
 
 @using (Html.AjaxBeginForm("UpdateProfile", "MemberManagement", new AjaxOptions
 {
