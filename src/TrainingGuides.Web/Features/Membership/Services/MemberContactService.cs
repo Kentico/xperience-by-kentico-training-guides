@@ -13,6 +13,9 @@ public class MemberContactService : IMemberContactService
     private readonly ICurrentContactProvider currentContactProvider;
     private readonly IContactMergeService contactMergeService;
 
+    private const string FAVORITE_COFFEE_FIELD_NAME = "TrainingGuidesContactFavoriteCoffee";
+    private const string MEMBER_ID_FIELD_NAME = "TrainingGuidesContactMemberId";
+
     public MemberContactService(IInfoProvider<ContactInfo> contactInfoProvider,
         ICookieAccessor cookieAccessor,
         ICurrentContactProvider currentContactProvider,
@@ -47,11 +50,11 @@ public class MemberContactService : IMemberContactService
         }
         if (!string.IsNullOrWhiteSpace(guidesMember.FavoriteCoffee))
         {
-            _ = newContact.SetValue("TrainingGuidesContactFavoriteCoffee", guidesMember.FavoriteCoffee);
+            _ = newContact.SetValue(FAVORITE_COFFEE_FIELD_NAME, guidesMember.FavoriteCoffee);
         }
 
         // Sets the Member ID of the current contact
-        _ = newContact.SetValue("TrainingGuidesContactMemberId", guidesMember.Id);
+        _ = newContact.SetValue(MEMBER_ID_FIELD_NAME, guidesMember.Id);
 
         // For data security, do not overwrite contact email address if it is already set
         if (string.IsNullOrWhiteSpace(contact.ContactEmail) && !string.IsNullOrWhiteSpace(guidesMember.Email))
@@ -75,7 +78,7 @@ public class MemberContactService : IMemberContactService
     public ContactInfo? GetOldestMemberContactWithMatchingEmail(GuidesMember member)
     {
         var contact = contactInfoProvider.Get()
-            .WhereEquals("TrainingGuidesContactMemberId", member.Id)
+            .WhereEquals(MEMBER_ID_FIELD_NAME, member.Id)
             .WhereEquals(nameof(ContactInfo.ContactEmail), member.Email)
             .OrderBy(nameof(ContactInfo.ContactCreated))
             .TopN(1)
