@@ -7,6 +7,7 @@ using TrainingGuides.Web.Features.Shared.Services;
 using TrainingGuides.Web.Features.Articles.Services;
 using CMS.ContentEngine;
 using Microsoft.IdentityModel.Tokens;
+using TrainingGuides.Web.Features.Membership.Services;
 
 [assembly:
     RegisterWidget(ArticleListWidgetViewComponent.IDENTIFIER, typeof(ArticleListWidgetViewComponent), "Article list widget",
@@ -20,17 +21,19 @@ public class ArticleListWidgetViewComponent : ViewComponent
 
     private readonly IContentItemRetrieverService genericPageRetrieverService;
     private readonly IContentItemRetrieverService<ArticlePage> articlePageRetrieverService;
-
     private readonly IArticlePageService articlePageService;
+    private readonly IMembershipService membershipService;
 
     public ArticleListWidgetViewComponent(
         IContentItemRetrieverService genericPageRetrieverService,
         IContentItemRetrieverService<ArticlePage> articlePageRetrieverService,
-        IArticlePageService articlePageService)
+        IArticlePageService articlePageService,
+        IMembershipService membershipService)
     {
         this.genericPageRetrieverService = genericPageRetrieverService;
         this.articlePageRetrieverService = articlePageRetrieverService;
         this.articlePageService = articlePageService;
+        this.membershipService = membershipService;
     }
 
     public async Task<ViewViewComponentResult> InvokeAsync(ArticleListWidgetProperties properties)
@@ -46,17 +49,18 @@ public class ArticleListWidgetViewComponent : ViewComponent
                 : (await GetArticlePageViewModels(articlePages, properties.SecuredItems)).OrderByDescending(article => article.CreatedOn))
                 .Take(properties.TopN)
                 .ToList();
-
+            model.IsAuthenticated = await membershipService.IsMemberAuthenticated();
             model.CtaText = properties.CtaText;
+            model.SignInText = properties.SignInText;
         }
 
         return View("~/Features/Articles/Widgets/ArticleList/ArticleListWidget.cshtml", model);
     }
 
-    private async Task<IEnumerable<ArticlePage>> RetrieveArticlePages(WebPageRelatedItem parentPageSelection, IEnumerable<TagReference> tags, string securedItems)
+    private async Task<IEnumerable<ArticlePage>> RetrieveArticlePages(WebPageRelatedItem parentPageSelection, IEnumerable<TagReference> tags, string securedItemsDisplayMode)
     {
-        bool includeSecuredItems = securedItems.Equals(SecuredOption.IncludeEverything.ToString())
-            || securedItems.Equals(SecuredOption.PromptForLogin.ToString());
+        bool includeSecuredItems = securedItemsDisplayMode.Equals(SecuredOption.IncludeEverything.ToString())
+            || securedItemsDisplayMode.Equals(SecuredOption.PromptForLogin.ToString());
 
         var selectedPageGuid = parentPageSelection.WebPageGuid;
 
@@ -120,7 +124,7 @@ public class ArticleListWidgetViewComponent : ViewComponent
         return await query.GetScalarResultAsync<string>();
     }
 
-    private async Task<List<ArticlePageViewModel>> GetArticlePageViewModels(IEnumerable<ArticlePage?>? articlePages, string securedItems)
+    private async Task<List<ArticlePageViewModel>> GetArticlePageViewModels(IEnumerable<ArticlePage?>? articlePages, string securedItemsDisplayMode)
     {
         var models = new List<ArticlePageViewModel>();
         if (articlePages != null)
@@ -129,7 +133,7 @@ public class ArticleListWidgetViewComponent : ViewComponent
             {
                 if (articlePage != null)
                 {
-                    var model = securedItems.Equals(SecuredOption.PromptForLogin.ToString()) 
+                    var model = securedItemsDisplayMode.Equals(SecuredOption.PromptForLogin.ToString())
                         ? await articlePageService.GetArticlePageViewModelWithSecurity(articlePage)
                         : await articlePageService.GetArticlePageViewModel(articlePage);
 

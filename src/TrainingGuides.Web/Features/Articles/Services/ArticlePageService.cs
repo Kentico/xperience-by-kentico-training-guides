@@ -47,7 +47,8 @@ public class ArticlePageService : IArticlePageService
                 Text = new HtmlString(articleSchema?.ArticleSchemaText),
                 CreatedOn = articlePage.ArticlePagePublishDate,
                 TeaserImage = AssetViewModel.GetViewModel(articleSchemaTeaserImage!),
-                Url = articleUrl
+                Url = articleUrl,
+                IsSecured = articlePage.SystemFields.ContentItemIsSecured
             };
         }
 
@@ -61,7 +62,8 @@ public class ArticlePageService : IArticlePageService
             Text = new HtmlString(article?.ArticleText),
             CreatedOn = articlePage.ArticlePagePublishDate,
             TeaserImage = AssetViewModel.GetViewModel(articleTeaserImage!),
-            Url = articleUrl
+            Url = articleUrl,
+            IsSecured = articlePage.SystemFields.ContentItemIsSecured
         };
     }
 
@@ -80,7 +82,7 @@ public class ArticlePageService : IArticlePageService
             {
                 string signInUrl = await membershipService.GetSignInUrl(preferredLanguageRetriever.Get());
 
-                string signInUrlWithReturn = signInUrl + QueryString.Create(ApplicationConstants.RETURN_URL_PARAMETER, originalViewModel.Url.Replace("~", "")).ToString();
+                string signInUrlWithReturn = signInUrl + QueryString.Create(ApplicationConstants.RETURN_URL_PARAMETER, originalViewModel.Url.Replace("~", string.Empty)).ToString();
 
                 var message = new HtmlString(stringLocalizer["Sign in to view this content."]);
                 return new ArticlePageViewModel
@@ -90,7 +92,8 @@ public class ArticlePageService : IArticlePageService
                     Text = message,
                     CreatedOn = articlePage.ArticlePagePublishDate,
                     TeaserImage = originalViewModel.TeaserImage,
-                    Url = signInUrlWithReturn
+                    Url = signInUrlWithReturn,
+                    IsSecured = articlePage.SystemFields.ContentItemIsSecured
                 };
             }
         }
