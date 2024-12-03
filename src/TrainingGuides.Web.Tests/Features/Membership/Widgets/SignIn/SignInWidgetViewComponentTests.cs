@@ -76,6 +76,7 @@ public class SignInWidgetViewComponentTests
     [Fact]
     public async Task BuildWidgetViewModel_WhenUserDoesNOTSetRedirectPage_SetsRedirectUrl_ToRoot()
     {
+        httpRequestServiceMock.Setup(x => x.GetBaseUrlWithLanguage()).Returns(ROOT_URL);
         var viewModel = await viewComponent.BuildWidgetViewModel(referenceProperties);
         Assert.Equal(ROOT_URL, viewModel.RedirectUrl);
     }
