@@ -88,7 +88,7 @@ public class MemberManagementController : Controller
     /// <returns></returns>
     [HttpPost($"{{{ApplicationConstants.LANGUAGE_KEY}}}{ApplicationConstants.REQUEST_RESET_PASSWORD_ACTION_PATH}")]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> RequestResetPassword(ResetPasswordWidgetViewModel model)
+    public async Task<IActionResult> RequestPasswordReset(ResetPasswordWidgetViewModel model)
     {
         // Check if the model meets the requirements specified in its data annotations
         if (!ModelState.IsValid)

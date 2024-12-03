@@ -12,7 +12,7 @@ public class ResetPasswordWidgetProperties : IWidgetProperties
     [TextInputComponent(
         Label = "Email address label",
         ExplanationText = "Label for the text box where members can input their email address.",
-        Order = 60)]
+        Order = 10)]
     public string EmailAddressLabel { get; set; } = "Email address";
 
     /// <summary>
@@ -21,6 +21,6 @@ public class ResetPasswordWidgetProperties : IWidgetProperties
     [TextInputComponent(
         Label = "Submit button text",
         ExplanationText = "Text for the button that submits the reset password form.",
-        Order = 40)]
+        Order = 20)]
     public string SubmitButtonText { get; set; } = "Submit";
 }

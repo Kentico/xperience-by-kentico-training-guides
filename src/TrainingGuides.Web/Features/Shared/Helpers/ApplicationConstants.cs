@@ -9,7 +9,7 @@ internal static class ApplicationConstants
     public const string EXPECTED_SIGN_IN_PATH = "/Membership/Sign_in";
     public const string EXPECTED_REGISTER_PATH = "/Membership/Register";
     public const string ACCESS_DENIED_ACTION_PATH = "/Authentication/AccessDenied";
-    public const string REQUEST_RESET_PASSWORD_ACTION_PATH = "/MemberManagement/RequestResetPassword";
+    public const string REQUEST_RESET_PASSWORD_ACTION_PATH = "/MemberManagement/RequestPasswordReset";
     public const string UPDATE_PROFILE_ACTION_PATH = "/MemberManagement/UpdateProfile";
     public const string PASSWORD_RESET_ACTION_PATH = "/MemberManagement/ResetPassword";
     public const string REGISTER_ACTION_PATH = "/Registration/Register";
