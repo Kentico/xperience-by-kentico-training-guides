@@ -17,4 +17,11 @@ public interface IArticlePageService
     /// <remarks>
     /// If the articlePage is secured and the current visitor is not authenticated, the view model will prompt them to sign in.
     Task<ArticlePageViewModel> GetArticlePageViewModelWithSecurity(ArticlePage? articlePage);
+
+    /// <summary>
+    /// Determines whether the reusable article item referenced by the article page is secured.
+    /// </summary>
+    /// <param name="articlePage">The article page.</param>
+    /// <returns>True if the reusable item that the page references is secured.</returns>
+    bool IsReusableArticleSecured(ArticlePage articlePage);
 }

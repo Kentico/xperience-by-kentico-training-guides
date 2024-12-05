@@ -1,3 +1,4 @@
+using CMS.ContentEngine;
 using Kentico.Content.Web.Mvc.Routing;
 using Microsoft.AspNetCore.Html;
 using Microsoft.Extensions.Localization;
@@ -72,24 +73,34 @@ public class ArticlePageService : IArticlePageService
     {
         var originalViewModel = await GetArticlePageViewModel(articlePage);
 
-        using (var scope = serviceProvider.CreateScope())
+        if (articlePage is null)
         {
+            return originalViewModel;
+        }
+
+        bool reusableArticleSecured = IsReusableArticleSecured(articlePage);
+
+        if (articlePage.SystemFields.ContentItemIsSecured
+            || reusableArticleSecured)
+        {
+            using var scope = serviceProvider.CreateScope();
             var membershipService = scope.ServiceProvider.GetRequiredService<IMembershipService>();
 
-            if (articlePage is not null
-                && articlePage.SystemFields.ContentItemIsSecured
-                && !await membershipService.IsMemberAuthenticated())
+            if (!await membershipService.IsMemberAuthenticated())
             {
                 string signInUrl = await membershipService.GetSignInUrl(preferredLanguageRetriever.Get());
-
                 string signInUrlWithReturn = signInUrl + QueryString.Create(ApplicationConstants.RETURN_URL_PARAMETER, originalViewModel.Url.Replace("~", string.Empty)).ToString();
 
+                string messageWithLinkString = $"<a href=\"{signInUrlWithReturn}\">{stringLocalizer["Sign in"]}</a> {stringLocalizer["to view this content."]}";
+
                 var message = new HtmlString(stringLocalizer["Sign in to view this content."]);
+                var messageWithLink = new HtmlString(messageWithLinkString);
+
                 return new ArticlePageViewModel
                 {
                     Title = $"{stringLocalizer["(🔒 Locked)"]} {originalViewModel.Title}",
                     Summary = message,
-                    Text = message,
+                    Text = messageWithLink,
                     CreatedOn = articlePage.ArticlePagePublishDate,
                     TeaserImage = originalViewModel.TeaserImage,
                     Url = signInUrlWithReturn,
@@ -98,5 +109,15 @@ public class ArticlePageService : IArticlePageService
             }
         }
         return originalViewModel;
+    }
+
+    /// <inheritdoc/>
+    public bool IsReusableArticleSecured(ArticlePage articlePage)
+    {
+        var oldArticle = articlePage.ArticlePageContent.FirstOrDefault();
+        var newArticle = (IContentItemFieldsSource?)articlePage.ArticlePageArticleContent.FirstOrDefault();
+
+        return (oldArticle?.SystemFields.ContentItemIsSecured ?? false)
+            || (newArticle?.SystemFields.ContentItemIsSecured ?? false);
     }
 }

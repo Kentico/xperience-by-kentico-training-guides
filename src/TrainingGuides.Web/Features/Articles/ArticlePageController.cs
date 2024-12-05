@@ -35,6 +35,11 @@ public class ArticlePageController : Controller
             ArticlePage.CONTENT_TYPE_NAME,
             2);
 
+        if (articlePage is not null && articlePageService.IsReusableArticleSecured(articlePage))
+        {
+            return Forbid();
+        }
+
         var model = await articlePageService.GetArticlePageViewModel(articlePage);
         return new TemplateResult(model);
     }
