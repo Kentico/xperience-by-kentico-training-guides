@@ -64,9 +64,9 @@ public class MemberManagementController : Controller
 
             if (result.Succeeded)
             {
-                var newModel = GetNewUpdateProfileViewModel(model, guidesMember);
-
-                newModel.SuccessMessage = stringLocalizer["Profile updated successfully."];
+                var newModel = GetNewUpdateProfileViewModel(model,
+                    guidesMember,
+                    stringLocalizer["Profile updated successfully."]);
 
                 return PartialView(UPDATE_PROFILE_FORM_VIEW_PATH, newModel);
             }
@@ -252,7 +252,7 @@ public class MemberManagementController : Controller
             + $"<div class=\"p-2\"><a href=\"\" class=\"{LINK_STYLES}\">{refreshLinkText}</a></div>";
     }
 
-    private UpdateProfileViewModel GetNewUpdateProfileViewModel(UpdateProfileViewModel model, GuidesMember guidesMember) =>
+    private UpdateProfileViewModel GetNewUpdateProfileViewModel(UpdateProfileViewModel model, GuidesMember guidesMember, string successMessage) =>
         new()
         {
             Title = model.Title,
@@ -264,5 +264,6 @@ public class MemberManagementController : Controller
             FamilyNameFirst = guidesMember.FamilyNameFirst,
             FavoriteCoffee = guidesMember.FavoriteCoffee,
             SubmitButtonText = model.SubmitButtonText,
+            SuccessMessage = successMessage,
         };
 }

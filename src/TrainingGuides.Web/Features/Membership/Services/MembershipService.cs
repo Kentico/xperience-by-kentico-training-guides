@@ -105,15 +105,7 @@ public class MembershipService : IMembershipService
 
             if (signInResult.Succeeded)
             {
-                var contact = ContactManagementContext.GetCurrentContact() ?? new ContactInfo();
-
-                contact = memberContactService.TransferMemberFieldsToContact(member, contact);
-
-                memberContactService.UpdateContactIfChanged(contact);
-
-                memberContactService.MergeContactByEmail(contact);
-
-                memberContactService.SetCurrentContactForMember(member);
+                SynchronizeContact(member, true);
             }
 
             return signInResult;
@@ -182,6 +174,25 @@ public class MembershipService : IMembershipService
         guidesMember.FamilyNameFirst = updateProfileViewModel.FamilyNameFirst;
         guidesMember.FavoriteCoffee = updateProfileViewModel.FavoriteCoffee;
 
+        SynchronizeContact(guidesMember);
+
         return await userManager.UpdateAsync(guidesMember);
+    }
+
+    private void SynchronizeContact(GuidesMember member, bool createNewContactIfNoneFound = false)
+    {
+        var contact = ContactManagementContext.GetCurrentContact()
+            ?? (createNewContactIfNoneFound ? new ContactInfo() : null);
+
+        if (contact is null)
+            return;
+
+        var newContact = memberContactService.TransferMemberFieldsToContact(member, contact);
+
+        memberContactService.UpdateContactIfChanged(newContact);
+
+        memberContactService.MergeContactByEmail(newContact);
+
+        memberContactService.SetCurrentContactForMember(member);
     }
 }

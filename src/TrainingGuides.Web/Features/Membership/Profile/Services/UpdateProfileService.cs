@@ -27,6 +27,7 @@ public class UpdateProfileService : IUpdateProfileService
             FamilyName = guidesMember?.FamilyName ?? string.Empty,
             FamilyNameFirst = guidesMember?.FamilyNameFirst ?? false,
             FavoriteCoffee = guidesMember?.FavoriteCoffee ?? string.Empty,
+            UserName = guidesMember?.UserName ?? string.Empty,
             EmailAddress = guidesMember?.Email ?? string.Empty,
             FullName = guidesMember?.FullName ?? string.Empty,
             Created = guidesMember?.Created ?? DateTime.MinValue,

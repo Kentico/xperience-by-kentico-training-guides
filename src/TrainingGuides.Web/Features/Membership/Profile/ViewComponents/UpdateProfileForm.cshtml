@@ -3,11 +3,11 @@
 @model UpdateProfileViewModel
 
 @{
-    string fullName = Model.FullName;
-    if (string.IsNullOrEmpty(fullName))
-    {
-        fullName = $"{Model.GivenName} {Model.FamilyName}";
-    }
+    string fullName = !string.IsNullOrEmpty(Model.FullName)
+        ? Model.FullName
+        : Model.FamilyNameFirst
+            ? $"{Model.FamilyName} {Model.GivenName}"
+            : $"{Model.GivenName} {Model.FamilyName}";
 }
 
 <div class="form-horizontal">
@@ -17,10 +17,18 @@
 
     <div class="form-group">
         <div class="editing-form-label-cell">
+            <label asp-for="UserName" class="control-label form-label mt-3"></label>
+        </div>
+        <div class="ms-2">
+            <strong>@Model.UserName</strong>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="editing-form-label-cell">
             <label asp-for="FullName" class="control-label form-label mt-3"></label>
         </div>
         <div class="ms-2">
-            <strong>@Model.FullName</strong>
+            <strong>@fullName</strong>
         </div>
     </div>
     <div class="form-group">

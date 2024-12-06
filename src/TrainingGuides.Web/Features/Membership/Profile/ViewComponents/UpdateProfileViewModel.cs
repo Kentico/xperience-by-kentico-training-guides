@@ -11,6 +11,9 @@ public class UpdateProfileViewModel : GuidesMemberProfileViewModel
     [DisplayName("Email address")]
     public string EmailAddress { get; set; } = string.Empty;
 
+    [DisplayName("User name")]
+    public string UserName { get; set; } = string.Empty;
+
     [DisplayName("Member since")]
     public DateTime Created { get; set; }
 
