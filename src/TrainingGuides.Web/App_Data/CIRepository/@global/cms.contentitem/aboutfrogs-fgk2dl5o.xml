@@ -12,6 +12,6 @@
   </ContentItemContentTypeID>
   <ContentItemGUID>ea6d110c-d9be-4a69-a193-4758bb0c9efa</ContentItemGUID>
   <ContentItemIsReusable>True</ContentItemIsReusable>
-  <ContentItemIsSecured>False</ContentItemIsSecured>
+  <ContentItemIsSecured>True</ContentItemIsSecured>
   <ContentItemName>AboutFrogs-fgk2dl5o</ContentItemName>
 </cms.contentitem>

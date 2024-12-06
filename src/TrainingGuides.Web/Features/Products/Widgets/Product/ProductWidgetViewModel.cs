@@ -3,7 +3,7 @@ using TrainingGuides.Web.Features.Shared.Models;
 
 namespace TrainingGuides.Web.Features.Products.Widgets.Product;
 
-public class ProductWidgetViewModel : WidgetViewModel
+public class ProductWidgetViewModel : IWidgetViewModel
 {
     public ProductPageViewModel? Product { get; set; }
     public bool ShowProductFeatures { get; set; }
@@ -17,5 +17,5 @@ public class ProductWidgetViewModel : WidgetViewModel
     public string CallToActionCssClasses { get; set; } = string.Empty;
     public bool IsImagePositionSide { get; set; } = false;
 
-    public override bool IsMisconfigured => Product == null;
+    public bool IsMisconfigured => Product == null;
 }

@@ -12,4 +12,5 @@ public class ArticlePageViewModel
     public DateTime CreatedOn { get; set; }
     public List<ArticlePageViewModel> RelatedNews { get; set; } = [];
     public string Url { get; set; } = string.Empty;
+    public bool IsSecured { get; set; } = false;
 }

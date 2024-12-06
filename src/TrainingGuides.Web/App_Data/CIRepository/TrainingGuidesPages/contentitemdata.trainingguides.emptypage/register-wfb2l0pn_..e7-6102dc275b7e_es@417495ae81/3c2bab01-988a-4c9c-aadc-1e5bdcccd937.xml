@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.emptypage>
+  <ContentItemDataCommonDataID>
+    <GUID>bcc0fee2-91f1-4724-93e7-6102dc275b7e</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>Register-wfb2l0pn</CodeName>
+      <GUID>67f3dec8-3741-4570-9adb-399a61f47569</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>3c2bab01-988a-4c9c-aadc-1e5bdcccd937</ContentItemDataGUID>
+</contentitemdata.trainingguides.emptypage>

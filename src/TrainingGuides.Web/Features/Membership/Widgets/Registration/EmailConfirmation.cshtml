@@ -1,0 +1,57 @@
+@using TrainingGuides.Web.Features.Membership.Widgets.Registration
+
+@model EmailConfirmationViewModel
+
+@{ 
+    Layout = "~/Views/Shared/_UtilityPageLayout.cshtml";
+}
+
+@section title {
+    <title>@Model.Title</title>
+}
+
+<section class="c-section default">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-10 col-xxl-9">
+                <div class="main">
+
+                    
+                    @switch(Model.State)
+                    {
+                        case EmailConfirmationState.SuccessConfirmed:
+                        case EmailConfirmationState.SuccessAlreadyConfirmed:
+                        case EmailConfirmationState.FailureNotYetConfirmed:
+                            <h4 test-id="confirmationMessage" class="text-center k-dot">@Model.Message</h4>
+                        
+                            <div class="d-flex justify-content-center">
+                                <div class="p-2">
+                                    <a href="@Model.SignInOrRegisterPageUrl" class="btn tg-btn-secondary text-uppercase my-4">
+                                        @Model.ActionButtonText
+                                    </a>
+                                </div>
+                                <div class="p-2">
+                                    <a href="@Model.HomePageUrl" class="btn tg-btn-secondary text-uppercase my-4">
+                                        @Model.HomePageButtonText
+                                    </a>
+                                </div>
+                            </div>
+                            break;
+                        case EmailConfirmationState.FailureConfirmationFailed:
+                            <h4 test-id="confirmationMessage" class="text-center k-dot">@Model.Message</h4>
+                        
+                            <form id="resendVerificationForm" method="post" asp-controller="Registration" asp-action="ResendVerificationEmail">
+                                <input asp-for="Username">
+                                <button id="resendVerification" type="submit" class="btn tg-btn-secondary text-uppercase my-4">@Model.ActionButtonText</button>
+                            </form>
+                            break;
+                        case EmailConfirmationState.ConfirmationResent:
+                        default:
+                            <p class="text-center k-dot">@Model.Message</p>
+                            break;
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

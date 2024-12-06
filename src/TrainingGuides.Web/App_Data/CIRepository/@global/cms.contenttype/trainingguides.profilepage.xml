@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contenttype>
+  <ClassContentTypeType>Website</ClassContentTypeType>
+  <ClassDisplayName>ProfilePage</ClassDisplayName>
+  <ClassFormDefinition>
+    <form>
+      <field column="ContentItemDataID" columntype="integer" enabled="true" guid="6eecf2e7-3f27-4854-aaf0-4a3b0ed14712" isPK="true" />
+      <field column="ContentItemDataCommonDataID" columntype="integer" enabled="true" guid="51f64416-7f13-4fc0-8071-32cc46c3f79d" refobjtype="cms.contentitemcommondata" reftype="Required" system="true" />
+      <field column="ContentItemDataGUID" columntype="guid" enabled="true" guid="3ddb7f2b-b01e-480a-8881-6ee9f99c9531" isunique="true" system="true" />
+    </form>
+  </ClassFormDefinition>
+  <ClassGUID>d1a0f27c-fb65-463d-8ebd-5bbbb00866f8</ClassGUID>
+  <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
+  <ClassIconClass>xp-personalisation</ClassIconClass>
+  <ClassName>TrainingGuides.ProfilePage</ClassName>
+  <ClassShortName>TrainingGuidesProfilePage</ClassShortName>
+  <ClassTableName>TrainingGuides_ProfilePage</ClassTableName>
+  <ClassType>Content</ClassType>
+  <ClassWebPageHasUrl>True</ClassWebPageHasUrl>
+</cms.contenttype>

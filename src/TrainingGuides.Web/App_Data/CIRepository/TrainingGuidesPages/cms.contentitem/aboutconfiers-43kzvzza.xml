@@ -12,6 +12,6 @@
   </ContentItemContentTypeID>
   <ContentItemGUID>c155bcf9-1300-47ea-a76e-4070f2b4ae72</ContentItemGUID>
   <ContentItemIsReusable>False</ContentItemIsReusable>
-  <ContentItemIsSecured>False</ContentItemIsSecured>
+  <ContentItemIsSecured>True</ContentItemIsSecured>
   <ContentItemName>AboutConfiers-43kzvzza</ContentItemName>
 </cms.contentitem>
