@@ -30,14 +30,28 @@ public class ArticleListWidgetProperties : IWidgetProperties
 
     [TextInputComponent(
         Label = "CTA text",
+        ExplanationText = "Text for the call to action",
         Order = 30)]
     public string CtaText { get; set; } = string.Empty;
+
+    [TextInputComponent(
+        Label = "Sign in text",
+        ExplanationText = "Text to display when user is not signed in",
+        Order = 35)]
+    public string SignInText { get; set; } = string.Empty;
 
     [DropDownComponent(
         Label = "Order articles by",
         DataProviderType = typeof(DropdownEnumOptionProvider<OrderByOption>),
         Order = 40)]
     public string OrderBy { get; set; } = OrderByOption.NewestFirst.ToString();
+
+    [DropDownComponent(
+        Label = "Secured items display mode",
+        ExplanationText = "How to handle secured items when users that are not signed in",
+        DataProviderType = typeof(DropdownEnumOptionProvider<SecuredOption>),
+        Order = 50)]
+    public string SecuredItems { get; set; } = SecuredOption.IncludeEverything.ToString();
 }
 
 public enum OrderByOption
@@ -46,4 +60,14 @@ public enum OrderByOption
     NewestFirst,
     [Description("Oldest first")]
     OldestFirst
+}
+
+public enum SecuredOption
+{
+    [Description("Include everything")]
+    IncludeEverything,
+    [Description("Prompt for login")]
+    PromptForLogin,
+    [Description("Hide secured items")]
+    HideSecuredItems
 }

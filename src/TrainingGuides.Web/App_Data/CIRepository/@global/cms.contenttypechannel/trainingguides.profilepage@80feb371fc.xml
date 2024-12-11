@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contenttypechannel>
+  <Parent>
+    <CodeName>TrainingGuides.ProfilePage</CodeName>
+    <GUID>d1a0f27c-fb65-463d-8ebd-5bbbb00866f8</GUID>
+    <ObjectType>cms.contenttype</ObjectType>
+  </Parent>
+  <Bindings>
+    <Binding id="cms.channel_TrainingGuidesPages">
+      <ContentTypeChannelChannelID>
+        <CodeName>TrainingGuidesPages</CodeName>
+        <GUID>5ba9c1e8-b61e-4570-b666-87a9b92bbe3b</GUID>
+        <ObjectType>cms.channel</ObjectType>
+      </ContentTypeChannelChannelID>
+    </Binding>
+  </Bindings>
+</cms.contenttypechannel>
