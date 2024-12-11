@@ -16,21 +16,21 @@ namespace TrainingGuides.Web.Features.Membership.Controllers;
 public class AuthenticationController : Controller
 {
     private readonly IMembershipService membershipService;
+    private readonly IStringLocalizer<SharedResources> stringLocalizer;
     private readonly IPreferredLanguageRetriever preferredLanguageRetriever;
     private readonly IInfoProvider<ContentLanguageInfo> contentLanguageInfoProvider;
-    private readonly IStringLocalizer<SharedResources> stringLocalizer;
 
     private const string SIGN_IN_FAILED = "Your sign-in attempt was not successful. Please try again.";
 
     public AuthenticationController(IMembershipService membershipService,
+        IStringLocalizer<SharedResources> stringLocalizer,
         IPreferredLanguageRetriever preferredLanguageRetriever,
-        IInfoProvider<ContentLanguageInfo> contentLanguageInfoProvider,
-        IStringLocalizer<SharedResources> stringLocalizer)
+        IInfoProvider<ContentLanguageInfo> contentLanguageInfoProvider)
     {
         this.membershipService = membershipService;
+        this.stringLocalizer = stringLocalizer;
         this.preferredLanguageRetriever = preferredLanguageRetriever;
         this.contentLanguageInfoProvider = contentLanguageInfoProvider;
-        this.stringLocalizer = stringLocalizer;
     }
 
     private IActionResult RenderError(SignInWidgetViewModel model)

@@ -144,19 +144,6 @@ public class MembershipService : IMembershipService
     public async Task<IdentityResult> ResetPassword(GuidesMember member, string token, string password) =>
         await userManager.ResetPasswordAsync(member, token, password);
 
-    private async Task<string> GetPageUrl(string expectedPagePath, string language, bool absoluteURL = false)
-    {
-        var signInUrl = await webPageUrlRetriever.Retrieve(
-            webPageTreePath: expectedPagePath,
-            websiteChannelName: websiteChannelContext.WebsiteChannelName,
-            languageName: language
-        );
-
-        return absoluteURL ?
-            signInUrl.RelativePath.Replace("~", httpRequestService.GetBaseUrl())
-            : signInUrl.RelativePath;
-    }
-
     /// <inheritdoc />
     public async Task<string> GetSignInUrl(string language, bool absoluteURL = false)
         => await GetPageUrl(ApplicationConstants.EXPECTED_SIGN_IN_PATH, language, absoluteURL);
@@ -194,5 +181,18 @@ public class MembershipService : IMembershipService
         memberContactService.MergeContactByEmail(newContact);
 
         memberContactService.SetCurrentContactForMember(member);
+    }
+
+    private async Task<string> GetPageUrl(string expectedPagePath, string language, bool absoluteURL = false)
+    {
+        var signInUrl = await webPageUrlRetriever.Retrieve(
+            webPageTreePath: expectedPagePath,
+            websiteChannelName: websiteChannelContext.WebsiteChannelName,
+            languageName: language
+        );
+
+        return absoluteURL ?
+            signInUrl.RelativePath.Replace("~", httpRequestService.GetBaseUrl())
+            : signInUrl.RelativePath;
     }
 }
