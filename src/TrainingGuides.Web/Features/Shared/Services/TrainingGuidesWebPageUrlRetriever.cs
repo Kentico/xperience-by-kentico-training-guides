@@ -57,7 +57,7 @@ public class TrainingGuidesWebPageUrlRetriever : IWebPageUrlRetriever
     /// <exception cref="ArgumentNullException">Thrown when <paramref name="webPageFieldsSource"/> is null.</exception>
     /// <exception cref="ArgumentException">Thrown when <see cref="IWebPageFieldsSource.SystemFields"/> in <paramref name="webPageFieldsSource"/> is null.</exception>
     /// <returns>
-    /// Empty URL <paramref name="webPageFieldsSource"/> model does not contain web page identifier specified in <see cref="IWebPageFieldsSource.SystemFields"/> system data.
+    /// Empty URL when <paramref name="webPageFieldsSource"/> model does not contain web page identifier specified in <see cref="IWebPageFieldsSource.SystemFields"/> system data.
     /// Empty URL when content language identified by <paramref name="languageName"/> does not exist.
     /// Empty URL when web page identified by <see cref="WebPageFields.WebPageItemID"/> in <see cref="IWebPageFieldsSource.SystemFields"/> does not exist.
     /// </returns>
