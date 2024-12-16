@@ -60,6 +60,11 @@ public class ArticleListWidgetViewComponent : ViewComponent
         string selectedPageContentTypeName = await GetWebPageContentTypeName(selectedPageGuid);
         string selectedPagePath = selectedPage?.SystemFields.WebPageItemTreePath ?? string.Empty;
 
+        if (string.IsNullOrEmpty(selectedPagePath))
+        {
+            return Enumerable.Empty<ArticlePage>();
+        }
+
         return await articlePageRetrieverService.RetrieveWebPageChildrenByPath(
             selectedPageContentTypeName,
             selectedPagePath,
