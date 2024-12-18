@@ -3,7 +3,7 @@ using TrainingGuides.Web.Features.Shared.Models;
 
 namespace TrainingGuides.Web.Features.LandingPages.Widgets.HeroBanner;
 
-public class HeroBannerWidgetViewModel : WidgetViewModel
+public class HeroBannerWidgetViewModel : IWidgetViewModel
 {
     public string Header { get; set; } = string.Empty;
     public HtmlString Subheader { get; set; } = HtmlString.Empty;
@@ -24,5 +24,5 @@ public class HeroBannerWidgetViewModel : WidgetViewModel
     public string TextColor { get; set; } = string.Empty;
     public string ThemeClass { get; set; } = string.Empty;
     public HtmlString StyleAttribute { get; set; } = HtmlString.Empty;
-    public override bool IsMisconfigured => string.IsNullOrEmpty(Header);
+    public bool IsMisconfigured => string.IsNullOrEmpty(Header);
 }

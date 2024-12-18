@@ -1,10 +1,23 @@
-﻿@model TrainingGuides.Web.Features.Header.HeaderViewModel
+﻿@using TrainingGuides.Web.Features.Membership.Widgets.LinkOrSignOut
+
+@model TrainingGuides.Web.Features.Header.HeaderViewModel
 
 <header class="c-header sticky-top">
     <nav class="navbar d-flex p-2 container">
         <div id="navbar-container">
             <h1>@Model.Heading</h1>
         </div>
-        <vc:language-dropdown />
+        @if(Model.ShowNavigation)
+        {
+            <div class="d-flex p-2">
+                <div class="p-2">
+                    <vc:language-dropdown />
+                </div>
+                <div>
+                    @* Renders the Form widget *@
+                    @await Html.Kentico().RenderStandaloneWidgetAsync(ComponentIdentifiers.Widgets.LINK_OR_SIGN_OUT, Model.LinkOrSignOutWidgetProperties)
+                </div>
+            </div>
+        }
     </nav>
 </header>

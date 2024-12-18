@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.emptypage>
+  <ContentItemDataCommonDataID>
+    <GUID>8e25b79b-1a70-4e48-bbf0-b3b5dc4e32ca</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>ResetPassword-bt12pytq</CodeName>
+      <GUID>58013402-ea45-4554-ab22-4bb27243b0ce</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>4c949a12-1177-44c7-8e95-f645d261dc08</ContentItemDataGUID>
+</contentitemdata.trainingguides.emptypage>

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.emptypage>
+  <ContentItemDataCommonDataID>
+    <GUID>3efd1159-7025-4cb3-ad2d-5c4d278dfc68</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>Membership-0ia66os8</CodeName>
+      <GUID>af7304be-f23d-427a-bf6d-0261b04d15f6</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>86b32ff5-65ee-42f1-a611-eda7bca08b25</ContentItemDataGUID>
+</contentitemdata.trainingguides.emptypage>

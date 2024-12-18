@@ -1,22 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.webpageurlpath>
-  <WebPageUrlPath>News/About-confiers</WebPageUrlPath>
+  <WebPageUrlPath>es/NewsES/An-interview-with-Little-Bo-Peep</WebPageUrlPath>
   <WebPageUrlPathContentLanguageID>
-    <CodeName>en</CodeName>
-    <GUID>e81b5172-f240-4041-88b1-653089984e29</GUID>
+    <CodeName>es</CodeName>
+    <GUID>b2e99971-c2dd-4a47-bb64-0d9a0d28d226</GUID>
     <ObjectType>cms.contentlanguage</ObjectType>
   </WebPageUrlPathContentLanguageID>
-  <WebPageUrlPathGUID>9e9da690-8c9a-4173-a6d7-5ab2f71fa8f2</WebPageUrlPathGUID>
+  <WebPageUrlPathGUID>b4203823-e746-4513-bc00-fa5546abdc06</WebPageUrlPathGUID>
   <WebPageUrlPathHash>
-    <![CDATA[659144CD605B42B44600DD9F7834A7215E637E92C734D27D5615B618764E135F]]>
+    <![CDATA[AF80AB513EF6C5E30D383DC04B53C996A608A4B9A5C74FC70CD633C07A76909A]]>
   </WebPageUrlPathHash>
   <WebPageUrlPathIsCanonical>True</WebPageUrlPathIsCanonical>
   <WebPageUrlPathIsDraft>False</WebPageUrlPathIsDraft>
   <WebPageUrlPathIsLatest>True</WebPageUrlPathIsLatest>
   <WebPageUrlPathType>0</WebPageUrlPathType>
   <WebPageUrlPathWebPageItemID>
-    <CodeName>AboutConfiers-43kzvzza</CodeName>
-    <GUID>0c82ddd0-c520-4bb8-9692-56b59b82e667</GUID>
+    <CodeName>AnInterviewWithLittleBo-Peep-jnv3k9yl</CodeName>
+    <GUID>6b46e6ea-503e-40a6-8d8d-4dd101914ecf</GUID>
     <ObjectType>cms.webpageitem</ObjectType>
   </WebPageUrlPathWebPageItemID>
   <WebPageUrlPathWebsiteChannelID>

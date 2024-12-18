@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentitemcommondata>
+  <ContentItemCommonDataContentItemID>
+    <CodeName>SignIn-x4a1nygh</CodeName>
+    <GUID>4f88daba-f579-43fb-acdd-d80c43d7317a</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </ContentItemCommonDataContentItemID>
+  <ContentItemCommonDataContentLanguageID>
+    <CodeName>es</CodeName>
+    <GUID>b2e99971-c2dd-4a47-bb64-0d9a0d28d226</GUID>
+    <ObjectType>cms.contentlanguage</ObjectType>
+  </ContentItemCommonDataContentLanguageID>
+  <ContentItemCommonDataFirstPublishedWhen>2024-11-14 20:48:13Z</ContentItemCommonDataFirstPublishedWhen>
+  <ContentItemCommonDataGUID>c9c07ec5-c40a-4a78-89eb-09c9d2f08f05</ContentItemCommonDataGUID>
+  <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
+  <ContentItemCommonDataLastPublishedWhen>2024-11-25 19:12:32Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataPageBuilderWidgets>
+    <![CDATA[{"editableAreas":[{"identifier":"areaMain","sections":[{"identifier":"839d4f3a-0ba4-4382-9665-f2c6497d8203","type":"TrainingGuides.GeneralSection","properties":{"sectionAnchor":"","colorScheme":"Light2","cornerStyle":"Round","columnLayout":"OneColumn"},"zones":[{"identifier":"4d7111bf-9ad9-4c96-a023-00a5de9e0df8","name":"zoneMain","widgets":[{"identifier":"1725f7ae-9088-463a-8c6f-c9161f1b62a4","type":"TrainingGuides.SignInWidget","variants":[{"identifier":"7a46e762-86ce-48c1-ba06-b58bf0202d76","properties":{"formTitle":"Iniciar sesión ","submitButtonText":"Iniciar sesión ","userNameLabel":"Usario o Email","passwordLabel":"Contraseña","staySignedInLabel":"Recordar","redirectPage":[]},"fieldIdentifiers":{"formTitle":"cef87d8f-c9ae-45d0-9698-ebcb5560f60b","submitButtonText":"077b275a-bc7d-4fa0-81ca-a65b997f8801","userNameLabel":"d7847f41-532c-4948-aed5-a00dcd0996b7","passwordLabel":"92270eab-7662-45ab-95ac-dca01ca621da","staySignedInLabel":"326c6c74-fd7b-4fa0-bd9d-6a4e21c7b000","redirectPage":"cc916d45-bf51-4717-8857-00af21208b99"}}]}]}],"fieldIdentifiers":{"sectionAnchor":"c7160614-7f67-41e4-95d3-12816ba1154b","colorScheme":"05d257bb-23c8-45bb-8f61-ed37c30bee40","cornerStyle":"47da704a-4ae1-425d-8eab-1314ce628c21","columnLayout":"3e830b01-088a-4f78-960e-a55220db2195"}}]},{"identifier":"areaSecondary","sections":[{"identifier":"103b1cb1-73e2-44da-9551-d0e854c546e1","type":"TrainingGuides.GeneralSection","properties":{"sectionAnchor":"","colorScheme":"TransparentDark","cornerStyle":"Round","columnLayout":"OneColumn"},"zones":[{"identifier":"38c8ccea-0751-407b-bc4b-eab4e686345d","name":"zoneMain","widgets":[{"identifier":"4c81a74e-93aa-4c79-bb9d-c83375c08e44","type":"TrainingGuides.LinkOrSignOutWidget","variants":[{"identifier":"32f84515-aaf7-496a-a46f-332909475803","properties":{"unauthenticatedText":"¿Es nuevo en las guías de formación?","unauthenticatedButtonText":"Registrarse","unauthenticatedTargetContentPage":[{"webPageGuid":"9008b16a-3a70-41c9-92ba-2d289c940e2f"}],"authenticatedText":"Ya ha iniciado sesión.","authenticatedButtonText":"Cerrar sesión"},"fieldIdentifiers":{"unauthenticatedText":"4c5cd867-b09c-4361-8c56-d7980d7e2678","unauthenticatedButtonText":"5f236c8f-da6e-476d-babe-f031f4c85e16","unauthenticatedTargetContentPage":"6d1441d7-ddc8-4583-ba40-6e86b06e6eac","authenticatedText":"70ca3108-32e2-459a-b860-ad63ea5f55ed","authenticatedButtonText":"d2394d02-3d71-4141-9772-34a47c2fa0b1"}}]},{"identifier":"136e06b0-3b18-4a5e-b849-3743b1bf028c","type":"TrainingGuides.SimpleCallToActionWidget","variants":[{"identifier":"f7266d1c-065b-4d6a-8c64-d833eae1f25b","properties":{"text":"Restablecer contraseña","targetContent":"Page","targetContentPage":[{"webPageGuid":"87a87bf7-17b0-403d-b751-d06dc1b64daa"}],"targetContentAbsoluteUrl":"","openInNewTab":true},"fieldIdentifiers":{"text":"b3503b6e-ebf8-492a-917c-bde807bbc6a5","targetContent":"9f7e603f-d7e7-4a10-9ae2-1c33f4bc75d7","targetContentPage":"02828ef4-8564-4328-b559-cb77e73baad1","targetContentAbsoluteUrl":"2d3e46fd-c15a-48ad-b6e3-6ff588502c8d","openInNewTab":"ed9e1742-d5b1-4824-ba44-ce4241533f52"}}]}]}],"fieldIdentifiers":{"sectionAnchor":"538485aa-bc61-41c4-a933-8ef241567de7","colorScheme":"28ade19c-ae9c-4435-be31-e5b2b91773da","cornerStyle":"c4f19eac-ce17-45b3-a2db-05126fe693c5","columnLayout":"55046aa9-42aa-4ce3-92e5-d42d7c5c551c"}}]}]}]]>
+  </ContentItemCommonDataPageBuilderWidgets>
+  <ContentItemCommonDataPageTemplateConfiguration>
+    <![CDATA[{"identifier":"TrainingGuides.GeneralPageTemplate","properties":{"colorScheme":"Light1","cornerStyle":"Round","columnLayout":"TwoColumnEven"},"fieldIdentifiers":{"colorScheme":"26e029f7-5e5c-42a1-ba5e-4561c0127180","cornerStyle":"57c2c823-fdd1-4db9-937e-0bcbee684a4c","columnLayout":"c319fe1b-060d-49a5-af12-3a6e3b369687"}}]]>
+  </ContentItemCommonDataPageTemplateConfiguration>
+  <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
+</cms.contentitemcommondata>

@@ -12,6 +12,6 @@
   </ContentItemContentTypeID>
   <ContentItemGUID>d3e7f041-c1d9-4225-bb91-72813912b8af</ContentItemGUID>
   <ContentItemIsReusable>False</ContentItemIsReusable>
-  <ContentItemIsSecured>False</ContentItemIsSecured>
+  <ContentItemIsSecured>True</ContentItemIsSecured>
   <ContentItemName>WidgetSamples-qyagaxb2</ContentItemName>
 </cms.contentitem>
