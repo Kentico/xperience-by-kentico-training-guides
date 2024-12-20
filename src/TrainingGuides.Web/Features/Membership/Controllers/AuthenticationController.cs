@@ -8,6 +8,7 @@ using Kentico.Content.Web.Mvc.Routing;
 using CMS.DataEngine;
 using CMS.ContentEngine;
 using Microsoft.Extensions.Localization;
+using TrainingGuides.Web.Features.Shared.Services;
 
 namespace TrainingGuides.Web.Features.Membership.Controllers;
 
@@ -19,18 +20,21 @@ public class AuthenticationController : Controller
     private readonly IStringLocalizer<SharedResources> stringLocalizer;
     private readonly IPreferredLanguageRetriever preferredLanguageRetriever;
     private readonly IInfoProvider<ContentLanguageInfo> contentLanguageInfoProvider;
+    private readonly IHttpRequestService httpRequestService;
 
     private const string SIGN_IN_FAILED = "Your sign-in attempt was not successful. Please try again.";
 
     public AuthenticationController(IMembershipService membershipService,
         IStringLocalizer<SharedResources> stringLocalizer,
         IPreferredLanguageRetriever preferredLanguageRetriever,
-        IInfoProvider<ContentLanguageInfo> contentLanguageInfoProvider)
+        IInfoProvider<ContentLanguageInfo> contentLanguageInfoProvider,
+        IHttpRequestService httpRequestService)
     {
         this.membershipService = membershipService;
         this.stringLocalizer = stringLocalizer;
         this.preferredLanguageRetriever = preferredLanguageRetriever;
         this.contentLanguageInfoProvider = contentLanguageInfoProvider;
+        this.httpRequestService = httpRequestService;
     }
 
     private IActionResult RenderError(SignInWidgetViewModel model)
@@ -53,7 +57,7 @@ public class AuthenticationController : Controller
 
     [HttpPost($"{{{ApplicationConstants.LANGUAGE_KEY}}}{ApplicationConstants.AUTHENTICATE_ACTION_PATH}")]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Authenticate(SignInWidgetViewModel model)
+    public async Task<IActionResult> Authenticate(SignInWidgetViewModel model, [FromQuery(Name = ApplicationConstants.RETURN_URL_PARAMETER)] string returnUrl)
     {
         if (!ModelState.IsValid)
         {
@@ -62,8 +66,14 @@ public class AuthenticationController : Controller
 
         var signInResult = await membershipService.SignIn(model.UserNameOrEmail, model.Password, model.StaySignedIn);
 
+        string returnPath = string.IsNullOrWhiteSpace(returnUrl)
+            ? (model.DefaultRedirectPageGuid == Guid.Empty
+                ? "/" //TODO See if this works
+                : (await httpRequestService.GetPageRelativeUrl(model.DefaultRedirectPageGuid, preferredLanguageRetriever.Get())).TrimStart('~'))
+            : returnUrl;
+
         return signInResult.Succeeded
-            ? RenderSuccess(model.RedirectUrl)
+            ? RenderSuccess(returnPath)
             : RenderError(model);
     }
 
@@ -91,13 +101,14 @@ public class AuthenticationController : Controller
     private string GetLanguageFromReturnUrl(string returnUrl)
     {
         var languages = contentLanguageInfoProvider.Get()
-            .Column(nameof(ContentLanguageInfo.ContentLanguageName));
+            .Column(nameof(ContentLanguageInfo.ContentLanguageName))
+            .GetListResult<string>();
 
-        foreach (var language in languages)
+        foreach (string language in languages)
         {
-            if (returnUrl.StartsWith($"/{language.ContentLanguageName}/") || returnUrl.StartsWith($"~/{language.ContentLanguageName}/"))
+            if (returnUrl.StartsWith($"/{language}/", StringComparison.OrdinalIgnoreCase) || returnUrl.StartsWith($"~/{language}/", StringComparison.OrdinalIgnoreCase))
             {
-                return language.ContentLanguageName;
+                return language;
             }
         }
         // Since this controller action has no language in its path, this will return the channel default.

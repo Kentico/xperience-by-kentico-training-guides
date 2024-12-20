@@ -3,6 +3,13 @@ using Microsoft.AspNetCore.Mvc;
 using TrainingGuides.Web.Features.Membership.Profile;
 using TrainingGuides.Web.Features.Shared.Models;
 
+// WHY SO MANY HIDDEN INPUTS?
+// This repository uses a more complex approach with hidden fields to enable membership components as page builder widgets and templates.
+// This approach offers flexibility for editors to more easily link to these pages, create member-related campaigns with better UX, and configure the design of the components.
+// However, it requires extra development. To see simpler examples using standard MVC routed views for membership functionality, check out the following resources.
+//   - The Xperience by Kentico Community Portal, available at https://github.com/Kentico/community-portal.
+//   - The Dancing Goat sample project, available through the "Kentico.Xperience.Templates" .NET Templates package.
+
 public class RegistrationWidgetViewModel : GuidesMemberProfileViewModel, IWidgetViewModel
 {
     //WIDGET DISPLAY PROPERTIES
@@ -11,7 +18,7 @@ public class RegistrationWidgetViewModel : GuidesMemberProfileViewModel, IWidget
     /// Determines whether the widget is misconfigured.
     /// </summary>
     public bool IsMisconfigured =>
-        string.IsNullOrWhiteSpace(BaseUrl)
+        string.IsNullOrWhiteSpace(ActionUrl)
         || string.IsNullOrWhiteSpace(SubmitButtonText)
         || string.IsNullOrWhiteSpace(UserNameLabel)
         || string.IsNullOrWhiteSpace(EmailAddressLabel)
@@ -21,16 +28,14 @@ public class RegistrationWidgetViewModel : GuidesMemberProfileViewModel, IWidget
         || (ShowExtraFields && string.IsNullOrWhiteSpace(FavoriteCoffeeLabel));
 
     /// <summary>
-    /// The Base URL of the site
+    /// The Action URL of the form.
     /// </summary>
-    [HiddenInput]
-    public string BaseUrl { get; set; } = string.Empty;
+    public string ActionUrl { get; set; } = string.Empty;
 
     /// <summary>
-    /// The language of the current request
+    /// Form title
     /// </summary>
-    [HiddenInput]
-    public string Language { get; set; } = string.Empty;
+    public string FormTitle { get; set; } = string.Empty;
 
     /// <summary>
     /// Determines whether the widget should display the form.
@@ -49,12 +54,6 @@ public class RegistrationWidgetViewModel : GuidesMemberProfileViewModel, IWidget
     /// </summary>
     [HiddenInput]
     public bool ShowExtraFields { get; set; }
-
-    /// <summary>
-    /// Form title
-    /// </summary>
-    [HiddenInput]
-    public string FormTitle { get; set; } = string.Empty;
 
     /// <summary>
     /// Submit button text
@@ -121,7 +120,7 @@ public class RegistrationWidgetViewModel : GuidesMemberProfileViewModel, IWidget
     [DataType(DataType.EmailAddress)]
     [Required()]
     [EmailAddress()]
-    [MaxLength(100)]
+    [MaxLength(254)]
     public string EmailAddress { get; set; } = string.Empty;
 
     [DataType(DataType.Password)]

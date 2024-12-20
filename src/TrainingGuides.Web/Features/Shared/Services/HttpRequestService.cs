@@ -28,10 +28,15 @@ public class HttpRequestService : IHttpRequestService
 
     private string GetBaseUrl(HttpRequest currentRequest)
     {
-        string pathBase = currentRequest.PathBase.ToString();
-        string baseUrl = $"{currentRequest.Scheme}://{currentRequest.Host}";
+        var url = new UriBuilder()
+        {
+            Scheme = currentRequest.Scheme,
+            Host = currentRequest.Host.Host,
+            Path = currentRequest.PathBase,
+            Port = currentRequest.Host.Port ?? 80
+        };
 
-        return string.IsNullOrWhiteSpace(pathBase) ? baseUrl : $"{baseUrl}{pathBase}";
+        return url.ToString();
     }
 
     private HttpRequest RetrieveCurrentRequest() => httpContextAccessor?.HttpContext?.Request
@@ -69,14 +74,18 @@ public class HttpRequestService : IHttpRequestService
 
         bool notPrimaryLanguage = webPageUrlPathList.Contains(language);
 
-        return GetBaseUrl(currentRequest)
-            + (notPrimaryLanguage
+        var url = new UriBuilder(GetBaseUrl(currentRequest))
+        {
+            Path = notPrimaryLanguage
                 ? $"/{language}"
-                : string.Empty);
+                : string.Empty
+        };
+
+        return url.ToString();
     }
 
     /// <inheritdoc/>
-    public string GetBaseUrlWithLanguage(bool checkDatabaseForDefaultLanguage)
+    public string GetBaseUrlWithLanguage(bool checkDatabaseForDefaultLanguage, bool alwaysIncludeLanguage = false)
     {
         if (checkDatabaseForDefaultLanguage)
         {
@@ -86,10 +95,14 @@ public class HttpRequestService : IHttpRequestService
 
             bool notPrimaryLanguage = webPageUrlPathList?.Contains(language) ?? !IsLanguageDefault(language);
 
-            return GetBaseUrl(currentRequest)
-                + (notPrimaryLanguage
+            var url = new UriBuilder(GetBaseUrl(currentRequest))
+            {
+                Path = notPrimaryLanguage || alwaysIncludeLanguage
                     ? $"/{language}"
-                    : string.Empty);
+                    : string.Empty
+            };
+
+            return url.ToString();
         }
         else
         {
@@ -114,4 +127,20 @@ public class HttpRequestService : IHttpRequestService
 
     /// <inheritdoc/>
     public string GetQueryStringValue(string parameter) => httpContextAccessor.HttpContext?.Request.Query[parameter].ToString() ?? string.Empty;
+
+    /// <inheritdoc/>
+    public string CombineUrlPaths(string path1, string path2)
+    {
+        if (string.IsNullOrWhiteSpace(path1))
+        {
+            return path2;
+        }
+
+        if (string.IsNullOrWhiteSpace(path2))
+        {
+            return path1;
+        }
+
+        return $"{path1.TrimEnd('/')}/{path2.TrimStart('/')}";
+    }
 }

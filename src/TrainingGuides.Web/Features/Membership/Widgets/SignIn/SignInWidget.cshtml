@@ -26,7 +26,7 @@
         HttpMethod = "POST",
         InsertionMode = InsertionMode.Replace,
         UpdateTargetId = formDivId,
-    }, new { action = $"{Model.BaseUrl}/{Model.Language}{ApplicationConstants.AUTHENTICATE_ACTION_PATH}" }))
+    }, new { action = Model.ActionUrl }))
     {
         <div id="@formDivId" class="px-2">
             <partial name="~/Features/Membership/Widgets/SignIn/SignInForm.cshtml" model="Model" />

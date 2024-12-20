@@ -67,10 +67,10 @@ public class SignInWidgetViewComponentTests
     public async Task BuildWidgetViewModel_WhenUserSetsRedirectPage_SetsRedirectUrl_ToPageUrlInCurrentLanguage()
     {
         httpRequestServiceMock.Setup(x => x.GetPageRelativeUrl(It.IsAny<Guid>(), It.IsAny<string>())).ReturnsAsync($"~/{LANGUAGE_KEY}{PAGE_URL}");
-        referenceProperties.RedirectPage = [new() { WebPageGuid = Guid.NewGuid() }];
+        referenceProperties.DefaultRedirectPage = [new() { WebPageGuid = Guid.NewGuid() }];
 
         var viewModel = await viewComponent.BuildWidgetViewModel(referenceProperties);
-        Assert.Equal($"/{LANGUAGE_KEY + PAGE_URL}", viewModel.RedirectUrl);
+        Assert.Equal($"/{LANGUAGE_KEY + PAGE_URL}", viewModel.DefaultRedirectPageGuid);
     }
 
     [Fact]
@@ -78,7 +78,7 @@ public class SignInWidgetViewComponentTests
     {
         httpRequestServiceMock.Setup(x => x.GetBaseUrlWithLanguage()).Returns(ROOT_URL);
         var viewModel = await viewComponent.BuildWidgetViewModel(referenceProperties);
-        Assert.Equal(ROOT_URL, viewModel.RedirectUrl);
+        Assert.Equal(ROOT_URL, viewModel.DefaultRedirectPageGuid);
     }
 
     [Fact]

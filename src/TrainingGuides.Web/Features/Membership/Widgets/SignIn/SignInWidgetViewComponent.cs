@@ -1,4 +1,3 @@
-using Kentico.Content.Web.Mvc.Routing;
 using Kentico.PageBuilder.Web.Mvc;
 using Microsoft.AspNetCore.Mvc;
 using TrainingGuides.Web.Features.Membership.Services;
@@ -19,46 +18,50 @@ public class SignInWidgetViewComponent : ViewComponent
 {
     private readonly IHttpRequestService httpRequestService;
     private readonly IMembershipService membershipService;
-    private readonly IPreferredLanguageRetriever preferredLanguageRetriever;
 
     public const string IDENTIFIER = "TrainingGuides.SignInWidget";
 
     public SignInWidgetViewComponent(
         IHttpRequestService httpRequestService,
-        IMembershipService membershipService,
-        IPreferredLanguageRetriever preferredLanguageRetriever)
+        IMembershipService membershipService)
     {
         this.httpRequestService = httpRequestService;
         this.membershipService = membershipService;
-        this.preferredLanguageRetriever = preferredLanguageRetriever;
     }
 
     public async Task<IViewComponentResult> InvokeAsync(SignInWidgetProperties properties) =>
         View("~/Features/Membership/Widgets/SignIn/SignInWidget.cshtml", await BuildWidgetViewModel(properties));
 
-    public async Task<SignInWidgetViewModel> BuildWidgetViewModel(SignInWidgetProperties properties)
+    public async Task<SignInWidgetViewModel> BuildWidgetViewModel(SignInWidgetProperties properties) => new SignInWidgetViewModel
     {
+        ActionUrl = GetActionUrl(),
+        DefaultRedirectPageGuid = properties.DefaultRedirectPage.FirstOrDefault()?.WebPageGuid ?? Guid.Empty,
+        DisplayForm = !await membershipService.IsMemberAuthenticated(),
+        FormTitle = properties.FormTitle,
+        SubmitButtonText = properties.SubmitButtonText,
+        UserNameOrEmailLabel = properties.UserNameLabel,
+        PasswordLabel = properties.PasswordLabel,
+        StaySignedInLabel = properties.StaySignedInLabel
+    };
+
+
+
+    private string GetActionUrl()
+    {
+        string baseUrl = httpRequestService.GetBaseUrlWithLanguage(true, true);
+        var actionUrl = new UriBuilder(baseUrl);
+
+        string newPath = httpRequestService.CombineUrlPaths(actionUrl.Path, ApplicationConstants.AUTHENTICATE_ACTION_PATH);
+        actionUrl.Path = newPath;
+
         string? returnUrl = GetReturnUrlFromQueryString();
 
-        var redirectPage = properties.RedirectPage.FirstOrDefault();
-
-        string redirectUrl = returnUrl
-            ?? (redirectPage == null
-                ? httpRequestService.GetBaseUrlWithLanguage()
-                : (await httpRequestService.GetPageRelativeUrl(redirectPage.WebPageGuid, preferredLanguageRetriever.Get())).Replace("~", ""));
-
-        return new SignInWidgetViewModel
+        if (!string.IsNullOrWhiteSpace(returnUrl))
         {
-            BaseUrl = httpRequestService.GetBaseUrl(),
-            Language = preferredLanguageRetriever.Get(),
-            RedirectUrl = redirectUrl,
-            DisplayForm = !await membershipService.IsMemberAuthenticated(),
-            FormTitle = properties.FormTitle,
-            SubmitButtonText = properties.SubmitButtonText,
-            UserNameOrEmailLabel = properties.UserNameLabel,
-            PasswordLabel = properties.PasswordLabel,
-            StaySignedInLabel = properties.StaySignedInLabel
-        };
+            actionUrl.Query = QueryString.Create(ApplicationConstants.RETURN_URL_PARAMETER, returnUrl).ToString();
+        }
+
+        return actionUrl.ToString();
     }
 
     private string? GetReturnUrlFromQueryString()

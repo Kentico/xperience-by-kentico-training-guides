@@ -1,28 +1,32 @@
 using CMS.ContentEngine;
+using CMS.DataEngine;
 using Kentico.Content.Web.Mvc.Routing;
 using Microsoft.AspNetCore.Html;
 using Microsoft.Extensions.Localization;
-using TrainingGuides.Web.Features.Membership.Services;
 using TrainingGuides.Web.Features.Shared.Helpers;
 using TrainingGuides.Web.Features.Shared.Models;
+using TrainingGuides.Web.Features.Shared.Services;
 
 namespace TrainingGuides.Web.Features.Articles.Services;
 
 public class ArticlePageService : IArticlePageService
 {
     private readonly IWebPageUrlRetriever webPageUrlRetriever;
-    private readonly IServiceProvider serviceProvider;
     private readonly IStringLocalizer<SharedResources> stringLocalizer;
+    private readonly IInfoProvider<ContentLanguageInfo> contentLanguageInfoProvider;
     private readonly IPreferredLanguageRetriever preferredLanguageRetriever;
+    private readonly IHttpRequestService httpRequestService;
     public ArticlePageService(IWebPageUrlRetriever webPageUrlRetriever,
-        IServiceProvider serviceProvider,
         IStringLocalizer<SharedResources> stringLocalizer,
-        IPreferredLanguageRetriever preferredLanguageRetriever)
+        IInfoProvider<ContentLanguageInfo> contentLanguageInfoProvider,
+        IPreferredLanguageRetriever preferredLanguageRetriever,
+        IHttpRequestService httpRequestService)
     {
         this.webPageUrlRetriever = webPageUrlRetriever;
-        this.serviceProvider = serviceProvider;
         this.stringLocalizer = stringLocalizer;
+        this.contentLanguageInfoProvider = contentLanguageInfoProvider;
         this.preferredLanguageRetriever = preferredLanguageRetriever;
+        this.httpRequestService = httpRequestService;
     }
 
 
@@ -34,7 +38,9 @@ public class ArticlePageService : IArticlePageService
             return new ArticlePageViewModel();
         }
 
-        string articleUrl = (await webPageUrlRetriever.Retrieve(articlePage, preferredLanguageRetriever.Get())).RelativePath;
+        string language = GetArticleLanguage(articlePage);
+
+        string articleUrl = (await webPageUrlRetriever.Retrieve(articlePage, language)).RelativePath;
         var articleSchema = articlePage.ArticlePageArticleContent.FirstOrDefault();
 
         if (articleSchema != null)
@@ -69,7 +75,7 @@ public class ArticlePageService : IArticlePageService
     }
 
     /// <inheritdoc/>
-    public async Task<ArticlePageViewModel> GetArticlePageViewModelWithSecurity(ArticlePage? articlePage)
+    public async Task<ArticlePageViewModel> GetArticlePageViewModelWithSecurity(ArticlePage? articlePage, string signInUrl, bool isAuthenticated)
     {
         var originalViewModel = await GetArticlePageViewModel(articlePage);
 
@@ -80,33 +86,35 @@ public class ArticlePageService : IArticlePageService
 
         bool reusableArticleSecured = IsReusableArticleSecured(articlePage);
 
-        if (articlePage.SystemFields.ContentItemIsSecured
+        if ((articlePage.SystemFields.ContentItemIsSecured
             || reusableArticleSecured)
+            && !isAuthenticated)
         {
-            using var scope = serviceProvider.CreateScope();
-            var membershipService = scope.ServiceProvider.GetRequiredService<IMembershipService>();
+            string relativePath = originalViewModel.Url.TrimStart('~');
 
-            if (!await membershipService.IsMemberAuthenticated())
+            string baseUrl = httpRequestService.GetBaseUrl();
+
+            var signInUri = new UriBuilder(baseUrl)
             {
-                string signInUrl = await membershipService.GetSignInUrl(preferredLanguageRetriever.Get());
-                string signInUrlWithReturn = signInUrl + QueryString.Create(ApplicationConstants.RETURN_URL_PARAMETER, originalViewModel.Url.Replace("~", string.Empty)).ToString();
+                Path = signInUrl.TrimStart('~'),
+                Query = QueryString.Create(ApplicationConstants.RETURN_URL_PARAMETER, relativePath).ToString()
+            };
 
-                string messageWithLinkString = $"<a href=\"{signInUrlWithReturn}\">{stringLocalizer["Sign in"]}</a> {stringLocalizer["to view this content."]}";
+            string messageWithLinkString = $"<a href=\"{signInUri}\">{stringLocalizer["Sign in"]}</a> {stringLocalizer["to view this content."]}";
 
-                var message = new HtmlString(stringLocalizer["Sign in to view this content."]);
-                var messageWithLink = new HtmlString(messageWithLinkString);
+            var message = new HtmlString(stringLocalizer["Sign in to view this content."]);
+            var messageWithLink = new HtmlString(messageWithLinkString);
 
-                return new ArticlePageViewModel
-                {
-                    Title = $"{stringLocalizer["(🔒 Locked)"]} {originalViewModel.Title}",
-                    Summary = message,
-                    Text = messageWithLink,
-                    CreatedOn = articlePage.ArticlePagePublishDate,
-                    TeaserImage = originalViewModel.TeaserImage,
-                    Url = signInUrlWithReturn,
-                    IsSecured = articlePage.SystemFields.ContentItemIsSecured
-                };
-            }
+            return new ArticlePageViewModel
+            {
+                Title = $"{stringLocalizer["(🔒 Locked)"]} {originalViewModel.Title}",
+                Summary = message,
+                Text = messageWithLink,
+                CreatedOn = articlePage.ArticlePagePublishDate,
+                TeaserImage = originalViewModel.TeaserImage,
+                Url = signInUri.ToString(),
+                IsSecured = articlePage.SystemFields.ContentItemIsSecured
+            };
         }
         return originalViewModel;
     }
@@ -119,5 +127,13 @@ public class ArticlePageService : IArticlePageService
 
         return (oldArticle?.SystemFields.ContentItemIsSecured ?? false)
             || (newArticle?.SystemFields.ContentItemIsSecured ?? false);
+    }
+
+    /// <inheritdoc/>
+    public string GetArticleLanguage(ArticlePage article)
+    {
+        int languageId = article.SystemFields.ContentItemCommonDataContentLanguageID;
+        string itemLanguage = contentLanguageInfoProvider.Get(languageId).ContentLanguageName;
+        return string.IsNullOrEmpty(itemLanguage) ? preferredLanguageRetriever.Get() : itemLanguage;
     }
 }

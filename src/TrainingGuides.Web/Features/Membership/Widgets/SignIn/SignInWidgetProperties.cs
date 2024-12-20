@@ -47,9 +47,9 @@ public class SignInWidgetProperties : IWidgetProperties
     public string StaySignedInLabel { get; set; } = "Stay signed in";
 
     [WebPageSelectorComponent(
-        Label = "Redirect page",
-        ExplanationText = "Page to redirect to after successful sign in. If empty, the the site visitor will be navigated to home page.",
+        Label = "default redirect page",
+        ExplanationText = "Page to redirect to after successful sign in if no 'returnUrl' parameter is specified in the query string. If empty, falls back to the home page.",
         MaximumPages = 1,
         Order = 60)]
-    public IEnumerable<WebPageRelatedItem> RedirectPage { get; set; } = Enumerable.Empty<WebPageRelatedItem>();
+    public IEnumerable<WebPageRelatedItem> DefaultRedirectPage { get; set; } = Enumerable.Empty<WebPageRelatedItem>();
 }

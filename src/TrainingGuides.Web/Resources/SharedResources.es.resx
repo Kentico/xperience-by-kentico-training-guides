@@ -258,6 +258,9 @@
   <data name="Member since" xml:space="preserve">
     <value>Miembro desde</value>
   </data>
+  <data name="Please enter your user name or email address." xml:space="preserve">
+    <value>Por favor, introduzca su nombre de usuario o dirección de correo electrónico.</value>
+  </data>
 
   <data name="Submit" xml:space="preserve">
     <value>Enviar</value>

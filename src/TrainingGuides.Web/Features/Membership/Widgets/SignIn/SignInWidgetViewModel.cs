@@ -4,27 +4,32 @@ using TrainingGuides.Web.Features.Shared.Models;
 
 namespace TrainingGuides.Web.Features.Membership.Widgets.SignIn;
 
+// WHY SO MANY HIDDEN INPUTS?
+// This repository uses a more complex approach with hidden fields to enable membership components as page builder widgets and templates.
+// This approach offers flexibility for editors to more easily link to these pages, create member-related campaigns with better UX, and configure the design of the components.
+// However, it requires extra development. To see simpler examples using standard MVC routed views for membership functionality, check out the following resources.
+//   - The Xperience by Kentico Community Portal, available at https://github.com/Kentico/community-portal.
+//   - The Dancing Goat sample project, available through the "Kentico.Xperience.Templates" .NET Templates package.
+
 public class SignInWidgetViewModel : IWidgetViewModel
 {
     //WIDGET DISPLAY PROPERTIES
 
     /// <summary>
-    /// The Base URL of the site
+    /// The action URL of the sign-in form
     /// </summary>
-    [HiddenInput]
-    public string BaseUrl { get; set; } = string.Empty;
+    public string ActionUrl { get; set; } = string.Empty;
 
     /// <summary>
-    /// The language of the current request
+    /// URL to redirect to after successful sign in
     /// </summary>
-    [HiddenInput]
-    public string Language { get; set; } = string.Empty;
-
-    /// <summary>
-    /// URL of the site to redirect to after successful sing in
-    /// </summary>
-    [HiddenInput]
     public string RedirectUrl { get; set; } = string.Empty;
+
+    /// <summary>
+    /// URL of the site to redirect to after successful sing in, configured in the widget properties.
+    /// </summary>
+    [HiddenInput]
+    public Guid DefaultRedirectPageGuid { get; set; } = Guid.Empty;
 
     /// <summary>
     /// Determines whether the widget should display the form. E.g., if the user is already authenticated, the form should not be displayed. Instead they should see a sign out button
@@ -71,7 +76,7 @@ public class SignInWidgetViewModel : IWidgetViewModel
 
     [DataType(DataType.Text)]
     [Required(ErrorMessage = "Please enter your user name or email address.")]
-    [MaxLength(100)]
+    [MaxLength(254)]
     public string UserNameOrEmail { get; set; } = string.Empty;
 
     [DataType(DataType.Password)]
@@ -81,7 +86,7 @@ public class SignInWidgetViewModel : IWidgetViewModel
 
     public bool StaySignedIn { get; set; } = false;
 
-    public bool IsMisconfigured => string.IsNullOrWhiteSpace(BaseUrl)
+    public bool IsMisconfigured => string.IsNullOrWhiteSpace(ActionUrl)
         || string.IsNullOrWhiteSpace(SubmitButtonText)
         || string.IsNullOrWhiteSpace(UserNameOrEmailLabel)
         || string.IsNullOrWhiteSpace(PasswordLabel)

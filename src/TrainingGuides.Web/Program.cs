@@ -77,6 +77,7 @@ builder.Services.Configure<CookieLevelOptions>(options =>
 {
     options.CookieConfigurations.Add(CookieNames.COOKIE_CONSENT_LEVEL, CookieLevel.System);
     options.CookieConfigurations.Add(CookieNames.COOKIE_ACCEPTANCE, CookieLevel.System);
+    options.CookieConfigurations.Add(CookieNames.COOKIE_AUTHENTICATION, CookieLevel.Essential);
 });
 
 
@@ -96,6 +97,8 @@ builder.Services.ConfigureApplicationCookie(options =>
 {
     options.AccessDeniedPath = new PathString(ApplicationConstants.ACCESS_DENIED_ACTION_PATH);
     options.ReturnUrlParameter = ApplicationConstants.RETURN_URL_PARAMETER;
+    options.Cookie.IsEssential = true;
+    options.Cookie.Name = CookieNames.COOKIE_AUTHENTICATION;
 });
 
 builder.Services.AddAuthorization();

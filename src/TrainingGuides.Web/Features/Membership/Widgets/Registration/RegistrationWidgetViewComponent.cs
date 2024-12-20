@@ -1,10 +1,8 @@
-
-
-using Kentico.Content.Web.Mvc.Routing;
 using Kentico.PageBuilder.Web.Mvc;
 using Microsoft.AspNetCore.Mvc;
 using TrainingGuides.Web.Features.Membership.Services;
 using TrainingGuides.Web.Features.Membership.Widgets.Registration;
+using TrainingGuides.Web.Features.Shared.Helpers;
 using TrainingGuides.Web.Features.Shared.Services;
 
 
@@ -22,23 +20,19 @@ public class RegistrationWidgetViewComponent : ViewComponent
 {
     private readonly IHttpRequestService httpRequestService;
     private readonly IMembershipService membershipService;
-    private readonly IPreferredLanguageRetriever preferredLanguageRetriever;
     public const string IDENTIFIER = "TrainingGuides.RegistrationWidget";
 
     public RegistrationWidgetViewComponent(IHttpRequestService httpRequestService,
-        IMembershipService membershipService,
-        IPreferredLanguageRetriever preferredLanguageRetriever)
+        IMembershipService membershipService)
     {
         this.httpRequestService = httpRequestService;
         this.membershipService = membershipService;
-        this.preferredLanguageRetriever = preferredLanguageRetriever;
     }
 
     public async Task<RegistrationWidgetViewModel> BuildWidgetViewModel(RegistrationWidgetProperties properties) =>
         new()
         {
-            BaseUrl = httpRequestService.GetBaseUrl(),
-            Language = preferredLanguageRetriever.Get(),
+            ActionUrl = GetActionUrl(),
             DisplayForm = !await membershipService.IsMemberAuthenticated(),
             ShowName = properties.ShowName,
             ShowExtraFields = properties.ShowExtraFields,
@@ -61,5 +55,15 @@ public class RegistrationWidgetViewComponent : ViewComponent
         return View("~/Features/Membership/Widgets/Registration/RegistrationWidget.cshtml", registerModel);
     }
 
+    private string GetActionUrl()
+    {
+        string baseUrl = httpRequestService.GetBaseUrlWithLanguage(true, true);
+        var actionUrl = new UriBuilder(baseUrl);
+
+        string newPath = httpRequestService.CombineUrlPaths(actionUrl.Path, ApplicationConstants.REGISTER_ACTION_PATH);
+        actionUrl.Path = newPath;
+
+        return actionUrl.ToString();
+    }
 
 }

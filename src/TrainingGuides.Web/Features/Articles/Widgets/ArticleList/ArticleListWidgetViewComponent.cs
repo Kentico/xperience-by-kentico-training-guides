@@ -133,8 +133,11 @@ public class ArticleListWidgetViewComponent : ViewComponent
             {
                 if (articlePage != null)
                 {
+                    string language = articlePageService.GetArticleLanguage(articlePage);
+                    string signInUrl = await membershipService.GetSignInUrl(language);
+
                     var model = securedItemsDisplayMode.Equals(SecuredOption.PromptForLogin.ToString())
-                        ? await articlePageService.GetArticlePageViewModelWithSecurity(articlePage)
+                        ? await articlePageService.GetArticlePageViewModelWithSecurity(articlePage, signInUrl, await membershipService.IsMemberAuthenticated())
                         : await articlePageService.GetArticlePageViewModel(articlePage);
 
                     models.Add(model);
