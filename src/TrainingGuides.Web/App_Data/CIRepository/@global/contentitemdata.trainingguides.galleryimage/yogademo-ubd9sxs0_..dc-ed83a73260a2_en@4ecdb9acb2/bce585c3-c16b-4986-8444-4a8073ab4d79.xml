@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.galleryimage>
+  <ContentItemDataCommonDataID>
+    <GUID>a2d739bd-300e-4bfd-aedc-ed83a73260a2</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>YogaDemo-ubd9sxs0</CodeName>
+      <GUID>f4466dab-91e0-49ab-8699-3995e12b5648</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>bce585c3-c16b-4986-8444-4a8073ab4d79</ContentItemDataGUID>
+  <GalleryImageAsset>
+    <![CDATA[{"Identifier":"2947c4b1-666f-431f-970e-d4b1c0d0ae43","Name":"yoga.jpg","Extension":".jpg","Size":2944306,"LastModified":"2025-01-05T05:21:24.4200488Z"}]]>
+  </GalleryImageAsset>
+  <GalleryImageCategory>
+    <![CDATA[[{"Identifier":"a9446e6d-a3ea-40bf-8b76-959aa78780f7"}]]]>
+  </GalleryImageCategory>
+  <GalleryImageDescription>
+    <![CDATA[Donec eu lorem gravida tellus tempor scelerisque non eu nisi. Aliquam at faucibus nulla.]]>
+  </GalleryImageDescription>
+</contentitemdata.trainingguides.galleryimage>

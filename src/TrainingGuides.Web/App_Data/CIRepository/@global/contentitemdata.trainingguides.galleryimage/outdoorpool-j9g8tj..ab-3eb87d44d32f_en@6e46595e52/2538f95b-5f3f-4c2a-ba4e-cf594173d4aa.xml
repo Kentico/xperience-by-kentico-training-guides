@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.galleryimage>
+  <ContentItemDataCommonDataID>
+    <GUID>cb84423c-2272-4be2-92ab-3eb87d44d32f</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>OutdoorPool-j9g8tjc3</CodeName>
+      <GUID>ff21fc31-caac-4d52-8005-dfa7f23b3cd7</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>2538f95b-5f3f-4c2a-ba4e-cf594173d4aa</ContentItemDataGUID>
+  <GalleryImageAsset>
+    <![CDATA[{"Identifier":"fd1fc1dd-d794-4f97-8cdf-490cf3f59785","Name":"outdoor-pool.jpg","Extension":".jpg","Size":3495072,"LastModified":"2025-01-05T05:10:53.048428Z"}]]>
+  </GalleryImageAsset>
+  <GalleryImageCategory>
+    <![CDATA[[{"Identifier":"a9446e6d-a3ea-40bf-8b76-959aa78780f7"}]]]>
+  </GalleryImageCategory>
+  <GalleryImageDescription>
+    <![CDATA[Donec eu lorem gravida tellus tempor scelerisque non eu nisi. Aliquam at faucibus nulla. Etiam suscipit, dui id condimentum faucibus.]]>
+  </GalleryImageDescription>
+</contentitemdata.trainingguides.galleryimage>

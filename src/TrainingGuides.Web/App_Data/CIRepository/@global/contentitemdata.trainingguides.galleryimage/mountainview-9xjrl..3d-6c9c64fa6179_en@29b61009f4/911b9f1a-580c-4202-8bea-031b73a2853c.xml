@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.galleryimage>
+  <ContentItemDataCommonDataID>
+    <GUID>d4310e3d-e8d9-488d-903d-6c9c64fa6179</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>MountainView-9xjrl8kt</CodeName>
+      <GUID>2e27dd9a-724b-4c28-a8f5-346af494e393</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>911b9f1a-580c-4202-8bea-031b73a2853c</ContentItemDataGUID>
+  <GalleryImageAsset>
+    <![CDATA[{"Identifier":"fa35986c-3a97-4869-a021-d89f41e0a269","Name":"view.jpg","Extension":".jpg","Size":1620750,"LastModified":"2025-01-04T15:23:16.9715759Z"}]]>
+  </GalleryImageAsset>
+  <GalleryImageCategory>
+    <![CDATA[[{"Identifier":"895535fc-bfa3-4afd-8ddb-bc9e4e438d1e"},{"Identifier":"a9446e6d-a3ea-40bf-8b76-959aa78780f7"}]]]>
+  </GalleryImageCategory>
+  <GalleryImageDescription>
+    <![CDATA[Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur facilisis gravida ullamcorper. Curabitur venenatis leo et massa feugiat semper.]]>
+  </GalleryImageDescription>
+</contentitemdata.trainingguides.galleryimage>

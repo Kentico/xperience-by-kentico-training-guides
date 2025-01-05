@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.galleryimage>
+  <ContentItemDataCommonDataID>
+    <GUID>73bbcea8-9bf2-4cb9-86af-d1d56a3f5dbb</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>Bar-50u0qdlf</CodeName>
+      <GUID>3eb22b4c-d08f-4225-9003-34385214fee4</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>25df70c3-5e3e-449e-9aa8-b4753b30eeeb</ContentItemDataGUID>
+  <GalleryImageAsset>
+    <![CDATA[{"Identifier":"9e1e97d9-c08c-4050-9d7b-38dbfdf34788","Name":"bar.jpg","Extension":".jpg","Size":3262750,"LastModified":"2025-01-03T22:12:17.9138377Z"}]]>
+  </GalleryImageAsset>
+  <GalleryImageCategory>
+    <![CDATA[[{"Identifier":"a9446e6d-a3ea-40bf-8b76-959aa78780f7"}]]]>
+  </GalleryImageCategory>
+  <GalleryImageDescription>
+    <![CDATA[Quisque pharetra lobortis nulla, a bibendum mauris pharetra eu.]]>
+  </GalleryImageDescription>
+</contentitemdata.trainingguides.galleryimage>

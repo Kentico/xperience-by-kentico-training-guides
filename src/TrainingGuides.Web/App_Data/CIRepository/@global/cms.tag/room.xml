@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.tag>
+  <TagGUID>d60a0d2e-361e-45ab-a3fb-5929a3468025</TagGUID>
+  <TagMetadata>
+    <![CDATA[{"Translations":{}}]]>
+  </TagMetadata>
+  <TagName>Room</TagName>
+  <TagOrder>4</TagOrder>
+  <TagTaxonomyID>
+    <CodeName>GalleryImageCategory</CodeName>
+    <GUID>60fd40db-8c70-40c6-a738-04a1ba7bca58</GUID>
+    <ObjectType>cms.taxonomy</ObjectType>
+  </TagTaxonomyID>
+  <TagTitle>Rooms</TagTitle>
+</cms.tag>

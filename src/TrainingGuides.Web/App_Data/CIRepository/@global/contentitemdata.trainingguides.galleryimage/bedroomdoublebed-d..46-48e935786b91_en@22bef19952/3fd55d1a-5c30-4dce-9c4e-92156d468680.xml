@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.galleryimage>
+  <ContentItemDataCommonDataID>
+    <GUID>f89a3f01-441b-4b86-8846-48e935786b91</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>BedroomDoubleBed-d9elmahe</CodeName>
+      <GUID>af3f64be-9518-4ccf-aad2-3da7d4d6eb6b</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>3fd55d1a-5c30-4dce-9c4e-92156d468680</ContentItemDataGUID>
+  <GalleryImageAsset>
+    <![CDATA[{"Identifier":"125a98c8-d846-403f-8fac-3c46d47fecb1","Name":"bedroom-double-bed.jpg","Extension":".jpg","Size":11390163,"LastModified":"2025-01-03T16:56:11.6138747Z"}]]>
+  </GalleryImageAsset>
+  <GalleryImageCategory>
+    <![CDATA[[{"Identifier":"d60a0d2e-361e-45ab-a3fb-5929a3468025"},{"Identifier":"8fa14351-e230-4c85-b22d-325cb0e307d7"}]]]>
+  </GalleryImageCategory>
+  <GalleryImageDescription>
+    <![CDATA[Curabitur sit amet rutrum nunc. Aenean ac justo augue. Pellentesque pellentesque a libero non blandit.]]>
+  </GalleryImageDescription>
+</contentitemdata.trainingguides.galleryimage>

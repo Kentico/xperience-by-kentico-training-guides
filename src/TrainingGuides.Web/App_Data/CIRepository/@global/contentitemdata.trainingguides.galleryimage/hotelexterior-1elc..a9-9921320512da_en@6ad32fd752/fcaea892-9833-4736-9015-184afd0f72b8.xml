@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.galleryimage>
+  <ContentItemDataCommonDataID>
+    <GUID>c56e59e7-9770-4e47-8ba9-9921320512da</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>HotelExterior-1elcqsnf</CodeName>
+      <GUID>864ad1c8-1c24-41cb-93bd-6242cb50af8c</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>fcaea892-9833-4736-9015-184afd0f72b8</ContentItemDataGUID>
+  <GalleryImageAsset>
+    <![CDATA[{"Identifier":"2b2dc45f-ad4e-4025-9565-4361fb32bc85","Name":"exterior.jpg","Extension":".jpg","Size":668135,"LastModified":"2025-01-04T15:15:04.6867921Z"}]]>
+  </GalleryImageAsset>
+  <GalleryImageCategory>
+    <![CDATA[[{"Identifier":"895535fc-bfa3-4afd-8ddb-bc9e4e438d1e"}]]]>
+  </GalleryImageCategory>
+  <GalleryImageDescription>
+    <![CDATA[Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur facilisis gravida ullamcorper. Curabitur venenatis leo et massa feugiat semper.]]>
+  </GalleryImageDescription>
+</contentitemdata.trainingguides.galleryimage>

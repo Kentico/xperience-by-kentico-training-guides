@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.galleryimage>
+  <ContentItemDataCommonDataID>
+    <GUID>32181bcf-08a3-4978-a8b3-7b1d850b4ee3</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>Pool1-4rym8eh5</CodeName>
+      <GUID>bd6a286f-674f-4760-95a0-e79b7f98e636</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>f0604cd1-40a8-4803-9a73-af1c09d9a5e7</ContentItemDataGUID>
+  <GalleryImageAsset>
+    <![CDATA[{"Identifier":"1662c7be-5e62-4071-b2b5-8170fcc393ee","Name":"pool.jpg","Extension":".jpg","Size":1530048,"LastModified":"2025-01-03T22:33:32.8278918Z"}]]>
+  </GalleryImageAsset>
+  <GalleryImageCategory>
+    <![CDATA[[{"Identifier":"895535fc-bfa3-4afd-8ddb-bc9e4e438d1e"},{"Identifier":"a9446e6d-a3ea-40bf-8b76-959aa78780f7"}]]]>
+  </GalleryImageCategory>
+  <GalleryImageDescription>
+    <![CDATA[Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur facilisis gravida ullamcorper. Curabitur venenatis leo et massa feugiat semper. Proin sed diam gravida, mollis ante vel, rutrum velit. ]]>
+  </GalleryImageDescription>
+</contentitemdata.trainingguides.galleryimage>

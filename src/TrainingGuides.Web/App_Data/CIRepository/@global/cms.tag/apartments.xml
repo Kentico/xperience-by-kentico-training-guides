@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.tag>
+  <TagGUID>8fa14351-e230-4c85-b22d-325cb0e307d7</TagGUID>
+  <TagMetadata>
+    <![CDATA[{"Translations":{}}]]>
+  </TagMetadata>
+  <TagName>Apartments</TagName>
+  <TagOrder>3</TagOrder>
+  <TagTaxonomyID>
+    <CodeName>GalleryImageCategory</CodeName>
+    <GUID>60fd40db-8c70-40c6-a738-04a1ba7bca58</GUID>
+    <ObjectType>cms.taxonomy</ObjectType>
+  </TagTaxonomyID>
+  <TagTitle>Apartments</TagTitle>
+</cms.tag>

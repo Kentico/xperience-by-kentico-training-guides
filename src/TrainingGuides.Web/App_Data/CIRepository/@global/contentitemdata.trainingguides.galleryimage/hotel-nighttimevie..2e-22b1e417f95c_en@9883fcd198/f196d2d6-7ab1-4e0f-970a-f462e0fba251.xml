@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.galleryimage>
+  <ContentItemDataCommonDataID>
+    <GUID>c1fc8dd8-cc3a-42db-a42e-22b1e417f95c</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>Hotel-NighttimeView-400iypa3</CodeName>
+      <GUID>34038f6e-3973-49c5-9836-7e8223c9b963</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>f196d2d6-7ab1-4e0f-970a-f462e0fba251</ContentItemDataGUID>
+  <GalleryImageAsset>
+    <![CDATA[{"Identifier":"46cb3e79-8bb2-4b86-a55f-468930828bd3","Name":"night-view.jpg","Extension":".jpg","Size":3565280,"LastModified":"2025-01-05T05:06:17.1962643Z"}]]>
+  </GalleryImageAsset>
+  <GalleryImageCategory>
+    <![CDATA[[{"Identifier":"895535fc-bfa3-4afd-8ddb-bc9e4e438d1e"},{"Identifier":"a9446e6d-a3ea-40bf-8b76-959aa78780f7"}]]]>
+  </GalleryImageCategory>
+  <GalleryImageDescription>
+    <![CDATA[Nullam sed elit eget tortor scelerisque sagittis sed in ex. Aenean eleifend libero a neque imperdiet, at ultrices lacus rutrum.]]>
+  </GalleryImageDescription>
+</contentitemdata.trainingguides.galleryimage>

@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.galleryimage>
+  <ContentItemDataCommonDataID>
+    <GUID>6438e11c-9dcf-44c0-ab7b-c0bffcf865f9</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>PoolInTheSunset-p4tvrzp1</CodeName>
+      <GUID>9393ed34-ae89-43b6-8b6b-2a2fffb070af</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>1d685a18-6d2f-473c-9835-12cef193db18</ContentItemDataGUID>
+  <GalleryImageAsset>
+    <![CDATA[{"Identifier":"bc3e06b9-0f99-4d96-baff-a3331141a3f5","Name":"pool-sunset.jpg","Extension":".jpg","Size":2944422,"LastModified":"2025-01-04T15:05:31.2376376Z"}]]>
+  </GalleryImageAsset>
+  <GalleryImageCategory>
+    <![CDATA[[{"Identifier":"a9446e6d-a3ea-40bf-8b76-959aa78780f7"},{"Identifier":"895535fc-bfa3-4afd-8ddb-bc9e4e438d1e"}]]]>
+  </GalleryImageCategory>
+  <GalleryImageDescription>
+    <![CDATA[Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur facilisis gravida ullamcorper. Curabitur venenatis leo et massa feugiat semper.]]>
+  </GalleryImageDescription>
+</contentitemdata.trainingguides.galleryimage>
