@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.galleryimage>
+  <ContentItemDataCommonDataID>
+    <GUID>a515ba00-8ad9-4e83-aa5c-bb447b12813c</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>BedroomBasic-6cm7kl68</CodeName>
+      <GUID>015afe18-8dbc-4642-acd8-7590dec6d07d</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>ed3e2d3b-4809-4059-b04c-8ab20b48a41f</ContentItemDataGUID>
+  <GalleryImageAsset>
+    <![CDATA[{"Identifier":"3700b5a9-0d5a-445f-b5eb-51e2c2e13692","Name":"room-basic.jpg","Extension":".jpg","Size":1161874,"LastModified":"2025-01-03T21:28:27.5232854Z"}]]>
+  </GalleryImageAsset>
+  <GalleryImageCategory>
+    <![CDATA[[{"Identifier":"d60a0d2e-361e-45ab-a3fb-5929a3468025"}]]]>
+  </GalleryImageCategory>
+  <GalleryImageDescription>
+    <![CDATA[Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sit amet rutrum nunc. Aenean ac justo augue. Pellentesque pellentesque a libero non blandit.]]>
+  </GalleryImageDescription>
+</contentitemdata.trainingguides.galleryimage>

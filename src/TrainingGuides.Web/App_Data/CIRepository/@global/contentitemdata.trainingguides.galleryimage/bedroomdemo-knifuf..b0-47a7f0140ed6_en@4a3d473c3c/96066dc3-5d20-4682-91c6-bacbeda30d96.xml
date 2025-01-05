@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.galleryimage>
+  <ContentItemDataCommonDataID>
+    <GUID>c4791fe1-7681-41d8-91b0-47a7f0140ed6</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>BedroomDemo-knifufoa</CodeName>
+      <GUID>91542281-9824-4860-bd93-dfd7a2616085</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>96066dc3-5d20-4682-91c6-bacbeda30d96</ContentItemDataGUID>
+  <GalleryImageAsset>
+    <![CDATA[{"Identifier":"7cb7c70a-51f2-4782-bb5d-8c1fd0ca598b","Name":"room-in-use.jpg","Extension":".jpg","Size":5124875,"LastModified":"2025-01-03T21:25:34.4759801Z"}]]>
+  </GalleryImageAsset>
+  <GalleryImageCategory>
+    <![CDATA[[{"Identifier":"d60a0d2e-361e-45ab-a3fb-5929a3468025"}]]]>
+  </GalleryImageCategory>
+  <GalleryImageDescription>
+    <![CDATA[Donec facilisis enim est, nec convallis enim lobortis vitae. Duis dignissim tortor sed pellentesque pulvinar.]]>
+  </GalleryImageDescription>
+</contentitemdata.trainingguides.galleryimage>

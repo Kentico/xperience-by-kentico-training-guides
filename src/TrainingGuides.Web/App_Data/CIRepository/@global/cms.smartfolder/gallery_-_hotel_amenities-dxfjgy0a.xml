@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.smartfolder>
+  <SmartFolderCreatedByUserID>
+    <CodeName>administrator</CodeName>
+    <GUID>6415b8ce-8072-4bcd-8e48-9d7178b826b7</GUID>
+    <ObjectType>cms.user</ObjectType>
+  </SmartFolderCreatedByUserID>
+  <SmartFolderCreatedWhen>2025-01-05 06:02:28Z</SmartFolderCreatedWhen>
+  <SmartFolderDisplayName>Gallery - Hotel amenities</SmartFolderDisplayName>
+  <SmartFolderFilter>
+    <![CDATA[{"classGUID":["8a4c740c-e8d1-4452-af02-8db2b41e1930"],"tags":[{"tags":[{"identifier":"a9446e6d-a3ea-40bf-8b76-959aa78780f7"}]}],"lastPublishedAbsolute":null,"lastPublishedRelative":null,"selectedLastPublishedTimeFrame":"absolute"}]]>
+  </SmartFolderFilter>
+  <SmartFolderGUID>843b3725-9819-43fa-9fee-07bcc4e8caea</SmartFolderGUID>
+  <SmartFolderIsContentDeliveryEnabled>True</SmartFolderIsContentDeliveryEnabled>
+  <SmartFolderModifiedByUserID>
+    <CodeName>administrator</CodeName>
+    <GUID>6415b8ce-8072-4bcd-8e48-9d7178b826b7</GUID>
+    <ObjectType>cms.user</ObjectType>
+  </SmartFolderModifiedByUserID>
+  <SmartFolderName>Gallery_-_Hotel_amenities-dxfjgy0a</SmartFolderName>
+</cms.smartfolder>

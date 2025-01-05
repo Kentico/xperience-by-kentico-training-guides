@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contenttype>
+  <ClassContentTypeType>Reusable</ClassContentTypeType>
+  <ClassDisplayName>Gallery image</ClassDisplayName>
+  <ClassFormDefinition>
+    <form>
+      <field column="ContentItemDataID" columntype="integer" enabled="true" guid="8b34edc3-c852-4ff6-ba3b-1a0d1dba7882" isPK="true" />
+      <field column="ContentItemDataCommonDataID" columntype="integer" enabled="true" guid="d4f89ebe-a652-416f-a395-56a4460d0fd6" refobjtype="cms.contentitemcommondata" reftype="Required" system="true" />
+      <field column="ContentItemDataGUID" columntype="guid" enabled="true" guid="34ebb0c8-17dc-449d-92f2-e76bd451ba6f" isunique="true" system="true" />
+      <field allowempty="true" column="GalleryImageAsset" columnprecision="0" columntype="contentitemasset" enabled="true" guid="fd6e7391-b9e2-45c1-8283-bc151a05644b" visible="true">
+        <properties>
+          <explanationtext>The image to be displayed</explanationtext>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Asset</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <AllowedExtensions>_INHERITED_</AllowedExtensions>
+          <controlname>Kentico.Administration.ContentItemAssetUploader</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="GalleryImageDescription" columnprecision="0" columntype="longtext" enabled="true" guid="d3af5fe0-0f19-4bab-8a60-a1c30f16b9cc" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Description</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.TextArea</controlname>
+          <CopyButtonVisible>False</CopyButtonVisible>
+          <MaxRowsNumber>5</MaxRowsNumber>
+          <MinRowsNumber>3</MinRowsNumber>
+        </settings>
+      </field>
+      <field allowempty="true" column="GalleryImageCategory" columnprecision="0" columntype="taxonomy" enabled="true" guid="fc18792d-46fb-407b-b295-a7fa22a8f29e" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Category</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.TagSelector</controlname>
+          <TaxonomyGroup>
+            <![CDATA[["60fd40db-8c70-40c6-a738-04a1ba7bca58"]]]>
+          </TaxonomyGroup>
+        </settings>
+      </field>
+    </form>
+  </ClassFormDefinition>
+  <ClassGUID>8a4c740c-e8d1-4452-af02-8db2b41e1930</ClassGUID>
+  <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
+  <ClassIconClass>xp-picture</ClassIconClass>
+  <ClassName>TrainingGuides.GalleryImage</ClassName>
+  <ClassShortName>TrainingGuidesGalleryImage</ClassShortName>
+  <ClassTableName>TrainingGuides_GalleryImage</ClassTableName>
+  <ClassType>Content</ClassType>
+  <ClassWebPageHasUrl>False</ClassWebPageHasUrl>
+</cms.contenttype>

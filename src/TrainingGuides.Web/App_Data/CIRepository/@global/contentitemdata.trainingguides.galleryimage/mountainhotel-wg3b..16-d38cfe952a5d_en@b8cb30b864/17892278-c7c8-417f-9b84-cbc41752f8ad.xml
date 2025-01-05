@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.galleryimage>
+  <ContentItemDataCommonDataID>
+    <GUID>33a9b4eb-b57a-44a3-af16-d38cfe952a5d</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>MountainHotel-wg3bj2r0</CodeName>
+      <GUID>8a2c80b5-5894-4277-97eb-73c7a9f6707f</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>17892278-c7c8-417f-9b84-cbc41752f8ad</ContentItemDataGUID>
+  <GalleryImageAsset>
+    <![CDATA[{"Identifier":"b5b93bc5-6b01-488c-a9a3-b98fe9927732","Name":"mountain-hotel.jpg","Extension":".jpg","Size":1143608,"LastModified":"2025-01-05T05:05:01.7798153Z"}]]>
+  </GalleryImageAsset>
+  <GalleryImageCategory>
+    <![CDATA[[{"Identifier":"895535fc-bfa3-4afd-8ddb-bc9e4e438d1e"}]]]>
+  </GalleryImageCategory>
+  <GalleryImageDescription>
+    <![CDATA[Morbi convallis neque erat, quis porta tellus gravida sed. Vestibulum dictum fringilla enim, sit amet volutpat turpis interdum quis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.]]>
+  </GalleryImageDescription>
+</contentitemdata.trainingguides.galleryimage>

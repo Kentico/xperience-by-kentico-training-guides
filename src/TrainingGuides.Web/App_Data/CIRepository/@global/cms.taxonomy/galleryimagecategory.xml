@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.taxonomy>
+  <TaxonomyGUID>60fd40db-8c70-40c6-a738-04a1ba7bca58</TaxonomyGUID>
+  <TaxonomyMetadata>
+    <![CDATA[{"Translations":{}}]]>
+  </TaxonomyMetadata>
+  <TaxonomyName>GalleryImageCategory</TaxonomyName>
+  <TaxonomyTitle>Gallery image category</TaxonomyTitle>
+</cms.taxonomy>

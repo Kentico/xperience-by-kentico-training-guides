@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.galleryimage>
+  <ContentItemDataCommonDataID>
+    <GUID>3667417f-2862-4153-a5b1-b350bcad05b4</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>Hotel-Bird_sEyeView-7s80b13s</CodeName>
+      <GUID>b7b88e6b-e5c1-4ea5-8fba-5be224c7798c</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>3dbc1fac-8a99-48cf-87a3-b6e24068f455</ContentItemDataGUID>
+  <GalleryImageAsset>
+    <![CDATA[{"Identifier":"52f22a52-f436-42a4-95e8-4c336f7cd818","Name":"birds-eye.jpg","Extension":".jpg","Size":3538521,"LastModified":"2025-01-05T05:02:47.8777969Z"}]]>
+  </GalleryImageAsset>
+  <GalleryImageCategory>
+    <![CDATA[[{"Identifier":"895535fc-bfa3-4afd-8ddb-bc9e4e438d1e"}]]]>
+  </GalleryImageCategory>
+  <GalleryImageDescription>
+    <![CDATA[Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris porttitor facilisis mi ornare ornare. Suspendisse blandit vitae nibh tempus facilisis. ]]>
+  </GalleryImageDescription>
+</contentitemdata.trainingguides.galleryimage>

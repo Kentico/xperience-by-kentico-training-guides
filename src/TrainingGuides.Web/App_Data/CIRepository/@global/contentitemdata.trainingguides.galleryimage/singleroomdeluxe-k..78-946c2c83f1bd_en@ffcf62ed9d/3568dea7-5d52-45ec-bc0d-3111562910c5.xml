@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.galleryimage>
+  <ContentItemDataCommonDataID>
+    <GUID>4873f3dd-c5f8-482e-8778-946c2c83f1bd</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>SingleRoomDeluxe-kq27vs2o</CodeName>
+      <GUID>06223e5e-d32a-49a9-b072-19f94acfb12c</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>3568dea7-5d52-45ec-bc0d-3111562910c5</ContentItemDataGUID>
+  <GalleryImageAsset>
+    <![CDATA[{"Identifier":"70d3c477-9f20-4118-8a07-07b708fd1506","Name":"room-deluxe-2.jpg","Extension":".jpg","Size":2541342,"LastModified":"2025-01-03T21:23:43.9044348Z"}]]>
+  </GalleryImageAsset>
+  <GalleryImageCategory>
+    <![CDATA[[{"Identifier":"d60a0d2e-361e-45ab-a3fb-5929a3468025"}]]]>
+  </GalleryImageCategory>
+</contentitemdata.trainingguides.galleryimage>
