@@ -1,0 +1,57 @@
+@model TrainingGuides.Web.Features.Gallery.Widgets.GalleryWidget.GalleryWidgetViewModel?
+
+@if (Model == null || Model.IsMisconfigured)
+{
+    <tg-page-builder-content>
+        <div class="row justify-content-center">
+            <div class="col-xl-11">
+                <div class="row" data-gridify="3-columns">
+                    <h3>Gallery</h3>
+                    @if(Model?.Images?.Count == 0)
+                    {
+                        <tg-configure-widget-instructions message="No images found. Double-check your smart folder selection."/>
+                    }
+                    else
+                    {
+                        <tg-configure-widget-instructions/>
+                    }
+                </div>
+            </div>
+        </div>
+    </tg-page-builder-content>
+
+    return;
+}
+else
+{
+    <div class="row justify-content-center">
+        <div class="col-xl-11">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 c-blog-grid mt-3 mt-md-4">
+                @foreach (var image in Model.Images!)
+                {
+                    <div class="col mt-4">
+                        <div class="c-post-thumbnail default">
+                            <div class="c-card bg-1 u-border-01">
+                                image.GalleryImageDescription
+                                @* @if (image.GalleryImageAsset != null)
+                                {
+                                    <div class="c-card_img">
+                                        <img src="@Url.Content(image.TeaserImage.FilePath)" alt="@image.TeaserImage.AltText" class="img-fluid" />
+                                    </div>
+                                }
+                                <div class="c-card_body" data-heading-lines="3" data-total-lines="6">
+                                    <tg-date date="@image.CreatedOn"/>
+                                    <h2 class="h4 mb-0 j-truncate_heading">@image.Title</h2>
+                                    <p class="mb-0 j-truncate_paragraph">@image.Summary</p>
+                                </div>
+                                <div class="c-card_footer">
+                                    <span class="c-link primary-upper text-uppercase">@Model.CtaText</span>
+                                </div> *@
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+}
