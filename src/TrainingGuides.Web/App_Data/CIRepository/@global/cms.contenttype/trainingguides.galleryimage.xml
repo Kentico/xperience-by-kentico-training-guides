@@ -23,7 +23,7 @@
           <SelectionType>contentTypes</SelectionType>
         </settings>
       </field>
-      <field allowempty="true" column="GalleryImageDescription" columnprecision="0" columntype="longtext" enabled="true" guid="d3af5fe0-0f19-4bab-8a60-a1c30f16b9cc" visible="true">
+      <field allowempty="true" column="GalleryImageDescription" columnprecision="0" columnsize="200" columntype="text" enabled="true" guid="d3af5fe0-0f19-4bab-8a60-a1c30f16b9cc" visible="true">
         <properties>
           <explanationtextashtml>False</explanationtextashtml>
           <fieldcaption>Description</fieldcaption>

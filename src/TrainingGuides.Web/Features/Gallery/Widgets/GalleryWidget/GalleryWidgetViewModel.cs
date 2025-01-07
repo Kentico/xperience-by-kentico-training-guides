@@ -4,7 +4,8 @@ namespace TrainingGuides.Web.Features.Gallery.Widgets.GalleryWidget;
 
 public class GalleryWidgetViewModel : WidgetViewModel
 {
-    public List<GalleryImage> Images { get; set; } = [];
+    public string Title { get; set; } = string.Empty;
+    public List<GalleryImageViewModel> Images { get; set; } = [];
 
     public override bool IsMisconfigured => Images == null || Images.Count == 0;
 }

@@ -15,15 +15,20 @@ public class GalleryWidgetProperties : IWidgetProperties
         Order = 10)]
     public SmartFolderReference SmartFolder { get; set; } = new SmartFolderReference();
 
+    [TextInputComponent(
+        Label = "Title",
+        Order = 20)]
+    public string Title { get; set; } = "Gallery";
+
     [NumberInputComponent(
         Label = "Number of images to display per page",
-        Order = 20)]
+        Order = 30)]
     public int TopN { get; set; } = 10;
 
     [DropDownComponent(
         Label = "Order images by",
         DataProviderType = typeof(DropdownEnumOptionProvider<OrderByOption>),
-        Order = 30)]
+        Order = 40)]
     public string OrderBy { get; set; } = OrderByOption.NewestFirst.ToString();
 }
 

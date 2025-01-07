@@ -134,13 +134,16 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
         string contentTypeName,
         Guid smartFolderGuid,
         OrderByOption orderBy,
-        int topN = 20)
+        int topN = 20,
+        int depth = 1)
     {
         const string LAST_PUBLISHED_COLUMN_NAME = "ContentItemCommonDataLastPublishedWhen";
         var builder = new ContentItemQueryBuilder()
                             .ForContentTypes(parameters => parameters
                                 .InSmartFolder(smartFolderGuid)
                                 .OfContentType(contentTypeName)
+                                .WithLinkedItems(depth)
+                                .WithContentTypeFields()
                             )
                             .Parameters(parameters => parameters
                                 .OrderBy(new OrderByColumn(

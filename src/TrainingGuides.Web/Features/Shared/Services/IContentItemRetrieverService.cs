@@ -99,7 +99,8 @@ public interface IContentItemRetrieverService<T>
         string contentTypeName,
         Guid smartFolderGuid,
         OrderByOption orderBy,
-        int topN = 20);
+        int topN = 20,
+        int depth = 1);
 }
 
 public interface IContentItemRetrieverService

@@ -882,6 +882,13 @@
   font-weight: 700;
 }
 
+.gallery-img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  max-height: 147px;
+}
+
 .c-header {
   background: #fff;
   transition: 0.2s box-shadow;

@@ -4,6 +4,7 @@ using Kentico.PageBuilder.Web.Mvc;
 using TrainingGuides.Web.Features.Shared.OptionProviders.OrderBy;
 using TrainingGuides.Web.Features.Shared.Services;
 using TrainingGuides.Web.Features.Gallery.Widgets.GalleryWidget;
+using TrainingGuides.Web.Features.Shared.Models;
 
 [assembly:
     RegisterWidget(GalleryWidgetViewComponent.IDENTIFIER, typeof(GalleryWidgetViewComponent), "Gallery widget",
@@ -24,7 +25,11 @@ public class GalleryWidgetViewComponent : ViewComponent
 
     public async Task<ViewViewComponentResult> InvokeAsync(GalleryWidgetProperties properties)
     {
-        var model = new GalleryWidgetViewModel();
+        var model = new GalleryWidgetViewModel
+        {
+            Title = properties.Title
+        };
+
         var smartFolderGuid = properties.SmartFolder?.Identifier ?? Guid.Empty;
         var orderBy = properties.OrderBy.Equals(OrderByOption.OldestFirst.ToString())
             ? OrderByOption.OldestFirst
@@ -34,7 +39,7 @@ public class GalleryWidgetViewComponent : ViewComponent
         {
             var galleryImages = await RetrieveGalleryImages(smartFolderGuid, orderBy);
 
-            model.Images = galleryImages.ToList();
+            model.Images = galleryImages.Select(GetGalleryImageViewModel).ToList();
         }
 
         return View("~/Features/Gallery/Widgets/GalleryWidget/GalleryWidget.cshtml", model);
@@ -44,5 +49,14 @@ public class GalleryWidgetViewComponent : ViewComponent
         await galleryImageRetriever.RetrieveReusableContentItemsFromSmartFolder(
             GalleryImage.CONTENT_TYPE_NAME,
             smartFolderGuid,
-            orderBy);
+            orderBy,
+            5,
+            4);
+
+    private GalleryImageViewModel GetGalleryImageViewModel(GalleryImage galleryImage) => new()
+    {
+        Title = galleryImage.SystemFields.ContentItemName,
+        Description = galleryImage.GalleryImageDescription,
+        Image = AssetViewModel.GetViewModel(galleryImage.GalleryImageAsset.FirstOrDefault() ?? new Asset())
+    };
 }

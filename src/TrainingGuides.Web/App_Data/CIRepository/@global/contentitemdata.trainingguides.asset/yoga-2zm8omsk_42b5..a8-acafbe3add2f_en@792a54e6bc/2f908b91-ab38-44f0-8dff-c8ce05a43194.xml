@@ -1,8 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <contentitemdata.trainingguides.asset>
+  <AssetAltText>People practicing yoga at the beach</AssetAltText>
   <AssetFile>
     <![CDATA[{"Identifier":"2d6dbb62-0d9d-42d0-b83e-4ab5f8f7cf38","Name":"yoga.jpg","Extension":".jpg","Size":2944306,"LastModified":"2025-01-07T20:01:56.3274532Z"}]]>
   </AssetFile>
+  <AssetUseInternalOnly>False</AssetUseInternalOnly>
   <ContentItemDataCommonDataID>
     <GUID>42b5b065-08ca-4ad1-a5a8-acafbe3add2f</GUID>
     <ObjectType>cms.contentitemcommondata</ObjectType>
