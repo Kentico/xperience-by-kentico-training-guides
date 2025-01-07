@@ -261,6 +261,9 @@
   <data name="Please enter your user name or email address." xml:space="preserve">
     <value>Por favor, introduzca su nombre de usuario o dirección de correo electrónico.</value>
   </data>
+  <data name="Please enter a valid username." xml:space="preserve">
+    <value>Por favor ingrese un nombre de usuario válido.</value>
+  </data>
 
   <data name="Submit" xml:space="preserve">
     <value>Enviar</value>

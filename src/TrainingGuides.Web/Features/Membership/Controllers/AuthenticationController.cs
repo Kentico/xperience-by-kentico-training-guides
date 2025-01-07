@@ -83,7 +83,12 @@ public class AuthenticationController : Controller
     public async Task<IActionResult> SignOut(SignOutFormModel model)
     {
         await membershipService.SignOut();
-        return Redirect(model.RedirectUrl);
+
+        string redirectPath = EnsureRelativeReturnUrl(model.RedirectUrl);
+
+        string redirectUrl = httpRequestService.GetAbsoluteUrlForPath(redirectPath, false);
+
+        return Redirect(redirectUrl);
     }
 
     [HttpGet(ApplicationConstants.ACCESS_DENIED_ACTION_PATH)]

@@ -2,6 +2,7 @@ using CMS.ContactManagement;
 using CMS.Core;
 using CMS.Websites.Routing;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Localization;
 using TrainingGuides.Web.Features.Membership.Profile;
 using TrainingGuides.Web.Features.Shared.Helpers;
 using TrainingGuides.Web.Features.Shared.Services;
@@ -30,6 +31,7 @@ public class MembershipService : IMembershipService
     private readonly IWebPageUrlRetriever webPageUrlRetriever;
     private readonly IWebsiteChannelContext websiteChannelContext;
     private readonly IHttpRequestService httpRequestService;
+    private readonly IStringLocalizer<SharedResources> stringLocalizer;
 
 
     public MembershipService(
@@ -40,7 +42,8 @@ public class MembershipService : IMembershipService
         IMemberContactService memberContactService,
         IWebPageUrlRetriever webPageUrlRetriever,
         IWebsiteChannelContext websiteChannelContext,
-        IHttpRequestService httpRequestService)
+        IHttpRequestService httpRequestService,
+        IStringLocalizer<SharedResources> stringLocalizer)
     {
         this.userManager = userManager;
         this.signInManager = signInManager;
@@ -50,6 +53,7 @@ public class MembershipService : IMembershipService
         this.webPageUrlRetriever = webPageUrlRetriever;
         this.websiteChannelContext = websiteChannelContext;
         this.httpRequestService = httpRequestService;
+        this.stringLocalizer = stringLocalizer;
     }
 
     /// <inheritdoc />
@@ -72,8 +76,41 @@ public class MembershipService : IMembershipService
     }
 
     /// <inheritdoc />
-    public async Task<IdentityResult> CreateMember(GuidesMember guidesMember, string password) =>
-        await userManager.CreateAsync(guidesMember, password);
+    public async Task<IdentityResult> CreateMember(GuidesMember guidesMember, string password)
+    {
+        if (guidesMember is null)
+        {
+            return IdentityResult.Failed(new IdentityError
+            {
+                Code = "InvalidMember",
+                Description = stringLocalizer["Invalid data."]
+            });
+        }
+
+        // Uniqueness of username and email are checked automatically given correct configuration, but we need to make sure that one user's username cannot be set to another user's email.
+        if (await UsernameEmailCollision(guidesMember))
+        {
+            return IdentityResult.Failed(new IdentityError
+            {
+                Code = "EmailOrUsernameInUse",
+                Description = stringLocalizer["Email or username already in use."]
+            });
+        }
+
+        return await userManager.CreateAsync(guidesMember, password);
+    }
+
+    private async Task<bool> UsernameEmailCollision(GuidesMember guidesMember)
+    {
+        bool userNameIsExistingEmail = !string.IsNullOrWhiteSpace(guidesMember.UserName)
+            && guidesMember.UserName.Contains('@')
+            && (await FindMemberByEmail(guidesMember.UserName)) is not null;
+
+        bool emailIsExistingUserName = !string.IsNullOrWhiteSpace(guidesMember.Email)
+            && (await FindMemberByName(guidesMember.Email)) is not null;
+
+        return userNameIsExistingEmail || emailIsExistingUserName;
+    }
 
     private async Task<GuidesMember?> FindMemberByUserNameOrEmail(string userNameOrEmail) =>
         await userManager.FindByNameAsync(userNameOrEmail) ?? await userManager.FindByEmailAsync(userNameOrEmail);

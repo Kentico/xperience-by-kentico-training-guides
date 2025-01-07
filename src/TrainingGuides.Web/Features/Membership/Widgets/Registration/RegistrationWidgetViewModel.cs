@@ -113,7 +113,7 @@ public class RegistrationWidgetViewModel : GuidesMemberProfileViewModel, IWidget
 
     [DataType(DataType.Text)]
     [Required()]
-    [RegularExpression("^[a-zA-Z0-9_\\-\\.]+$")]
+    [RegularExpression("^[a-zA-Z0-9_\\-\\.]+$", ErrorMessage = "Please enter a valid username.")]
     [MaxLength(100)]
     public string UserName { get; set; } = string.Empty;
 

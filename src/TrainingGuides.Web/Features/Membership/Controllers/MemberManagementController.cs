@@ -114,12 +114,11 @@ public class MemberManagementController : Controller
                     Recipients = guidesMember.Email,
                     Subject = stringLocalizer["Password reset request"],
                     Body = $"{stringLocalizer["To reset your account's password, click"]} <a href=\"{resetUrl}\">{stringLocalizer["here"]}</a>.<br/><br/>"
-                        + $"<strong>{stringLocalizer["If you did not request a password reset, please ignore this email, and do not click the link."]}</strong><br/><br/>"
                         + $"{stringLocalizer["You can also copy-paste the following URL into your browser:"]}<br/><br/>"
-                        + resetUrl
+                        + $"{resetUrl}<br/><br/>"
+                        + $"<strong>{stringLocalizer["If you did not request a password reset, please ignore this email, and do not click the link or paste the URL."]}</strong><br/><br/>"
                 });
         }
-        // Don't return different results based on whether the email exists or not - this can be used to determine valid emails.
         return Content($"<span>{stringLocalizer["Success!"]}</span><br/><span>{stringLocalizer["If there is an account with this email address, we will send a link right away."]}</span>");
     }
 

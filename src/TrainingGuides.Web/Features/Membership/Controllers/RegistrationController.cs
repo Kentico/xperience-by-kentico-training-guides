@@ -180,6 +180,10 @@ public class RegistrationController : Controller
 
     private async Task SendVerificationEmail(GuidesMember member)
     {
+        if (member is null || string.IsNullOrWhiteSpace(member.Email))
+        {
+            return;
+        }
         string confirmToken = await membershipService.GenerateEmailConfirmationToken(member);
         string memberEmail = member.Email ?? string.Empty;
 
@@ -196,6 +200,11 @@ public class RegistrationController : Controller
             routeValues,
             Request.Scheme) ?? string.Empty;
 
+        if (string.IsNullOrWhiteSpace(confirmationURL))
+        {
+            return;
+        }
+
         await emailService.SendEmail(new EmailMessage()
         {
             From = $"no-reply@{systemEmailOptions.SendingDomain}",
@@ -210,6 +219,7 @@ public class RegistrationController : Controller
     }
 
     [HttpPost($"{{{ApplicationConstants.LANGUAGE_KEY}}}{ApplicationConstants.RESEND_VERIFICATION_EMAIL}")]
+    [ValidateAntiForgeryToken]
     public async Task<ActionResult> ResendVerificationEmail(EmailConfirmationViewModel model)
     {
         string userName = model.Username;
