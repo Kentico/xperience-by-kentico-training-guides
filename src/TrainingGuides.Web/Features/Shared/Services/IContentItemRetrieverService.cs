@@ -12,10 +12,6 @@ public interface IContentItemRetrieverService<T>
         string contentTypeName,
         int depth = 1);
 
-    public Task<IEnumerable<T>> RetrieveWebPageContentItems(string contentTypeName,
-        Func<ContentTypeQueryParameters, ContentTypeQueryParameters> queryFilter,
-        bool includeSecuredItems = true);
-
     public Task<IEnumerable<T>> RetrieveWebPageChildrenByPath(
         string parentPageContentTypeName,
         string path,

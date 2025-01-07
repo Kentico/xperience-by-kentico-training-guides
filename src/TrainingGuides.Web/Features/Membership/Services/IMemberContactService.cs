@@ -28,13 +28,6 @@ public interface IMemberContactService
     void UpdateContactIfChanged(ContactInfo contact);
 
     /// <summary>
-    /// Gets the oldest contact associated with the provided member whose email matches
-    /// </summary>
-    /// <param name="member">The GuidesMember to find an associated contact</param>
-    /// <returns>The oldest contact associated with the provided member whose email matches</returns>
-    ContactInfo? GetOldestMemberContactWithMatchingEmail(GuidesMember member);
-
-    /// <summary>
     /// Sets the CurrentContact to the oldest one with a matching email that is associated with the given member 
     /// </summary>
     /// <param name="member">The member to find an associated contact for</param>

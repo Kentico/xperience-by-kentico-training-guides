@@ -58,6 +58,7 @@ public class RegistrationController : Controller
             return PartialView("~/Features/Membership/Widgets/Registration/RegistrationForm.cshtml", model);
         }
 
+        // NOTE: This example does not include consent, but in a real-world scenario, you may need to get a member's consent before saving this data.
         var guidesMember = new GuidesMember
         {
             UserName = model.UserName,

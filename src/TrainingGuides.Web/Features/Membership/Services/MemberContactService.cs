@@ -74,8 +74,12 @@ public class MemberContactService : IMemberContactService
         }
     }
 
-    /// <inheritdoc />
-    public ContactInfo? GetOldestMemberContactWithMatchingEmail(GuidesMember member)
+    /// <summary>
+    /// Gets the oldest contact associated with the provided member whose email matches
+    /// </summary>
+    /// <param name="member">The GuidesMember to find an associated contact</param>
+    /// <returns>The oldest contact associated with the provided member whose email matches</returns>
+    private ContactInfo? GetOldestMemberContactWithMatchingEmail(GuidesMember member)
     {
         var contact = contactInfoProvider.Get()
             .WhereEquals(MEMBER_ID_FIELD_NAME, member.Id)
@@ -114,7 +118,7 @@ public class MemberContactService : IMemberContactService
     /// Ensures that the CurrentContact cookie can be created by setting the CMS cookie level to 200
     /// </summary>
     /// <remarks>
-    /// NOTE: In this project, the <see cref="DataProtection.ViewComponents.TrackingConsent.TrackingConsentViewComponent"/> will return the cookie level to 0 if the contact has not agreed to any consents, but this level is necessary for it to check and adjust cookie levels accordingly.
+    /// NOTE: In this project, the <see cref="DataProtection.ViewComponents.TrackingConsent.TrackingConsentViewComponent"/> will return the cookie level to 0 if the contact has not agreed to any consents. This level is necessary for to check for consent agreements and adjust cookie levels accordingly.
     /// </remarks>
     private void EnsureContactCookieLevel()
     {

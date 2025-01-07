@@ -67,7 +67,7 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
     /// <param name="contentTypeName">Content type name of the Web page.</param>
     /// <param name="queryFilter">A delegate used to configure query for given contentTypeName</param>
     /// <returns>An enumerable set of items</returns>
-    public async Task<IEnumerable<T>> RetrieveWebPageContentItems(
+    private async Task<IEnumerable<T>> RetrieveWebPageContentItems(
         string contentTypeName,
         Func<ContentTypeQueryParameters, ContentTypeQueryParameters> queryFilter,
         bool includeSecuredItems = true)
