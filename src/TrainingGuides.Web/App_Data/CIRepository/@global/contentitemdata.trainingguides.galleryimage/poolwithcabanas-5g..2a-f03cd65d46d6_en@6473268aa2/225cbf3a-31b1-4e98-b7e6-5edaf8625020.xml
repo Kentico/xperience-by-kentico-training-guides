@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.galleryimage>
+  <ContentItemDataCommonDataID>
+    <GUID>973a97cb-25ae-4290-a82a-f03cd65d46d6</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>PoolWithCabanas-5g67egq5</CodeName>
+      <GUID>5e0ffba8-4d71-4e30-9777-91b38bf559c8</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>225cbf3a-31b1-4e98-b7e6-5edaf8625020</ContentItemDataGUID>
+  <GalleryImageAsset>
+    <![CDATA[[{"Identifier":"090367e7-064a-4735-8e82-c5b773a4019f"}]]]>
+  </GalleryImageAsset>
+  <GalleryImageCategory>
+    <![CDATA[[{"Identifier":"895535fc-bfa3-4afd-8ddb-bc9e4e438d1e"},{"Identifier":"a9446e6d-a3ea-40bf-8b76-959aa78780f7"}]]]>
+  </GalleryImageCategory>
+  <GalleryImageDescription>
+    <![CDATA[Nullam id ultrices massa, in porta magna. Phasellus tortor sem, pulvinar a ante ac, mattis eleifend nunc]]>
+  </GalleryImageDescription>
+</contentitemdata.trainingguides.galleryimage>

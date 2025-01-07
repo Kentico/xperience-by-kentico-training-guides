@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.galleryimage>
+  <ContentItemDataCommonDataID>
+    <GUID>2fd1d62a-fcff-433c-ae2d-bc74ad24327e</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>QueenBedEconomy-d7sy8wan</CodeName>
+      <GUID>276151ef-c470-4d93-8fe7-54bb4d1ee44d</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>3d38ef83-3794-44aa-8f93-51b8fda1ee90</ContentItemDataGUID>
+  <GalleryImageAsset>
+    <![CDATA[[{"Identifier":"362a54a8-f09f-4972-8f53-242408c3a9bd"}]]]>
+  </GalleryImageAsset>
+  <GalleryImageCategory>
+    <![CDATA[[{"Identifier":"d60a0d2e-361e-45ab-a3fb-5929a3468025"}]]]>
+  </GalleryImageCategory>
+  <GalleryImageDescription>
+    <![CDATA[Suspendisse et felis id nibh tempor accumsan. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas]]>
+  </GalleryImageDescription>
+</contentitemdata.trainingguides.galleryimage>

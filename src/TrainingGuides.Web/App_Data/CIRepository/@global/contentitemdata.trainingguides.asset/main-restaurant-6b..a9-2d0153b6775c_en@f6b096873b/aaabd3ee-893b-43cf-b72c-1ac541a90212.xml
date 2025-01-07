@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.asset>
+  <AssetFile>
+    <![CDATA[{"Identifier":"b67ba9e5-2893-40c8-ba8c-cb180e99f116","Name":"main-restaurant.jpg","Extension":".jpg","Size":4713062,"LastModified":"2025-01-07T20:25:03.7675956Z"}]]>
+  </AssetFile>
+  <ContentItemDataCommonDataID>
+    <GUID>ced0ae51-ca5f-43d4-85a9-2d0153b6775c</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>Main-restaurant-6btl90xp</CodeName>
+      <GUID>b859d9fb-63fd-4c14-b5e8-fa96011beb5e</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>aaabd3ee-893b-43cf-b72c-1ac541a90212</ContentItemDataGUID>
+</contentitemdata.trainingguides.asset>

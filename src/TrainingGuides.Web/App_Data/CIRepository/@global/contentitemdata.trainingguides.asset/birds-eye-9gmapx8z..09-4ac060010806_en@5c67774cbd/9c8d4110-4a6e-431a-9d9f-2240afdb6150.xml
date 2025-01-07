@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.asset>
+  <AssetFile>
+    <![CDATA[{"Identifier":"a65c0a5f-a718-4c36-8944-fbd43eb47385","Name":"birds-eye.jpg","Extension":".jpg","Size":3538521,"LastModified":"2025-01-07T20:01:51.5263517Z"}]]>
+  </AssetFile>
+  <ContentItemDataCommonDataID>
+    <GUID>67b38cda-6d49-4d94-a509-4ac060010806</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>Birds-eye-9gmapx8z</CodeName>
+      <GUID>70a9e2f8-eef3-4b97-8328-a10210cef480</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>9c8d4110-4a6e-431a-9d9f-2240afdb6150</ContentItemDataGUID>
+</contentitemdata.trainingguides.asset>

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.asset>
+  <AssetFile>
+    <![CDATA[{"Identifier":"cc751022-d1be-40e7-8aac-24bd9e90925e","Name":"exterior.jpg","Extension":".jpg","Size":668135,"LastModified":"2025-01-07T20:25:07.3100446Z"}]]>
+  </AssetFile>
+  <ContentItemDataCommonDataID>
+    <GUID>4aab99bf-bfc7-4def-ac8f-68c7f8a64db2</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>Exterior-492sn2y1</CodeName>
+      <GUID>fc5a73f2-5e31-48e3-96ef-e602367e091b</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>98c5687f-973b-40a1-a071-2a9ab5fd4cb0</ContentItemDataGUID>
+</contentitemdata.trainingguides.asset>

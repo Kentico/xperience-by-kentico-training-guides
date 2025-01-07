@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.asset>
+  <AssetFile>
+    <![CDATA[{"Identifier":"ca7817d1-5fe6-449b-a5b5-0f7c5ae4fc28","Name":"room-in-use.jpg","Extension":".jpg","Size":5124875,"LastModified":"2025-01-07T20:41:50.5717251Z"}]]>
+  </AssetFile>
+  <ContentItemDataCommonDataID>
+    <GUID>58cbe5bf-ca37-4c07-9c45-2c9e898fe210</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>Room-in-use-gmgpai0h</CodeName>
+      <GUID>a6ae9d33-876e-4bf6-bc61-6f1b5579f15a</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>3b392ed5-e5d6-4eff-a746-8192168c2dea</ContentItemDataGUID>
+</contentitemdata.trainingguides.asset>

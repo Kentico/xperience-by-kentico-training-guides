@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.galleryimage>
+  <ContentItemDataCommonDataID>
+    <GUID>09431d7b-0799-407b-b775-f38dabc46ff7</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>MountainView-769jqeh9</CodeName>
+      <GUID>0ea6c6a8-5664-4074-a553-6a1a2cc33bfb</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>e07373a1-7597-4cd3-8602-f03eeee1227e</ContentItemDataGUID>
+  <GalleryImageAsset>
+    <![CDATA[[{"Identifier":"7ae6e052-4191-46b7-a324-e28683ae6470"}]]]>
+  </GalleryImageAsset>
+  <GalleryImageCategory>
+    <![CDATA[[{"Identifier":"895535fc-bfa3-4afd-8ddb-bc9e4e438d1e"}]]]>
+  </GalleryImageCategory>
+  <GalleryImageDescription>
+    <![CDATA[Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec rutrum, tellus id egestas mollis]]>
+  </GalleryImageDescription>
+</contentitemdata.trainingguides.galleryimage>

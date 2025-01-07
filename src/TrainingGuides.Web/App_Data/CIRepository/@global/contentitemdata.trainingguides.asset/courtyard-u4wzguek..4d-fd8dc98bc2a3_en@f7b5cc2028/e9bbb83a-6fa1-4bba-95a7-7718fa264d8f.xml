@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.asset>
+  <AssetFile>
+    <![CDATA[{"Identifier":"2c83423f-f291-46cb-bce1-9b84d6d52c42","Name":"courtyard.jpg","Extension":".jpg","Size":3865049,"LastModified":"2025-01-07T20:01:52.8939908Z"}]]>
+  </AssetFile>
+  <ContentItemDataCommonDataID>
+    <GUID>7b5d143e-5eb6-415f-b84d-fd8dc98bc2a3</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>Courtyard-u4wzguek</CodeName>
+      <GUID>8f27e64f-90e5-4b7f-a3f2-87a41f5dd4ce</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>e9bbb83a-6fa1-4bba-95a7-7718fa264d8f</ContentItemDataGUID>
+</contentitemdata.trainingguides.asset>

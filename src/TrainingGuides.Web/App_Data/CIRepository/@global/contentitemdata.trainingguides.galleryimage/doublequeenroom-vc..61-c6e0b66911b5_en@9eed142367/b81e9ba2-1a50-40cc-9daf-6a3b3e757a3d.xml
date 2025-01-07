@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.galleryimage>
+  <ContentItemDataCommonDataID>
+    <GUID>38ad2a1b-0ce5-4653-ae61-c6e0b66911b5</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>DoubleQueenRoom-vcwk7r0g</CodeName>
+      <GUID>3cd4a940-84de-4dad-9414-750db1f4b5c0</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>b81e9ba2-1a50-40cc-9daf-6a3b3e757a3d</ContentItemDataGUID>
+  <GalleryImageAsset>
+    <![CDATA[[{"Identifier":"6febf02a-e4cb-4bf7-8529-08b3cb1f8234"}]]]>
+  </GalleryImageAsset>
+  <GalleryImageCategory>
+    <![CDATA[[{"Identifier":"d60a0d2e-361e-45ab-a3fb-5929a3468025"}]]]>
+  </GalleryImageCategory>
+  <GalleryImageDescription>
+    <![CDATA[Praesent ullamcorper dignissim mattis. Sed feugiat augue eu pulvinar vestibulum.]]>
+  </GalleryImageDescription>
+</contentitemdata.trainingguides.galleryimage>

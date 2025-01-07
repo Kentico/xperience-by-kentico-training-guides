@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.galleryimage>
+  <ContentItemDataCommonDataID>
+    <GUID>eb879844-fdbb-4695-b0c1-29a56e5f1758</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>DoubleRoomCityView-lkd2hys3</CodeName>
+      <GUID>aa380c92-48f1-4a94-8e5a-9c1c17941371</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>850a7178-009c-47c2-a488-72379514e29a</ContentItemDataGUID>
+  <GalleryImageAsset>
+    <![CDATA[[{"Identifier":"6cc8486c-4fcb-4643-9aa5-8ab5116cad83"}]]]>
+  </GalleryImageAsset>
+  <GalleryImageCategory>
+    <![CDATA[[{"Identifier":"d60a0d2e-361e-45ab-a3fb-5929a3468025"}]]]>
+  </GalleryImageCategory>
+  <GalleryImageDescription>
+    <![CDATA[Praesent ullamcorper dignissim mattis. Sed feugiat augue eu pulvinar vestibulum.]]>
+  </GalleryImageDescription>
+</contentitemdata.trainingguides.galleryimage>

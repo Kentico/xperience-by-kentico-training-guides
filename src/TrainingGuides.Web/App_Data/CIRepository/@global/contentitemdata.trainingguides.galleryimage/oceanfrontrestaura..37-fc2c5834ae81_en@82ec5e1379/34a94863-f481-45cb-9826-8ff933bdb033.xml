@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.galleryimage>
+  <ContentItemDataCommonDataID>
+    <GUID>62137e3c-2a9e-421c-ad37-fc2c5834ae81</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>OceanfrontRestaurant-p38k56o2</CodeName>
+      <GUID>306d9526-593e-473c-a07f-1cb929557058</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>34a94863-f481-45cb-9826-8ff933bdb033</ContentItemDataGUID>
+  <GalleryImageAsset>
+    <![CDATA[[{"Identifier":"eeeb8ac4-8d5e-4a7b-bcd6-62515c7a7354"}]]]>
+  </GalleryImageAsset>
+  <GalleryImageCategory>
+    <![CDATA[[{"Identifier":"895535fc-bfa3-4afd-8ddb-bc9e4e438d1e"},{"Identifier":"a9446e6d-a3ea-40bf-8b76-959aa78780f7"}]]]>
+  </GalleryImageCategory>
+  <GalleryImageDescription>
+    <![CDATA[Oceanfront lorem ipsum dolor sit amet, consectetur adipiscing elit.]]>
+  </GalleryImageDescription>
+</contentitemdata.trainingguides.galleryimage>

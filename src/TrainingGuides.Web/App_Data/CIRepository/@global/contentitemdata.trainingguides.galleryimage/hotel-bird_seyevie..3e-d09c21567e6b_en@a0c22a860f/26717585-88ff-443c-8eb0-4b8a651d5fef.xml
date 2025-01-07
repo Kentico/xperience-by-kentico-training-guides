@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.galleryimage>
+  <ContentItemDataCommonDataID>
+    <GUID>2d44e12b-fdeb-47bb-803e-d09c21567e6b</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>Hotel-Bird_sEyeView-54krscwf</CodeName>
+      <GUID>2592d26c-c942-4a28-a691-538267f0fcc9</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>26717585-88ff-443c-8eb0-4b8a651d5fef</ContentItemDataGUID>
+  <GalleryImageAsset>
+    <![CDATA[[{"Identifier":"70a9e2f8-eef3-4b97-8328-a10210cef480"}]]]>
+  </GalleryImageAsset>
+  <GalleryImageCategory>
+    <![CDATA[[{"Identifier":"895535fc-bfa3-4afd-8ddb-bc9e4e438d1e"}]]]>
+  </GalleryImageCategory>
+  <GalleryImageDescription>
+    <![CDATA[Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec rutrum, tellus id egestas mollis, augue lectus blandit massa, sit amet dignissim eros mauris eu dui. ]]>
+  </GalleryImageDescription>
+</contentitemdata.trainingguides.galleryimage>

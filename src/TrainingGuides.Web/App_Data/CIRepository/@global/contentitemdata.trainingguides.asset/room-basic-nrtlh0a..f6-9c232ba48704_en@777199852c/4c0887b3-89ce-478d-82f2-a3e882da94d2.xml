@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.asset>
+  <AssetFile>
+    <![CDATA[{"Identifier":"0c368427-cf45-42d1-94a2-08239a63256b","Name":"room-basic.jpg","Extension":".jpg","Size":1161874,"LastModified":"2025-01-07T20:41:39.9478919Z"}]]>
+  </AssetFile>
+  <ContentItemDataCommonDataID>
+    <GUID>04a972ae-1361-4080-85f6-9c232ba48704</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>Room-basic-nrtlh0a9</CodeName>
+      <GUID>2ac63284-61e8-4b68-a090-19f5bc1c15d8</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>4c0887b3-89ce-478d-82f2-a3e882da94d2</ContentItemDataGUID>
+</contentitemdata.trainingguides.asset>
