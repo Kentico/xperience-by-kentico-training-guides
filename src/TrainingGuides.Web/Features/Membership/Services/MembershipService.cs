@@ -33,7 +33,6 @@ public class MembershipService : IMembershipService
     private readonly IHttpRequestService httpRequestService;
     private readonly IStringLocalizer<SharedResources> stringLocalizer;
 
-
     public MembershipService(
         UserManager<GuidesMember> userManager,
         SignInManager<GuidesMember> signInManager,
@@ -188,7 +187,6 @@ public class MembershipService : IMembershipService
     /// <inheritdoc />
     public async Task<string> GetRegisterUrl(string language, bool absoluteURL = false)
         => await GetPageUrl(ApplicationConstants.EXPECTED_REGISTER_PATH, language, absoluteURL);
-
 
     /// <inheritdoc />
     public async Task<IdentityResult> UpdateMemberProfile(GuidesMember guidesMember, UpdateProfileViewModel updateProfileViewModel)

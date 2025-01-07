@@ -5,8 +5,6 @@ using TrainingGuides.Web.Features.Membership.Widgets.Registration;
 using TrainingGuides.Web.Features.Shared.Helpers;
 using TrainingGuides.Web.Features.Shared.Services;
 
-
-
 [assembly: RegisterWidget(
     identifier: RegistrationWidgetViewComponent.IDENTIFIER,
     viewComponentType: typeof(RegistrationWidgetViewComponent),

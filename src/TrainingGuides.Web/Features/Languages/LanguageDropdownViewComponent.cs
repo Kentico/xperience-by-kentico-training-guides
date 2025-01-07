@@ -11,7 +11,6 @@ public class LanguageDropdownViewComponent : ViewComponent
     private readonly IPreferredLanguageRetriever preferredLanguageRetriever;
     private readonly IHttpRequestService httpRequestService;
 
-
     public LanguageDropdownViewComponent(
         IInfoProvider<ContentLanguageInfo> contentLanguageInfoProvider,
         IPreferredLanguageRetriever preferredLanguageRetriever,

@@ -69,5 +69,3 @@ public interface IHttpRequestService
     /// <param name="url">The URL to extract the relative path from.</param>
     string ExtractRelativePath(string url);
 }
-
-

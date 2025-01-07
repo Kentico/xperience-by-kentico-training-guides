@@ -5,7 +5,6 @@ using TrainingGuides.Web.Features.Shared.Services;
 
 namespace TrainingGuides.Web.Features.Activities.Widgets.PageLike;
 
-
 public class PageLikeController : Controller
 {
     private const string NO_TRACKING_MESSAGE = "<span>You have not consented to tracking, so we cannot save this page like.</span>";

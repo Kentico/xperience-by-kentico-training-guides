@@ -61,7 +61,6 @@ public class CookiesController : Controller
         return SuccessView(COOKIE_UPDATE_MESSAGE_SUCCESS);
     }
 
-
     [HttpPost("/cookies/cookiebannersubmit")]
     public async Task<IActionResult> CookieBanner(CookiePreferencesViewModel requestModel)
     {

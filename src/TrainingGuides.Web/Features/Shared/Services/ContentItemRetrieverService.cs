@@ -20,7 +20,6 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
         this.preferredLanguageRetriever = preferredLanguageRetriever;
     }
 
-
     /// <summary>
     /// Retrieves Web page content item by Id using ContentItemQueryBuilder
     /// </summary>
@@ -216,7 +215,6 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
         return pages;
     }
 }
-
 
 public class ContentItemRetrieverService : IContentItemRetrieverService
 {

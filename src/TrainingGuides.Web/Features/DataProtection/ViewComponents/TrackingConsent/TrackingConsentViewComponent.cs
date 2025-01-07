@@ -25,7 +25,6 @@ public class TrackingConsentViewComponent : ViewComponent
     private readonly IStringLocalizer<SharedResources> stringLocalizer;
     private readonly IHttpRequestService httpRequestService;
 
-
     public TrackingConsentViewComponent(
         IConsentAgreementService consentAgreementService,
         IInfoProvider<ConsentInfo> consentInfoProvider,
@@ -126,7 +125,6 @@ public class TrackingConsentViewComponent : ViewComponent
 
         return Content(string.Empty);
     }
-
 
     /// <summary>
     /// Makes sure that the cookie level of the current visitor matches the consents they are agreed to. This accounts for contacts who revoke consent in one browser then revisit the site in another.

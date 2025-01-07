@@ -32,7 +32,6 @@ public class CookiePreferencesWidgetViewComponent : ViewComponent
     private const string MARKETING_COOKIES_HEADER = "Marketing cookies";
     private readonly HtmlString consentMissingDescription = new("Please ensure that a valid consent is mapped to this cookie level in the Data protection application.");
 
-
     /// <summary>
     /// Widget identifier.
     /// </summary>

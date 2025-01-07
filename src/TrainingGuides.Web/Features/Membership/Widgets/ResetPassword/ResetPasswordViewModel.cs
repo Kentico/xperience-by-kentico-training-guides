@@ -55,5 +55,4 @@ public class ResetPasswordViewModel
     [Compare(nameof(Password))]
     public string ConfirmPassword { get; set; } = string.Empty;
 
-
 }

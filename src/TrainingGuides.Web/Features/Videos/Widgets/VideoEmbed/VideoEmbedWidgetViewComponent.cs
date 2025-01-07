@@ -30,7 +30,6 @@ public class VideoEmbedWidgetViewComponent : ViewComponent
         return View("~/Features/Videos/Widgets/VideoEmbed/VideoEmbedWidget.cshtml", new VideoEmbedWidgetViewModel { Markup = markup });
     }
 
-
     private string GetEmbedMarkup(VideoEmbedWidgetProperties widgetProperties)
     {
         if (widgetProperties != null && !string.IsNullOrEmpty(widgetProperties.Url))
@@ -46,7 +45,6 @@ public class VideoEmbedWidgetViewComponent : ViewComponent
         }
         return stringLocalizer["Please make sure the URL property is filled in."];
     }
-
 
     private string GetFileMarkup(VideoEmbedWidgetProperties widgetProperties)
     {
@@ -69,7 +67,6 @@ public class VideoEmbedWidgetViewComponent : ViewComponent
         }
         return stringLocalizer["Please make sure the URL property is filled in."];
     }
-
 
     private string GetVimeoMarkup(VideoEmbedWidgetProperties widgetProperties)
     {
@@ -94,7 +91,6 @@ public class VideoEmbedWidgetViewComponent : ViewComponent
         return stringLocalizer["Please make sure the URL property is filled in."];
     }
 
-
     private string GetDailyMotionMarkup(VideoEmbedWidgetProperties widgetProperties)
     {
         if (widgetProperties != null && !string.IsNullOrEmpty(widgetProperties.Url))
@@ -116,7 +112,6 @@ public class VideoEmbedWidgetViewComponent : ViewComponent
         return stringLocalizer["Please make sure the URL property is filled in."];
     }
 
-
     private string GetYoutubeMarkup(VideoEmbedWidgetProperties widgetProperties)
     {
         if (widgetProperties != null && !string.IsNullOrEmpty(widgetProperties.Url))
@@ -132,7 +127,6 @@ public class VideoEmbedWidgetViewComponent : ViewComponent
         return stringLocalizer["Please make sure the URL property is filled in."];
     }
 
-
     private string GetYoutubeId(string url)
     {
         if (!string.IsNullOrEmpty(url))
@@ -142,7 +136,6 @@ public class VideoEmbedWidgetViewComponent : ViewComponent
         }
         return string.Empty;
     }
-
 
     private string? GetIdFromQuery(string url, string paramName)
     {
@@ -161,7 +154,6 @@ public class VideoEmbedWidgetViewComponent : ViewComponent
         return string.Empty;
     }
 
-
     private string GetFinalPathComponent(string url)
     {
         if (!string.IsNullOrEmpty(url))
@@ -176,7 +168,6 @@ public class VideoEmbedWidgetViewComponent : ViewComponent
         }
         return string.Empty;
     }
-
 
     private string GetFileExtension(string url)
     {

@@ -28,7 +28,6 @@ public class HeroBannerWidgetViewComponent : ViewComponent
     private readonly IWebPageUrlRetriever webPageUrlRetriever;
     private readonly IPreferredLanguageRetriever preferredLanguageRetriever;
 
-
     public const string IDENTIFIER = "TrainingGuides.HeroBanner";
 
     public HeroBannerWidgetViewComponent(IWebPageDataContextRetriever webPageDataContextRetriever,

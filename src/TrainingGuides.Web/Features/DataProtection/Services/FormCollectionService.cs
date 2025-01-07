@@ -100,7 +100,6 @@ public class FormCollectionService : IFormCollectionService
         return result;
     }
 
-
     /// <summary>
     /// Gets an object query for all bizform items with any of the supplied emails in any of its email columns, or with any of the supplied consent agreements
     /// </summary>

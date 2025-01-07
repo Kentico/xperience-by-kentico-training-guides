@@ -22,8 +22,6 @@ public class GuidesMember : ApplicationUser
     public string FavoriteCoffee { get; set; } = string.Empty;
     public DateTime Created { get; set; }
 
-
-
     public override void MapToMemberInfo(MemberInfo target)
     {
         if (target is null)

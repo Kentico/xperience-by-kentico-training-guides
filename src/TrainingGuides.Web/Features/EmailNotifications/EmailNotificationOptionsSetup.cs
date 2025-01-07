@@ -26,7 +26,6 @@ public class EmailNotificationOptionsSetup : IConfigureOptions<EmailNotification
         var fromAddress = emailSettings.FirstOrDefault(s => s.GlobalSettingsKeyName == FROM_ADDRESS_SETTINGS_KEY);
         var toAddresses = emailSettings.FirstOrDefault(s => s.GlobalSettingsKeyName == TO_ADDRESSES_SETTINGS_KEY);
 
-
         options.SenderAddress = fromAddress?.GlobalSettingsKeyValue ?? string.Empty;
         options.RecipientAddresses = toAddresses?.GlobalSettingsKeyValue ?? string.Empty;
     }

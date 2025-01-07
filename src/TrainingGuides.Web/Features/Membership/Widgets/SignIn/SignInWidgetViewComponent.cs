@@ -44,8 +44,6 @@ public class SignInWidgetViewComponent : ViewComponent
         StaySignedInLabel = properties.StaySignedInLabel
     };
 
-
-
     private string GetActionUrl()
     {
         string? returnUrl = GetReturnUrlFromQueryString();

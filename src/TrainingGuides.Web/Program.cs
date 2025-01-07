@@ -80,7 +80,6 @@ builder.Services.Configure<CookieLevelOptions>(options =>
     options.CookieConfigurations.Add(CookieNames.COOKIE_AUTHENTICATION, CookieLevel.Essential);
 });
 
-
 builder.Services
     .AddIdentity<GuidesMember, NoOpApplicationRole>(options =>
     {

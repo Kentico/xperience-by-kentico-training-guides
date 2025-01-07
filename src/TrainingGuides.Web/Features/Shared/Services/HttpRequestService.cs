@@ -5,7 +5,6 @@ using TrainingGuides.Web.Features.Shared.Helpers;
 
 namespace TrainingGuides.Web.Features.Shared.Services;
 
-
 public class HttpRequestService : IHttpRequestService
 {
     private readonly IHttpContextAccessor httpContextAccessor;

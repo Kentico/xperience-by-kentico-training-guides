@@ -111,7 +111,6 @@ public class RegistrationController : Controller
         HomePageUrl = httpRequestService.GetBaseUrlWithLanguage(true)
     };
 
-
     [HttpGet($"{ApplicationConstants.CONFIRM_REGISTRATION_ACTION_PATH}/{{{ApplicationConstants.LANGUAGE_KEY}}}")]
     public async Task<ActionResult> Confirm(string memberEmail, string confirmToken)
     {
@@ -181,12 +180,13 @@ public class RegistrationController : Controller
 
     private async Task SendVerificationEmail(GuidesMember member)
     {
-        if (member is null || string.IsNullOrWhiteSpace(member.Email))
+        if (member is null || string.IsNullOrWhiteSpace(member.Email) || member.Enabled)
         {
             return;
         }
+
         string confirmToken = await membershipService.GenerateEmailConfirmationToken(member);
-        string memberEmail = member.Email ?? string.Empty;
+        string memberEmail = member.Email;
 
         var routeValues = new RouteValueDictionary
         {

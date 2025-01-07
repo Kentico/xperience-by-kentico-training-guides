@@ -12,8 +12,6 @@ public class UpdateProfileViewComponent : ViewComponent
     private readonly IHttpContextAccessor httpContextAccessor;
     private readonly IUpdateProfileService updateProfileService;
 
-
-
     public UpdateProfileViewComponent(IMembershipService membershipService,
         IHttpContextAccessor httpContextAccessor,
         IUpdateProfileService updateProfileService)

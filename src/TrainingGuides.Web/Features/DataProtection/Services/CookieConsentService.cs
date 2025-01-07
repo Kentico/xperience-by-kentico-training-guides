@@ -6,7 +6,6 @@ using Kentico.Web.Mvc;
 using TrainingGuides.DataProtectionCustomizations;
 using TrainingGuides.Web.Features.DataProtection.Shared;
 
-
 namespace TrainingGuides.Web.Features.DataProtection.Services;
 
 /// <summary>

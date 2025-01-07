@@ -29,7 +29,6 @@ public class IsInContactGroupConditionType : ConditionType
     MaximumItems = 0)]
     public IEnumerable<ObjectRelatedItem> SelectedContactGroups { get; set; } = Enumerable.Empty<ObjectRelatedItem>();
 
-
     /// <summary>
     /// Evaluate condition type.
     /// </summary>

@@ -43,6 +43,3 @@ public enum ProductFeatureValueType
     Number = 1,
     Boolean = 2
 }
-
-
-

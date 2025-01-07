@@ -25,7 +25,6 @@ public class ArticlePageService : IArticlePageService
         this.httpRequestService = httpRequestService;
     }
 
-
     ///  <inheritdoc/>
     public async Task<ArticlePageViewModel> GetArticlePageViewModel(ArticlePage? articlePage)
     {

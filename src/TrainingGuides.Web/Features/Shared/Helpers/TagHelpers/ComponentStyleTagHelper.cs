@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc.TagHelpers;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using TrainingGuides.Web.Features.Shared.Services;
 
-
 namespace TrainingGuides.Web.Features.Shared.Helpers.TagHelpers;
 
 [HtmlTargetElement("tg-component-style")]
