@@ -2,14 +2,6 @@
 
 @model UpdateProfileViewModel
 
-@{
-    string fullName = !string.IsNullOrEmpty(Model.FullName)
-        ? Model.FullName
-        : Model.FamilyNameFirst
-            ? $"{Model.FamilyName} {Model.GivenName}"
-            : $"{Model.GivenName} {Model.FamilyName}";
-}
-
 <div class="form-horizontal">
     <div asp-validation-summary="ModelOnly" class="text-danger field-validation-error"></div>
 
@@ -28,7 +20,7 @@
             <label asp-for="FullName" class="control-label form-label mt-3"></label>
         </div>
         <div class="ms-2">
-            <strong>@fullName</strong>
+            <strong>@Model.FullName</strong>
         </div>
     </div>
     <div class="form-group">

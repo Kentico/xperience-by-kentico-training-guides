@@ -48,20 +48,11 @@ public class SignInWidgetViewComponent : ViewComponent
 
     private string GetActionUrl()
     {
-        string baseUrl = httpRequestService.GetBaseUrlWithLanguage(true, true);
-        var actionUrl = new UriBuilder(baseUrl);
-
-        string newPath = httpRequestService.CombineUrlPaths(actionUrl.Path, ApplicationConstants.AUTHENTICATE_ACTION_PATH);
-        actionUrl.Path = newPath;
-
         string? returnUrl = GetReturnUrlFromQueryString();
 
-        if (!string.IsNullOrWhiteSpace(returnUrl))
-        {
-            actionUrl.Query = QueryString.Create(ApplicationConstants.RETURN_URL_PARAMETER, returnUrl).ToString();
-        }
+        QueryString? queryString = string.IsNullOrWhiteSpace(returnUrl) ? null : QueryString.Create(ApplicationConstants.RETURN_URL_PARAMETER, returnUrl);
 
-        return actionUrl.ToString();
+        return httpRequestService.GetAbsoluteUrlForPath(ApplicationConstants.AUTHENTICATE_ACTION_PATH, true, queryString);
     }
 
     private string? GetReturnUrlFromQueryString()

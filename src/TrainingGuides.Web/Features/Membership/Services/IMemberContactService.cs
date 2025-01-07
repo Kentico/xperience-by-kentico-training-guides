@@ -44,7 +44,7 @@ public interface IMemberContactService
     /// Merges the provided contact based on the provided email address
     /// </summary>
     /// <param name="contact">The contact to merge</param>
-    public void MergeContactByEmail(ContactInfo contact);
+    void MergeContactByEmail(ContactInfo contact);
 
     /// <summary>
     /// Removes contact related cookies 

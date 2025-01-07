@@ -24,11 +24,4 @@ public interface IArticlePageService
     /// <param name="articlePage">The article page.</param>
     /// <returns>True if the reusable item that the page references is secured.</returns>
     bool IsReusableArticleSecured(ArticlePage articlePage);
-
-    /// <summary>
-    /// Retrieves the language name of the article.
-    /// </summary>
-    /// <param name="articlePage">The article page</param>
-    /// <returns>Language name</returns>
-    string GetArticleLanguage(ArticlePage articlePage);
 }

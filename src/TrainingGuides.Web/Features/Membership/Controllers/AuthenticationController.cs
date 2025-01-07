@@ -12,8 +12,6 @@ using TrainingGuides.Web.Features.Shared.Services;
 
 namespace TrainingGuides.Web.Features.Membership.Controllers;
 
-
-
 public class AuthenticationController : Controller
 {
     private readonly IMembershipService membershipService;
@@ -68,12 +66,14 @@ public class AuthenticationController : Controller
 
         string returnPath = string.IsNullOrWhiteSpace(returnUrl)
             ? (model.DefaultRedirectPageGuid == Guid.Empty
-                ? "/" //TODO See if this works
+                ? "/"
                 : (await httpRequestService.GetPageRelativeUrl(model.DefaultRedirectPageGuid, preferredLanguageRetriever.Get())).TrimStart('~'))
-            : returnUrl;
+            : EnsureRelativeReturnUrl(returnUrl);
+
+        string absoluteReturnUrl = httpRequestService.GetAbsoluteUrlForPath(returnPath, false);
 
         return signInResult.Succeeded
-            ? RenderSuccess(returnPath)
+            ? RenderSuccess(absoluteReturnUrl)
             : RenderError(model);
     }
 
@@ -114,4 +114,9 @@ public class AuthenticationController : Controller
         // Since this controller action has no language in its path, this will return the channel default.
         return preferredLanguageRetriever.Get();
     }
+
+    private string EnsureRelativeReturnUrl(string returnUrl) =>
+        returnUrl.StartsWith('/') || returnUrl.StartsWith("~/")
+            ? returnUrl
+            : httpRequestService.ExtractRelativePath(returnUrl);
 }

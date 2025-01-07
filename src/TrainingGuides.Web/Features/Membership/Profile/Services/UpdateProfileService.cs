@@ -1,5 +1,6 @@
 using Kentico.Content.Web.Mvc.Routing;
 using Microsoft.Extensions.Localization;
+using TrainingGuides.Web.Features.Shared.Helpers;
 using TrainingGuides.Web.Features.Shared.Services;
 
 namespace TrainingGuides.Web.Features.Membership.Profile;
@@ -31,8 +32,9 @@ public class UpdateProfileService : IUpdateProfileService
             EmailAddress = guidesMember?.Email ?? string.Empty,
             FullName = guidesMember?.FullName ?? string.Empty,
             Created = guidesMember?.Created ?? DateTime.MinValue,
-            BaseUrl = httpRequestService.GetBaseUrl(),
+            ActionUrl = httpRequestService.GetAbsoluteUrlForPath(ApplicationConstants.UPDATE_PROFILE_ACTION_PATH, true),
             Language = preferredLanguageRetriever.Get(),
             SubmitButtonText = stringLocalizer["Submit"],
+            Title = stringLocalizer["Update profile"]
         };
 }

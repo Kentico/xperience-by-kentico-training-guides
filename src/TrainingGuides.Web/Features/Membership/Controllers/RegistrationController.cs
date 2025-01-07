@@ -144,9 +144,9 @@ public class RegistrationController : Controller
                 //Changes Enabled property of the user
                 confirmResult = await membershipService.ConfirmEmail(member, confirmToken);
             }
-            catch (InvalidOperationException)
+            catch
             {
-                confirmResult = IdentityResult.Failed(new IdentityError() { Description = stringLocalizer["User not found."] });
+                confirmResult = IdentityResult.Failed(new IdentityError() { Description = stringLocalizer["Email Confirmation failed"] });
             }
 
             if (confirmResult.Succeeded)
@@ -166,7 +166,7 @@ public class RegistrationController : Controller
         }
         else
         {
-            userName = "johnDoe";
+            userName = membershipService.DummyMember.UserName!;
         }
 
         return ReturnEmailConfirmationView(new EmailConfirmationViewModel()

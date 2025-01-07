@@ -22,7 +22,6 @@ public class MemberManagementController : Controller
     private readonly SystemEmailOptions systemEmailOptions;
 
     private const string INVALID_PASSWORD_RESET_REQUEST = "Your password reset request is expired or invalid.";
-    private const string LINK_STYLES = "btn tg-btn-secondary text-uppercase my-4";
     private const string UPDATE_PROFILE_FORM_VIEW_PATH = "~/Features/Membership/Profile/ViewComponents/UpdateProfileForm.cshtml";
     private const string RESET_PASSWORD_FORM_VIEW_PATH = "~/Features/Membership/Widgets/ResetPassword/ResetPasswordForm.cshtml";
 
@@ -98,7 +97,7 @@ public class MemberManagementController : Controller
 
         var guidesMember = await membershipService.FindMemberByEmail(model.EmailAddress);
 
-        if (guidesMember != null)
+        if (guidesMember != null && guidesMember.Enabled)
         {
             string token = await membershipService.GeneratePasswordResetToken(guidesMember);
 
@@ -106,7 +105,7 @@ public class MemberManagementController : Controller
 
             string encodedEmail = HttpUtility.UrlEncode(guidesMember.Email) ?? string.Empty;
 
-            string resetUrl = $"{model.BaseUrlWithLanguage}{ApplicationConstants.PASSWORD_RESET_ACTION_PATH}/{encodedEmail}/{encodedToken}";
+            string resetUrl = httpRequestService.GetAbsoluteUrlForPath(httpRequestService.CombineUrlPaths(ApplicationConstants.PASSWORD_RESET_ACTION_PATH, encodedEmail, encodedToken), true);
 
             await emailService
                 .SendEmail(new EmailMessage()
@@ -203,13 +202,13 @@ public class MemberManagementController : Controller
 
         var guidesMember = await membershipService.FindMemberByEmail(decodedEmail);
 
-        if (guidesMember != null)
+        if (guidesMember != null && guidesMember.Enabled)
         {
             var result = await membershipService.ResetPassword(guidesMember, decodedToken, model.Password);
 
             if (result.Succeeded)
             {
-                return Content(await GetResetPasswordSuccessContent());
+                return PartialView("~/Features/Membership/Widgets/ResetPassword/ResetPasswordSuccess", await GetResetPasswordSuccessViewModel());
             }
             else
             {
@@ -228,28 +227,18 @@ public class MemberManagementController : Controller
         return PartialView(RESET_PASSWORD_FORM_VIEW_PATH, model);
     }
 
-    private async Task<string> GetResetPasswordSuccessContent()
+    private async Task<ResetPasswordSuccessViewModel> GetResetPasswordSuccessViewModel()
     {
         string language = preferredLanguageRetriever.Get();
-        string signInUrl = await membershipService.GetSignInUrl(language, true);
-        string baseUrl = httpRequestService.GetBaseUrlWithLanguage(true);
 
-        string success = stringLocalizer["Success!"];
-        string signInLinkText = stringLocalizer["Sign in"];
-        string homeLinkText = stringLocalizer["Return to the home page"];
-
-        return $"<div><span>{success}</span></div>"
-            + $"<div class=\"p-2\"><a href=\"{signInUrl}\" class=\"{LINK_STYLES}\">{signInLinkText}</a></div>"
-            + $"<div class=\"p-2\"><a href=\"{baseUrl}\" class=\"{LINK_STYLES}\">{homeLinkText}</a></div>";
-    }
-
-    public string GetUpdateProfileSuccessContent()
-    {
-        string success = stringLocalizer["Profile updated successfully."];
-        string refreshLinkText = stringLocalizer["Refresh"];
-
-        return $"<div><span><strong>{success}</span></strong></div>"
-            + $"<div class=\"p-2\"><a href=\"\" class=\"{LINK_STYLES}\">{refreshLinkText}</a></div>";
+        return new ResetPasswordSuccessViewModel
+        {
+            SignInUrl = await membershipService.GetSignInUrl(language, true),
+            BaseUrl = httpRequestService.GetBaseUrlWithLanguage(true),
+            SuccessText = stringLocalizer["Success!"],
+            SignInLinkText = stringLocalizer["Sign in"],
+            HomeLinkText = stringLocalizer["Return to the home page"]
+        };
     }
 
     private UpdateProfileViewModel GetNewUpdateProfileViewModel(UpdateProfileViewModel model, GuidesMember guidesMember, string successMessage) =>

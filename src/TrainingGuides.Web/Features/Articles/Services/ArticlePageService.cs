@@ -1,5 +1,4 @@
 using CMS.ContentEngine;
-using CMS.DataEngine;
 using Kentico.Content.Web.Mvc.Routing;
 using Microsoft.AspNetCore.Html;
 using Microsoft.Extensions.Localization;
@@ -13,18 +12,15 @@ public class ArticlePageService : IArticlePageService
 {
     private readonly IWebPageUrlRetriever webPageUrlRetriever;
     private readonly IStringLocalizer<SharedResources> stringLocalizer;
-    private readonly IInfoProvider<ContentLanguageInfo> contentLanguageInfoProvider;
     private readonly IPreferredLanguageRetriever preferredLanguageRetriever;
     private readonly IHttpRequestService httpRequestService;
     public ArticlePageService(IWebPageUrlRetriever webPageUrlRetriever,
         IStringLocalizer<SharedResources> stringLocalizer,
-        IInfoProvider<ContentLanguageInfo> contentLanguageInfoProvider,
         IPreferredLanguageRetriever preferredLanguageRetriever,
         IHttpRequestService httpRequestService)
     {
         this.webPageUrlRetriever = webPageUrlRetriever;
         this.stringLocalizer = stringLocalizer;
-        this.contentLanguageInfoProvider = contentLanguageInfoProvider;
         this.preferredLanguageRetriever = preferredLanguageRetriever;
         this.httpRequestService = httpRequestService;
     }
@@ -38,7 +34,7 @@ public class ArticlePageService : IArticlePageService
             return new ArticlePageViewModel();
         }
 
-        string language = GetArticleLanguage(articlePage);
+        string language = preferredLanguageRetriever.Get();
 
         string articleUrl = (await webPageUrlRetriever.Retrieve(articlePage, language)).RelativePath;
         var articleSchema = articlePage.ArticlePageArticleContent.FirstOrDefault();
@@ -127,13 +123,5 @@ public class ArticlePageService : IArticlePageService
 
         return (oldArticle?.SystemFields.ContentItemIsSecured ?? false)
             || (newArticle?.SystemFields.ContentItemIsSecured ?? false);
-    }
-
-    /// <inheritdoc/>
-    public string GetArticleLanguage(ArticlePage article)
-    {
-        int languageId = article.SystemFields.ContentItemCommonDataContentLanguageID;
-        string itemLanguage = contentLanguageInfoProvider.Get(languageId).ContentLanguageName;
-        return string.IsNullOrEmpty(itemLanguage) ? preferredLanguageRetriever.Get() : itemLanguage;
     }
 }

@@ -8,6 +8,7 @@ using TrainingGuides.Web.Features.Articles.Services;
 using CMS.ContentEngine;
 using Microsoft.IdentityModel.Tokens;
 using TrainingGuides.Web.Features.Membership.Services;
+using Kentico.Content.Web.Mvc.Routing;
 
 [assembly:
     RegisterWidget(ArticleListWidgetViewComponent.IDENTIFIER, typeof(ArticleListWidgetViewComponent), "Article list widget",
@@ -23,17 +24,20 @@ public class ArticleListWidgetViewComponent : ViewComponent
     private readonly IContentItemRetrieverService<ArticlePage> articlePageRetrieverService;
     private readonly IArticlePageService articlePageService;
     private readonly IMembershipService membershipService;
+    private readonly IPreferredLanguageRetriever preferredLanguageRetriever;
 
     public ArticleListWidgetViewComponent(
         IContentItemRetrieverService genericPageRetrieverService,
         IContentItemRetrieverService<ArticlePage> articlePageRetrieverService,
         IArticlePageService articlePageService,
-        IMembershipService membershipService)
+        IMembershipService membershipService,
+        IPreferredLanguageRetriever preferredLanguageRetriever)
     {
         this.genericPageRetrieverService = genericPageRetrieverService;
         this.articlePageRetrieverService = articlePageRetrieverService;
         this.articlePageService = articlePageService;
         this.membershipService = membershipService;
+        this.preferredLanguageRetriever = preferredLanguageRetriever;
     }
 
     public async Task<ViewViewComponentResult> InvokeAsync(ArticleListWidgetProperties properties)
@@ -133,7 +137,7 @@ public class ArticleListWidgetViewComponent : ViewComponent
             {
                 if (articlePage != null)
                 {
-                    string language = articlePageService.GetArticleLanguage(articlePage);
+                    string language = preferredLanguageRetriever.Get();
                     string signInUrl = await membershipService.GetSignInUrl(language);
 
                     var model = securedItemsDisplayMode.Equals(SecuredOption.PromptForLogin.ToString())

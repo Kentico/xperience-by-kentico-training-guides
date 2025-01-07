@@ -4,16 +4,16 @@
 @model UpdateProfileViewModel
 
 @{
-    string formDivId = $"updateProfileForm";
+    string formDivId = $"updateProfileForm{Guid.NewGuid()}";
 }
 <h3>@Model.Title</h3>
 
-@using (Html.AjaxBeginForm("UpdateProfile", "MemberManagement", new AjaxOptions
+@using (Html.AjaxBeginForm(new AjaxOptions
 {
     HttpMethod = "POST",
     InsertionMode = InsertionMode.Replace,
     UpdateTargetId = formDivId
-}, new { action = $"{Model.BaseUrl}/{Model.Language}{ApplicationConstants.UPDATE_PROFILE_ACTION_PATH}" }))
+}, new { action = Model.ActionUrl }))
 {
     <div id="@formDivId" class="px-2">
         <partial name="~/Features/Membership/Profile/ViewComponents/UpdateProfileForm.cshtml" model="Model" />

@@ -47,11 +47,27 @@ public interface IHttpRequestService
     string GetQueryStringValue(string parameter);
 
     /// <summary>
-    /// Combines two URL paths
+    /// Retrieves a full URL for the specified relative path
     /// </summary>
-    /// <param name="path1">First path</param>
-    /// <param name="path2">Second path</param>
+    /// <param name="path">the relative path.</param>
+    /// <param name="alwaysIncludeLanguage">Determines whether to always include the language in the URL, even if it is the default language.</param>
+    /// <param name="queryString">Query string to add to the URL.</param>
+    /// <returns></returns>
+    string GetAbsoluteUrlForPath(string path, bool alwaysIncludeLanguage, QueryString? queryString = null);
+
+    /// <summary>
+    /// Combines URL paths
+    /// </summary>
+    /// <param name="paths">String paths to combine.</param>
     /// <returns>Combined paths</returns>
     /// <remarks>Works with or without leading and trailing slashes</remarks>
-    string CombineUrlPaths(string path1, string path2);
+    string CombineUrlPaths(params string[] paths);
+
+    /// <summary>
+    /// Extracts the relative path from the specified URL.
+    /// </summary>
+    /// <param name="url">The URL to extract the relative path from.</param>
+    string ExtractRelativePath(string url);
 }
+
+

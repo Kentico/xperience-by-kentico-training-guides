@@ -55,15 +55,6 @@ public class RegistrationWidgetViewComponent : ViewComponent
         return View("~/Features/Membership/Widgets/Registration/RegistrationWidget.cshtml", registerModel);
     }
 
-    private string GetActionUrl()
-    {
-        string baseUrl = httpRequestService.GetBaseUrlWithLanguage(true, true);
-        var actionUrl = new UriBuilder(baseUrl);
-
-        string newPath = httpRequestService.CombineUrlPaths(actionUrl.Path, ApplicationConstants.REGISTER_ACTION_PATH);
-        actionUrl.Path = newPath;
-
-        return actionUrl.ToString();
-    }
+    private string GetActionUrl() => httpRequestService.GetAbsoluteUrlForPath(ApplicationConstants.REGISTER_ACTION_PATH, true);
 
 }

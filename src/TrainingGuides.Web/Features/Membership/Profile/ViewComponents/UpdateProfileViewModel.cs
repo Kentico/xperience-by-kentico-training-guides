@@ -5,8 +5,18 @@ namespace TrainingGuides.Web.Features.Membership.Profile;
 
 public class UpdateProfileViewModel : GuidesMemberProfileViewModel
 {
+    private string fullName = string.Empty;
+
     [DisplayName("Full name")]
-    public string FullName { get; set; } = string.Empty;
+    public string FullName
+    {
+        get => !string.IsNullOrWhiteSpace(fullName)
+            ? fullName
+            : FamilyNameFirst
+                ? $"{FamilyName} {GivenName}"
+                : $"{GivenName} {FamilyName}";
+        set => fullName = value ?? string.Empty;
+    }
 
     [DisplayName("Email address")]
     public string EmailAddress { get; set; } = string.Empty;
@@ -22,7 +32,7 @@ public class UpdateProfileViewModel : GuidesMemberProfileViewModel
 
     public string Title { get; set; } = string.Empty;
 
-    public string BaseUrl { get; set; } = string.Empty;
+    public string ActionUrl { get; set; } = string.Empty;
 
     public string Language { get; set; } = string.Empty;
 

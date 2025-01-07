@@ -129,18 +129,83 @@ public class HttpRequestService : IHttpRequestService
     public string GetQueryStringValue(string parameter) => httpContextAccessor.HttpContext?.Request.Query[parameter].ToString() ?? string.Empty;
 
     /// <inheritdoc/>
-    public string CombineUrlPaths(string path1, string path2)
+    public string GetAbsoluteUrlForPath(string path, bool alwaysIncludeLanguage, QueryString? queryString = null)
     {
-        if (string.IsNullOrWhiteSpace(path1))
+        string trimmedPath = path.TrimStart('~');
+
+        string baseUrl = StartsWithLanguage(trimmedPath)
+            ? GetBaseUrl()
+            : GetBaseUrlWithLanguage(true, alwaysIncludeLanguage);
+        var fullUrl = new UriBuilder(baseUrl);
+
+        string newPath = CombineUrlPaths(fullUrl.Path, trimmedPath);
+        fullUrl.Path = newPath;
+
+        if (queryString is not null)
         {
-            return path2;
+            fullUrl.Query = queryString.ToString();
         }
 
-        if (string.IsNullOrWhiteSpace(path2))
+        return fullUrl.ToString();
+    }
+
+    private bool StartsWithLanguage(string relativePath)
+    {
+        var languageCodes = contentLanguageInfoProvider.Get()
+            .Column(nameof(ContentLanguageInfo.ContentLanguageName))
+            .GetListResult<string>();
+
+        string firstPathSegment = relativePath.TrimStart('/').Split('/')[0];
+
+        return languageCodes.Any(code => code.Equals(firstPathSegment, StringComparison.OrdinalIgnoreCase));
+    }
+    // /// <summary>
+    // /// Combines two URL paths
+    // /// </summary>
+    // /// <param name="path1">First path</param>
+    // /// <param name="path2">Second path</param>
+    // /// <returns>Combined paths</returns>
+    // /// <remarks>Works with or without leading and trailing slashes</remarks>
+    // private string CombineUrlPaths(string path1, string path2)
+    // {
+    //     if (string.IsNullOrWhiteSpace(path1))
+    //     {
+    //         return path2;
+    //     }
+
+    //     if (string.IsNullOrWhiteSpace(path2))
+    //     {
+    //         return path1;
+    //     }
+
+    //     return $"{path1.TrimEnd('/')}/{path2.TrimStart('/')}";
+    // }
+
+    /// <inheritdoc/>
+    public string CombineUrlPaths(params string[] paths)
+    {
+        if (paths.Count() == 0)
         {
-            return path1;
+            return string.Empty;
         }
 
-        return $"{path1.TrimEnd('/')}/{path2.TrimStart('/')}";
+        var fixedPaths = paths.Select(p => p.Trim('/'));
+
+        return string.Join("/", fixedPaths.Where(p => !string.IsNullOrWhiteSpace(p)));
+    }
+
+    /// <inheritdoc/>
+    public string ExtractRelativePath(string url)
+    {
+        if (string.IsNullOrWhiteSpace(url))
+        {
+            return string.Empty;
+        }
+
+        var uri = new Uri(url, UriKind.RelativeOrAbsolute);
+
+        return uri.IsAbsoluteUri
+            ? uri.PathAndQuery
+            : uri.OriginalString;
     }
 }

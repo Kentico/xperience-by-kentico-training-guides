@@ -2,6 +2,7 @@ using Kentico.Content.Web.Mvc.Routing;
 using Kentico.PageBuilder.Web.Mvc;
 using Microsoft.AspNetCore.Mvc;
 using TrainingGuides.Web.Features.Membership.Widgets.ResetPassword;
+using TrainingGuides.Web.Features.Shared.Helpers;
 using TrainingGuides.Web.Features.Shared.Services;
 
 [assembly: RegisterWidget(
@@ -36,9 +37,11 @@ public class ResetPasswordWidgetViewComponent : ViewComponent
     public ResetPasswordWidgetViewModel BuildWidgetViewModel(ResetPasswordWidgetProperties properties) =>
         new()
         {
-            BaseUrlWithLanguage = $"{httpRequestService.GetBaseUrl()}/{preferredLanguageRetriever.Get()}",
+            ActionUrl = GetActionUrl(),
             SubmitButtonText = properties.SubmitButtonText,
             EmailAddressLabel = properties.EmailAddressLabel
         };
+
+    private string GetActionUrl() => httpRequestService.GetAbsoluteUrlForPath(ApplicationConstants.REQUEST_RESET_PASSWORD_ACTION_PATH, true);
 
 }

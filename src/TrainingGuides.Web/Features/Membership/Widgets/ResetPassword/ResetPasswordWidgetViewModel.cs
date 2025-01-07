@@ -7,15 +7,14 @@ namespace TrainingGuides.Web.Features.Membership.Widgets.ResetPassword;
 public class ResetPasswordWidgetViewModel : IWidgetViewModel
 {
     public bool IsMisconfigured =>
-        string.IsNullOrWhiteSpace(BaseUrlWithLanguage)
+        string.IsNullOrWhiteSpace(ActionUrl)
         || string.IsNullOrWhiteSpace(SubmitButtonText)
         || string.IsNullOrWhiteSpace(EmailAddressLabel);
 
     /// <summary>
-    /// The Base URL of the site, with language
+    /// The Url of the controller action that the form should post to.
     /// </summary>
-    [HiddenInput]
-    public string BaseUrlWithLanguage { get; set; } = string.Empty;
+    public string ActionUrl { get; set; } = string.Empty;
 
     /// <summary>
     /// Submit button text
@@ -29,9 +28,12 @@ public class ResetPasswordWidgetViewModel : IWidgetViewModel
     [HiddenInput]
     public string EmailAddressLabel { get; set; } = string.Empty;
 
+    /// <summary>
+    /// Email address.
+    /// </summary>
     [DataType(DataType.EmailAddress)]
     [Required()]
     [EmailAddress()]
-    [MaxLength(100)]
+    [MaxLength(254)]
     public string EmailAddress { get; set; } = string.Empty;
 }

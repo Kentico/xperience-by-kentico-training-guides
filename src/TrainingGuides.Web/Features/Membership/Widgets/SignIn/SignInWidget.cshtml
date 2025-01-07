@@ -21,7 +21,7 @@
     // Using a new guid ensures no conflict if, for some reason, multiple widgets are on the same page.
     var formDivId = $"signInForm{Guid.NewGuid()}";
 
-    @using (Html.AjaxBeginForm("Authenticate", "Authentication", new AjaxOptions
+    @using (Html.AjaxBeginForm(new AjaxOptions
     {
         HttpMethod = "POST",
         InsertionMode = InsertionMode.Replace,
