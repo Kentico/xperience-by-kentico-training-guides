@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.asset>
+  <AssetFile>
+    <![CDATA[{"Identifier":"082d628b-0129-492f-b7a0-d4b83b4514ef","Name":"popradske-pleso.jpg","Extension":".jpg","Size":3927796,"LastModified":"2025-01-07T20:01:55.9032256Z"}]]>
+  </AssetFile>
+  <ContentItemDataCommonDataID>
+    <GUID>b0bda45f-f930-4770-a3ef-09f68544e1d9</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>Popradske-pleso-a27dn9z6</CodeName>
+      <GUID>c263e391-c170-432c-a274-7df21dc1bb08</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>7e50061d-017e-44d5-b570-a20710fd385a</ContentItemDataGUID>
+</contentitemdata.trainingguides.asset>

@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.galleryimage>
+  <ContentItemDataCommonDataID>
+    <GUID>f4fd8f47-7218-47ce-9688-c582762b9b71</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>SunsetAtThePool-2i60ydjh</CodeName>
+      <GUID>c178528f-09b5-4f3d-96fe-3eaaf007f050</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>f5e53649-efd0-40aa-b91c-59c88e70ed0c</ContentItemDataGUID>
+  <GalleryImageAsset>
+    <![CDATA[[{"Identifier":"b7d052f0-0ac7-4f6b-bb74-1e6a454c85e3"}]]]>
+  </GalleryImageAsset>
+  <GalleryImageCategory>
+    <![CDATA[[{"Identifier":"895535fc-bfa3-4afd-8ddb-bc9e4e438d1e"},{"Identifier":"a9446e6d-a3ea-40bf-8b76-959aa78780f7"}]]]>
+  </GalleryImageCategory>
+  <GalleryImageDescription>
+    <![CDATA[Donec rutrum, tellus id egestas mollis, augue lectus blandit massa, sit amet dignissim eros mauris eu dui. ]]>
+  </GalleryImageDescription>
+</contentitemdata.trainingguides.galleryimage>

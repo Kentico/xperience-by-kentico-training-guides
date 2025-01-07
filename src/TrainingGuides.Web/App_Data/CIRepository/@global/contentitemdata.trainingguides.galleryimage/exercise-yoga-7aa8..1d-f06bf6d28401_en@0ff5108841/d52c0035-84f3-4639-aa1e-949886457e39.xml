@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.galleryimage>
+  <ContentItemDataCommonDataID>
+    <GUID>48238279-c907-4bfa-881d-f06bf6d28401</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>Exercise-Yoga-7aa8klj9</CodeName>
+      <GUID>ad98888e-55f7-4239-88d0-212eb0a954d6</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>d52c0035-84f3-4639-aa1e-949886457e39</ContentItemDataGUID>
+  <GalleryImageAsset>
+    <![CDATA[[{"Identifier":"3271b81a-c535-461f-b5b0-00106fdb0708"}]]]>
+  </GalleryImageAsset>
+  <GalleryImageCategory>
+    <![CDATA[[{"Identifier":"a9446e6d-a3ea-40bf-8b76-959aa78780f7"}]]]>
+  </GalleryImageCategory>
+  <GalleryImageDescription>
+    <![CDATA[Lorem ipsum dolor sit amet, consectetur adipiscing elit.]]>
+  </GalleryImageDescription>
+</contentitemdata.trainingguides.galleryimage>

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.asset>
+  <AssetFile>
+    <![CDATA[{"Identifier":"2d6dbb62-0d9d-42d0-b83e-4ab5f8f7cf38","Name":"yoga.jpg","Extension":".jpg","Size":2944306,"LastModified":"2025-01-07T20:01:56.3274532Z"}]]>
+  </AssetFile>
+  <ContentItemDataCommonDataID>
+    <GUID>42b5b065-08ca-4ad1-a5a8-acafbe3add2f</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>Yoga-2zm8omsk</CodeName>
+      <GUID>3271b81a-c535-461f-b5b0-00106fdb0708</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>2f908b91-ab38-44f0-8dff-c8ce05a43194</ContentItemDataGUID>
+</contentitemdata.trainingguides.asset>

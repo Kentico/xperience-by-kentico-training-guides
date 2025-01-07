@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.asset>
+  <AssetFile>
+    <![CDATA[{"Identifier":"aa720f06-cc26-4fe6-b721-932f632b5d9b","Name":"bar.jpg","Extension":".jpg","Size":3262750,"LastModified":"2025-01-07T20:25:02.5273364Z"}]]>
+  </AssetFile>
+  <ContentItemDataCommonDataID>
+    <GUID>96b5773f-cf97-40dd-8b09-b7351839588e</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>Bar-ewjfc0jh</CodeName>
+      <GUID>fe26ebe3-9e1f-4284-bb32-c7a73e3c399d</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>914ac7ef-0727-4e98-848f-3e364995fcda</ContentItemDataGUID>
+</contentitemdata.trainingguides.asset>

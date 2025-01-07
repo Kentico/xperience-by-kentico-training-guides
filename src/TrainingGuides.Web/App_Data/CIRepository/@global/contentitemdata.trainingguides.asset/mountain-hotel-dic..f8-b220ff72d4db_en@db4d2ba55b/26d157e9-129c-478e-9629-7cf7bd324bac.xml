@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.asset>
+  <AssetFile>
+    <![CDATA[{"Identifier":"b93a222c-99c7-4b8e-91e8-d694c28b4b47","Name":"mountain-hotel.jpg","Extension":".jpg","Size":1143608,"LastModified":"2025-01-07T20:01:53.6110193Z"}]]>
+  </AssetFile>
+  <ContentItemDataCommonDataID>
+    <GUID>c5b78f3d-4cfa-4305-abf8-b220ff72d4db</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>Mountain-hotel-dic7v07s</CodeName>
+      <GUID>9f3d5064-5696-483a-bdd0-92da3304fac9</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>26d157e9-129c-478e-9629-7cf7bd324bac</ContentItemDataGUID>
+</contentitemdata.trainingguides.asset>

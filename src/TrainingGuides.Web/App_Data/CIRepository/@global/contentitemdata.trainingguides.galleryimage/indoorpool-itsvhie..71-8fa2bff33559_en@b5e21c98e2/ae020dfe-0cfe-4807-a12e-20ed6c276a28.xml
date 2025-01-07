@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.galleryimage>
+  <ContentItemDataCommonDataID>
+    <GUID>82b307f9-785f-4ce9-9871-8fa2bff33559</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>IndoorPool-itsvhiei</CodeName>
+      <GUID>0a3a0d7b-b301-495e-8251-e2f439819d70</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>ae020dfe-0cfe-4807-a12e-20ed6c276a28</ContentItemDataGUID>
+  <GalleryImageAsset>
+    <![CDATA[[{"Identifier":"b4cfe9f3-3c6c-447e-938d-b89e21d10857"}]]]>
+  </GalleryImageAsset>
+  <GalleryImageCategory>
+    <![CDATA[[{"Identifier":"a9446e6d-a3ea-40bf-8b76-959aa78780f7"}]]]>
+  </GalleryImageCategory>
+  <GalleryImageDescription>
+    <![CDATA[Praesent ullamcorper dignissim mattis. Sed feugiat augue eu pulvinar vestibulum. ]]>
+  </GalleryImageDescription>
+</contentitemdata.trainingguides.galleryimage>

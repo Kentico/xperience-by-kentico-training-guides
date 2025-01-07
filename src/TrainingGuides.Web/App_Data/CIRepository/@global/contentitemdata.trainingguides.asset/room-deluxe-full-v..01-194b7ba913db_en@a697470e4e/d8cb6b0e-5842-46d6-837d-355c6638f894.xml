@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.asset>
+  <AssetFile>
+    <![CDATA[{"Identifier":"01c967de-0676-40d8-ab73-d20ee951b91e","Name":"room-deluxe-full.jpg","Extension":".jpg","Size":1917169,"LastModified":"2025-01-07T20:41:43.9654291Z"}]]>
+  </AssetFile>
+  <ContentItemDataCommonDataID>
+    <GUID>34be43ca-0d10-4080-9401-194b7ba913db</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>Room-deluxe-full-vtb06ju6</CodeName>
+      <GUID>6cc8486c-4fcb-4643-9aa5-8ab5116cad83</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>d8cb6b0e-5842-46d6-837d-355c6638f894</ContentItemDataGUID>
+</contentitemdata.trainingguides.asset>

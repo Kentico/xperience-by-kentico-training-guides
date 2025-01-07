@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.asset>
+  <AssetFile>
+    <![CDATA[{"Identifier":"18bcd578-ff4f-48fc-893d-b938b91e53a9","Name":"room-economy.jpg","Extension":".jpg","Size":1253963,"LastModified":"2025-01-07T20:41:45.5021822Z"}]]>
+  </AssetFile>
+  <ContentItemDataCommonDataID>
+    <GUID>fe419c8c-7da0-4433-acef-ab8b2fc47d85</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>Room-economy-c79617ch</CodeName>
+      <GUID>362a54a8-f09f-4972-8f53-242408c3a9bd</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>00039533-1dc9-435e-86c2-ca0ae65ab965</ContentItemDataGUID>
+</contentitemdata.trainingguides.asset>

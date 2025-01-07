@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.galleryimage>
+  <ContentItemDataCommonDataID>
+    <GUID>db81d2f1-0982-45ca-9861-b6ad84a123a5</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>Brunch-pd15myq5</CodeName>
+      <GUID>8b897d34-4e99-4830-901c-1854435f4328</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>a852f020-97c3-4680-a053-70af6d68b2ae</ContentItemDataGUID>
+  <GalleryImageAsset>
+    <![CDATA[[{"Identifier":"674c0115-3bd6-4f34-b234-24764da9079d"}]]]>
+  </GalleryImageAsset>
+  <GalleryImageCategory>
+    <![CDATA[[{"Identifier":"a9446e6d-a3ea-40bf-8b76-959aa78780f7"}]]]>
+  </GalleryImageCategory>
+  <GalleryImageDescription>
+    <![CDATA[Lorem ipsum dolor sit amet, consectetur adipiscing elit.]]>
+  </GalleryImageDescription>
+</contentitemdata.trainingguides.galleryimage>

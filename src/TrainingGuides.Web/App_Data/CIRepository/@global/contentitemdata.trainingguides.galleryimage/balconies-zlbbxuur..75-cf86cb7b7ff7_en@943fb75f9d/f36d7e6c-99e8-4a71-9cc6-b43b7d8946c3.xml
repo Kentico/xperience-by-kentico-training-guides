@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.galleryimage>
+  <ContentItemDataCommonDataID>
+    <GUID>b5a87992-ff51-44cb-a975-cf86cb7b7ff7</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>Balconies-zlbbxuur</CodeName>
+      <GUID>c9949a25-350f-4d97-877f-cee87e00fbc0</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>f36d7e6c-99e8-4a71-9cc6-b43b7d8946c3</ContentItemDataGUID>
+  <GalleryImageAsset>
+    <![CDATA[[{"Identifier":"fc5a73f2-5e31-48e3-96ef-e602367e091b"}]]]>
+  </GalleryImageAsset>
+  <GalleryImageCategory>
+    <![CDATA[[{"Identifier":"895535fc-bfa3-4afd-8ddb-bc9e4e438d1e"}]]]>
+  </GalleryImageCategory>
+  <GalleryImageDescription>
+    <![CDATA[Nullam condimentum ornare fringilla. Pellentesque tincidunt metus ex, vel faucibus enim rhoncus non. Mauris non luctus arcu.]]>
+  </GalleryImageDescription>
+</contentitemdata.trainingguides.galleryimage>

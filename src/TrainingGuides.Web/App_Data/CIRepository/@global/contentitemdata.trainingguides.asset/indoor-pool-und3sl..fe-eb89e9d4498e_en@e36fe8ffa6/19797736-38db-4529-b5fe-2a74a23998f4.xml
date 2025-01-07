@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.asset>
+  <AssetFile>
+    <![CDATA[{"Identifier":"3830f9d1-658c-49b6-87dd-894486bc29f4","Name":"indoor-pool.jpg","Extension":".jpg","Size":2236914,"LastModified":"2025-01-07T20:25:05.1699101Z"}]]>
+  </AssetFile>
+  <ContentItemDataCommonDataID>
+    <GUID>74d7dc48-915a-4b0c-97fe-eb89e9d4498e</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>Indoor-pool-und3slv4</CodeName>
+      <GUID>b4cfe9f3-3c6c-447e-938d-b89e21d10857</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>19797736-38db-4529-b5fe-2a74a23998f4</ContentItemDataGUID>
+</contentitemdata.trainingguides.asset>

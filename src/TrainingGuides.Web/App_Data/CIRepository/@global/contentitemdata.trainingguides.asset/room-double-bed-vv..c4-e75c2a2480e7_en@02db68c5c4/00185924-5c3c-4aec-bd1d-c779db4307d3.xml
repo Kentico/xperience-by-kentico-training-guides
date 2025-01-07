@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.asset>
+  <AssetFile>
+    <![CDATA[{"Identifier":"537914f7-fed7-4ca5-bd36-61f0d17c732e","Name":"room-double-bed.jpg","Extension":".jpg","Size":11390163,"LastModified":"2025-01-07T20:41:45.0092134Z"}]]>
+  </AssetFile>
+  <ContentItemDataCommonDataID>
+    <GUID>d85792aa-07d0-4bc6-adc4-e75c2a2480e7</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>Room-double-bed-vvyp0yvg</CodeName>
+      <GUID>6febf02a-e4cb-4bf7-8529-08b3cb1f8234</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>00185924-5c3c-4aec-bd1d-c779db4307d3</ContentItemDataGUID>
+</contentitemdata.trainingguides.asset>

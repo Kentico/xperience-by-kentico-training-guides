@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.galleryimage>
+  <ContentItemDataCommonDataID>
+    <GUID>3771bf35-213d-4336-b1cf-11187a3f4380</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>SingleRoomDeluxe-2ilh6592</CodeName>
+      <GUID>f49fab31-7423-40e2-9533-93096841d2da</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>fb49dd30-518b-4395-9e91-a7051d7413d2</ContentItemDataGUID>
+  <GalleryImageAsset>
+    <![CDATA[[{"Identifier":"54816c83-f16f-4acd-8ff6-b984c2540384"}]]]>
+  </GalleryImageAsset>
+  <GalleryImageCategory>
+    <![CDATA[[{"Identifier":"d60a0d2e-361e-45ab-a3fb-5929a3468025"}]]]>
+  </GalleryImageCategory>
+  <GalleryImageDescription>
+    <![CDATA[Lorem ipsum dolor sit amet, consectetur adipiscing elit. ]]>
+  </GalleryImageDescription>
+</contentitemdata.trainingguides.galleryimage>
