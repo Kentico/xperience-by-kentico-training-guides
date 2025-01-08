@@ -3,12 +3,12 @@ using CMS.EmailEngine;
 using Kentico.Content.Web.Mvc.Routing;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Localization;
-using TrainingGuides.Web.Features.Membership.Services;
+using Microsoft.Extensions.Options;
 using TrainingGuides.Web.Features.Membership.Profile;
+using TrainingGuides.Web.Features.Membership.Services;
 using TrainingGuides.Web.Features.Membership.Widgets.ResetPassword;
 using TrainingGuides.Web.Features.Shared.Helpers;
 using TrainingGuides.Web.Features.Shared.Services;
-using Microsoft.Extensions.Options;
 
 namespace TrainingGuides.Web.Features.Membership.Controllers;
 

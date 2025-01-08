@@ -1,9 +1,9 @@
 using Kentico.PageBuilder.Web.Mvc;
 using Kentico.Xperience.Admin.Base.FormAnnotations;
 using TrainingGuides.Web.Features.Shared.OptionProviders;
+using TrainingGuides.Web.Features.Shared.OptionProviders.ColorScheme;
 using TrainingGuides.Web.Features.Shared.OptionProviders.ColumnLayout;
 using TrainingGuides.Web.Features.Shared.OptionProviders.CornerStyle;
-using TrainingGuides.Web.Features.Shared.OptionProviders.ColorScheme;
 
 namespace TrainingGuides.Web.Features.Shared.Sections.General;
 public class GeneralSectionProperties : ISectionProperties

@@ -1,8 +1,8 @@
-using Microsoft.AspNetCore.Mvc;
-using TrainingGuides.Web.Features.Membership.Services;
 using Kentico.Content.Web.Mvc;
 using Kentico.PageBuilder.Web.Mvc;
 using Kentico.Web.Mvc;
+using Microsoft.AspNetCore.Mvc;
+using TrainingGuides.Web.Features.Membership.Services;
 
 namespace TrainingGuides.Web.Features.Membership.Profile;
 

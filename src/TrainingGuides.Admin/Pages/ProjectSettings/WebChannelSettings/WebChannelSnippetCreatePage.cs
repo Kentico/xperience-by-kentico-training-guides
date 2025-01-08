@@ -1,7 +1,7 @@
 using Kentico.Xperience.Admin.Base;
-using TrainingGuides.ProjectSettings;
-using TrainingGuides.Admin.ProjectSettings.WebChannelSettings;
 using Kentico.Xperience.Admin.Base.Forms;
+using TrainingGuides.Admin.ProjectSettings.WebChannelSettings;
+using TrainingGuides.ProjectSettings;
 
 [assembly: UIPage(
     parentType: typeof(WebChannelSnippetListingPage),

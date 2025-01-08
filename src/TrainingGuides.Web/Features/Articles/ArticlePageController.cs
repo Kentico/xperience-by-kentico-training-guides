@@ -1,11 +1,11 @@
-﻿﻿using Microsoft.AspNetCore.Mvc;
-using Kentico.Content.Web.Mvc;
+﻿using Kentico.Content.Web.Mvc;
 using Kentico.Content.Web.Mvc.Routing;
 using Kentico.PageBuilder.Web.Mvc.PageTemplates;
+using Microsoft.AspNetCore.Mvc;
 using TrainingGuides;
-using TrainingGuides.Web.Features.Shared.Services;
 using TrainingGuides.Web.Features.Articles.Services;
 using TrainingGuides.Web.Features.Membership.Services;
+using TrainingGuides.Web.Features.Shared.Services;
 
 [assembly: RegisterWebPageRoute(
     contentTypeName: ArticlePage.CONTENT_TYPE_NAME,

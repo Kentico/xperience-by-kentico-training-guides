@@ -1,14 +1,14 @@
+using CMS.ContentEngine;
+using CMS.DataEngine;
+using Kentico.Content.Web.Mvc.Routing;
+using Kentico.PageBuilder.Web.Mvc;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ViewComponents;
-using CMS.DataEngine;
-using Kentico.PageBuilder.Web.Mvc;
-using TrainingGuides.Web.Features.Articles.Widgets.ArticleList;
-using TrainingGuides.Web.Features.Shared.Services;
-using TrainingGuides.Web.Features.Articles.Services;
-using CMS.ContentEngine;
 using Microsoft.IdentityModel.Tokens;
+using TrainingGuides.Web.Features.Articles.Services;
+using TrainingGuides.Web.Features.Articles.Widgets.ArticleList;
 using TrainingGuides.Web.Features.Membership.Services;
-using Kentico.Content.Web.Mvc.Routing;
+using TrainingGuides.Web.Features.Shared.Services;
 
 [assembly:
     RegisterWidget(ArticleListWidgetViewComponent.IDENTIFIER, typeof(ArticleListWidgetViewComponent), "Article list widget",

@@ -1,6 +1,6 @@
-﻿using TrainingGuides.Web.Features.Html.Services;
-using Microsoft.AspNetCore.Html;
+﻿using Microsoft.AspNetCore.Html;
 using Microsoft.AspNetCore.Mvc;
+using TrainingGuides.Web.Features.Html.Services;
 
 namespace TrainingGuides.Web.Features.Html.ViewComponents;
 

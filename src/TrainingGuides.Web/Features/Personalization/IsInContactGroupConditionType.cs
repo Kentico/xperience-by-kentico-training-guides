@@ -1,11 +1,9 @@
 using CMS.ContactManagement;
 using CMS.DataEngine;
-
-using TrainingGuides.Web.Features.Personalization;
-
 using Kentico.PageBuilder.Web.Mvc.Personalization;
 using Kentico.Xperience.Admin.Base.FormAnnotations;
 using Kentico.Xperience.Admin.Base.Forms;
+using TrainingGuides.Web.Features.Personalization;
 
 [assembly: RegisterPersonalizationConditionType(
     "TrainingGuides.Web.Features.Personalization",

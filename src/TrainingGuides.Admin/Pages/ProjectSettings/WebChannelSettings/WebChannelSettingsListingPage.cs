@@ -1,10 +1,10 @@
-using Kentico.Xperience.Admin.Base;
-using TrainingGuides.ProjectSettings;
-using TrainingGuides.Admin.ProjectSettings.WebChannelSettings;
-using TrainingGuides.Admin.ProjectSettings;
-using CMS.DataEngine;
 using CMS.ContentEngine;
+using CMS.DataEngine;
+using Kentico.Xperience.Admin.Base;
 using Microsoft.Extensions.Localization;
+using TrainingGuides.Admin.ProjectSettings;
+using TrainingGuides.Admin.ProjectSettings.WebChannelSettings;
+using TrainingGuides.ProjectSettings;
 
 [assembly: UIPage(
     parentType: typeof(ProjectSettingsApplication),

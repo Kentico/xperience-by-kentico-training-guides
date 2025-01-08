@@ -1,20 +1,17 @@
+using CMS.Core;
+using CMS.EmailEngine;
+using Kentico.Content.Web.Mvc;
+using Kentico.Content.Web.Mvc.Routing;
+using Kentico.PageBuilder.Web.Mvc;
+using Kentico.Web.Mvc;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Localization;
 using Microsoft.Extensions.Options;
-
-using CMS.Core;
-using CMS.EmailEngine;
-
-using Kentico.Content.Web.Mvc;
-using Kentico.PageBuilder.Web.Mvc;
-using Kentico.Web.Mvc;
-
 using TrainingGuides.Web.Features.Membership.Services;
 using TrainingGuides.Web.Features.Membership.Widgets.Registration;
-using TrainingGuides.Web.Features.Shared.Services;
 using TrainingGuides.Web.Features.Shared.Helpers;
-using Kentico.Content.Web.Mvc.Routing;
+using TrainingGuides.Web.Features.Shared.Services;
 
 namespace TrainingGuides.Web.Features.Membership.Controllers;
 

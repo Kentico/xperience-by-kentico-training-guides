@@ -1,5 +1,5 @@
-using Microsoft.Extensions.Localization;
 using CMS.Websites;
+using Microsoft.Extensions.Localization;
 using Moq;
 using TrainingGuides.Web.Features.Header;
 using TrainingGuides.Web.Features.Shared.Services;

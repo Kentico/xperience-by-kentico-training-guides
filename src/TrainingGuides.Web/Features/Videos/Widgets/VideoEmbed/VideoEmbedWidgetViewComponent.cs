@@ -1,6 +1,6 @@
-﻿using Kentico.PageBuilder.Web.Mvc;
+﻿using System.Web;
+using Kentico.PageBuilder.Web.Mvc;
 using Microsoft.AspNetCore.Mvc;
-using System.Web;
 using Microsoft.Extensions.Localization;
 using TrainingGuides.Web.Features.Videos.Widgets.VideoEmbed;
 

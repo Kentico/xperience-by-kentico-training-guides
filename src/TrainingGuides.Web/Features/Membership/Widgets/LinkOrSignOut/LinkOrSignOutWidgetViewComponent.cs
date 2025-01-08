@@ -1,9 +1,9 @@
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ViewComponents;
 using Kentico.Content.Web.Mvc.Routing;
 using Kentico.PageBuilder.Web.Mvc;
-using TrainingGuides.Web.Features.Membership.Widgets.LinkOrSignOut;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ViewComponents;
 using TrainingGuides.Web.Features.Membership.Services;
+using TrainingGuides.Web.Features.Membership.Widgets.LinkOrSignOut;
 using TrainingGuides.Web.Features.Shared.Services;
 
 [assembly:

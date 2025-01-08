@@ -1,15 +1,15 @@
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ViewComponents;
-using Microsoft.IdentityModel.Tokens;
 using CMS.Helpers;
 using Kentico.Content.Web.Mvc;
 using Kentico.PageBuilder.Web.Mvc;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ViewComponents;
+using Microsoft.IdentityModel.Tokens;
 using TrainingGuides.Web.Features.Products.Models;
 using TrainingGuides.Web.Features.Products.Services;
 using TrainingGuides.Web.Features.Products.Widgets.Product;
-using TrainingGuides.Web.Features.Shared.Services;
-using TrainingGuides.Web.Features.Shared.OptionProviders.CornerStyle;
 using TrainingGuides.Web.Features.Shared.Models;
+using TrainingGuides.Web.Features.Shared.OptionProviders.CornerStyle;
+using TrainingGuides.Web.Features.Shared.Services;
 
 [assembly: RegisterWidget(
     identifier: ProductWidgetViewComponent.IDENTIFIER,

@@ -5,16 +5,16 @@ using TrainingGuides.Web.Features.Html.Widgets.HtmlCode;
 using TrainingGuides.Web.Features.LandingPages.Widgets.CallToAction;
 using TrainingGuides.Web.Features.LandingPages.Widgets.HeroBanner;
 using TrainingGuides.Web.Features.LandingPages.Widgets.SimpleCallToAction;
-using TrainingGuides.Web.Features.Membership.Widgets.Registration;
-using TrainingGuides.Web.Features.Membership.Widgets.SignIn;
 using TrainingGuides.Web.Features.Membership.Widgets.LinkOrSignOut;
+using TrainingGuides.Web.Features.Membership.Widgets.Registration;
+using TrainingGuides.Web.Features.Membership.Widgets.ResetPassword;
+using TrainingGuides.Web.Features.Membership.Widgets.SignIn;
 using TrainingGuides.Web.Features.Products.Widgets.Product;
 using TrainingGuides.Web.Features.Products.Widgets.ProductComparator;
 using TrainingGuides.Web.Features.Shared.Sections.FormColumn;
 using TrainingGuides.Web.Features.Shared.Sections.General;
 using TrainingGuides.Web.Features.Shared.Sections.SingleColumn;
 using TrainingGuides.Web.Features.Videos.Widgets.VideoEmbed;
-using TrainingGuides.Web.Features.Membership.Widgets.ResetPassword;
 
 namespace TrainingGuides.Web;
 

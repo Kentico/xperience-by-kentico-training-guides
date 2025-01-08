@@ -1,11 +1,11 @@
-using Xunit;
 using CMS.Websites;
-using Moq;
-using TrainingGuides.Web.Features.Articles.Services;
-using TrainingGuides.Web.Features.Articles;
+using Kentico.Content.Web.Mvc.Routing;
 using Microsoft.AspNetCore.Html;
 using Microsoft.Extensions.Localization;
-using Kentico.Content.Web.Mvc.Routing;
+using Moq;
+using TrainingGuides.Web.Features.Articles;
+using TrainingGuides.Web.Features.Articles.Services;
+using Xunit;
 
 namespace TrainingGuides.Web.Tests.Features.Articles.Services;
 

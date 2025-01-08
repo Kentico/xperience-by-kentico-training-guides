@@ -1,13 +1,13 @@
+using CMS.ContentEngine;
+using CMS.DataEngine;
+using Kentico.Content.Web.Mvc.Routing;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using TrainingGuides.Web.Features.Membership.Services;
-using TrainingGuides.Web.Features.Membership.Widgets.SignIn;
-using TrainingGuides.Web.Features.Membership.Widgets.LinkOrSignOut;
-using TrainingGuides.Web.Features.Shared.Helpers;
-using Kentico.Content.Web.Mvc.Routing;
-using CMS.DataEngine;
-using CMS.ContentEngine;
 using Microsoft.Extensions.Localization;
+using TrainingGuides.Web.Features.Membership.Services;
+using TrainingGuides.Web.Features.Membership.Widgets.LinkOrSignOut;
+using TrainingGuides.Web.Features.Membership.Widgets.SignIn;
+using TrainingGuides.Web.Features.Shared.Helpers;
 using TrainingGuides.Web.Features.Shared.Services;
 
 namespace TrainingGuides.Web.Features.Membership.Controllers;

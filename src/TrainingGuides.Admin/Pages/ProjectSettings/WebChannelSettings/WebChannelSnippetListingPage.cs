@@ -1,9 +1,9 @@
-using Kentico.Xperience.Admin.Base;
-using TrainingGuides.ProjectSettings;
-using TrainingGuides.Admin.ProjectSettings.WebChannelSettings;
 using CMS.DataEngine;
 using CMS.Membership;
+using Kentico.Xperience.Admin.Base;
 using Microsoft.Extensions.Localization;
+using TrainingGuides.Admin.ProjectSettings.WebChannelSettings;
+using TrainingGuides.ProjectSettings;
 
 [assembly: UIPage(
     parentType: typeof(WebChannelSettingsEditSection),

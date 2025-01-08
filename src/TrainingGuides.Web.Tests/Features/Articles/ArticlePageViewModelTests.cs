@@ -1,6 +1,6 @@
-using Xunit;
 using Microsoft.AspNetCore.Html;
 using TrainingGuides.Web.Features.Articles;
+using Xunit;
 
 namespace TrainingGuides.Web.Tests.Features.Articles;
 

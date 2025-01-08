@@ -1,5 +1,5 @@
-﻿using TrainingGuides.Web.Features.Shared.Models;
-using Microsoft.AspNetCore.Html;
+﻿using Microsoft.AspNetCore.Html;
+using TrainingGuides.Web.Features.Shared.Models;
 
 namespace TrainingGuides.Web.Features.Products.Models;
 

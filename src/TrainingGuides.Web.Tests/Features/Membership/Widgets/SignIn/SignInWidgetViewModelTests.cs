@@ -1,5 +1,5 @@
-using Xunit;
 using TrainingGuides.Web.Features.Membership.Widgets.SignIn;
+using Xunit;
 
 namespace TrainingGuides.Web.Tests.Features.Membership.Widgets.SignIn;
 
