@@ -1,4 +1,4 @@
-using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Mvc;
 
 namespace TrainingGuides.Web.Features.Membership.Profile;
@@ -7,7 +7,7 @@ public class UpdateProfileViewModel : GuidesMemberProfileViewModel
 {
     private string fullName = string.Empty;
 
-    [DisplayName("Full name")]
+    [Display(Name = "Full name")]
     public string FullName
     {
         get => !string.IsNullOrWhiteSpace(fullName)
@@ -18,13 +18,13 @@ public class UpdateProfileViewModel : GuidesMemberProfileViewModel
         set => fullName = value ?? string.Empty;
     }
 
-    [DisplayName("Email address")]
+    [Display(Name = "Email address")]
     public string EmailAddress { get; set; } = string.Empty;
 
-    [DisplayName("User name")]
+    [Display(Name = "User name")]
     public string UserName { get; set; } = string.Empty;
 
-    [DisplayName("Member since")]
+    [Display(Name = "Member since")]
     public DateTime Created { get; set; }
 
     [HiddenInput]

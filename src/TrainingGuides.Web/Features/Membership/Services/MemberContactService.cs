@@ -75,16 +75,17 @@ public class MemberContactService : IMemberContactService
     }
 
     /// <summary>
-    /// Gets the oldest contact associated with the provided member whose email matches
+    /// Gets the most recent contact associated with the provided member whose email matches
     /// </summary>
     /// <param name="member">The GuidesMember to find an associated contact</param>
-    /// <returns>The oldest contact associated with the provided member whose email matches</returns>
-    private ContactInfo? GetOldestMemberContactWithMatchingEmail(GuidesMember member)
+    /// <returns>The most recent contact associated with the provided member whose email matches</returns>
+    /// <remarks>Ideally, this method should be called after the content has been merged, so there will only be one contact with the email address, but we'll choose the most recent just in case.</remarks>
+    private ContactInfo? GetMemberContactWithMatchingEmail(GuidesMember member)
     {
         var contact = contactInfoProvider.Get()
             .WhereEquals(MEMBER_ID_FIELD_NAME, member.Id)
             .WhereEquals(nameof(ContactInfo.ContactEmail), member.Email)
-            .OrderBy(nameof(ContactInfo.ContactCreated))
+            .OrderByDescending(nameof(ContactInfo.ContactCreated))
             .TopN(1)
             .FirstOrDefault();
 
@@ -94,7 +95,7 @@ public class MemberContactService : IMemberContactService
     /// <inheritdoc />
     public void SetCurrentContactForMember(GuidesMember member)
     {
-        var contact = GetOldestMemberContactWithMatchingEmail(member);
+        var contact = GetMemberContactWithMatchingEmail(member);
         if (contact is not null)
         {
             EnsureContactCookieLevel();

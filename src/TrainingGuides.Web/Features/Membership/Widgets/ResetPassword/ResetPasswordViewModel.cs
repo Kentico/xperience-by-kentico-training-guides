@@ -1,4 +1,3 @@
-using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,10 +6,9 @@ namespace TrainingGuides.Web.Features.Membership.Widgets.ResetPassword;
 public class ResetPasswordViewModel
 {
     /// <summary>
-    /// The Base URL of the site, with language
+    /// The action URL of the form
     /// </summary>
-    [HiddenInput]
-    public string BaseUrlWithLanguage { get; set; } = string.Empty;
+    public string ActionUrl { get; set; } = string.Empty;
 
     /// <summary>
     /// Determines whether the widget should display the form.
@@ -44,13 +42,13 @@ public class ResetPasswordViewModel
 
     [DataType(DataType.Password)]
     [Required()]
-    [DisplayName("Password")]
+    [Display(Name = "Password")]
     [MaxLength(100)]
     public string Password { get; set; } = string.Empty;
 
     [DataType(DataType.Password)]
     [Required()]
-    [DisplayName("Confirm your password")]
+    [Display(Name = "Confirm your password")]
     [MaxLength(100)]
     [Compare(nameof(Password))]
     public string ConfirmPassword { get; set; } = string.Empty;

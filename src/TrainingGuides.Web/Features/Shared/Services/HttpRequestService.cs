@@ -158,27 +158,6 @@ public class HttpRequestService : IHttpRequestService
 
         return languageCodes.Any(code => code.Equals(firstPathSegment, StringComparison.OrdinalIgnoreCase));
     }
-    // /// <summary>
-    // /// Combines two URL paths
-    // /// </summary>
-    // /// <param name="path1">First path</param>
-    // /// <param name="path2">Second path</param>
-    // /// <returns>Combined paths</returns>
-    // /// <remarks>Works with or without leading and trailing slashes</remarks>
-    // private string CombineUrlPaths(string path1, string path2)
-    // {
-    //     if (string.IsNullOrWhiteSpace(path1))
-    //     {
-    //         return path2;
-    //     }
-
-    //     if (string.IsNullOrWhiteSpace(path2))
-    //     {
-    //         return path1;
-    //     }
-
-    //     return $"{path1.TrimEnd('/')}/{path2.TrimStart('/')}";
-    // }
 
     /// <inheritdoc/>
     public string CombineUrlPaths(params string[] paths)

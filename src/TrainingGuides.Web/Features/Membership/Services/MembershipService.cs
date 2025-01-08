@@ -203,6 +203,7 @@ public class MembershipService : IMembershipService
 
     private void SynchronizeContact(GuidesMember member, bool createNewContactIfNoneFound = false)
     {
+        //In a real-world scenario, make sure you check applicable data protection laws and handle consent accordingly.
         var contact = ContactManagementContext.GetCurrentContact()
             ?? (createNewContactIfNoneFound ? new ContactInfo() : null);
 
@@ -227,7 +228,7 @@ public class MembershipService : IMembershipService
         );
 
         return absoluteURL ?
-            signInUrl.RelativePath.Replace("~", httpRequestService.GetBaseUrl())
+            httpRequestService.GetAbsoluteUrlForPath(signInUrl.RelativePath.TrimStart('~'), false)
             : signInUrl.RelativePath;
     }
 }

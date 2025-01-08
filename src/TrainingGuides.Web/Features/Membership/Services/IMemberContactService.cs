@@ -28,7 +28,7 @@ public interface IMemberContactService
     void UpdateContactIfChanged(ContactInfo contact);
 
     /// <summary>
-    /// Sets the CurrentContact to the oldest one with a matching email that is associated with the given member 
+    /// Sets the CurrentContact to the most recent one with a matching email that is associated with the given member 
     /// </summary>
     /// <param name="member">The member to find an associated contact for</param>
     void SetCurrentContactForMember(GuidesMember member);

@@ -24,6 +24,8 @@ public class MemberManagementController : Controller
     private const string INVALID_PASSWORD_RESET_REQUEST = "Your password reset request is expired or invalid.";
     private const string UPDATE_PROFILE_FORM_VIEW_PATH = "~/Features/Membership/Profile/ViewComponents/UpdateProfileForm.cshtml";
     private const string RESET_PASSWORD_FORM_VIEW_PATH = "~/Features/Membership/Widgets/ResetPassword/ResetPasswordForm.cshtml";
+    private const string RESET_PASSWORD_REQUEST_FORM_VIEW_PATH = "~/Features/Membership/Widgets/ResetPassword/ResetPasswordRequestForm.cshtml";
+    private const string RESET_PASSWORD_SUCCESS_VIEW_PATH = "~/Features/Membership/Widgets/ResetPassword/ResetPasswordSuccess.cshtml";
 
     public MemberManagementController(IMembershipService membershipService,
         IEmailService emailService,
@@ -92,7 +94,7 @@ public class MemberManagementController : Controller
         // Check if the model meets the requirements specified in its data annotations
         if (!ModelState.IsValid)
         {
-            return View(model);
+            return PartialView(RESET_PASSWORD_REQUEST_FORM_VIEW_PATH, model);
         }
 
         var guidesMember = await membershipService.FindMemberByEmail(model.EmailAddress);
@@ -137,8 +139,8 @@ public class MemberManagementController : Controller
         if (string.IsNullOrEmpty(token))
             error = invalid;
 
-        string decodedToken = token.Replace("%2f", "/");
-        string decodedEmail = email.Replace("%2f", "/");
+        string decodedToken = Uri.UnescapeDataString(token);
+        string decodedEmail = Uri.UnescapeDataString(email);
 
         var guidesMember = await membershipService.FindMemberByEmail(decodedEmail);
 
@@ -171,7 +173,7 @@ public class MemberManagementController : Controller
         var model = new ResetPasswordViewModel
         {
             Title = stringLocalizer["Reset password"],
-            BaseUrlWithLanguage = $"{httpRequestService.GetBaseUrl()}/{preferredLanguageRetriever.Get()}",
+            ActionUrl = httpRequestService.GetAbsoluteUrlForPath(ApplicationConstants.PASSWORD_RESET_ACTION_PATH, true),
             Email = guidesMember?.Email ?? string.Empty,
             Token = decodedToken,
             DisplayForm = memberExists && validToken,
@@ -196,8 +198,8 @@ public class MemberManagementController : Controller
             return PartialView(RESET_PASSWORD_FORM_VIEW_PATH, model);
         }
 
-        string decodedToken = model.Token.Replace("%2f", "/");
-        string decodedEmail = model.Email.Replace("%2f", "/");
+        string decodedToken = Uri.UnescapeDataString(model.Token);
+        string decodedEmail = Uri.UnescapeDataString(model.Email);
 
         var guidesMember = await membershipService.FindMemberByEmail(decodedEmail);
 
@@ -207,7 +209,8 @@ public class MemberManagementController : Controller
 
             if (result.Succeeded)
             {
-                return PartialView("~/Features/Membership/Widgets/ResetPassword/ResetPasswordSuccess", await GetResetPasswordSuccessViewModel());
+                var successModel = await GetResetPasswordSuccessViewModel();
+                return PartialView(RESET_PASSWORD_SUCCESS_VIEW_PATH, successModel);
             }
             else
             {
@@ -245,6 +248,7 @@ public class MemberManagementController : Controller
         {
             Title = model.Title,
             EmailAddress = guidesMember.Email ?? string.Empty,
+            UserName = guidesMember.UserName ?? string.Empty,
             Created = guidesMember.Created,
             FullName = guidesMember.FullName,
             GivenName = guidesMember.GivenName,
