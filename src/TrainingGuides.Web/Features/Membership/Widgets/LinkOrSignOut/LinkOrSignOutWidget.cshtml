@@ -1,7 +1,7 @@
 @using TrainingGuides.Web.Features.Membership.Widgets.LinkOrSignOut;
 @model LinkOrSignOutWidgetViewModel
 
-@if (Model == null || Model.IsMisconfigured)
+@if (Model is null || Model.IsMisconfigured)
 {
     <tg-page-builder-content>
         <tg-configure-widget-instructions />
@@ -10,7 +10,7 @@
     return;
 }
 
-@if (Model != null)
+@if (Model is not null)
 {
     <div class="text-center">
         <div>

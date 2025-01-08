@@ -3,7 +3,7 @@
 
 @model SignInWidgetViewModel
 
-@if (Model == null || Model.IsMisconfigured)
+@if (Model is null || Model.IsMisconfigured)
 {
     <tg-page-builder-content>
         <tg-configure-widget-instructions />

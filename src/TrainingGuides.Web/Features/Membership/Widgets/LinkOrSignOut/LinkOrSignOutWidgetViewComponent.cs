@@ -84,7 +84,7 @@ public class LinkOrSignOutWidgetViewComponent : ViewComponent
     }
 
     private async Task<string?> GetWebPageUrl(WebPageRelatedItem? webPage, string preferredLanguageCode) =>
-        webPage != null
+        webPage is not null
         ? (await webPageUrlRetriever.Retrieve(webPage.WebPageGuid, preferredLanguageCode))
             .RelativePath
         : string.Empty;

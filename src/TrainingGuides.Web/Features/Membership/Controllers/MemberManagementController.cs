@@ -59,7 +59,7 @@ public class MemberManagementController : Controller
         //Get the current member instead of pulling from the model, so that members cannot attempt to change each others information.
         var guidesMember = await membershipService.GetCurrentMember();
 
-        if (guidesMember != null)
+        if (guidesMember is not null)
         {
             var result = await membershipService.UpdateMemberProfile(guidesMember, model);
 
@@ -99,7 +99,7 @@ public class MemberManagementController : Controller
 
         var guidesMember = await membershipService.FindMemberByEmail(model.EmailAddress);
 
-        if (guidesMember != null && guidesMember.Enabled)
+        if (guidesMember is not null && guidesMember.Enabled)
         {
             string token = await membershipService.GeneratePasswordResetToken(guidesMember);
 
@@ -203,7 +203,7 @@ public class MemberManagementController : Controller
 
         var guidesMember = await membershipService.FindMemberByEmail(decodedEmail);
 
-        if (guidesMember != null && guidesMember.Enabled)
+        if (guidesMember is not null && guidesMember.Enabled)
         {
             var result = await membershipService.ResetPassword(guidesMember, decodedToken, model.Password);
 
