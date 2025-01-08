@@ -30,10 +30,7 @@
           <fielddescriptionashtml>False</fielddescriptionashtml>
         </properties>
         <settings>
-          <controlname>Kentico.Administration.TextArea</controlname>
-          <CopyButtonVisible>False</CopyButtonVisible>
-          <MaxRowsNumber>5</MaxRowsNumber>
-          <MinRowsNumber>3</MinRowsNumber>
+          <controlname>Kentico.Administration.TextInput</controlname>
         </settings>
       </field>
       <field allowempty="true" column="GalleryImageCategory" columnprecision="0" columntype="taxonomy" enabled="true" guid="fc18792d-46fb-407b-b295-a7fa22a8f29e" visible="true">
