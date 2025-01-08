@@ -23,17 +23,14 @@
           <SelectionType>contentTypes</SelectionType>
         </settings>
       </field>
-      <field allowempty="true" column="GalleryImageDescription" columnprecision="0" columntype="longtext" enabled="true" guid="d3af5fe0-0f19-4bab-8a60-a1c30f16b9cc" visible="true">
+      <field allowempty="true" column="GalleryImageDescription" columnprecision="0" columnsize="200" columntype="text" enabled="true" guid="d3af5fe0-0f19-4bab-8a60-a1c30f16b9cc" visible="true">
         <properties>
           <explanationtextashtml>False</explanationtextashtml>
           <fieldcaption>Description</fieldcaption>
           <fielddescriptionashtml>False</fielddescriptionashtml>
         </properties>
         <settings>
-          <controlname>Kentico.Administration.TextArea</controlname>
-          <CopyButtonVisible>False</CopyButtonVisible>
-          <MaxRowsNumber>5</MaxRowsNumber>
-          <MinRowsNumber>3</MinRowsNumber>
+          <controlname>Kentico.Administration.TextInput</controlname>
         </settings>
       </field>
       <field allowempty="true" column="GalleryImageCategory" columnprecision="0" columntype="taxonomy" enabled="true" guid="fc18792d-46fb-407b-b295-a7fa22a8f29e" visible="true">

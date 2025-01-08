@@ -16,7 +16,5 @@
   <GalleryImageCategory>
     <![CDATA[[{"Identifier":"895535fc-bfa3-4afd-8ddb-bc9e4e438d1e"}]]]>
   </GalleryImageCategory>
-  <GalleryImageDescription>
-    <![CDATA[Donec rutrum, tellus id egestas mollis, augue lectus blandit massa, sit amet dignissim eros mauris eu dui. Nullam condimentum ornare fringilla.]]>
-  </GalleryImageDescription>
+  <GalleryImageDescription>Lorem ipsum</GalleryImageDescription>
 </contentitemdata.trainingguides.galleryimage>

@@ -37,7 +37,7 @@ namespace TrainingGuides
 		/// <summary>
 		/// GalleryImageAsset.
 		/// </summary>
-		public ContentItemAsset GalleryImageAsset { get; set; }
+		public IEnumerable<Asset> GalleryImageAsset { get; set; }
 
 
 		/// <summary>
