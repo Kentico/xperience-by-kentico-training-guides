@@ -27,24 +27,21 @@ else
     <div class="row justify-content-center">
         <div class="col-xl-11">
             <h3>@Model.Title</h3>
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 c-blog-grid mt-3 mt-md-4">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 c-blog-grid mt-3 mb-4 mt-md-4">
                 @foreach (var image in Model.Images!)
                 {
                     <div class="col mt-4">
-                        <div class="c-post-thumbnail default">
-                            <div class="c-card bg-1 u-border-01">
-                                @if (image.Image != null)
-                                {
-                                    <a href="@Url.Content(image.Image.FilePath)">
-                                        <div class="c-card_img">
-                                            <img src="@Url.Content(image.Image.FilePath)" alt="@image.Image.AltText" class="img-fluid gallery-img" />
-                                        </div>
-                                    </a>
-                                }
-                                <div class="c-card_body" data-heading-lines="3" data-total-lines="6">
-                                    @* <h2 class="h4 mb-0 j-truncate_heading">@image.Title</h2> *@
-                                    <p class="mb-0 j-truncate_paragraph">@image.Description</p>
-                                </div>
+                        <div class="c-card bg-3">
+                            @if (image.Image != null)
+                            {
+                                <a href="@Url.Content(image.Image.FilePath)" >
+                                    <div class="c-card_img">
+                                        <img src="@Url.Content(image.Image.FilePath)" alt="@image.Image.AltText" class="img-fluid gallery-img" />
+                                    </div>
+                                </a>
+                            }
+                            <div class="c-card_body" data-heading-lines="3" data-total-lines="6">
+                                <p class="mb-0 j-truncate_paragraph">@image.Description</p>
                             </div>
                         </div>
                     </div>

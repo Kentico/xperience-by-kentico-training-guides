@@ -5,6 +5,7 @@ using TrainingGuides.Web.Features.Shared.OptionProviders.OrderBy;
 using TrainingGuides.Web.Features.Shared.Services;
 using TrainingGuides.Web.Features.Gallery.Widgets.GalleryWidget;
 using TrainingGuides.Web.Features.Shared.Models;
+using Microsoft.IdentityModel.Tokens;
 
 [assembly:
     RegisterWidget(GalleryWidgetViewComponent.IDENTIFIER, typeof(GalleryWidgetViewComponent), "Gallery widget",
@@ -34,29 +35,29 @@ public class GalleryWidgetViewComponent : ViewComponent
         var orderBy = properties.OrderBy.Equals(OrderByOption.OldestFirst.ToString())
             ? OrderByOption.OldestFirst
             : OrderByOption.NewestFirst;
+        int topN = properties.TopN;
 
         if (!smartFolderGuid.Equals(Guid.Empty))
         {
-            var galleryImages = await RetrieveGalleryImages(smartFolderGuid, orderBy);
-
+            var galleryImages = await RetrieveGalleryImages(smartFolderGuid, orderBy, topN);
             model.Images = galleryImages.Select(GetGalleryImageViewModel).ToList();
         }
 
         return View("~/Features/Gallery/Widgets/GalleryWidget/GalleryWidget.cshtml", model);
     }
 
-    private async Task<IEnumerable<GalleryImage>> RetrieveGalleryImages(Guid smartFolderGuid, OrderByOption orderBy) =>
+    private async Task<IEnumerable<GalleryImage>> RetrieveGalleryImages(Guid smartFolderGuid, OrderByOption orderBy, int topN) =>
         await galleryImageRetriever.RetrieveReusableContentItemsFromSmartFolder(
             GalleryImage.CONTENT_TYPE_NAME,
             smartFolderGuid,
             orderBy,
-            5,
-            4);
+            topN);
 
     private GalleryImageViewModel GetGalleryImageViewModel(GalleryImage galleryImage) => new()
     {
-        Title = galleryImage.SystemFields.ContentItemName,
         Description = galleryImage.GalleryImageDescription,
-        Image = AssetViewModel.GetViewModel(galleryImage.GalleryImageAsset.FirstOrDefault() ?? new Asset())
+        Image = galleryImage.GalleryImageAsset.IsNullOrEmpty()
+            ? null
+            : AssetViewModel.GetViewModel(galleryImage.GalleryImageAsset.FirstOrDefault()!)
     };
 }

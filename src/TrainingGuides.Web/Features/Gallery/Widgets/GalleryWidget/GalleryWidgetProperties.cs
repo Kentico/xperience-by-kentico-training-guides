@@ -11,7 +11,7 @@ public class GalleryWidgetProperties : IWidgetProperties
     [SmartFolderSelectorComponent(
         AllowedContentTypeIdentifiersFilter = typeof(GalleryImage),
         Label = "Smart folder",
-        ExplanationText = "Select smart folder containing Gallery images you wish tp display",
+        ExplanationText = "Select smart folder containing Gallery images you wish to display",
         Order = 10)]
     public SmartFolderReference SmartFolder { get; set; } = new SmartFolderReference();
 
@@ -21,7 +21,7 @@ public class GalleryWidgetProperties : IWidgetProperties
     public string Title { get; set; } = "Gallery";
 
     [NumberInputComponent(
-        Label = "Number of images to display per page",
+        Label = "Number of images to display",
         Order = 30)]
     public int TopN { get; set; } = 10;
 
