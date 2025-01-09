@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.smartfolder>
+  <SmartFolderCreatedByUserID>
+    <CodeName>administrator</CodeName>
+    <GUID>6415b8ce-8072-4bcd-8e48-9d7178b826b7</GUID>
+    <ObjectType>cms.user</ObjectType>
+  </SmartFolderCreatedByUserID>
+  <SmartFolderCreatedWhen>2025-01-05 05:59:39Z</SmartFolderCreatedWhen>
+  <SmartFolderDisplayName>Gallery - Rooms and apartments</SmartFolderDisplayName>
+  <SmartFolderFilter>
+    <![CDATA[{"classGUID":["8a4c740c-e8d1-4452-af02-8db2b41e1930"],"tags":[{"tags":[{"identifier":"8fa14351-e230-4c85-b22d-325cb0e307d7"},{"identifier":"d60a0d2e-361e-45ab-a3fb-5929a3468025"}]}],"lastPublishedAbsolute":null,"lastPublishedRelative":null,"selectedLastPublishedTimeFrame":"absolute"}]]>
+  </SmartFolderFilter>
+  <SmartFolderGUID>ece33e43-93ab-4200-8b55-eec26c111e68</SmartFolderGUID>
+  <SmartFolderIsContentDeliveryEnabled>True</SmartFolderIsContentDeliveryEnabled>
+  <SmartFolderModifiedByUserID>
+    <CodeName>administrator</CodeName>
+    <GUID>6415b8ce-8072-4bcd-8e48-9d7178b826b7</GUID>
+    <ObjectType>cms.user</ObjectType>
+  </SmartFolderModifiedByUserID>
+  <SmartFolderName>Gallery_-_Rooms_and_apartments-57a3mphi</SmartFolderName>
+</cms.smartfolder>

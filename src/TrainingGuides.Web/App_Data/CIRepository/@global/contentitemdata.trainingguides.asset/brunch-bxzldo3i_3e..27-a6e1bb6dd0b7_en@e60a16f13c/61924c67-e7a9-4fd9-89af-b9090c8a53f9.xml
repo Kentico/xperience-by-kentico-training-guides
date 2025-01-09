@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.asset>
+  <AssetFile>
+    <![CDATA[{"Identifier":"c7155c98-7399-4221-aa9b-5147c0f3966f","Name":"brunch.jpg","Extension":".jpg","Size":441280,"LastModified":"2025-01-09T18:40:20.9770626Z"}]]>
+  </AssetFile>
+  <AssetUseInternalOnly>False</AssetUseInternalOnly>
+  <ContentItemDataCommonDataID>
+    <GUID>3e4a24ac-e96f-413e-8127-a6e1bb6dd0b7</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>Brunch-bxzldo3i</CodeName>
+      <GUID>674c0115-3bd6-4f34-b234-24764da9079d</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>61924c67-e7a9-4fd9-89af-b9090c8a53f9</ContentItemDataGUID>
+</contentitemdata.trainingguides.asset>
