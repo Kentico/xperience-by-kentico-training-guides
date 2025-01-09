@@ -46,6 +46,7 @@ public class HttpRequestService : IHttpRequestService
         if (string.IsNullOrWhiteSpace(language))
             return true;
 
+        // Cache this query in real-world scenarios
         string defaultLanguage = contentLanguageInfoProvider.Get()
             .WhereEquals(nameof(ContentLanguageInfo.ContentLanguageIsDefault), true)
             .Column(nameof(ContentLanguageInfo.ContentLanguageName))
@@ -154,6 +155,7 @@ public class HttpRequestService : IHttpRequestService
 
     private bool StartsWithLanguage(string relativePath)
     {
+        // Cache this query in real-world scenarios
         var languageCodes = contentLanguageInfoProvider.Get()
             .Column(nameof(ContentLanguageInfo.ContentLanguageName))
             .GetListResult<string>();
