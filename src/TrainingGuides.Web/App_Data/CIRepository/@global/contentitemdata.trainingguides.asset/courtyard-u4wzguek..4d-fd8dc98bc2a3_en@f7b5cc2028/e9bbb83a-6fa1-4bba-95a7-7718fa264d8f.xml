@@ -1,8 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <contentitemdata.trainingguides.asset>
   <AssetFile>
-    <![CDATA[{"Identifier":"2c83423f-f291-46cb-bce1-9b84d6d52c42","Name":"courtyard.jpg","Extension":".jpg","Size":3865049,"LastModified":"2025-01-07T20:01:52.8939908Z"}]]>
+    <![CDATA[{"Identifier":"0f238141-ba43-4487-8d99-f72d4d81e284","Name":"courtyard.jpg","Extension":".jpg","Size":887546,"LastModified":"2025-01-09T18:40:01.7429456Z"}]]>
   </AssetFile>
+  <AssetUseInternalOnly>False</AssetUseInternalOnly>
   <ContentItemDataCommonDataID>
     <GUID>7b5d143e-5eb6-415f-b84d-fd8dc98bc2a3</GUID>
     <ObjectType>cms.contentitemcommondata</ObjectType>

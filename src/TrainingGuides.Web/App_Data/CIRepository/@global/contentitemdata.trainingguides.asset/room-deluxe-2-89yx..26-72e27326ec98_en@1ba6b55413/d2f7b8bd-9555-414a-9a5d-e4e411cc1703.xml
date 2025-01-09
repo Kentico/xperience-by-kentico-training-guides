@@ -1,8 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <contentitemdata.trainingguides.asset>
   <AssetFile>
-    <![CDATA[{"Identifier":"5bfb4cbe-80d8-4902-920d-659d81e5a112","Name":"room-deluxe-2.jpg","Extension":".jpg","Size":2541342,"LastModified":"2025-01-07T20:41:42.7792936Z"}]]>
+    <![CDATA[{"Identifier":"526f0fde-87fc-4e5e-83cb-bd72455d0712","Name":"room-deluxe-2.jpg","Extension":".jpg","Size":480334,"LastModified":"2025-01-09T18:31:55.5252462Z"}]]>
   </AssetFile>
+  <AssetUseInternalOnly>False</AssetUseInternalOnly>
   <ContentItemDataCommonDataID>
     <GUID>baf02fb7-a768-40dc-8126-72e27326ec98</GUID>
     <ObjectType>cms.contentitemcommondata</ObjectType>
