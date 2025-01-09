@@ -10,6 +10,8 @@ using TrainingGuides.Web.Features.Shared.Models;
 //   - The Xperience by Kentico Community Portal, available at https://github.com/Kentico/community-portal.
 //   - The Dancing Goat sample project, available through the "Kentico.Xperience.Templates" .NET Templates package.
 
+namespace TrainingGuides.Web.Features.Membership.Widgets.Registration;
+
 public class RegistrationWidgetViewModel : GuidesMemberProfileViewModel, IWidgetViewModel
 {
     //WIDGET DISPLAY PROPERTIES

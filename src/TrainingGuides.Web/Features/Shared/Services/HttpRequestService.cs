@@ -46,14 +46,16 @@ public class HttpRequestService : IHttpRequestService
         if (string.IsNullOrWhiteSpace(language))
             return true;
 
-        var defaultLanguage = contentLanguageInfoProvider.Get()
+        string defaultLanguage = contentLanguageInfoProvider.Get()
             .WhereEquals(nameof(ContentLanguageInfo.ContentLanguageIsDefault), true)
-            .FirstOrDefault();
+            .Column(nameof(ContentLanguageInfo.ContentLanguageName))
+            .TopN(1)
+            .GetScalarResult<string>();
 
-        if (defaultLanguage == null)
+        if (string.IsNullOrEmpty(defaultLanguage))
             return true;
 
-        return defaultLanguage.ContentLanguageName == language;
+        return defaultLanguage == language;
     }
 
     /// <inheritdoc/>
@@ -64,7 +66,7 @@ public class HttpRequestService : IHttpRequestService
     }
 
     /// <inheritdoc/>
-    /// <remarks>When Kentico.WebPageUrlPaths is missing from route values, this method cannot determine the default language and falls back to default.
+    /// <remarks>When Kentico.WebPageUrlPaths is missing from route values, this method cannot correctly determine whether or not the current language is default. When operating outside of CTB routed pages, use the <see cref="GetBaseUrlWithLanguage(bool,bool)"/> overload instead.</remarks>
     public string GetBaseUrlWithLanguage()
     {
         var currentRequest = RetrieveCurrentRequest();
@@ -86,27 +88,29 @@ public class HttpRequestService : IHttpRequestService
     /// <inheritdoc/>
     public string GetBaseUrlWithLanguage(bool checkDatabaseForDefaultLanguage, bool alwaysIncludeLanguage = false)
     {
+        var currentRequest = RetrieveCurrentRequest();
+        string language = (string?)currentRequest.RouteValues[ApplicationConstants.LANGUAGE_KEY] ?? string.Empty;
+        var webPageUrlPathList = ((string?)currentRequest.RouteValues[WEB_PAGE_URL_PATHS])?.Split('/').ToList();
+
+        bool notPrimaryLanguage;
+
         if (checkDatabaseForDefaultLanguage)
         {
-            var currentRequest = RetrieveCurrentRequest();
-            string language = (string?)currentRequest.RouteValues[ApplicationConstants.LANGUAGE_KEY] ?? string.Empty;
-            var webPageUrlPathList = ((string?)currentRequest.RouteValues[WEB_PAGE_URL_PATHS])?.Split('/').ToList();
-
-            bool notPrimaryLanguage = webPageUrlPathList?.Contains(language) ?? !IsLanguageDefault(language);
-
-            var url = new UriBuilder(GetBaseUrl(currentRequest))
-            {
-                Path = notPrimaryLanguage || alwaysIncludeLanguage
-                    ? $"/{language}"
-                    : string.Empty
-            };
-
-            return url.ToString();
+            notPrimaryLanguage = webPageUrlPathList?.Contains(language) ?? !IsLanguageDefault(language);
         }
         else
         {
-            return GetBaseUrlWithLanguage();
+            var newWebPageUrlPathList = webPageUrlPathList ?? [];
+            notPrimaryLanguage = newWebPageUrlPathList.Contains(language);
         }
+        var url = new UriBuilder(GetBaseUrl(currentRequest))
+        {
+            Path = notPrimaryLanguage || alwaysIncludeLanguage
+                ? $"/{language}"
+                : string.Empty
+        };
+
+        return url.ToString();
     }
 
     /// <inheritdoc/>
