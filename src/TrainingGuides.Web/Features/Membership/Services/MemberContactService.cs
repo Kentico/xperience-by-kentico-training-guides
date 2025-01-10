@@ -119,7 +119,8 @@ public class MemberContactService : IMemberContactService
     /// Ensures that the CurrentContact cookie can be created by setting the CMS cookie level to 200
     /// </summary>
     /// <remarks>
-    /// NOTE: In this project, the <see cref="DataProtection.ViewComponents.TrackingConsent.TrackingConsentViewComponent"/> will return the cookie level to 0 if the contact has not agreed to any consents. This level is necessary for to check for consent agreements and adjust cookie levels accordingly.
+    /// NOTE: In this project, the <see cref="DataProtection.ViewComponents.TrackingConsent.TrackingConsentViewComponent"/> will return the cookie level to 0 if the contact has not agreed to any consents. 
+    /// Level 200 is necessary to check for consent agreements, before adjusting cookie levels accordingly.
     /// </remarks>
     private void EnsureContactCookieLevel()
     {

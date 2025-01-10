@@ -4,6 +4,7 @@
 @model UpdateProfileViewModel
 
 @{
+    // Using a new guid ensures no conflict if, for some reason, multiple instances of the view component are on the same page.
     string formDivId = $"updateProfileForm{Guid.NewGuid()}";
 }
 <h3>@Model.Title</h3>

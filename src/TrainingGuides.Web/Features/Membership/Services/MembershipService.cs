@@ -10,6 +10,7 @@ using TrainingGuides.Web.Features.Shared.Services;
 namespace TrainingGuides.Web.Features.Membership.Services;
 public class MembershipService : IMembershipService
 {
+    /// <inheritdoc/>
     public GuidesMember DummyMember => new()
     {
         UserName = "JohnDoe",
@@ -86,7 +87,7 @@ public class MembershipService : IMembershipService
             });
         }
 
-        // Uniqueness of username and email are checked automatically given correct configuration, but we need to make sure that one user's username cannot be set to another user's email.
+        // Uniqueness of username and email are checked automatically given correct configuration, but we need to make sure that one user's username cannot be set to another user's email, or vice versa.
         if (await UsernameEmailCollision(guidesMember))
         {
             return IdentityResult.Failed(new IdentityError

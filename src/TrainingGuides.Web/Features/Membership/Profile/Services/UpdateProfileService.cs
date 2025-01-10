@@ -33,7 +33,6 @@ public class UpdateProfileService : IUpdateProfileService
             FullName = guidesMember?.FullName ?? string.Empty,
             Created = guidesMember?.Created ?? DateTime.MinValue,
             ActionUrl = httpRequestService.GetAbsoluteUrlForPath(ApplicationConstants.UPDATE_PROFILE_ACTION_PATH, true),
-            Language = preferredLanguageRetriever.Get(),
             SubmitButtonText = stringLocalizer["Submit"],
             Title = stringLocalizer["Update profile"]
         };

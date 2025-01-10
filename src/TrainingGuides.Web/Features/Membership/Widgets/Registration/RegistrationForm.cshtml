@@ -1,4 +1,7 @@
+@using TrainingGuides.Web.Features.Membership.Widgets.Registration
+
 @model RegistrationWidgetViewModel
+
 <div class="form-horizontal">
     <div asp-validation-summary="ModelOnly" class="text-danger field-validation-error"></div>
 
@@ -11,7 +14,6 @@ However, it requires extra development. To see simpler examples using standard M
 
     @* Include hidden inputs for widget display. 
         If server-side validation fails, these values will allow the form to be properly re-rendered. *@
-    <input asp-for="DisplayForm">
     <input asp-for="ShowName">
     <input asp-for="ShowExtraFields">
     <input asp-for="SubmitButtonText">

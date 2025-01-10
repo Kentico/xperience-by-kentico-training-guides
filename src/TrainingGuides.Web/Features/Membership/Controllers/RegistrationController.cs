@@ -25,6 +25,8 @@ public class RegistrationController : Controller
     private readonly IHttpRequestService httpRequestService;
     private readonly IPreferredLanguageRetriever preferredLanguageRetriever;
 
+    private const string REGISTRATION_FORM_VIEW_PATH = "~/Features/Membership/Widgets/Registration/RegistrationForm.cshtml";
+
     public RegistrationController(
     IMembershipService membershipService,
     IEventLogService log,
@@ -52,7 +54,7 @@ public class RegistrationController : Controller
         if (!ModelState.IsValid)
         {
             ModelState.AddModelError(string.Empty, stringLocalizer["Please fill in all required fields."]);
-            return PartialView("~/Features/Membership/Widgets/Registration/RegistrationForm.cshtml", model);
+            return PartialView(REGISTRATION_FORM_VIEW_PATH, model);
         }
 
         // NOTE: This example does not include consent, but in a real-world scenario, you may need to get a member's consent before saving this data.
@@ -88,7 +90,7 @@ public class RegistrationController : Controller
                 ModelState.AddModelError(string.Empty, error);
             }
 
-            return PartialView("~/Features/Membership/Widgets/Registration/RegistrationForm.cshtml", model);
+            return PartialView(REGISTRATION_FORM_VIEW_PATH, model);
         }
     }
 
