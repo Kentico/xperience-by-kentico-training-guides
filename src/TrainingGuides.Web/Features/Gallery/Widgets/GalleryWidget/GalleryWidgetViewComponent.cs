@@ -5,7 +5,6 @@ using TrainingGuides.Web.Features.Shared.OptionProviders.OrderBy;
 using TrainingGuides.Web.Features.Shared.Services;
 using TrainingGuides.Web.Features.Gallery.Widgets.GalleryWidget;
 using TrainingGuides.Web.Features.Shared.Models;
-using Microsoft.IdentityModel.Tokens;
 
 [assembly:
     RegisterWidget(GalleryWidgetViewComponent.IDENTIFIER, typeof(GalleryWidgetViewComponent), "Gallery widget",
@@ -53,11 +52,6 @@ public class GalleryWidgetViewComponent : ViewComponent
             orderBy,
             topN);
 
-    private GalleryImageViewModel GetGalleryImageViewModel(GalleryImage galleryImage) => new()
-    {
-        Description = galleryImage.GalleryImageDescription,
-        Image = galleryImage.GalleryImageAsset.IsNullOrEmpty()
-            ? null
-            : AssetViewModel.GetViewModel(galleryImage.GalleryImageAsset.FirstOrDefault()!)
-    };
+    private AssetViewModel GetGalleryImageViewModel(GalleryImage galleryImage) =>
+        AssetViewModel.GetViewModel(galleryImage.GalleryImageAsset.FirstOrDefault()!);
 }

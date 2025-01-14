@@ -129,6 +129,25 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
         return items;
     }
 
+    private async Task<IEnumerable<T>> RetrieveContentItems(
+        Action<ContentTypesQueryParameters> contentTypesQueryParameters,
+        Action<ContentQueryParameters> contentQueryParameters)
+    {
+        var builder = new ContentItemQueryBuilder();
+
+        builder
+            .ForContentTypes(contentTypesQueryParameters)
+            .Parameters(contentQueryParameters)
+            .InLanguage(preferredLanguageRetriever.Get());
+
+        var queryExecutorOptions = new ContentQueryExecutionOptions
+        {
+            ForPreview = webSiteChannelContext.IsPreview
+        };
+
+        return await contentQueryExecutor.GetMappedResult<T>(builder, queryExecutorOptions);
+    }
+
     /// <inheritdoc />
     public async Task<IEnumerable<T>> RetrieveReusableContentItemsFromSmartFolder(
         string contentTypeName,
@@ -138,28 +157,22 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
         int depth = 1)
     {
         const string LAST_PUBLISHED_COLUMN_NAME = "ContentItemCommonDataLastPublishedWhen";
-        var builder = new ContentItemQueryBuilder()
-                            .ForContentTypes(parameters => parameters
-                                .InSmartFolder(smartFolderGuid)
-                                .OfContentType(contentTypeName)
-                                .WithLinkedItems(depth)
-                                .WithContentTypeFields()
-                            )
-                            .Parameters(parameters => parameters
-                                .OrderBy(new OrderByColumn(
-                                    LAST_PUBLISHED_COLUMN_NAME,
-                                    orderBy.Equals(OrderByOption.NewestFirst) ? OrderDirection.Descending : OrderDirection.Ascending))
-                                .TopN(topN))
-                            .InLanguage(preferredLanguageRetriever.Get());
 
-        var queryExecutorOptions = new ContentQueryExecutionOptions
-        {
-            ForPreview = webSiteChannelContext.IsPreview
-        };
 
-        var items = await contentQueryExecutor.GetMappedResult<T>(builder, queryExecutorOptions);
+        Action<ContentTypesQueryParameters> contentTypesQueryParameters = parameters => parameters
+            .InSmartFolder(smartFolderGuid)
+            .OfContentType(contentTypeName)
+            .WithLinkedItems(depth)
+            .WithContentTypeFields();
 
-        return items;
+        Action<ContentQueryParameters> contentQueryParameters = parameters
+            => parameters
+                .OrderBy(new OrderByColumn(
+                    LAST_PUBLISHED_COLUMN_NAME,
+                    orderBy.Equals(OrderByOption.NewestFirst) ? OrderDirection.Descending : OrderDirection.Ascending))
+                .TopN(topN);
+
+        return await RetrieveContentItems(contentTypesQueryParameters, contentQueryParameters);
     }
 
     private async Task<IEnumerable<T>> RetrieveWebPageChildrenByPath(

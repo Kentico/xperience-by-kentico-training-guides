@@ -32,17 +32,11 @@ else
                 {
                     <div class="col mt-4">
                         <div class="c-card bg-3">
-                            @if (image.Image != null)
-                            {
-                                <a href="@Url.Content(image.Image.FilePath)" >
-                                    <div class="c-card_img">
-                                        <img src="@Url.Content(image.Image.FilePath)" alt="@image.Image.AltText" class="img-fluid gallery-img" />
-                                    </div>
-                                </a>
-                            }
-                            <div class="c-card_body" data-heading-lines="3" data-total-lines="6">
-                                <p class="mb-0 j-truncate_paragraph">@image.Description</p>
-                            </div>
+                            <a href="@Url.Content(image.FilePath)" >
+                                <div class="c-card_img">
+                                    <img src="@Url.Content(image.FilePath)" alt="@image.AltText" class="img-fluid gallery-img" />
+                                </div>
+                            </a>
                         </div>
                     </div>
                 }

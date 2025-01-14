@@ -57,7 +57,7 @@ public interface IContentItemRetrieverService<T>
     /// <param name="referenceIds">Enumerable of IDs of content items</param>
     /// <param name="depth">The maximum level of recursively linked content items that should be included in the results. Default value is 1.</param>
     /// <returns></returns>
-    public Task<IEnumerable<T>> RetrieveWebPageChildrenByPathAndReference(
+    Task<IEnumerable<T>> RetrieveWebPageChildrenByPathAndReference(
         string parentPageContentTypeName,
         string parentPagePath,
         string referenceFieldName,
@@ -72,7 +72,7 @@ public interface IContentItemRetrieverService<T>
     /// <param name="contentTypeName">Content type name of the Web page.</param>
     /// <param name="depth">The maximum level of recursively linked content items that should be included in the results. Default value is 1.</param>
     /// <returns>A Web page content item of specified type, with the specified Id</returns>
-    public Task<T?> RetrieveContentItemByGuid(
+    Task<T?> RetrieveContentItemByGuid(
         Guid contentItemGuid,
         string contentTypeName,
         int depth = 1);
@@ -83,17 +83,17 @@ public interface IContentItemRetrieverService<T>
     /// <param name="contentTypeName">Content type name of the reusable item.</param>
     /// <param name="queryFilter">A delegate used to configure query for given contentTypeName</param>
     /// <returns>An enumerable set of items</returns>
-    public Task<IEnumerable<T>> RetrieveReusableContentItems(
+    Task<IEnumerable<T>> RetrieveReusableContentItems(
         string contentTypeName,
         Func<ContentTypeQueryParameters, ContentTypeQueryParameters> queryFilter);
 
     /// <summary>
     /// Retrieves reusable content items of specified type from specified smart folder.
     /// </summary>
-    /// <param name="contentTypeName"></param>
-    /// <param name="smartFolderGuid"></param>
-    /// <param name="orderBy"></param>
-    /// <param name="topN"></param>
+    /// <param name="contentTypeName">Content type name of the content items the method should return</param>
+    /// <param name="smartFolderGuid">Guid of the smart folder to retrieve the content items from</param>
+    /// <param name="orderBy">Order the returned items ascending/descending</param>
+    /// <param name="topN">Number of items to return</param>
     /// <returns></returns>
     Task<IEnumerable<T>> RetrieveReusableContentItemsFromSmartFolder(
         string contentTypeName,
