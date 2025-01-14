@@ -41,12 +41,6 @@ namespace TrainingGuides
 
 
 		/// <summary>
-		/// GalleryImageDescription.
-		/// </summary>
-		public string GalleryImageDescription { get; set; }
-
-
-		/// <summary>
 		/// GalleryImageCategory.
 		/// </summary>
 		public IEnumerable<TagReference> GalleryImageCategory { get; set; }
