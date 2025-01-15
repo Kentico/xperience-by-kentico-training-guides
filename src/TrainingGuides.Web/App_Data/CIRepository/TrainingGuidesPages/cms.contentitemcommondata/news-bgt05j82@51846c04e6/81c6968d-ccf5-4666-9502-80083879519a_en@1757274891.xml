@@ -12,9 +12,12 @@
   </ContentItemCommonDataContentLanguageID>
   <ContentItemCommonDataGUID>81c6968d-ccf5-4666-9502-80083879519a</ContentItemCommonDataGUID>
   <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
-  <ContentItemCommonDataLastPublishedWhen>2024-08-27 13:07:03Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataLastPublishedWhen>2024-12-12 14:04:36Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataPageBuilderWidgets>
+    <![CDATA[{"editableAreas":[{"identifier":"areaMain","sections":[{"identifier":"60e812c7-2a99-4c66-9af3-3fc45ee5c8f2","type":"TrainingGuides.SingleColumnSection","properties":{"sectionAnchor":""},"zones":[{"identifier":"597fd7dc-9919-47e8-9e74-1cdffca89c86","widgets":[{"identifier":"1c8de4e6-af87-4bb8-8bbb-8e989bbf0911","type":"TrainingGuides.ArticleListWidget","variants":[{"identifier":"a16dd22e-8321-4dce-8d8b-3697ad840163","properties":{"contentTreeSection":[{"webPageGuid":"77c7aa1f-e0e3-4b74-a66f-8c0c87523c15"}],"topN":10,"ctaText":"","orderBy":"NewestFirst"},"fieldIdentifiers":{"contentTreeSection":"99fb66c4-f110-4adf-a867-677370f76dcf","topN":"8180ea7c-b8d9-43c2-9efd-29d28096a898","ctaText":"0ae9976f-781f-44f6-9ed9-40d3bb4047aa","orderBy":"0ab9d94b-201b-40f8-bb36-cb3caf34a931"}}]}]}],"fieldIdentifiers":{"sectionAnchor":"23114663-fa9e-4364-a68d-cb799b61d521"}}]}]}]]>
+  </ContentItemCommonDataPageBuilderWidgets>
   <ContentItemCommonDataPageTemplateConfiguration>
-    <![CDATA[{"identifier":"TrainingGuides.ArticlePagePageTemplate","properties":null,"fieldIdentifiers":null}]]>
+    <![CDATA[{"identifier":"TrainingGuides.ArticlePagePageTemplate","properties":null,"fieldIdentifiers":{}}]]>
   </ContentItemCommonDataPageTemplateConfiguration>
   <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
   <ContentItemReferences>

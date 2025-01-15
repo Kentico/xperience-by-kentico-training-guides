@@ -1,6 +1,6 @@
 ﻿namespace TrainingGuides.Web.Features.Shared.Models;
 
-public abstract class WidgetViewModel
+public interface IWidgetViewModel
 {
-    public abstract bool IsMisconfigured { get; }
+    bool IsMisconfigured { get; }
 }
