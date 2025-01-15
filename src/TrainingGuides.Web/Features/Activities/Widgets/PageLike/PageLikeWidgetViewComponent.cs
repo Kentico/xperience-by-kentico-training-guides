@@ -1,11 +1,11 @@
 ﻿using CMS.Activities;
 using CMS.ContactManagement;
-using TrainingGuides.Web.Features.Activities.Widgets.PageLike;
+using CMS.DataEngine;
 using Kentico.PageBuilder.Web.Mvc;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ViewComponents;
+using TrainingGuides.Web.Features.Activities.Widgets.PageLike;
 using TrainingGuides.Web.Features.Shared.Services;
-using CMS.DataEngine;
 
 [assembly: RegisterWidget(
     identifier: PageLikeWidgetViewComponent.IDENTIFIER,

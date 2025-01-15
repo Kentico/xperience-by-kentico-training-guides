@@ -1,11 +1,9 @@
 using CMS.ContactManagement;
 using CMS.DataEngine;
-
-using TrainingGuides.Web.Features.Personalization;
-
 using Kentico.PageBuilder.Web.Mvc.Personalization;
 using Kentico.Xperience.Admin.Base.FormAnnotations;
 using Kentico.Xperience.Admin.Base.Forms;
+using TrainingGuides.Web.Features.Personalization;
 
 [assembly: RegisterPersonalizationConditionType(
     "TrainingGuides.Web.Features.Personalization",
@@ -28,7 +26,6 @@ public class IsInContactGroupConditionType : ConditionType
     Order = 0,
     MaximumItems = 0)]
     public IEnumerable<ObjectRelatedItem> SelectedContactGroups { get; set; } = Enumerable.Empty<ObjectRelatedItem>();
-
 
     /// <summary>
     /// Evaluate condition type.

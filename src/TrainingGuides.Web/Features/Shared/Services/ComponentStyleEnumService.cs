@@ -1,6 +1,6 @@
 ﻿using TrainingGuides.Web.Features.Shared.OptionProviders;
-using TrainingGuides.Web.Features.Shared.OptionProviders.CornerStyle;
 using TrainingGuides.Web.Features.Shared.OptionProviders.ColorScheme;
+using TrainingGuides.Web.Features.Shared.OptionProviders.CornerStyle;
 namespace TrainingGuides.Web.Features.Shared.Services;
 
 public class ComponentStyleEnumService : IComponentStyleEnumService

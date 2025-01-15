@@ -1,9 +1,11 @@
-using Xunit;
 using CMS.Websites;
-using Moq;
-using TrainingGuides.Web.Features.Articles.Services;
-using TrainingGuides.Web.Features.Articles;
+using Kentico.Content.Web.Mvc.Routing;
 using Microsoft.AspNetCore.Html;
+using Microsoft.Extensions.Localization;
+using Moq;
+using TrainingGuides.Web.Features.Articles;
+using TrainingGuides.Web.Features.Articles.Services;
+using Xunit;
 
 namespace TrainingGuides.Web.Tests.Features.Articles.Services;
 
@@ -11,6 +13,9 @@ public class ArticlePageServiceTests
 {
     private readonly Mock<ArticlePageService> articlePageServiceMock;
     private readonly Mock<IWebPageUrlRetriever> webPageUrlRetrieverMock;
+    private readonly Mock<IServiceProvider> serviceProviderMock;
+    private readonly Mock<IStringLocalizer<SharedResources>> stringLocalizerMock;
+    private readonly Mock<IPreferredLanguageRetriever> preferredLanguageRetrieverMock;
 
     private const string ARTICLE_TITLE = "Title";
     private const string ARTICLE_SUMMARY = "Summary";
@@ -22,10 +27,20 @@ public class ArticlePageServiceTests
     public ArticlePageServiceTests()
     {
         webPageUrlRetrieverMock = new Mock<IWebPageUrlRetriever>();
-        webPageUrlRetrieverMock.Setup(x => x.Retrieve(It.IsAny<ArticlePage>(), It.IsAny<CancellationToken>()))
+        webPageUrlRetrieverMock.Setup(x => x.Retrieve(It.IsAny<ArticlePage>(), It.IsAny<string>(), It.IsAny<CancellationToken>()))
             .ReturnsAsync(new WebPageUrl(ARTICLE_URL));
 
-        articlePageServiceMock = new Mock<ArticlePageService>(webPageUrlRetrieverMock.Object);
+        serviceProviderMock = new Mock<IServiceProvider>();
+
+        stringLocalizerMock = new Mock<IStringLocalizer<SharedResources>>();
+
+        preferredLanguageRetrieverMock = new Mock<IPreferredLanguageRetriever>();
+        preferredLanguageRetrieverMock.Setup(x => x.Get()).Returns("en");
+
+        articlePageServiceMock = new Mock<ArticlePageService>(webPageUrlRetrieverMock.Object,
+            serviceProviderMock.Object,
+            stringLocalizerMock.Object,
+            preferredLanguageRetrieverMock.Object);
 
         referenceArticleViewModel = new()
         {

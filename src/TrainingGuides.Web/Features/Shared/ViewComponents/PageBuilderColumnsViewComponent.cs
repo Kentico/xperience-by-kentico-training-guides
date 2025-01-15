@@ -154,7 +154,6 @@ public class PageBuilderColumnsViewComponent : ViewComponent
     }
 }
 
-
 public enum PageBuilderAreaType
 {
     EditableAreas = 0,

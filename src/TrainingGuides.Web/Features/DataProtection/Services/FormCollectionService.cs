@@ -1,8 +1,8 @@
-﻿using CMS.DataEngine;
+﻿using System.Data;
+using System.Xml.Linq;
+using CMS.DataEngine;
 using CMS.DataProtection;
 using CMS.OnlineForms;
-using System.Data;
-using System.Xml.Linq;
 using TrainingGuides.Web.Features.DataProtection.Collectors;
 
 namespace TrainingGuides.Web.Features.DataProtection.Services;
@@ -99,7 +99,6 @@ public class FormCollectionService : IFormCollectionService
         }
         return result;
     }
-
 
     /// <summary>
     /// Gets an object query for all bizform items with any of the supplied emails in any of its email columns, or with any of the supplied consent agreements

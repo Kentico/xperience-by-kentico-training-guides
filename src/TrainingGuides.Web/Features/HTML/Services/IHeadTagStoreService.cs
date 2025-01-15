@@ -9,6 +9,6 @@ public enum CodeLocation
 }
 public interface IHeadTagStoreService
 {
-    public Task<List<string>> GetCodeAsync(CodeLocation location);
-    public Task StoreCodeAsync(CodeLocation location, string code);
+    Task<List<string>> GetCodeAsync(CodeLocation location);
+    Task StoreCodeAsync(CodeLocation location, string code);
 }

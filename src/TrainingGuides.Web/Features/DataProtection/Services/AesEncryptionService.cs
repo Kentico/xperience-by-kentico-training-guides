@@ -55,7 +55,6 @@ public class AesEncryptionService : IStringEncryptionService
         return Convert.ToBase64String(encrypted);
     }
 
-
     /// <summary>
     /// Decrypts the provided string using Aes
     /// </summary>

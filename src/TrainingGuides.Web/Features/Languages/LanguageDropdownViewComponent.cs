@@ -1,7 +1,7 @@
-using Microsoft.AspNetCore.Mvc;
 using CMS.ContentEngine;
 using CMS.DataEngine;
 using Kentico.Content.Web.Mvc.Routing;
+using Microsoft.AspNetCore.Mvc;
 using TrainingGuides.Web.Features.Shared.Services;
 
 namespace TrainingGuides.Web.Features.Languages;
@@ -10,7 +10,6 @@ public class LanguageDropdownViewComponent : ViewComponent
     private readonly IInfoProvider<ContentLanguageInfo> contentLanguageInfoProvider;
     private readonly IPreferredLanguageRetriever preferredLanguageRetriever;
     private readonly IHttpRequestService httpRequestService;
-
 
     public LanguageDropdownViewComponent(
         IInfoProvider<ContentLanguageInfo> contentLanguageInfoProvider,

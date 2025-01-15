@@ -20,7 +20,6 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
         this.preferredLanguageRetriever = preferredLanguageRetriever;
     }
 
-
     /// <summary>
     /// Retrieves Web page content item by Id using ContentItemQueryBuilder
     /// </summary>
@@ -67,9 +66,10 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
     /// <param name="contentTypeName">Content type name of the Web page.</param>
     /// <param name="queryFilter">A delegate used to configure query for given contentTypeName</param>
     /// <returns>An enumerable set of items</returns>
-    public async Task<IEnumerable<T>> RetrieveWebPageContentItems(
+    private async Task<IEnumerable<T>> RetrieveWebPageContentItems(
         string contentTypeName,
-        Func<ContentTypeQueryParameters, ContentTypeQueryParameters> queryFilter)
+        Func<ContentTypeQueryParameters, ContentTypeQueryParameters> queryFilter,
+        bool includeSecuredItems = true)
     {
         var builder = new ContentItemQueryBuilder()
                             .ForContentType(
@@ -81,7 +81,8 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
 
         var queryExecutorOptions = new ContentQueryExecutionOptions
         {
-            ForPreview = webSiteChannelContext.IsPreview
+            ForPreview = webSiteChannelContext.IsPreview,
+            IncludeSecuredItems = includeSecuredItems
         };
 
         var pages = await contentQueryExecutor.GetMappedWebPageResult<T>(builder, queryExecutorOptions);
@@ -94,12 +95,19 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
     /// </summary>
     /// <param name="parentPageContentTypeName">Content type of the parent page</param>
     /// <param name="parentPagePath">Path of the parent page</param>
+    /// <param name="includeSecuredItems">Determines whether secured items should be included in the results.</param>
     /// <param name="depth">The maximum level of recursively linked content items that should be included in the results. Default value is 1.</param>
     /// <returns></returns>
     public async Task<IEnumerable<T>> RetrieveWebPageChildrenByPath(
         string parentPageContentTypeName,
         string parentPagePath,
-        int depth = 1) => await RetrieveWebPageChildrenByPath(parentPageContentTypeName, parentPagePath, null, depth);
+        bool includeSecuredItems,
+        int depth = 1) => await RetrieveWebPageChildrenByPath(
+            parentPageContentTypeName: parentPageContentTypeName,
+            parentPagePath: parentPagePath,
+            customContentTypeQueryParameters: null,
+            includeSecuredItems: includeSecuredItems,
+            depth: depth);
 
     /// <summary>
     /// Retrieves child pages of a given web page that are linked to specific content items, specified by list of reference IDs.
@@ -115,12 +123,14 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
         string parentPagePath,
         string referenceFieldName,
         IEnumerable<int> referenceIds,
+        bool includeSecuredItems,
         int depth = 1
     ) => await RetrieveWebPageChildrenByPath(
-            parentPageContentTypeName,
-            parentPagePath,
-            config => config.Linking(referenceFieldName, referenceIds),
-            depth);
+            parentPageContentTypeName: parentPageContentTypeName,
+            parentPagePath: parentPagePath,
+            customContentTypeQueryParameters: config => config.Linking(referenceFieldName, referenceIds),
+            includeSecuredItems: includeSecuredItems,
+            depth: depth);
 
     /// <summary>
     /// Retrieves Web page content item by Id using ContentItemQueryBuilder
@@ -150,7 +160,8 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
     /// <returns>An enumerable set of items</returns>
     public async Task<IEnumerable<T>> RetrieveReusableContentItems(
         string contentTypeName,
-        Func<ContentTypeQueryParameters, ContentTypeQueryParameters> queryFilter)
+        Func<ContentTypeQueryParameters, ContentTypeQueryParameters> queryFilter,
+        bool includeSecuredItems = true)
     {
         var builder = new ContentItemQueryBuilder()
                             .ForContentType(
@@ -161,7 +172,8 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
 
         var queryExecutorOptions = new ContentQueryExecutionOptions
         {
-            ForPreview = webSiteChannelContext.IsPreview
+            ForPreview = webSiteChannelContext.IsPreview,
+            IncludeSecuredItems = includeSecuredItems
         };
 
         var items = await contentQueryExecutor.GetMappedResult<T>(builder, queryExecutorOptions);
@@ -173,6 +185,7 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
         string parentPageContentTypeName,
         string parentPagePath,
         Action<ContentTypeQueryParameters>? customContentTypeQueryParameters,
+        bool includeSecuredItems = true,
         int depth = 1)
     {
         Action<ContentTypeQueryParameters> contentQueryParameters = customContentTypeQueryParameters != null
@@ -193,7 +206,8 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
 
         var queryExecutorOptions = new ContentQueryExecutionOptions
         {
-            ForPreview = webSiteChannelContext.IsPreview
+            ForPreview = webSiteChannelContext.IsPreview,
+            IncludeSecuredItems = includeSecuredItems
         };
 
         var pages = await contentQueryExecutor.GetMappedWebPageResult<T>(builder, queryExecutorOptions);
@@ -202,29 +216,35 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
     }
 }
 
-
 public class ContentItemRetrieverService : IContentItemRetrieverService
 {
     private readonly IContentQueryExecutor contentQueryExecutor;
-    private readonly IWebsiteChannelContext websiteChannelContext;
+    private readonly IWebsiteChannelContext webSiteChannelContext;
 
     public ContentItemRetrieverService(
         IContentQueryExecutor contentQueryExecutor,
-        IWebsiteChannelContext websiteChannelContext)
+        IWebsiteChannelContext webSiteChannelContext)
     {
         this.contentQueryExecutor = contentQueryExecutor;
-        this.websiteChannelContext = websiteChannelContext;
+        this.webSiteChannelContext = webSiteChannelContext;
     }
 
     private async Task<IEnumerable<IContentItemFieldsSource>> RetrieveContentItems(Action<ContentQueryParameters> contentQueryParameters,
-        Action<ContentTypesQueryParameters> contentTypesQueryParameters)
+        Action<ContentTypesQueryParameters> contentTypesQueryParameters,
+        bool includeSecuredItems = true)
     {
         var builder = new ContentItemQueryBuilder();
 
         builder.ForContentTypes(contentTypesQueryParameters)
             .Parameters(contentQueryParameters);
 
-        return await contentQueryExecutor.GetMappedResult<IContentItemFieldsSource>(builder);
+        var queryExecutorOptions = new ContentQueryExecutionOptions
+        {
+            ForPreview = webSiteChannelContext.IsPreview,
+            IncludeSecuredItems = includeSecuredItems
+        };
+
+        return await contentQueryExecutor.GetMappedResult<IContentItemFieldsSource>(builder, queryExecutorOptions);
     }
 
     /// <summary>
@@ -245,23 +265,31 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
         return await RetrieveContentItems(contentQueryParameters, contentTypesQueryParameters);
     }
 
-    private async Task<IEnumerable<IWebPageFieldsSource>> RetrieveWebPages(Action<ContentQueryParameters> parameters)
+    private async Task<IEnumerable<IWebPageFieldsSource>> RetrieveWebPages(Action<ContentQueryParameters> parameters,
+        bool includeSecuredItems = true)
     {
         var builder = new ContentItemQueryBuilder();
 
-        builder.ForContentTypes(query =>
+        builder
+            .ForContentTypes(query =>
             {
-                query.ForWebsite(websiteChannelContext.WebsiteChannelName);
+                query.ForWebsite(webSiteChannelContext.WebsiteChannelName);
             })
             .Parameters(parameters);
 
-        return await contentQueryExecutor.GetMappedResult<IWebPageFieldsSource>(builder);
+        var queryExecutorOptions = new ContentQueryExecutionOptions
+        {
+            ForPreview = webSiteChannelContext.IsPreview,
+            IncludeSecuredItems = includeSecuredItems
+        };
+
+        return await contentQueryExecutor.GetMappedResult<IWebPageFieldsSource>(builder, queryExecutorOptions);
     }
 
     /// <summary>
     /// Retrieves the IWebPageFieldsSource of a web page item by Id.
     /// </summary>
-    /// <param name="webPageItemId">the Id of the web page item</param>
+    /// <param name="webPageItemId">The Id of the web page item</param>
     /// <returns><see cref="IWebPageFieldsSource"/> object containing generic <see cref="WebPageFields"/> for the item</returns>
     public async Task<IWebPageFieldsSource?> RetrieveWebPageById(
         int webPageItemId)
@@ -286,6 +314,32 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
             {
                 parameters.Where(where => where.WhereEquals(nameof(WebPageFields.WebPageItemGUID), webPageItemGuid));
             });
+
+        return pages.FirstOrDefault();
+    }
+
+    /// <summary>
+    /// Retrieves the IWebPageFieldsSource of a web page item by path.
+    /// </summary>
+    /// <param name="pathToMatch">The Tree path of the web page item (can be found in the administration under the Properties tab).</param>
+    ///<returns><see cref="IWebPageFieldsSource"/> object containing generic <see cref="WebPageFields"/> for the item</returns>
+    public async Task<IWebPageFieldsSource?> RetrieveWebPageByPath(string pathToMatch,
+        bool includeSecuredItems = true)
+    {
+        var builder = new ContentItemQueryBuilder();
+
+        builder.ForContentTypes(query =>
+            {
+                query.ForWebsite(webSiteChannelContext.WebsiteChannelName, PathMatch.Single(pathToMatch));
+            });
+
+        var queryExecutorOptions = new ContentQueryExecutionOptions
+        {
+            ForPreview = webSiteChannelContext.IsPreview,
+            IncludeSecuredItems = includeSecuredItems
+        };
+
+        var pages = await contentQueryExecutor.GetMappedResult<IWebPageFieldsSource>(builder);
 
         return pages.FirstOrDefault();
     }

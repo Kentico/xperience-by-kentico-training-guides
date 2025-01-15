@@ -1,9 +1,9 @@
-using TrainingGuides.Web.Features.Articles.Widgets.FeaturedArticle;
 using Kentico.PageBuilder.Web.Mvc;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ViewComponents;
-using TrainingGuides.Web.Features.Shared.Services;
 using TrainingGuides.Web.Features.Articles.Services;
+using TrainingGuides.Web.Features.Articles.Widgets.FeaturedArticle;
+using TrainingGuides.Web.Features.Shared.Services;
 
 [assembly:
     RegisterWidget(FeaturedArticleWidgetViewComponent.IDENTIFIER, typeof(FeaturedArticleWidgetViewComponent), "Featured article",

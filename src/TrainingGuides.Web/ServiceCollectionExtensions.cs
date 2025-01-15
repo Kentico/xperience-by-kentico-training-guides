@@ -1,10 +1,12 @@
 using TrainingGuides.Web.Features.Articles.Services;
 using TrainingGuides.Web.Features.DataProtection.Services;
+using TrainingGuides.Web.Features.EmailNotifications;
 using TrainingGuides.Web.Features.Html.Services;
+using TrainingGuides.Web.Features.Membership.Profile;
+using TrainingGuides.Web.Features.Membership.Services;
 using TrainingGuides.Web.Features.Products.Services;
 using TrainingGuides.Web.Features.SEO;
 using TrainingGuides.Web.Features.Shared.Services;
-using TrainingGuides.Web.Features.EmailNotifications;
 
 namespace TrainingGuides.Web;
 
@@ -21,7 +23,10 @@ public static class ServiceCollectionExtensions
         services.AddSingleton<IProductPageService, ProductPageService>();
         services.AddSingleton<IComponentStyleEnumService, ComponentStyleEnumService>();
         services.AddSingleton<IEmailNotificationService, EmailNotificationService>();
+        services.AddSingleton<IMemberContactService, MemberContactService>();
+        services.AddSingleton<IUpdateProfileService, UpdateProfileService>();
 
+        services.AddScoped<IMembershipService, MembershipService>();
         services.AddScoped<IHeadTagStoreService, HeadTagStoreService>();
 
         services.AddTransient(typeof(IContentItemRetrieverService<>), typeof(ContentItemRetrieverService<>));

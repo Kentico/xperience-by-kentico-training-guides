@@ -1,0 +1,57 @@
+@using TrainingGuides.Web.Features.Membership.Widgets.SignIn
+
+@model SignInWidgetViewModel
+
+@if(Model.AuthenticationSuccessful)
+{
+    <script>
+        window.location = "@Model.RedirectUrl";
+    </script>
+}
+
+<div class="form-horizontal">
+
+    <div asp-validation-summary="ModelOnly" class="text-danger validation-summary"></div>
+    @* WHY SO MANY HIDDEN INPUTS?
+        this repository uses a more complex approach with hidden fields to enable membership components as page builder widgets and templates.
+        This approach offers flexibility for editors to more easily link to these pages, create member-related campaigns with better UX, and configure the design of the components.
+        However, it requires extra development. To see simpler examples using standard MVC routed views for membership functionality, check out the following resources.
+        - The Xperience by Kentico Community Portal, available at https://github.com/Kentico/community-portal. 
+        - The Dancing Goat sample project, available through the "Kentico.Xperience.Templates" .NET Templates package.*@
+
+    @* Include hidden inputs for widget display and links. 
+        If server-side validation fails, these values will allow the form to be properly re-rendered. *@
+    <input asp-for="DefaultRedirectPageGuid">
+    <input asp-for="DisplayForm">
+    <input asp-for="SubmitButtonText">
+    <input asp-for="UserNameOrEmailLabel">
+    <input asp-for="PasswordLabel">
+    <input asp-for="StaySignedInLabel">
+
+    <div class="form-group">
+        <div class="editing-form-label-cell">
+            <label class="control-label form-label mt-3">@Model.UserNameOrEmailLabel</label>
+        </div>
+        <div class="editing-form-value-cell">
+            <input asp-for="UserNameOrEmail" class="form-control">
+            <span asp-validation-for="UserNameOrEmail" class="text-danger field-validation-error"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="editing-form-label-cell">
+            <label class="control-label form-label mt-3">@Model.PasswordLabel</label>
+        </div>
+        <div class="editing-form-value-cell">
+            <input asp-for="Password" class="form-control">
+            <span asp-validation-for="Password" class="text-danger field-validation-error"></span>
+        </div>
+    </div>
+    <div class="mt-3 form-check">
+        <input asp-for="StaySignedIn" class="form-check-input">
+        <label class="form-check-label">@Model.StaySignedInLabel</label>
+    </div>
+    <div class="text-center">
+        <button id="signIn" type="submit" class="btn tg-btn-secondary text-uppercase my-4">@Model.SubmitButtonText</button>
+    </div>
+</div>

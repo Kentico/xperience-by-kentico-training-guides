@@ -1,7 +1,7 @@
 ﻿using Kentico.PageBuilder.Web.Mvc;
 using Microsoft.AspNetCore.Mvc;
-using TrainingGuides.Web.Features.Shared.Sections.FormColumn;
 using TrainingGuides.Web.Features.DataProtection.Services;
+using TrainingGuides.Web.Features.Shared.Sections.FormColumn;
 
 [assembly: RegisterSection(
     identifier: FormColumnSectionConsentViewComponent.IDENTIFIER,

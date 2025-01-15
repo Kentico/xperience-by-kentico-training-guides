@@ -1,9 +1,9 @@
+using CMS.Membership;
 using Kentico.Xperience.Admin.Base;
-using TrainingGuides.ProjectSettings;
+using Microsoft.Extensions.Localization;
 using TrainingGuides.Admin.ProjectSettings;
 using TrainingGuides.Admin.ProjectSettings.GlobalSettings;
-using CMS.Membership;
-using Microsoft.Extensions.Localization;
+using TrainingGuides.ProjectSettings;
 
 
 [assembly: UIPage(
