@@ -8,5 +8,4 @@ public class ArticleListWidgetViewModel : WidgetViewModel
     public string CtaText { get; set; } = string.Empty;
 
     public override bool IsMisconfigured => Articles == null || Articles.Count == 0;
-
 }

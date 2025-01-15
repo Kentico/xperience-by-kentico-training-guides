@@ -7,6 +7,7 @@ using TrainingGuides.Web.Features.Shared.Services;
 using TrainingGuides.Web.Features.Articles.Services;
 using CMS.ContentEngine;
 using Microsoft.IdentityModel.Tokens;
+using TrainingGuides.Web.Features.Shared.OptionProviders.OrderBy;
 
 [assembly:
     RegisterWidget(ArticleListWidgetViewComponent.IDENTIFIER, typeof(ArticleListWidgetViewComponent), "Article list widget",

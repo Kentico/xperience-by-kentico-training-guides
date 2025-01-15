@@ -1,0 +1,46 @@
+@model TrainingGuides.Web.Features.Gallery.Widgets.GalleryWidget.GalleryWidgetViewModel?
+
+@if (Model == null || Model.IsMisconfigured)
+{
+    <tg-page-builder-content>
+        <div class="row justify-content-center">
+            <div class="col-xl-11">
+                <div class="row" data-gridify="3-columns">
+                    <h3>Gallery</h3>
+                    @if(Model?.Images?.Count == 0)
+                    {
+                        <tg-configure-widget-instructions message="No images found. Double-check your smart folder selection."/>
+                    }
+                    else
+                    {
+                        <tg-configure-widget-instructions/>
+                    }
+                </div>
+            </div>
+        </div>
+    </tg-page-builder-content>
+
+    return;
+}
+else
+{
+    <div class="row justify-content-center">
+        <div class="col-xl-11">
+            <h3>@Model.Title</h3>
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 c-blog-grid mt-3 mb-4 mt-md-4">
+                @foreach (var image in Model.Images!)
+                {
+                    <div class="col mt-4">
+                        <div class="c-card bg-3">
+                            <a href="@Url.Content(image.FilePath)" >
+                                <div class="c-card_img">
+                                    <img src="@Url.Content(image.FilePath)" alt="@image.AltText" class="img-fluid gallery-img" />
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+}

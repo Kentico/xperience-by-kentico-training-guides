@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.asset>
+  <AssetFile>
+    <![CDATA[{"Identifier":"8a7cf792-7cb8-4872-aa32-de3f915f82cd","Name":"night-view.jpg","Extension":".jpg","Size":789753,"LastModified":"2025-01-09T18:37:47.6568465Z"}]]>
+  </AssetFile>
+  <AssetUseInternalOnly>False</AssetUseInternalOnly>
+  <ContentItemDataCommonDataID>
+    <GUID>369a41db-d4f0-4972-acd8-37523d7a9a51</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>Night-view-gcwkqfxm</CodeName>
+      <GUID>07351673-94f7-474a-a704-06c1dae37205</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>dcce9c9f-7e37-4009-b421-727eea291adf</ContentItemDataGUID>
+</contentitemdata.trainingguides.asset>

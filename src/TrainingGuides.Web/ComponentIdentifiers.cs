@@ -1,6 +1,7 @@
 ﻿using TrainingGuides.Web.Features.Activities.Widgets.PageLike;
 using TrainingGuides.Web.Features.Articles.Widgets.ArticleList;
 using TrainingGuides.Web.Features.DataProtection.Widgets.CookiePreferences;
+using TrainingGuides.Web.Features.Gallery.Widgets.GalleryWidget;
 using TrainingGuides.Web.Features.Html.Widgets.HtmlCode;
 using TrainingGuides.Web.Features.LandingPages.Widgets.CallToAction;
 using TrainingGuides.Web.Features.LandingPages.Widgets.HeroBanner;
@@ -36,5 +37,6 @@ public static class ComponentIdentifiers
         public const string SIMPLE_CALL_TO_ACTION = SimpleCallToActionWidgetViewComponent.IDENTIFIER;
         public const string PRODUCT = ProductWidgetViewComponent.IDENTIFIER;
         public const string VIDEO_EMBED = VideoEmbedWidgetViewComponent.IDENTIFIER;
+        public const string GALLERY = GalleryWidgetViewComponent.IDENTIFIER;
     }
 }

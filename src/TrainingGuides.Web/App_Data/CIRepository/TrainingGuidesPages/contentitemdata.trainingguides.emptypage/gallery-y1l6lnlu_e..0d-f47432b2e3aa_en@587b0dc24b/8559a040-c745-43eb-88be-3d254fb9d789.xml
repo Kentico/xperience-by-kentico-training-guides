@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.emptypage>
+  <ContentItemDataCommonDataID>
+    <GUID>e1f3d774-b551-46f6-a80d-f47432b2e3aa</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>Gallery-y1l6lnlu</CodeName>
+      <GUID>91f1b8e1-eba5-47ee-a814-3a407f92e09a</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>8559a040-c745-43eb-88be-3d254fb9d789</ContentItemDataGUID>
+</contentitemdata.trainingguides.emptypage>

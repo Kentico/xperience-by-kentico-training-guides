@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentitemcommondata>
+  <ContentItemCommonDataContentItemID>
+    <CodeName>Gallery-y1l6lnlu</CodeName>
+    <GUID>91f1b8e1-eba5-47ee-a814-3a407f92e09a</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </ContentItemCommonDataContentItemID>
+  <ContentItemCommonDataContentLanguageID>
+    <CodeName>en</CodeName>
+    <GUID>e81b5172-f240-4041-88b1-653089984e29</GUID>
+    <ObjectType>cms.contentlanguage</ObjectType>
+  </ContentItemCommonDataContentLanguageID>
+  <ContentItemCommonDataFirstPublishedWhen>2025-01-08 17:03:11Z</ContentItemCommonDataFirstPublishedWhen>
+  <ContentItemCommonDataGUID>e1f3d774-b551-46f6-a80d-f47432b2e3aa</ContentItemCommonDataGUID>
+  <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
+  <ContentItemCommonDataLastPublishedWhen>2025-01-08 17:10:47Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataPageBuilderWidgets>
+    <![CDATA[{"editableAreas":[{"identifier":"areaMain","sections":[{"identifier":"d6f41762-8445-4349-bc0c-769e80f12a7a","type":"TrainingGuides.SingleColumnSection","properties":{"sectionAnchor":""},"zones":[{"identifier":"f3da5529-665e-4745-96a2-75abb87d3132","widgets":[{"identifier":"8c00a6c3-3286-462f-9939-d69b0975af0c","type":"TrainingGuides.GalleryWidget","variants":[{"identifier":"123638e7-b431-438c-a176-3d8802b14a7a","properties":{"smartFolder":{"identifier":"ece33e43-93ab-4200-8b55-eec26c111e68"},"title":"Rooms and apartments","topN":6,"orderBy":"NewestFirst"},"fieldIdentifiers":{"smartFolder":"c0f91a6e-6aa4-4526-b061-c568c316ecb5","title":"8518955f-267a-43e4-a0d4-d493c8f7c913","topN":"a33b3501-6842-493e-978e-a8c2d984fa1b","orderBy":"3a331c07-6929-4af3-9862-df1743a3eb93"}}]},{"identifier":"f3e65477-7b6f-40a8-b9cd-ff9e318d93f3","type":"Kentico.Widget.RichText","variants":[{"identifier":"fe8b9f85-7339-4440-ab27-b861374c45ad","properties":{"content":null},"fieldIdentifiers":{"content":"cfb5d9ce-3f3f-4c9d-9685-c8132232c730"}}]},{"identifier":"8a7f3809-6b6c-420e-86c8-2d9af42730b6","type":"TrainingGuides.GalleryWidget","variants":[{"identifier":"836d9917-63f3-49e3-bc8f-1801a7395594","properties":{"smartFolder":{"identifier":"843b3725-9819-43fa-9fee-07bcc4e8caea"},"title":"Amenities and common areas","topN":6,"orderBy":"NewestFirst"},"fieldIdentifiers":{"smartFolder":"9ab8d2ab-c00c-4fb1-b8b3-51909816a081","title":"e7bcf1c0-756f-4b47-9ebc-6be2570cd5a6","topN":"93efda60-f3ff-4a94-a19b-e76ff421de71","orderBy":"7d1e713c-e4a4-4097-9a3f-01a29e5ba331"}}]}]}],"fieldIdentifiers":{"sectionAnchor":"47b2698d-7b2b-43ed-a436-13bbf4fc755a"}}]}]}]]>
+  </ContentItemCommonDataPageBuilderWidgets>
+  <ContentItemCommonDataPageTemplateConfiguration>
+    <![CDATA[{"identifier":"TrainingGuides.EmptyPagePageTemplate","properties":null,"fieldIdentifiers":{}}]]>
+  </ContentItemCommonDataPageTemplateConfiguration>
+  <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
+</cms.contentitemcommondata>
