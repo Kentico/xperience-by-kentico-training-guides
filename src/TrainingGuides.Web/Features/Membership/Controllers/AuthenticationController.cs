@@ -98,13 +98,19 @@ public class AuthenticationController : Controller
 
         string signInUrl = await membershipService.GetSignInUrl(language);
 
-        string redirectUrl = signInUrl + QueryString.Create(ApplicationConstants.RETURN_URL_PARAMETER, returnUrl);
+        var query = QueryString.Create(ApplicationConstants.RETURN_URL_PARAMETER, returnUrl);
 
-        return Redirect(redirectUrl);
+        var redirectUrl = new UriBuilder(signInUrl)
+        {
+            Query = query.ToString()
+        };
+
+        return Redirect(redirectUrl.ToString());
     }
 
     private string GetLanguageFromReturnUrl(string returnUrl)
     {
+        // Cache this in real-world scenarios
         var languages = contentLanguageInfoProvider.Get()
             .Column(nameof(ContentLanguageInfo.ContentLanguageName))
             .GetListResult<string>();
