@@ -9,7 +9,7 @@ namespace TrainingGuides.Web.Features.Gallery.Widgets.GalleryWidget;
 public class GalleryWidgetProperties : IWidgetProperties
 {
     [SmartFolderSelectorComponent(
-        AllowedContentTypeIdentifiersFilter = typeof(GalleryImage),
+        AllowedContentTypeIdentifiersFilter = typeof(GalleryImageContentTypeFilter),
         Label = "Smart folder",
         ExplanationText = "Select smart folder containing Gallery images you wish to display",
         Order = 10)]
@@ -32,3 +32,7 @@ public class GalleryWidgetProperties : IWidgetProperties
     public string OrderBy { get; set; } = OrderByOption.NewestFirst.ToString();
 }
 
+public class GalleryImageContentTypeFilter : IContentTypesNameFilter
+{
+    IEnumerable<string> IContentTypesNameFilter.AllowedContentTypeNames => [GalleryImage.CONTENT_TYPE_NAME];
+}
