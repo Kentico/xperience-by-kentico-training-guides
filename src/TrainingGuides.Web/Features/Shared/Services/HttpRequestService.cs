@@ -35,7 +35,7 @@ public class HttpRequestService : IHttpRequestService
             Port = currentRequest.Host.Port ?? 80
         };
 
-        return url.ToString();
+        return url.ToString().TrimEnd('/');
     }
 
     private HttpRequest RetrieveCurrentRequest() => httpContextAccessor?.HttpContext?.Request
