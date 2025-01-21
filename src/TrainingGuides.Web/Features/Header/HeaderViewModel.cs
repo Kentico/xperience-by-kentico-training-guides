@@ -1,4 +1,4 @@
-﻿﻿namespace TrainingGuides.Web.Features.Header;
+﻿namespace TrainingGuides.Web.Features.Header;
 
 public class HeaderViewModel
 {

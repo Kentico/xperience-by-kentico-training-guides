@@ -1,8 +1,8 @@
-using TrainingGuides;
-using TrainingGuides.Web;
 using Kentico.Content.Web.Mvc.Routing;
 using Kentico.PageBuilder.Web.Mvc;
 using Kentico.Web.Mvc;
+using TrainingGuides;
+using TrainingGuides.Web;
 
 var builder = WebApplication.CreateBuilder(args);
 

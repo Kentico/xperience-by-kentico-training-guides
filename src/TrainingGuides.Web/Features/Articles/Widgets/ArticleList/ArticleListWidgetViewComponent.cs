@@ -1,11 +1,11 @@
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ViewComponents;
 using CMS.DataEngine;
 using Kentico.PageBuilder.Web.Mvc;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ViewComponents;
+using Microsoft.IdentityModel.Tokens;
+using TrainingGuides.Web.Features.Articles.Services;
 using TrainingGuides.Web.Features.Articles.Widgets.ArticleList;
 using TrainingGuides.Web.Features.Shared.Services;
-using TrainingGuides.Web.Features.Articles.Services;
-using Microsoft.IdentityModel.Tokens;
 
 [assembly:
     RegisterWidget(ArticleListWidgetViewComponent.IDENTIFIER, typeof(ArticleListWidgetViewComponent), "Article list widget",
