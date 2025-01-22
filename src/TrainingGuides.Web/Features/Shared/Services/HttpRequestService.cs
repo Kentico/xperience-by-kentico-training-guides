@@ -79,7 +79,7 @@ public class HttpRequestService : IHttpRequestService
         var url = new UriBuilder(GetBaseUrl(currentRequest))
         {
             Path = notPrimaryLanguage
-                ? $"/{language}"
+                ? language
                 : string.Empty
         };
 
@@ -107,7 +107,7 @@ public class HttpRequestService : IHttpRequestService
         var url = new UriBuilder(GetBaseUrl(currentRequest))
         {
             Path = notPrimaryLanguage || alwaysIncludeLanguage
-                ? $"/{language}"
+                ? language
                 : string.Empty
         };
 
