@@ -1,6 +1,6 @@
 using Kentico.PageBuilder.Web.Mvc.PageTemplates;
-using TrainingGuides.Web.Features.Articles;
 using TrainingGuides;
+using TrainingGuides.Web.Features.Articles;
 
 [assembly: RegisterPageTemplate(
     identifier: ArticlePagePageTemplate.IDENTIFIER,

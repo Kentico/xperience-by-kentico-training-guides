@@ -1,3 +1,4 @@
+using Kentico.Content.Web.Mvc.Routing;
 using Microsoft.AspNetCore.Html;
 using TrainingGuides.Web.Features.Shared.Models;
 
@@ -6,9 +7,12 @@ namespace TrainingGuides.Web.Features.Articles.Services;
 public class ArticlePageService : IArticlePageService
 {
     private readonly IWebPageUrlRetriever webPageUrlRetriever;
-    public ArticlePageService(IWebPageUrlRetriever webPageUrlRetriever)
+    private readonly IPreferredLanguageRetriever preferredLanguageRetriever;
+    public ArticlePageService(IWebPageUrlRetriever webPageUrlRetriever,
+        IPreferredLanguageRetriever preferredLanguageRetriever)
     {
         this.webPageUrlRetriever = webPageUrlRetriever;
+        this.preferredLanguageRetriever = preferredLanguageRetriever;
     }
 
     /// <summary>
@@ -26,7 +30,8 @@ public class ArticlePageService : IArticlePageService
         var article = articlePage.ArticlePageContent.FirstOrDefault();
         var articleTeaserImage = article?.ArticleTeaser.FirstOrDefault();
 
-        string articleUrl = (await webPageUrlRetriever.Retrieve(articlePage)).RelativePath;
+        string language = preferredLanguageRetriever.Get();
+        string articleUrl = (await webPageUrlRetriever.Retrieve(articlePage, language)).RelativePath;
 
         return new ArticlePageViewModel
         {

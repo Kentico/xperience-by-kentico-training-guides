@@ -10,11 +10,17 @@ public class HttpRequestService : IHttpRequestService
     }
     private string GetBaseUrl(HttpRequest currentRequest)
     {
-        string pathBase = currentRequest.PathBase.ToString();
-        string baseUrl = $"{currentRequest.Scheme}://{currentRequest.Host}";
+        var url = new UriBuilder()
+        {
+            Scheme = currentRequest.Scheme,
+            Host = currentRequest.Host.Host,
+            Path = currentRequest.PathBase,
+            Port = currentRequest.Host.Port ?? 80
+        };
 
-        return string.IsNullOrWhiteSpace(pathBase) ? baseUrl : $"{baseUrl}{pathBase}";
+        return url.ToString().TrimEnd('/');
     }
+
     private HttpRequest RetrieveCurrentRequest() => httpContextAccessor?.HttpContext?.Request
      ?? throw new NullReferenceException("Unable to retrieve current request context.");
 
@@ -27,5 +33,18 @@ public class HttpRequestService : IHttpRequestService
     {
         var currentRequest = RetrieveCurrentRequest();
         return GetBaseUrl(currentRequest);
+    }
+
+    /// <inheritdoc/>
+    public string CombineUrlPaths(params string[] paths)
+    {
+        if (paths.Count() == 0)
+        {
+            return string.Empty;
+        }
+
+        var fixedPaths = paths.Select(p => p.Trim('/'));
+
+        return string.Join("/", fixedPaths.Where(p => !string.IsNullOrWhiteSpace(p)));
     }
 }

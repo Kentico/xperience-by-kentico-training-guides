@@ -1,4 +1,4 @@
-﻿﻿using Kentico.Content.Web.Mvc;
+﻿using Kentico.Content.Web.Mvc;
 using Kentico.Content.Web.Mvc.Routing;
 using Kentico.PageBuilder.Web.Mvc.PageTemplates;
 using Microsoft.AspNetCore.Mvc;

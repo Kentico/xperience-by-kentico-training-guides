@@ -1,4 +1,4 @@
-﻿﻿using Microsoft.AspNetCore.Html;
+﻿using Microsoft.AspNetCore.Html;
 using TrainingGuides.Web.Features.Shared.Models;
 
 namespace TrainingGuides.Web.Features.Articles;
