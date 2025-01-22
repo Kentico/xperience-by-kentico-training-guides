@@ -83,7 +83,7 @@ public class HttpRequestService : IHttpRequestService
                 : string.Empty
         };
 
-        return url.ToString();
+        return url.ToString().TrimEnd('/');
     }
 
     /// <inheritdoc/>
@@ -111,7 +111,7 @@ public class HttpRequestService : IHttpRequestService
                 : string.Empty
         };
 
-        return url.ToString();
+        return url.ToString().TrimEnd('/');
     }
 
     /// <inheritdoc/>
