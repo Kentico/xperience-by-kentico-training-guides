@@ -35,7 +35,7 @@ public class HttpRequestService : IHttpRequestService
             Port = currentRequest.Host.Port ?? 80
         };
 
-        return url.ToString();
+        return url.ToString().TrimEnd('/');
     }
 
     private HttpRequest RetrieveCurrentRequest() => httpContextAccessor?.HttpContext?.Request
@@ -79,11 +79,11 @@ public class HttpRequestService : IHttpRequestService
         var url = new UriBuilder(GetBaseUrl(currentRequest))
         {
             Path = notPrimaryLanguage
-                ? $"/{language}"
+                ? language
                 : string.Empty
         };
 
-        return url.ToString();
+        return url.ToString().TrimEnd('/');
     }
 
     /// <inheritdoc/>
@@ -107,11 +107,11 @@ public class HttpRequestService : IHttpRequestService
         var url = new UriBuilder(GetBaseUrl(currentRequest))
         {
             Path = notPrimaryLanguage || alwaysIncludeLanguage
-                ? $"/{language}"
+                ? language
                 : string.Empty
         };
 
-        return url.ToString();
+        return url.ToString().TrimEnd('/');
     }
 
     /// <inheritdoc/>

@@ -1735,7 +1735,6 @@
 }
 .c-section.default {
   padding: 2rem 0;
-  overflow: hidden;
 }
 @media (min-width: 992px) {
   .c-section.default {
