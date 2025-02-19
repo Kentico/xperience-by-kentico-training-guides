@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.smartfolder>
+  <SmartFolderCreatedByUserID>
+    <CodeName>administrator</CodeName>
+    <GUID>6415b8ce-8072-4bcd-8e48-9d7178b826b7</GUID>
+    <ObjectType>cms.user</ObjectType>
+  </SmartFolderCreatedByUserID>
+  <SmartFolderCreatedWhen>2025-01-05 05:46:57Z</SmartFolderCreatedWhen>
+  <SmartFolderDisplayName>Gallery - Surroundings</SmartFolderDisplayName>
+  <SmartFolderFilter>
+    <![CDATA[{"classGUID":["8a4c740c-e8d1-4452-af02-8db2b41e1930"],"tags":[{"tags":[{"identifier":"895535fc-bfa3-4afd-8ddb-bc9e4e438d1e"}]}],"lastPublishedAbsolute":null,"lastPublishedRelative":null,"selectedLastPublishedTimeFrame":"absolute"}]]>
+  </SmartFolderFilter>
+  <SmartFolderGUID>e3f96a09-347e-42a8-b761-7366a5ea698b</SmartFolderGUID>
+  <SmartFolderIsContentDeliveryEnabled>True</SmartFolderIsContentDeliveryEnabled>
+  <SmartFolderModifiedByUserID>
+    <CodeName>administrator</CodeName>
+    <GUID>6415b8ce-8072-4bcd-8e48-9d7178b826b7</GUID>
+    <ObjectType>cms.user</ObjectType>
+  </SmartFolderModifiedByUserID>
+  <SmartFolderName>Gallery_-_Hotel_surroundings-zui3fw8d</SmartFolderName>
+</cms.smartfolder>

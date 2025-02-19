@@ -14,4 +14,7 @@
   <KeyName>CMSMassAssetUploadConfiguration</KeyName>
   <KeyOrder>1</KeyOrder>
   <KeyType>longtext</KeyType>
+  <KeyValue>
+    <![CDATA[{"ContentTypeGuid":"9ecde825-735e-4967-a995-cc97b55adb0f","AssetFieldName":"AssetFile"}]]>
+  </KeyValue>
 </cms.settingskey>

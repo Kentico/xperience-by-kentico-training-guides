@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.asset>
+  <AssetFile>
+    <![CDATA[{"Identifier":"d28beb1c-1372-4d85-b4e1-4346695bcab7","Name":"view.jpg","Extension":".jpg","Size":289544,"LastModified":"2025-01-09T18:30:03.6072978Z"}]]>
+  </AssetFile>
+  <AssetUseInternalOnly>False</AssetUseInternalOnly>
+  <ContentItemDataCommonDataID>
+    <GUID>43acfa03-6317-4ab0-82ed-0651ee27f77a</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>View-z3lwrjjl</CodeName>
+      <GUID>7ae6e052-4191-46b7-a324-e28683ae6470</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>c22b0522-6886-4eeb-9b4c-bf145b54618b</ContentItemDataGUID>
+</contentitemdata.trainingguides.asset>

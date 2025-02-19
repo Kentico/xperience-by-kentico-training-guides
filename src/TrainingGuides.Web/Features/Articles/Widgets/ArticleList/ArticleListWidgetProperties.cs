@@ -1,9 +1,10 @@
-using System.ComponentModel;
 using CMS.ContentEngine;
 using Kentico.PageBuilder.Web.Mvc;
 using Kentico.Xperience.Admin.Base.FormAnnotations;
 using Kentico.Xperience.Admin.Websites.FormAnnotations;
 using TrainingGuides.Web.Features.Shared.OptionProviders;
+using TrainingGuides.Web.Features.Shared.OptionProviders.OrderBy;
+using System.ComponentModel;
 
 namespace TrainingGuides.Web.Features.Articles.Widgets.ArticleList;
 
@@ -52,14 +53,6 @@ public class ArticleListWidgetProperties : IWidgetProperties
         DataProviderType = typeof(DropdownEnumOptionProvider<SecuredOption>),
         Order = 50)]
     public string SecuredItems { get; set; } = SecuredOption.IncludeEverything.ToString();
-}
-
-public enum OrderByOption
-{
-    [Description("Newest first")]
-    NewestFirst,
-    [Description("Oldest first")]
-    OldestFirst
 }
 
 public enum SecuredOption

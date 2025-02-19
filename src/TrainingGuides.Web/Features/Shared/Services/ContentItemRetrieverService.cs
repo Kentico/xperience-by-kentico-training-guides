@@ -1,6 +1,8 @@
 ﻿using CMS.ContentEngine;
+using CMS.DataEngine;
 using CMS.Websites.Routing;
 using Kentico.Content.Web.Mvc.Routing;
+using TrainingGuides.Web.Features.Shared.OptionProviders.OrderBy;
 
 namespace TrainingGuides.Web.Features.Shared.Services;
 
@@ -20,13 +22,7 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
         this.preferredLanguageRetriever = preferredLanguageRetriever;
     }
 
-    /// <summary>
-    /// Retrieves Web page content item by Id using ContentItemQueryBuilder
-    /// </summary>
-    /// <param name="webPageItemId">The Id of the Web page content item.</param>
-    /// <param name="contentTypeName">Content type name of the Web page.</param>
-    /// <param name="depth">The maximum level of recursively linked content items that should be included in the results. Default value is 1.</param>
-    /// <returns>A Web page content item of specified type, with the specifiied Id</returns>
+    /// <inheritdoc/>
     public async Task<T?> RetrieveWebPageById(
         int webPageItemId,
         string contentTypeName,
@@ -40,13 +36,7 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
         return pages.FirstOrDefault();
     }
 
-    /// <summary>
-    /// Retrieves Web page content item by Id using ContentItemQueryBuilder
-    /// </summary>
-    /// <param name="webPageItemGuid">The Guid of the Web page content item.</param>
-    /// <param name="contentTypeName">Content type name of the Web page.</param>
-    /// <param name="depth">The maximum level of recursively linked content items that should be included in the results. Default value is 1.</param>
-    /// <returns>A Web page content item of specified type, with the specifiied Id</returns>
+    ///  <inheritdoc/>
     public async Task<T?> RetrieveWebPageByGuid(
         Guid? webPageItemGuid,
         string contentTypeName,
@@ -60,13 +50,8 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
         return pages.FirstOrDefault();
     }
 
-    /// <summary>
-    /// Retrieves web page content items using ContentItemQueryBuilder
-    /// </summary>
-    /// <param name="contentTypeName">Content type name of the Web page.</param>
-    /// <param name="queryFilter">A delegate used to configure query for given contentTypeName</param>
-    /// <returns>An enumerable set of items</returns>
-    private async Task<IEnumerable<T>> RetrieveWebPageContentItems(
+    /// <inheritdoc/>
+    public async Task<IEnumerable<T>> RetrieveWebPageContentItems(
         string contentTypeName,
         Func<ContentTypeQueryParameters, ContentTypeQueryParameters> queryFilter,
         bool includeSecuredItems = true)
@@ -90,14 +75,7 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
         return pages;
     }
 
-    /// <summary>
-    /// Retrieves child pages of a given web page.
-    /// </summary>
-    /// <param name="parentPageContentTypeName">Content type of the parent page</param>
-    /// <param name="parentPagePath">Path of the parent page</param>
-    /// <param name="includeSecuredItems">Determines whether secured items should be included in the results.</param>
-    /// <param name="depth">The maximum level of recursively linked content items that should be included in the results. Default value is 1.</param>
-    /// <returns></returns>
+    /// <inheritdoc/>
     public async Task<IEnumerable<T>> RetrieveWebPageChildrenByPath(
         string parentPageContentTypeName,
         string parentPagePath,
@@ -109,15 +87,7 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
             includeSecuredItems: includeSecuredItems,
             depth: depth);
 
-    /// <summary>
-    /// Retrieves child pages of a given web page that are linked to specific content items, specified by list of reference IDs.
-    /// </summary>
-    /// <param name="parentPageContentTypeName">Content type of the parent page</param>
-    /// <param name="parentPagePath">Path of the parent page</param>
-    /// <param name="referenceFieldName">The page field name that contains the reference</param>
-    /// <param name="referenceIds">Enumerable of IDs of content items</param>
-    /// <param name="depth">The maximum level of recursively linked content items that should be included in the results. Default value is 1.</param>
-    /// <returns></returns>
+    /// <inheritdoc/>
     public async Task<IEnumerable<T>> RetrieveWebPageChildrenByPathAndReference(
         string parentPageContentTypeName,
         string parentPagePath,
@@ -132,13 +102,7 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
             includeSecuredItems: includeSecuredItems,
             depth: depth);
 
-    /// <summary>
-    /// Retrieves Web page content item by Id using ContentItemQueryBuilder
-    /// </summary>
-    /// <param name="contentItemGuid">The Guid of the reusable content item.</param>
-    /// <param name="contentTypeName">Content type name of the Web page.</param>
-    /// <param name="depth">The maximum level of recursively linked content items that should be included in the results. Default value is 1.</param>
-    /// <returns>A Web page content item of specified type, with the specified Id</returns>
+    /// <inheritdoc/>
     public async Task<T?> RetrieveContentItemByGuid(
         Guid contentItemGuid,
         string contentTypeName,
@@ -152,12 +116,7 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
         return items.FirstOrDefault();
     }
 
-    /// <summary>
-    /// Retrieves reusable content items using ContentItemQueryBuilder
-    /// </summary>
-    /// <param name="contentTypeName">Content type name of the reusable item.</param>
-    /// <param name="queryFilter">A delegate used to configure query for given contentTypeName</param>
-    /// <returns>An enumerable set of items</returns>
+    /// <inheritdoc/>
     public async Task<IEnumerable<T>> RetrieveReusableContentItems(
         string contentTypeName,
         Func<ContentTypeQueryParameters, ContentTypeQueryParameters> queryFilter,
@@ -179,6 +138,52 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
         var items = await contentQueryExecutor.GetMappedResult<T>(builder, queryExecutorOptions);
 
         return items;
+    }
+
+    private async Task<IEnumerable<T>> RetrieveContentItems(
+        Action<ContentTypesQueryParameters> contentTypesQueryParameters,
+        Action<ContentQueryParameters> contentQueryParameters)
+    {
+        var builder = new ContentItemQueryBuilder();
+
+        builder
+            .ForContentTypes(contentTypesQueryParameters)
+            .Parameters(contentQueryParameters)
+            .InLanguage(preferredLanguageRetriever.Get());
+
+        var queryExecutorOptions = new ContentQueryExecutionOptions
+        {
+            ForPreview = webSiteChannelContext.IsPreview
+        };
+
+        return await contentQueryExecutor.GetMappedResult<T>(builder, queryExecutorOptions);
+    }
+
+    /// <inheritdoc />
+    public async Task<IEnumerable<T>> RetrieveReusableContentItemsFromSmartFolder(
+        string contentTypeName,
+        Guid smartFolderGuid,
+        OrderByOption orderBy,
+        int topN = 20,
+        int depth = 1)
+    {
+        const string LAST_PUBLISHED_COLUMN_NAME = "ContentItemCommonDataLastPublishedWhen";
+
+
+        Action<ContentTypesQueryParameters> contentTypesQueryParameters = parameters => parameters
+            .InSmartFolder(smartFolderGuid)
+            .OfContentType(contentTypeName)
+            .WithLinkedItems(depth)
+            .WithContentTypeFields();
+
+        Action<ContentQueryParameters> contentQueryParameters = parameters
+            => parameters
+                .OrderBy(new OrderByColumn(
+                    LAST_PUBLISHED_COLUMN_NAME,
+                    orderBy.Equals(OrderByOption.NewestFirst) ? OrderDirection.Descending : OrderDirection.Ascending))
+                .TopN(topN);
+
+        return await RetrieveContentItems(contentTypesQueryParameters, contentQueryParameters);
     }
 
     private async Task<IEnumerable<T>> RetrieveWebPageChildrenByPath(

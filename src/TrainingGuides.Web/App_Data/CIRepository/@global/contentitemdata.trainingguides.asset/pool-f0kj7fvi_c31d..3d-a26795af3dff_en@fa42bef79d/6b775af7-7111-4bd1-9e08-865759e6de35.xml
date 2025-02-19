@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.asset>
+  <AssetFile>
+    <![CDATA[{"Identifier":"a0253abe-191d-4c6e-ac1e-e90991ded5ed","Name":"pool.jpg","Extension":".jpg","Size":382251,"LastModified":"2025-01-09T18:36:14.8055779Z"}]]>
+  </AssetFile>
+  <AssetUseInternalOnly>False</AssetUseInternalOnly>
+  <ContentItemDataCommonDataID>
+    <GUID>c31d114d-14d1-4775-9b3d-a26795af3dff</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>Pool-f0kj7fvi</CodeName>
+      <GUID>d9fed6b1-0912-482d-97ba-ad4d3cebba6c</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>6b775af7-7111-4bd1-9e08-865759e6de35</ContentItemDataGUID>
+</contentitemdata.trainingguides.asset>
