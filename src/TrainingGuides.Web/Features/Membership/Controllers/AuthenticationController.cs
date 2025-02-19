@@ -96,7 +96,7 @@ public class AuthenticationController : Controller
     {
         string language = GetLanguageFromReturnUrl(returnUrl);
 
-        string signInUrl = await membershipService.GetSignInUrl(language);
+        string signInUrl = await membershipService.GetSignInUrl(language, true);
 
         var query = QueryString.Create(ApplicationConstants.RETURN_URL_PARAMETER, returnUrl);
 
