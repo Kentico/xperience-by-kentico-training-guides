@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentitemcommondata>
+  <ContentItemCommonDataContentItemID>
+    <CodeName>MainRestaurant-auwzbeip</CodeName>
+    <GUID>61caae80-d9c6-49e9-a457-6ffa5a806cad</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </ContentItemCommonDataContentItemID>
+  <ContentItemCommonDataContentLanguageID>
+    <CodeName>en</CodeName>
+    <GUID>e81b5172-f240-4041-88b1-653089984e29</GUID>
+    <ObjectType>cms.contentlanguage</ObjectType>
+  </ContentItemCommonDataContentLanguageID>
+  <ContentItemCommonDataFirstPublishedWhen>2025-01-07 20:41:09Z</ContentItemCommonDataFirstPublishedWhen>
+  <ContentItemCommonDataGUID>41c824e0-e606-407e-acb8-1308708d9abb</ContentItemCommonDataGUID>
+  <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
+  <ContentItemCommonDataLastPublishedWhen>2025-01-08 16:12:52Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
+  <ContentItemReferences>
+    <cms.contentitemreference>
+      <ContentItemReferenceGroupGUID>fe076972-664d-45a5-8a49-49b86163acfe</ContentItemReferenceGroupGUID>
+      <ContentItemReferenceGUID>f8d19b8f-85de-42a5-af35-458e8a406b89</ContentItemReferenceGUID>
+      <ContentItemReferenceSourceCommonDataID>
+        <GUID>41c824e0-e606-407e-acb8-1308708d9abb</GUID>
+        <ObjectType>cms.contentitemcommondata</ObjectType>
+      </ContentItemReferenceSourceCommonDataID>
+      <ContentItemReferenceTargetItemID>
+        <CodeName>Main-restaurant-6btl90xp</CodeName>
+        <GUID>b859d9fb-63fd-4c14-b5e8-fa96011beb5e</GUID>
+        <ObjectType>cms.contentitem</ObjectType>
+      </ContentItemReferenceTargetItemID>
+    </cms.contentitemreference>
+  </ContentItemReferences>
+</cms.contentitemcommondata>

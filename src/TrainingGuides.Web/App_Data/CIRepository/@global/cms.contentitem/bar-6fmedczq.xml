@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentitem>
+  <ContentItemContentFolderID>
+    <CodeName>Root</CodeName>
+    <GUID>9d6509a4-a231-4837-8f1c-81a90705f988</GUID>
+    <ObjectType>cms.contentfolder</ObjectType>
+  </ContentItemContentFolderID>
+  <ContentItemContentTypeID>
+    <CodeName>TrainingGuides.GalleryImage</CodeName>
+    <GUID>8a4c740c-e8d1-4452-af02-8db2b41e1930</GUID>
+    <ObjectType>cms.contenttype</ObjectType>
+  </ContentItemContentTypeID>
+  <ContentItemGUID>1d212a9f-7319-48e0-bbf7-961120c0a781</ContentItemGUID>
+  <ContentItemIsReusable>True</ContentItemIsReusable>
+  <ContentItemIsSecured>False</ContentItemIsSecured>
+  <ContentItemName>Bar-6fmedczq</ContentItemName>
+</cms.contentitem>

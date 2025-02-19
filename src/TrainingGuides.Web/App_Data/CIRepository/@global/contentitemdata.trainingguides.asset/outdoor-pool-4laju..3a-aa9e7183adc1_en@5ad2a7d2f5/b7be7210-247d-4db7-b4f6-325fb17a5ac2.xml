@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.asset>
+  <AssetFile>
+    <![CDATA[{"Identifier":"437e2808-be8f-4bcc-8f97-413f7194d84f","Name":"outdoor-pool.jpg","Extension":".jpg","Size":298185,"LastModified":"2025-01-09T18:37:30.8338427Z"}]]>
+  </AssetFile>
+  <AssetUseInternalOnly>False</AssetUseInternalOnly>
+  <ContentItemDataCommonDataID>
+    <GUID>6b866d0b-b679-4502-a63a-aa9e7183adc1</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>Outdoor-pool-4lajud8y</CodeName>
+      <GUID>f5a3124c-f1e6-4598-b7a3-f39a886136e3</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>b7be7210-247d-4db7-b4f6-325fb17a5ac2</ContentItemDataGUID>
+</contentitemdata.trainingguides.asset>

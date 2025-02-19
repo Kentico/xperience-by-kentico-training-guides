@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.galleryimage>
+  <ContentItemDataCommonDataID>
+    <GUID>d3b7e811-03d1-4120-8399-118c4b187764</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>OutdoorPool-xq5erkwj</CodeName>
+      <GUID>06468ce2-ffb3-44fd-9ec1-fbb2b602c337</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>e3306dd8-5a8e-4104-97e5-f67242f9a0e6</ContentItemDataGUID>
+  <GalleryImageAsset>
+    <![CDATA[[{"Identifier":"f5a3124c-f1e6-4598-b7a3-f39a886136e3"}]]]>
+  </GalleryImageAsset>
+  <GalleryImageCategory>
+    <![CDATA[[{"Identifier":"895535fc-bfa3-4afd-8ddb-bc9e4e438d1e"}]]]>
+  </GalleryImageCategory>
+</contentitemdata.trainingguides.galleryimage>

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.galleryimage>
+  <ContentItemDataCommonDataID>
+    <GUID>4ba569e8-5921-495f-84a0-93e443df5c78</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>Apartment-ftlo0db8</CodeName>
+      <GUID>2e1b88df-3b73-4268-827d-13a77267a13d</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>248aed16-a78e-4dbe-99f4-afe234db793d</ContentItemDataGUID>
+  <GalleryImageAsset>
+    <![CDATA[[{"Identifier":"7a02937c-dddd-4209-88b9-353baefc5df3"}]]]>
+  </GalleryImageAsset>
+  <GalleryImageCategory>
+    <![CDATA[[{"Identifier":"8fa14351-e230-4c85-b22d-325cb0e307d7"}]]]>
+  </GalleryImageCategory>
+</contentitemdata.trainingguides.galleryimage>

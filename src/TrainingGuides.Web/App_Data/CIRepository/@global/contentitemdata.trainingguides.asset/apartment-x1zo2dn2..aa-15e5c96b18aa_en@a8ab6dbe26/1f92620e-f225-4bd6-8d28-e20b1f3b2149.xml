@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.asset>
+  <AssetFile>
+    <![CDATA[{"Identifier":"5cb76e62-e862-40a3-9541-09ec7bc6a87e","Name":"apartment.jpg","Extension":".jpg","Size":276417,"LastModified":"2025-01-09T18:41:28.3045163Z"}]]>
+  </AssetFile>
+  <AssetUseInternalOnly>False</AssetUseInternalOnly>
+  <ContentItemDataCommonDataID>
+    <GUID>21bd019a-c98f-432c-97aa-15e5c96b18aa</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>Apartment-x1zo2dn2</CodeName>
+      <GUID>7a02937c-dddd-4209-88b9-353baefc5df3</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>1f92620e-f225-4bd6-8d28-e20b1f3b2149</ContentItemDataGUID>
+</contentitemdata.trainingguides.asset>

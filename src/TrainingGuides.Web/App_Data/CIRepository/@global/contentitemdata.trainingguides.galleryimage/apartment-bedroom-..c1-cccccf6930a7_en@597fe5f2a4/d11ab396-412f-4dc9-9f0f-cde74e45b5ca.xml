@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.galleryimage>
+  <ContentItemDataCommonDataID>
+    <GUID>42268e67-c6c5-4eb6-82c1-cccccf6930a7</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>Apartment-Bedroom-21oc2lca</CodeName>
+      <GUID>c45c8d89-d3b2-4bce-81a8-411bdf27023d</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>d11ab396-412f-4dc9-9f0f-cde74e45b5ca</ContentItemDataGUID>
+  <GalleryImageAsset>
+    <![CDATA[[{"Identifier":"a6ae9d33-876e-4bf6-bc61-6f1b5579f15a"}]]]>
+  </GalleryImageAsset>
+  <GalleryImageCategory>
+    <![CDATA[[{"Identifier":"8fa14351-e230-4c85-b22d-325cb0e307d7"}]]]>
+  </GalleryImageCategory>
+</contentitemdata.trainingguides.galleryimage>
