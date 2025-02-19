@@ -1,6 +1,6 @@
 using Kentico.PageBuilder.Web.Mvc.PageTemplates;
-using TrainingGuides.Web.Features.Downloads;
 using TrainingGuides;
+using TrainingGuides.Web.Features.Downloads;
 
 [assembly: RegisterPageTemplate(
     identifier: DownloadsPagePageTemplate.IDENTIFIER,

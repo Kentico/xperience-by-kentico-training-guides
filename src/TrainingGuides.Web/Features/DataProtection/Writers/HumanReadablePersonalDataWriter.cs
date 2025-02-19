@@ -1,7 +1,7 @@
-﻿using CMS.Base;
-using CMS.DataEngine;
-using System.Globalization;
+﻿using System.Globalization;
 using System.Text;
+using CMS.Base;
+using CMS.DataEngine;
 using TrainingGuides.Web.Features.DataProtection.Collectors;
 
 namespace TrainingGuides.Web.Features.DataProtection.Writers;

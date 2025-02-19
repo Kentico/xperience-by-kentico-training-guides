@@ -1,13 +1,13 @@
-﻿using TrainingGuides.Web.Features.LandingPages.Widgets.HeroBanner;
-using Kentico.Content.Web.Mvc;
+﻿using Kentico.Content.Web.Mvc;
 using Kentico.Content.Web.Mvc.Routing;
 using Kentico.PageBuilder.Web.Mvc;
 using Microsoft.AspNetCore.Html;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ViewComponents;
+using TrainingGuides.Web.Features.LandingPages.Widgets.HeroBanner;
 using TrainingGuides.Web.Features.Shared.Models;
-using TrainingGuides.Web.Features.Shared.Services;
 using TrainingGuides.Web.Features.Shared.OptionProviders;
+using TrainingGuides.Web.Features.Shared.Services;
 
 [assembly:
     RegisterWidget(
@@ -27,7 +27,6 @@ public class HeroBannerWidgetViewComponent : ViewComponent
     private readonly IContentItemRetrieverService<Hero> heroRetrieverService;
     private readonly IWebPageUrlRetriever webPageUrlRetriever;
     private readonly IPreferredLanguageRetriever preferredLanguageRetriever;
-
 
     public const string IDENTIFIER = "TrainingGuides.HeroBanner";
 

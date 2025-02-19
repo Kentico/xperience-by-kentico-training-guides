@@ -1,6 +1,6 @@
-using Xunit;
-using TrainingGuides.Web.Features.Articles.Widgets.ArticleList;
 using TrainingGuides.Web.Features.Articles;
+using TrainingGuides.Web.Features.Articles.Widgets.ArticleList;
+using Xunit;
 
 namespace TrainingGuides.Web.Tests.Features.Articles.Widgets.ArticleList;
 

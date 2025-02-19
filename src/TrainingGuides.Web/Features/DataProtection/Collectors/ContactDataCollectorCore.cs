@@ -112,7 +112,6 @@ public class ContactDataCollectorCore
     private readonly IInfoProvider<CountryInfo> countryInfoProvider;
     private readonly IInfoProvider<StateInfo> stateInfoProvider;
 
-
     public ContactDataCollectorCore(IPersonalDataWriter personalDataWriter,
         IFormCollectionService formCollectionService,
         IInfoProvider<ConsentAgreementInfo> consentAgreementInfoProvider,

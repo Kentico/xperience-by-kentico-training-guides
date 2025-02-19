@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.profilepage>
+  <ContentItemDataCommonDataID>
+    <GUID>127412bd-f110-4373-8f4a-492dc9a2fb19</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>Profile-pn1ia5w4</CodeName>
+      <GUID>ecca8e9a-945b-48c1-8a4a-17c7422a0ae6</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>9bd0f663-72ed-4000-9dd8-1c9afe0db8a4</ContentItemDataGUID>
+</contentitemdata.trainingguides.profilepage>

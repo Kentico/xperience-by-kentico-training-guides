@@ -6,7 +6,6 @@ using Kentico.Web.Mvc;
 using TrainingGuides.DataProtectionCustomizations;
 using TrainingGuides.Web.Features.DataProtection.Shared;
 
-
 namespace TrainingGuides.Web.Features.DataProtection.Services;
 
 /// <summary>
@@ -33,8 +32,6 @@ public class CookieConsentService : ICookieConsentService
         this.cookieAccessor = cookieAccessor;
     }
 
-
-
     /// <summary>
     /// Sets current cookie consent level, internally sets system CookieLevel and agrees to provided consents.
     /// </summary>
@@ -59,7 +56,6 @@ public class CookieConsentService : ICookieConsentService
 
         return successful;
     }
-
 
     /// <summary>
     /// Sets current cookie consent level, internally sets system CookieLevel and agrees or revokes profiling consent.
@@ -88,7 +84,6 @@ public class CookieConsentService : ICookieConsentService
 
         return successful;
     }
-
 
     /// <summary>
     /// Updates the visitor's cookie level to the provided value
@@ -123,7 +118,6 @@ public class CookieConsentService : ICookieConsentService
         }
 
     }
-
 
     /// <summary>
     /// Agrees and revokes consents according to the preferred cookie level
@@ -182,7 +176,6 @@ public class CookieConsentService : ICookieConsentService
         return true;
     }
 
-
     /// <summary>
     /// Accepts all consents in the provided list for the provided contact
     /// </summary>
@@ -206,7 +199,6 @@ public class CookieConsentService : ICookieConsentService
         return allConsentsExist;
     }
 
-
     /// <summary>
     /// Gets currently set cookie consent level.
     /// </summary>
@@ -217,7 +209,6 @@ public class CookieConsentService : ICookieConsentService
 
         return consent;
     }
-
 
     /// <summary>
     /// Synchronizes cookie level with consent level.
@@ -243,7 +234,6 @@ public class CookieConsentService : ICookieConsentService
         }
     }
 
-
     /// <summary>
     /// Sets CMSCookieLevel if it is different from the new one.
     /// </summary>
@@ -256,7 +246,6 @@ public class CookieConsentService : ICookieConsentService
             cookieLevelProvider.SetCurrentCookieLevel(newLevel);
     }
 
-
     /// <summary>
     /// Gets the current cookie level consent mapping if it exists.
     /// </summary>
@@ -268,21 +257,12 @@ public class CookieConsentService : ICookieConsentService
         return currentMapping.FirstOrDefault();
     }
 
-
     /// <summary>
     /// Checks if the current contact's CMSCookieLevel is All (1000) or higher
     /// </summary>
     /// <returns>True if CMSCookieLevel is greater than or equal to 1000, false otherwise</returns>
-    public bool CurrentContactCanBeTracked()
-    {
-        bool isAllOrHigher = false;
-        string cookieLevelString = cookieAccessor.Get("CMSCookieLevel");
-
-        if (int.TryParse(cookieLevelString, out int cookieLevel))
-            isAllOrHigher = cookieLevel >= 1000;
-
-        return isAllOrHigher;
-    }
+    public bool CurrentContactCanBeTracked() =>
+        cookieLevelProvider.GetCurrentCookieLevel() >= 1000;
 
     private void SetCookieAcceptanceCookie() =>
         cookieAccessor.Set(CookieNames.COOKIE_ACCEPTANCE, "true", new CookieOptions

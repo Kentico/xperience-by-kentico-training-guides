@@ -28,15 +28,6 @@ public interface IContentItemRetrieverService<T>
         int depth = 1);
 
     /// <summary>
-    /// Retrieves web page content items using ContentItemQueryBuilder
-    /// </summary>
-    /// <param name="contentTypeName">Content type name of the Web page.</param>
-    /// <param name="queryFilter">A delegate used to configure query for given contentTypeName</param>
-    /// <returns>An enumerable set of items</returns>
-    Task<IEnumerable<T>> RetrieveWebPageContentItems(string contentTypeName,
-        Func<ContentTypeQueryParameters, ContentTypeQueryParameters> queryFilter);
-
-    /// <summary>
     /// Retrieves child pages of a given web page.
     /// </summary>
     /// <param name="parentPageContentTypeName">Content type of the parent page</param>
@@ -46,6 +37,7 @@ public interface IContentItemRetrieverService<T>
     Task<IEnumerable<T>> RetrieveWebPageChildrenByPath(
         string parentPageContentTypeName,
         string path,
+        bool includeSecuredItems = true,
         int depth = 1);
 
     /// <summary>
@@ -62,6 +54,7 @@ public interface IContentItemRetrieverService<T>
         string parentPagePath,
         string referenceFieldName,
         IEnumerable<int> referenceIds,
+        bool includeSecuredItems = true,
         int depth = 1
     );
 
@@ -76,16 +69,6 @@ public interface IContentItemRetrieverService<T>
         Guid contentItemGuid,
         string contentTypeName,
         int depth = 1);
-
-    /// <summary>
-    /// Retrieves reusable content items using ContentItemQueryBuilder
-    /// </summary>
-    /// <param name="contentTypeName">Content type name of the reusable item.</param>
-    /// <param name="queryFilter">A delegate used to configure query for given contentTypeName</param>
-    /// <returns>An enumerable set of items</returns>
-    Task<IEnumerable<T>> RetrieveReusableContentItems(
-        string contentTypeName,
-        Func<ContentTypeQueryParameters, ContentTypeQueryParameters> queryFilter);
 
     /// <summary>
     /// Retrieves reusable content items of specified type from specified smart folder.
@@ -113,4 +96,6 @@ public interface IContentItemRetrieverService
         string schemaName,
         string taxonomyColumnName,
         IEnumerable<Guid> tagGuids);
+    public Task<IWebPageFieldsSource?> RetrieveWebPageByPath(string pathToMatch,
+        bool includeSecuredItems = true);
 }

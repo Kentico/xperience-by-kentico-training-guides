@@ -1,5 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Kentico.PageBuilder.Web.Mvc;
+﻿using Kentico.PageBuilder.Web.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using TrainingGuides.Web.Features.Shared.Sections.SingleColumn;
 
 [assembly: RegisterSection(

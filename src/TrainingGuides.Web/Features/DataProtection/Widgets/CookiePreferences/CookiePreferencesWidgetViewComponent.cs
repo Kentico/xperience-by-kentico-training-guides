@@ -1,12 +1,12 @@
-﻿using Microsoft.AspNetCore.Html;
+﻿using CMS.DataEngine;
+using CMS.DataProtection;
+using Kentico.Content.Web.Mvc.Routing;
+using Kentico.PageBuilder.Web.Mvc;
+using Kentico.Web.Mvc;
+using Microsoft.AspNetCore.Html;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ViewComponents;
 using Microsoft.Extensions.Localization;
-using CMS.DataProtection;
-using CMS.DataEngine;
-using Kentico.Web.Mvc;
-using Kentico.Content.Web.Mvc.Routing;
-using Kentico.PageBuilder.Web.Mvc;
 using Newtonsoft.Json;
 using TrainingGuides.DataProtectionCustomizations;
 using TrainingGuides.Web.Features.DataProtection.Services;
@@ -31,7 +31,6 @@ public class CookiePreferencesWidgetViewComponent : ViewComponent
     private const string ANALYTICAL_COOKIES_HEADER = "Analytical cookies";
     private const string MARKETING_COOKIES_HEADER = "Marketing cookies";
     private readonly HtmlString consentMissingDescription = new("Please ensure that a valid consent is mapped to this cookie level in the Data protection application.");
-
 
     /// <summary>
     /// Widget identifier.

@@ -1,6 +1,6 @@
 using Kentico.Xperience.Admin.Base;
-using TrainingGuides.ProjectSettings;
 using TrainingGuides.Admin.ProjectSettings.GlobalSettings;
+using TrainingGuides.ProjectSettings;
 
 [assembly: UIPage(
     parentType: typeof(GlobalSettingsListingPage),

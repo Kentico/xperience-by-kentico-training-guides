@@ -6,6 +6,10 @@ using TrainingGuides.Web.Features.Html.Widgets.HtmlCode;
 using TrainingGuides.Web.Features.LandingPages.Widgets.CallToAction;
 using TrainingGuides.Web.Features.LandingPages.Widgets.HeroBanner;
 using TrainingGuides.Web.Features.LandingPages.Widgets.SimpleCallToAction;
+using TrainingGuides.Web.Features.Membership.Widgets.LinkOrSignOut;
+using TrainingGuides.Web.Features.Membership.Widgets.Registration;
+using TrainingGuides.Web.Features.Membership.Widgets.ResetPassword;
+using TrainingGuides.Web.Features.Membership.Widgets.SignIn;
 using TrainingGuides.Web.Features.Products.Widgets.Product;
 using TrainingGuides.Web.Features.Products.Widgets.ProductComparator;
 using TrainingGuides.Web.Features.Shared.Sections.FormColumn;
@@ -38,5 +42,10 @@ public static class ComponentIdentifiers
         public const string PRODUCT = ProductWidgetViewComponent.IDENTIFIER;
         public const string VIDEO_EMBED = VideoEmbedWidgetViewComponent.IDENTIFIER;
         public const string GALLERY = GalleryWidgetViewComponent.IDENTIFIER;
+        public const string SIGN_IN = SignInWidgetViewComponent.IDENTIFIER;
+        public const string LINK_OR_SIGN_OUT = LinkOrSignOutWidgetViewComponent.IDENTIFIER;
+        public const string REGISTRATION = RegistrationWidgetViewComponent.IDENTIFIER;
+        public const string RESET_PASSWORD = ResetPasswordWidgetViewComponent.IDENTIFIER;
+
     }
 }

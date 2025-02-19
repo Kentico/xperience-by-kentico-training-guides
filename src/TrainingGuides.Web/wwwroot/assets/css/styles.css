@@ -1033,6 +1033,10 @@
     right: 3.625rem;
   }
 }
+.dropdown {
+  top: 25%;
+}
+
 .c-why_heading {
   color: #1e1a1b;
 }
@@ -1738,7 +1742,6 @@
 }
 .c-section.default {
   padding: 2rem 0;
-  overflow: hidden;
 }
 @media (min-width: 992px) {
   .c-section.default {

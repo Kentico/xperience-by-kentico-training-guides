@@ -1,12 +1,12 @@
-﻿using Microsoft.AspNetCore.Html;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Localization;
-using CMS.ContactManagement;
+﻿using CMS.ContactManagement;
+using CMS.DataEngine;
 using CMS.DataProtection;
 using CMS.Helpers;
-using CMS.DataEngine;
 using Kentico.Content.Web.Mvc.Routing;
 using Kentico.Web.Mvc;
+using Microsoft.AspNetCore.Html;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Localization;
 using TrainingGuides.DataProtectionCustomizations;
 using TrainingGuides.Web.Features.DataProtection.Services;
 using TrainingGuides.Web.Features.DataProtection.Shared;
@@ -24,7 +24,6 @@ public class TrackingConsentViewComponent : ViewComponent
     private readonly ICookieConsentService cookieConsentService;
     private readonly IStringLocalizer<SharedResources> stringLocalizer;
     private readonly IHttpRequestService httpRequestService;
-
 
     public TrackingConsentViewComponent(
         IConsentAgreementService consentAgreementService,
@@ -126,7 +125,6 @@ public class TrackingConsentViewComponent : ViewComponent
 
         return Content(string.Empty);
     }
-
 
     /// <summary>
     /// Makes sure that the cookie level of the current visitor matches the consents they are agreed to. This accounts for contacts who revoke consent in one browser then revisit the site in another.

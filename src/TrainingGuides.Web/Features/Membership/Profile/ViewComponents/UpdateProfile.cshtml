@@ -1,0 +1,22 @@
+@using TrainingGuides.Web.Features.Membership.Profile;
+@using TrainingGuides.Web.Features.Shared.Helpers;
+
+@model UpdateProfileViewModel
+
+@{
+    // Using a new guid ensures no conflict if, for some reason, multiple instances of the view component are on the same page.
+    string formDivId = $"updateProfileForm{Guid.NewGuid()}";
+}
+<h3>@Model.Title</h3>
+
+@using (Html.AjaxBeginForm(new AjaxOptions
+{
+    HttpMethod = "POST",
+    InsertionMode = InsertionMode.Replace,
+    UpdateTargetId = formDivId
+}, new { action = Model.ActionUrl }))
+{
+    <div id="@formDivId" class="px-2">
+        <partial name="~/Features/Membership/Profile/ViewComponents/UpdateProfileForm.cshtml" model="Model" />
+    </div>
+}

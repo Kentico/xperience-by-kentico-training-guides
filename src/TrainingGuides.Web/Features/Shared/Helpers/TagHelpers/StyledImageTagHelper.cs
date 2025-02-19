@@ -1,5 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc.TagHelpers;
-using System.Text.Encodings.Web;
+﻿using System.Text.Encodings.Web;
+using Microsoft.AspNetCore.Mvc.TagHelpers;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using TrainingGuides.Web.Features.Shared.Services;
 

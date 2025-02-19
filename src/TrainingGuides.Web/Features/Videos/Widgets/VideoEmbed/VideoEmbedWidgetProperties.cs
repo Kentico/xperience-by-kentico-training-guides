@@ -30,7 +30,6 @@ public class VideoEmbedWidgetProperties : IWidgetProperties
         Order = 10)]
     public string Service { get; set; } = YOUTUBE;
 
-
     /// <summary>
     /// Defines the URL of the embedded video.
     /// </summary>
@@ -38,7 +37,6 @@ public class VideoEmbedWidgetProperties : IWidgetProperties
         Label = "Url",
         Order = 20)]
     public string Url { get; set; } = string.Empty;
-
 
     /// <summary>
     /// Determines whether the video should be sized dynamically or with explicit dimensions.
@@ -49,7 +47,6 @@ public class VideoEmbedWidgetProperties : IWidgetProperties
     [VisibleIfNotEqualTo(nameof(Service), YOUTUBE)]
     public bool DynamicSize { get; set; } = true;
 
-
     /// <summary>
     /// Determines the width of the embed.
     /// </summary>
@@ -58,7 +55,6 @@ public class VideoEmbedWidgetProperties : IWidgetProperties
         Order = 40)]
     [FormComponentConfiguration(typeof(VideoEmbedWidgetConfigurator), [nameof(Service), nameof(DynamicSize)])]
     public int Width { get; set; } = 560;
-
 
     /// <summary>
     /// Determines the height of the embed.
@@ -69,7 +65,6 @@ public class VideoEmbedWidgetProperties : IWidgetProperties
     [FormComponentConfiguration(typeof(VideoEmbedWidgetConfigurator), [nameof(Service), nameof(DynamicSize)])]
     public int Height { get; set; } = 315;
 
-
     /// <summary>
     /// Determines whether the video will start at the beginning, or at a specified timestamp.
     /// </summary>        
@@ -78,7 +73,6 @@ public class VideoEmbedWidgetProperties : IWidgetProperties
         Order = 60)]
     [VisibleIfNotEqualTo(nameof(Service), DAILYMOTION)]
     public bool PlayFromBeginning { get; set; } = true;
-
 
     /// <summary>
     /// Defines the time to start the player at.

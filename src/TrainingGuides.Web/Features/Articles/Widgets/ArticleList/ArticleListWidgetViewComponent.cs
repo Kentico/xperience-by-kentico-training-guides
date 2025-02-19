@@ -1,13 +1,15 @@
+using CMS.ContentEngine;
+using CMS.DataEngine;
+using Kentico.Content.Web.Mvc.Routing;
+using Kentico.PageBuilder.Web.Mvc;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ViewComponents;
-using CMS.DataEngine;
-using Kentico.PageBuilder.Web.Mvc;
-using TrainingGuides.Web.Features.Articles.Widgets.ArticleList;
-using TrainingGuides.Web.Features.Shared.Services;
-using TrainingGuides.Web.Features.Articles.Services;
-using CMS.ContentEngine;
 using Microsoft.IdentityModel.Tokens;
 using TrainingGuides.Web.Features.Shared.OptionProviders.OrderBy;
+using TrainingGuides.Web.Features.Articles.Services;
+using TrainingGuides.Web.Features.Articles.Widgets.ArticleList;
+using TrainingGuides.Web.Features.Membership.Services;
+using TrainingGuides.Web.Features.Shared.Services;
 
 [assembly:
     RegisterWidget(ArticleListWidgetViewComponent.IDENTIFIER, typeof(ArticleListWidgetViewComponent), "Article list widget",
@@ -21,17 +23,22 @@ public class ArticleListWidgetViewComponent : ViewComponent
 
     private readonly IContentItemRetrieverService genericPageRetrieverService;
     private readonly IContentItemRetrieverService<ArticlePage> articlePageRetrieverService;
-
     private readonly IArticlePageService articlePageService;
+    private readonly IMembershipService membershipService;
+    private readonly IPreferredLanguageRetriever preferredLanguageRetriever;
 
     public ArticleListWidgetViewComponent(
         IContentItemRetrieverService genericPageRetrieverService,
         IContentItemRetrieverService<ArticlePage> articlePageRetrieverService,
-        IArticlePageService articlePageService)
+        IArticlePageService articlePageService,
+        IMembershipService membershipService,
+        IPreferredLanguageRetriever preferredLanguageRetriever)
     {
         this.genericPageRetrieverService = genericPageRetrieverService;
         this.articlePageRetrieverService = articlePageRetrieverService;
         this.articlePageService = articlePageService;
+        this.membershipService = membershipService;
+        this.preferredLanguageRetriever = preferredLanguageRetriever;
     }
 
     public async Task<ViewViewComponentResult> InvokeAsync(ArticleListWidgetProperties properties)
@@ -40,22 +47,26 @@ public class ArticleListWidgetViewComponent : ViewComponent
 
         if (!properties.ContentTreeSection.IsNullOrEmpty())
         {
-            var articlePages = await RetrieveArticlePages(properties.ContentTreeSection.First(), properties.Tags);
+            var articlePages = await RetrieveArticlePages(properties.ContentTreeSection.First(), properties.Tags, properties.SecuredItems);
 
             model.Articles = (properties.OrderBy.Equals(OrderByOption.OldestFirst.ToString())
-                ? (await GetArticlePageViewModels(articlePages)).OrderBy(article => article.CreatedOn)
-                : (await GetArticlePageViewModels(articlePages)).OrderByDescending(article => article.CreatedOn))
+                ? (await GetArticlePageViewModels(articlePages, properties.SecuredItems)).OrderBy(article => article.CreatedOn)
+                : (await GetArticlePageViewModels(articlePages, properties.SecuredItems)).OrderByDescending(article => article.CreatedOn))
                 .Take(properties.TopN)
                 .ToList();
-
+            model.IsAuthenticated = await membershipService.IsMemberAuthenticated();
             model.CtaText = properties.CtaText;
+            model.SignInText = properties.SignInText;
         }
 
         return View("~/Features/Articles/Widgets/ArticleList/ArticleListWidget.cshtml", model);
     }
 
-    private async Task<IEnumerable<ArticlePage>> RetrieveArticlePages(WebPageRelatedItem parentPageSelection, IEnumerable<TagReference> tags)
+    private async Task<IEnumerable<ArticlePage>> RetrieveArticlePages(WebPageRelatedItem parentPageSelection, IEnumerable<TagReference> tags, string securedItemsDisplayMode)
     {
+        bool includeSecuredItems = securedItemsDisplayMode.Equals(SecuredOption.IncludeEverything.ToString())
+            || securedItemsDisplayMode.Equals(SecuredOption.PromptForLogin.ToString());
+
         var selectedPageGuid = parentPageSelection.WebPageGuid;
 
         var selectedPage = await genericPageRetrieverService.RetrieveWebPageByGuid(selectedPageGuid);
@@ -72,6 +83,7 @@ public class ArticleListWidgetViewComponent : ViewComponent
             return await articlePageRetrieverService.RetrieveWebPageChildrenByPath(
                 selectedPageContentTypeName,
                 selectedPagePath,
+                includeSecuredItems,
                 3);
         }
         else
@@ -90,6 +102,7 @@ public class ArticleListWidgetViewComponent : ViewComponent
                 selectedPagePath,
                 nameof(ArticlePage.ArticlePageArticleContent),
                 taggedArticleIds,
+                includeSecuredItems,
                 3);
         }
     }
@@ -121,7 +134,7 @@ public class ArticleListWidgetViewComponent : ViewComponent
         return await query.GetScalarResultAsync<string>();
     }
 
-    private async Task<List<ArticlePageViewModel>> GetArticlePageViewModels(IEnumerable<ArticlePage?>? articlePages)
+    private async Task<List<ArticlePageViewModel>> GetArticlePageViewModels(IEnumerable<ArticlePage?>? articlePages, string securedItemsDisplayMode)
     {
         var models = new List<ArticlePageViewModel>();
         if (articlePages != null)
@@ -130,7 +143,13 @@ public class ArticleListWidgetViewComponent : ViewComponent
             {
                 if (articlePage != null)
                 {
-                    var model = await articlePageService.GetArticlePageViewModel(articlePage);
+                    string language = preferredLanguageRetriever.Get();
+                    string signInUrl = await membershipService.GetSignInUrl(language);
+
+                    var model = securedItemsDisplayMode.Equals(SecuredOption.PromptForLogin.ToString())
+                        ? await articlePageService.GetArticlePageViewModelWithSecurity(articlePage, signInUrl, await membershipService.IsMemberAuthenticated())
+                        : await articlePageService.GetArticlePageViewModel(articlePage);
+
                     models.Add(model);
                 }
             }
