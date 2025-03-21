@@ -27,11 +27,13 @@ public class VideoEmbedWidgetViewComponent : ViewComponent
 
     public IViewComponentResult Invoke(ComponentViewModel<VideoEmbedWidgetProperties> widgetProperties)
     {
-        var markup = new HtmlString(GetEmbedMarkup(widgetProperties.Properties));
+        var markup = GetEmbedMarkup(widgetProperties.Properties);
         return View("~/Features/Videos/Widgets/VideoEmbed/VideoEmbedWidget.cshtml", new VideoEmbedWidgetViewModel { Markup = markup });
     }
 
-    private string GetEmbedMarkup(VideoEmbedWidgetProperties widgetProperties)
+    private HtmlString GetLocalizedHtmlString(string key) => new(stringLocalizer[key]);
+
+    private HtmlString GetEmbedMarkup(VideoEmbedWidgetProperties widgetProperties)
     {
         if (widgetProperties != null && !string.IsNullOrEmpty(widgetProperties.Url))
         {
@@ -41,13 +43,13 @@ public class VideoEmbedWidgetViewComponent : ViewComponent
                 VideoEmbedWidgetProperties.VIMEO => GetVimeoMarkup(widgetProperties),
                 VideoEmbedWidgetProperties.DAILYMOTION => GetDailyMotionMarkup(widgetProperties),
                 VideoEmbedWidgetProperties.FILE => GetFileMarkup(widgetProperties),
-                _ => stringLocalizer["Specified video service not found."],
+                _ => GetLocalizedHtmlString("Specified video service not found."),
             };
         }
-        return stringLocalizer["Please make sure the URL property is filled in."];
+        return GetLocalizedHtmlString("Please make sure the URL property is filled in.");
     }
 
-    private string GetFileMarkup(VideoEmbedWidgetProperties widgetProperties)
+    private HtmlString GetFileMarkup(VideoEmbedWidgetProperties widgetProperties)
     {
         if (widgetProperties != null && !string.IsNullOrEmpty(widgetProperties.Url))
         {
@@ -55,21 +57,18 @@ public class VideoEmbedWidgetViewComponent : ViewComponent
             if (!string.IsNullOrEmpty(extension))
             {
                 string anchor = widgetProperties.PlayFromBeginning ? string.Empty : $"#t={widgetProperties.StartingTime}";
-                if (widgetProperties.DynamicSize)
-                {
-                    return $"<video style=\"width:100%;\" controls><source src=\"{widgetProperties.Url}{anchor}\" type=\"video/{extension}\"></video>";
-                }
-                else
-                {
-                    return $"<video width=\"{widgetProperties.Width}\" height=\"{widgetProperties.Height}\" controls><source src=\"{widgetProperties.Url}{anchor}\" type=\"video/{extension}\"></video>";
-                }
+
+                return new HtmlString(widgetProperties.DynamicSize
+                    ? $"<video style=\"width:100%;\" controls><source src=\"{widgetProperties.Url}{anchor}\" type=\"video/{extension}\"></video>"
+                    : $"<video width=\"{widgetProperties.Width}\" height=\"{widgetProperties.Height}\" controls><source src=\"{widgetProperties.Url}{anchor}\" type=\"video/{extension}\"></video>"
+                );
             }
-            return stringLocalizer["Unable to parse file extension from the provided Url."];
+            return GetLocalizedHtmlString("Unable to parse file extension from the provided Url.");
         }
-        return stringLocalizer["Please make sure the URL property is filled in."];
+        return GetLocalizedHtmlString("Please make sure the URL property is filled in.");
     }
 
-    private string GetVimeoMarkup(VideoEmbedWidgetProperties widgetProperties)
+    private HtmlString GetVimeoMarkup(VideoEmbedWidgetProperties widgetProperties)
     {
         if (widgetProperties != null && !string.IsNullOrEmpty(widgetProperties.Url))
         {
@@ -77,43 +76,35 @@ public class VideoEmbedWidgetViewComponent : ViewComponent
             if (!string.IsNullOrEmpty(videoId))
             {
                 string anchor = widgetProperties.PlayFromBeginning ? string.Empty : $"#t={widgetProperties.StartingTime}s";
-                if (widgetProperties.DynamicSize)
-                {
 
-                    return "<div style=\"padding: 56.25 % 0 0 0; position: relative;\"><iframe src=\"https://player.vimeo.com/video/{videoId}{anchor}\" style=\"position:absolute;top:0;left:0;width:100%;height:100%;\" frameborder=\"0\" allow=\"autoplay; fullscreen; picture-in-picture\" allowfullscreen></iframe></div><script src=\"https://player.vimeo.com/api/player.js\"></script>";
-                }
-                else
-                {
-                    return $"<iframe src=\"https://player.vimeo.com/video/{videoId}{anchor}\" width=\"{widgetProperties.Width}\" height=\"{widgetProperties.Height}\" frameborder=\"0\" allow=\"autoplay; fullscreen; picture-in-picture\" allowfullscreen ></iframe >";
-                }
+                return new HtmlString(widgetProperties.DynamicSize
+                    ? "<div style=\"padding: 56.25 % 0 0 0; position: relative;\"><iframe src=\"https://player.vimeo.com/video/{videoId}{anchor}\" style=\"position:absolute;top:0;left:0;width:100%;height:100%;\" frameborder=\"0\" allow=\"autoplay; fullscreen; picture-in-picture\" allowfullscreen></iframe></div><script src=\"https://player.vimeo.com/api/player.js\"></script>"
+                    : $"<iframe src=\"https://player.vimeo.com/video/{videoId}{anchor}\" width=\"{widgetProperties.Width}\" height=\"{widgetProperties.Height}\" frameborder=\"0\" allow=\"autoplay; fullscreen; picture-in-picture\" allowfullscreen ></iframe >"
+                );
             }
-            return stringLocalizer["Unable to parse Vimeo video ID from the provided Url."];
+            return GetLocalizedHtmlString("Unable to parse Vimeo video ID from the provided Url.");
         }
-        return stringLocalizer["Please make sure the URL property is filled in."];
+        return GetLocalizedHtmlString("Please make sure the URL property is filled in.");
     }
 
-    private string GetDailyMotionMarkup(VideoEmbedWidgetProperties widgetProperties)
+    private HtmlString GetDailyMotionMarkup(VideoEmbedWidgetProperties widgetProperties)
     {
         if (widgetProperties != null && !string.IsNullOrEmpty(widgetProperties.Url))
         {
             string videoId = GetFinalPathComponent(widgetProperties.Url);
             if (!string.IsNullOrEmpty(videoId))
             {
-                if (widgetProperties.DynamicSize)
-                {
-                    return $"<div style=\"position:relative;padding-bottom:56.25%;height:0;overflow:hidden;\"> <iframe style=\"width:100%;height:100%;position:absolute;left:0px;top:0px;overflow:hidden\" frameborder=\"0\" type=\"text/html\" src=\"https://www.dailymotion.com/embed/video/{videoId}\" width=\"100%\" height=\"100%\" allowfullscreen title=\"Dailymotion Video Player\" allow=\"autoplay\"></iframe></div>";
-                }
-                else
-                {
-                    return $"<iframe src=\"https://www.dailymotion.com/embed/video/{videoId}\" width=\"{widgetProperties.Width}\" height=\"{widgetProperties.Height}\" frameborder=\"0\" type=\"text/html\" allowfullscreen title=\"Dailymotion Video Player\"></iframe>";
-                }
+                return new HtmlString(widgetProperties.DynamicSize
+                    ? $"<div style=\"position:relative;padding-bottom:56.25%;height:0;overflow:hidden;\"> <iframe style=\"width:100%;height:100%;position:absolute;left:0px;top:0px;overflow:hidden\" frameborder=\"0\" type=\"text/html\" src=\"https://www.dailymotion.com/embed/video/{videoId}\" width=\"100%\" height=\"100%\" allowfullscreen title=\"Dailymotion Video Player\" allow=\"autoplay\"></iframe></div>"
+                    : $"<iframe src=\"https://www.dailymotion.com/embed/video/{videoId}\" width=\"{widgetProperties.Width}\" height=\"{widgetProperties.Height}\" frameborder=\"0\" type=\"text/html\" allowfullscreen title=\"Dailymotion Video Player\"></iframe>"
+                );
             }
-            return stringLocalizer["Unable to parse Dailymotion video ID from the provided Url."];
+            return GetLocalizedHtmlString("Unable to parse Dailymotion video ID from the provided Url.");
         }
-        return stringLocalizer["Please make sure the URL property is filled in."];
+        return GetLocalizedHtmlString("Please make sure the URL property is filled in.");
     }
 
-    private string GetYoutubeMarkup(VideoEmbedWidgetProperties widgetProperties)
+    private HtmlString GetYoutubeMarkup(VideoEmbedWidgetProperties widgetProperties)
     {
         if (widgetProperties != null && !string.IsNullOrEmpty(widgetProperties.Url))
         {
@@ -121,11 +112,11 @@ public class VideoEmbedWidgetViewComponent : ViewComponent
             if (!string.IsNullOrEmpty(videoId))
             {
                 string query = widgetProperties.PlayFromBeginning ? string.Empty : $"?start={widgetProperties.StartingTime}";
-                return $"<iframe width=\"{widgetProperties.Width}\" height=\"{widgetProperties.Height}\" src=\"https://www.youtube.com/embed/{videoId}{query}\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share\" allowfullscreen></iframe>";
+                return new HtmlString($"<iframe width=\"{widgetProperties.Width}\" height=\"{widgetProperties.Height}\" src=\"https://www.youtube.com/embed/{videoId}{query}\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share\" allowfullscreen></iframe>");
             }
-            return stringLocalizer["Unable to parse Youtube video ID from the provided Url."];
+            return GetLocalizedHtmlString("Unable to parse Youtube video ID from the provided Url.");
         }
-        return stringLocalizer["Please make sure the URL property is filled in."];
+        return GetLocalizedHtmlString("Please make sure the URL property is filled in.");
     }
 
     private string GetYoutubeId(string url)
