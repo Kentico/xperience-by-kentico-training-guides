@@ -20,14 +20,17 @@ public class WebChannelSnippetCreatePage : CreatePage<WebChannelSnippetInfo, Web
 
     public WebChannelSnippetCreatePage(IFormComponentMapper formComponentMapper,
         IFormDataBinder formDataBinder,
-        IPageUrlGenerator pageUrlGenerator)
-        : base(formComponentMapper, formDataBinder, pageUrlGenerator)
+        IPageLinkGenerator pageLinkGenerator)
+        : base(formComponentMapper, formDataBinder, pageLinkGenerator)
     {
     }
 
     public override Task ConfigurePage()
     {
-        AdditionalUrlParameters.Add(WebChannelSettingsId.ToString());
+        AdditionalLinkParameters.Add(new PageParameterValues
+        {
+            { typeof(WebChannelSnippetCreatePage), WebChannelSettingsId}
+        });
         PageConfiguration.UIFormName = "webchannelsnippetedit";
         return base.ConfigurePage();
     }
