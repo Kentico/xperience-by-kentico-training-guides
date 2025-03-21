@@ -48,10 +48,10 @@
                 <div
                     class="tg-col align-self-center m-3">
                     @* title *@
-                    <h3 class="mt-2 mb-1">@Html.Raw(Model.Product.Name)</h3>
+                    <h3 class="mt-2 mb-1">@Model.Product.Name</h3>
                     
                     @* short description *@
-                    <p>@Html.Raw(Model.Product.ShortDescription)</p>
+                    <p>@Model.Product.ShortDescription</p>
 
                     @* benefits *@
                     @foreach (var benefit in Model.Product.Benefits)

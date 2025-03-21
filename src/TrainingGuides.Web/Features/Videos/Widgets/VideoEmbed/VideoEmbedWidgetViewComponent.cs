@@ -1,5 +1,6 @@
 ﻿using System.Web;
 using Kentico.PageBuilder.Web.Mvc;
+using Microsoft.AspNetCore.Html;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Localization;
 using TrainingGuides.Web.Features.Videos.Widgets.VideoEmbed;
@@ -26,7 +27,7 @@ public class VideoEmbedWidgetViewComponent : ViewComponent
 
     public IViewComponentResult Invoke(ComponentViewModel<VideoEmbedWidgetProperties> widgetProperties)
     {
-        string markup = GetEmbedMarkup(widgetProperties.Properties);
+        var markup = new HtmlString(GetEmbedMarkup(widgetProperties.Properties));
         return View("~/Features/Videos/Widgets/VideoEmbed/VideoEmbedWidget.cshtml", new VideoEmbedWidgetViewModel { Markup = markup });
     }
 
