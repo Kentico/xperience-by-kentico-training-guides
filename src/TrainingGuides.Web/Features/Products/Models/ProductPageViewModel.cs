@@ -7,7 +7,7 @@ public class ProductPageViewModel : PageViewModel
 {
     public HtmlString Name { get; set; } = HtmlString.Empty;
     public HtmlString ShortDescription { get; set; } = HtmlString.Empty;
-    public string Description { get; set; } = string.Empty;
+    public HtmlString Description { get; set; } = HtmlString.Empty;
     public List<AssetViewModel> Media { get; set; } = [];
     public decimal Price { get; set; }
     public List<ProductFeatureViewModel> Features { get; set; } = [];
