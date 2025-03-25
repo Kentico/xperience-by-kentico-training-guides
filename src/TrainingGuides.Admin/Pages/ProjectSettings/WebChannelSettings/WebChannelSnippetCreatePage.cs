@@ -28,9 +28,9 @@ public class WebChannelSnippetCreatePage : CreatePage<WebChannelSnippetInfo, Web
     public override Task ConfigurePage()
     {
         AdditionalLinkParameters.Add(new PageParameterValues
-        {
-            { typeof(WebChannelSnippetCreatePage), WebChannelSettingsId}
-        });
+            {
+                { typeof(WebChannelSnippetCreatePage), WebChannelSettingsId}
+            });
         PageConfiguration.UIFormName = "webchannelsnippetedit";
         return base.ConfigurePage();
     }
