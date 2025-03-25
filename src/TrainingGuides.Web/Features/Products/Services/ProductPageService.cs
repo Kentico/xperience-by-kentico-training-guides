@@ -39,7 +39,7 @@ public class ProductPageService : IProductPageService
         {
             Name = new(productPage.ProductPageProduct.FirstOrDefault()?.ProductName),
             ShortDescription = new(productPage.ProductPageProduct.FirstOrDefault()?.ProductShortDescription),
-            Description = productPage.ProductPageProduct.FirstOrDefault()?.ProductDescription ?? string.Empty,
+            Description = new(productPage.ProductPageProduct.FirstOrDefault()?.ProductDescription),
             Media = getMedia
                 ? productPage.ProductPageProduct.FirstOrDefault()?.ProductMedia.Select(AssetViewModel.GetViewModel)?.ToList() ?? []
                 : [],
