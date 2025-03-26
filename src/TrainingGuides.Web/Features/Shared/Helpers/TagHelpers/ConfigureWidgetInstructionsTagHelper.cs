@@ -1,3 +1,4 @@
+using Kentico.Content.Web.Mvc;
 using Kentico.PageBuilder.Web.Mvc;
 using Kentico.Web.Mvc;
 using Microsoft.AspNetCore.Html;
@@ -31,7 +32,7 @@ public class ConfigureWidgetInstructionsTagHelper : TagHelper
 
         var httpContext = accessor.HttpContext;
         string messageToShow = string.IsNullOrEmpty(Message)
-            ? (httpContext.Kentico().PageBuilder().EditMode
+            ? (httpContext.Kentico().PageBuilder().GetMode() == PageBuilderMode.Edit
                 ? INSTRUCTIONS_EDIT_MODE
                 : INSTRUCTIONS_PREVIEW_MODE)
             : Message;

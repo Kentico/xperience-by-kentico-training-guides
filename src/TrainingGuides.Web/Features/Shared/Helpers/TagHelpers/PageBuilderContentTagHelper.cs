@@ -23,7 +23,7 @@ public class PageBuilderContentTagHelper : TagHelper
     {
         var httpContext = accessor.HttpContext;
 
-        bool isInEditMode = httpContext.Kentico().PageBuilder().EditMode;
+        bool isInEditMode = httpContext.Kentico().PageBuilder().GetMode() == PageBuilderMode.Edit;
         bool isInPreview = httpContext.Kentico().Preview().Enabled;
 
         if (!isInEditMode && !isInPreview)
