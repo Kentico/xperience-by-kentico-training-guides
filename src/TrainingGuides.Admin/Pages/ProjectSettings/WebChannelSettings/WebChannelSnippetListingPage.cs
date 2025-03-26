@@ -30,15 +30,24 @@ public class WebChannelSnippetListingPage : ListingPage
     public override Task ConfigurePage()
     {
         PageConfiguration.ColumnConfigurations
-                    .AddColumn(nameof(WebChannelSnippetInfo.WebChannelSnippetDisplayName), stringLocalizer["Snippet"])
-                    .AddColumn(nameof(WebChannelSnippetInfo.WebChannelSnippetType), stringLocalizer["Type"]);
+            .AddColumn(nameof(WebChannelSnippetInfo.WebChannelSnippetDisplayName), stringLocalizer["Snippet"])
+            .AddColumn(nameof(WebChannelSnippetInfo.WebChannelSnippetType), stringLocalizer["Type"]);
 
-        PageConfiguration.HeaderActions.AddLink<WebChannelSnippetCreatePage>(stringLocalizer["New snippet"], parameters: WebChannelSettingsId.ToString());
+        PageConfiguration.HeaderActions.AddLink<WebChannelSnippetCreatePage>(
+            stringLocalizer["New snippet"],
+            parameters: new PageParameterValues
+                {
+                    { typeof(WebChannelSettingsEditSection), WebChannelSettingsId }
+                });
 
-        PageConfiguration.AddEditRowAction<WebChannelSnippetEditSection>(parameters: WebChannelSettingsId.ToString());
+        PageConfiguration.AddEditRowAction<WebChannelSnippetEditSection>(
+            parameters: new PageParameterValues
+                {
+                    { typeof(WebChannelSettingsEditSection), WebChannelSettingsId }
+                });
 
         PageConfiguration.TableActions
-                .AddDeleteAction(nameof(Delete));
+            .AddDeleteAction(nameof(Delete));
 
         PageConfiguration.QueryModifiers
             .AddModifier((query, _) =>

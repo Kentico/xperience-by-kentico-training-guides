@@ -17,8 +17,8 @@ public class GlobalSettingsCreatePage : CreatePage<GlobalSettingsKeyInfo, Global
 {
     public GlobalSettingsCreatePage(IFormComponentMapper formComponentMapper,
         IFormDataBinder formDataBinder,
-        IPageUrlGenerator pageUrlGenerator)
-        : base(formComponentMapper, formDataBinder, pageUrlGenerator)
+        IPageLinkGenerator pageLinkGenerator)
+        : base(formComponentMapper, formDataBinder, pageLinkGenerator)
     {
     }
 
