@@ -114,7 +114,7 @@ public class RegistrationController : Controller
     public async Task<ActionResult> Confirm(string memberEmail, string confirmToken)
     {
         string userName;
-        if (!(HttpContext.Kentico().PageBuilder().GetMode() == PageBuilderMode.Edit
+        if (!(HttpContext.Kentico().PageBuilder().GetMode() != PageBuilderMode.Off
             || HttpContext.Kentico().Preview().Enabled))
         {
             IdentityResult confirmResult;
