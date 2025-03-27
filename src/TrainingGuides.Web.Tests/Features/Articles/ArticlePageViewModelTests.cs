@@ -17,10 +17,10 @@ public class ArticlePageViewModelTests
     public void WhenInitialized_TitleIsEmpty() => Assert.Equal(string.Empty, articlePageViewModel.Title);
 
     [Fact]
-    public void WhenInitialized_SummaryIsEmpty() => Assert.Equal(HtmlString.Empty, articlePageViewModel.Summary);
+    public void WhenInitialized_SummaryIsEmpty() => Assert.Equal(HtmlString.Empty, articlePageViewModel.SummaryHtml);
 
     [Fact]
-    public void WhenInitialized_TextIsEmpty() => Assert.Equal(HtmlString.Empty, articlePageViewModel.Text);
+    public void WhenInitialized_TextIsEmpty() => Assert.Equal(HtmlString.Empty, articlePageViewModel.TextHtml);
 
     [Fact]
     public void WhenInitialized_RelatedNewsIsEmpty() => Assert.Empty(articlePageViewModel.RelatedNews);

@@ -36,8 +36,8 @@ public class ArticlePageService : IArticlePageService
         return new ArticlePageViewModel
         {
             Title = article?.ArticleTitle ?? string.Empty,
-            Summary = new HtmlString(article?.ArticleSummary),
-            Text = new HtmlString(article?.ArticleText),
+            SummaryHtml = new HtmlString(article?.ArticleSummary),
+            TextHtml = new HtmlString(article?.ArticleText),
             CreatedOn = articlePage.ArticlePagePublishDate,
             TeaserImage = AssetViewModel.GetViewModel(articleTeaserImage!),
             Url = articleUrl

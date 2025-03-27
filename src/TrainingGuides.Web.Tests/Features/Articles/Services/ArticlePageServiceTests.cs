@@ -30,8 +30,8 @@ public class ArticlePageServiceTests
         referenceArticleViewModel = new()
         {
             Title = ARTICLE_TITLE,
-            Summary = new HtmlString(ARTICLE_SUMMARY),
-            Text = new HtmlString(ARTICLE_TEXT),
+            SummaryHtml = new HtmlString(ARTICLE_SUMMARY),
+            TextHtml = new HtmlString(ARTICLE_TEXT),
             Url = ARTICLE_URL
         };
     }
@@ -68,7 +68,7 @@ public class ArticlePageServiceTests
     {
         var articlePage = BuildSampleArticlePage();
         var articlePageViewModel = await articlePageServiceMock.Object.GetArticlePageViewModel(articlePage);
-        Assert.Equal(referenceArticleViewModel.Summary.Value, articlePageViewModel.Summary.Value);
+        Assert.Equal(referenceArticleViewModel.SummaryHtml.Value, articlePageViewModel.SummaryHtml.Value);
     }
 
     [Fact]
@@ -76,7 +76,7 @@ public class ArticlePageServiceTests
     {
         var articlePage = BuildSampleArticlePage();
         var articlePageViewModel = await articlePageServiceMock.Object.GetArticlePageViewModel(articlePage);
-        Assert.Equal(referenceArticleViewModel.Text.Value, articlePageViewModel.Text.Value);
+        Assert.Equal(referenceArticleViewModel.TextHtml.Value, articlePageViewModel.TextHtml.Value);
     }
 
     [Fact]
