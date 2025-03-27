@@ -37,9 +37,9 @@ public class ProductPageService : IProductPageService
             : callToActionLink;
         return new ProductPageViewModel
         {
-            Name = new(productPage.ProductPageProduct.FirstOrDefault()?.ProductName),
-            ShortDescription = new(productPage.ProductPageProduct.FirstOrDefault()?.ProductShortDescription),
-            Description = new(productPage.ProductPageProduct.FirstOrDefault()?.ProductDescription),
+            NameHtml = new(productPage.ProductPageProduct.FirstOrDefault()?.ProductName),
+            ShortDescriptionHtml = new(productPage.ProductPageProduct.FirstOrDefault()?.ProductShortDescription),
+            DescriptionHtml = new(productPage.ProductPageProduct.FirstOrDefault()?.ProductDescription),
             Media = getMedia
                 ? productPage.ProductPageProduct.FirstOrDefault()?.ProductMedia.Select(AssetViewModel.GetViewModel)?.ToList() ?? []
                 : [],

@@ -6,9 +6,9 @@ public class ProductFeatureViewModel
 {
     public string Key { get; set; } = string.Empty;
     public string Name { get; set; } = string.Empty;
-    public HtmlString Label { get; set; } = HtmlString.Empty;
+    public HtmlString LabelHtml { get; set; } = HtmlString.Empty;
     public decimal Price { get; set; }
-    public HtmlString Value { get; set; } = HtmlString.Empty;
+    public HtmlString ValueHtml { get; set; } = HtmlString.Empty;
     public bool FeatureIncluded { get; set; }
     public ProductFeatureValueType ValueType { get; set; }
     public bool ShowInComparator { get; set; }
@@ -17,9 +17,9 @@ public class ProductFeatureViewModel
     {
         Key = feature.ProductFeatureKey,
         Name = feature.SystemFields.ContentItemName,
-        Label = new(feature.ProductFeatureLabel),
+        LabelHtml = new(feature.ProductFeatureLabel),
         Price = feature.ProductFeaturePrice,
-        Value = new(feature.ProductFeatureValue),
+        ValueHtml = new(feature.ProductFeatureValue),
         FeatureIncluded = feature.ProductFeatureIncluded,
         ValueType = GetValueType(feature.ProductFeatureValueType),
         ShowInComparator = feature.ProductFeatureShowInComparator == "1"

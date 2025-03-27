@@ -4,5 +4,5 @@ namespace TrainingGuides.Web.Features.Videos.Widgets.VideoEmbed;
 
 public class VideoEmbedWidgetViewModel
 {
-    public HtmlString Markup { get; set; } = HtmlString.Empty;
+    public HtmlString MarkupHtml { get; set; } = HtmlString.Empty;
 }

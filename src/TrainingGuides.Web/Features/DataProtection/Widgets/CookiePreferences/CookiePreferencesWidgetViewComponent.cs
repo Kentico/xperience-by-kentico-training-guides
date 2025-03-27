@@ -30,7 +30,7 @@ public class CookiePreferencesWidgetViewComponent : ViewComponent
     private const string PREFERENCE_COOKIES_HEADER = "Preference cookies";
     private const string ANALYTICAL_COOKIES_HEADER = "Analytical cookies";
     private const string MARKETING_COOKIES_HEADER = "Marketing cookies";
-    private readonly HtmlString consentMissingDescription = new("Please ensure that a valid consent is mapped to this cookie level in the Data protection application.");
+    private readonly HtmlString consentMissingDescriptionHtml = new("Please ensure that a valid consent is mapped to this cookie level in the Data protection application.");
 
     /// <summary>
     /// Widget identifier.
@@ -91,13 +91,13 @@ public class CookiePreferencesWidgetViewComponent : ViewComponent
             // alternatively, use preferenceCookiesConsent.ConsentDisplayName property for header.
             // Be advised, this property does not support multiple language versions in Xperience.
             PreferenceHeader = stringLocalizer[PREFERENCE_COOKIES_HEADER],
-            PreferenceDescription = new HtmlString((await preferenceCookiesConsent.GetConsentTextAsync(language)).FullText) ?? consentMissingDescription,
+            PreferenceDescriptionHtml = new HtmlString((await preferenceCookiesConsent.GetConsentTextAsync(language)).FullText) ?? consentMissingDescriptionHtml,
 
             AnalyticalHeader = stringLocalizer[ANALYTICAL_COOKIES_HEADER],
-            AnalyticalDescription = new HtmlString((await analyticalCookiesConsent.GetConsentTextAsync(language)).FullText) ?? consentMissingDescription,
+            AnalyticalDescriptionHtml = new HtmlString((await analyticalCookiesConsent.GetConsentTextAsync(language)).FullText) ?? consentMissingDescriptionHtml,
 
             MarketingHeader = stringLocalizer[MARKETING_COOKIES_HEADER],
-            MarketingDescription = new HtmlString((await marketingCookiesConsent.GetConsentTextAsync(language)).FullText) ?? consentMissingDescription,
+            MarketingDescriptionHtml = new HtmlString((await marketingCookiesConsent.GetConsentTextAsync(language)).FullText) ?? consentMissingDescriptionHtml,
 
             CookieLevelSelected = CMS.Helpers.ValidationHelper.GetInteger(cookieAccessor.Get(CookieNames.COOKIE_CONSENT_LEVEL), 1),
 

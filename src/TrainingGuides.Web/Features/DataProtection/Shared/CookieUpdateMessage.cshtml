@@ -4,7 +4,7 @@
 @model CookieUpdateMessageViewModel
 
 @{
-    HtmlString message = new HtmlString($"<div class=\"cookies__message\">{Model.Message}</div>");
+    HtmlString messageHtml = new HtmlString($"<div class=\"cookies__message\">{Model.Message}</div>");
 }
 
-@message
+@messageHtml

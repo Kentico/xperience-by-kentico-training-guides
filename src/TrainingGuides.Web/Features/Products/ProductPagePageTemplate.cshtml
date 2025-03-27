@@ -25,8 +25,8 @@
         <div class="tg-padding-big">
             <div class="row">
                 <div class="col align-self-center">
-                    <h3>@templateModel.Name</h3>
-                    <p>@templateModel.ShortDescription</p>
+                    <h3>@templateModel.NameHtml</h3>
+                    <p>@templateModel.ShortDescriptionHtml</p>
                 </div>
 
                 <tg-styled-image src="@templateModel.Media.FirstOrDefault()?.FilePath" alt="@templateModel.Media.FirstOrDefault()?.Description" corner-style="@Model.Properties.CornerStyle" class="col c-product-img object-fit-cover" />
@@ -38,7 +38,7 @@
                             @foreach (var feature in templateModel.Features)
                             {
                                 <div class="c-table_row">
-                                    <div class="c-table_cell"><div class="c-table_cell">@feature.Label</div></div>
+                                    <div class="c-table_cell"><div class="c-table_cell">@feature.LabelHtml</div></div>
                                     <div class="c-table_cell text-end">
                                         <tg-product-feature-value feature="@feature"/>
                                     </div>

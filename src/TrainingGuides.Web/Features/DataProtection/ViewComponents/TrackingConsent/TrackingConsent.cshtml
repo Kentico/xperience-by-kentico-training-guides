@@ -20,8 +20,8 @@
         <div class="xpcookiebanner js-xpcookiebanner is-active">
             <input id="ConsentMapping" name="ConsentMapping" type="hidden"  value="@Model.ConsentMapping" />
             <div class="xpcookiebanner__inner container">
-                <h5 class="xpcookiebanner__header"> @Model.CookieHeader</h5>
-                @Model.CookieMessage
+                <h5 class="xpcookiebanner__header"> @Model.CookieHeaderHtml</h5>
+                @Model.CookieMessageHtml
                 <div class="xpcookiebanner__ctas">
                     @if (!string.IsNullOrWhiteSpace(Model.AcceptMessage))
                     {

@@ -39,7 +39,7 @@ else {
                             @foreach (var item in Model.Products)
                         {
                                 <div class="c-products-grid_col">
-                                    <h3 class="h4 c-products-grid_heading">@item.Name</h3>
+                                    <h3 class="h4 c-products-grid_heading">@item.NameHtml</h3>
                                     <div class="c-products-grid_bg"></div>
                                 </div>
                         }
@@ -53,7 +53,7 @@ else {
                             @foreach (var item in Model.Products)
                             {
                                 <div class="c-products-grid_col">
-                                    <h3 class="h4 c-products-grid_heading">@item.Name</h3>
+                                    <h3 class="h4 c-products-grid_heading">@item.NameHtml</h3>
                                     <div class="c-products-grid_bg"></div>
                                 </div>
                             }
@@ -64,7 +64,7 @@ else {
                             @foreach (var item in Model.Products)
                             {
                                 <div class="c-products-grid_col">
-                                    @item.ShortDescription
+                                    @item.ShortDescriptionHtml
                                     <div class="c-products-grid_bg"></div>
                                 </div>
                             }
@@ -87,7 +87,7 @@ else {
                                         {
                                             if (productFeature.ValueType == ProductFeatureValueType.Text)
                                             {
-                                                @productFeature.Value
+                                                @productFeature.ValueHtml
                                             }
                                             if (productFeature.ValueType == ProductFeatureValueType.Number)
                                             {

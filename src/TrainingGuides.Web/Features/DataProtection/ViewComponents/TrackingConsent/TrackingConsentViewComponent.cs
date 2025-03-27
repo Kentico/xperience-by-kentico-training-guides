@@ -98,9 +98,9 @@ public class TrackingConsentViewComponent : ViewComponent
             {
                 CookieAccepted = ValidationHelper.GetBoolean(cookieAccessor.Get(CookieNames.COOKIE_ACCEPTANCE), false),
 
-                CookieMessage = new HtmlString(text),
+                CookieMessageHtml = new HtmlString(text),
 
-                CookieHeader = new HtmlString(stringLocalizer["This site uses cookies in the following ways"]),
+                CookieHeaderHtml = new HtmlString(stringLocalizer["This site uses cookies in the following ways"]),
 
                 AcceptMessage = stringLocalizer["Accept all cookies"],
 

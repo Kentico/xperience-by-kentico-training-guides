@@ -33,11 +33,11 @@ public class HtmlCodeWidgetViewComponent : ViewComponent
         if (properties.InsertToHead)
         {
             await headTagStoreService.StoreCodeAsync(CodeLocation.Head, properties.Code);
-            model.Code = HtmlString.Empty;
+            model.CodeHtml = HtmlString.Empty;
         }
         else
         {
-            model.Code = new(properties.Code);
+            model.CodeHtml = new(properties.Code);
         }
 
         return View("~/Features/Html/Widgets/HtmlCode/HtmlCodeWidget.cshtml", model);

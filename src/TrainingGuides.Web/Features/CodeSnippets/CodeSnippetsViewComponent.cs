@@ -36,7 +36,7 @@ public class CodeSnippetsViewComponent : ViewComponent
 
         var model = snippets.Select(snippet => new CodeSnippetViewModel
         {
-            CodeSnippet = new HtmlString(snippet.WebChannelSnippetCode),
+            CodeSnippetHtml = new HtmlString(snippet.WebChannelSnippetCode),
             CodeSnippetType = snippet.WebChannelSnippetType,
             CodeSnippetLabel = addLabelComments
             ? snippet.WebChannelSnippetDisplayName

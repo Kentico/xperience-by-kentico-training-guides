@@ -148,7 +148,7 @@ public class HeroBannerWidgetViewComponent : ViewComponent
                         ? backgroundImageStyle
                         : $"{backgroundImageStyle};{backgroundNoRepeatStyle}";
 
-                banner.StyleAttribute = new HtmlString($"style=\"{backgroundStyle}\"");
+                banner.StyleAttributeHtml = new HtmlString($"style=\"{backgroundStyle}\"");
             }
         }
 
@@ -170,7 +170,7 @@ public class HeroBannerWidgetViewComponent : ViewComponent
             return new HeroBannerWidgetViewModel()
             {
                 Header = product.ProductName,
-                Subheader = new HtmlString(product.ProductShortDescription),
+                SubheaderHtml = new HtmlString(product.ProductShortDescription),
                 Benefits = benefits.Select(BenefitViewModel.GetViewModel).ToList(),
                 Media = media != null
                     ? AssetViewModel.GetViewModel(media)
@@ -197,7 +197,7 @@ public class HeroBannerWidgetViewComponent : ViewComponent
         var model = new HeroBannerWidgetViewModel()
         {
             Header = hero.HeroHeader,
-            Subheader = new HtmlString(hero.HeroSubheader),
+            SubheaderHtml = new HtmlString(hero.HeroSubheader),
             Benefits = hero.HeroBenefits.Select(BenefitViewModel.GetViewModel).ToList(),
             Link = new LinkViewModel()
             {

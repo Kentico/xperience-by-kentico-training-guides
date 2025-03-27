@@ -23,7 +23,7 @@ public class ProductFeatureValueTagHelper : TagHelper
 
         string? formattedValue = Feature?.ValueType switch
         {
-            ProductFeatureValueType.Text => Feature.Value.Value,
+            ProductFeatureValueType.Text => Feature.ValueHtml.Value,
             ProductFeatureValueType.Number => string.Format(CultureInfo.CurrentUICulture, "{0:0.00}", Feature.Price),
             ProductFeatureValueType.Boolean => Feature.FeatureIncluded ? "✔" : "-",
             _ => string.Empty
