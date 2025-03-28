@@ -6,5 +6,5 @@ public class FormColumnSectionViewModel
 {
     public bool ShowContents { get; set; }
     public string SectionAnchor { get; set; } = string.Empty;
-    public HtmlString NoConsentHTML { get; set; } = new HtmlString(string.Empty);
+    public HtmlString NoConsentHtml { get; set; } = new HtmlString(string.Empty);
 }

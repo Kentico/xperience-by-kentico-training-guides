@@ -51,7 +51,7 @@ public class FormColumnSectionConsentViewComponent : ViewComponent
         var cookiePolicyUrlBuilder = new UriBuilder(httpRequestService.GetBaseUrlWithLanguage());
         cookiePolicyUrlBuilder.Path = httpRequestService.CombineUrlPaths(cookiePolicyUrlBuilder.Path, "cookie-policy");
 
-        var noConsentHTML = new HtmlString(
+        var noConsentHtml = new HtmlString(
             "<div>" +
             stringLocalizer["The content of this section includes tracking functionality. To view it, please consent to Marketing cookies."] +
             $"</div><div>"
@@ -62,7 +62,7 @@ public class FormColumnSectionConsentViewComponent : ViewComponent
         {
             SectionAnchor = sectionProperties.Properties.SectionAnchor,
             ShowContents = showContents,
-            NoConsentHTML = noConsentHTML
+            NoConsentHtml = noConsentHtml
         };
 
         return View("~/Features/Shared/Sections/FormColumn/FormColumnSection.cshtml", model);
