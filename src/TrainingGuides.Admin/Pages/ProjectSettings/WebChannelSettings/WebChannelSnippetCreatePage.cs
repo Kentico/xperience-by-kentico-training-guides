@@ -29,7 +29,7 @@ public class WebChannelSnippetCreatePage : CreatePage<WebChannelSnippetInfo, Web
     {
         AdditionalLinkParameters.Add(new PageParameterValues
             {
-                { typeof(WebChannelSnippetCreatePage), WebChannelSettingsId}
+                { typeof(WebChannelSettingsEditSection), WebChannelSettingsId}
             });
         PageConfiguration.UIFormName = "webchannelsnippetedit";
         return base.ConfigurePage();
