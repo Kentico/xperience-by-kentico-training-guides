@@ -17,5 +17,10 @@
 }
 else
 {
-    @Model.NoConsentHtml
+    <div>
+        @Model.NoConsentMessage
+    </div>
+    <div>
+        <a href="@Model.NoConsentLinkUrl">@Model.NoConsentLinkText</a>
+    </div>
 }

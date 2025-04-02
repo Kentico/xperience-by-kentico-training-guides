@@ -2,7 +2,6 @@
 using Kentico.Content.Web.Mvc;
 using Kentico.PageBuilder.Web.Mvc;
 using Kentico.Web.Mvc;
-using Microsoft.AspNetCore.Html;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Localization;
 using TrainingGuides.Web.Features.DataProtection.Services;
@@ -51,18 +50,13 @@ public class FormColumnSectionConsentViewComponent : ViewComponent
         var cookiePolicyUrlBuilder = new UriBuilder(httpRequestService.GetBaseUrlWithLanguage());
         cookiePolicyUrlBuilder.Path = httpRequestService.CombineUrlPaths(cookiePolicyUrlBuilder.Path, "cookie-policy");
 
-        var noConsentHtml = new HtmlString(
-            "<div>" +
-            stringLocalizer["The content of this section includes tracking functionality. To view it, please consent to Marketing cookies."] +
-            $"</div><div>"
-            + $"<a href=\"{cookiePolicyUrlBuilder}\">{stringLocalizer["Configure cookies"]}</a>"
-            + "</div>");
-
         var model = new FormColumnSectionViewModel()
         {
             SectionAnchor = sectionProperties.Properties.SectionAnchor,
             ShowContents = showContents,
-            NoConsentHtml = noConsentHtml
+            NoConsentMessage = stringLocalizer["The content of this section includes tracking functionality. To view it, please consent to Marketing cookies."],
+            NoConsentLinkText = stringLocalizer["Configure cookies"],
+            NoConsentLinkUrl = cookiePolicyUrlBuilder.ToString()
         };
 
         return View("~/Features/Shared/Sections/FormColumn/FormColumnSection.cshtml", model);
