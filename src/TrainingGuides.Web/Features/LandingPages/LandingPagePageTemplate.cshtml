@@ -6,12 +6,12 @@
 @{
     var templateModel = Model.GetTemplateModel<LandingPageViewModel>();
     string tagText = Model.Properties.MessageType.ToLower();
-    HtmlString openingTag = new HtmlString($"<{tagText}>");
-    HtmlString closingTag = new HtmlString($"</{tagText}>");
+    HtmlString openingTagHtml = new HtmlString($"<{tagText}>");
+    HtmlString closingTagHtml = new HtmlString($"</{tagText}>");
 }
 
-@openingTag
+@openingTagHtml
     @templateModel.Message
-@closingTag
+@closingTagHtml
 
 <editable-area area-identifier="areaMain" />
