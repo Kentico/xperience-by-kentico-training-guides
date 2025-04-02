@@ -43,7 +43,7 @@ public class ProductComparatorWidgetViewComponent : ViewComponent
         var model = new ProductComparatorWidgetViewModel()
         {
             Products = [],
-            GroupedFeatures = [],
+            GroupedFeaturesHtmlDictionary = [],
             ComparatorHeading = properties.ComparatorHeading,
             HeadingType = properties.HeadingType,
             HeadingMargin = properties.HeadingMargin,
@@ -59,12 +59,12 @@ public class ProductComparatorWidgetViewComponent : ViewComponent
             {
                 model.Products.Add(product);
 
-                model.GroupedFeatures.AddRange(product.Features.Where(i => i.ShowInComparator)
+                model.GroupedFeaturesHtmlDictionary.AddRange(product.Features.Where(i => i.ShowInComparator)
                     .Select(feature => new KeyValuePair<string, HtmlString>(feature.Key, feature.LabelHtml)));
             }
         }
 
-        model.GroupedFeatures = model.GroupedFeatures.DistinctBy(item => item.Key).ToList();
+        model.GroupedFeaturesHtmlDictionary = model.GroupedFeaturesHtmlDictionary.DistinctBy(item => item.Key).ToList();
 
         return View("~/Features/Products/Widgets/ProductComparator/ProductComparatorWidget.cshtml", model);
     }
