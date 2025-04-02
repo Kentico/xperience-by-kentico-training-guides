@@ -1,7 +1,12 @@
-﻿using Kentico.PageBuilder.Web.Mvc;
+﻿using CMS.Base.Internal;
+using Kentico.Content.Web.Mvc;
+using Kentico.PageBuilder.Web.Mvc;
+using Kentico.Web.Mvc;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Localization;
 using TrainingGuides.Web.Features.DataProtection.Services;
 using TrainingGuides.Web.Features.Shared.Sections.FormColumn;
+using TrainingGuides.Web.Features.Shared.Services;
 
 [assembly: RegisterSection(
     identifier: FormColumnSectionConsentViewComponent.IDENTIFIER,
@@ -18,21 +23,40 @@ public class FormColumnSectionConsentViewComponent : ViewComponent
     public const string IDENTIFIER = "TrainingGuides.FormColumnSectionConsent";
 
     private readonly ICookieConsentService cookieConsentService;
+    private readonly IStringLocalizer<SharedResources> stringLocalizer;
+    private readonly IHttpRequestService httpRequestService;
+    private readonly IHttpContextAccessor httpContextAccessor;
 
-    public FormColumnSectionConsentViewComponent(ICookieConsentService cookieConsentService)
+
+    public FormColumnSectionConsentViewComponent(ICookieConsentService cookieConsentService,
+        IStringLocalizer<SharedResources> stringLocalizer,
+        IHttpRequestService httpRequestService,
+        IHttpContextAccessor httpContextAccessor)
     {
         this.cookieConsentService = cookieConsentService;
+        this.stringLocalizer = stringLocalizer;
+        this.httpRequestService = httpRequestService;
+        this.httpContextAccessor = httpContextAccessor;
     }
 
     public IViewComponentResult Invoke(ComponentViewModel<FormColumnSectionProperties> sectionProperties)
     {
-        //If the CMSCookieLevel is set to All (1000) or higher, and Data Protection is set up, it means the visitor has the appropriate consent level for tracking.
-        bool showContents = cookieConsentService.CurrentContactCanBeTracked();
+        var httpContext = httpContextAccessor.HttpContext;
+
+        bool showContents = cookieConsentService.CurrentContactCanBeTracked() // Display if the visitor has consented to tracking.
+            || httpContext.Kentico().PageBuilder().GetMode() != PageBuilderMode.Off // Display if the page is in Page Builder mode.
+            || httpContext.Kentico().Preview().Enabled; // Display if the page is in Preview mode.
+
+        var cookiePolicyUrlBuilder = new UriBuilder(httpRequestService.GetBaseUrlWithLanguage());
+        cookiePolicyUrlBuilder.Path = httpRequestService.CombineUrlPaths(cookiePolicyUrlBuilder.Path, "cookie-policy");
 
         var model = new FormColumnSectionViewModel()
         {
             SectionAnchor = sectionProperties.Properties.SectionAnchor,
-            ShowContents = showContents
+            ShowContents = showContents,
+            NoConsentMessage = stringLocalizer["The content of this section includes tracking functionality. To view it, please consent to Marketing cookies."],
+            NoConsentLinkText = stringLocalizer["Configure cookies"],
+            NoConsentLinkUrl = cookiePolicyUrlBuilder.ToString()
         };
 
         return View("~/Features/Shared/Sections/FormColumn/FormColumnSection.cshtml", model);

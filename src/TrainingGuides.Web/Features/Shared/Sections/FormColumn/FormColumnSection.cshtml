@@ -1,7 +1,7 @@
 ﻿@using TrainingGuides.Web.Features.Shared.Sections.FormColumn
 @model FormColumnSectionViewModel
 
-@if(Model.ShowContents || Context.Kentico().Preview().Enabled)
+@if(Model.ShowContents)
 {
     var sectionAnchor = !string.IsNullOrWhiteSpace(Model.SectionAnchor) ? $"id={Model.SectionAnchor}" : "";
 
@@ -14,4 +14,13 @@
             </div>
         </div>
     </section>
+}
+else
+{
+    <div>
+        @Model.NoConsentMessage
+    </div>
+    <div>
+        <a href="@Model.NoConsentLinkUrl">@Model.NoConsentLinkText</a>
+    </div>
 }
