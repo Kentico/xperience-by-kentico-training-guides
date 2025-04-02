@@ -5,7 +5,7 @@ namespace TrainingGuides.Web.Features.Html.Widgets.HtmlCode;
 
 public class HtmlCodeWidgetViewModel : IWidgetViewModel
 {
-    public HtmlString Code { get; set; } = HtmlString.Empty;
+    public HtmlString CodeHtml { get; set; } = HtmlString.Empty;
 
-    public bool IsMisconfigured => string.IsNullOrEmpty(Code.Value);
+    public bool IsMisconfigured => string.IsNullOrEmpty(CodeHtml.Value);
 }

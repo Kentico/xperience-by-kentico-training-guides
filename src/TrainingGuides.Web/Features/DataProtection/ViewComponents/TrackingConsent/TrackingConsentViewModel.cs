@@ -5,8 +5,8 @@ public class TrackingConsentViewModel
 {
     public bool CookieAccepted { get; set; }
     public bool IsAgreed { get; set; }
-    public HtmlString CookieHeader { get; set; } = HtmlString.Empty;
-    public HtmlString CookieMessage { get; set; } = HtmlString.Empty;
+    public HtmlString CookieHeaderHtml { get; set; } = HtmlString.Empty;
+    public HtmlString CookieMessageHtml { get; set; } = HtmlString.Empty;
     public string AcceptMessage { get; set; } = string.Empty;
     public string RedirectUrl { get; set; } = string.Empty;
     public string ConfigureMessage { get; set; } = string.Empty;

@@ -43,9 +43,9 @@ public class ProductPageController : Controller
                 {
                     Key = "price-from-product-content-item",
                     Name = "Price",
-                    Label = new("Price"),
+                    LabelHtml = new("Price"),
                     Price = model.Price,
-                    Value = new(string.Empty),
+                    ValueHtml = new(string.Empty),
                     FeatureIncluded = false,
                     ValueType = ProductFeatureValueType.Number,
                     ShowInComparator = true,

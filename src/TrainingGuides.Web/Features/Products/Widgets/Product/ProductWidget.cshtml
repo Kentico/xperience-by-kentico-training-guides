@@ -48,10 +48,10 @@
                 <div
                     class="tg-col align-self-center m-3">
                     @* title *@
-                    <h3 class="mt-2 mb-1">@Model.Product.Name</h3>
+                    <h3 class="mt-2 mb-1">@Model.Product.NameHtml</h3>
                     
                     @* short description *@
-                    <p>@Model.Product.ShortDescription</p>
+                    <p>@Model.Product.ShortDescriptionHtml</p>
 
                     @* benefits *@
                     @foreach (var benefit in Model.Product.Benefits)
@@ -66,7 +66,7 @@
                                 }
                             </div>
                             <div class="c-icon-box_body">
-                                @benefit.Description
+                                @benefit.DescriptionHtml
                             </div>
                         </div>
                     }
@@ -91,7 +91,7 @@
                                 @foreach (var feature in Model.Product.Features)
                                 {
                                     <div class="c-table_row">
-                                        <div class="c-table_cell"><div class="c-table_cell">@feature.Label</div></div>
+                                        <div class="c-table_cell"><div class="c-table_cell">@feature.LabelHtml</div></div>
                                         <div class="c-table_cell text-end">
                                             <tg-product-feature-value feature="@feature"/>
                                         </div>

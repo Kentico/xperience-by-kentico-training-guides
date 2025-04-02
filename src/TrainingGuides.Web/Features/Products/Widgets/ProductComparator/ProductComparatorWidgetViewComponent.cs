@@ -43,7 +43,7 @@ public class ProductComparatorWidgetViewComponent : ViewComponent
         var model = new ProductComparatorWidgetViewModel()
         {
             Products = [],
-            GroupedFeatures = [],
+            GroupedFeaturesHtmlDictionary = [],
             ComparatorHeading = properties.ComparatorHeading,
             HeadingType = properties.HeadingType,
             HeadingMargin = properties.HeadingMargin,
@@ -59,12 +59,12 @@ public class ProductComparatorWidgetViewComponent : ViewComponent
             {
                 model.Products.Add(product);
 
-                model.GroupedFeatures.AddRange(product.Features.Where(i => i.ShowInComparator)
-                    .Select(feature => new KeyValuePair<string, HtmlString>(feature.Key, feature.Label)));
+                model.GroupedFeaturesHtmlDictionary.AddRange(product.Features.Where(i => i.ShowInComparator)
+                    .Select(feature => new KeyValuePair<string, HtmlString>(feature.Key, feature.LabelHtml)));
             }
         }
 
-        model.GroupedFeatures = model.GroupedFeatures.DistinctBy(item => item.Key).ToList();
+        model.GroupedFeaturesHtmlDictionary = model.GroupedFeaturesHtmlDictionary.DistinctBy(item => item.Key).ToList();
 
         return View("~/Features/Products/Widgets/ProductComparator/ProductComparatorWidget.cshtml", model);
     }
@@ -80,16 +80,16 @@ public class ProductComparatorWidgetViewComponent : ViewComponent
         {
             return new ProductPageViewModel
             {
-                Name = new("Error"),
+                NameHtml = new("Error"),
                 Features =
                 [
                     new ProductFeatureViewModel
                     {
                         Key = "error",
                         Name = "Error",
-                        Label = new("Error"),
+                        LabelHtml = new("Error"),
                         Price = 0,
-                        Value = new("Unable to load product.<br/>Please double-check your page selection."),
+                        ValueHtml = new("Unable to load product.<br/>Please double-check your page selection."),
                         FeatureIncluded = false,
                         ValueType = ProductFeatureValueType.Text,
                         ShowInComparator = true,
@@ -111,8 +111,8 @@ public class ProductComparatorWidgetViewComponent : ViewComponent
 
         var model = new ProductPageViewModel
         {
-            Name = new(product.ProductName),
-            ShortDescription = new(product.ProductShortDescription),
+            NameHtml = new(product.ProductName),
+            ShortDescriptionHtml = new(product.ProductShortDescription),
             Features = product.ProductFeatures.Select(ProductFeatureViewModel.GetViewModel).ToList(),
             Link = linkComponent,
             Price = product.ProductPrice
@@ -125,9 +125,9 @@ public class ProductComparatorWidgetViewComponent : ViewComponent
                 {
                     Key = "price-from-product-content-item",
                     Name = "Price",
-                    Label = new("Price"),
+                    LabelHtml = new("Price"),
                     Price = model.Price,
-                    Value = new(string.Empty),
+                    ValueHtml = new(string.Empty),
                     FeatureIncluded = false,
                     ValueType = ProductFeatureValueType.Number,
                     ShowInComparator = true,

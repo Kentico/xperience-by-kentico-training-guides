@@ -45,8 +45,8 @@ public class ArticlePageService : IArticlePageService
             return new ArticlePageViewModel
             {
                 Title = articleSchema.ArticleSchemaTitle,
-                Summary = new HtmlString(articleSchema?.ArticleSchemaSummary),
-                Text = new HtmlString(articleSchema?.ArticleSchemaText),
+                SummaryHtml = new HtmlString(articleSchema?.ArticleSchemaSummary),
+                TextHtml = new HtmlString(articleSchema?.ArticleSchemaText),
                 CreatedOn = articlePage.ArticlePagePublishDate,
                 TeaserImage = AssetViewModel.GetViewModel(articleSchemaTeaserImage!),
                 Url = articleUrl,
@@ -60,8 +60,8 @@ public class ArticlePageService : IArticlePageService
         return new ArticlePageViewModel
         {
             Title = article?.ArticleTitle ?? string.Empty,
-            Summary = new HtmlString(article?.ArticleSummary),
-            Text = new HtmlString(article?.ArticleText),
+            SummaryHtml = new HtmlString(article?.ArticleSummary),
+            TextHtml = new HtmlString(article?.ArticleText),
             CreatedOn = articlePage.ArticlePagePublishDate,
             TeaserImage = AssetViewModel.GetViewModel(articleTeaserImage!),
             Url = articleUrl,
@@ -103,8 +103,8 @@ public class ArticlePageService : IArticlePageService
             return new ArticlePageViewModel
             {
                 Title = $"{stringLocalizer["(🔒 Locked)"]} {originalViewModel.Title}",
-                Summary = message,
-                Text = messageWithLink,
+                SummaryHtml = message,
+                TextHtml = messageWithLink,
                 CreatedOn = articlePage.ArticlePagePublishDate,
                 TeaserImage = originalViewModel.TeaserImage,
                 Url = signInUri.ToString(),

@@ -33,7 +33,7 @@ public class VideoEmbedWidgetViewComponent : ViewComponent
     public IViewComponentResult Invoke(ComponentViewModel<VideoEmbedWidgetProperties> widgetProperties)
     {
         var markup = GetEmbedMarkup(widgetProperties.Properties);
-        return View("~/Features/Videos/Widgets/VideoEmbed/VideoEmbedWidget.cshtml", new VideoEmbedWidgetViewModel { Markup = markup });
+        return View("~/Features/Videos/Widgets/VideoEmbed/VideoEmbedWidget.cshtml", new VideoEmbedWidgetViewModel { MarkupHtml = markup });
     }
 
     private HtmlString GetLocalizedHtmlString(string key) => new(stringLocalizer[key]);
