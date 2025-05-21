@@ -6,9 +6,12 @@
     <GUID>b2e99971-c2dd-4a47-bb64-0d9a0d28d226</GUID>
     <ObjectType>cms.contentlanguage</ObjectType>
   </WebPageFormerUrlPathContentLanguageID>
+  <WebPageFormerUrlPathGUID>e49e9046-7608-4077-9617-f08ff13c351a</WebPageFormerUrlPathGUID>
   <WebPageFormerUrlPathHash>
     <![CDATA[6125E0078604C8EBBEE3FCE5F32F5AA7A1FFFBF9367F445CDF3D37A452A879FF]]>
   </WebPageFormerUrlPathHash>
+  <WebPageFormerUrlPathIsRedirect>False</WebPageFormerUrlPathIsRedirect>
+  <WebPageFormerUrlPathIsRedirectScheduled>False</WebPageFormerUrlPathIsRedirectScheduled>
   <WebPageFormerUrlPathWebPageItemID>
     <CodeName>AboutBirds-glix32jw</CodeName>
     <GUID>56cd8e4a-c820-41d0-bd2c-fdb6bb6f475d</GUID>

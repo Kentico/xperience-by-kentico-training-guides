@@ -32,7 +32,8 @@
         <ObjectType>cms.contentitemlanguagemetadata</ObjectType>
       </ContentItemTagContentItemLanguageMetadataID>
       <ContentItemTagFieldGUID>fc18792d-46fb-407b-b295-a7fa22a8f29e</ContentItemTagFieldGUID>
-      <ContentItemTagTagGUID>a9446e6d-a3ea-40bf-8b76-959aa78780f7</ContentItemTagTagGUID>
+      <ContentItemTagGUID>0e438f74-bd10-4870-a36d-0bfa52dbed74</ContentItemTagGUID>
+      <ContentItemTagTagGUID>895535fc-bfa3-4afd-8ddb-bc9e4e438d1e</ContentItemTagTagGUID>
     </cms.contentitemtag>
     <cms.contentitemtag>
       <ContentItemTagContentItemLanguageMetadataID>
@@ -40,7 +41,8 @@
         <ObjectType>cms.contentitemlanguagemetadata</ObjectType>
       </ContentItemTagContentItemLanguageMetadataID>
       <ContentItemTagFieldGUID>fc18792d-46fb-407b-b295-a7fa22a8f29e</ContentItemTagFieldGUID>
-      <ContentItemTagTagGUID>895535fc-bfa3-4afd-8ddb-bc9e4e438d1e</ContentItemTagTagGUID>
+      <ContentItemTagGUID>89b39cfd-a10b-4526-a0c5-67774af9a500</ContentItemTagGUID>
+      <ContentItemTagTagGUID>a9446e6d-a3ea-40bf-8b76-959aa78780f7</ContentItemTagTagGUID>
     </cms.contentitemtag>
   </ContentItemTags>
 </cms.contentitemlanguagemetadata>
