@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root"
+        xmlns=""
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="TextWidget.Name" xml:space="preserve">
+        <value>Text</value>
+    </data>
+    <data name="TextWidget.Description" xml:space="preserve">
+        <value>Allows you to add and format text content.</value>
+    </data>
+    <data name="ButtonWidget.Name" xml:space="preserve">
+        <value>Button</value>
+    </data>
+    <data name="ButtonWidget.Description" xml:space="preserve">
+        <value>Displays a button that opens a specified URL when clicked.</value>
+    </data>
+    <data name="DividerWidget.Name" xml:space="preserve">
+        <value>Divider</value>
+    </data>
+    <data name="DividerWidget.Description" xml:space="preserve">
+        <value>Displays a horizontal divider that can be customized like a HTML border.</value>
+    </data>
+    <data name="ImageWidget.Name" xml:space="preserve">
+        <value>Image</value>
+    </data>
+    <data name="ImageWidget.Description" xml:space="preserve">
+        <value>Displays an image, which can be selected from images stored as assets in Content hub.</value>
+    </data>
+    <data name="ProductWidget.Name" xml:space="preserve">
+        <value>Product</value>
+    </data>
+    <data name="ProductWidget.Description" xml:space="preserve">
+        <value>Displays product content based on a selected website channel page. Consists of an image, title, text and a link button that opens the product page.</value>
+    </data>
+    <data name="FullWidthEmailSection.Name" xml:space="preserve">
+        <value>Full-width section</value>
+    </data>
+    <data name="TwoColumnsEmailSection.Name" xml:space="preserve">
+        <value>Two-column section</value>
+    </data>
+
+    <data name="ButtonWidget.Text.Label" xml:space="preserve">
+        <value>Button text</value>
+    </data>
+    <data name="ButtonWidget.Text.ExplanationText" xml:space="preserve">
+        <value>Enter the text displayed as the button's caption</value>
+    </data>
+    <data name="ButtonWidget.Url.Label" xml:space="preserve">
+        <value>URL</value>
+    </data>
+    <data name="ButtonWidget.Url.ExplanationText" xml:space="preserve">
+        <value>Enter the URL opened when the button is selected. Allowed URL formats: absolute (starting with a protocol), relative (starting with /), or virtual (starting with ~)</value>
+    </data>
+    <data name="ButtonWidget.ButtonType.Label" xml:space="preserve">
+        <value>Button type</value>
+    </data>
+    <data name="ButtonWidget.ButtonType.ExplanationText" xml:space="preserve">
+        <value>Choose how the button is displayed</value>
+    </data>
+    <data name="ButtonWidget.Alignment.Label" xml:space="preserve">
+        <value>Alignment</value>
+    </data>
+    <data name="ButtonWidget.Alignment.ExplanationText" xml:space="preserve">
+        <value>Select how you want to position the button</value>
+    </data>
+
+    <data name="DividerWidget.BorderWidth.Label" xml:space="preserve">
+        <value>Border width</value>
+    </data>
+    <data name="DividerWidget.BorderWidth.ExplanationText" xml:space="preserve">
+        <value>Sets the border size of the divider in pixels</value>
+    </data>
+    <data name="DividerWidget.BorderColor.Label" xml:space="preserve">
+        <value>Border color</value>
+    </data>
+    <data name="DividerWidget.BorderColor.ExplanationText" xml:space="preserve">
+        <value>Set the color of the divider by color name or hex code (e.g., 'blue' or '#fed')</value>
+    </data>
+    <data name="DividerWidget.BorderStyle.Label" xml:space="preserve">
+        <value>Border style</value>
+    </data>
+    <data name="DividerWidget.BorderStyle.ExplanationText" xml:space="preserve">
+        <value>Allows you to set the border style (e.g., 'solid', 'dotted', 'dashed', 'dotted double')</value>
+    </data>
+
+    <data name="ImageWidget.Image.Label" xml:space="preserve">
+        <value>Image</value>
+    </data>
+    <data name="ImageWidget.Image.ExplanationText" xml:space="preserve">
+        <value>Select the image from assets stored in Content hub</value>
+    </data>
+    <data name="ImageWidget.Alignment.Label" xml:space="preserve">
+        <value>Alignment</value>
+    </data>
+    <data name="ImageWidget.Alignment.ExplanationText" xml:space="preserve">
+        <value>Select how you want to position the image</value>
+    </data>
+    <data name="ImageWidget.Width.Label" xml:space="preserve">
+        <value>Width</value>
+    </data>
+    <data name="ImageWidget.Width.ExplanationText" xml:space="preserve">
+        <value>Allows you to set the width of the image in pixels</value>
+    </data>
+
+
+    <data name="ProductWidget.Page.Label" xml:space="preserve">
+        <value>Product page</value>
+    </data>
+    <data name="ProductWidget.Page.ExplanationText" xml:space="preserve">
+        <value>Select a website channel page representing the product you want to display.</value>
+    </data>
+    <data name="ProductWidget.ReadMoreButton.Label" xml:space="preserve">
+        <value>Product page button text</value>
+    </data>
+    <data name="ProductWidget.ReadMoreButton.ExplanationText" xml:space="preserve">
+        <value>Enter the text displayed as the caption of the button that links to the product page</value>
+    </data>
+    <data name="WidgetPropertiesBase.CssClass.Label" xml:space="preserve">
+        <value>CSS class</value>
+    </data>
+    <data name="WidgetPropertiesBase.CssClass.ExplanationText" xml:space="preserve">
+        <value>Allows you to set a CSS class for the widget's wrapping element</value>
+    </data>
+</root>

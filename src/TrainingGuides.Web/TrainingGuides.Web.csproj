@@ -16,6 +16,7 @@
   <ItemGroup>
     <ProjectReference Include="..\TrainingGuides.Admin\TrainingGuides.Admin.csproj" />
     <ProjectReference Include="..\TrainingGuides.Entities\TrainingGuides.Entities.csproj" />
+    <ProjectReference Include="..\Kentico.Xperience.Mjml.StarterKit\Kentico.Xperience.Mjml.StarterKit.Rcl.csproj" />
   </ItemGroup>
 
   <ItemGroup>

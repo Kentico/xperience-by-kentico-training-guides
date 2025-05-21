@@ -1,0 +1,16 @@
+﻿@using Kentico.Xperience.Mjml.StarterKit.Rcl.Sections
+
+<mjml>
+    <mj-head>
+        <mj-title>@EmailSubject</mj-title>
+        <mj-style>
+            @((MarkupString)CssContent)
+        </mj-style>
+        <EmailBuilderStyles />
+        <mj-preview>@EmailContext.EmailFields["EmailPreviewText"]</mj-preview>
+    </mj-head>
+    <mj-body>
+        <EditableArea AreaIdentifier="MainContent" DefaultSectionIdentifier="@FullWidthEmailSection.IDENTIFIER" />
+        <EmailBuilderScripts />
+    </mj-body>
+</mjml>

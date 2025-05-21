@@ -1,0 +1,18 @@
+﻿@using Kentico.Xperience.Mjml.StarterKit.Rcl.Widgets.Enums
+
+@namespace Kentico.Xperience.Mjml.StarterKit.Rcl.Widgets
+
+@if (Properties.ButtonType == nameof(ButtonType.Button))
+{
+    <mj-button align="@Properties.ButtonHorizontalAlignment" href="@Properties.Url" css-class="@Properties.CssClass">
+        @Properties.Text
+    </mj-button>
+}
+else
+{
+    <mj-text css-class="@Properties.CssClass">
+        <a align="@Properties.ButtonHorizontalAlignment" href="@Properties.Url">
+            @Properties.Text
+        </a>
+    </mj-text>
+}
