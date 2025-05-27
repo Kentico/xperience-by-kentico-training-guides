@@ -92,13 +92,8 @@ builder.Services.AddMjmlForEmails();
 // Configure the Starter Kit options
 builder.Services.AddKenticoMjmlStarterKit(options =>
 {
-    // Enter the path to your email CSS stylesheet, starting from the root of your project's 'wwwroot' folder
-    //options.StyleSheetPath = "EmailBuilder.css";
-    // Enter the code names of content types representing image assets in your project
-    // Required for the Image widget
+    options.StyleSheetPath = "EmailBuilder.css";
     options.AllowedImageContentTypes = [Asset.CONTENT_TYPE_NAME, GalleryImage.CONTENT_TYPE_NAME];
-    // Enter the code names of page content types representing products in your project
-    // Required for the Product widget
     options.AllowedProductContentTypes = [ProductPage.CONTENT_TYPE_NAME];
 });
 

@@ -61,23 +61,6 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
         int depth = 1,
         string? languageName = null)
     {
-
-        // var cacheSettings = new RetrievalCacheSettings(
-        //     cacheItemNameSuffix: $"{contentItemGuid}|{depth}",
-        //     cacheExpiration: TimeSpan.FromMinutes(30),
-        //     useSlidingExpiration: true
-        // );
-
-        // var pages = await contentRetriever.RetrievePages<T>(
-        //     new RetrievePagesParameters
-        //     {
-        //         LanguageName = preferredLanguageRetriever.Get(),
-        //         LinkedItemsMaxLevel = depth
-        //     },
-        //     additionalQueryConfiguration: config => config
-        //         .Where(where => where.WhereEquals(nameof(WebPageFields.ContentItemGUID), contentItemGuid)),
-        //     RetrievalCacheSettings.CacheDisabled);
-
         var pages = await RetrieveWebPageContentItems(
             contentTypeName,
             config => config
