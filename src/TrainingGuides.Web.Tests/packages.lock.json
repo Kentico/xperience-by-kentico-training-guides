@@ -474,6 +474,14 @@
           "Microsoft.Extensions.Options": "8.0.0"
         }
       },
+      "HtmlPerformanceKit": {
+        "type": "Transitive",
+        "resolved": "1.0.0",
+        "contentHash": "BHePdNNOkAhDIzFh0LmrbRpmbp/2mSn4SyJggqeLmKSQJo++8mC9zFvzUo/cb/hkOwY0HYAFFWWauViVycHM9Q==",
+        "dependencies": {
+          "System.Memory": "4.5.5"
+        }
+      },
       "HtmlSanitizer": {
         "type": "Transitive",
         "resolved": "9.0.884",
@@ -540,6 +548,14 @@
         "type": "Transitive",
         "resolved": "8.0.15",
         "contentHash": "Uqc/wecFqwfpC9bUK9DH3W3nrriRM6ZBL8OozV6GHNNgrqvzdnqsPKo3NcmjhokvMo2/XHTrreRC2yA2aTLS/A=="
+      },
+      "Microsoft.AspNetCore.Components.Forms": {
+        "type": "Transitive",
+        "resolved": "8.0.14",
+        "contentHash": "U83TX0obbdIh1DeIGCix62RILHRa4HC7h0fgEYrV9Gl8tz0wzv6AoYkU4PvnxXAqpYA2wPTMgNOuqt1X2XxCoQ==",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "8.0.14"
+        }
       },
       "Microsoft.AspNetCore.Metadata": {
         "type": "Transitive",
@@ -753,8 +769,8 @@
       },
       "Microsoft.Extensions.ObjectPool": {
         "type": "Transitive",
-        "resolved": "8.0.0",
-        "contentHash": "4pm+XgxSukskwjzDDfSjG4KNUIOdFF2VaqZZDtTzoyQMOVSnlV6ZM8a9aVu5dg9LVZTB//utzSc8fOi0b0Mb2Q=="
+        "resolved": "8.0.11",
+        "contentHash": "6ApKcHNJigXBfZa6XlDQ8feJpq7SG1ogZXg6M4FiNzgd6irs3LUAzo0Pfn4F2ZI9liGnH1XIBR/OtSbZmJAV5w=="
       },
       "Microsoft.Extensions.Options": {
         "type": "Transitive",
@@ -847,6 +863,11 @@
           "Microsoft.IdentityModel.Logging": "7.6.2"
         }
       },
+      "Microsoft.JSInterop": {
+        "type": "Transitive",
+        "resolved": "8.0.14",
+        "contentHash": "eg5HYSshwlO1oOzOg4WdT2ZSPKOu3hv556zPkfNpKEi5qoLuQt49mE1tegsL4H7ENl1dL0vBLRv4+YAuLKt/nA=="
+      },
       "Microsoft.SqlServer.Server": {
         "type": "Transitive",
         "resolved": "1.0.0",
@@ -876,6 +897,15 @@
         "dependencies": {
           "BouncyCastle.Cryptography": "2.5.1",
           "System.Security.Cryptography.Pkcs": "8.0.1"
+        }
+      },
+      "Mjml.Net": {
+        "type": "Transitive",
+        "resolved": "4.8.0",
+        "contentHash": "ZTco0TUVcU6X5QfRQZKTq99RkA0dXgsMvOe4RFOD+FCc35BYXqi3ppzyE3Std4QqC1mndZaKmlNyh+pP1DwWNA==",
+        "dependencies": {
+          "HtmlPerformanceKit": "1.0.0",
+          "Microsoft.Extensions.ObjectPool": "8.0.11"
         }
       },
       "Mono.Cecil": {
@@ -979,8 +1009,8 @@
       },
       "System.Memory": {
         "type": "Transitive",
-        "resolved": "4.5.4",
-        "contentHash": "1MbJTHS1lZ4bS4FmsJjnuGJOu88ZzTT2rLvrhW7Ygic+pC0NWA+3hgAen0HRdsocuQXCkUTdFn9yHJJhsijDXw=="
+        "resolved": "4.5.5",
+        "contentHash": "XIWiDvKPXaTveaB7HVganDlOCRoj03l+jrwNvcge/t8vhGYKvqV+dMv6G4SAX2NoNmN0wZfVPTAlFwZcZvVOUw=="
       },
       "System.Memory.Data": {
         "type": "Transitive",
@@ -1092,6 +1122,14 @@
           "System.IO.Hashing": "8.0.0"
         }
       },
+      "kentico.xperience.mjml.starterkit.rcl": {
+        "type": "Project",
+        "dependencies": {
+          "Kentico.Xperience.Mjml": "[30.5.0, )",
+          "Kentico.Xperience.WebApp": "[30.5.0, )",
+          "Microsoft.AspNetCore.Components.Web": "[8.0.14, )"
+        }
+      },
       "trainingguides.admin": {
         "type": "Project",
         "dependencies": {
@@ -1111,6 +1149,7 @@
         "dependencies": {
           "AspNetCore.Unobtrusive.Ajax": "[2.0.0, )",
           "Enums.NET": "[4.0.2, )",
+          "Kentico.Xperience.Mjml.StarterKit.Rcl": "[1.0.0, )",
           "TrainingGuides.Admin": "[1.0.0, )",
           "TrainingGuides.Entities": "[1.0.0, )",
           "kentico.xperience.admin": "[30.5.0, )",
@@ -1191,6 +1230,17 @@
           "SkiaSharp.NativeAssets.Linux.NoDependencies": "3.119.0"
         }
       },
+      "Kentico.Xperience.Mjml": {
+        "type": "CentralTransitive",
+        "requested": "[30.5.0, )",
+        "resolved": "30.5.0",
+        "contentHash": "yq8jN08rbCbbjQrBjkJjHE2qMN2IHul8Hx8HRIaqj4412A+wxHjbatjpZrPd71QMSRWdvchfvtqDXOudqbGmfw==",
+        "dependencies": {
+          "Kentico.Xperience.Core": "30.5.0",
+          "Kentico.Xperience.WebApp": "30.5.0",
+          "Mjml.Net": "4.8.0"
+        }
+      },
       "Kentico.Xperience.WebApp": {
         "type": "CentralTransitive",
         "requested": "[30.5.0, )",
@@ -1206,6 +1256,20 @@
           "Microsoft.Extensions.Caching.Memory": "8.0.1",
           "Microsoft.Extensions.FileProviders.Embedded": "8.0.15",
           "System.Text.Json": "8.0.5"
+        }
+      },
+      "Microsoft.AspNetCore.Components.Web": {
+        "type": "CentralTransitive",
+        "requested": "[8.0.14, )",
+        "resolved": "8.0.14",
+        "contentHash": "h/XSCAHmBywDF6San0FGPyXxK6PZh1g/xz4Ln9yeJNgSmKq5F1ehgVStDkJr4d6pWGr2RRkNxgGYMLRnULMnKw==",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "8.0.14",
+          "Microsoft.AspNetCore.Components.Forms": "8.0.14",
+          "Microsoft.Extensions.DependencyInjection": "8.0.1",
+          "Microsoft.Extensions.Primitives": "8.0.0",
+          "Microsoft.JSInterop": "8.0.14",
+          "System.IO.Pipelines": "8.0.0"
         }
       }
     }

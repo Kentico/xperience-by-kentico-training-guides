@@ -1,12 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
     <PropertyGroup>
-        <TargetFramework>net8.0</TargetFramework>
-        <Nullable>enable</Nullable>
-        <ImplicitUsings>enable</ImplicitUsings>
-        <RootNamespace>Kentico.Xperience.Mjml.StarterKit.Rcl</RootNamespace>
-		<IsPackable>true</IsPackable>
-		<EnableScopedCss>false</EnableScopedCss>
+      <TargetFramework>net8.0</TargetFramework>
+      <Nullable>enable</Nullable>
+      <ImplicitUsings>enable</ImplicitUsings>
+      <RootNamespace>Kentico.Xperience.Mjml.StarterKit.Rcl</RootNamespace>
+      <EnableDefaultEmbeddedResourceItems>false</EnableDefaultEmbeddedResourceItems>
+      <IsPackable>true</IsPackable>
+      <EnableScopedCss>false</EnableScopedCss>
     </PropertyGroup>
 
 	<ItemGroup>

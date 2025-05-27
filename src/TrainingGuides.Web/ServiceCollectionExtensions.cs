@@ -1,3 +1,6 @@
+using Kentico.Xperience.Mjml.StarterKit.Rcl.Mapping;
+using Kentico.Xperience.Mjml.StarterKit.Rcl.Widgets;
+using TrainingGuides.Web.Features.Articles.EmailWidgets;
 using TrainingGuides.Web.Features.Articles.Services;
 using TrainingGuides.Web.Features.DataProtection.Services;
 using TrainingGuides.Web.Features.EmailNotifications;
@@ -6,6 +9,7 @@ using TrainingGuides.Web.Features.Membership.Profile;
 using TrainingGuides.Web.Features.Membership.Services;
 using TrainingGuides.Web.Features.Products.Services;
 using TrainingGuides.Web.Features.SEO;
+using TrainingGuides.Web.Features.Shared.EmailBuilder.ModelMappers;
 using TrainingGuides.Web.Features.Shared.Services;
 
 namespace TrainingGuides.Web;
@@ -28,6 +32,10 @@ public static class ServiceCollectionExtensions
 
         services.AddScoped<IMembershipService, MembershipService>();
         services.AddScoped<IHeadTagStoreService, HeadTagStoreService>();
+
+        services.AddScoped<IComponentModelMapper<ImageWidgetModel>, ImageEmailWidgetModelMapper>();
+        services.AddScoped<IComponentModelMapper<ProductWidgetModel>, ProductEmailWidgetModelMapper>();
+        services.AddScoped<IComponentModelMapper<ArticleEmailWidgetModel>, ArticleEmailWidgetModelMapper>();
 
         services.AddTransient(typeof(IContentItemRetrieverService<>), typeof(ContentItemRetrieverService<>));
 
