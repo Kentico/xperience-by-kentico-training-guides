@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contenttypechannel>
+  <Parent>
+    <CodeName>TrainingGuides.BasicEmail</CodeName>
+    <GUID>10caf932-e6fa-4b10-9fed-1f13d7380445</GUID>
+    <ObjectType>cms.contenttype</ObjectType>
+  </Parent>
+  <Bindings>
+    <Binding id="cms.channel_TrainingGuidesEmails">
+      <ContentTypeChannelChannelID>
+        <CodeName>TrainingGuidesEmails</CodeName>
+        <GUID>49e862ef-2963-49ef-a1f4-f209a01d8fc6</GUID>
+        <ObjectType>cms.channel</ObjectType>
+      </ContentTypeChannelChannelID>
+    </Binding>
+  </Bindings>
+</cms.contenttypechannel>
