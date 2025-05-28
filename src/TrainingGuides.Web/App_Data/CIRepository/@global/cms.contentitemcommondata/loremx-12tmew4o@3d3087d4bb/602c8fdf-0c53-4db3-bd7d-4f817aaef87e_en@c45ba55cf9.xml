@@ -18,6 +18,19 @@
   <ContentItemReferences>
     <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>1724a9f0-e380-4751-ba83-088c8973b61c</ContentItemReferenceGroupGUID>
+      <ContentItemReferenceGUID>26cee4fc-cb8e-40ca-8208-5eea53f0c9b1</ContentItemReferenceGUID>
+      <ContentItemReferenceSourceCommonDataID>
+        <GUID>602c8fdf-0c53-4db3-bd7d-4f817aaef87e</GUID>
+        <ObjectType>cms.contentitemcommondata</ObjectType>
+      </ContentItemReferenceSourceCommonDataID>
+      <ContentItemReferenceTargetItemID>
+        <CodeName>LoremX-YearlyMaintenanceCost-3rxg1s24</CodeName>
+        <GUID>421baf9f-de34-4ace-b648-239c89ce614d</GUID>
+        <ObjectType>cms.contentitem</ObjectType>
+      </ContentItemReferenceTargetItemID>
+    </cms.contentitemreference>
+    <cms.contentitemreference>
+      <ContentItemReferenceGroupGUID>1724a9f0-e380-4751-ba83-088c8973b61c</ContentItemReferenceGroupGUID>
       <ContentItemReferenceGUID>0733710b-8589-444d-83a9-64696fcb3e4f</ContentItemReferenceGUID>
       <ContentItemReferenceSourceCommonDataID>
         <GUID>602c8fdf-0c53-4db3-bd7d-4f817aaef87e</GUID>
@@ -39,32 +52,6 @@
       <ContentItemReferenceTargetItemID>
         <CodeName>DolorSitAmet-ymn1m2kg</CodeName>
         <GUID>024469dc-5467-48a6-b09f-9b202ee2f510</GUID>
-        <ObjectType>cms.contentitem</ObjectType>
-      </ContentItemReferenceTargetItemID>
-    </cms.contentitemreference>
-    <cms.contentitemreference>
-      <ContentItemReferenceGroupGUID>1724a9f0-e380-4751-ba83-088c8973b61c</ContentItemReferenceGroupGUID>
-      <ContentItemReferenceGUID>26cee4fc-cb8e-40ca-8208-5eea53f0c9b1</ContentItemReferenceGUID>
-      <ContentItemReferenceSourceCommonDataID>
-        <GUID>602c8fdf-0c53-4db3-bd7d-4f817aaef87e</GUID>
-        <ObjectType>cms.contentitemcommondata</ObjectType>
-      </ContentItemReferenceSourceCommonDataID>
-      <ContentItemReferenceTargetItemID>
-        <CodeName>LoremX-YearlyMaintenanceCost-3rxg1s24</CodeName>
-        <GUID>421baf9f-de34-4ace-b648-239c89ce614d</GUID>
-        <ObjectType>cms.contentitem</ObjectType>
-      </ContentItemReferenceTargetItemID>
-    </cms.contentitemreference>
-    <cms.contentitemreference>
-      <ContentItemReferenceGroupGUID>ac5f51bb-7ce0-4972-8615-b8213e39ef2d</ContentItemReferenceGroupGUID>
-      <ContentItemReferenceGUID>a40ec2a0-b47f-463b-8874-185f3c9be92b</ContentItemReferenceGUID>
-      <ContentItemReferenceSourceCommonDataID>
-        <GUID>602c8fdf-0c53-4db3-bd7d-4f817aaef87e</GUID>
-        <ObjectType>cms.contentitemcommondata</ObjectType>
-      </ContentItemReferenceSourceCommonDataID>
-      <ContentItemReferenceTargetItemID>
-        <CodeName>Oranges-c40r8kev</CodeName>
-        <GUID>b2bda33d-6094-4ea5-b56d-4d59fd202d72</GUID>
         <ObjectType>cms.contentitem</ObjectType>
       </ContentItemReferenceTargetItemID>
     </cms.contentitemreference>
@@ -91,6 +78,19 @@
       <ContentItemReferenceTargetItemID>
         <CodeName>LoremIpsumBenefit2-w321yakb</CodeName>
         <GUID>15b4e527-dc69-4af3-95b3-95d995ede802</GUID>
+        <ObjectType>cms.contentitem</ObjectType>
+      </ContentItemReferenceTargetItemID>
+    </cms.contentitemreference>
+    <cms.contentitemreference>
+      <ContentItemReferenceGroupGUID>ac5f51bb-7ce0-4972-8615-b8213e39ef2d</ContentItemReferenceGroupGUID>
+      <ContentItemReferenceGUID>a40ec2a0-b47f-463b-8874-185f3c9be92b</ContentItemReferenceGUID>
+      <ContentItemReferenceSourceCommonDataID>
+        <GUID>602c8fdf-0c53-4db3-bd7d-4f817aaef87e</GUID>
+        <ObjectType>cms.contentitemcommondata</ObjectType>
+      </ContentItemReferenceSourceCommonDataID>
+      <ContentItemReferenceTargetItemID>
+        <CodeName>Oranges-c40r8kev</CodeName>
+        <GUID>b2bda33d-6094-4ea5-b56d-4d59fd202d72</GUID>
         <ObjectType>cms.contentitem</ObjectType>
       </ContentItemReferenceTargetItemID>
     </cms.contentitemreference>

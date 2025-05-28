@@ -27,10 +27,24 @@
         <ObjectType>cms.macrorule</ObjectType>
       </MacroRuleID>
     </Binding>
+    <Binding id="cms.macrorule_CMSContactFieldValueIsEmpty">
+      <MacroRuleID>
+        <CodeName>CMSContactFieldValueIsEmpty</CodeName>
+        <GUID>442fb8ba-33d7-4045-a7ed-520bf784cac8</GUID>
+        <ObjectType>cms.macrorule</ObjectType>
+      </MacroRuleID>
+    </Binding>
     <Binding id="cms.macrorule_CMSContactHasAgreedWithConsent">
       <MacroRuleID>
         <CodeName>CMSContactHasAgreedWithConsent</CodeName>
         <GUID>f01d1fdc-954b-41f7-affb-073993039369</GUID>
+        <ObjectType>cms.macrorule</ObjectType>
+      </MacroRuleID>
+    </Binding>
+    <Binding id="cms.macrorule_CMSContactHasBecomeMember">
+      <MacroRuleID>
+        <CodeName>CMSContactHasBecomeMember</CodeName>
+        <GUID>382b6b50-98f2-4202-bedd-16d937db4a72</GUID>
         <ObjectType>cms.macrorule</ObjectType>
       </MacroRuleID>
     </Binding>

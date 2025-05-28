@@ -17,6 +17,32 @@
   <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
   <ContentItemReferences>
     <cms.contentitemreference>
+      <ContentItemReferenceGroupGUID>77b38454-56c1-4862-b1d8-839513962873</ContentItemReferenceGroupGUID>
+      <ContentItemReferenceGUID>8785b06b-db72-471a-8159-1c33d24d9603</ContentItemReferenceGUID>
+      <ContentItemReferenceSourceCommonDataID>
+        <GUID>1077f580-0aff-42e6-807f-4b8f813ef23a</GUID>
+        <ObjectType>cms.contentitemcommondata</ObjectType>
+      </ContentItemReferenceSourceCommonDataID>
+      <ContentItemReferenceTargetItemID>
+        <CodeName>News-iqxdep5p</CodeName>
+        <GUID>65e38d4a-5957-46cd-9267-3d612f8f9dc8</GUID>
+        <ObjectType>cms.contentitem</ObjectType>
+      </ContentItemReferenceTargetItemID>
+    </cms.contentitemreference>
+    <cms.contentitemreference>
+      <ContentItemReferenceGroupGUID>77b38454-56c1-4862-b1d8-839513962873</ContentItemReferenceGroupGUID>
+      <ContentItemReferenceGUID>286cd06b-9991-4622-bf34-bb2830eb7abf</ContentItemReferenceGUID>
+      <ContentItemReferenceSourceCommonDataID>
+        <GUID>1077f580-0aff-42e6-807f-4b8f813ef23a</GUID>
+        <ObjectType>cms.contentitemcommondata</ObjectType>
+      </ContentItemReferenceSourceCommonDataID>
+      <ContentItemReferenceTargetItemID>
+        <CodeName>Dogs-6id1vqpf</CodeName>
+        <GUID>89ae27da-cd71-48f3-9a49-df9680ea98f9</GUID>
+        <ObjectType>cms.contentitem</ObjectType>
+      </ContentItemReferenceTargetItemID>
+    </cms.contentitemreference>
+    <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>51ebb9a1-0d3b-4b01-870d-b3fd70133d96</ContentItemReferenceGroupGUID>
       <ContentItemReferenceGUID>55b9dc9b-a240-4272-b2c8-7e5d540631f1</ContentItemReferenceGUID>
       <ContentItemReferenceSourceCommonDataID>
@@ -65,32 +91,6 @@
       <ContentItemReferenceTargetItemID>
         <CodeName>Cockatiels-9k9hdm7a</CodeName>
         <GUID>b35b01ec-efda-4d54-a0ab-98e0b8987da4</GUID>
-        <ObjectType>cms.contentitem</ObjectType>
-      </ContentItemReferenceTargetItemID>
-    </cms.contentitemreference>
-    <cms.contentitemreference>
-      <ContentItemReferenceGroupGUID>77b38454-56c1-4862-b1d8-839513962873</ContentItemReferenceGroupGUID>
-      <ContentItemReferenceGUID>8785b06b-db72-471a-8159-1c33d24d9603</ContentItemReferenceGUID>
-      <ContentItemReferenceSourceCommonDataID>
-        <GUID>1077f580-0aff-42e6-807f-4b8f813ef23a</GUID>
-        <ObjectType>cms.contentitemcommondata</ObjectType>
-      </ContentItemReferenceSourceCommonDataID>
-      <ContentItemReferenceTargetItemID>
-        <CodeName>News-iqxdep5p</CodeName>
-        <GUID>65e38d4a-5957-46cd-9267-3d612f8f9dc8</GUID>
-        <ObjectType>cms.contentitem</ObjectType>
-      </ContentItemReferenceTargetItemID>
-    </cms.contentitemreference>
-    <cms.contentitemreference>
-      <ContentItemReferenceGroupGUID>77b38454-56c1-4862-b1d8-839513962873</ContentItemReferenceGroupGUID>
-      <ContentItemReferenceGUID>286cd06b-9991-4622-bf34-bb2830eb7abf</ContentItemReferenceGUID>
-      <ContentItemReferenceSourceCommonDataID>
-        <GUID>1077f580-0aff-42e6-807f-4b8f813ef23a</GUID>
-        <ObjectType>cms.contentitemcommondata</ObjectType>
-      </ContentItemReferenceSourceCommonDataID>
-      <ContentItemReferenceTargetItemID>
-        <CodeName>Dogs-6id1vqpf</CodeName>
-        <GUID>89ae27da-cd71-48f3-9a49-df9680ea98f9</GUID>
         <ObjectType>cms.contentitem</ObjectType>
       </ContentItemReferenceTargetItemID>
     </cms.contentitemreference>

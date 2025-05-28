@@ -6,9 +6,12 @@
     <GUID>e81b5172-f240-4041-88b1-653089984e29</GUID>
     <ObjectType>cms.contentlanguage</ObjectType>
   </WebPageFormerUrlPathContentLanguageID>
+  <WebPageFormerUrlPathGUID>e227df0f-c014-447e-b260-a7d005334fd0</WebPageFormerUrlPathGUID>
   <WebPageFormerUrlPathHash>
     <![CDATA[45D0602FB3A110450513854F233D5A33763E9F4486CD6AE3D29B4B9FC77D0F46]]>
   </WebPageFormerUrlPathHash>
+  <WebPageFormerUrlPathIsRedirect>False</WebPageFormerUrlPathIsRedirect>
+  <WebPageFormerUrlPathIsRedirectScheduled>False</WebPageFormerUrlPathIsRedirectScheduled>
   <WebPageFormerUrlPathWebPageItemID>
     <CodeName>CookiePolicy-gai183um</CodeName>
     <GUID>771d069e-e136-4a0f-880a-c0af6c8d2bdf</GUID>
