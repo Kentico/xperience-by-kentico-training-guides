@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpagescopecontenttype>
+  <Parent>
+    <GUID>1e1b894d-a62d-47bf-8a0a-36a541f41d5d</GUID>
+    <ObjectType>cms.webpagescope</ObjectType>
+    <Parent>
+      <GUID>fdba40fe-1ece-4821-9d57-eaa1d89e13b1</GUID>
+      <ObjectType>cms.websitechannel</ObjectType>
+      <Parent>
+        <CodeName>TrainingGuidesPages</CodeName>
+        <GUID>5ba9c1e8-b61e-4570-b666-87a9b92bbe3b</GUID>
+        <ObjectType>cms.channel</ObjectType>
+      </Parent>
+    </Parent>
+  </Parent>
+  <Bindings>
+    <Binding id="cms.contenttype_TrainingGuides.ArticlePage">
+      <WebPageScopeContentTypeContentTypeID>
+        <CodeName>TrainingGuides.ArticlePage</CodeName>
+        <GUID>c5201839-8fe2-4d8d-a19a-f080592dc7d3</GUID>
+        <ObjectType>cms.contenttype</ObjectType>
+      </WebPageScopeContentTypeContentTypeID>
+    </Binding>
+    <Binding id="cms.contenttype_TrainingGuides.DownloadsPage">
+      <WebPageScopeContentTypeContentTypeID>
+        <CodeName>TrainingGuides.DownloadsPage</CodeName>
+        <GUID>5a0c7841-fca0-4a7f-992f-58fe55c2d505</GUID>
+        <ObjectType>cms.contenttype</ObjectType>
+      </WebPageScopeContentTypeContentTypeID>
+    </Binding>
+    <Binding id="cms.contenttype_TrainingGuides.EmptyPage">
+      <WebPageScopeContentTypeContentTypeID>
+        <CodeName>TrainingGuides.EmptyPage</CodeName>
+        <GUID>58018c9d-5b6c-4251-b3a8-8c1a6d124780</GUID>
+        <ObjectType>cms.contenttype</ObjectType>
+      </WebPageScopeContentTypeContentTypeID>
+    </Binding>
+    <Binding id="cms.contenttype_TrainingGuides.LandingPage">
+      <WebPageScopeContentTypeContentTypeID>
+        <CodeName>TrainingGuides.LandingPage</CodeName>
+        <GUID>ada989ef-cc4d-460d-9f6b-8f64b0cd8303</GUID>
+        <ObjectType>cms.contenttype</ObjectType>
+      </WebPageScopeContentTypeContentTypeID>
+    </Binding>
+  </Bindings>
+</cms.webpagescopecontenttype>

@@ -4,37 +4,49 @@ namespace TrainingGuides.Web.Features.Shared.Services;
 
 public interface IContentItemRetrieverService<T>
 {
-    public Task<T?> RetrieveWebPageById(
+    Task<T?> RetrieveWebPageById(
         int webPageItemId,
         string contentTypeName,
-        int depth = 1);
+        int depth = 1,
+        string? languageName = null);
 
-    public Task<T?> RetrieveWebPageByGuid(
+    Task<T?> RetrieveWebPageByGuid(
         Guid? webPageItemGuid,
         string contentTypeName,
-        int depth = 1);
+        int depth = 1,
+        string? languageName = null);
 
-    public Task<IEnumerable<T>> RetrieveWebPageContentItems(
-        string contentTypeName,
-        Func<ContentTypeQueryParameters, ContentTypeQueryParameters> queryFilter);
-
-    public Task<IEnumerable<T>> RetrieveWebPageChildrenByPath(
-        string parentPageContentTypeName,
-        string path,
-        int depth = 1);
-
-    public Task<T?> RetrieveContentItemByGuid(
+    Task<T?> RetrieveWebPageByContentItemGuid(
         Guid contentItemGuid,
         string contentTypeName,
-        int depth = 1);
+        int depth = 1,
+        string? languageName = null);
 
-    public Task<IEnumerable<T>> RetrieveReusableContentItems(
+    Task<IEnumerable<T>> RetrieveWebPageContentItems(
         string contentTypeName,
-        Func<ContentTypeQueryParameters, ContentTypeQueryParameters> queryFilter);
+        Func<ContentTypeQueryParameters, ContentTypeQueryParameters> queryFilter,
+        string? languageName = null);
+
+    Task<IEnumerable<T>> RetrieveWebPageChildrenByPath(
+        string parentPageContentTypeName,
+        string path,
+        int depth = 1,
+        string? languageName = null);
+
+    Task<T?> RetrieveContentItemByGuid(
+        Guid contentItemGuid,
+        string contentTypeName,
+        int depth = 1,
+        string? languageName = null);
+
+    Task<IEnumerable<T>> RetrieveReusableContentItems(
+        string contentTypeName,
+        Func<ContentTypeQueryParameters, ContentTypeQueryParameters> queryFilter,
+        string? languageName = null);
 }
 
 public interface IContentItemRetrieverService
 {
-    public Task<IWebPageFieldsSource?> RetrieveWebPageByGuid(Guid webPageItemGuid);
+    Task<IWebPageFieldsSource?> RetrieveWebPageByGuid(Guid webPageItemGuid);
 
 }
