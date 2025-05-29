@@ -93,7 +93,7 @@ builder.Services.AddMjmlForEmails();
 builder.Services.AddKenticoMjmlStarterKit(options =>
 {
     options.StyleSheetPath = "EmailBuilder.css";
-    options.AllowedImageContentTypes = [Asset.CONTENT_TYPE_NAME, GalleryImage.CONTENT_TYPE_NAME];
+    options.AllowedImageContentTypes = [Asset.CONTENT_TYPE_NAME];
     options.AllowedProductContentTypes = [ProductPage.CONTENT_TYPE_NAME];
 });
 

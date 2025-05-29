@@ -7,7 +7,7 @@ namespace TrainingGuides.Web.Features.Articles.EmailWidgets;
 public class ArticleEmailWidgetModelMapper : IComponentModelMapper<ArticleEmailWidgetModel>
 {
     private readonly IContentItemRetrieverService<ArticlePage> articleRetrieverService;
-    private readonly IHttpContextAccessor httpContextAccessor;
+    private readonly IHttpRequestService httpRequestService;
     private readonly ArticleEmailWidgetModel defaultModel = new()
     {
         ArticleTitle = "No article selected",
@@ -18,10 +18,10 @@ public class ArticleEmailWidgetModelMapper : IComponentModelMapper<ArticleEmailW
 
     public ArticleEmailWidgetModelMapper(
         IContentItemRetrieverService<ArticlePage> articleRetrieverService,
-        IHttpContextAccessor httpContextAccessor)
+        IHttpRequestService httpRequestService)
     {
         this.articleRetrieverService = articleRetrieverService;
-        this.httpContextAccessor = httpContextAccessor;
+        this.httpRequestService = httpRequestService;
     }
 
     public async Task<ArticleEmailWidgetModel> Map(Guid contentItemGuid, string languageName)
@@ -33,28 +33,14 @@ public class ArticleEmailWidgetModelMapper : IComponentModelMapper<ArticleEmailW
 
         var articlePage = await articleRetrieverService.RetrieveWebPageByContentItemGuid(contentItemGuid, ArticlePage.CONTENT_TYPE_NAME, 2, languageName);
 
-        string articlePageUrl = articlePage?.SystemFields.WebPageUrlPath is not null
-            ? new UriBuilder()
-            {
-                Scheme = httpContextAccessor.HttpContext?.Request.Scheme,
-                Host = httpContextAccessor.HttpContext?.Request.Host.Host,
-                Port = httpContextAccessor.HttpContext?.Request.Host.Port ?? 80,
-                Path = articlePage.SystemFields.WebPageUrlPath
-            }.ToString()
-            : string.Empty;
+        string articlePageUrl = httpRequestService.GetAbsoluteUrlForPath(articlePage?.SystemFields.WebPageUrlPath ?? string.Empty, false);
 
         var schemaArticle = articlePage?.ArticlePageArticleContent.FirstOrDefault();
         var oldArticle = articlePage?.ArticlePageContent.FirstOrDefault();
 
         var imageAsset = schemaArticle?.ArticleSchemaTeaser?.FirstOrDefault()
                 ?? oldArticle?.ArticleTeaser?.FirstOrDefault();
-        var imageUrl = new UriBuilder()
-        {
-            Scheme = httpContextAccessor.HttpContext?.Request.Scheme,
-            Host = httpContextAccessor.HttpContext?.Request.Host.Host,
-            Port = httpContextAccessor.HttpContext?.Request.Host.Port ?? 80,
-            Path = imageAsset?.AssetFile?.Url.TrimStart('~')
-        };
+        string imageUrl = httpRequestService.GetAbsoluteUrlForPath(imageAsset?.AssetFile?.Url ?? string.Empty, false);
 
         return (articlePage is not null && (schemaArticle is not null || oldArticle is not null))
             ? new ArticleEmailWidgetModel()

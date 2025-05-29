@@ -4,8 +4,7 @@ using TrainingGuides.Web.Features.Shared.Services;
 
 namespace TrainingGuides.Web.Features.Shared.EmailBuilder.ModelMappers;
 
-public class ProductEmailWidgetModelMapper
-    : IComponentModelMapper<ProductWidgetModel>
+public class ProductEmailWidgetModelMapper : IComponentModelMapper<ProductWidgetModel>
 {
 
     private readonly IContentItemRetrieverService<ProductPage> productPageRetrieverService;
@@ -21,7 +20,12 @@ public class ProductEmailWidgetModelMapper
 
     public async Task<ProductWidgetModel> Map(Guid webPageItemGuid, string languageName)
     {
-        var page = await productPageRetrieverService.RetrieveWebPageByContentItemGuid(webPageItemGuid, ProductPage.CONTENT_TYPE_NAME, 2, languageName);
+        var page = await productPageRetrieverService.RetrieveWebPageByContentItemGuid(
+            contentItemGuid: webPageItemGuid,
+            contentTypeName: ProductPage.CONTENT_TYPE_NAME,
+            depth: 2,
+            languageName: languageName);
+
         var product = page?.ProductPageProduct.FirstOrDefault();
 
         if (page is null || product is null)
@@ -32,13 +36,14 @@ public class ProductEmailWidgetModelMapper
         string webPageItemUrl = httpRequestService.GetAbsoluteUrlForPath(page.SystemFields.WebPageUrlPath, false);
 
         var image = product.ProductMedia.FirstOrDefault();
+        string imageUrl = httpRequestService.GetAbsoluteUrlForPath(image?.AssetFile?.Url ?? string.Empty, false);
 
         return new ProductWidgetModel
         {
             Name = product.ProductName,
             Description = product.ProductDescription,
             Url = webPageItemUrl,
-            ImageUrl = image?.AssetFile?.Url ?? string.Empty,
+            ImageUrl = imageUrl,
             ImageAltText = image?.AssetDescription ?? string.Empty,
         };
     }
