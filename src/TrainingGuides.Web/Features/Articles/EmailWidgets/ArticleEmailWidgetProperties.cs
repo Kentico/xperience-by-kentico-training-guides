@@ -2,6 +2,7 @@ using CMS.ContentEngine;
 
 using Kentico.EmailBuilder.Web.Mvc;
 using Kentico.Xperience.Admin.Base.FormAnnotations;
+using Kentico.Xperience.Mjml.StarterKit.Rcl.Widgets;
 
 namespace TrainingGuides.Web.Features.Articles.EmailWidgets;
 
@@ -11,10 +12,10 @@ namespace TrainingGuides.Web.Features.Articles.EmailWidgets;
 public sealed class ArticleEmailWidgetProperties : IEmailWidgetProperties
 {
     [ContentItemSelectorComponent(
-        TrainingGuides.ArticlePage.CONTENT_TYPE_NAME,
+        contentTypeFilter: typeof(ArticleContentTypesFilter),
         Label = "Select article",
         ExplanationTextAsHtml = true,
-        ExplanationText = "The widget will display the content from the selected article page.",
+        ExplanationText = "The widget will display the content from the selected article.",
         Order = 10,
         MaximumItems = 1)]
     public IEnumerable<ContentItemReference> ArticlePage { get; set; } = [];

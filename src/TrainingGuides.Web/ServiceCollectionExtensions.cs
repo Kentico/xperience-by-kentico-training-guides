@@ -9,6 +9,7 @@ using TrainingGuides.Web.Features.Membership.Profile;
 using TrainingGuides.Web.Features.Membership.Services;
 using TrainingGuides.Web.Features.Products.Services;
 using TrainingGuides.Web.Features.SEO;
+using TrainingGuides.Web.Features.Shared.EmailBuilder;
 using TrainingGuides.Web.Features.Shared.EmailBuilder.ModelMappers;
 using TrainingGuides.Web.Features.Shared.Services;
 
@@ -45,5 +46,9 @@ public static class ServiceCollectionExtensions
     {
         services.ConfigureOptions<EmailNotificationOptionsSetup>();
         services.ConfigureOptions<RobotsOptionsSetup>();
+        services.Configure<TrainingGuidesEmailBuilderOptions>(options =>
+        {
+            options.AllowedArticleContentTypes = [ArticlePage.CONTENT_TYPE_NAME];
+        });
     }
 }
