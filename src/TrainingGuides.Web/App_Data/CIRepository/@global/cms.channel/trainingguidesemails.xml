@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.channel>
+  <ChannelDisplayName>Training guides emails</ChannelDisplayName>
+  <ChannelGUID>49e862ef-2963-49ef-a1f4-f209a01d8fc6</ChannelGUID>
+  <ChannelName>TrainingGuidesEmails</ChannelName>
+  <ChannelSize>Standard</ChannelSize>
+  <ChannelType>Email</ChannelType>
+</cms.channel>
