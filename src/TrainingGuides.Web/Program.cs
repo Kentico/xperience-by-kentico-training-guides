@@ -81,7 +81,7 @@ builder.Services.AddXperienceSmtp(options =>
 builder.Services.Configure<EmailBuilderOptions>(options =>
 {
     // Allows Email Builder for the 'Acme.Email' content type
-    options.AllowedEmailContentTypeNames = ["TrainingGuides.BasicEmail"];
+    options.AllowedEmailContentTypeNames = [BasicEmail.CONTENT_TYPE_NAME];
     // Replaces the default Email Builder section
     options.RegisterDefaultSection = false;
     options.DefaultSectionIdentifier = FullWidthEmailSection.IDENTIFIER;
