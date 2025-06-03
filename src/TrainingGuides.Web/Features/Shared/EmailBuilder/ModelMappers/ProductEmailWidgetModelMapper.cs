@@ -44,7 +44,7 @@ public class ProductEmailWidgetModelMapper : IComponentModelMapper<ProductWidget
             Description = product.ProductDescription,
             Url = webPageItemUrl,
             ImageUrl = imageUrl,
-            ImageAltText = image?.AssetDescription ?? string.Empty,
+            ImageAltText = image?.AssetAltText ?? image?.AssetDescription ?? string.Empty,
         };
     }
 }

@@ -1,5 +1,3 @@
-
-
 using Kentico.Xperience.Mjml.StarterKit.Rcl.Mapping;
 using Kentico.Xperience.Mjml.StarterKit.Rcl.Widgets;
 using TrainingGuides.Web.Features.Shared.Services;
