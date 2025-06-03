@@ -36,9 +36,10 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
     {
         var pages = await RetrieveWebPageContentItems(
                 contentTypeName,
-                config => config
-                    .Where(where => where.WhereEquals(nameof(WebPageFields.WebPageItemID), webPageItemId))
+                innerParams => innerParams
                     .WithLinkedItems(depth),
+                outerParams => outerParams
+                    .Where(where => where.WhereEquals(nameof(WebPageFields.WebPageItemID), webPageItemId)),
                 languageName: languageName);
         return pages.FirstOrDefault();
     }
@@ -58,9 +59,10 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
     {
         var pages = await RetrieveWebPageContentItems(
                 contentTypeName,
-                config => config
-                    .Where(where => where.WhereEquals(nameof(WebPageFields.WebPageItemGUID), webPageItemGuid))
+                innerParams => innerParams
                     .WithLinkedItems(depth),
+                outerParams => outerParams
+                    .Where(where => where.WhereEquals(nameof(WebPageFields.WebPageItemGUID), webPageItemGuid)),
                 languageName: languageName);
         return pages.FirstOrDefault();
     }
@@ -82,9 +84,9 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
     {
         var pages = await RetrieveWebPageContentItems(
             contentTypeName,
-            config => config
-                .Where(where => where.WhereEquals(nameof(WebPageFields.ContentItemGUID), contentItemGuid))
-                .WithLinkedItems(depth),
+            innerParams => innerParams.WithLinkedItems(depth),
+            outerParams => outerParams
+                .Where(where => where.WhereEquals(nameof(WebPageFields.ContentItemGUID), contentItemGuid)),
             languageName: languageName);
         return pages.FirstOrDefault();
     }
@@ -93,19 +95,23 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
     /// Retrieves web page content items using ContentItemQueryBuilder
     /// </summary>
     /// <param name="contentTypeName">Content type name of the Web page.</param>
-    /// <param name="queryFilter">A delegate used to configure query for given contentTypeName</param>
+    /// <param name="innerQueryFilter">Filter for ForContentTypes parameterization</param>
+    /// <param name="outerParams">Outer query parameterization</param>
+    /// <param name="languageName">Determines the language of the retrieved content. PreferredLanguageRetriever is used if empty</param>
     /// <returns>An enumerable set of items</returns>
     public async Task<IEnumerable<T>> RetrieveWebPageContentItems(
         string contentTypeName,
-        Func<ContentTypeQueryParameters, ContentTypeQueryParameters> queryFilter,
+        Func<ContentTypesQueryParameters, ContentTypesQueryParameters> innerQueryFilter,
+        Action<ContentQueryParameters> outerParams,
         string? languageName = null)
     {
         var builder = new ContentItemQueryBuilder()
-                            .ForContentType(
-                                contentTypeName,
-                                config => queryFilter(config)
-                                .ForWebsite(webSiteChannelContext.WebsiteChannelName)
+                            .ForContentTypes(
+                                config => innerQueryFilter(config)
+                                .OfContentType(contentTypeName)
+                                .WithWebPageData()
                             )
+                            .Parameters(outerParams)
                             .InLanguage(languageName ?? preferredLanguageRetriever.Get());
 
         var queryExecutorOptions = new ContentQueryExecutionOptions

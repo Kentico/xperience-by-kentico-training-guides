@@ -22,11 +22,6 @@ public interface IContentItemRetrieverService<T>
         int depth = 1,
         string? languageName = null);
 
-    Task<IEnumerable<T>> RetrieveWebPageContentItems(
-        string contentTypeName,
-        Func<ContentTypeQueryParameters, ContentTypeQueryParameters> queryFilter,
-        string? languageName = null);
-
     Task<IEnumerable<T>> RetrieveWebPageChildrenByPath(
         string parentPageContentTypeName,
         string path,
