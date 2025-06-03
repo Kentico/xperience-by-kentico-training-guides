@@ -4,14 +4,14 @@ using TrainingGuides.Web.Features.Articles.EmailWidgets;
 using Kentico.EmailBuilder.Web.Mvc;
 using Kentico.Xperience.Mjml.StarterKit.Rcl.Mapping;
 
-// [assembly: RegisterEmailWidget(
-//     identifier: ArticleEmailWidget.IDENTIFIER,
-//     name: "Article",
-//     componentType: typeof(ArticleEmailWidget),
-//     PropertiesType = typeof(ArticleEmailWidgetProperties),
-//     IconClass = "icon-l-list-img-article",
-//     Description = "Displays an article teaser link with an image, summary, and title."
-//     )]
+[assembly: RegisterEmailWidget(
+    identifier: ArticleEmailWidget.IDENTIFIER,
+    name: "Article",
+    componentType: typeof(ArticleEmailWidget),
+    PropertiesType = typeof(ArticleEmailWidgetProperties),
+    IconClass = "icon-l-list-img-article",
+    Description = "Displays an article teaser link with an image, summary, and title."
+    )]
 
 namespace TrainingGuides.Web.Features.Articles.EmailWidgets;
 
