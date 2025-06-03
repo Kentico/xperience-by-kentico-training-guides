@@ -9,11 +9,14 @@ namespace TrainingGuides.Web.Features.Shared.EmailBuilder.ModelMappers;
 public class ImageEmailWidgetModelMapper : IComponentModelMapper<ImageWidgetModel>
 {
     private readonly IContentItemRetrieverService<Asset> assetRetrieverService;
+    private readonly IHttpRequestService httpRequestService;
 
     public ImageEmailWidgetModelMapper(
-        IContentItemRetrieverService<Asset> assetRetrieverService)
+        IContentItemRetrieverService<Asset> assetRetrieverService,
+        IHttpRequestService httpRequestService)
     {
         this.assetRetrieverService = assetRetrieverService;
+        this.httpRequestService = httpRequestService;
     }
 
     public async Task<ImageWidgetModel> Map(Guid itemGuid, string languageName)
@@ -25,10 +28,12 @@ public class ImageEmailWidgetModelMapper : IComponentModelMapper<ImageWidgetMode
             return new ImageWidgetModel();
         }
 
+        string imageUrl = httpRequestService.GetAbsoluteUrlForPath(asset.AssetFile?.Url ?? string.Empty, false);
+
         return new ImageWidgetModel()
         {
             // Populate the image URL and alt text from the retrieved content item's fields
-            ImageUrl = asset?.AssetFile.Url ?? string.Empty,
+            ImageUrl = imageUrl,
             AltText = asset?.AssetAltText ?? string.Empty
         };
     }

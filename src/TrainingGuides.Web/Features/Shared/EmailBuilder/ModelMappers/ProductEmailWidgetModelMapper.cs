@@ -18,10 +18,10 @@ public class ProductEmailWidgetModelMapper : IComponentModelMapper<ProductWidget
         this.httpRequestService = httpRequestService;
     }
 
-    public async Task<ProductWidgetModel> Map(Guid webPageItemGuid, string languageName)
+    public async Task<ProductWidgetModel> Map(Guid webPageItemContentItemGuid, string languageName)
     {
         var page = await productPageRetrieverService.RetrieveWebPageByContentItemGuid(
-            contentItemGuid: webPageItemGuid,
+            contentItemGuid: webPageItemContentItemGuid,
             contentTypeName: ProductPage.CONTENT_TYPE_NAME,
             depth: 2,
             languageName: languageName);
