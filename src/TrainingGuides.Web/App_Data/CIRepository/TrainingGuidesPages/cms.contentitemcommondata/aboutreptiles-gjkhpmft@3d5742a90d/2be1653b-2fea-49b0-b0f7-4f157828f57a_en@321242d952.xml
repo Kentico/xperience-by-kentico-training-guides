@@ -14,10 +14,10 @@
   <ContentItemCommonDataGUID>2be1653b-2fea-49b0-b0f7-4f157828f57a</ContentItemCommonDataGUID>
   <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
   <ContentItemCommonDataLastPublishedWhen>2024-02-12 16:23:37Z</ContentItemCommonDataLastPublishedWhen>
-  <ContentItemCommonDataPageTemplateConfiguration>
-    <![CDATA[{"identifier":"TrainingGuides.ArticlePagePageTemplate","properties":null,"fieldIdentifiers":null}]]>
-  </ContentItemCommonDataPageTemplateConfiguration>
   <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
+  <ContentItemCommonDataVisualBuilderTemplateConfiguration>
+    <![CDATA[{"identifier":"TrainingGuides.ArticlePagePageTemplate","properties":null,"fieldIdentifiers":null}]]>
+  </ContentItemCommonDataVisualBuilderTemplateConfiguration>
   <ContentItemReferences>
     <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>e121ff3d-c221-4f60-9acb-0063ed2739f1</ContentItemReferenceGroupGUID>

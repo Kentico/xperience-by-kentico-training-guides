@@ -14,4 +14,9 @@
   <ContentItemIsReusable>True</ContentItemIsReusable>
   <ContentItemIsSecured>False</ContentItemIsSecured>
   <ContentItemName>LoremIpsumBenefit1-6hp9j4gq</ContentItemName>
+  <ContentItemWorkspaceID>
+    <CodeName>KenticoDefault</CodeName>
+    <GUID>43f674d6-540d-4f91-8c19-608b5bddb2f2</GUID>
+    <ObjectType>cms.workspace</ObjectType>
+  </ContentItemWorkspaceID>
 </cms.contentitem>
