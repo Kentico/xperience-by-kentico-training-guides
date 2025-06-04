@@ -14,11 +14,11 @@
   <ContentItemCommonDataGUID>127412bd-f110-4373-8f4a-492dc9a2fb19</ContentItemCommonDataGUID>
   <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
   <ContentItemCommonDataLastPublishedWhen>2024-11-27 13:57:49Z</ContentItemCommonDataLastPublishedWhen>
-  <ContentItemCommonDataPageBuilderWidgets>
-    <![CDATA[{"editableAreas":[]}]]>
-  </ContentItemCommonDataPageBuilderWidgets>
-  <ContentItemCommonDataPageTemplateConfiguration>
-    <![CDATA[{"identifier":"TrainingGuides.ProfilePagePageTemplate","properties":null,"fieldIdentifiers":{}}]]>
-  </ContentItemCommonDataPageTemplateConfiguration>
   <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
+  <ContentItemCommonDataVisualBuilderTemplateConfiguration>
+    <![CDATA[{"identifier":"TrainingGuides.ProfilePagePageTemplate","properties":null,"fieldIdentifiers":{}}]]>
+  </ContentItemCommonDataVisualBuilderTemplateConfiguration>
+  <ContentItemCommonDataVisualBuilderWidgets>
+    <![CDATA[{"editableAreas":[]}]]>
+  </ContentItemCommonDataVisualBuilderWidgets>
 </cms.contentitemcommondata>

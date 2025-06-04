@@ -228,12 +228,6 @@
   <data name="Please fill in all required fields." xml:space="preserve">
     <value>Por favor, rellene todos los campos obligatorios.</value>
   </data>
-  <data name="Success! We've sent you an email. Please confirm your membership by clicking on the link contained in the email." xml:space="preserve">
-    <value>¡Éxito! Hemos enviado a usted un email. Confirme su membresía haciendo clic en el enlace contenido en el correo electrónico.</value>
-  </data>
-  <data name="Kentico training guides" xml:space="preserve">
-    <value>Guías de formación de Kentico</value>
-  </data>
   <data name="Email confirmation failed" xml:space="preserve">
     <value>La confirmación del correo electrónico falló.</value>
   </data>

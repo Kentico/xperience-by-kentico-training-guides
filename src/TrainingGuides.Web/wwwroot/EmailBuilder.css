@@ -1,0 +1,86 @@
+﻿.mj-email-text div,
+.mj-email-button td {
+	font-family: Roboto, Arial, sans-serif !important;
+}
+
+.mj-email-text h1,
+.mj-email-text h2,
+.mj-email-text h3 {
+	line-height: 1.5 !important;
+	font-family: inherit !important;
+}
+
+.mj-email-text h1 {
+	font-size: 24px !important;
+}
+
+.mj-email- h2 {
+	font-size: 20px !important;
+}
+
+.mj-email-text h3 {
+	font-size: 16px !important;
+}
+
+.mj-email-text p {
+	line-height: 1.5 !important;
+	font-size: 14px !important;
+	font-family: Roboto, Arial, sans-serif !important;
+}
+
+	.mj-email-text p a {
+		text-decoration: underline;
+		color: #F05A22;
+	}
+
+.mj-email-button td {
+	background: none !important;
+}
+
+.mj-email-button a {
+	background: #F05A22 !important;
+	border-radius: 24px !important;
+	padding: 15px 32px !important;
+	font-size: 14px !important;
+	line-height: 16px !important;
+	font-weight: 500 !important;
+	font-family: inherit !important;
+}
+
+.mj-email-image img {
+	border-radius: 24px;
+}
+
+.mj-email-logo {
+	align-content: center;
+}
+
+.mj-email-logo img {
+	height: 4rem !important;
+	width: 4rem !important;
+}
+
+.email-product_title h1 {
+	font-size: 24px !important;
+	color: #F05A22;
+	font-family: Roboto, Arial, sans-serif !important;
+}
+
+.email-product_description p {
+	font-family: Roboto, Arial, sans-serif !important;
+	line-height: 1.5 !important;
+}
+
+.email-product_button td {
+	background: #fff !important;
+}
+
+.email-product_button a {
+	background: #F05A22 !important;
+	border-radius: 24px !important;
+	padding: 15px 32px !important;
+	font-size: 14px !important;
+	line-height: 16px !important;
+	font-weight: 500 !important;
+	font-family: Roboto, Arial, sans-serif !important;
+}

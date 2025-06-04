@@ -6,9 +6,12 @@
     <GUID>b2e99971-c2dd-4a47-bb64-0d9a0d28d226</GUID>
     <ObjectType>cms.contentlanguage</ObjectType>
   </WebPageFormerUrlPathContentLanguageID>
+  <WebPageFormerUrlPathGUID>13647317-5c28-4de2-90a6-bcf69ea460d8</WebPageFormerUrlPathGUID>
   <WebPageFormerUrlPathHash>
     <![CDATA[73F634C0DD26B27C9B870DFA51AA5A3E72EAF2874CC7E4389CDD0E34623EA678]]>
   </WebPageFormerUrlPathHash>
+  <WebPageFormerUrlPathIsRedirect>False</WebPageFormerUrlPathIsRedirect>
+  <WebPageFormerUrlPathIsRedirectScheduled>False</WebPageFormerUrlPathIsRedirectScheduled>
   <WebPageFormerUrlPathWebPageItemID>
     <CodeName>AboutReptiles-gjkhpmft</CodeName>
     <GUID>fc87659b-c4d3-456e-aef7-7202aa247426</GUID>

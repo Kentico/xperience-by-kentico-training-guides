@@ -6,9 +6,12 @@
     <GUID>b2e99971-c2dd-4a47-bb64-0d9a0d28d226</GUID>
     <ObjectType>cms.contentlanguage</ObjectType>
   </WebPageFormerUrlPathContentLanguageID>
+  <WebPageFormerUrlPathGUID>4e272222-3e9d-450e-a4eb-9494a24871e5</WebPageFormerUrlPathGUID>
   <WebPageFormerUrlPathHash>
     <![CDATA[FE04D263C338A42833F1BB89F189A11C61943311FF455B41328C884A4ABA02E0]]>
   </WebPageFormerUrlPathHash>
+  <WebPageFormerUrlPathIsRedirect>False</WebPageFormerUrlPathIsRedirect>
+  <WebPageFormerUrlPathIsRedirectScheduled>False</WebPageFormerUrlPathIsRedirectScheduled>
   <WebPageFormerUrlPathWebPageItemID>
     <CodeName>AboutCats-2unc5586</CodeName>
     <GUID>e637f5c7-7b4d-4359-a638-0956eedff300</GUID>

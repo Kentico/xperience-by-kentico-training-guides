@@ -26,13 +26,16 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
     public async Task<T?> RetrieveWebPageById(
         int webPageItemId,
         string contentTypeName,
-        int depth = 1)
+        int depth = 1,
+        string? languageName = null)
     {
         var pages = await RetrieveWebPageContentItems(
                 contentTypeName,
-                config => config
-                    .Where(where => where.WhereEquals(nameof(WebPageFields.WebPageItemID), webPageItemId))
-                    .WithLinkedItems(depth));
+                innerParams => innerParams
+                    .WithLinkedItems(depth),
+                outerParams => outerParams
+                    .Where(where => where.WhereEquals(nameof(WebPageFields.WebPageItemID), webPageItemId)),
+                languageName: languageName);
         return pages.FirstOrDefault();
     }
 
@@ -40,29 +43,59 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
     public async Task<T?> RetrieveWebPageByGuid(
         Guid? webPageItemGuid,
         string contentTypeName,
-        int depth = 1)
+        int depth = 1,
+        string? languageName = null)
     {
         var pages = await RetrieveWebPageContentItems(
                 contentTypeName,
-                config => config
-                    .Where(where => where.WhereEquals(nameof(WebPageFields.WebPageItemGUID), webPageItemGuid))
-                    .WithLinkedItems(depth));
+                innerParams => innerParams
+                    .WithLinkedItems(depth),
+                outerParams => outerParams
+                    .Where(where => where.WhereEquals(nameof(WebPageFields.WebPageItemGUID), webPageItemGuid)),
+                languageName: languageName);
         return pages.FirstOrDefault();
     }
 
     /// <inheritdoc/>
-    public async Task<IEnumerable<T>> RetrieveWebPageContentItems(
+    public async Task<T?> RetrieveWebPageByContentItemGuid(
+        Guid contentItemGuid,
         string contentTypeName,
-        Func<ContentTypeQueryParameters, ContentTypeQueryParameters> queryFilter,
-        bool includeSecuredItems = true)
+        int depth = 1,
+        string? languageName = null)
+    {
+        var pages = await RetrieveWebPageContentItems(
+            contentTypeName,
+            innerParams => innerParams.WithLinkedItems(depth),
+            outerParams => outerParams
+                .Where(where => where.WhereEquals(nameof(WebPageFields.ContentItemGUID), contentItemGuid)),
+            languageName: languageName);
+        return pages.FirstOrDefault();
+    }
+
+    /// <summary>
+    /// Retrieves web page content items based on the specified content type name and query parameters.
+    /// </summary>
+    /// <param name="contentTypeName">The name of the content type to retrieve</param>
+    /// <param name="innerQueryFilter">Filter for ForContentTypes parameterization</param>
+    /// <param name="outerParams">Outer query parameterization</param>
+    /// <param name="includeSecuredItems">Determines whether or not to include secured content items</param>
+    /// <param name="languageName">Determines the language of the retrieved content. PreferredLanguageRetriever is used if empty</param>
+    /// <returns>Enumerable set of web page content items of type T</returns>
+    private async Task<IEnumerable<T>> RetrieveWebPageContentItems(
+        string contentTypeName,
+        Func<ContentTypesQueryParameters, ContentTypesQueryParameters> innerQueryFilter,
+        Action<ContentQueryParameters> outerParams,
+        bool includeSecuredItems = true,
+        string? languageName = null)
     {
         var builder = new ContentItemQueryBuilder()
-                            .ForContentType(
-                                contentTypeName,
-                                config => queryFilter(config)
-                                .ForWebsite(webSiteChannelContext.WebsiteChannelName)
+                            .ForContentTypes(
+                                config => innerQueryFilter(config)
+                                .OfContentType(contentTypeName)
+                                .WithWebPageData()
                             )
-                            .InLanguage(preferredLanguageRetriever.Get());
+                            .Parameters(outerParams)
+                            .InLanguage(languageName ?? preferredLanguageRetriever.Get());
 
         var queryExecutorOptions = new ContentQueryExecutionOptions
         {
@@ -80,12 +113,14 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
         string parentPageContentTypeName,
         string parentPagePath,
         bool includeSecuredItems,
-        int depth = 1) => await RetrieveWebPageChildrenByPath(
+        int depth = 1,
+        string? languageName = null) => await RetrieveWebPageChildrenByPath(
             parentPageContentTypeName: parentPageContentTypeName,
             parentPagePath: parentPagePath,
             customContentTypeQueryParameters: null,
             includeSecuredItems: includeSecuredItems,
-            depth: depth);
+            depth: depth,
+            languageName: languageName);
 
     /// <inheritdoc/>
     public async Task<IEnumerable<T>> RetrieveWebPageChildrenByPathAndReference(
@@ -94,25 +129,29 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
         string referenceFieldName,
         IEnumerable<int> referenceIds,
         bool includeSecuredItems,
-        int depth = 1
+        int depth = 1,
+        string? languageName = null
     ) => await RetrieveWebPageChildrenByPath(
             parentPageContentTypeName: parentPageContentTypeName,
             parentPagePath: parentPagePath,
             customContentTypeQueryParameters: config => config.Linking(referenceFieldName, referenceIds),
             includeSecuredItems: includeSecuredItems,
-            depth: depth);
+            depth: depth,
+            languageName: languageName);
 
     /// <inheritdoc/>
     public async Task<T?> RetrieveContentItemByGuid(
         Guid contentItemGuid,
         string contentTypeName,
-        int depth = 1)
+        int depth = 1,
+        string? languageName = null)
     {
         var items = await RetrieveReusableContentItems(
                 contentTypeName ?? string.Empty,
                 config => config
                     .Where(where => where.WhereEquals(nameof(ContentItemFields.ContentItemGUID), contentItemGuid))
-                    .WithLinkedItems(depth));
+                    .WithLinkedItems(depth),
+                languageName: languageName);
         return items.FirstOrDefault();
     }
 
@@ -120,14 +159,15 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
     public async Task<IEnumerable<T>> RetrieveReusableContentItems(
         string contentTypeName,
         Func<ContentTypeQueryParameters, ContentTypeQueryParameters> queryFilter,
-        bool includeSecuredItems = true)
+        bool includeSecuredItems = true,
+        string? languageName = null)
     {
         var builder = new ContentItemQueryBuilder()
                             .ForContentType(
                                 contentTypeName,
                                 config => queryFilter(config)
                             )
-                            .InLanguage(preferredLanguageRetriever.Get());
+                            .InLanguage(languageName ?? preferredLanguageRetriever.Get());
 
         var queryExecutorOptions = new ContentQueryExecutionOptions
         {
@@ -142,14 +182,15 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
 
     private async Task<IEnumerable<T>> RetrieveContentItems(
         Action<ContentTypesQueryParameters> contentTypesQueryParameters,
-        Action<ContentQueryParameters> contentQueryParameters)
+        Action<ContentQueryParameters> contentQueryParameters,
+        string? languageName = null)
     {
         var builder = new ContentItemQueryBuilder();
 
         builder
             .ForContentTypes(contentTypesQueryParameters)
             .Parameters(contentQueryParameters)
-            .InLanguage(preferredLanguageRetriever.Get());
+            .InLanguage(languageName ?? preferredLanguageRetriever.Get());
 
         var queryExecutorOptions = new ContentQueryExecutionOptions
         {
@@ -165,7 +206,8 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
         Guid smartFolderGuid,
         OrderByOption orderBy,
         int topN = 20,
-        int depth = 1)
+        int depth = 1,
+        string? languageName = null)
     {
         const string LAST_PUBLISHED_COLUMN_NAME = "ContentItemCommonDataLastPublishedWhen";
 
@@ -183,7 +225,9 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
                     orderBy.Equals(OrderByOption.NewestFirst) ? OrderDirection.Descending : OrderDirection.Ascending))
                 .TopN(topN);
 
-        return await RetrieveContentItems(contentTypesQueryParameters, contentQueryParameters);
+        return await RetrieveContentItems(contentTypesQueryParameters,
+            contentQueryParameters,
+            languageName: languageName);
     }
 
     private async Task<IEnumerable<T>> RetrieveWebPageChildrenByPath(
@@ -191,7 +235,8 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
         string parentPagePath,
         Action<ContentTypeQueryParameters>? customContentTypeQueryParameters,
         bool includeSecuredItems = true,
-        int depth = 1)
+        int depth = 1,
+        string? languageName = null)
     {
         Action<ContentTypeQueryParameters> contentQueryParameters = customContentTypeQueryParameters != null
             ? config => customContentTypeQueryParameters(config
@@ -207,7 +252,7 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
                                 parentPageContentTypeName,
                                 contentQueryParameters
                                 )
-                            .InLanguage(preferredLanguageRetriever.Get());
+                            .InLanguage(languageName ?? preferredLanguageRetriever.Get());
 
         var queryExecutorOptions = new ContentQueryExecutionOptions
         {

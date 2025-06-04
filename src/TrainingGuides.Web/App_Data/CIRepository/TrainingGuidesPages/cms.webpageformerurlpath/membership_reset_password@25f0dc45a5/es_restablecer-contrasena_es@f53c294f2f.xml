@@ -6,9 +6,12 @@
     <GUID>b2e99971-c2dd-4a47-bb64-0d9a0d28d226</GUID>
     <ObjectType>cms.contentlanguage</ObjectType>
   </WebPageFormerUrlPathContentLanguageID>
+  <WebPageFormerUrlPathGUID>a4273487-758d-4e1e-bdc5-b2eb3edce063</WebPageFormerUrlPathGUID>
   <WebPageFormerUrlPathHash>
     <![CDATA[D7161884F1B24F132574AC501447512874BE66E463F91E38B207D19C41EC4807]]>
   </WebPageFormerUrlPathHash>
+  <WebPageFormerUrlPathIsRedirect>False</WebPageFormerUrlPathIsRedirect>
+  <WebPageFormerUrlPathIsRedirectScheduled>False</WebPageFormerUrlPathIsRedirectScheduled>
   <WebPageFormerUrlPathWebPageItemID>
     <CodeName>ResetPassword-bt12pytq</CodeName>
     <GUID>87a87bf7-17b0-403d-b751-d06dc1b64daa</GUID>

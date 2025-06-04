@@ -6,9 +6,12 @@
     <GUID>b2e99971-c2dd-4a47-bb64-0d9a0d28d226</GUID>
     <ObjectType>cms.contentlanguage</ObjectType>
   </WebPageFormerUrlPathContentLanguageID>
+  <WebPageFormerUrlPathGUID>2e2197b7-1de4-42d0-ae57-c1cd02ce4eb6</WebPageFormerUrlPathGUID>
   <WebPageFormerUrlPathHash>
     <![CDATA[13CC10FDA911D7B8ADDCB69E3ECBC7945D9FA830CEC50585D0A19CCE9B628660]]>
   </WebPageFormerUrlPathHash>
+  <WebPageFormerUrlPathIsRedirect>False</WebPageFormerUrlPathIsRedirect>
+  <WebPageFormerUrlPathIsRedirectScheduled>False</WebPageFormerUrlPathIsRedirectScheduled>
   <WebPageFormerUrlPathWebPageItemID>
     <CodeName>Register-wfb2l0pn</CodeName>
     <GUID>9008b16a-3a70-41c9-92ba-2d289c940e2f</GUID>

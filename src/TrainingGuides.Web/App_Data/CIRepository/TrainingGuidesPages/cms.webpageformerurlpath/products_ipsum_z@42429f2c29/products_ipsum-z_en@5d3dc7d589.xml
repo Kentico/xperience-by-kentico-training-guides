@@ -6,9 +6,12 @@
     <GUID>e81b5172-f240-4041-88b1-653089984e29</GUID>
     <ObjectType>cms.contentlanguage</ObjectType>
   </WebPageFormerUrlPathContentLanguageID>
+  <WebPageFormerUrlPathGUID>1591b4e6-8a9e-473b-8ccd-4c5a81de1e90</WebPageFormerUrlPathGUID>
   <WebPageFormerUrlPathHash>
     <![CDATA[BC00471BC183F41FCC65BF0499F73DA398547C21324B5A0D4D9B90281EBAE229]]>
   </WebPageFormerUrlPathHash>
+  <WebPageFormerUrlPathIsRedirect>False</WebPageFormerUrlPathIsRedirect>
+  <WebPageFormerUrlPathIsRedirectScheduled>False</WebPageFormerUrlPathIsRedirectScheduled>
   <WebPageFormerUrlPathWebPageItemID>
     <CodeName>IpsumZ-dk8frf1d</CodeName>
     <GUID>29d47791-2031-47ca-ae0f-f6ce0e2dbd81</GUID>
