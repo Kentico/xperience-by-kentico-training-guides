@@ -4,7 +4,7 @@ using Kentico.Xperience.Admin.Base.FormAnnotations;
 using Microsoft.Extensions.Options;
 using TrainingGuides.Web.Features.Shared.EmailBuilder;
 
-namespace Kentico.Xperience.Mjml.StarterKit.Rcl.Widgets;
+namespace TrainingGuides.Web.Features.Articles.EmailWidgets;
 
 /// <summary>
 /// Article content types filter.
