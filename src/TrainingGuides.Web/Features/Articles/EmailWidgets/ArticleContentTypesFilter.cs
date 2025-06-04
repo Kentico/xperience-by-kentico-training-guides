@@ -19,7 +19,7 @@ internal sealed class ArticleContentTypesFilter : IContentTypesFilter
     /// <summary>
     /// Article content types filter.
     /// </summary>
-    /// <param name="mjmlStarterKitOptions">The MJML starter kit options.</param>
+    /// <param name="trainingGuidesEmailBuilderOptions">The email builder options, configured at startup.</param>
     public ArticleContentTypesFilter(IOptions<TrainingGuidesEmailBuilderOptions> trainingGuidesEmailBuilderOptions)
     {
         var codeNames = trainingGuidesEmailBuilderOptions.Value.AllowedArticleContentTypes;
