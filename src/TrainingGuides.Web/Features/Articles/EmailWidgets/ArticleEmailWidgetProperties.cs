@@ -1,8 +1,6 @@
 using CMS.ContentEngine;
-
 using Kentico.EmailBuilder.Web.Mvc;
 using Kentico.Xperience.Admin.Base.FormAnnotations;
-using Kentico.Xperience.Mjml.StarterKit.Rcl.Widgets;
 
 namespace TrainingGuides.Web.Features.Articles.EmailWidgets;
 
