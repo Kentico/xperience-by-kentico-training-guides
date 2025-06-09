@@ -28,7 +28,8 @@ public class ProductEmailWidgetModelMapper : IComponentModelMapper<ProductWidget
 
         var product = page?.ProductPageProduct.FirstOrDefault();
 
-        if (product is null || page is null)
+        // If the product or page is null, return an empty model. Note the product will be null if the page is null.
+        if (product is null)
         {
             return new ProductWidgetModel();
         }
