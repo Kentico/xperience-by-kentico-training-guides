@@ -14,13 +14,13 @@
   <ContentItemCommonDataGUID>4e0b3e2f-0c78-4cb8-ab50-febbabdb358e</ContentItemCommonDataGUID>
   <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
   <ContentItemCommonDataLastPublishedWhen>2024-03-01 03:34:50Z</ContentItemCommonDataLastPublishedWhen>
-  <ContentItemCommonDataPageBuilderWidgets>
-    <![CDATA[{"editableAreas":[]}]]>
-  </ContentItemCommonDataPageBuilderWidgets>
-  <ContentItemCommonDataPageTemplateConfiguration>
-    <![CDATA[{"identifier":"TrainingGuides.EmptyPagePageTemplate","properties":null,"fieldIdentifiers":{}}]]>
-  </ContentItemCommonDataPageTemplateConfiguration>
   <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
+  <ContentItemCommonDataVisualBuilderTemplateConfiguration>
+    <![CDATA[{"identifier":"TrainingGuides.EmptyPagePageTemplate","properties":null,"fieldIdentifiers":{}}]]>
+  </ContentItemCommonDataVisualBuilderTemplateConfiguration>
+  <ContentItemCommonDataVisualBuilderWidgets>
+    <![CDATA[{"editableAreas":[]}]]>
+  </ContentItemCommonDataVisualBuilderWidgets>
   <ContentItemReferences>
     <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>b315e712-05da-445d-980c-87578e46cd4d</ContentItemReferenceGroupGUID>

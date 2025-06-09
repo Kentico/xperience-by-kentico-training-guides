@@ -6,9 +6,12 @@
     <GUID>e81b5172-f240-4041-88b1-653089984e29</GUID>
     <ObjectType>cms.contentlanguage</ObjectType>
   </WebPageFormerUrlPathContentLanguageID>
+  <WebPageFormerUrlPathGUID>9822581c-595b-4ae5-9457-940243102805</WebPageFormerUrlPathGUID>
   <WebPageFormerUrlPathHash>
     <![CDATA[280FE894587F1DBB11742F4A5D9EB1A1BAA96F30389C1E4B3BDAE6C0A4B7E16D]]>
   </WebPageFormerUrlPathHash>
+  <WebPageFormerUrlPathIsRedirect>False</WebPageFormerUrlPathIsRedirect>
+  <WebPageFormerUrlPathIsRedirectScheduled>False</WebPageFormerUrlPathIsRedirectScheduled>
   <WebPageFormerUrlPathWebPageItemID>
     <CodeName>Products-oypi95ub</CodeName>
     <GUID>5a0c83e1-2ad8-40b2-aa00-d01980daf01d</GUID>
