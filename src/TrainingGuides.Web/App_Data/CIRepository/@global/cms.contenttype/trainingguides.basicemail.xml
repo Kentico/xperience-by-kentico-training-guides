@@ -1,16 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.contenttype>
   <ClassContentTypeType>Email</ClassContentTypeType>
-  <ClassDisplayName>Basic Email</ClassDisplayName>
+  <ClassDisplayName>Basic email</ClassDisplayName>
   <ClassFormDefinition>
     <form>
-      <field column="ContentItemDataID" columntype="integer" enabled="true" guid="ae42c541-19cd-4e33-926b-3d493f454d98" isPK="true" />
-      <field column="ContentItemDataCommonDataID" columntype="integer" enabled="true" guid="e3100856-768b-4fe0-96ca-47e63bc1e3cd" refobjtype="cms.contentitemcommondata" reftype="Required" system="true" />
-      <field column="ContentItemDataGUID" columntype="guid" enabled="true" guid="869f1424-c133-4ce3-b63e-59568ee45684" isunique="true" system="true" />
-      <field allowempty="true" column="EmailSenderID" columntype="integer" enabled="true" guid="68f452ea-951b-41ba-b802-c65d7333edf4" refobjtype="emaillibrary.emailchannelsender" reftype="NotRequired" system="true" />
-      <field allowempty="true" column="EmailTemplateID" columntype="integer" enabled="true" guid="47d7f29d-5101-42eb-b41a-eea6077b46d4" refobjtype="emaillibrary.emailtemplate" reftype="NotRequired" system="true" />
-      <field allowempty="true" column="EmailPlainText" columntype="longtext" enabled="true" guid="17e21b01-44ee-4a2e-9c70-aafddf43b8f0" system="true" />
-      <field allowempty="true" column="EmailSubject" columnsize="450" columntype="text" enabled="true" guid="0b872f81-5277-4b5b-a583-1d0981d97ed4" visible="true">
+      <field column="ContentItemDataID" columntype="integer" enabled="true" guid="018cf535-9bee-4924-8df7-02940f023db8" isPK="true" />
+      <field column="ContentItemDataCommonDataID" columntype="integer" enabled="true" guid="88cc4de8-5501-4660-9a38-82b1ec0f7c49" refobjtype="cms.contentitemcommondata" reftype="Required" system="true" />
+      <field column="ContentItemDataGUID" columntype="guid" enabled="true" guid="baee2e44-fd33-4932-a6e2-68c023dd9fea" isunique="true" system="true" />
+      <field allowempty="true" column="EmailSenderID" columntype="integer" enabled="true" guid="8b86f7fd-24c9-4a80-b2d4-dfc4253e92f0" refobjtype="emaillibrary.emailchannelsender" reftype="NotRequired" system="true" />
+      <field allowempty="true" column="EmailTemplateID" columntype="integer" enabled="true" guid="57b57668-58d5-4ab2-9c4a-9ed44144b94e" refobjtype="emaillibrary.emailtemplate" reftype="NotRequired" system="true" />
+      <field allowempty="true" column="EmailPlainText" columntype="longtext" enabled="true" guid="45f11409-e986-4426-bf74-fe228372dc59" system="true" />
+      <field allowempty="true" column="EmailSubject" columnsize="450" columntype="text" enabled="true" guid="51c3636a-b0a4-443b-ae7e-ff97736fad2c" visible="true">
         <properties>
           <fieldcaption>{$digitalmarketing.emails.edit.subject$}</fieldcaption>
         </properties>
@@ -24,7 +24,7 @@
           </ValidationRuleConfiguration>
         </validationrulesdata>
       </field>
-      <field allowempty="true" column="EmailPreviewText" columntype="longtext" enabled="true" guid="18256dfa-d90e-41ab-a626-3fe0f9b06e38" visible="true">
+      <field allowempty="true" column="EmailPreviewText" columntype="longtext" enabled="true" guid="0d87ae94-488a-40dc-be99-9996226fd212" visible="true">
         <properties>
           <fieldcaption>{$digitalmarketing.emails.edit.previewtext$}</fieldcaption>
           <fielddescription>
@@ -37,7 +37,7 @@
       </field>
     </form>
   </ClassFormDefinition>
-  <ClassGUID>573a7742-1775-49b2-a172-2b4874682228</ClassGUID>
+  <ClassGUID>10caf932-e6fa-4b10-9fed-1f13d7380445</ClassGUID>
   <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
   <ClassIconClass>xp-message</ClassIconClass>
   <ClassName>TrainingGuides.BasicEmail</ClassName>
