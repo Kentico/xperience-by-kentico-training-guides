@@ -28,7 +28,7 @@ public class ProductEmailWidgetModelMapper : IComponentModelMapper<ProductWidget
 
         var product = page?.ProductPageProduct.FirstOrDefault();
 
-        if (page is null || product is null)
+        if (product is null || page is null)
         {
             return new ProductWidgetModel();
         }
