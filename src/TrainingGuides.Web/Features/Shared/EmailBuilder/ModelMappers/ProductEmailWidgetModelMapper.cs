@@ -28,13 +28,13 @@ public class ProductEmailWidgetModelMapper : IComponentModelMapper<ProductWidget
 
         var product = page?.ProductPageProduct.FirstOrDefault();
 
-        // If the product or page is null, return an empty model. Note the product will be null if the page is null.
+        // If the product or page is null, return an empty model. Note the product will always be null if the page is null.
         if (product is null)
         {
             return new ProductWidgetModel();
         }
 
-        string webPageItemUrl = httpRequestService.GetAbsoluteUrlForPath(page.SystemFields.WebPageUrlPath, false);
+        string webPageItemUrl = httpRequestService.GetAbsoluteUrlForPath(page!.SystemFields.WebPageUrlPath, false);
 
         var image = product.ProductMedia.FirstOrDefault();
         string imageUrl = httpRequestService.GetAbsoluteUrlForPath(image?.AssetFile?.Url ?? string.Empty, false);
