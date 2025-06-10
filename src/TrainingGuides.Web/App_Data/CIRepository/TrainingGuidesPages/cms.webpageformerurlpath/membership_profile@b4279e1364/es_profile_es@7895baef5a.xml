@@ -6,9 +6,12 @@
     <GUID>b2e99971-c2dd-4a47-bb64-0d9a0d28d226</GUID>
     <ObjectType>cms.contentlanguage</ObjectType>
   </WebPageFormerUrlPathContentLanguageID>
+  <WebPageFormerUrlPathGUID>0632dc0d-9429-4648-b8d9-0e137aa606ec</WebPageFormerUrlPathGUID>
   <WebPageFormerUrlPathHash>
     <![CDATA[849082004203AE25173E73409078AB5B20CC732B5AC60DFB113EF320CC85DAF5]]>
   </WebPageFormerUrlPathHash>
+  <WebPageFormerUrlPathIsRedirect>False</WebPageFormerUrlPathIsRedirect>
+  <WebPageFormerUrlPathIsRedirectScheduled>False</WebPageFormerUrlPathIsRedirectScheduled>
   <WebPageFormerUrlPathWebPageItemID>
     <CodeName>Profile-pn1ia5w4</CodeName>
     <GUID>ae86b29d-4737-4503-9bb7-4558a5fd86c9</GUID>

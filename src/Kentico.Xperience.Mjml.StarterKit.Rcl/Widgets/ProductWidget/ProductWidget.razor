@@ -1,0 +1,19 @@
+﻿@namespace Kentico.Xperience.Mjml.StarterKit.Rcl.Widgets
+
+<mj-image src="@Model.ImageUrl" alt="@Model.ImageAltText" css-class="@(Properties.CssClass + "_image")"/>
+
+<mj-text css-class="@(Properties.CssClass + "_title")">
+    <div>
+        <h1>@((MarkupString)Model.Name)</h1>
+    </div>
+</mj-text>
+
+<mj-text css-class="@(Properties.CssClass + "_description")">
+    <div>
+        <p>@((MarkupString)Model.Description)</p>
+    </div>
+</mj-text>
+
+<mj-button href="@Model.Url" css-class="@(Properties.CssClass + "_button")">
+    @Properties.ReadMoreButtonText
+</mj-button>

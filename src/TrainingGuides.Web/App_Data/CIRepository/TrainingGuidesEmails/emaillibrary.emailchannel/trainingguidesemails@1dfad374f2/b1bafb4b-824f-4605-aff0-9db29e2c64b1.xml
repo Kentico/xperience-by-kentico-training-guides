@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<emaillibrary.emailchannel>
+  <EmailChannelChannelID>
+    <CodeName>TrainingGuidesEmails</CodeName>
+    <GUID>49e862ef-2963-49ef-a1f4-f209a01d8fc6</GUID>
+    <ObjectType>cms.channel</ObjectType>
+  </EmailChannelChannelID>
+  <EmailChannelGUID>b1bafb4b-824f-4605-aff0-9db29e2c64b1</EmailChannelGUID>
+  <EmailChannelPrimaryContentLanguageID>
+    <CodeName>en</CodeName>
+    <GUID>e81b5172-f240-4041-88b1-653089984e29</GUID>
+    <ObjectType>cms.contentlanguage</ObjectType>
+  </EmailChannelPrimaryContentLanguageID>
+  <EmailChannelSendingDomain>localhost.local</EmailChannelSendingDomain>
+  <EmailChannelServiceDomain>localhost:53415</EmailChannelServiceDomain>
+</emaillibrary.emailchannel>

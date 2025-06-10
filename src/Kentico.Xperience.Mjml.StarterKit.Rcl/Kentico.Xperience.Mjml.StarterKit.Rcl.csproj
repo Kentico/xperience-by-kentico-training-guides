@@ -1,0 +1,45 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+    <PropertyGroup>
+      <TargetFramework>net8.0</TargetFramework>
+      <Nullable>enable</Nullable>
+      <ImplicitUsings>enable</ImplicitUsings>
+      <RootNamespace>Kentico.Xperience.Mjml.StarterKit.Rcl</RootNamespace>
+      <EnableDefaultEmbeddedResourceItems>false</EnableDefaultEmbeddedResourceItems>
+      <IsPackable>true</IsPackable>
+      <EnableScopedCss>false</EnableScopedCss>
+    </PropertyGroup>
+
+	<ItemGroup>
+	  <Compile Remove="Properties\**" />
+	  <Content Remove="Properties\**" />
+	  <None Remove="Properties\**" />
+	  <Compile Update="Resources\MjmlStarterKitResources.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>MjmlStarterKitResources.resx</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+    <ItemGroup>
+        <SupportedPlatform Include="browser" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Kentico.Xperience.WebApp" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.Web" />
+		    <PackageReference Include="Kentico.Xperience.Mjml" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <AssemblyAttribute Include="CMS.AssemblyDiscoverableAttribute">
+        </AssemblyAttribute>
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Include="Resources\MjmlStarterKitResources.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>MjmlStarterKitResources.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+    </ItemGroup>
+</Project>

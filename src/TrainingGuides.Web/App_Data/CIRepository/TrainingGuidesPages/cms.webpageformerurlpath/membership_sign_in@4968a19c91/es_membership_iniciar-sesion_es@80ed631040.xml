@@ -6,9 +6,12 @@
     <GUID>b2e99971-c2dd-4a47-bb64-0d9a0d28d226</GUID>
     <ObjectType>cms.contentlanguage</ObjectType>
   </WebPageFormerUrlPathContentLanguageID>
+  <WebPageFormerUrlPathGUID>7615a6e1-765e-4252-85f2-3d1c835c807a</WebPageFormerUrlPathGUID>
   <WebPageFormerUrlPathHash>
     <![CDATA[29021D56EA6D4CC008493FE430FDCE82E0BF11AA350A99A704A88FEA7CA67D19]]>
   </WebPageFormerUrlPathHash>
+  <WebPageFormerUrlPathIsRedirect>False</WebPageFormerUrlPathIsRedirect>
+  <WebPageFormerUrlPathIsRedirectScheduled>False</WebPageFormerUrlPathIsRedirectScheduled>
   <WebPageFormerUrlPathWebPageItemID>
     <CodeName>SignIn-x4a1nygh</CodeName>
     <GUID>18fe09dc-c0f3-4136-863f-db59732e3658</GUID>
