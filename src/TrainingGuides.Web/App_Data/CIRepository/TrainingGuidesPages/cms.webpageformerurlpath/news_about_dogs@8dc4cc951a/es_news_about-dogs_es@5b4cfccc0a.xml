@@ -6,9 +6,12 @@
     <GUID>b2e99971-c2dd-4a47-bb64-0d9a0d28d226</GUID>
     <ObjectType>cms.contentlanguage</ObjectType>
   </WebPageFormerUrlPathContentLanguageID>
+  <WebPageFormerUrlPathGUID>a1b3649d-bb3e-422e-a0c1-d565da0ebcd1</WebPageFormerUrlPathGUID>
   <WebPageFormerUrlPathHash>
     <![CDATA[F5C6941F95C12214477624C8C432DB414292582FD90697A97933CB95D5763AFD]]>
   </WebPageFormerUrlPathHash>
+  <WebPageFormerUrlPathIsRedirect>False</WebPageFormerUrlPathIsRedirect>
+  <WebPageFormerUrlPathIsRedirectScheduled>False</WebPageFormerUrlPathIsRedirectScheduled>
   <WebPageFormerUrlPathWebPageItemID>
     <CodeName>AboutDogs-c4f5xvnf</CodeName>
     <GUID>443668df-c26c-4b4a-b8b9-9168f2a28073</GUID>

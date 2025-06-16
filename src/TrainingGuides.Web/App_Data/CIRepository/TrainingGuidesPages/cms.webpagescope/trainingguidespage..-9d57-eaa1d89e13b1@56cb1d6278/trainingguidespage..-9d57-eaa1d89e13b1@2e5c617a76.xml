@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpagescope>
+  <WebPageScopeGUID>a5866846-d27a-4dbe-a61e-1192ddc930f2</WebPageScopeGUID>
+  <WebPageScopeIncludeChildren>False</WebPageScopeIncludeChildren>
+  <WebPageScopeWebsiteChannelID>
+    <GUID>fdba40fe-1ece-4821-9d57-eaa1d89e13b1</GUID>
+    <ObjectType>cms.websitechannel</ObjectType>
+    <Parent>
+      <CodeName>TrainingGuidesPages</CodeName>
+      <GUID>5ba9c1e8-b61e-4570-b666-87a9b92bbe3b</GUID>
+      <ObjectType>cms.channel</ObjectType>
+    </Parent>
+  </WebPageScopeWebsiteChannelID>
+</cms.webpagescope>

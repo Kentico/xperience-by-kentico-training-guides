@@ -6,9 +6,12 @@
     <GUID>e81b5172-f240-4041-88b1-653089984e29</GUID>
     <ObjectType>cms.contentlanguage</ObjectType>
   </WebPageFormerUrlPathContentLanguageID>
+  <WebPageFormerUrlPathGUID>a745174d-41ef-4cbc-bae2-b1de07c0dc8e</WebPageFormerUrlPathGUID>
   <WebPageFormerUrlPathHash>
     <![CDATA[659144CD605B42B44600DD9F7834A7215E637E92C734D27D5615B618764E135F]]>
   </WebPageFormerUrlPathHash>
+  <WebPageFormerUrlPathIsRedirect>False</WebPageFormerUrlPathIsRedirect>
+  <WebPageFormerUrlPathIsRedirectScheduled>False</WebPageFormerUrlPathIsRedirectScheduled>
   <WebPageFormerUrlPathWebPageItemID>
     <CodeName>AboutConfiers-43kzvzza</CodeName>
     <GUID>0c82ddd0-c520-4bb8-9692-56b59b82e667</GUID>

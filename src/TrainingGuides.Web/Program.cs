@@ -2,12 +2,15 @@ using AspNetCore.Unobtrusive.Ajax;
 using CMS.EmailEngine;
 using Kentico.Activities.Web.Mvc;
 using Kentico.Content.Web.Mvc.Routing;
+using Kentico.EmailBuilder.Web.Mvc;
 using Kentico.Membership;
-
 // using Kentico.CrossSiteTracking.Web.Mvc;
 // using Kentico.OnlineMarketing.Web.Mvc;
 using Kentico.PageBuilder.Web.Mvc;
 using Kentico.Web.Mvc;
+using Kentico.Xperience.Mjml;
+using Kentico.Xperience.Mjml.StarterKit.Rcl;
+using Kentico.Xperience.Mjml.StarterKit.Rcl.Sections;
 using Microsoft.AspNetCore.Identity;
 using TrainingGuides;
 using TrainingGuides.Web;
@@ -66,11 +69,31 @@ builder.Services.AddKentico(async features =>
     //     });
     features.UseActivityTracking();
     features.UseWebPageRouting(new WebPageRoutingOptions { LanguageNameRouteValuesKey = ApplicationConstants.LANGUAGE_KEY });
+    features.UseEmailBuilder();
 });
 
 builder.Services.AddXperienceSmtp(options =>
 {
     options.Server = new SmtpServer { Host = "localhost", Port = 25 };
+});
+
+builder.Services.Configure<EmailBuilderOptions>(options =>
+{
+    // Allows Email Builder for the 'Basic email' content type
+    options.AllowedEmailContentTypeNames = [BasicEmail.CONTENT_TYPE_NAME];
+    // Replaces the default Email Builder section
+    options.RegisterDefaultSection = false;
+    options.DefaultSectionIdentifier = FullWidthEmailSection.IDENTIFIER;
+});
+
+builder.Services.AddMjmlForEmails();
+
+// Configure the Starter Kit options
+builder.Services.AddKenticoMjmlStarterKit(options =>
+{
+    options.StyleSheetPath = "EmailBuilder.css";
+    options.AllowedImageContentTypes = [Asset.CONTENT_TYPE_NAME];
+    options.AllowedProductContentTypes = [ProductPage.CONTENT_TYPE_NAME];
 });
 
 builder.Services.Configure<CookieLevelOptions>(options =>
