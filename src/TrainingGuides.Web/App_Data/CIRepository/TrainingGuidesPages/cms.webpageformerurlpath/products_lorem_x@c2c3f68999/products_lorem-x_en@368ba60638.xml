@@ -6,9 +6,12 @@
     <GUID>e81b5172-f240-4041-88b1-653089984e29</GUID>
     <ObjectType>cms.contentlanguage</ObjectType>
   </WebPageFormerUrlPathContentLanguageID>
+  <WebPageFormerUrlPathGUID>aa211c9f-e1f8-4b2b-b9b3-8152be931488</WebPageFormerUrlPathGUID>
   <WebPageFormerUrlPathHash>
     <![CDATA[7CC941834AFB1F551E9E1543B2F1630E4FB60120735768E7B9012393CA72E9CB]]>
   </WebPageFormerUrlPathHash>
+  <WebPageFormerUrlPathIsRedirect>False</WebPageFormerUrlPathIsRedirect>
+  <WebPageFormerUrlPathIsRedirectScheduled>False</WebPageFormerUrlPathIsRedirectScheduled>
   <WebPageFormerUrlPathWebPageItemID>
     <CodeName>LoremX-xts0c4n0</CodeName>
     <GUID>fd3fd667-4404-4c08-9cc0-da3a42fd813c</GUID>

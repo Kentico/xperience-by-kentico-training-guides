@@ -17,6 +17,19 @@
   <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
   <ContentItemReferences>
     <cms.contentitemreference>
+      <ContentItemReferenceGroupGUID>77b38454-56c1-4862-b1d8-839513962873</ContentItemReferenceGroupGUID>
+      <ContentItemReferenceGUID>8749c989-e935-4703-b81a-5643a41d214c</ContentItemReferenceGUID>
+      <ContentItemReferenceSourceCommonDataID>
+        <GUID>55fcd57d-8ddb-41a2-8a5d-af33a858244c</GUID>
+        <ObjectType>cms.contentitemcommondata</ObjectType>
+      </ContentItemReferenceSourceCommonDataID>
+      <ContentItemReferenceTargetItemID>
+        <CodeName>News-iqxdep5p</CodeName>
+        <GUID>65e38d4a-5957-46cd-9267-3d612f8f9dc8</GUID>
+        <ObjectType>cms.contentitem</ObjectType>
+      </ContentItemReferenceTargetItemID>
+    </cms.contentitemreference>
+    <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>51ebb9a1-0d3b-4b01-870d-b3fd70133d96</ContentItemReferenceGroupGUID>
       <ContentItemReferenceGUID>5e70c43a-4c74-4b4d-a6e4-88b0d42acc39</ContentItemReferenceGUID>
       <ContentItemReferenceSourceCommonDataID>
@@ -52,19 +65,6 @@
       <ContentItemReferenceTargetItemID>
         <CodeName>Dog-sqz0uhux</CodeName>
         <GUID>8b84d201-7063-477d-ada8-ef635d5d248b</GUID>
-        <ObjectType>cms.contentitem</ObjectType>
-      </ContentItemReferenceTargetItemID>
-    </cms.contentitemreference>
-    <cms.contentitemreference>
-      <ContentItemReferenceGroupGUID>77b38454-56c1-4862-b1d8-839513962873</ContentItemReferenceGroupGUID>
-      <ContentItemReferenceGUID>8749c989-e935-4703-b81a-5643a41d214c</ContentItemReferenceGUID>
-      <ContentItemReferenceSourceCommonDataID>
-        <GUID>55fcd57d-8ddb-41a2-8a5d-af33a858244c</GUID>
-        <ObjectType>cms.contentitemcommondata</ObjectType>
-      </ContentItemReferenceSourceCommonDataID>
-      <ContentItemReferenceTargetItemID>
-        <CodeName>News-iqxdep5p</CodeName>
-        <GUID>65e38d4a-5957-46cd-9267-3d612f8f9dc8</GUID>
         <ObjectType>cms.contentitem</ObjectType>
       </ContentItemReferenceTargetItemID>
     </cms.contentitemreference>

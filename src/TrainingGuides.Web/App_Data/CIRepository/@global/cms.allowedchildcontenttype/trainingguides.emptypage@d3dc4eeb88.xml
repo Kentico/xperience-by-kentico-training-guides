@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.allowedchildcontenttype>
+  <Parent>
+    <CodeName>TrainingGuides.EmptyPage</CodeName>
+    <GUID>58018c9d-5b6c-4251-b3a8-8c1a6d124780</GUID>
+    <ObjectType>cms.contenttype</ObjectType>
+  </Parent>
+  <Bindings>
+    <Binding id="cms.contenttype_TrainingGuides.ArticlePage">
+      <AllowedChildContentTypeChildID>
+        <CodeName>TrainingGuides.ArticlePage</CodeName>
+        <GUID>c5201839-8fe2-4d8d-a19a-f080592dc7d3</GUID>
+        <ObjectType>cms.contenttype</ObjectType>
+      </AllowedChildContentTypeChildID>
+    </Binding>
+    <Binding id="cms.contenttype_TrainingGuides.DownloadsPage">
+      <AllowedChildContentTypeChildID>
+        <CodeName>TrainingGuides.DownloadsPage</CodeName>
+        <GUID>5a0c7841-fca0-4a7f-992f-58fe55c2d505</GUID>
+        <ObjectType>cms.contenttype</ObjectType>
+      </AllowedChildContentTypeChildID>
+    </Binding>
+    <Binding id="cms.contenttype_TrainingGuides.EmptyPage">
+      <AllowedChildContentTypeChildID>
+        <CodeName>TrainingGuides.EmptyPage</CodeName>
+        <GUID>58018c9d-5b6c-4251-b3a8-8c1a6d124780</GUID>
+        <ObjectType>cms.contenttype</ObjectType>
+      </AllowedChildContentTypeChildID>
+    </Binding>
+    <Binding id="cms.contenttype_TrainingGuides.LandingPage">
+      <AllowedChildContentTypeChildID>
+        <CodeName>TrainingGuides.LandingPage</CodeName>
+        <GUID>ada989ef-cc4d-460d-9f6b-8f64b0cd8303</GUID>
+        <ObjectType>cms.contenttype</ObjectType>
+      </AllowedChildContentTypeChildID>
+    </Binding>
+  </Bindings>
+</cms.allowedchildcontenttype>

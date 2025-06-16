@@ -12,10 +12,10 @@
   </ContentItemCommonDataContentLanguageID>
   <ContentItemCommonDataGUID>2415d78a-5069-474a-b2cf-fc4ea2c3c8b9</ContentItemCommonDataGUID>
   <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
-  <ContentItemCommonDataPageTemplateConfiguration>
-    <![CDATA[{"identifier":"TrainingGuides.DownloadsPagePageTemplate","properties":null,"fieldIdentifiers":null}]]>
-  </ContentItemCommonDataPageTemplateConfiguration>
   <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
+  <ContentItemCommonDataVisualBuilderTemplateConfiguration>
+    <![CDATA[{"identifier":"TrainingGuides.DownloadsPagePageTemplate","properties":null,"fieldIdentifiers":null}]]>
+  </ContentItemCommonDataVisualBuilderTemplateConfiguration>
   <ContentItemReferences>
     <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>0a01b8e1-309a-4cfa-8e2d-588c7ade747b</ContentItemReferenceGroupGUID>
