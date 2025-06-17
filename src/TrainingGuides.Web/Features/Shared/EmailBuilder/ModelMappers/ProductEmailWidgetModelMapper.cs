@@ -8,14 +8,11 @@ public class ProductEmailWidgetModelMapper : IComponentModelMapper<ProductWidget
 {
 
     private readonly IContentItemRetrieverService<ProductPage> productPageRetrieverService;
-    private readonly IHttpRequestService httpRequestService;
 
     public ProductEmailWidgetModelMapper(
-        IContentItemRetrieverService<ProductPage> productPageRetrieverService,
-        IHttpRequestService httpRequestService)
+        IContentItemRetrieverService<ProductPage> productPageRetrieverService)
     {
         this.productPageRetrieverService = productPageRetrieverService;
-        this.httpRequestService = httpRequestService;
     }
 
     public async Task<ProductWidgetModel> Map(Guid webPageItemContentItemGuid, string languageName)
@@ -34,10 +31,10 @@ public class ProductEmailWidgetModelMapper : IComponentModelMapper<ProductWidget
             return new ProductWidgetModel();
         }
 
-        string webPageItemUrl = httpRequestService.GetAbsoluteUrlForPath(page!.SystemFields.WebPageUrlPath, false);
+        string webPageItemUrl = page.GetUrl().AbsoluteUrl;
 
         var image = product.ProductMedia.FirstOrDefault();
-        string imageUrl = httpRequestService.GetAbsoluteUrlForPath(image?.AssetFile?.Url ?? string.Empty, false);
+        string imageUrl = image?.AssetFile?.Url ?? string.Empty;
 
         return new ProductWidgetModel
         {
