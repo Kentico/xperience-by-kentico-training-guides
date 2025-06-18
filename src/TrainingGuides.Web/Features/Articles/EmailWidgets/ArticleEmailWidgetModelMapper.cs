@@ -1,5 +1,6 @@
 using Kentico.Xperience.Mjml.StarterKit.Rcl.Mapping;
 using Kentico.Xperience.Mjml.StarterKit.Rcl.Widgets;
+using Microsoft.Extensions.Localization;
 using TrainingGuides.Web.Features.Shared.Services;
 
 namespace TrainingGuides.Web.Features.Articles.EmailWidgets;
@@ -7,25 +8,30 @@ namespace TrainingGuides.Web.Features.Articles.EmailWidgets;
 public class ArticleEmailWidgetModelMapper : IComponentModelMapper<ArticleEmailWidgetModel>
 {
     private readonly IContentItemRetrieverService<ArticlePage> articleRetrieverService;
-    private readonly ArticleEmailWidgetModel defaultModel = new()
+    private readonly IStringLocalizer<SharedResources> stringLocalizer;
+
+    private ArticleEmailWidgetModel DefaultModel => new()
     {
-        ArticleTitle = "No article selected",
+        ArticleTitle = stringLocalizer["No article selected"],
         ArticleTeaserImage = new ImageWidgetModel(),
-        ArticleSummary = "Please select an article.",
+        ArticleSummary = stringLocalizer["Please select an article."],
         ArticleUrl = string.Empty,
     };
 
+
     public ArticleEmailWidgetModelMapper(
-        IContentItemRetrieverService<ArticlePage> articleRetrieverService)
+        IContentItemRetrieverService<ArticlePage> articleRetrieverService,
+        IStringLocalizer<SharedResources> stringLocalizer)
     {
         this.articleRetrieverService = articleRetrieverService;
+        this.stringLocalizer = stringLocalizer;
     }
 
     public async Task<ArticleEmailWidgetModel> Map(Guid contentItemGuid, string languageName)
     {
         if (contentItemGuid == Guid.Empty)
         {
-            return defaultModel;
+            return DefaultModel;
         }
 
         var articlePage = await articleRetrieverService.RetrieveWebPageByContentItemGuid(contentItemGuid, ArticlePage.CONTENT_TYPE_NAME, 2, languageName);
@@ -55,6 +61,6 @@ public class ArticleEmailWidgetModelMapper : IComponentModelMapper<ArticleEmailW
                 },
                 ArticleUrl = articlePageUrl
             }
-            : defaultModel;
+            : DefaultModel;
     }
 }
