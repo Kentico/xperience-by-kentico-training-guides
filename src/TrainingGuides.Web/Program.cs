@@ -4,6 +4,8 @@ using Kentico.Activities.Web.Mvc;
 using Kentico.Content.Web.Mvc.Routing;
 using Kentico.EmailBuilder.Web.Mvc;
 using Kentico.Membership;
+using Kentico.OnlineMarketing.Web.Mvc;
+
 // using Kentico.CrossSiteTracking.Web.Mvc;
 // using Kentico.OnlineMarketing.Web.Mvc;
 using Kentico.PageBuilder.Web.Mvc;
@@ -69,6 +71,7 @@ builder.Services.AddKentico(async features =>
     //     });
     features.UseActivityTracking();
     features.UseWebPageRouting(new WebPageRoutingOptions { LanguageNameRouteValuesKey = ApplicationConstants.LANGUAGE_KEY });
+    features.UseEmailMarketing();
     features.UseEmailBuilder();
 });
 
