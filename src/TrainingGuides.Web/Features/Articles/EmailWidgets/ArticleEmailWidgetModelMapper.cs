@@ -56,7 +56,7 @@ public class ArticleEmailWidgetModelMapper : IComponentModelMapper<ArticleEmailW
                     ?? string.Empty,
                 ArticleTeaserImage = new ImageWidgetModel
                 {
-                    ImageUrl = imageUrl.ToString() ?? string.Empty,
+                    ImageUrl = imageUrl.ToString(),
                     AltText = imageAsset?.AssetAltText ?? string.Empty,
                 },
                 ArticleUrl = articlePageUrl
