@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.naturespotlightemail>
+  <ContentItemDataCommonDataID>
+    <GUID>aab826a9-22a6-4ee9-a71d-f8c2fac0cbcb</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>NatureSpotlight_TheCommonCoqui-5y6vtush</CodeName>
+      <GUID>ce782b29-0439-45c9-a6ac-83cda3d14473</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>25107792-3e01-4817-8096-e4b76010869b</ContentItemDataGUID>
+  <EmailPlainText />
+  <EmailPreviewText>
+    <![CDATA[Learn about the Common Coquí]]>
+  </EmailPreviewText>
+  <EmailSenderID>0</EmailSenderID>
+  <EmailSubject>
+    <![CDATA[Nature Spotlight: The Common Coquí]]>
+  </EmailSubject>
+  <EmailTemplateID>0</EmailTemplateID>
+  <NatureSpotlightCountries>
+    <![CDATA[["fc74c7c6-1d58-47de-8b4a-07b70ad64a36"]]]>
+  </NatureSpotlightCountries>
+  <NatureSpotlightImages>
+    <![CDATA[[{"Identifier":"fdd08a49-48fb-4ccc-a946-84d3d0a8e564"}]]]>
+  </NatureSpotlightImages>
+  <NatureSpotlightName>
+    <![CDATA[Common Coquí]]>
+  </NatureSpotlightName>
+  <NatureSpotlightRelatedArticles>
+    <![CDATA[[{"Identifier":"df4f4ee0-00c3-4d1f-a8aa-02c8af7c5ad3"}]]]>
+  </NatureSpotlightRelatedArticles>
+  <NatureSpotlightText>
+    <![CDATA[<p>The common coquí is a tree frog native to Puerto Rico.&nbsp;</p><p><br></p><p>It is known for its distinctive call, which inspired its name through onomatopoeia.</p><p><br></p><p>Despite its cultural significance as a territorial symbol of its native land in Puerto Rico, the common coquí also exists as an invasive species elsewhere in the world.</p>]]>
+  </NatureSpotlightText>
+</contentitemdata.trainingguides.naturespotlightemail>

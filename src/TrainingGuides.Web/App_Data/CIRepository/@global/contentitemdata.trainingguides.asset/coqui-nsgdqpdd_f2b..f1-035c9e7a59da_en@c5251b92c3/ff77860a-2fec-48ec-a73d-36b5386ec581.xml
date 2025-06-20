@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.asset>
+  <AssetAltText>
+    <![CDATA[Common coquí frog]]>
+  </AssetAltText>
+  <AssetDescription>
+    <![CDATA[Common coquí frog image]]>
+  </AssetDescription>
+  <AssetFile>
+    <![CDATA[{"Variants":{},"FocalPoint":{"X":320,"Y":240},"Identifier":"bb346abc-e37c-422c-9854-e443f470ba05","Name":"coqui.png","Extension":".png","Size":580965,"Width":640,"Height":480,"LastModified":"2025-06-17T15:00:30.4810636Z"}]]>
+  </AssetFile>
+  <AssetUseInternalOnly>False</AssetUseInternalOnly>
+  <ContentItemDataCommonDataID>
+    <GUID>f2b55c0b-3755-43be-82f1-035c9e7a59da</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>Coqui-nsgdqpdd</CodeName>
+      <GUID>fdd08a49-48fb-4ccc-a946-84d3d0a8e564</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>ff77860a-2fec-48ec-a73d-36b5386ec581</ContentItemDataGUID>
+</contentitemdata.trainingguides.asset>

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentitem>
+  <ContentItemChannelID>
+    <CodeName>TrainingGuidesEmails</CodeName>
+    <GUID>49e862ef-2963-49ef-a1f4-f209a01d8fc6</GUID>
+    <ObjectType>cms.channel</ObjectType>
+  </ContentItemChannelID>
+  <ContentItemContentTypeID>
+    <CodeName>TrainingGuides.NatureSpotlightEmail</CodeName>
+    <GUID>bc326eb0-ba53-4499-92d5-bf718bb7f227</GUID>
+    <ObjectType>cms.contenttype</ObjectType>
+  </ContentItemContentTypeID>
+  <ContentItemGUID>ce782b29-0439-45c9-a6ac-83cda3d14473</ContentItemGUID>
+  <ContentItemIsReusable>False</ContentItemIsReusable>
+  <ContentItemIsSecured>False</ContentItemIsSecured>
+  <ContentItemName>NatureSpotlight_TheCommonCoqui-5y6vtush</ContentItemName>
+</cms.contentitem>

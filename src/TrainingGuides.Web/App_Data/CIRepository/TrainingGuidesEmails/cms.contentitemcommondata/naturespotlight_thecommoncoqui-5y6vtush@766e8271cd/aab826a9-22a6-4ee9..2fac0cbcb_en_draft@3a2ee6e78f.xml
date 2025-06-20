@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentitemcommondata>
+  <ContentItemCommonDataContentItemID>
+    <CodeName>NatureSpotlight_TheCommonCoqui-5y6vtush</CodeName>
+    <GUID>ce782b29-0439-45c9-a6ac-83cda3d14473</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </ContentItemCommonDataContentItemID>
+  <ContentItemCommonDataContentLanguageID>
+    <CodeName>en</CodeName>
+    <GUID>e81b5172-f240-4041-88b1-653089984e29</GUID>
+    <ObjectType>cms.contentlanguage</ObjectType>
+  </ContentItemCommonDataContentLanguageID>
+  <ContentItemCommonDataGUID>aab826a9-22a6-4ee9-a71d-f8c2fac0cbcb</ContentItemCommonDataGUID>
+  <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
+  <ContentItemCommonDataVersionStatus>0</ContentItemCommonDataVersionStatus>
+  <ContentItemCommonDataVisualBuilderTemplateConfiguration>
+    <![CDATA[{"identifier":"TrainingGuides.NatureSpotlightEmailTemplate","properties":null,"fieldIdentifiers":null}]]>
+  </ContentItemCommonDataVisualBuilderTemplateConfiguration>
+  <ContentItemReferences>
+    <cms.contentitemreference>
+      <ContentItemReferenceGroupGUID>57580b8c-2995-4375-94d2-35fd9b1000be</ContentItemReferenceGroupGUID>
+      <ContentItemReferenceGUID>51b4eda8-11bf-43c6-a407-0eadbb04fb7a</ContentItemReferenceGUID>
+      <ContentItemReferenceSourceCommonDataID>
+        <GUID>aab826a9-22a6-4ee9-a71d-f8c2fac0cbcb</GUID>
+        <ObjectType>cms.contentitemcommondata</ObjectType>
+      </ContentItemReferenceSourceCommonDataID>
+      <ContentItemReferenceTargetItemID>
+        <CodeName>Coqui-nsgdqpdd</CodeName>
+        <GUID>fdd08a49-48fb-4ccc-a946-84d3d0a8e564</GUID>
+        <ObjectType>cms.contentitem</ObjectType>
+      </ContentItemReferenceTargetItemID>
+    </cms.contentitemreference>
+    <cms.contentitemreference>
+      <ContentItemReferenceGroupGUID>da542846-6cde-4666-a181-7f6b6a3555f1</ContentItemReferenceGroupGUID>
+      <ContentItemReferenceGUID>4be1dd07-d67b-4b41-b71b-7b7edd17c452</ContentItemReferenceGUID>
+      <ContentItemReferenceSourceCommonDataID>
+        <GUID>aab826a9-22a6-4ee9-a71d-f8c2fac0cbcb</GUID>
+        <ObjectType>cms.contentitemcommondata</ObjectType>
+      </ContentItemReferenceSourceCommonDataID>
+      <ContentItemReferenceTargetItemID>
+        <CodeName>AboutFrogs-l30ila6d</CodeName>
+        <GUID>df4f4ee0-00c3-4d1f-a8aa-02c8af7c5ad3</GUID>
+        <ObjectType>cms.contentitem</ObjectType>
+      </ContentItemReferenceTargetItemID>
+    </cms.contentitemreference>
+  </ContentItemReferences>
+</cms.contentitemcommondata>
