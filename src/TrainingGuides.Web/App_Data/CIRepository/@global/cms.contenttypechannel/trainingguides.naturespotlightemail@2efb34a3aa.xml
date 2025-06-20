@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contenttypechannel>
+  <Parent>
+    <CodeName>TrainingGuides.NatureSpotlightEmail</CodeName>
+    <GUID>bc326eb0-ba53-4499-92d5-bf718bb7f227</GUID>
+    <ObjectType>cms.contenttype</ObjectType>
+  </Parent>
+  <Bindings>
+    <Binding id="cms.channel_TrainingGuidesEmails">
+      <ContentTypeChannelChannelID>
+        <CodeName>TrainingGuidesEmails</CodeName>
+        <GUID>49e862ef-2963-49ef-a1f4-f209a01d8fc6</GUID>
+        <ObjectType>cms.channel</ObjectType>
+      </ContentTypeChannelChannelID>
+    </Binding>
+  </Bindings>
+</cms.contenttypechannel>
