@@ -1,0 +1,54 @@
+@using Kentico.VisualBuilderComponents.Rcl.Components
+<mjml>
+    <mj-head>
+        <mj-title>@Model.Subject</mj-title>
+        <mj-style>
+            @((MarkupString)CssContent)
+        </mj-style>
+        <EmailBuilderStyles />
+        <mj-preview>@Model.PreviewText</mj-preview>
+    </mj-head>
+    <mj-body>
+        <mj-section>
+            <mj-text>
+                <h1>Nature spotlight</h1>
+            </mj-text>
+            @foreach(var image in Model.Images)
+            {
+                <mj-image src="@image.ImageUrl" alt="@image.AltText" />
+            }
+            <EditableArea AreaIdentifier="MainContent" />
+            <mj-text>
+                <h2>@Model.Name</h2>
+                <p>
+                    @foreach(string country in Model.Countries)
+                    {
+                        <em>
+                            @(country == Model.Countries.Last() ? country : $"{country}, ")
+                        </em>
+                    }
+                </p>
+                <br/>
+                @Model.Text
+                
+                <hr/>
+                <h3>Related articles:</h3>
+            </mj-text>
+            @foreach(var article in Model.RelatedArticles)
+            {
+                <mj-image src="@article.ArticleTeaserImage.ImageUrl" alt="@article.ArticleTeaserImage.AltText" width="300px" />
+                <mj-text>
+                    <h4>@article.ArticleTitle</h4>
+                    <p>
+                        <em>@article.ArticleSummary</em>
+                    </p>
+                </mj-text>
+                <mj-button href="@article.ArticleUrl">
+                    Read More
+                </mj-button>
+            }
+            <EditableArea AreaIdentifier="SecondaryContent" />
+            <EmailBuilderScripts />
+        </mj-section>
+    </mj-body>
+</mjml>
