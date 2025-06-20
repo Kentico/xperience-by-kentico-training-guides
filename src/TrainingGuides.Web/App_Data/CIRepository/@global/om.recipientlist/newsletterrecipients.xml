@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<om.recipientlist>
+  <ContactGroupDescription>Recipients for the Training guides newsletters.</ContactGroupDescription>
+  <ContactGroupDisplayName>Newsletter recipients</ContactGroupDisplayName>
+  <ContactGroupEnabled>True</ContactGroupEnabled>
+  <ContactGroupGUID>a82e4e4b-edd9-4829-8f54-85d8be9ea6b1</ContactGroupGUID>
+  <ContactGroupIsRecipientList>True</ContactGroupIsRecipientList>
+  <ContactGroupName>NewsletterRecipients</ContactGroupName>
+</om.recipientlist>

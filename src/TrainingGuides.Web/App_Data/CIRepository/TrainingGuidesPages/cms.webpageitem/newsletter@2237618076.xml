@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.webpageitem>
   <WebPageItemContentItemID>
-    <CodeName>Membership-0ia66os8</CodeName>
-    <GUID>af7304be-f23d-427a-bf6d-0261b04d15f6</GUID>
+    <CodeName>Newsletter-x1qt9c8t</CodeName>
+    <GUID>71646b5a-d21a-4c08-b908-bf1b042090da</GUID>
     <ObjectType>cms.contentitem</ObjectType>
   </WebPageItemContentItemID>
-  <WebPageItemGUID>78f7f287-494e-4a23-a562-20c3e7a9a638</WebPageItemGUID>
-  <WebPageItemName>Membership-0ia66os8</WebPageItemName>
-  <WebPageItemOrder>10</WebPageItemOrder>
-  <WebPageItemTreePath>/Membership</WebPageItemTreePath>
+  <WebPageItemGUID>fd39105b-9700-46b8-a352-8df724a833f1</WebPageItemGUID>
+  <WebPageItemName>Newsletter-x1qt9c8t</WebPageItemName>
+  <WebPageItemOrder>1</WebPageItemOrder>
+  <WebPageItemTreePath>/Newsletter</WebPageItemTreePath>
   <WebPageItemWebsiteChannelID>
     <GUID>fdba40fe-1ece-4821-9d57-eaa1d89e13b1</GUID>
     <ObjectType>cms.websitechannel</ObjectType>

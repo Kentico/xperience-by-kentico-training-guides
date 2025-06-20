@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentitemcommondata>
+  <ContentItemCommonDataContentItemID>
+    <CodeName>Newsletter-x1qt9c8t</CodeName>
+    <GUID>71646b5a-d21a-4c08-b908-bf1b042090da</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </ContentItemCommonDataContentItemID>
+  <ContentItemCommonDataContentLanguageID>
+    <CodeName>en</CodeName>
+    <GUID>e81b5172-f240-4041-88b1-653089984e29</GUID>
+    <ObjectType>cms.contentlanguage</ObjectType>
+  </ContentItemCommonDataContentLanguageID>
+  <ContentItemCommonDataFirstPublishedWhen>2025-06-18 21:55:46Z</ContentItemCommonDataFirstPublishedWhen>
+  <ContentItemCommonDataGUID>7e429048-3cd7-4f2c-aee7-2a5e3728cd13</ContentItemCommonDataGUID>
+  <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
+  <ContentItemCommonDataLastPublishedWhen>2025-06-18 21:55:46Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
+  <ContentItemCommonDataVisualBuilderTemplateConfiguration>
+    <![CDATA[{"identifier":"TrainingGuides.EmptyPagePageTemplate","properties":null,"fieldIdentifiers":{}}]]>
+  </ContentItemCommonDataVisualBuilderTemplateConfiguration>
+  <ContentItemCommonDataVisualBuilderWidgets>
+    <![CDATA[{"editableAreas":[{"identifier":"areaMain","sections":[{"identifier":"a273fa8e-8a4f-4ca9-a288-e03d6c79caf1","type":"TrainingGuides.SingleColumnSection","properties":{"sectionAnchor":""},"zones":[{"identifier":"25d746d3-911e-4b9f-ad21-996f41547f2a","widgets":[{"identifier":"c088ce40-d5de-4b67-b76a-66b16ba47caf","type":"Kentico.Widget.RichText","variants":[{"identifier":"8036137b-acc4-4d2d-a294-31bebf70cbe2","properties":{"content":"<h2>Subscribe to the Training guides <em>Nature spotlight</em> newsletter</h2><p>Learn about animals, geography, and other natural phenomena with the <strong>Nature spotlight</strong> newsletter!</p>"},"fieldIdentifiers":{"content":"f1e9b7ff-d9ef-43e1-a242-cb980406fc1d"}}]},{"identifier":"52ede964-0429-4d38-af70-efe973708a91","type":"Kentico.FormWidget","variants":[{"identifier":"8a98d907-b49f-46ec-be13-c222353b9138","properties":{"selectedForm":[{"objectGuid":null,"objectCodeName":"NatureSpotlightSubscribe"}],"afterSubmitMode":"message","afterSubmitDisplayText":"Thank you! Please check your email to confirm your subscription.","afterSubmitRedirectToUrl":null,"afterSubmitRedirectToWebPage":[]},"fieldIdentifiers":{"selectedForm":"8ccccc4f-db67-4939-bf6a-96d8c5babc6d","afterSubmitMode":"3ed61cfe-09e9-482e-b519-2c0b1db77a50","afterSubmitDisplayText":"a6d73e4c-1765-4da1-8661-efa0318fc47f","afterSubmitRedirectToUrl":"85b44036-0c33-4b0d-9f8c-ae3f0299406d","afterSubmitRedirectToWebPage":"64e5af00-1575-4de6-a054-91d609a829b8"}}]}]}],"fieldIdentifiers":{"sectionAnchor":"56248fd6-d0f9-4d58-b9d7-2830ea65b2e7"}}]}]}]]>
+  </ContentItemCommonDataVisualBuilderWidgets>
+</cms.contentitemcommondata>

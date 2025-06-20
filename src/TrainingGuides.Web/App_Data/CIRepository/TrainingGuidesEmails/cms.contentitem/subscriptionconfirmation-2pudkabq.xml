@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentitem>
+  <ContentItemChannelID>
+    <CodeName>TrainingGuidesEmails</CodeName>
+    <GUID>49e862ef-2963-49ef-a1f4-f209a01d8fc6</GUID>
+    <ObjectType>cms.channel</ObjectType>
+  </ContentItemChannelID>
+  <ContentItemContentTypeID>
+    <CodeName>TrainingGuides.SubscriptionConfirmationEmail</CodeName>
+    <GUID>16166bd3-8711-48ee-95e4-d338f3314072</GUID>
+    <ObjectType>cms.contenttype</ObjectType>
+  </ContentItemContentTypeID>
+  <ContentItemGUID>cf4186bc-0373-4ebc-b289-a3f5d21e89d5</ContentItemGUID>
+  <ContentItemIsReusable>False</ContentItemIsReusable>
+  <ContentItemIsSecured>False</ContentItemIsSecured>
+  <ContentItemName>SubscriptionConfirmation-2pudkabq</ContentItemName>
+</cms.contentitem>

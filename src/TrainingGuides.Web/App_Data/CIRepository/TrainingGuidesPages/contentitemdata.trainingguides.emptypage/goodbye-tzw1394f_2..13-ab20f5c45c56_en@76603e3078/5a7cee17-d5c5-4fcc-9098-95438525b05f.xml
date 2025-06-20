@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.emptypage>
+  <ContentItemDataCommonDataID>
+    <GUID>24b05ca6-ccce-45e1-b613-ab20f5c45c56</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>Goodbye-tzw1394f</CodeName>
+      <GUID>7c395855-e197-4df1-b182-1ede048bf6a8</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>5a7cee17-d5c5-4fcc-9098-95438525b05f</ContentItemDataGUID>
+</contentitemdata.trainingguides.emptypage>
