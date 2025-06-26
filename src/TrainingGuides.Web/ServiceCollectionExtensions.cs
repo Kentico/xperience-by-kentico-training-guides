@@ -31,6 +31,7 @@ public static class ServiceCollectionExtensions
         services.AddSingleton<IEmailNotificationService, EmailNotificationService>();
         services.AddSingleton<IMemberContactService, MemberContactService>();
         services.AddSingleton<IUpdateProfileService, UpdateProfileService>();
+        services.AddSingleton<ICountryService, CountryService>();
 
         services.AddScoped<IMembershipService, MembershipService>();
         services.AddScoped<IHeadTagStoreService, HeadTagStoreService>();

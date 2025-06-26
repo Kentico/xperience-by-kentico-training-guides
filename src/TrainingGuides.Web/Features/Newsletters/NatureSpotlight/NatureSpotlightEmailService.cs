@@ -1,22 +1,22 @@
-using CMS.DataEngine;
-using CMS.Globalization;
 using Kentico.EmailBuilder.Web.Mvc;
 using Kentico.Xperience.Mjml.StarterKit.Rcl.Widgets;
 using Microsoft.AspNetCore.Components;
 using TrainingGuides.Web.Features.Articles.EmailWidgets;
+using TrainingGuides.Web.Features.Shared.Services;
 
 namespace TrainingGuides.Web.Features.Newsletters.NatureSpotlight;
 
 public class NatureSpotlightEmailService : INatureSpotlightEmailService
 {
     private readonly IEmailContextAccessor emailContextAccessor;
-    private readonly IInfoProvider<CountryInfo> countryInfoProvider;
+    private readonly ICountryService countryService;
 
-    public NatureSpotlightEmailService(IEmailContextAccessor emailContextAccessor,
-        IInfoProvider<CountryInfo> countryInfoProvider)
+    public NatureSpotlightEmailService(
+        IEmailContextAccessor emailContextAccessor,
+        ICountryService countryService)
     {
         this.emailContextAccessor = emailContextAccessor;
-        this.countryInfoProvider = countryInfoProvider;
+        this.countryService = countryService;
     }
 
     public async Task<NatureSpotlightEmailModel> GetNatureSpotlightEmailModel()
@@ -27,19 +27,13 @@ public class NatureSpotlightEmailService : INatureSpotlightEmailService
         {
             Topic = email.NatureSpotlightTopic,
             Text = new MarkupString(email.NatureSpotlightText),
-            Countries = GetNatureSpotlightCountries(email),
+            Countries = countryService.GetCountriesByGuids(email.NatureSpotlightCountries),
             RelatedArticles = GetNatureSpotlightRelatedArticles(email),
             Images = GetNatureSpotlightImages(email),
         };
 
         return model;
     }
-
-    private IEnumerable<string> GetNatureSpotlightCountries(NatureSpotlightEmail email) =>
-        countryInfoProvider.Get()
-            .WhereIn(nameof(CountryInfo.CountryGUID), email.NatureSpotlightCountries)
-            .Column(nameof(CountryInfo.CountryDisplayName))
-            .GetListResult<string>();
 
     private IEnumerable<ArticleEmailWidgetModel> GetNatureSpotlightRelatedArticles(NatureSpotlightEmail email) =>
         email.NatureSpotlightRelatedArticles
