@@ -12,7 +12,7 @@ public class NatureSpotlightEmailModel
 
     public IEnumerable<string> Countries { get; set; } = Enumerable.Empty<string>();
 
-    public string Name { get; set; } = string.Empty;
+    public string Topic { get; set; } = string.Empty;
 
     public MarkupString Text { get; set; } = new MarkupString();
 

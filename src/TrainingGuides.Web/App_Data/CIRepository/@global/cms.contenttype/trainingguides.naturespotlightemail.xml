@@ -35,13 +35,13 @@
           <controlname>Kentico.Administration.TextArea</controlname>
         </settings>
       </field>
-      <field column="NatureSpotlightName" columnprecision="0" columnsize="200" columntype="text" enabled="true" guid="69bb4e71-d854-4460-95aa-92f723054b50" visible="true">
+      <field column="NatureSpotlightTopic" columnprecision="0" columnsize="200" columntype="text" enabled="true" guid="69bb4e71-d854-4460-95aa-92f723054b50" visible="true">
         <properties>
           <explanationtext>
             <![CDATA[The name of the organism, feature, or phenomenon in the spotlight]]>
           </explanationtext>
           <explanationtextashtml>False</explanationtextashtml>
-          <fieldcaption>Name</fieldcaption>
+          <fieldcaption>Topic</fieldcaption>
           <fielddescriptionashtml>False</fielddescriptionashtml>
         </properties>
         <settings>

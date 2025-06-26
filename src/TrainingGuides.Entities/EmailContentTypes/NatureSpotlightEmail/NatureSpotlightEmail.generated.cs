@@ -48,9 +48,9 @@ namespace TrainingGuides
 
 
 		/// <summary>
-		/// NatureSpotlightName.
+		/// NatureSpotlightTopic.
 		/// </summary>
-		public string NatureSpotlightName { get; set; }
+		public string NatureSpotlightTopic { get; set; }
 
 
 		/// <summary>

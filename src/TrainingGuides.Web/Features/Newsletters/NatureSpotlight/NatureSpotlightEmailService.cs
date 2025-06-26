@@ -25,7 +25,7 @@ public class NatureSpotlightEmailService : INatureSpotlightEmailService
 
         var model = new NatureSpotlightEmailModel
         {
-            Name = email.NatureSpotlightName,
+            Topic = email.NatureSpotlightTopic,
             Text = new MarkupString(email.NatureSpotlightText),
             Countries = GetNatureSpotlightCountries(email),
             RelatedArticles = GetNatureSpotlightRelatedArticles(email),
