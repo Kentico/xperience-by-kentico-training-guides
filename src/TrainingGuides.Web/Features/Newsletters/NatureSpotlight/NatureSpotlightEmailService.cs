@@ -27,7 +27,7 @@ public class NatureSpotlightEmailService : INatureSpotlightEmailService
         {
             Topic = email.NatureSpotlightTopic,
             Text = new MarkupString(email.NatureSpotlightText),
-            Countries = countryService.GetCountriesByGuids(email.NatureSpotlightCountries),
+            Countries = countryService.GetCountryDisplayNamesByGuids(email.NatureSpotlightCountries),
             RelatedArticles = GetNatureSpotlightRelatedArticles(email),
             Images = GetNatureSpotlightImages(email),
         };

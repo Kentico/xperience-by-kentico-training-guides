@@ -32,7 +32,7 @@ public class NatureSpotlightEmailServiceTests
         emailContextMock.Setup(x => x.GetContext()).Returns(emailContext.Object);
 
         var countryServiceMock = new Mock<ICountryService>();
-        countryServiceMock.Setup(x => x.GetCountriesByGuids(It.IsAny<IEnumerable<Guid>>()))
+        countryServiceMock.Setup(x => x.GetCountryDisplayNamesByGuids(It.IsAny<IEnumerable<Guid>>()))
             .Returns([Country]);
 
         var service = new NatureSpotlightEmailService(emailContextMock.Object, countryServiceMock.Object);

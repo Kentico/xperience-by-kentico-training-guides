@@ -12,7 +12,7 @@ public class CountryService : ICountryService
         this.countryInfoProvider = countryInfoProvider;
     }
 
-    public IEnumerable<string> GetCountriesByGuids(IEnumerable<Guid> countryGuids) => countryInfoProvider.Get()
+    public IEnumerable<string> GetCountryDisplayNamesByGuids(IEnumerable<Guid> countryGuids) => countryInfoProvider.Get()
             .WhereIn(nameof(CountryInfo.CountryGUID), countryGuids)
             .Column(nameof(CountryInfo.CountryDisplayName))
             .GetListResult<string>();
