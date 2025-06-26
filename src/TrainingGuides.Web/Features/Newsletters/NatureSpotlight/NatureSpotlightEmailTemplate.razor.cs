@@ -26,7 +26,7 @@ public partial class NatureSpotlightEmailTemplate
     }
 
     [Inject]
-    private NatureSpotlightEmailService NatureSpotlightEmailService { get; set; } = default!;
+    private INatureSpotlightEmailService NatureSpotlightEmailService { get; set; } = default!;
 
     [Inject]
     private CssLoaderService CssLoaderService { get; set; } = null!;
