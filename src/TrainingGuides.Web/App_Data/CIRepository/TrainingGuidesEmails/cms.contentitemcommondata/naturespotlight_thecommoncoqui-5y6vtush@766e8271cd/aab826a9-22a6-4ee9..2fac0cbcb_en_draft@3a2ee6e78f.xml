@@ -14,8 +14,11 @@
   <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
   <ContentItemCommonDataVersionStatus>0</ContentItemCommonDataVersionStatus>
   <ContentItemCommonDataVisualBuilderTemplateConfiguration>
-    <![CDATA[{"identifier":"TrainingGuides.NatureSpotlightEmailTemplate","properties":null,"fieldIdentifiers":null}]]>
+    <![CDATA[{"identifier":"TrainingGuides.NatureSpotlightEmailTemplate","properties":null,"fieldIdentifiers":{}}]]>
   </ContentItemCommonDataVisualBuilderTemplateConfiguration>
+  <ContentItemCommonDataVisualBuilderWidgets>
+    <![CDATA[{"editableAreas":[{"identifier":"MainContent","sections":[{"identifier":"6a2b3b84-810d-4b2e-909c-6d93362cfedd","type":"Kentico.Xperience.Mjml.StarterKit.FullWidthEmailSection","properties":null,"zones":[{"identifier":"b0acc45a-7493-48e1-945b-eb8697d21f9d","name":"Widget_Zone_0","widgets":[{"identifier":"38921a76-ffbb-4d41-9008-1bca18ef4a73","type":"Kentico.Xperience.Mjml.StarterKit.TextWidget","variants":[{"identifier":"a5836ef7-dfdd-4e26-b0a3-a67a67be65e0","properties":{"text":"<p>Want to meet the Common Coqu&iacute; and several other awesome amphibians? Come to our <strong>Amphibian sunset&nbsp;</strong>event this Thursday at the <em>Training guides nature center&nbsp;</em>from <strong>6:00-8:30pm</strong>.&nbsp;</p><p>A naturalist will be there to share facts about these wonderful creatures and answer your questions.</p>","cssClass":""},"fieldIdentifiers":{"text":"982fe893-ad13-4006-be77-116dbb950963","cssClass":"373ba126-f432-4300-9aac-2e8887f8b8ee"}}]}]}],"fieldIdentifiers":{}}]},{"identifier":"SecondaryContent","sections":[{"identifier":"796f8cc8-eb8f-44f5-9f11-a5000def5614","type":"Kentico.Xperience.Mjml.StarterKit.FullWidthEmailSection","properties":null,"zones":[{"identifier":"939354f3-192d-409e-bcde-5ed4acec8c74","name":"Widget_Zone_0","widgets":[]}],"fieldIdentifiers":{}}]}]}]]>
+  </ContentItemCommonDataVisualBuilderWidgets>
   <ContentItemReferences>
     <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>57580b8c-2995-4375-94d2-35fd9b1000be</ContentItemReferenceGroupGUID>
