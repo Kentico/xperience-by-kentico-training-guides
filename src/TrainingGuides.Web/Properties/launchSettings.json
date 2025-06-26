@@ -3,7 +3,7 @@
     "windowsAuthentication": false, 
     "anonymousAuthentication": true, 
     "iisExpress": {
-      "applicationUrl": "http://localhost:53415",
+      "applicationUrl": "https://localhost:53415",
       "sslPort": 0
     }
   },
@@ -18,7 +18,7 @@
     "TrainingGuides.Web": {
       "commandName": "Project",
       "launchBrowser": true,
-      "applicationUrl": "http://localhost:53415",
+      "applicationUrl": "https://localhost:53415",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
