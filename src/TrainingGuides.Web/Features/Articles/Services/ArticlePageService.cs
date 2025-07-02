@@ -48,7 +48,7 @@ public class ArticlePageService : IArticlePageService
                 SummaryHtml = new HtmlString(articleSchema?.ArticleSchemaSummary),
                 TextHtml = new HtmlString(articleSchema?.ArticleSchemaText),
                 CreatedOn = articlePage.ArticlePagePublishDate,
-                TeaserImage = AssetViewModel.GetViewModel(articleSchemaTeaserImage!),
+                TeaserImage = AssetViewModel.GetViewModel(articleSchemaTeaserImage),
                 Url = articleUrl,
                 IsSecured = articlePage.SystemFields.ContentItemIsSecured
             };
