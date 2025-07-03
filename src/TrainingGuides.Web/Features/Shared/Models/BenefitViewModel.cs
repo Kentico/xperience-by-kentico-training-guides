@@ -11,7 +11,7 @@ public class BenefitViewModel
     {
         DescriptionHtml = new(benefit.BenefitDescription),
         Icon = benefit.BenefitIcon?.FirstOrDefault() != null
-            ? AssetViewModel.GetViewModel(benefit.BenefitIcon.FirstOrDefault()!)
+            ? AssetViewModel.GetViewModel(benefit.BenefitIcon.FirstOrDefault())
             : new(),
     };
 }

@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.applicationpermission>
-  <ApplicationName>Kentico.Xperience.Application.PageTemplates</ApplicationName>
-  <ApplicationPermissionGuid>59533a9d-f97b-407b-b4b6-7e8c94c45c7c</ApplicationPermissionGuid>
-  <PermissionName>View</PermissionName>
+  <ApplicationName>Kentico.Xperience.Application.PresetTemplates</ApplicationName>
+  <ApplicationPermissionGuid>cb714b8a-4619-4150-b571-8065c578ac80</ApplicationPermissionGuid>
+  <PermissionName>Delete</PermissionName>
   <RoleID>
     <CodeName>DigitalChannelManager</CodeName>
     <GUID>93fb8806-31ba-4548-8a3b-24dbbeec6e3d</GUID>

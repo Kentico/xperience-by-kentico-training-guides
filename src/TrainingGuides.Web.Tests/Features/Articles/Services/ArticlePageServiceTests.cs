@@ -5,17 +5,18 @@ using Microsoft.Extensions.Localization;
 using Moq;
 using TrainingGuides.Web.Features.Articles;
 using TrainingGuides.Web.Features.Articles.Services;
+using TrainingGuides.Web.Features.Shared.Services;
 using Xunit;
 
 namespace TrainingGuides.Web.Tests.Features.Articles.Services;
 
 public class ArticlePageServiceTests
 {
-    private readonly Mock<ArticlePageService> articlePageServiceMock;
     private readonly Mock<IWebPageUrlRetriever> webPageUrlRetrieverMock;
-    private readonly Mock<IServiceProvider> serviceProviderMock;
     private readonly Mock<IStringLocalizer<SharedResources>> stringLocalizerMock;
     private readonly Mock<IPreferredLanguageRetriever> preferredLanguageRetrieverMock;
+    private readonly Mock<IHttpRequestService> httpRequestServiceMock;
+    private readonly ArticlePageService articlePageService;
 
     private const string ARTICLE_TITLE = "Title";
     private const string ARTICLE_SUMMARY = "Summary";
@@ -28,19 +29,20 @@ public class ArticlePageServiceTests
     {
         webPageUrlRetrieverMock = new Mock<IWebPageUrlRetriever>();
         webPageUrlRetrieverMock.Setup(x => x.Retrieve(It.IsAny<ArticlePage>(), It.IsAny<string>(), It.IsAny<CancellationToken>()))
-            .ReturnsAsync(new WebPageUrl(ARTICLE_URL));
-
-        serviceProviderMock = new Mock<IServiceProvider>();
+            .ReturnsAsync(new WebPageUrl(relativePath: ARTICLE_URL, absoluteUrl: ARTICLE_URL));
 
         stringLocalizerMock = new Mock<IStringLocalizer<SharedResources>>();
 
         preferredLanguageRetrieverMock = new Mock<IPreferredLanguageRetriever>();
         preferredLanguageRetrieverMock.Setup(x => x.Get()).Returns("en");
 
-        articlePageServiceMock = new Mock<ArticlePageService>(webPageUrlRetrieverMock.Object,
-            serviceProviderMock.Object,
+        httpRequestServiceMock = new Mock<IHttpRequestService>();
+
+        articlePageService = new ArticlePageService(
+            webPageUrlRetrieverMock.Object,
             stringLocalizerMock.Object,
-            preferredLanguageRetrieverMock.Object);
+            preferredLanguageRetrieverMock.Object,
+            httpRequestServiceMock.Object);
 
         referenceArticleViewModel = new()
         {
@@ -51,8 +53,23 @@ public class ArticlePageServiceTests
         };
     }
 
-    private ArticlePage BuildSampleArticlePage() => new()
+    private ArticlePage BuildSampleArticlePageWithOldArticle() => new()
     {
+        ArticlePageContent = [new Article()
+        {
+            ArticleTitle = ARTICLE_TITLE,
+            ArticleSummary = ARTICLE_SUMMARY,
+            ArticleText = ARTICLE_TEXT,
+            ArticleTeaser = []
+        }],
+        ArticlePageArticleContent = [],
+        ArticlePagePublishDate = DateTime.Now,
+        SystemFields = new WebPageFields { ContentItemIsSecured = false }
+    };
+
+    private ArticlePage BuildSampleArticlePageWithNewRFSArticle() => new()
+    {
+        ArticlePageContent = [],
         ArticlePageArticleContent = [new GeneralArticle()
         {
             ArticleSchemaTitle = ARTICLE_TITLE,
@@ -60,45 +77,81 @@ public class ArticlePageServiceTests
             ArticleSchemaText = ARTICLE_TEXT,
             ArticleSchemaTeaser = []
         }],
-        ArticlePagePublishDate = DateTime.Now
+        ArticlePagePublishDate = DateTime.Now,
+        SystemFields = new WebPageFields { ContentItemIsSecured = false }
     };
 
     [Fact]
     public async Task GetArticlePageViewModel_IfArticlePageNull_ReturnsEmptyModel()
     {
-        var articlePageViewModel = await articlePageServiceMock.Object.GetArticlePageViewModel(null);
+        var articlePageViewModel = await articlePageService.GetArticlePageViewModel(null);
         Assert.Equivalent(new ArticlePageViewModel(), articlePageViewModel);
     }
 
+    // old Article type, not using Reusable Field Schema
     [Fact]
-    public async Task GetArticlePageViewModel_ReturnsModel_WithArticleTitleSet()
+    public async Task GetArticlePageViewModel_ForOldArticle_ReturnsModel_WithArticleTitleSet()
     {
-        var articlePage = BuildSampleArticlePage();
-        var articlePageViewModel = await articlePageServiceMock.Object.GetArticlePageViewModel(articlePage);
+        var articlePage = BuildSampleArticlePageWithOldArticle();
+        var articlePageViewModel = await articlePageService.GetArticlePageViewModel(articlePage);
         Assert.Equal(referenceArticleViewModel.Title, articlePageViewModel.Title);
     }
 
     [Fact]
-    public async Task GetArticlePageViewModel_ReturnsModel_WithArticleSummarySet()
+    public async Task GetArticlePageViewModel_ForOldArticle_ReturnsModel_WithArticleSummarySet()
     {
-        var articlePage = BuildSampleArticlePage();
-        var articlePageViewModel = await articlePageServiceMock.Object.GetArticlePageViewModel(articlePage);
+        var articlePage = BuildSampleArticlePageWithOldArticle();
+        var articlePageViewModel = await articlePageService.GetArticlePageViewModel(articlePage);
         Assert.Equal(referenceArticleViewModel.SummaryHtml.Value, articlePageViewModel.SummaryHtml.Value);
     }
 
     [Fact]
-    public async Task GetArticlePageViewModel_ReturnsModel_WithArticleTextSet()
+    public async Task GetArticlePageViewModel_ForOldArticle_ReturnsModel_WithArticleTextSet()
     {
-        var articlePage = BuildSampleArticlePage();
-        var articlePageViewModel = await articlePageServiceMock.Object.GetArticlePageViewModel(articlePage);
+        var articlePage = BuildSampleArticlePageWithOldArticle();
+        var articlePageViewModel = await articlePageService.GetArticlePageViewModel(articlePage);
         Assert.Equal(referenceArticleViewModel.TextHtml.Value, articlePageViewModel.TextHtml.Value);
     }
 
     [Fact]
-    public async Task GetArticlePageViewModel_ReturnsModel_WithArticleUrlSet()
+    public async Task GetArticlePageViewModel_ForOldArticle_ReturnsModel_WithArticleUrlSet()
     {
-        var articlePage = BuildSampleArticlePage();
-        var articlePageViewModel = await articlePageServiceMock.Object.GetArticlePageViewModel(articlePage);
+        var articlePage = BuildSampleArticlePageWithOldArticle();
+        var articlePageViewModel = await articlePageService.GetArticlePageViewModel(articlePage);
+        Assert.Equal(referenceArticleViewModel.Url, articlePageViewModel.Url);
+    }
+
+    // new General article type implementing the reusable field schema
+
+    [Fact]
+    public async Task GetArticlePageViewModel_ForNewRFSArticle_ReturnsModel_WithArticleTitleSet()
+    {
+        var articlePage = BuildSampleArticlePageWithNewRFSArticle();
+        var articlePageViewModel = await articlePageService.GetArticlePageViewModel(articlePage);
+        Assert.Equal(referenceArticleViewModel.Title, articlePageViewModel.Title);
+    }
+
+    [Fact]
+    public async Task GetArticlePageViewModel_ForNewRFSArticle_ReturnsModel_WithArticleSummarySet()
+    {
+        var articlePage = BuildSampleArticlePageWithNewRFSArticle();
+        var articlePageViewModel = await articlePageService.GetArticlePageViewModel(articlePage);
+        Assert.Equal(referenceArticleViewModel.SummaryHtml.Value, articlePageViewModel.SummaryHtml.Value);
+    }
+
+    [Fact]
+    public async Task GetArticlePageViewModel_ForNewRFSArticle_ReturnsModel_WithArticleTextSet()
+    {
+        var articlePage = BuildSampleArticlePageWithNewRFSArticle();
+        var articlePageViewModel = await articlePageService.GetArticlePageViewModel(articlePage);
+        Assert.Equal(referenceArticleViewModel.TextHtml.Value, articlePageViewModel.TextHtml.Value);
+    }
+
+    [Fact]
+    public async Task GetArticlePageViewModel_ForNewRFSArticle_ReturnsModel_WithArticleUrlSet()
+    {
+        var articlePage = BuildSampleArticlePageWithNewRFSArticle();
+        var articlePageViewModel = await articlePageService.GetArticlePageViewModel(articlePage);
         Assert.Equal(referenceArticleViewModel.Url, articlePageViewModel.Url);
     }
 }

@@ -1,4 +1,4 @@
-using Kentico.Content.Web.Mvc.Routing;
+using Microsoft.AspNetCore.Http;
 using Moq;
 using TrainingGuides.Web.Features.Membership.Services;
 using TrainingGuides.Web.Features.Membership.Widgets.SignIn;
@@ -12,12 +12,9 @@ public class SignInWidgetViewComponentTests
     private readonly SignInWidgetViewComponent viewComponent;
     private readonly Mock<IHttpRequestService> httpRequestServiceMock;
     private readonly Mock<IMembershipService> membershipServiceMock;
-    private readonly Mock<IPreferredLanguageRetriever> preferredLanguageRetrieverMock;
 
     private const string BASE_URL = "http://localhost:5000";
-    private const string LANGUAGE_KEY = "en";
-    private const string PAGE_URL = "/page";
-    private const string ROOT_URL = "/";
+    private const string ACTION_URL = "http://localhost:5000/authenticate";
     private const string SIGN_IN = "Sign In";
     private const string SUBMIT = "Submit";
     private const string USERNAME = "Username";
@@ -30,14 +27,12 @@ public class SignInWidgetViewComponentTests
     {
         httpRequestServiceMock = new Mock<IHttpRequestService>();
         httpRequestServiceMock.Setup(x => x.GetBaseUrl()).Returns(BASE_URL);
+        httpRequestServiceMock.Setup(x => x.GetAbsoluteUrlForPath(It.IsAny<string>(), It.IsAny<bool>(), It.IsAny<QueryString?>())).Returns(ACTION_URL);
 
         membershipServiceMock = new Mock<IMembershipService>();
         membershipServiceMock.Setup(x => x.IsMemberAuthenticated()).ReturnsAsync(true);
 
-        preferredLanguageRetrieverMock = new Mock<IPreferredLanguageRetriever>();
-        preferredLanguageRetrieverMock.Setup(x => x.Get()).Returns(LANGUAGE_KEY);
-
-        viewComponent = new SignInWidgetViewComponent(httpRequestServiceMock.Object, membershipServiceMock.Object, preferredLanguageRetrieverMock.Object);
+        viewComponent = new SignInWidgetViewComponent(httpRequestServiceMock.Object, membershipServiceMock.Object);
 
         referenceProperties = new SignInWidgetProperties()
         {
@@ -50,35 +45,27 @@ public class SignInWidgetViewComponentTests
     }
 
     [Fact]
-    public async Task BuildWidgetViewModel_ReturnsWidgetViewModel_WithBaseUrlSet()
+    public async Task BuildWidgetViewModel_SetsActionUrl_FromHttpRequestService()
     {
         var viewModel = await viewComponent.BuildWidgetViewModel(referenceProperties);
-        Assert.NotEmpty(viewModel.BaseUrl);
+        Assert.Equal(ACTION_URL, viewModel.ActionUrl);
     }
 
     [Fact]
-    public async Task BuildWidgetViewModel_ReturnsWidgetViewModel_WithLanguageSet_ToCurrentLanguage()
+    public async Task BuildWidgetViewModel_WhenUserSetsRedirectPage_SetsDefaultRedirectPageGuid_ToWebPageGuid()
     {
+        var testGuid = Guid.NewGuid();
+        referenceProperties.DefaultRedirectPage = [new() { WebPageGuid = testGuid }];
+
         var viewModel = await viewComponent.BuildWidgetViewModel(referenceProperties);
-        Assert.Equal(LANGUAGE_KEY, viewModel.Language);
+        Assert.Equal(testGuid, viewModel.DefaultRedirectPageGuid);
     }
 
     [Fact]
-    public async Task BuildWidgetViewModel_WhenUserSetsRedirectPage_SetsRedirectUrl_ToPageUrlInCurrentLanguage()
+    public async Task BuildWidgetViewModel_WhenUserDoesNOTSetRedirectPage_SetsDefaultRedirectPageGuid_ToEmptyGuid()
     {
-        httpRequestServiceMock.Setup(x => x.GetPageRelativeUrl(It.IsAny<Guid>(), It.IsAny<string>())).ReturnsAsync($"~/{LANGUAGE_KEY}{PAGE_URL}");
-        referenceProperties.DefaultRedirectPage = [new() { WebPageGuid = Guid.NewGuid() }];
-
         var viewModel = await viewComponent.BuildWidgetViewModel(referenceProperties);
-        Assert.Equal($"/{LANGUAGE_KEY + PAGE_URL}", viewModel.DefaultRedirectPageGuid);
-    }
-
-    [Fact]
-    public async Task BuildWidgetViewModel_WhenUserDoesNOTSetRedirectPage_SetsRedirectUrl_ToRoot()
-    {
-        httpRequestServiceMock.Setup(x => x.GetBaseUrlWithLanguage()).Returns(ROOT_URL);
-        var viewModel = await viewComponent.BuildWidgetViewModel(referenceProperties);
-        Assert.Equal(ROOT_URL, viewModel.DefaultRedirectPageGuid);
+        Assert.Equal(Guid.Empty, viewModel.DefaultRedirectPageGuid);
     }
 
     [Fact]

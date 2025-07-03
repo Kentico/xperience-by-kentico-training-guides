@@ -6,6 +6,7 @@ using TrainingGuides.Web.Features.Shared.Services;
 using Xunit;
 
 namespace TrainingGuides.Web.Tests.Features.Membership.Widgets.Registration;
+
 public class RegistrationWidgetViewComponentTests
 {
     private readonly RegistrationWidgetViewComponent viewComponent;
@@ -29,8 +30,8 @@ public class RegistrationWidgetViewComponentTests
     public RegistrationWidgetViewComponentTests()
     {
         httpRequestServiceMock = new Mock<IHttpRequestService>();
-        httpRequestServiceMock.Setup(x => x.GetBaseUrlWithLanguage()).Returns(BASE_URL);
-        httpRequestServiceMock.Setup(x => x.GetBaseUrl()).Returns(BASE_URL);
+        httpRequestServiceMock.Setup(x => x.GetAbsoluteUrlForPath(It.IsAny<string>(), It.IsAny<bool>(), It.IsAny<Microsoft.AspNetCore.Http.QueryString?>()))
+            .Returns((string path, bool alwaysIncludeLanguage, Microsoft.AspNetCore.Http.QueryString? queryString) => $"{BASE_URL}{path}");
 
         preferredLanguageRetrieverMock = new Mock<IPreferredLanguageRetriever>();
         preferredLanguageRetrieverMock.Setup(x => x.Get()).Returns("en");
@@ -38,7 +39,7 @@ public class RegistrationWidgetViewComponentTests
         membershipServiceMock = new Mock<IMembershipService>();
         membershipServiceMock.Setup(x => x.IsMemberAuthenticated()).ReturnsAsync(true);
 
-        viewComponent = new RegistrationWidgetViewComponent(httpRequestServiceMock.Object, membershipServiceMock.Object, preferredLanguageRetrieverMock.Object);
+        viewComponent = new RegistrationWidgetViewComponent(httpRequestServiceMock.Object, membershipServiceMock.Object);
 
         referenceProperties = new RegistrationWidgetProperties()
         {
@@ -61,7 +62,7 @@ public class RegistrationWidgetViewComponentTests
     public async Task BuildWidgetViewModel_ReturnsWidgetViewModel_WithBaseUrlSet()
     {
         var viewModel = await viewComponent.BuildWidgetViewModel(referenceProperties);
-        Assert.NotEmpty(viewModel.BaseUrl);
+        Assert.NotEmpty(viewModel.ActionUrl);
     }
 
     [Fact]
