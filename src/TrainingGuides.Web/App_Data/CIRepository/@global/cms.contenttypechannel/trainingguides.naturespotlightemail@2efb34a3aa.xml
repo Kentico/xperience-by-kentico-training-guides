@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.contenttypechannel>
   <Parent>
-    <CodeName>TrainingGuides.BasicEmail</CodeName>
-    <GUID>10caf932-e6fa-4b10-9fed-1f13d7380445</GUID>
+    <CodeName>TrainingGuides.NatureSpotlightEmail</CodeName>
+    <GUID>bc326eb0-ba53-4499-92d5-bf718bb7f227</GUID>
     <ObjectType>cms.contenttype</ObjectType>
   </Parent>
   <Bindings>

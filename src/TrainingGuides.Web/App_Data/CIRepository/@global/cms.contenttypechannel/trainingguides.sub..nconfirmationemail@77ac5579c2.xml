@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.contenttypechannel>
   <Parent>
-    <CodeName>TrainingGuides.BasicEmail</CodeName>
-    <GUID>10caf932-e6fa-4b10-9fed-1f13d7380445</GUID>
+    <CodeName>TrainingGuides.SubscriptionConfirmationEmail</CodeName>
+    <GUID>16166bd3-8711-48ee-95e4-d338f3314072</GUID>
     <ObjectType>cms.contenttype</ObjectType>
   </Parent>
   <Bindings>

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<emaillibrary.emailchannelsender>
+  <EmailChannelSenderCreated>2025-06-17 17:06:01Z</EmailChannelSenderCreated>
+  <EmailChannelSenderDisplayName>admin</EmailChannelSenderDisplayName>
+  <EmailChannelSenderEmailChannelID>
+    <GUID>b1bafb4b-824f-4605-aff0-9db29e2c64b1</GUID>
+    <ObjectType>emaillibrary.emailchannel</ObjectType>
+    <Parent>
+      <CodeName>TrainingGuidesEmails</CodeName>
+      <GUID>49e862ef-2963-49ef-a1f4-f209a01d8fc6</GUID>
+      <ObjectType>cms.channel</ObjectType>
+    </Parent>
+  </EmailChannelSenderEmailChannelID>
+  <EmailChannelSenderGUID>6d945362-af4e-42dc-b021-b084f739765b</EmailChannelSenderGUID>
+  <EmailChannelSenderName>admin</EmailChannelSenderName>
+</emaillibrary.emailchannelsender>

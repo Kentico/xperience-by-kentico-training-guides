@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contenttype>
+  <ClassContentTypeType>Email</ClassContentTypeType>
+  <ClassDisplayName>SubscriptionConfirmationEmail</ClassDisplayName>
+  <ClassFormDefinition>
+    <form>
+      <field column="ContentItemDataID" columntype="integer" enabled="true" guid="0dd0212e-a1f0-4a47-bb6c-fc6cb8fa9b6b" isPK="true" />
+      <field column="ContentItemDataCommonDataID" columntype="integer" enabled="true" guid="016b1536-440e-4610-aaf2-23a4bf601c34" refobjtype="cms.contentitemcommondata" reftype="Required" system="true" />
+      <field column="ContentItemDataGUID" columntype="guid" enabled="true" guid="57aaa1eb-2ba6-420f-a9b6-72d360fa957f" isunique="true" system="true" />
+      <field allowempty="true" column="EmailSenderID" columntype="integer" enabled="true" guid="1bbb096f-79f3-4f97-8d0e-9baf62ffe8fe" refobjtype="emaillibrary.emailchannelsender" reftype="NotRequired" system="true" />
+      <field allowempty="true" column="EmailTemplateID" columntype="integer" enabled="true" guid="896ae957-4d43-4429-bd57-4ea441730bf4" refobjtype="emaillibrary.emailtemplate" reftype="NotRequired" system="true" />
+      <field allowempty="true" column="EmailPlainText" columntype="longtext" enabled="true" guid="1841290f-f50e-4d52-afaa-c50cb62fd87d" system="true" />
+      <field allowempty="true" column="EmailSubject" columnsize="450" columntype="text" enabled="true" guid="3b7fad8f-9e8d-4f0c-8d5b-b23a6729d425" visible="true">
+        <properties>
+          <fieldcaption>{$digitalmarketing.emails.edit.subject$}</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.TextInput</controlname>
+        </settings>
+        <validationrulesdata>
+          <ValidationRuleConfiguration>
+            <ValidationRuleIdentifier>Kentico.Administration.RequiredValue</ValidationRuleIdentifier>
+            <RuleValues />
+          </ValidationRuleConfiguration>
+        </validationrulesdata>
+      </field>
+      <field allowempty="true" column="EmailPreviewText" columntype="longtext" enabled="true" guid="db13f6da-77cc-4758-9479-cd40f0657eba" visible="true">
+        <properties>
+          <fieldcaption>{$digitalmarketing.emails.edit.previewtext$}</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$digitalmarketing.emails.edit.previewtext.tooltip$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.TextArea</controlname>
+        </settings>
+      </field>
+      <field column="EmailSubscriptionMessage" columnprecision="0" columntype="richtexthtml" enabled="true" guid="3a846454-abb0-4da4-8608-72aa2d19ee67" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>EmailSubscriptionMessage</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.RichTextEditor</controlname>
+        </settings>
+      </field>
+    </form>
+  </ClassFormDefinition>
+  <ClassGUID>16166bd3-8711-48ee-95e4-d338f3314072</ClassGUID>
+  <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
+  <ClassIconClass>xp-user-checkbox</ClassIconClass>
+  <ClassName>TrainingGuides.SubscriptionConfirmationEmail</ClassName>
+  <ClassTableName>TrainingGuides_SubscriptionConfirmationEmail</ClassTableName>
+  <ClassType>Content</ClassType>
+  <ClassWebPageHasUrl>False</ClassWebPageHasUrl>
+</cms.contenttype>

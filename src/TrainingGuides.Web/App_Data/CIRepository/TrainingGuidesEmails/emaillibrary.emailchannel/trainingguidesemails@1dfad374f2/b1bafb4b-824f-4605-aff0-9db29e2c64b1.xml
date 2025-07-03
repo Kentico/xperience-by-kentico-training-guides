@@ -2,10 +2,10 @@
 <emaillibrary.emailchannel>
   <EmailChannelChannelID>
     <CodeName>TrainingGuidesEmails</CodeName>
-    <GUID>9925a5ee-b24c-4bd9-aeb5-9131b78b86b7</GUID>
+    <GUID>49e862ef-2963-49ef-a1f4-f209a01d8fc6</GUID>
     <ObjectType>cms.channel</ObjectType>
   </EmailChannelChannelID>
-  <EmailChannelGUID>eaf90efe-53b7-4ea7-bfe0-4997ab572543</EmailChannelGUID>
+  <EmailChannelGUID>b1bafb4b-824f-4605-aff0-9db29e2c64b1</EmailChannelGUID>
   <EmailChannelPrimaryContentLanguageID>
     <CodeName>en</CodeName>
     <GUID>e81b5172-f240-4041-88b1-653089984e29</GUID>
