@@ -53,5 +53,5 @@ public class GalleryWidgetViewComponent : ViewComponent
             topN);
 
     private AssetViewModel GetGalleryImageViewModel(GalleryImage galleryImage) =>
-        AssetViewModel.GetViewModel(galleryImage.GalleryImageAsset.FirstOrDefault()!);
+        AssetViewModel.GetViewModel(galleryImage.GalleryImageAsset.FirstOrDefault());
 }
