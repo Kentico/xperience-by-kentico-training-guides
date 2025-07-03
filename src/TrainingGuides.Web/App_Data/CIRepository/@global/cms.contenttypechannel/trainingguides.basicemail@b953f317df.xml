@@ -2,7 +2,7 @@
 <cms.contenttypechannel>
   <Parent>
     <CodeName>TrainingGuides.BasicEmail</CodeName>
-    <GUID>573a7742-1775-49b2-a172-2b4874682228</GUID>
+    <GUID>10caf932-e6fa-4b10-9fed-1f13d7380445</GUID>
     <ObjectType>cms.contenttype</ObjectType>
   </Parent>
   <Bindings>

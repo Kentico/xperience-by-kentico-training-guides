@@ -39,7 +39,7 @@ public class ArticlePageService : IArticlePageService
             SummaryHtml = new HtmlString(article?.ArticleSummary),
             TextHtml = new HtmlString(article?.ArticleText),
             CreatedOn = articlePage.ArticlePagePublishDate,
-            TeaserImage = AssetViewModel.GetViewModel(articleTeaserImage!),
+            TeaserImage = AssetViewModel.GetViewModel(articleTeaserImage),
             Url = articleUrl
         };
     }

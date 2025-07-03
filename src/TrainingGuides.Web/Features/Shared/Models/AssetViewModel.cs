@@ -8,7 +8,7 @@ public class AssetViewModel
     public bool UseInternalOnly { get; set; }
     public string FilePath { get; set; } = string.Empty;
 
-    public static AssetViewModel GetViewModel(Asset asset) => asset is null
+    public static AssetViewModel GetViewModel(Asset? asset) => asset is null
         ? new()
         : new()
         {
