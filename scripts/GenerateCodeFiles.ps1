@@ -34,6 +34,10 @@ $exitCode = Write-Result-Get-Exit-Code "Reusable content type"
 dotnet run --no-build -- --kxp-codegen --type "PageContentTypes" --namespace $contentTypesNamespace --location "../TrainingGuides.Entities/{type}/{name}" --skip-confirmation
 $exitCode = Write-Result-Get-Exit-Code "Page content type"
 
+#Email content types
+dotnet run --no-build -- --kxp-codegen --type "EmailContentTypes" --namespace $contentTypesNamespace --location "../TrainingGuides.Entities/{type}/{name}" --skip-confirmation
+$exitCode = Write-Result-Get-Exit-Code "Email content type"
+
 #Reusable field schemas
 dotnet run --no-build -- --kxp-codegen --type "ReusableFieldSchemas" --namespace $contentTypesNamespace --location "../TrainingGuides.Entities/{type}/{name}" --skip-confirmation
 $exitCode = Write-Result-Get-Exit-Code "Reusable field schema"

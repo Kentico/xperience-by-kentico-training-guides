@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.subscriptionconfirmationemail>
+  <ContentItemDataCommonDataID>
+    <GUID>f63eb305-f8e7-4ce5-abab-b7192070aa35</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>SubscriptionConfirmation-2pudkabq</CodeName>
+      <GUID>cf4186bc-0373-4ebc-b289-a3f5d21e89d5</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>a867d042-a371-4f8f-870f-c4fc69bbf46b</ContentItemDataGUID>
+  <EmailPlainText />
+  <EmailPreviewText>
+    <![CDATA[Please confirm your subscription to the Training guides newsletters.]]>
+  </EmailPreviewText>
+  <EmailSenderID>
+    <CodeName>admin</CodeName>
+    <GUID>6d945362-af4e-42dc-b021-b084f739765b</GUID>
+    <ObjectType>emaillibrary.emailchannelsender</ObjectType>
+    <Parent>
+      <GUID>b1bafb4b-824f-4605-aff0-9db29e2c64b1</GUID>
+      <ObjectType>emaillibrary.emailchannel</ObjectType>
+      <Parent>
+        <CodeName>TrainingGuidesEmails</CodeName>
+        <GUID>49e862ef-2963-49ef-a1f4-f209a01d8fc6</GUID>
+        <ObjectType>cms.channel</ObjectType>
+      </Parent>
+    </Parent>
+  </EmailSenderID>
+  <EmailSubject>Confirm your subscription - Training guides</EmailSubject>
+  <EmailSubscriptionMessage>
+    <![CDATA[<p>Hello!</p><p>Thank you for your interest in the Training guides newsletters.&nbsp;</p><p>Please confirm your subscription by clicking the following link: {!ResolveSubscriptionConfirmationLink("Subscribe","a82e4e4b-edd9-4829-8f54-85d8be9ea6b1")!}</p><p>If you did not try to subscribe, please ignore this email.</p><p>Thank you!</p>]]>
+  </EmailSubscriptionMessage>
+  <EmailTemplateID>
+    <CodeName>SubscriptionConfirmation</CodeName>
+    <GUID>4f3f6938-e647-48e7-8e24-0943745daf1d</GUID>
+    <ObjectType>emaillibrary.emailtemplate</ObjectType>
+  </EmailTemplateID>
+</contentitemdata.trainingguides.subscriptionconfirmationemail>

@@ -82,8 +82,8 @@ builder.Services.AddXperienceSmtp(options =>
 
 builder.Services.Configure<EmailBuilderOptions>(options =>
 {
-    // Allows Email Builder for the 'Basic email' content type
-    options.AllowedEmailContentTypeNames = [BasicEmail.CONTENT_TYPE_NAME];
+    // Allows Email Builder for the provided content types
+    options.AllowedEmailContentTypeNames = [BasicEmail.CONTENT_TYPE_NAME, NatureSpotlightEmail.CONTENT_TYPE_NAME];
     // Replaces the default Email Builder section
     options.RegisterDefaultSection = false;
     options.DefaultSectionIdentifier = FullWidthEmailSection.IDENTIFIER;

@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<emaillibrary.emailconfiguration>
+  <EmailConfigurationContentItemID>
+    <CodeName>SubscriptionConfirmation-2pudkabq</CodeName>
+    <GUID>cf4186bc-0373-4ebc-b289-a3f5d21e89d5</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </EmailConfigurationContentItemID>
+  <EmailConfigurationEmailChannelID>
+    <GUID>b1bafb4b-824f-4605-aff0-9db29e2c64b1</GUID>
+    <ObjectType>emaillibrary.emailchannel</ObjectType>
+    <Parent>
+      <CodeName>TrainingGuidesEmails</CodeName>
+      <GUID>49e862ef-2963-49ef-a1f4-f209a01d8fc6</GUID>
+      <ObjectType>cms.channel</ObjectType>
+    </Parent>
+  </EmailConfigurationEmailChannelID>
+  <EmailConfigurationGUID>8f02e64d-c727-4d51-90af-80a58d5c2904</EmailConfigurationGUID>
+  <EmailConfigurationName>SubscriptionConfirmation-2pudkabq</EmailConfigurationName>
+  <EmailConfigurationPurpose>FormAutoresponder</EmailConfigurationPurpose>
+</emaillibrary.emailconfiguration>

@@ -107,6 +107,12 @@ if($isUsingCD -eq 'True'){
     if(-not $commandResult){
         Handle-Error 'Unable to re-enable continuous integration.'
     }
+
+    dotnet run --kxp-ci-store
+
+    if($LASTEXITCODE -ne 0) {
+        Handle-Error 'Unable to store continuous integration. Make sure to run the store operation after fixing any issues.'
+    }
 }
 
 Set-Location -Path $originalLocation

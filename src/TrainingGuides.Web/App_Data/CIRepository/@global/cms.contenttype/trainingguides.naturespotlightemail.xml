@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contenttype>
+  <ClassContentTypeType>Email</ClassContentTypeType>
+  <ClassDisplayName>Nature spotlight newsletter email</ClassDisplayName>
+  <ClassFormDefinition>
+    <form>
+      <field column="ContentItemDataID" columntype="integer" enabled="true" guid="ec70cf09-14c3-4ba7-b977-1661126518e6" isPK="true" />
+      <field column="ContentItemDataCommonDataID" columntype="integer" enabled="true" guid="25f577f1-0f86-476c-ad79-a84a9b9cb479" refobjtype="cms.contentitemcommondata" reftype="Required" system="true" />
+      <field column="ContentItemDataGUID" columntype="guid" enabled="true" guid="10c032c5-5597-4a56-8d04-af68cf2bdb90" isunique="true" system="true" />
+      <field allowempty="true" column="EmailSenderID" columntype="integer" enabled="true" guid="4e395b87-8402-45c1-8039-ee7d70c52148" refobjtype="emaillibrary.emailchannelsender" reftype="NotRequired" system="true" />
+      <field allowempty="true" column="EmailTemplateID" columntype="integer" enabled="true" guid="5581f950-d95e-4c6a-9357-2dc9c0fbbd04" refobjtype="emaillibrary.emailtemplate" reftype="NotRequired" system="true" />
+      <field allowempty="true" column="EmailPlainText" columntype="longtext" enabled="true" guid="3f5d5cda-aa6b-4f7b-b802-5d163fca8850" system="true" />
+      <field allowempty="true" column="EmailSubject" columnsize="450" columntype="text" enabled="true" guid="56e5e3e9-1e1f-48d9-9a04-947b54420976" visible="true">
+        <properties>
+          <fieldcaption>{$digitalmarketing.emails.edit.subject$}</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.TextInput</controlname>
+        </settings>
+        <validationrulesdata>
+          <ValidationRuleConfiguration>
+            <ValidationRuleIdentifier>Kentico.Administration.RequiredValue</ValidationRuleIdentifier>
+            <RuleValues />
+          </ValidationRuleConfiguration>
+        </validationrulesdata>
+      </field>
+      <field allowempty="true" column="EmailPreviewText" columntype="longtext" enabled="true" guid="68be405d-ee45-4a31-8f78-4ae29c3da805" visible="true">
+        <properties>
+          <fieldcaption>{$digitalmarketing.emails.edit.previewtext$}</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$digitalmarketing.emails.edit.previewtext.tooltip$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.TextArea</controlname>
+        </settings>
+      </field>
+      <field column="NatureSpotlightTopic" columnprecision="0" columnsize="200" columntype="text" enabled="true" guid="69bb4e71-d854-4460-95aa-92f723054b50" visible="true">
+        <properties>
+          <explanationtext>
+            <![CDATA[The name of the organism, feature, or phenomenon in the spotlight]]>
+          </explanationtext>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Topic</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.TextInput</controlname>
+        </settings>
+      </field>
+      <field column="NatureSpotlightText" columnprecision="0" columntype="longtext" enabled="true" guid="21e6bac9-db7d-479a-b843-b9f7245cc9c7" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Nature spotlight text</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.RichTextEditor</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="NatureSpotlightCountries" columnprecision="0" columntype="objectguids" enabled="true" guid="a5fc88f2-ca3e-4929-a2a6-c25510971ea3" visible="true">
+        <properties>
+          <explanationtext>
+            <![CDATA[The country (or countries) where the spotlighted entity exists]]>
+          </explanationtext>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Country / countries</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.ObjectGuidSelector</controlname>
+          <MaximumItems>0</MaximumItems>
+          <ObjectType>CMS.Country</ObjectType>
+        </settings>
+      </field>
+      <field allowempty="true" column="NatureSpotlightRelatedArticles" columnprecision="0" columntype="contentitemreference" enabled="true" guid="da542846-6cde-4666-a181-7f6b6a3555f1" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Related articles</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <AllowedContentItemTypeIdentifiers>
+            <![CDATA[["c5201839-8fe2-4d8d-a19a-f080592dc7d3"]]]>
+          </AllowedContentItemTypeIdentifiers>
+          <controlname>Kentico.Administration.ContentItemSelector</controlname>
+          <MaximumItems>3</MaximumItems>
+          <SelectionType>contentTypes</SelectionType>
+        </settings>
+      </field>
+      <field allowempty="true" column="NatureSpotlightImages" columnprecision="0" columntype="contentitemreference" enabled="true" guid="57580b8c-2995-4375-94d2-35fd9b1000be" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Images</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <AllowedContentItemTypeIdentifiers>
+            <![CDATA[["9ecde825-735e-4967-a995-cc97b55adb0f"]]]>
+          </AllowedContentItemTypeIdentifiers>
+          <controlname>Kentico.Administration.ContentItemSelector</controlname>
+          <SelectionType>contentTypes</SelectionType>
+        </settings>
+      </field>
+    </form>
+  </ClassFormDefinition>
+  <ClassGUID>bc326eb0-ba53-4499-92d5-bf718bb7f227</ClassGUID>
+  <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
+  <ClassIconClass>xp-earth</ClassIconClass>
+  <ClassName>TrainingGuides.NatureSpotlightEmail</ClassName>
+  <ClassTableName>TrainingGuides_NatureSpotlightEmail</ClassTableName>
+  <ClassType>Content</ClassType>
+  <ClassWebPageHasUrl>False</ClassWebPageHasUrl>
+</cms.contenttype>

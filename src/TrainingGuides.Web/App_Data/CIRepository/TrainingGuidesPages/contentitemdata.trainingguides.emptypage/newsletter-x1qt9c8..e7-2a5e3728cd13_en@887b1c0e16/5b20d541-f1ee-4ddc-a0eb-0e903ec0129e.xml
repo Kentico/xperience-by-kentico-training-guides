@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.emptypage>
+  <ContentItemDataCommonDataID>
+    <GUID>7e429048-3cd7-4f2c-aee7-2a5e3728cd13</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>Newsletter-x1qt9c8t</CodeName>
+      <GUID>71646b5a-d21a-4c08-b908-bf1b042090da</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>5b20d541-f1ee-4ddc-a0eb-0e903ec0129e</ContentItemDataGUID>
+</contentitemdata.trainingguides.emptypage>

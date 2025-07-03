@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.form>
+  <FormBuilderLayout>
+<![CDATA[
+{
+  "editableAreas": [
+    {
+      "identifier": "DefaultFormBuilderArea",
+      "sections": [
+        {
+          "identifier": "00000000-0000-0000-0000-000000000000",
+          "type": "Kentico.DefaultSection",
+          "zones": [
+            {
+              "identifier": "87cbf97d-d5ac-4ff8-b1ad-2ec3954221f8",
+              "formComponents": [
+                {
+                  "identifier": "c3476806-3141-48d0-baac-4cea28e1c9a6"
+                }
+              ]
+            }
+          ],
+          "properties": null
+        }
+      ]
+    }
+  ]
+}
+]]>
+  </FormBuilderLayout>
+  <FormClassID>
+    <CodeName>BizForm.NatureSpotlightSubscribe</CodeName>
+    <GUID>c40c10f4-0ca7-4f2e-9cf7-0404db3a0e81</GUID>
+    <ObjectType>cms.formclass</ObjectType>
+  </FormClassID>
+  <FormDisplayName>Nature spotlight subscribe</FormDisplayName>
+  <FormGUID>7a770100-310e-4e05-8fc1-cf19c0fe7b8b</FormGUID>
+  <FormItems>0</FormItems>
+  <FormLogActivity>True</FormLogActivity>
+  <FormName>NatureSpotlightSubscribe</FormName>
+</cms.form>

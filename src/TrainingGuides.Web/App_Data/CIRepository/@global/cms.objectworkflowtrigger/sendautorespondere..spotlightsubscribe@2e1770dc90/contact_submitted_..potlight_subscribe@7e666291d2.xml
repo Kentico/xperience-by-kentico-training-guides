@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.objectworkflowtrigger>
+  <TriggerDisplayName>
+    <![CDATA[Contact submitted form 'Nature spotlight subscribe']]>
+  </TriggerDisplayName>
+  <TriggerGUID>0668b2a7-36b3-4226-be36-83e985973c7f</TriggerGUID>
+  <TriggerObjectType>cms.form</TriggerObjectType>
+  <TriggerParameters />
+  <TriggerTargetObjectID>
+    <CodeName>NatureSpotlightSubscribe</CodeName>
+    <GUID>7a770100-310e-4e05-8fc1-cf19c0fe7b8b</GUID>
+    <ObjectType>cms.form</ObjectType>
+  </TriggerTargetObjectID>
+  <TriggerTargetObjectType>cms.form</TriggerTargetObjectType>
+  <TriggerType>0</TriggerType>
+  <TriggerWorkflowID>
+    <CodeName>SendAutoresponderEmail.NatureSpotlightSubscribe</CodeName>
+    <GUID>2bcaa7db-6917-4542-bebc-9ba0f8a0270a</GUID>
+    <ObjectType>ma.automationprocess</ObjectType>
+  </TriggerWorkflowID>
+</cms.objectworkflowtrigger>

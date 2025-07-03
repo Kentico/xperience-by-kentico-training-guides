@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<emaillibrary.recipientlistsettings>
+  <RecipientListSettingsAfterConfirmationPage>b70f47cc-81b8-40f2-8527-178c0ecffff2</RecipientListSettingsAfterConfirmationPage>
+  <RecipientListSettingsAfterUnsubscriptionPage>b3ea83af-e976-47d8-b408-3d1b12351361</RecipientListSettingsAfterUnsubscriptionPage>
+  <RecipientListSettingsGUID>d560bd29-290b-4462-978e-ee2c928114da</RecipientListSettingsGUID>
+  <RecipientListSettingsRecipientListID>
+    <CodeName>NewsletterRecipients</CodeName>
+    <GUID>a82e4e4b-edd9-4829-8f54-85d8be9ea6b1</GUID>
+    <ObjectType>om.recipientlist</ObjectType>
+  </RecipientListSettingsRecipientListID>
+  <RecipientListSettingsSendSubscriptionConfirmationEmail>False</RecipientListSettingsSendSubscriptionConfirmationEmail>
+  <RecipientListSettingsSendUnsubscriptionConfirmationEmail>False</RecipientListSettingsSendUnsubscriptionConfirmationEmail>
+</emaillibrary.recipientlistsettings>

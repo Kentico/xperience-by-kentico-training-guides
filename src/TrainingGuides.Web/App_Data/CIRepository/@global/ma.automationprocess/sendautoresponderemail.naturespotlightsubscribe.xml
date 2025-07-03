@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ma.automationprocess>
+  <WorkflowAutomationType>1</WorkflowAutomationType>
+  <WorkflowDisplayName>
+    <![CDATA[Send autoresponder email from form 'Nature spotlight subscribe']]>
+  </WorkflowDisplayName>
+  <WorkflowEnabled>True</WorkflowEnabled>
+  <WorkflowGUID>2bcaa7db-6917-4542-bebc-9ba0f8a0270a</WorkflowGUID>
+  <WorkflowName>SendAutoresponderEmail.NatureSpotlightSubscribe</WorkflowName>
+  <WorkflowRecurrenceType>3</WorkflowRecurrenceType>
+  <WorkflowType>3</WorkflowType>
+</ma.automationprocess>

@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.workflowtransition>
+  <Parent>
+    <CodeName>start</CodeName>
+    <GUID>b0c780c5-f267-49d6-aa88-7eae06046e48</GUID>
+    <ObjectType>ma.automationstep</ObjectType>
+    <Parent>
+      <CodeName>SendAutoresponderEmail.NatureSpotlightSubscribe</CodeName>
+      <GUID>2bcaa7db-6917-4542-bebc-9ba0f8a0270a</GUID>
+      <ObjectType>ma.automationprocess</ObjectType>
+    </Parent>
+  </Parent>
+  <Bindings>
+    <Binding id="ma.automationstep_SendAutoresponderEmail_ma.automationprocess_SendAutoresponderEmail.NatureSpotlightSubscribe-ma.automationstep_SendAutoresponderEmail_ma.automationprocess_SendAutoresponderEmail.NatureSpotlightSubscribe">
+      <TransitionEndStepID>
+        <CodeName>SendAutoresponderEmail</CodeName>
+        <GUID>7f40bb3c-026e-480d-af46-50d4e376b488</GUID>
+        <ObjectType>ma.automationstep</ObjectType>
+        <Parent>
+          <CodeName>SendAutoresponderEmail.NatureSpotlightSubscribe</CodeName>
+          <GUID>2bcaa7db-6917-4542-bebc-9ba0f8a0270a</GUID>
+          <ObjectType>ma.automationprocess</ObjectType>
+        </Parent>
+      </TransitionEndStepID>
+      <TransitionSourcePointGUID>d4fb7a3f-affe-4395-9f04-7df790cae09d</TransitionSourcePointGUID>
+      <TransitionType>1</TransitionType>
+      <TransitionWorkflowID>
+        <CodeName>SendAutoresponderEmail.NatureSpotlightSubscribe</CodeName>
+        <GUID>2bcaa7db-6917-4542-bebc-9ba0f8a0270a</GUID>
+        <ObjectType>ma.automationprocess</ObjectType>
+      </TransitionWorkflowID>
+    </Binding>
+  </Bindings>
+</cms.workflowtransition>

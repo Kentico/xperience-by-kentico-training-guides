@@ -7,6 +7,7 @@ using TrainingGuides.Web.Features.EmailNotifications;
 using TrainingGuides.Web.Features.Html.Services;
 using TrainingGuides.Web.Features.Membership.Profile;
 using TrainingGuides.Web.Features.Membership.Services;
+using TrainingGuides.Web.Features.Newsletters.NatureSpotlight;
 using TrainingGuides.Web.Features.Products.Services;
 using TrainingGuides.Web.Features.SEO;
 using TrainingGuides.Web.Features.Shared.EmailBuilder;
@@ -30,6 +31,7 @@ public static class ServiceCollectionExtensions
         services.AddSingleton<IEmailNotificationService, EmailNotificationService>();
         services.AddSingleton<IMemberContactService, MemberContactService>();
         services.AddSingleton<IUpdateProfileService, UpdateProfileService>();
+        services.AddSingleton<ICountryService, CountryService>();
 
         services.AddScoped<IMembershipService, MembershipService>();
         services.AddScoped<IHeadTagStoreService, HeadTagStoreService>();
@@ -37,6 +39,7 @@ public static class ServiceCollectionExtensions
         services.AddScoped<IComponentModelMapper<ImageWidgetModel>, ImageEmailWidgetModelMapper>();
         services.AddScoped<IComponentModelMapper<ProductWidgetModel>, ProductEmailWidgetModelMapper>();
         services.AddScoped<IComponentModelMapper<ArticleEmailWidgetModel>, ArticleEmailWidgetModelMapper>();
+        services.AddScoped<INatureSpotlightEmailService, NatureSpotlightEmailService>();
 
         services.AddTransient(typeof(IContentItemRetrieverService<>), typeof(ContentItemRetrieverService<>));
 

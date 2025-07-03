@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentitemcommondata>
+  <ContentItemCommonDataContentItemID>
+    <CodeName>Goodbye-tzw1394f</CodeName>
+    <GUID>7c395855-e197-4df1-b182-1ede048bf6a8</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </ContentItemCommonDataContentItemID>
+  <ContentItemCommonDataContentLanguageID>
+    <CodeName>en</CodeName>
+    <GUID>e81b5172-f240-4041-88b1-653089984e29</GUID>
+    <ObjectType>cms.contentlanguage</ObjectType>
+  </ContentItemCommonDataContentLanguageID>
+  <ContentItemCommonDataFirstPublishedWhen>2025-06-18 22:02:03Z</ContentItemCommonDataFirstPublishedWhen>
+  <ContentItemCommonDataGUID>24b05ca6-ccce-45e1-b613-ab20f5c45c56</ContentItemCommonDataGUID>
+  <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
+  <ContentItemCommonDataLastPublishedWhen>2025-06-18 22:02:03Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
+  <ContentItemCommonDataVisualBuilderTemplateConfiguration>
+    <![CDATA[{"identifier":"TrainingGuides.GeneralPageTemplate","properties":{"colorScheme":"TransparentDark","cornerStyle":"Round","columnLayout":"ThreeColumnSmLgSm"},"fieldIdentifiers":{"colorScheme":"9f7fa078-cd90-4438-b3be-f4cbdc41b416","cornerStyle":"ab4390b5-c4ae-4cbe-a46d-850a89bfbfc3","columnLayout":"01c93b0b-97ff-48f8-b4fe-1049923d09d0"}}]]>
+  </ContentItemCommonDataVisualBuilderTemplateConfiguration>
+  <ContentItemCommonDataVisualBuilderWidgets>
+    <![CDATA[{"editableAreas":[{"identifier":"areaSecondary","sections":[{"identifier":"b0358c21-f20f-498c-b685-abcb8ec9160c","type":"TrainingGuides.GeneralSection","properties":{"sectionAnchor":"","colorScheme":"TransparentDark","cornerStyle":"Round","columnLayout":"OneColumn"},"zones":[{"identifier":"c36057a9-1730-400a-b63f-9459159c80bb","name":"zoneMain","widgets":[]}],"fieldIdentifiers":{"sectionAnchor":"e93a6d40-0689-453b-b3cf-5200ec9d63d9","colorScheme":"721ab8e6-1a65-4a55-add5-f062340e50b3","cornerStyle":"0c86e38f-d458-4281-b7a8-d7fd67772911","columnLayout":"97825650-7547-4205-a015-5b5f7bf51054"}}]},{"identifier":"areaMain","sections":[{"identifier":"180401c8-e40b-4e2e-83f1-45209817211d","type":"TrainingGuides.GeneralSection","properties":{"sectionAnchor":"","colorScheme":"Light2","cornerStyle":"Round","columnLayout":"OneColumn"},"zones":[{"identifier":"f6e6df2d-3517-4253-ba2b-9cfe46b65b0a","name":"zoneMain","widgets":[{"identifier":"7cc7660e-9fc7-41b3-8d3d-d71d9f54fcf3","type":"Kentico.Widget.RichText","variants":[{"identifier":"bc350713-d387-4307-b6f8-f7743a804917","properties":{"content":"<h2 style=\"text-align: center\">Goodbye</h2><p style=\"text-align: center\">We're sorry that our newsletter wasn't for you.</p><p style=\"text-align: center\">We hope you have a wonderful day!</p>"},"fieldIdentifiers":{"content":"c8e226b5-1822-4c94-811a-2261a83e75ac"}}]},{"identifier":"42964c44-6950-4763-9e27-28a955f665a6","type":"TrainingGuides.SimpleCallToActionWidget","variants":[{"identifier":"66a23842-26f9-46c7-83f6-c795f3aacbc8","properties":{"text":"Go to the Home page","targetContent":"Page","targetContentPage":[{"webPageGuid":"377ca7c4-eea9-49a0-9d58-282b5127c7ff"}],"targetContentAbsoluteUrl":"","openInNewTab":false},"fieldIdentifiers":{"text":"3918754e-b879-4471-96e0-9757393ecd85","targetContent":"91c568d2-4dc4-43c1-a37d-aa2590964dcd","targetContentPage":"7b9fa4eb-5a0a-4cba-af6d-8b366895583a","targetContentAbsoluteUrl":"9179888e-e8f0-495e-8fb7-5c79c8724d4a","openInNewTab":"86d84d2f-1d5a-49da-940d-2839bdfeb649"}}]}]}],"fieldIdentifiers":{"sectionAnchor":"65628b8e-a5b1-4624-bf80-064b0d0254b0","colorScheme":"053fba91-a364-4d66-b542-cc9971123dba","cornerStyle":"408436cd-3b99-4f0a-be2d-d1f329d1b91f","columnLayout":"6c3a51d9-b4f4-43f1-8521-1f8d71f014fc"}}]},{"identifier":"areaTertiary","sections":[{"identifier":"fabbd46f-3f62-4fe7-8150-00d566c30833","type":"TrainingGuides.GeneralSection","properties":{"sectionAnchor":"","colorScheme":"TransparentDark","cornerStyle":"Round","columnLayout":"OneColumn"},"zones":[{"identifier":"0c46bac8-5513-403d-a469-ee78a00d0ca6","name":"zoneMain","widgets":[]}],"fieldIdentifiers":{"sectionAnchor":"f66efc92-2afe-436a-9f0e-fbb0f39963e7","colorScheme":"0203a830-25e4-4dfe-a35e-6e0727694351","cornerStyle":"2d9861c8-1d3a-4e92-9dc9-76883704b792","columnLayout":"056b732a-7a22-4509-adbb-80da78449f84"}}]}]}]]>
+  </ContentItemCommonDataVisualBuilderWidgets>
+  <ContentItemReferences>
+    <cms.contentitemreference>
+      <ContentItemReferenceGroupGUID>7b9fa4eb-5a0a-4cba-af6d-8b366895583a</ContentItemReferenceGroupGUID>
+      <ContentItemReferenceGUID>211718f8-17a1-40d9-baf0-d055a3eda5cc</ContentItemReferenceGUID>
+      <ContentItemReferenceSourceCommonDataID>
+        <GUID>24b05ca6-ccce-45e1-b613-ab20f5c45c56</GUID>
+        <ObjectType>cms.contentitemcommondata</ObjectType>
+      </ContentItemReferenceSourceCommonDataID>
+      <ContentItemReferenceTargetItemID>
+        <CodeName>Home-ciuaqx9l</CodeName>
+        <GUID>acf3748a-38f9-4c32-90cf-cd626b1a6923</GUID>
+        <ObjectType>cms.contentitem</ObjectType>
+      </ContentItemReferenceTargetItemID>
+    </cms.contentitemreference>
+  </ContentItemReferences>
+</cms.contentitemcommondata>
