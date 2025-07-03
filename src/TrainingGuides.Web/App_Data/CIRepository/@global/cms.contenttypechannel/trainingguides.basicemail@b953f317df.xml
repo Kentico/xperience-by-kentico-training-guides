@@ -9,7 +9,7 @@
     <Binding id="cms.channel_TrainingGuidesEmails">
       <ContentTypeChannelChannelID>
         <CodeName>TrainingGuidesEmails</CodeName>
-        <GUID>9925a5ee-b24c-4bd9-aeb5-9131b78b86b7</GUID>
+        <GUID>49e862ef-2963-49ef-a1f4-f209a01d8fc6</GUID>
         <ObjectType>cms.channel</ObjectType>
       </ContentTypeChannelChannelID>
     </Binding>
