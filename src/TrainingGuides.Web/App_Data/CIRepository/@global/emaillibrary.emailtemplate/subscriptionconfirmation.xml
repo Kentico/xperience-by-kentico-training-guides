@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<emaillibrary.emailtemplate>
+  <EmailTemplateCode>
+<![CDATA[
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <body>
+    {% EmailSubscriptionMessage %}
+  </body>
+</html>
+]]>
+  </EmailTemplateCode>
+  <EmailTemplateDisplayName>SubscriptionConfirmation</EmailTemplateDisplayName>
+  <EmailTemplateGuid>4f3f6938-e647-48e7-8e24-0943745daf1d</EmailTemplateGuid>
+  <EmailTemplateName>SubscriptionConfirmation</EmailTemplateName>
+</emaillibrary.emailtemplate>
