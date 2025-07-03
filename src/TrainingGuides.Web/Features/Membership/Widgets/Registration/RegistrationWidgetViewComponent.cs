@@ -14,6 +14,7 @@ using TrainingGuides.Web.Features.Shared.Services;
     IconClass = "icon-lines-rectangle-o")]
 
 namespace TrainingGuides.Web.Features.Membership.Widgets.Registration;
+
 public class RegistrationWidgetViewComponent : ViewComponent
 {
     private readonly IHttpRequestService httpRequestService;
