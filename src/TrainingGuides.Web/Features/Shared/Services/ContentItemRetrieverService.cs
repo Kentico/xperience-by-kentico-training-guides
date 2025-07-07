@@ -27,7 +27,7 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
     /// <param name="webPageItemId">The Id of the Web page content item.</param>
     /// <param name="contentTypeName">Content type name of the Web page.</param>
     /// <param name="depth">The maximum level of recursively linked content items that should be included in the results. Default value is 1.</param>
-    /// <returns>A Web page content item of specified type, with the specifiied Id</returns>
+    /// <returns>A Web page content item of specified type, with the specified Id</returns>
     public async Task<T?> RetrieveWebPageById(
         int webPageItemId,
         string contentTypeName,
@@ -50,7 +50,7 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
     /// <param name="webPageItemGuid">The Guid of the Web page content item.</param>
     /// <param name="contentTypeName">Content type name of the Web page.</param>
     /// <param name="depth">The maximum level of recursively linked content items that should be included in the results. Default value is 1.</param>
-    /// <returns>A Web page content item of specified type, with the specifiied Id</returns>
+    /// <returns>A Web page content item of specified type, with the specified Id</returns>
     public async Task<T?> RetrieveWebPageByGuid(
         Guid? webPageItemGuid,
         string contentTypeName,
@@ -86,7 +86,7 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
             contentTypeName,
             innerParams => innerParams.WithLinkedItems(depth),
             outerParams => outerParams
-                .Where(where => where.WhereEquals(nameof(WebPageFields.ContentItemGUID), contentItemGuid)),
+                .Where(where => where.WhereEquals(nameof(ContentItemFields.ContentItemGUID), contentItemGuid)),
             languageName: languageName);
         return pages.FirstOrDefault();
     }
@@ -222,14 +222,14 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
     /// <summary>
     /// Retrieves the IWebPageFieldsSource of a web page item by Guid.
     /// </summary>
-    /// <param name="webPageItemGuid">the Guid of the web page item</param>
+    /// <param name="pageContentItemGuid">the Guid of the web page item</param>
     /// <returns><see cref="IWebPageFieldsSource"/> object containing generic <see cref="WebPageFields"/> for the item</returns>
-    public async Task<IWebPageFieldsSource?> RetrieveWebPageByGuid(
-        Guid webPageItemGuid)
+    public async Task<IWebPageFieldsSource?> RetrieveWebPageByContentItemGuid(
+        Guid pageContentItemGuid)
     {
         var pages = await RetrieveWebPages(parameters =>
             {
-                parameters.Where(where => where.WhereEquals(nameof(WebPageFields.WebPageItemGUID), webPageItemGuid));
+                parameters.Where(where => where.WhereEquals(nameof(ContentItemFields.ContentItemGUID), pageContentItemGuid));
             });
 
         return pages.FirstOrDefault();
@@ -248,14 +248,17 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
 
     private async Task<IEnumerable<IWebPageFieldsSource>> RetrieveWebPages(Action<ContentQueryParameters> parameters)
     {
-        var builder = new ContentItemQueryBuilder();
+        var builder = new ContentItemQueryBuilder()
+            .ForContentTypes(query => query
+            .WithLinkedItems(2, options => options.IncludeWebPageData(true))
+            .ForWebsite(websiteChannelContext.WebsiteChannelName))
+        .Parameters(parameters);
 
-        builder.ForContentTypes(query =>
-            {
-                query.ForWebsite(websiteChannelContext.WebsiteChannelName);
-            })
-            .Parameters(parameters);
+        var queryExecutorOptions = new ContentQueryExecutionOptions
+        {
+            ForPreview = websiteChannelContext.IsPreview
+        };
 
-        return await contentQueryExecutor.GetMappedResult<IWebPageFieldsSource>(builder);
+        return await contentQueryExecutor.GetMappedResult<IWebPageFieldsSource>(builder, queryExecutorOptions);
     }
 }

@@ -1,17 +1,24 @@
+using CMS.ContentEngine;
 using Kentico.PageBuilder.Web.Mvc;
 using Kentico.Xperience.Admin.Base.FormAnnotations;
-using Kentico.Xperience.Admin.Websites.FormAnnotations;
 
 namespace TrainingGuides.Web.Features.Articles.Widgets.ArticleList;
 
 public class ArticleListWidgetProperties : IWidgetProperties
 {
-    [WebPageSelectorComponent(
-        Label = "Select the content tree section",
-        MaximumPages = 1,
-        Sortable = true,
+    [ContentItemSelectorComponent(
+        new[] {
+            ArticlePage.CONTENT_TYPE_NAME,
+            DownloadsPage.CONTENT_TYPE_NAME,
+            EmptyPage.CONTENT_TYPE_NAME,
+            LandingPage.CONTENT_TYPE_NAME,
+            ProductPage.CONTENT_TYPE_NAME
+        },
+        Label = "Select a parent page to pull articles from",
+        AllowContentItemCreation = false,
+        MaximumItems = 1,
         Order = 10)]
-    public IEnumerable<WebPageRelatedItem> ContentTreeSection { get; set; } = Enumerable.Empty<WebPageRelatedItem>();
+    public IEnumerable<ContentItemReference> ContentTreeSection { get; set; } = Enumerable.Empty<ContentItemReference>();
 
     [NumberInputComponent(
         Label = "Number of articles to display",

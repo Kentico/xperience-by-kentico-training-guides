@@ -42,6 +42,6 @@ public interface IContentItemRetrieverService<T>
 
 public interface IContentItemRetrieverService
 {
-    Task<IWebPageFieldsSource?> RetrieveWebPageByGuid(Guid webPageItemGuid);
+    Task<IWebPageFieldsSource?> RetrieveWebPageByContentItemGuid(Guid pageContentItemGuid);
 
 }
