@@ -1,5 +1,6 @@
 using Xunit;
 using TrainingGuides.Web.Features.Gallery.Widgets.GalleryWidget;
+using TrainingGuides.Web.Features.Shared.Models;
 
 namespace TrainingGuides.Web.Tests.Features.Gallery.Widgets.GalleryWidget;
 
@@ -25,7 +26,7 @@ public class GalleryWidgetViewModelTests
     public void IsMisconfigured_When_ImagesContainItems_ReturnsFalse()
     {
         var widgetViewModel = new GalleryWidgetViewModel();
-        widgetViewModel.Images.Add(new GalleryImageViewModel());
+        widgetViewModel.Images.Add(new AssetViewModel());
 
         Assert.False(widgetViewModel.IsMisconfigured);
     }

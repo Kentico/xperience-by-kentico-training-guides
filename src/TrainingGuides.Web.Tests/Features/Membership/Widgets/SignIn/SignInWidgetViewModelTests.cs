@@ -13,13 +13,10 @@ public class SignInWidgetViewModelTests
     }
 
     [Fact]
-    public void WhenModelInitialized_BaseUrl_IsEmpty() => Assert.Equal(string.Empty, viewModel.BaseUrl);
+    public void WhenModelInitialized_ActionUrl_IsEmpty() => Assert.Equal(string.Empty, viewModel.ActionUrl);
 
     [Fact]
-    public void WhenModelInitialized_Language_IsEmpty() => Assert.Equal(string.Empty, viewModel.Language);
-
-    [Fact]
-    public void WhenModelInitialized_RedirectUrl_IsEmpty() => Assert.Equal(string.Empty, viewModel.DefaultRedirectPageGuid);
+    public void WhenModelInitialized_DefaultRedirectPageGuid_IsEmpty() => Assert.Equal(Guid.Empty, viewModel.DefaultRedirectPageGuid);
 
     [Fact]
     public void WhenModelInitialized_DisplayForm_IsTrue() => Assert.True(viewModel.DisplayForm);
@@ -49,11 +46,11 @@ public class SignInWidgetViewModelTests
     public void WhenModelInitialized_StaySignedIn_IsFalse() => Assert.False(viewModel.StaySignedIn);
 
     [Fact]
-    public void IsMisconfigured_WhenBaseUrlAndAllLabelsAreSet_ReturnsFalse()
+    public void IsMisconfigured_WhenActionUrlAndAllLabelsAreSet_ReturnsFalse()
     {
         var viewModelAllFieldsSet = new SignInWidgetViewModel
         {
-            BaseUrl = "https://www.example.com",
+            ActionUrl = "https://www.example.com/authenticate",
             SubmitButtonText = "Submit",
             UserNameOrEmailLabel = "Username",
             PasswordLabel = "Password",
@@ -64,9 +61,9 @@ public class SignInWidgetViewModelTests
     }
 
     [Fact]
-    public void IsMisconfigured_WhenBaseUrlAnyLabelIsMissing_ReturnsTrue()
+    public void IsMisconfigured_WhenActionUrlOrAnyLabelIsMissing_ReturnsTrue()
     {
-        var viewModelBaseUrlMissing = new SignInWidgetViewModel
+        var viewModelActionUrlMissing = new SignInWidgetViewModel
         {
             SubmitButtonText = "Submit",
             UserNameOrEmailLabel = "Username",
@@ -75,34 +72,34 @@ public class SignInWidgetViewModelTests
         };
         var viewModelSubmitButtonTextMissing = new SignInWidgetViewModel
         {
-            BaseUrl = "https://www.example.com",
+            ActionUrl = "https://www.example.com/authenticate",
             UserNameOrEmailLabel = "Username",
             PasswordLabel = "Password",
             StaySignedInLabel = "Stay signed in"
         };
         var viewModelUserNameOrEmailLabelMissing = new SignInWidgetViewModel
         {
-            BaseUrl = "https://www.example.com",
+            ActionUrl = "https://www.example.com/authenticate",
             SubmitButtonText = "Submit",
             PasswordLabel = "Password",
             StaySignedInLabel = "Stay signed in"
         };
         var viewModelPasswordLabelMissing = new SignInWidgetViewModel
         {
-            BaseUrl = "https://www.example.com",
+            ActionUrl = "https://www.example.com/authenticate",
             SubmitButtonText = "Submit",
             UserNameOrEmailLabel = "Username",
             StaySignedInLabel = "Stay signed in"
         };
         var viewModelStaySignedInLabelMissing = new SignInWidgetViewModel
         {
-            BaseUrl = "https://www.example.com",
+            ActionUrl = "https://www.example.com/authenticate",
             SubmitButtonText = "Submit",
             UserNameOrEmailLabel = "Username",
             PasswordLabel = "Password"
         };
         Assert.True(viewModel.IsMisconfigured);
-        Assert.True(viewModelBaseUrlMissing.IsMisconfigured);
+        Assert.True(viewModelActionUrlMissing.IsMisconfigured);
         Assert.True(viewModelSubmitButtonTextMissing.IsMisconfigured);
         Assert.True(viewModelUserNameOrEmailLabelMissing.IsMisconfigured);
         Assert.True(viewModelPasswordLabelMissing.IsMisconfigured);

@@ -14,6 +14,7 @@ using TrainingGuides.Web.Features.Shared.Services;
     IconClass = "icon-user")]
 
 namespace TrainingGuides.Web.Features.Membership.Widgets.SignIn;
+
 public class SignInWidgetViewComponent : ViewComponent
 {
     private readonly IHttpRequestService httpRequestService;
