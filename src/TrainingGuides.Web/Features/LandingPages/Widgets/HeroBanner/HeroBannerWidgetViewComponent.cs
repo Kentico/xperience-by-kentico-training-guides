@@ -108,7 +108,7 @@ public class HeroBannerWidgetViewComponent : ViewComponent
                             3)
                     : null;
 
-                banner = await GetModel(hero, properties, cancellationToken);
+                banner = GetModel(hero, properties, cancellationToken);
 
                 if (banner?.Link != null)
                 {
@@ -181,16 +181,16 @@ public class HeroBannerWidgetViewComponent : ViewComponent
         return null;
     }
 
-    private async Task<HeroBannerWidgetViewModel?> GetModel(Hero? hero, HeroBannerWidgetProperties? properties, CancellationToken _)
+    private HeroBannerWidgetViewModel? GetModel(Hero? hero, HeroBannerWidgetProperties? properties, CancellationToken _)
     {
         if (hero == null || properties == null)
         {
             return null;
         }
 
-        var guid = hero.HeroTarget?.FirstOrDefault()?.WebPageGuid ?? new Guid();
+        var heroTarget = hero.HeroTarget?.FirstOrDefault();
 
-        var url = await webPageUrlRetriever.Retrieve(guid, preferredLanguageRetriever.Get());
+        var url = heroTarget?.GetUrl();
 
         var media = hero.HeroMedia.FirstOrDefault();
 
@@ -201,7 +201,7 @@ public class HeroBannerWidgetViewComponent : ViewComponent
             Benefits = hero.HeroBenefits.Select(BenefitViewModel.GetViewModel).ToList(),
             Link = new LinkViewModel()
             {
-                LinkUrl = url.RelativePath,
+                LinkUrl = url?.RelativePath ?? string.Empty,
                 CallToAction = hero.HeroCallToAction
             },
             Media = media != null

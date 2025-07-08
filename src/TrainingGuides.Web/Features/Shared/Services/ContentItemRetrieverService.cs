@@ -150,7 +150,7 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
                 contentTypeName ?? string.Empty,
                 config => config
                     .Where(where => where.WhereEquals(nameof(ContentItemFields.ContentItemGUID), contentItemGuid))
-                    .WithLinkedItems(depth),
+                    .WithLinkedItems(depth, options => options.IncludeWebPageData(true)),
                 languageName: languageName);
         return items.FirstOrDefault();
     }
