@@ -352,17 +352,13 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
         return pages.FirstOrDefault();
     }
 
-    /// <summary>
-    /// Retrieves the IWebPageFieldsSource of a web page item by Guid.
-    /// </summary>
-    /// <param name="webPageItemGuid">the Guid of the web page item</param>
-    /// <returns><see cref="IWebPageFieldsSource"/> object containing generic <see cref="WebPageFields"/> for the item</returns>
-    public async Task<IWebPageFieldsSource?> RetrieveWebPageByGuid(
-        Guid webPageItemGuid)
+    /// <inheritdoc />
+    public async Task<IWebPageFieldsSource?> RetrieveWebPageByContentItemGuid(
+        Guid pageContentItemGuid)
     {
         var pages = await RetrieveWebPages(parameters =>
             {
-                parameters.Where(where => where.WhereEquals(nameof(WebPageFields.WebPageItemGUID), webPageItemGuid));
+                parameters.Where(where => where.WhereEquals(nameof(ContentItemFields.ContentItemGUID), pageContentItemGuid));
             });
 
         return pages.FirstOrDefault();

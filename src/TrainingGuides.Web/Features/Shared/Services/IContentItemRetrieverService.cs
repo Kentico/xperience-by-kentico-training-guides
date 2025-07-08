@@ -119,7 +119,12 @@ public interface IContentItemRetrieverService
 {
     Task<IWebPageFieldsSource?> RetrieveWebPageById(int webPageItemId);
 
-    Task<IWebPageFieldsSource?> RetrieveWebPageByGuid(Guid webPageItemGuid);
+    /// <summary>
+    /// Retrieves the IWebPageFieldsSource of a web page item by Guid.
+    /// </summary>
+    /// <param name="webPageItemGuid">the Guid of the web page item</param>
+    /// <returns><see cref="IWebPageFieldsSource"/> object containing generic <see cref="WebPageFields"/> for the item</returns>
+    Task<IWebPageFieldsSource?> RetrieveWebPageByContentItemGuid(Guid pageContentItemGuid);
 
     Task<IEnumerable<IContentItemFieldsSource>> RetrieveContentItemsBySchemaAndTags(
         string schemaName,
