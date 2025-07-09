@@ -52,6 +52,7 @@ public static class ServiceCollectionExtensions
         services.Configure<TrainingGuidesEmailBuilderOptions>(options =>
         {
             options.AllowedArticleContentTypes = [ArticlePage.CONTENT_TYPE_NAME];
+            options.AllowedGeneralEmailTemplateContentTypes = [BasicEmail.CONTENT_TYPE_NAME];
         });
     }
 }
