@@ -1,0 +1,50 @@
+@using Kentico.VisualBuilderComponents.Rcl.Components
+@using TrainingGuides.Web
+@using TrainingGuides.Web.Features.Shared.EmailBuilder.RazorComponents;
+@using TrainingGuides.Web.Features.Shared.EmailBuilder.Sections
+@using TrainingGuides.Web.Features.Shared.OptionProviders.ColumnLayout
+
+<mjml>
+  <mj-head>
+    <mj-title>@Subject</mj-title>
+    <mj-attributes>
+      <mj-all color="inherit" />
+    </mj-attributes>
+    <mj-preview>
+      @EmailPreviewText
+    </mj-preview>
+    <mj-style>
+      @((MarkupString)CssContent)
+    </mj-style>
+    <EmailBuilderStyles />
+  </mj-head>
+  <mj-body>
+    <mj-wrapper css-class="@(string.Join(" ", MainCssClasses))" width="600px">
+      @if (Properties.DisplayHeader)
+      {
+        <mj-section padding="8px">
+          <mj-column css-class="@(string.Join(" ", HeaderCssClasses))">
+            <EditableArea AreaIdentifier="header" AllowedSections="[GeneralEmailSection.IDENTIFIER]" />
+          </mj-column>
+        </mj-section>
+      }
+      <mj-section padding="8px">
+        <EmailBuilderColumns ColumnLayout="@ColumnLayout" 
+          CornerStyle="@CornerStyle"
+          Column1ColorScheme="@Column1ColorScheme"
+          Column2ColorScheme="@Column2ColorScheme"
+          Column3ColorScheme="@Column3ColorScheme"
+          AllowedSections="[GeneralEmailSection.IDENTIFIER]" />
+      </mj-section>
+      @if (Properties.DisplayFooter)
+        {
+          <mj-section padding="8px">
+            <mj-column css-class="@(string.Join(" ", FooterCssClasses))">
+              <EditableArea AreaIdentifier="footer" AllowedSections="[GeneralEmailSection.IDENTIFIER]" />
+            </mj-column>
+          </mj-section>
+        }
+    </mj-wrapper>
+    <EmailBuilderScripts />
+  </mj-body>
+</mjml>
