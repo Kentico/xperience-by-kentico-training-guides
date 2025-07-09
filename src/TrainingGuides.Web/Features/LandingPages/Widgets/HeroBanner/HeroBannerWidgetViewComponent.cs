@@ -1,5 +1,4 @@
 ﻿using Kentico.Content.Web.Mvc;
-using Kentico.Content.Web.Mvc.Routing;
 using Kentico.PageBuilder.Web.Mvc;
 using Microsoft.AspNetCore.Html;
 using Microsoft.AspNetCore.Mvc;
@@ -25,27 +24,20 @@ public class HeroBannerWidgetViewComponent : ViewComponent
     private readonly IWebPageDataContextRetriever webPageDataContextRetriever;
     private readonly IContentItemRetrieverService<ProductPage> productRetrieverService;
     private readonly IContentItemRetrieverService<Hero> heroRetrieverService;
-    private readonly IWebPageUrlRetriever webPageUrlRetriever;
-    private readonly IPreferredLanguageRetriever preferredLanguageRetriever;
 
     public const string IDENTIFIER = "TrainingGuides.HeroBanner";
 
     public HeroBannerWidgetViewComponent(IWebPageDataContextRetriever webPageDataContextRetriever,
         IContentItemRetrieverService<ProductPage> productRetrieverService,
-        IContentItemRetrieverService<Hero> heroRetrieverService,
-        IWebPageUrlRetriever webPageUrlRetriever,
-        IPreferredLanguageRetriever preferredLanguageRetriever
+        IContentItemRetrieverService<Hero> heroRetrieverService
         )
     {
         this.webPageDataContextRetriever = webPageDataContextRetriever;
         this.productRetrieverService = productRetrieverService;
         this.heroRetrieverService = heroRetrieverService;
-        this.webPageUrlRetriever = webPageUrlRetriever;
-        this.preferredLanguageRetriever = preferredLanguageRetriever;
     }
 
-    public async Task<ViewViewComponentResult> InvokeAsync(HeroBannerWidgetProperties properties,
-        CancellationToken cancellationToken)
+    public async Task<ViewViewComponentResult> InvokeAsync(HeroBannerWidgetProperties properties)
     {
         var banner = new HeroBannerWidgetViewModel();
 
@@ -108,7 +100,7 @@ public class HeroBannerWidgetViewComponent : ViewComponent
                             3)
                     : null;
 
-                banner = GetModel(hero, properties, cancellationToken);
+                banner = GetModel(hero, properties);
 
                 if (banner?.Link != null)
                 {
@@ -181,16 +173,14 @@ public class HeroBannerWidgetViewComponent : ViewComponent
         return null;
     }
 
-    private HeroBannerWidgetViewModel? GetModel(Hero? hero, HeroBannerWidgetProperties? properties, CancellationToken _)
+    private HeroBannerWidgetViewModel? GetModel(Hero? hero, HeroBannerWidgetProperties? properties)
     {
         if (hero == null || properties == null)
         {
             return null;
         }
 
-        var heroTarget = hero.HeroTarget?.FirstOrDefault();
-
-        var url = heroTarget?.GetUrl();
+        var url = hero.HeroTarget?.FirstOrDefault()?.GetUrl();
 
         var media = hero.HeroMedia.FirstOrDefault();
 
