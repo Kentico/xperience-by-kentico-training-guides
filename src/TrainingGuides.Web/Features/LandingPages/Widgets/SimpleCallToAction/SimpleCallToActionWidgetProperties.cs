@@ -1,7 +1,7 @@
 using System.ComponentModel;
+using CMS.ContentEngine;
 using Kentico.PageBuilder.Web.Mvc;
 using Kentico.Xperience.Admin.Base.FormAnnotations;
-using Kentico.Xperience.Admin.Websites.FormAnnotations;
 using TrainingGuides.Web.Features.Shared.OptionProviders;
 
 namespace TrainingGuides.Web.Features.LandingPages.Widgets.SimpleCallToAction;
@@ -22,13 +22,21 @@ public class SimpleCallToActionWidgetProperties : IWidgetProperties
         Order = 20)]
     public string TargetContent { get; set; } = nameof(TargetContentOption.Page);
 
-    [WebPageSelectorComponent(
+    [ContentItemSelectorComponent(
+        [
+            ArticlePage.CONTENT_TYPE_NAME,
+            DownloadsPage.CONTENT_TYPE_NAME,
+            EmptyPage.CONTENT_TYPE_NAME,
+            LandingPage.CONTENT_TYPE_NAME,
+            ProductPage.CONTENT_TYPE_NAME,
+            ProfilePage.CONTENT_TYPE_NAME
+        ],
         Label = "Target page",
         ExplanationText = "Select the page in the tree.",
-        MaximumPages = 1,
+        MaximumItems = 1,
         Order = 30)]
     [VisibleIfEqualTo(nameof(TargetContent), nameof(TargetContentOption.Page), StringComparison.OrdinalIgnoreCase)]
-    public IEnumerable<WebPageRelatedItem> TargetContentPage { get; set; } = Enumerable.Empty<WebPageRelatedItem>();
+    public IEnumerable<ContentItemReference> TargetContentPage { get; set; } = Enumerable.Empty<ContentItemReference>();
 
     [TextInputComponent(
         Label = "Absolute URL",

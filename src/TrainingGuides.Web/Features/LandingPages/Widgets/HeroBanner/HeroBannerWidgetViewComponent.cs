@@ -74,10 +74,10 @@ public class HeroBannerWidgetViewComponent : ViewComponent
         {
             if (properties.ProductPage.FirstOrDefault() != null)
             {
-                var productPageGuid = properties.ProductPage?.Select(i => i.WebPageGuid).FirstOrDefault();
+                var productPageGuid = properties.ProductPage?.Select(i => i.Identifier).FirstOrDefault();
                 var productPage = productPageGuid.HasValue
                     ? await productRetrieverService
-                        .RetrieveWebPageByGuid((Guid)productPageGuid,
+                        .RetrieveWebPageByContentItemGuid((Guid)productPageGuid,
                             ProductPage.CONTENT_TYPE_NAME,
                             3)
                     : null;

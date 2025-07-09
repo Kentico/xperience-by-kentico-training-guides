@@ -1,9 +1,10 @@
-using Kentico.Content.Web.Mvc.Routing;
+using CMS.ContentEngine;
 using Kentico.PageBuilder.Web.Mvc;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ViewComponents;
 using TrainingGuides.Web.Features.LandingPages.Widgets.CallToAction;
 using TrainingGuides.Web.Features.LandingPages.Widgets.SimpleCallToAction;
+using TrainingGuides.Web.Features.Shared.Services;
 
 [assembly:
     RegisterWidget(
@@ -20,15 +21,11 @@ public class SimpleCallToActionWidgetViewComponent : ViewComponent
 {
     public const string IDENTIFIER = "TrainingGuides.SimpleCallToActionWidget";
 
-    private readonly IWebPageUrlRetriever webPageUrlRetriever;
-    private readonly IPreferredLanguageRetriever preferredLanguageRetriever;
+    private readonly IContentItemRetrieverService generalContentItemRetrieverService;
 
-    public SimpleCallToActionWidgetViewComponent(
-        IWebPageUrlRetriever webPageUrlRetriever,
-        IPreferredLanguageRetriever preferredLanguageRetriever)
+    public SimpleCallToActionWidgetViewComponent(IContentItemRetrieverService generalContentItemRetrieverService)
     {
-        this.webPageUrlRetriever = webPageUrlRetriever;
-        this.preferredLanguageRetriever = preferredLanguageRetriever;
+        this.generalContentItemRetrieverService = generalContentItemRetrieverService;
     }
 
     public async Task<ViewViewComponentResult> InvokeAsync(SimpleCallToActionWidgetProperties properties)
@@ -51,9 +48,13 @@ public class SimpleCallToActionWidgetViewComponent : ViewComponent
         return View("~/Features/LandingPages/Widgets/SimpleCallToAction/SimpleCallToACtionWidget.cshtml", model);
     }
 
-    private async Task<string?> GetWebPageUrl(WebPageRelatedItem? webPage) =>
-        webPage != null
-        ? (await webPageUrlRetriever.Retrieve(webPage.WebPageGuid, preferredLanguageRetriever.Get()))
-            .RelativePath
-        : string.Empty;
+    private async Task<string?> GetWebPageUrl(ContentItemReference? webPage)
+    {
+        if (webPage is not null)
+        {
+            var page = await generalContentItemRetrieverService.RetrieveWebPageByContentItemGuid(webPage.Identifier);
+            return page?.GetUrl()?.RelativePath ?? string.Empty;
+        }
+        return string.Empty;
+    }
 }

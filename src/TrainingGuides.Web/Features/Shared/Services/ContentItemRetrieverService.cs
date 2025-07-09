@@ -32,7 +32,7 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
         var pages = await RetrieveWebPageContentItems(
                 contentTypeName,
                 innerParams => innerParams
-                    .WithLinkedItems(depth),
+                    .WithLinkedItems(depth, options => options.IncludeWebPageData(true)),
                 outerParams => outerParams
                     .Where(where => where.WhereEquals(nameof(WebPageFields.WebPageItemID), webPageItemId)),
                 languageName: languageName);
@@ -49,7 +49,7 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
         var pages = await RetrieveWebPageContentItems(
                 contentTypeName,
                 innerParams => innerParams
-                    .WithLinkedItems(depth),
+                    .WithLinkedItems(depth, options => options.IncludeWebPageData(true)),
                 outerParams => outerParams
                     .Where(where => where.WhereEquals(nameof(WebPageFields.WebPageItemGUID), webPageItemGuid)),
                 languageName: languageName);
@@ -65,7 +65,7 @@ public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
     {
         var pages = await RetrieveWebPageContentItems(
             contentTypeName,
-            innerParams => innerParams.WithLinkedItems(depth),
+            innerParams => innerParams.WithLinkedItems(depth, options => options.IncludeWebPageData(true)),
             outerParams => outerParams
                 .Where(where => where.WhereEquals(nameof(WebPageFields.ContentItemGUID), contentItemGuid)),
             languageName: languageName);
