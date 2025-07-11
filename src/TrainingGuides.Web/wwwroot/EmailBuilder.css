@@ -84,3 +84,66 @@
 	font-weight: 500 !important;
 	font-family: Roboto, Arial, sans-serif !important;
 }
+
+.tg-tiny-margin {
+  	margin: 1px;
+}
+
+.tg-corner-shrp {
+  	border-radius: 0;
+}
+
+.tg-corner-rnd {
+  	border-radius: 32px;
+}
+
+.tg-corner-v-rnd {
+  	border-radius: 64px;
+}
+
+.tg-bg-primary {
+  	background: #8107c1;
+}
+
+.tg-bg-secondary {
+  	background: #f0561a;
+}
+
+.tg-bg-none {
+  	background: none;
+}
+
+.tg-bg-light-1 {
+  	background: white;
+}
+
+.tg-bg-light-2 {
+  	background: #efe6f9;
+}
+
+.tg-bg-light-3 {
+  	background: #ebf5ff;
+}
+
+.tg-txt-light {
+  	color: white !important;
+}
+
+.tg-txt-light a {
+	color: #f0561a !important;
+}
+
+.tg-txt-medium {
+  	color: #f0561a !important;
+}
+
+.tg-txt-medium a {
+  	color: white !important;
+}
+.tg-txt-dark {
+  	color: #1e1a1b !important;
+}
+
+.tg-txt-dark a {
+	color: #f0561a !important;
+}

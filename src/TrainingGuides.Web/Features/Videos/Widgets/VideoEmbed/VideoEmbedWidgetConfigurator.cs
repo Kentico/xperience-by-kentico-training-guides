@@ -1,6 +1,8 @@
 using Kentico.Xperience.Admin.Base.Forms;
+using TrainingGuides.Web.Features.Shared.VisibilityConditions;
 
 namespace TrainingGuides.Web.Features.Videos.Widgets.VideoEmbed;
+
 public class VideoEmbedWidgetConfigurator : FormComponentConfigurator<NumberInputComponent>
 {
     public override async Task Configure(NumberInputComponent formComponent, IFormFieldValueProvider formFieldValueProvider, CancellationToken cancellationToken)
@@ -25,10 +27,4 @@ public class VideoEmbedWidgetConfigurator : FormComponentConfigurator<NumberInpu
 
     private void HideField(NumberInputComponent formComponent) =>
         formComponent.VisibilityConditions.Add(new Invisible());
-}
-
-// Custom visibility condition that is always false, used to dynamically hide fields
-public class Invisible : VisibilityCondition
-{
-    public override bool Evaluate(IFormFieldValueProvider formFieldValueProvider) => false;
 }
