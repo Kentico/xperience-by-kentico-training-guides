@@ -8,9 +8,13 @@ namespace TrainingGuides.Web.Features.Shared.EmailBuilder.RazorComponents;
 
 public partial class EmailBuilderColumns : ComponentBase
 {
-    private const string AREA_MAIN = "MainContent";
-    private const string AREA_SECONDARY = "SecondaryContent";
-    private const string AREA_TERTIARY = "TertiaryContent";
+    // private const string AREA_MAIN = "MainContent";
+    // private const string AREA_SECONDARY = "SecondaryContent";
+    // private const string AREA_TERTIARY = "TertiaryContent";
+
+    private const string ZONE_MAIN = "Widget_Zone_0";
+    private const string ZONE_SECONDARY = "Widget_Zone_1";
+    private const string ZONE_TERTIARY = "Widget_Zone_2";
 
     private EmailBuilderColumnsModel Model { get; set; } = new();
 
@@ -59,8 +63,9 @@ public partial class EmailBuilderColumns : ComponentBase
     {
         if (AllowedWidgets.Where(str => !string.IsNullOrWhiteSpace(str)).Any())
             AreaAttributes.Add(nameof(AllowedWidgets), AllowedWidgets);
-        if (AllowedSections.Where(str => !string.IsNullOrWhiteSpace(str)).Any())
-            AreaAttributes.Add(nameof(AllowedSections), AllowedSections);
+        // If you want to apply this approach to Editable Areas rather than Widget Zones, you can also include this:
+        // if (AllowedSections.Where(str => !string.IsNullOrWhiteSpace(str)).Any())
+        //     AreaAttributes.Add(nameof(AllowedSections), AllowedSections);
 
         Model = new EmailBuilderColumnsModel
         {
@@ -93,65 +98,65 @@ public partial class EmailBuilderColumns : ComponentBase
         {
             case ColumnLayoutOption.TwoColumnEven:
                 //first column is main
-                width = 49;
+                width = 45;
                 columnIdentifier = columnIndex == 0
-                    ? AREA_MAIN
-                    : AREA_SECONDARY;
+                    ? ZONE_MAIN
+                    : ZONE_SECONDARY;
                 break;
             case ColumnLayoutOption.TwoColumnLgSm:
                 //first column is main
                 if (columnIndex == 0)
                 {
-                    width = 64;
-                    columnIdentifier = AREA_MAIN;
+                    width = 60;
+                    columnIdentifier = ZONE_MAIN;
                 }
                 else
                 {
-                    width = 35;
-                    columnIdentifier = AREA_SECONDARY;
+                    width = 30;
+                    columnIdentifier = ZONE_SECONDARY;
                 }
                 break;
             case ColumnLayoutOption.TwoColumnSmLg:
                 //second column is main
                 if (columnIndex == 0)
                 {
-                    width = 35;
-                    columnIdentifier = AREA_SECONDARY;
+                    width = 30;
+                    columnIdentifier = ZONE_SECONDARY;
                 }
                 else
                 {
-                    width = 64;
-                    columnIdentifier = AREA_MAIN;
+                    width = 60;
+                    columnIdentifier = ZONE_MAIN;
                 }
                 break;
             case ColumnLayoutOption.ThreeColumnEven:
                 //middle column is main
-                width = 32;
+                width = 30;
                 columnIdentifier = columnIndex == 1
-                    ? AREA_MAIN
+                    ? ZONE_MAIN
                     : columnIndex == 0
-                        ? AREA_SECONDARY
-                        : AREA_TERTIARY;
+                        ? ZONE_SECONDARY
+                        : ZONE_TERTIARY;
                 break;
             case ColumnLayoutOption.ThreeColumnSmLgSm:
                 if (columnIndex == 1)
                 {
-                    width = 38;
-                    columnIdentifier = AREA_MAIN;
+                    width = 40;
+                    columnIdentifier = ZONE_MAIN;
                 }
                 else
                 {
-                    width = 30;
+                    width = 25;
                     columnIdentifier = columnIndex == 0
-                        ? AREA_SECONDARY
-                        : AREA_TERTIARY;
+                        ? ZONE_SECONDARY
+                        : ZONE_TERTIARY;
                 }
                 break;
             case ColumnLayoutOption.OneColumn:
             default:
                 //sole column is main
-                width = 99;
-                columnIdentifier = AREA_MAIN;
+                width = 90;
+                columnIdentifier = ZONE_MAIN;
                 break;
         }
 
