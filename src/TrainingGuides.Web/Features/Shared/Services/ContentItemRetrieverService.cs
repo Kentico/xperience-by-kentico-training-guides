@@ -270,13 +270,16 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
 {
     private readonly IContentQueryExecutor contentQueryExecutor;
     private readonly IWebsiteChannelContext webSiteChannelContext;
+    private readonly IPreferredLanguageRetriever preferredLanguageRetriever;
 
     public ContentItemRetrieverService(
         IContentQueryExecutor contentQueryExecutor,
-        IWebsiteChannelContext webSiteChannelContext)
+        IWebsiteChannelContext webSiteChannelContext,
+        IPreferredLanguageRetriever preferredLanguageRetriever)
     {
         this.contentQueryExecutor = contentQueryExecutor;
         this.webSiteChannelContext = webSiteChannelContext;
+        this.preferredLanguageRetriever = preferredLanguageRetriever;
     }
 
     private async Task<IEnumerable<IContentItemFieldsSource>> RetrieveContentItems(Action<ContentQueryParameters> contentQueryParameters,
@@ -297,13 +300,7 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
         return await contentQueryExecutor.GetMappedResult<IContentItemFieldsSource>(builder, queryExecutorOptions);
     }
 
-    /// <summary>
-    /// Retrieves content items based on the provided schema name and tag guids.
-    /// </summary>
-    /// <param name="schemaName">The name of the reusable field schema</param>
-    /// <param name="taxonomyColumnName">The name of the column that holds the taxonomy value</param>
-    /// <param name="tagGuids">Guids of tags to filter the output by</param>
-    /// <returns>Enumerable list of content items</returns>
+    /// <inheritdoc />
     public async Task<IEnumerable<IContentItemFieldsSource>> RetrieveContentItemsBySchemaAndTags(string schemaName, string taxonomyColumnName, IEnumerable<Guid> tagGuids)
     {
         Action<ContentQueryParameters> contentQueryParameters = parameters
@@ -325,7 +322,8 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
             {
                 query.ForWebsite(webSiteChannelContext.WebsiteChannelName);
             })
-            .Parameters(parameters);
+            .Parameters(parameters)
+            .InLanguage(preferredLanguageRetriever.Get());
 
         var queryExecutorOptions = new ContentQueryExecutionOptions
         {
@@ -336,11 +334,7 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
         return await contentQueryExecutor.GetMappedResult<IWebPageFieldsSource>(builder, queryExecutorOptions);
     }
 
-    /// <summary>
-    /// Retrieves the IWebPageFieldsSource of a web page item by Id.
-    /// </summary>
-    /// <param name="webPageItemId">The Id of the web page item</param>
-    /// <returns><see cref="IWebPageFieldsSource"/> object containing generic <see cref="WebPageFields"/> for the item</returns>
+    /// <inheritdoc />
     public async Task<IWebPageFieldsSource?> RetrieveWebPageById(
         int webPageItemId)
     {
@@ -364,11 +358,7 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
         return pages.FirstOrDefault();
     }
 
-    /// <summary>
-    /// Retrieves the IWebPageFieldsSource of a web page item by path.
-    /// </summary>
-    /// <param name="pathToMatch">The Tree path of the web page item (can be found in the administration under the Properties tab).</param>
-    ///<returns><see cref="IWebPageFieldsSource"/> object containing generic <see cref="WebPageFields"/> for the item</returns>
+    /// <inheritdoc />
     public async Task<IWebPageFieldsSource?> RetrieveWebPageByPath(string pathToMatch,
         bool includeSecuredItems = true)
     {

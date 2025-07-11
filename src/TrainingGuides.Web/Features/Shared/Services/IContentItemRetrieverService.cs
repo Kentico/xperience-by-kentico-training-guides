@@ -117,6 +117,11 @@ public interface IContentItemRetrieverService<T>
 
 public interface IContentItemRetrieverService
 {
+    /// <summary>
+    /// Retrieves the IWebPageFieldsSource of a web page item by Id.
+    /// </summary>
+    /// <param name="webPageItemId">The Id of the web page item</param>
+    /// <returns><see cref="IWebPageFieldsSource"/> object containing generic <see cref="WebPageFields"/> for the item</returns>
     Task<IWebPageFieldsSource?> RetrieveWebPageById(int webPageItemId);
 
     /// <summary>
@@ -126,10 +131,23 @@ public interface IContentItemRetrieverService
     /// <returns><see cref="IWebPageFieldsSource"/> object containing generic <see cref="WebPageFields"/> for the item</returns>
     Task<IWebPageFieldsSource?> RetrieveWebPageByContentItemGuid(Guid pageContentItemGuid);
 
+    /// <summary>
+    /// Retrieves content items based on the provided schema name and tag guids.
+    /// </summary>
+    /// <param name="schemaName">The name of the reusable field schema</param>
+    /// <param name="taxonomyColumnName">The name of the column that holds the taxonomy value</param>
+    /// <param name="tagGuids">Guids of tags to filter the output by</param>
+    /// <returns>Enumerable list of content items</returns>
     Task<IEnumerable<IContentItemFieldsSource>> RetrieveContentItemsBySchemaAndTags(
         string schemaName,
         string taxonomyColumnName,
         IEnumerable<Guid> tagGuids);
+
+    /// <summary>
+    /// Retrieves the IWebPageFieldsSource of a web page item by path.
+    /// </summary>
+    /// <param name="pathToMatch">The Tree path of the web page item (can be found in the administration under the Properties tab).</param>
+    ///<returns><see cref="IWebPageFieldsSource"/> object containing generic <see cref="WebPageFields"/> for the item</returns>
     Task<IWebPageFieldsSource?> RetrieveWebPageByPath(string pathToMatch,
         bool includeSecuredItems = true);
 }
