@@ -26,7 +26,6 @@ public class LinkOrSignOutWidgetViewComponentTests
     private static readonly Guid unauthenticatedGuid = new("00000000-0000-0000-0000-000000000000");
 
     private readonly LinkOrSignOutWidgetProperties widgetProperties;
-    private readonly WebPageUrl webPageUrl;
 
     public LinkOrSignOutWidgetViewComponentTests()
     {
