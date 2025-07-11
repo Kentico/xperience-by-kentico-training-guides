@@ -10,6 +10,7 @@ using TrainingGuides.Web.Features.Articles;
     IconClass = "xp-a-lowercase")]
 
 namespace TrainingGuides.Web.Features.Articles;
+
 public static class ArticlePagePageTemplate
 {
     public const string IDENTIFIER = "TrainingGuides.ArticlePagePageTemplate";
