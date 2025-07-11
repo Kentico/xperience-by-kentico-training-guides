@@ -19,31 +19,13 @@
     <EmailBuilderStyles />
   </mj-head>
   <mj-body>
-    <mj-wrapper css-class="@(string.Join(" ", MainCssClasses))" width="600px">
-      @if (Properties.DisplayHeader)
+    <mj-wrapper css-class="@(string.Join(" ", MainCssClasses))" >
+      @foreach (var rowIdentifier in RowIdentifiers)
       {
-        <mj-section padding="8px">
-          <mj-column css-class="@(string.Join(" ", HeaderCssClasses))">
-            <EditableArea AreaIdentifier="header" AllowedSections="[GeneralEmailSection.IDENTIFIER]" />
-          </mj-column>
+        <mj-section width="600px" padding="8px">
+          <EditableArea AreaIdentifier="@rowIdentifier" AllowedSections="[GeneralEmailSection.IDENTIFIER]" />
         </mj-section>
       }
-      <mj-section padding="8px">
-        <EmailBuilderColumns ColumnLayout="@ColumnLayout" 
-          CornerStyle="@CornerStyle"
-          Column1ColorScheme="@Column1ColorScheme"
-          Column2ColorScheme="@Column2ColorScheme"
-          Column3ColorScheme="@Column3ColorScheme"
-          AllowedSections="[GeneralEmailSection.IDENTIFIER]" />
-      </mj-section>
-      @if (Properties.DisplayFooter)
-        {
-          <mj-section padding="8px">
-            <mj-column css-class="@(string.Join(" ", FooterCssClasses))">
-              <EditableArea AreaIdentifier="footer" AllowedSections="[GeneralEmailSection.IDENTIFIER]" />
-            </mj-column>
-          </mj-section>
-        }
     </mj-wrapper>
     <EmailBuilderScripts />
   </mj-body>
