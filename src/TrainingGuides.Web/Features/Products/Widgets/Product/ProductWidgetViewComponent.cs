@@ -92,9 +92,9 @@ public class ProductWidgetViewComponent : ViewComponent
         }
         else
         {
-            var guid = properties.SelectedProductPage?.Select(webPage => webPage.Identifier).FirstOrDefault() ?? null;
+            var guid = properties.SelectedProductPage?.Select(webPage => webPage.Identifier).FirstOrDefault();
 
-            productPage = guid is not null
+            productPage = guid.HasValue
                 ? await productRetrieverService.RetrieveWebPageByContentItemGuid(
                     (Guid)guid,
                     ProductPage.CONTENT_TYPE_NAME,
