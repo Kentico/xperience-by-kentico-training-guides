@@ -28,9 +28,9 @@ public class FeaturedArticleWidgetViewComponent : ViewComponent
 
     public async Task<ViewViewComponentResult> InvokeAsync(FeaturedArticleWidgetProperties properties)
     {
-        var guid = properties.Article?.Select(i => i.WebPageGuid).FirstOrDefault();
+        var guid = properties.Article?.Select(i => i.Identifier).FirstOrDefault();
         var articlePage = guid.HasValue
-            ? await articlePageRetrieverService.RetrieveWebPageByGuid(
+            ? await articlePageRetrieverService.RetrieveWebPageByContentItemGuid(
                 guid.Value,
                 ArticlePage.CONTENT_TYPE_NAME,
                 3)

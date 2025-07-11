@@ -18,6 +18,7 @@
             <![CDATA[["17a2abf5-c412-4cee-8b6b-e5209bcd3e8c"]]]>
           </AllowedContentItemTypeIdentifiers>
           <controlname>Kentico.Administration.ContentItemSelector</controlname>
+          <MaximumItems>1</MaximumItems>
           <SelectionType>contentTypes</SelectionType>
         </settings>
       </field>
@@ -32,6 +33,7 @@
             <![CDATA[["c3b4896f-ba7c-4b75-9cd4-47afa7489ff1"]]]>
           </AllowedSchemaIdentifiers>
           <controlname>Kentico.Administration.ContentItemSelector</controlname>
+          <MaximumItems>1</MaximumItems>
           <SelectionType>reusableFieldSchemas</SelectionType>
         </settings>
       </field>

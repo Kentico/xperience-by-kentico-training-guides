@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using CMS.ContentEngine;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Localization;
 using TrainingGuides.Web.Features.Shared.Helpers;
 using TrainingGuides.Web.Features.Shared.Services;
 
 namespace TrainingGuides.Web.Features.Header;
+
 public class HeaderViewComponent : ViewComponent
 {
 
@@ -24,15 +26,15 @@ public class HeaderViewComponent : ViewComponent
         return View("~/Features/Header/Header.cshtml", model);
     }
 
-    private async Task<IEnumerable<WebPageRelatedItem>> GetSignInPageForWidget()
+    private async Task<IEnumerable<ContentItemReference>> GetSignInPageForWidget()
     {
         var page = await contentItemRetrieverService.RetrieveWebPageByPath(ApplicationConstants.EXPECTED_SIGN_IN_PATH);
 
         return page != null
-            ? [new WebPageRelatedItem() { WebPageGuid = page.SystemFields.WebPageItemGUID }]
-            : Enumerable.Empty<WebPageRelatedItem>();
+            ? [new ContentItemReference() { Identifier = page.SystemFields.ContentItemGUID }]
+            : Enumerable.Empty<ContentItemReference>();
     }
-    public HeaderViewModel BuildViewModel(IEnumerable<WebPageRelatedItem> signInPage, bool showNavigation = true)
+    public HeaderViewModel BuildViewModel(IEnumerable<ContentItemReference> signInPage, bool showNavigation = true)
     {
         var model = new HeaderViewModel()
         {

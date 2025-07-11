@@ -69,7 +69,7 @@
             <section class="c-section hero mb-5 v04 @Model.ThemeClass">
                 <div class="container">
                     <div class="row">
-                        <div class="col-lg-5">
+                        <div class="col-lg col-md">
                             <h1>@Model.Header</h1>
 
                             <div class="mt-2 mt-md-4">@Model.SubheaderHtml</div>
@@ -102,7 +102,7 @@
                             }
                             
                         </div>
-                        <div class="col-5 offset-1 d-none d-lg-block">
+                        <div class="col-lg col-md offset-1 d-none d-md-block">
                             <div class="c-hero_canvas">
                                 @if (!string.IsNullOrEmpty(Model?.Media?.FilePath))
                                 {

@@ -1,6 +1,6 @@
+using CMS.ContentEngine;
 using Kentico.PageBuilder.Web.Mvc;
 using Kentico.Xperience.Admin.Base.FormAnnotations;
-using Kentico.Xperience.Admin.Websites.FormAnnotations;
 
 namespace TrainingGuides.Web.Features.Membership.Widgets.LinkOrSignOut;
 
@@ -18,12 +18,20 @@ public class LinkOrSignOutWidgetProperties : IWidgetProperties
         Order = 20)]
     public string UnauthenticatedButtonText { get; set; } = string.Empty;
 
-    [WebPageSelectorComponent(
+    [ContentItemSelectorComponent(
+        [
+            ArticlePage.CONTENT_TYPE_NAME,
+            DownloadsPage.CONTENT_TYPE_NAME,
+            EmptyPage.CONTENT_TYPE_NAME,
+            LandingPage.CONTENT_TYPE_NAME,
+            ProductPage.CONTENT_TYPE_NAME,
+            ProfilePage.CONTENT_TYPE_NAME
+        ],
         Label = "Unauthenticated link target page",
         ExplanationText = "Page to link to when the visitor is not authenticated.",
-        MaximumPages = 1,
+        MaximumItems = 1,
         Order = 30)]
-    public IEnumerable<WebPageRelatedItem> UnauthenticatedTargetContentPage { get; set; } = Enumerable.Empty<WebPageRelatedItem>();
+    public IEnumerable<ContentItemReference> UnauthenticatedTargetContentPage { get; set; } = Enumerable.Empty<ContentItemReference>();
 
     [TextInputComponent(
         Label = "Authenticated text",

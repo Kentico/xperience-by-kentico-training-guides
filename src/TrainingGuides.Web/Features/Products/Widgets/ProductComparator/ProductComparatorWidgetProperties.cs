@@ -1,20 +1,20 @@
 ﻿using System.ComponentModel;
+using CMS.ContentEngine;
 using Kentico.PageBuilder.Web.Mvc;
 using Kentico.Xperience.Admin.Base.FormAnnotations;
-using Kentico.Xperience.Admin.Websites.FormAnnotations;
 using TrainingGuides.Web.Features.Shared.OptionProviders;
 using TrainingGuides.Web.Features.Shared.OptionProviders.Heading;
 
 namespace TrainingGuides.Web.Features.Products.Widgets.ProductComparator;
+
 public class ProductComparatorWidgetProperties : IWidgetProperties
 {
-    [WebPageSelectorComponent(
+    [ContentItemSelectorComponent(
+        ProductPage.CONTENT_TYPE_NAME,
         Label = "Selected products",
-        MaximumPages = 0,
-        Sortable = true,
-        ItemModifierType = typeof(ProductComparatorWidgetItemModifier),
+        MaximumItems = 0,
         Order = 10)]
-    public IEnumerable<WebPageRelatedItem> Products { get; set; } = Enumerable.Empty<WebPageRelatedItem>();
+    public IEnumerable<ContentItemReference> Products { get; set; } = Enumerable.Empty<ContentItemReference>();
 
     [TextInputComponent(
         Label = "Comparator heading",

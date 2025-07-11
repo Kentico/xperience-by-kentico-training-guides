@@ -8,6 +8,7 @@ using TrainingGuides.Web.Features.Shared.Helpers;
 using TrainingGuides.Web.Features.Shared.Services;
 
 namespace TrainingGuides.Web.Features.Membership.Services;
+
 public class MembershipService : IMembershipService
 {
     /// <inheritdoc/>

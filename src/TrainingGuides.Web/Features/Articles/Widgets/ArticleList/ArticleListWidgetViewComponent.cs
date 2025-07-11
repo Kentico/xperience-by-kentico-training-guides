@@ -62,15 +62,15 @@ public class ArticleListWidgetViewComponent : ViewComponent
         return View("~/Features/Articles/Widgets/ArticleList/ArticleListWidget.cshtml", model);
     }
 
-    private async Task<IEnumerable<ArticlePage>> RetrieveArticlePages(WebPageRelatedItem parentPageSelection, IEnumerable<TagReference> tags, string securedItemsDisplayMode)
+    private async Task<IEnumerable<ArticlePage>> RetrieveArticlePages(ContentItemReference parentPageSelection, IEnumerable<TagReference> tags, string securedItemsDisplayMode)
     {
         bool includeSecuredItems = securedItemsDisplayMode.Equals(SecuredOption.IncludeEverything.ToString())
             || securedItemsDisplayMode.Equals(SecuredOption.PromptForLogin.ToString());
+        var selectedPageGuid = parentPageSelection.Identifier;
 
-        var selectedPageGuid = parentPageSelection.WebPageGuid;
-
-        var selectedPage = await genericPageRetrieverService.RetrieveWebPageByGuid(selectedPageGuid);
-        string selectedPageContentTypeName = await GetWebPageContentTypeName(selectedPageGuid);
+        var selectedPage = await genericPageRetrieverService.RetrieveWebPageByContentItemGuid(selectedPageGuid);
+        var selectedPageWebPageGuid = selectedPage?.SystemFields.WebPageItemGUID;
+        string selectedPageContentTypeName = await GetWebPageContentTypeName(selectedPageWebPageGuid);
         string selectedPagePath = selectedPage?.SystemFields.WebPageItemTreePath ?? string.Empty;
 
         if (string.IsNullOrEmpty(selectedPagePath))
@@ -107,7 +107,7 @@ public class ArticleListWidgetViewComponent : ViewComponent
         }
     }
 
-    private async Task<string> GetWebPageContentTypeName(Guid id)
+    private async Task<string> GetWebPageContentTypeName(Guid? id)
     {
         // database-related string constants, needed to retrieve Page content type name
         const string WEB_PAGE_ITEM_OBJECT_TYPE = "cms.webpageitem";
