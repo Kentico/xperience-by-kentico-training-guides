@@ -166,12 +166,16 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
     private readonly IContentQueryExecutor contentQueryExecutor;
     private readonly IWebsiteChannelContext websiteChannelContext;
 
+    private readonly IPreferredLanguageRetriever preferredLanguageRetriever;
+
     public ContentItemRetrieverService(
         IContentQueryExecutor contentQueryExecutor,
-        IWebsiteChannelContext websiteChannelContext)
+        IWebsiteChannelContext websiteChannelContext,
+        IPreferredLanguageRetriever preferredLanguageRetriever)
     {
         this.contentQueryExecutor = contentQueryExecutor;
         this.websiteChannelContext = websiteChannelContext;
+        this.preferredLanguageRetriever = preferredLanguageRetriever;
     }
 
     /// <inheritdoc />
@@ -203,7 +207,8 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
             .ForContentTypes(query => query
             .WithLinkedItems(2, options => options.IncludeWebPageData(true))
             .ForWebsite(websiteChannelContext.WebsiteChannelName))
-        .Parameters(parameters);
+        .Parameters(parameters)
+        .InLanguage(preferredLanguageRetriever.Get());
 
         var queryExecutorOptions = new ContentQueryExecutionOptions
         {
