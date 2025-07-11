@@ -7,5 +7,5 @@ using TrainingGuides.Web.Features.Shared.EmailBuilder.Templates;
     name: "General email template",
     componentType: typeof(GeneralEmailTemplate),
     PropertiesType = typeof(GeneralEmailTemplateProperties),
-    IconClass = "xp-l-cols-3",
+    IconClass = "xp-l-rows-3",
     ContentTypeNames = [BasicEmail.CONTENT_TYPE_NAME])]

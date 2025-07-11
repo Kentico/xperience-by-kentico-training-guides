@@ -5,9 +5,9 @@ using TrainingGuides.Web.Features.Shared.OptionProviders;
 using TrainingGuides.Web.Features.Shared.OptionProviders.ColumnLayout;
 using TrainingGuides.Web.Features.Shared.VisibilityConditions;
 
-namespace TrainingGuides.Web.Features.Shared.EmailBuilder.Templates;
+namespace TrainingGuides.Web.Features.Shared.EmailBuilder.Sections;
 
-public class GeneralPageTemplateColumn3Configurator : FormComponentConfigurator<DropDownComponent>
+public class GeneralEmailSectionColumn3Configurator : FormComponentConfigurator<DropDownComponent>
 {
     public override async Task Configure(DropDownComponent formComponent, IFormFieldValueProvider formFieldValueProvider, CancellationToken cancellationToken)
     {
@@ -19,7 +19,7 @@ public class GeneralPageTemplateColumn3Configurator : FormComponentConfigurator<
 
     private bool GetShowColumn3(IFormFieldValueProvider formFieldValueProvider)
     {
-        if (formFieldValueProvider.TryGet(nameof(GeneralEmailTemplateProperties.ColumnLayout), out string columnLayout))
+        if (formFieldValueProvider.TryGet(nameof(GeneralEmailSectionProperties.ColumnLayout), out string columnLayout))
         {
             var layout = new DropdownEnumOptionProvider<ColumnLayoutOption>().Parse(columnLayout, ColumnLayoutOption.OneColumn);
             return layout is ColumnLayoutOption.ThreeColumnEven or ColumnLayoutOption.ThreeColumnSmLgSm;
