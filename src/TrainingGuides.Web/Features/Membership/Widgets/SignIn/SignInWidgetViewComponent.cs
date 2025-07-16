@@ -36,7 +36,7 @@ public class SignInWidgetViewComponent : ViewComponent
     public async Task<SignInWidgetViewModel> BuildWidgetViewModel(SignInWidgetProperties properties) => new SignInWidgetViewModel
     {
         ActionUrl = GetActionUrl(),
-        DefaultRedirectPageGuid = properties.DefaultRedirectPage.FirstOrDefault()?.WebPageGuid ?? Guid.Empty,
+        DefaultRedirectPageGuid = properties.DefaultRedirectPage.FirstOrDefault()?.Identifier ?? Guid.Empty,
         DisplayForm = !await membershipService.IsMemberAuthenticated(),
         FormTitle = properties.FormTitle,
         SubmitButtonText = properties.SubmitButtonText,

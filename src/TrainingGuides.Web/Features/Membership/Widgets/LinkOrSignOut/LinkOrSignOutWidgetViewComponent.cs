@@ -1,3 +1,4 @@
+using CMS.ContentEngine;
 using Kentico.Content.Web.Mvc.Routing;
 using Kentico.PageBuilder.Web.Mvc;
 using Microsoft.AspNetCore.Mvc;
@@ -21,21 +22,22 @@ public class LinkOrSignOutWidgetViewComponent : ViewComponent
 {
     public const string IDENTIFIER = "TrainingGuides.LinkOrSignOutWidget";
 
-    private readonly IWebPageUrlRetriever webPageUrlRetriever;
     private readonly IPreferredLanguageRetriever preferredLanguageRetriever;
     private readonly IMembershipService membershipService;
     private readonly IHttpRequestService httpRequestService;
 
+    private readonly IContentItemRetrieverService generalContentItemRetrieverService;
+
     public LinkOrSignOutWidgetViewComponent(
-        IWebPageUrlRetriever webPageUrlRetriever,
         IPreferredLanguageRetriever preferredLanguageRetriever,
         IMembershipService membershipService,
-        IHttpRequestService httpRequestService)
+        IHttpRequestService httpRequestService,
+        IContentItemRetrieverService generalContentItemRetrieverService)
     {
-        this.webPageUrlRetriever = webPageUrlRetriever;
         this.preferredLanguageRetriever = preferredLanguageRetriever;
         this.membershipService = membershipService;
         this.httpRequestService = httpRequestService;
+        this.generalContentItemRetrieverService = generalContentItemRetrieverService;
     }
 
     public async Task<ViewViewComponentResult> InvokeAsync(LinkOrSignOutWidgetProperties properties)
@@ -68,7 +70,7 @@ public class LinkOrSignOutWidgetViewComponent : ViewComponent
         }
         else
         {
-            string linkTargetUrl = await GetWebPageUrl(properties.UnauthenticatedTargetContentPage?.FirstOrDefault(), preferredLanguageCode)
+            string linkTargetUrl = await GetWebPageUrl(properties.UnauthenticatedTargetContentPage?.FirstOrDefault())
                 ?? string.Empty;
 
             model = new LinkOrSignOutWidgetViewModel()
@@ -83,9 +85,13 @@ public class LinkOrSignOutWidgetViewComponent : ViewComponent
         return model;
     }
 
-    private async Task<string?> GetWebPageUrl(WebPageRelatedItem? webPage, string preferredLanguageCode) =>
-        webPage is not null
-        ? (await webPageUrlRetriever.Retrieve(webPage.WebPageGuid, preferredLanguageCode))
-            .RelativePath
-        : string.Empty;
+    private async Task<string?> GetWebPageUrl(ContentItemReference? webPage)
+    {
+        if (webPage is not null)
+        {
+            var page = await generalContentItemRetrieverService.RetrieveWebPageByContentItemGuid(webPage.Identifier);
+            return page?.GetUrl()?.RelativePath ?? string.Empty;
+        }
+        return string.Empty;
+    }
 }

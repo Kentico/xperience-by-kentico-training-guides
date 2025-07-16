@@ -1,3 +1,4 @@
+using System.Web;
 using CMS.Core;
 using CMS.EmailEngine;
 using Kentico.Content.Web.Mvc;
@@ -110,7 +111,7 @@ public class RegistrationController : Controller
         HomePageUrl = httpRequestService.GetBaseUrlWithLanguage(true)
     };
 
-    [HttpGet($"{ApplicationConstants.CONFIRM_REGISTRATION_ACTION_PATH}/{{{ApplicationConstants.LANGUAGE_KEY}}}")]
+    [HttpGet($"{{{ApplicationConstants.LANGUAGE_KEY}}}{ApplicationConstants.CONFIRM_REGISTRATION_ACTION_PATH}/{{memberEmail}}/{{confirmToken}}")]
     public async Task<ActionResult> Confirm(string memberEmail, string confirmToken)
     {
         string userName;
@@ -119,7 +120,10 @@ public class RegistrationController : Controller
         {
             IdentityResult confirmResult;
 
-            var member = await membershipService.FindMemberByEmail(memberEmail);
+            string decodedEmail = Uri.UnescapeDataString(memberEmail);
+            string decodedToken = Uri.UnescapeDataString(confirmToken);
+
+            var member = await membershipService.FindMemberByEmail(decodedEmail);
 
             if (member is null)
             {
@@ -142,7 +146,7 @@ public class RegistrationController : Controller
             try
             {
                 //Changes Enabled property of the user
-                confirmResult = await membershipService.ConfirmEmail(member, confirmToken);
+                confirmResult = await membershipService.ConfirmEmail(member, decodedToken);
             }
             catch
             {
@@ -188,18 +192,13 @@ public class RegistrationController : Controller
         string confirmToken = await membershipService.GenerateEmailConfirmationToken(member);
         string memberEmail = member.Email;
 
-        var routeValues = new RouteValueDictionary
-        {
-            { ApplicationConstants.LANGUAGE_KEY, preferredLanguageRetriever.Get() },
-            { nameof(memberEmail), memberEmail },
-            { nameof(confirmToken), confirmToken }
-        };
+        string encodedMemberEmail = HttpUtility.UrlEncode(memberEmail) ?? string.Empty;
+        string encodedConfirmToken = HttpUtility.UrlEncode(confirmToken);
 
-        string confirmationURL = Url.Action(
-            nameof(Confirm),
-            "Registration",
-            routeValues,
-            Request.Scheme) ?? string.Empty;
+
+        string confirmationURL = httpRequestService.GetAbsoluteUrlForPath(
+                httpRequestService.CombineUrlPaths(ApplicationConstants.CONFIRM_REGISTRATION_ACTION_PATH, encodedMemberEmail, encodedConfirmToken),
+                true);
 
         if (string.IsNullOrWhiteSpace(confirmationURL))
         {

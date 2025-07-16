@@ -1,7 +1,7 @@
 using System.ComponentModel;
+using CMS.ContentEngine;
 using Kentico.PageBuilder.Web.Mvc;
 using Kentico.Xperience.Admin.Base.FormAnnotations;
-using Kentico.Xperience.Admin.Websites.FormAnnotations;
 using TrainingGuides.Web.Features.Shared.OptionProviders;
 using TrainingGuides.Web.Features.Shared.OptionProviders.ColorScheme;
 using TrainingGuides.Web.Features.Shared.OptionProviders.CornerStyle;
@@ -25,11 +25,13 @@ public class ProductWidgetProperties : IWidgetProperties
     public string PageAnchor { get; set; } = string.Empty;
 
     [VisibleIfEqualTo(nameof(Mode), ProductWidgetMode.SELECT_PAGE, StringComparison.OrdinalIgnoreCase)]
-    [WebPageSelectorComponent(
+    [ContentItemSelectorComponent(
+        ProductPage.CONTENT_TYPE_NAME,
         Label = "Select product page",
-        ExplanationText = "Choose the product page to be dispayed in the widget.",
+        ExplanationText = "Choose the product page to be displayed in the widget.",
+        MaximumItems = 1,
         Order = 30)]
-    public IEnumerable<WebPageRelatedItem> SelectedProductPage { get; set; } = [];
+    public IEnumerable<ContentItemReference> SelectedProductPage { get; set; } = [];
 
     [CheckBoxComponent(
         Label = "Display product image",
