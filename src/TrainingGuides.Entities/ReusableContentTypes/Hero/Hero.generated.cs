@@ -68,6 +68,6 @@ namespace TrainingGuides
 		/// <summary>
 		/// HeroTarget.
 		/// </summary>
-		public IEnumerable<WebPageRelatedItem> HeroTarget { get; set; }
+		public IEnumerable<IWebPageFieldsSource> HeroTarget { get; set; }
 	}
 }

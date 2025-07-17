@@ -23,22 +23,19 @@ public class ProductComparatorWidgetViewComponent : ViewComponent
     public const string IDENTIFIER = "TrainingGuides.ProductComparatorWidget";
 
     private readonly IContentItemRetrieverService<ProductPage> productRetrieverService;
-    private readonly IWebPageUrlRetriever webPageUrlRetriever;
     private readonly IHttpRequestService httpRequestService;
 
-    public ProductComparatorWidgetViewComponent(IContentItemRetrieverService<ProductPage> productRetrieverService,
-        IWebPageUrlRetriever webPageUrlRetriever,
+    public ProductComparatorWidgetViewComponent(
+        IContentItemRetrieverService<ProductPage> productRetrieverService,
         IHttpRequestService httpRequestService)
     {
         this.productRetrieverService = productRetrieverService;
-        this.webPageUrlRetriever = webPageUrlRetriever;
         this.httpRequestService = httpRequestService;
     }
 
-    public async Task<ViewViewComponentResult> InvokeAsync(ProductComparatorWidgetProperties properties,
-        CancellationToken cancellationToken)
+    public async Task<ViewViewComponentResult> InvokeAsync(ProductComparatorWidgetProperties properties)
     {
-        var guids = properties.Products?.Select(i => i.WebPageGuid).ToList() ?? [];
+        var guids = properties.Products?.Select(i => i.Identifier).ToList() ?? [];
 
         var model = new ProductComparatorWidgetViewModel()
         {
@@ -53,7 +50,7 @@ public class ProductComparatorWidgetViewComponent : ViewComponent
 
         foreach (var guid in guids)
         {
-            var product = await GetProduct(guid, properties, cancellationToken);
+            var product = await GetProduct(guid, properties);
 
             if (product != null)
             {
@@ -69,9 +66,9 @@ public class ProductComparatorWidgetViewComponent : ViewComponent
         return View("~/Features/Products/Widgets/ProductComparator/ProductComparatorWidget.cshtml", model);
     }
 
-    private async Task<ProductPageViewModel?> GetProduct(Guid guid, ProductComparatorWidgetProperties properties, CancellationToken cancellationToken)
+    private async Task<ProductPageViewModel?> GetProduct(Guid guid, ProductComparatorWidgetProperties properties)
     {
-        var productPage = await productRetrieverService.RetrieveWebPageByGuid(
+        var productPage = await productRetrieverService.RetrieveWebPageByContentItemGuid(
                             guid,
                             ProductPage.CONTENT_TYPE_NAME,
                             4);
@@ -105,7 +102,7 @@ public class ProductComparatorWidgetViewComponent : ViewComponent
 
         var linkComponent = new LinkViewModel()
         {
-            LinkUrl = webPageUrlRetriever.Retrieve(productPage, cancellationToken).Result.RelativePath,
+            LinkUrl = productPage.GetUrl().RelativePath,
             CallToAction = properties.CallToAction ?? string.Empty
         };
 

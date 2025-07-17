@@ -107,7 +107,9 @@ public class MemberManagementController : Controller
 
             string encodedEmail = HttpUtility.UrlEncode(guidesMember.Email) ?? string.Empty;
 
-            string resetUrl = httpRequestService.GetAbsoluteUrlForPath(httpRequestService.CombineUrlPaths(ApplicationConstants.PASSWORD_RESET_ACTION_PATH, encodedEmail, encodedToken), true);
+            string resetUrl = httpRequestService.GetAbsoluteUrlForPath(
+                httpRequestService.CombineUrlPaths(ApplicationConstants.PASSWORD_RESET_ACTION_PATH, encodedEmail, encodedToken),
+                true);
 
             await emailService
                 .SendEmail(new EmailMessage()
