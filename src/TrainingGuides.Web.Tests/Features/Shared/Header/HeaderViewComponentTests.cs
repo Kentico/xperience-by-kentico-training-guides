@@ -1,4 +1,4 @@
-using CMS.Websites;
+using CMS.ContentEngine;
 using Microsoft.Extensions.Localization;
 using Moq;
 using TrainingGuides.Web.Features.Header;
@@ -34,11 +34,11 @@ public class HeaderViewComponentTests
     {
         var testGuid = Guid.NewGuid();
 
-        var viewModel = viewComponent.BuildViewModel([new WebPageRelatedItem() { WebPageGuid = testGuid }]);
+        var viewModel = viewComponent.BuildViewModel([new ContentItemReference() { Identifier = testGuid }]);
         Assert.Equal(SIGN_IN, viewModel.LinkOrSignOutWidgetProperties.UnauthenticatedButtonText);
         Assert.Equal(SIGN_OUT, viewModel.LinkOrSignOutWidgetProperties.AuthenticatedButtonText);
         Assert.Single(viewModel.LinkOrSignOutWidgetProperties.UnauthenticatedTargetContentPage);
-        Assert.Equal(testGuid, viewModel.LinkOrSignOutWidgetProperties.UnauthenticatedTargetContentPage.First().WebPageGuid);
+        Assert.Equal(testGuid, viewModel.LinkOrSignOutWidgetProperties.UnauthenticatedTargetContentPage.First().Identifier);
     }
 
     [Fact]
@@ -46,7 +46,7 @@ public class HeaderViewComponentTests
     {
         var testGuid = Guid.NewGuid();
 
-        var viewModel = viewComponent.BuildViewModel([new WebPageRelatedItem() { WebPageGuid = testGuid }]);
+        var viewModel = viewComponent.BuildViewModel([new ContentItemReference() { Identifier = testGuid }]);
         Assert.True(viewModel.ShowNavigation);
     }
 
@@ -55,8 +55,8 @@ public class HeaderViewComponentTests
     {
         var testGuid = Guid.NewGuid();
 
-        var viewModelWithNavigation = viewComponent.BuildViewModel([new WebPageRelatedItem() { WebPageGuid = testGuid }], true);
-        var viewModelWithoutNavigation = viewComponent.BuildViewModel([new WebPageRelatedItem() { WebPageGuid = testGuid }], false);
+        var viewModelWithNavigation = viewComponent.BuildViewModel([new ContentItemReference() { Identifier = testGuid }], true);
+        var viewModelWithoutNavigation = viewComponent.BuildViewModel([new ContentItemReference() { Identifier = testGuid }], false);
         Assert.True(viewModelWithNavigation.ShowNavigation);
         Assert.False(viewModelWithoutNavigation.ShowNavigation);
     }
