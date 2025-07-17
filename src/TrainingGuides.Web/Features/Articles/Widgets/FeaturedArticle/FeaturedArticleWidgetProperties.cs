@@ -1,14 +1,15 @@
+using CMS.ContentEngine;
 using Kentico.PageBuilder.Web.Mvc;
-using Kentico.Xperience.Admin.Websites.FormAnnotations;
+using Kentico.Xperience.Admin.Base.FormAnnotations;
 
 namespace TrainingGuides.Web.Features.Articles.Widgets.FeaturedArticle;
 
 public class FeaturedArticleWidgetProperties : IWidgetProperties
 {
-    [WebPageSelectorComponent(
+    [ContentItemSelectorComponent(
+        ArticlePage.CONTENT_TYPE_NAME,
         Label = "Selected article",
-        MaximumPages = 1,
-        Sortable = true,
+        MaximumItems = 1,
         Order = 10)]
-    public IEnumerable<WebPageRelatedItem> Article { get; set; } = Enumerable.Empty<WebPageRelatedItem>();
+    public IEnumerable<ContentItemReference> Article { get; set; } = Enumerable.Empty<ContentItemReference>();
 }
