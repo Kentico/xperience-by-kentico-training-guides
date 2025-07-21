@@ -1,13 +1,13 @@
 # This workflow will build a .NET project
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
+# For more information, see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
 
 name: .NET
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main", "finished" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "main", "finished" ]
 
 jobs:
   build:
@@ -25,8 +25,10 @@ jobs:
         cd src/TrainingGuides.Web
         dotnet restore
     - name: Build
-      run: dotnet build --no-restore
+      run: |
+        cd src/TrainingGuides.Web
+        dotnet build --no-restore
     - name: Test
       run: |
-        cd ../TrainingGuides.Web
+        cd src/TrainingGuides.Web.Tests
         dotnet test --no-build --verbosity normal
