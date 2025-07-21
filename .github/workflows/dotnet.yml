@@ -31,4 +31,4 @@ jobs:
     - name: Test
       run: |
         cd src/TrainingGuides.Web.Tests
-        dotnet test --no-build --verbosity normal
+        dotnet test --verbosity normal
