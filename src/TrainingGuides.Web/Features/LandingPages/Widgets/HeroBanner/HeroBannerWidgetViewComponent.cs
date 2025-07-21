@@ -24,26 +24,19 @@ public class HeroBannerWidgetViewComponent : ViewComponent
     private readonly IWebPageDataContextRetriever webPageDataContextRetriever;
     private readonly IContentItemRetrieverService<ProductPage> productRetrieverService;
     private readonly IContentItemRetrieverService<Hero> heroRetrieverService;
-    private readonly IWebPageUrlRetriever webPageUrlRetriever;
-    private readonly IPreferredLanguageRetriever preferredLanguageRetriever;
-    private readonly IEnumStringService enumStringService;
+    private readonly IEnumStringService enumStringService = new EnumStringService();
 
     public const string IDENTIFIER = "TrainingGuides.HeroBanner";
 
-    public HeroBannerWidgetViewComponent(
-        IWebPageDataContextRetriever webPageDataContextRetriever,
+    public HeroBannerWidgetViewComponent(IWebPageDataContextRetriever webPageDataContextRetriever,
         IContentItemRetrieverService<ProductPage> productRetrieverService,
         IContentItemRetrieverService<Hero> heroRetrieverService,
-        IWebPageUrlRetriever webPageUrlRetriever,
-        IPreferredLanguageRetriever preferredLanguageRetriever,
         IEnumStringService enumStringService
-    )
+        )
     {
         this.webPageDataContextRetriever = webPageDataContextRetriever;
         this.productRetrieverService = productRetrieverService;
         this.heroRetrieverService = heroRetrieverService;
-        this.webPageUrlRetriever = webPageUrlRetriever;
-        this.preferredLanguageRetriever = preferredLanguageRetriever;
         this.enumStringService = enumStringService;
     }
 
