@@ -8,10 +8,7 @@ namespace TrainingGuides.Web.Features.Shared.EmailBuilder.RazorComponents;
 
 public partial class EmailBuilderColumns : ComponentBase
 {
-    // private const string AREA_MAIN = "MainContent";
-    // private const string AREA_SECONDARY = "SecondaryContent";
-    // private const string AREA_TERTIARY = "TertiaryContent";
-
+    // If you want to apply this approach to Editable Areas rather than Widget Zones, we recommend changing these constants with more accurate names.
     private const string ZONE_MAIN = "Widget_Zone_0";
     private const string ZONE_SECONDARY = "Widget_Zone_1";
     private const string ZONE_TERTIARY = "Widget_Zone_2";
