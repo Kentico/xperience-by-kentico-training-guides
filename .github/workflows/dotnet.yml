@@ -14,7 +14,7 @@ on:
       - finished
 
 jobs:
-  build and test:
+  build:
 
     runs-on: ubuntu-latest
 
