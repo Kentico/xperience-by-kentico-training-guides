@@ -5,9 +5,13 @@ name: Build and run unit tests
 
 on:
   push:
-    branches: [ "main", "finished" ]
+    branches:
+      - main
+      - finished
   pull_request:
-    branches: [ "main", "finished" ]
+    branches:
+      - main
+      - finished
 
 jobs:
   build:
