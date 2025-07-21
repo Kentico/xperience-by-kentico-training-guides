@@ -17,11 +17,9 @@ using TrainingGuides.Web.Features.Shared.OptionProviders;
 
 namespace TrainingGuides.Web.Features.Shared.EmailBuilder.Sections;
 
-
-
 public partial class GeneralEmailSection : ComponentBase
 {
-    public const string IDENTIFIER = $"TrainingGuides.GeneralEmailSection";
+    public const string IDENTIFIER = "TrainingGuides.GeneralEmailSection";
 
     private ColumnLayoutOption ColumnLayout => new DropdownEnumOptionProvider<ColumnLayoutOption>().Parse(Properties.ColumnLayout, ColumnLayoutOption.OneColumn);
     private CornerStyleOption CornerStyle => new DropdownEnumOptionProvider<CornerStyleOption>().Parse(Properties.CornerStyle, CornerStyleOption.Round);

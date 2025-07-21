@@ -1,5 +1,3 @@
-
-
 using Kentico.Xperience.Admin.Base.Forms;
 using TrainingGuides.Web.Features.Shared.OptionProviders;
 using TrainingGuides.Web.Features.Shared.OptionProviders.ColumnLayout;

@@ -1,6 +1,5 @@
 @using Kentico.VisualBuilderComponents.Rcl.Components
 
-
 @foreach(var column in Model.Columns)
 {
     <mj-column width="@($"{column.Width}%")" css-class="@(string.Join(" ", column.CssClasses))" padding="8px">

@@ -32,13 +32,13 @@ public partial class GeneralEmailTemplate : ComponentBase
     public GeneralEmailTemplateProperties Properties { get; set; } = new();
 
     [Inject]
-    private IEmailContextAccessor EmailContextAccessor { get; set; } = null!;
+    private IEmailContextAccessor EmailContextAccessor { get; set; } = default!;
 
     [Inject]
-    private CssLoaderService CssLoaderService { get; set; } = null!;
+    private CssLoaderService CssLoaderService { get; set; } = default!;
 
     [Inject]
-    private IComponentStyleEnumService ComponentStyleEnumService { get; set; } = null!;
+    private IComponentStyleEnumService ComponentStyleEnumService { get; set; } = default!;
 
     protected override async Task OnInitializedAsync()
     {

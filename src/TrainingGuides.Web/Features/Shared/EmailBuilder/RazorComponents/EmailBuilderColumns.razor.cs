@@ -22,7 +22,6 @@ public partial class EmailBuilderColumns : ComponentBase
 
     private int NumberOfColumns => ColumnLayout switch
     {
-
         ColumnLayoutOption.TwoColumnEven or
         ColumnLayoutOption.TwoColumnLgSm or
         ColumnLayoutOption.TwoColumnSmLg
@@ -36,22 +35,22 @@ public partial class EmailBuilderColumns : ComponentBase
     };
 
     [Inject]
-    private IComponentStyleEnumService ComponentStyleEnumService { get; set; } = null!;
+    private IComponentStyleEnumService ComponentStyleEnumService { get; set; } = default!;
 
     [Parameter]
-    public ColumnLayoutOption ColumnLayout { get; set; }
+    public ColumnLayoutOption ColumnLayout { get; set; } = ColumnLayoutOption.OneColumn;
 
     [Parameter]
-    public CornerStyleOption CornerStyle { get; set; } = CornerStyleOption.Sharp;
+    public CornerStyleOption CornerStyle { get; set; } = CornerStyleOption.Round;
 
     [Parameter]
-    public ColorSchemeOption Column1ColorScheme { get; set; } = ColorSchemeOption.Light1;
+    public ColorSchemeOption Column1ColorScheme { get; set; } = ColorSchemeOption.Light2;
 
     [Parameter]
-    public ColorSchemeOption Column2ColorScheme { get; set; } = ColorSchemeOption.Light1;
+    public ColorSchemeOption Column2ColorScheme { get; set; } = ColorSchemeOption.Light2;
 
     [Parameter]
-    public ColorSchemeOption Column3ColorScheme { get; set; } = ColorSchemeOption.Light1;
+    public ColorSchemeOption Column3ColorScheme { get; set; } = ColorSchemeOption.Light2;
 
     [Parameter]
     public IEnumerable<string> AllowedWidgets { get; set; } = Enumerable.Empty<string>();
