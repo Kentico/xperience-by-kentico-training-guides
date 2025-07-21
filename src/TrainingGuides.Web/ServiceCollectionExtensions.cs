@@ -13,6 +13,7 @@ using TrainingGuides.Web.Features.SEO;
 using TrainingGuides.Web.Features.Shared.EmailBuilder;
 using TrainingGuides.Web.Features.Shared.EmailBuilder.ModelMappers;
 using TrainingGuides.Web.Features.Shared.Services;
+using TrainingGuides.Web.Features.Shared.OptionProviders;
 
 namespace TrainingGuides.Web;
 
@@ -32,6 +33,7 @@ public static class ServiceCollectionExtensions
         services.AddSingleton<IMemberContactService, MemberContactService>();
         services.AddSingleton<IUpdateProfileService, UpdateProfileService>();
         services.AddSingleton<ICountryService, CountryService>();
+        services.AddSingleton<IEnumStringService, EnumStringService>();
 
         services.AddScoped<IMembershipService, MembershipService>();
         services.AddScoped<IHeadTagStoreService, HeadTagStoreService>();

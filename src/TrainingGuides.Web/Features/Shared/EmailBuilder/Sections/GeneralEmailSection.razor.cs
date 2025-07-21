@@ -21,11 +21,14 @@ public partial class GeneralEmailSection : ComponentBase
 {
     public const string IDENTIFIER = "TrainingGuides.GeneralEmailSection";
 
-    private ColumnLayoutOption ColumnLayout => new DropdownEnumOptionProvider<ColumnLayoutOption>().Parse(Properties.ColumnLayout, ColumnLayoutOption.OneColumn);
-    private CornerStyleOption CornerStyle => new DropdownEnumOptionProvider<CornerStyleOption>().Parse(Properties.CornerStyle, CornerStyleOption.Round);
-    private ColorSchemeOption Column1ColorScheme => new DropdownEnumOptionProvider<ColorSchemeOption>().Parse(Properties.Column1ColorScheme, ColorSchemeOption.Light1);
-    private ColorSchemeOption Column2ColorScheme => new DropdownEnumOptionProvider<ColorSchemeOption>().Parse(Properties.Column2ColorScheme, ColorSchemeOption.Light1);
-    private ColorSchemeOption Column3ColorScheme => new DropdownEnumOptionProvider<ColorSchemeOption>().Parse(Properties.Column3ColorScheme, ColorSchemeOption.Light1);
+    [Inject]
+    private IEnumStringService EnumStringService { get; set; } = default!;
+
+    private ColumnLayoutOption ColumnLayout => EnumStringService.Parse(Properties.ColumnLayout, ColumnLayoutOption.OneColumn);
+    private CornerStyleOption CornerStyle => EnumStringService.Parse(Properties.CornerStyle, CornerStyleOption.Round);
+    private ColorSchemeOption Column1ColorScheme => EnumStringService.Parse(Properties.Column1ColorScheme, ColorSchemeOption.Light1);
+    private ColorSchemeOption Column2ColorScheme => EnumStringService.Parse(Properties.Column2ColorScheme, ColorSchemeOption.Light1);
+    private ColorSchemeOption Column3ColorScheme => EnumStringService.Parse(Properties.Column3ColorScheme, ColorSchemeOption.Light1);
 
     [Parameter]
     public GeneralEmailSectionProperties Properties { get; set; } = new();

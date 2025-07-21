@@ -27,21 +27,25 @@ public class HeroBannerWidgetViewComponent : ViewComponent
     private readonly IContentItemRetrieverService<Hero> heroRetrieverService;
     private readonly IWebPageUrlRetriever webPageUrlRetriever;
     private readonly IPreferredLanguageRetriever preferredLanguageRetriever;
+    private readonly IEnumStringService enumStringService;
 
     public const string IDENTIFIER = "TrainingGuides.HeroBanner";
 
-    public HeroBannerWidgetViewComponent(IWebPageDataContextRetriever webPageDataContextRetriever,
+    public HeroBannerWidgetViewComponent(
+        IWebPageDataContextRetriever webPageDataContextRetriever,
         IContentItemRetrieverService<ProductPage> productRetrieverService,
         IContentItemRetrieverService<Hero> heroRetrieverService,
         IWebPageUrlRetriever webPageUrlRetriever,
-        IPreferredLanguageRetriever preferredLanguageRetriever
-        )
+        IPreferredLanguageRetriever preferredLanguageRetriever,
+        IEnumStringService enumStringService
+    )
     {
         this.webPageDataContextRetriever = webPageDataContextRetriever;
         this.productRetrieverService = productRetrieverService;
         this.heroRetrieverService = heroRetrieverService;
         this.webPageUrlRetriever = webPageUrlRetriever;
         this.preferredLanguageRetriever = preferredLanguageRetriever;
+        this.enumStringService = enumStringService;
     }
 
     public async Task<ViewViewComponentResult> InvokeAsync(HeroBannerWidgetProperties properties,
@@ -130,7 +134,7 @@ public class HeroBannerWidgetViewComponent : ViewComponent
                 banner.ShowBenefits = properties.ShowBenefits;
                 banner.FullWidth = (properties.Width ?? "circle").Equals("full", StringComparison.InvariantCultureIgnoreCase);
                 banner.TextColor = properties.TextColor;
-                banner.ThemeClass = new DropdownEnumOptionProvider<TextColorOption>().Parse(properties.TextColor, TextColorOption.Dark) switch
+                banner.ThemeClass = enumStringService.Parse(properties.TextColor, TextColorOption.Dark) switch
                 {
                     TextColorOption.Light => "light",
                     TextColorOption.Dark => "",

@@ -5,6 +5,13 @@ namespace TrainingGuides.Web.Features.Shared.Services;
 
 public class ComponentStyleEnumService : IComponentStyleEnumService
 {
+    private readonly IEnumStringService enumStringService;
+
+    public ComponentStyleEnumService(IEnumStringService enumStringService)
+    {
+        this.enumStringService = enumStringService;
+    }
+
     public IEnumerable<string> GetColorSchemeClasses(ColorSchemeOption colorScheme) => colorScheme switch
     {
         ColorSchemeOption.Light1 => ["tg-bg-light-1", "tg-txt-dark"],
@@ -27,15 +34,14 @@ public class ComponentStyleEnumService : IComponentStyleEnumService
     };
 
     public CornerStyleOption GetCornerStyle(string cornerStyleString) =>
-        new DropdownEnumOptionProvider<CornerStyleOption>().Parse(cornerStyleString, CornerStyleOption.Round);
+        enumStringService.Parse(cornerStyleString, CornerStyleOption.Round);
 
     public ColorSchemeOption GetColorScheme(string colorSchemeString) =>
-        new DropdownEnumOptionProvider<ColorSchemeOption>().Parse(colorSchemeString, ColorSchemeOption.TransparentDark);
+        enumStringService.Parse(colorSchemeString, ColorSchemeOption.TransparentDark);
 
     public ColorSchemeOption GetLinkStyle(string linkStyleString)
     {
-        var colorScheme = new DropdownEnumOptionProvider<LinkStyleOption>().Parse(linkStyleString, LinkStyleOption.TransparentDark);
-
+        var colorScheme = enumStringService.Parse(linkStyleString, LinkStyleOption.TransparentDark);
         return (ColorSchemeOption)colorScheme;
     }
 }

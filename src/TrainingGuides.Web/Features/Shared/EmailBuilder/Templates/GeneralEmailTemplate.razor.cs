@@ -16,8 +16,8 @@ public partial class GeneralEmailTemplate : ComponentBase
 
     private string Subject { get; set; } = string.Empty;
     private string EmailPreviewText { get; set; } = string.Empty;
-    private CornerStyleOption CornerStyle => new DropdownEnumOptionProvider<CornerStyleOption>().Parse(Properties.CornerStyle, CornerStyleOption.Round);
-    private ColorSchemeOption MainColorScheme => new DropdownEnumOptionProvider<ColorSchemeOption>().Parse(Properties.MainColorScheme, ColorSchemeOption.Light2);
+    private CornerStyleOption CornerStyle => EnumStringService.Parse(Properties.CornerStyle, CornerStyleOption.Round);
+    private ColorSchemeOption MainColorScheme => EnumStringService.Parse(Properties.MainColorScheme, ColorSchemeOption.Light2);
     private List<string> RowIdentifiers { get; set; } = [];
     private List<string> MainCssClasses { get; set; } = [];
 
@@ -39,6 +39,9 @@ public partial class GeneralEmailTemplate : ComponentBase
 
     [Inject]
     private IComponentStyleEnumService ComponentStyleEnumService { get; set; } = default!;
+
+    [Inject]
+    private IEnumStringService EnumStringService { get; set; } = default!;
 
     protected override async Task OnInitializedAsync()
     {

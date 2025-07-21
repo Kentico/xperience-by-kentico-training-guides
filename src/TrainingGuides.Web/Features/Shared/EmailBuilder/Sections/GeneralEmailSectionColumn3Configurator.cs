@@ -7,6 +7,13 @@ namespace TrainingGuides.Web.Features.Shared.EmailBuilder.Sections;
 
 public class GeneralEmailSectionColumn3Configurator : FormComponentConfigurator<DropDownComponent>
 {
+    private readonly IEnumStringService enumStringService;
+
+    public GeneralEmailSectionColumn3Configurator(IEnumStringService enumStringService)
+    {
+        this.enumStringService = enumStringService;
+    }
+
     public override async Task Configure(DropDownComponent formComponent, IFormFieldValueProvider formFieldValueProvider, CancellationToken cancellationToken)
     {
         if (!GetShowColumn3(formFieldValueProvider))
@@ -19,7 +26,7 @@ public class GeneralEmailSectionColumn3Configurator : FormComponentConfigurator<
     {
         if (formFieldValueProvider.TryGet(nameof(GeneralEmailSectionProperties.ColumnLayout), out string columnLayout))
         {
-            var layout = new DropdownEnumOptionProvider<ColumnLayoutOption>().Parse(columnLayout, ColumnLayoutOption.OneColumn);
+            var layout = enumStringService.Parse(columnLayout, ColumnLayoutOption.OneColumn);
             return layout is ColumnLayoutOption.ThreeColumnEven or ColumnLayoutOption.ThreeColumnSmLgSm;
         }
         return true;
