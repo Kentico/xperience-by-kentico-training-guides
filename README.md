@@ -1,4 +1,4 @@
-This is the completed branch. If you wish to follow along with the training, please use the [main branch](https://github.com/Kentico/xperience-by-kentico-training-guides) as a starting point.
+This is the completed branch. If you wish to create this functionality yourself, please use the [main branch](https://github.com/Kentico/xperience-by-kentico-training-guides) as a starting point.
 
 > [!NOTE]
 > This repository uses implicit global usings, so if you use parts of the code in a different type of project, or one that does not have this feature enabled, you may need to add additional `using` statements to certain files.
