@@ -4,6 +4,7 @@ using TrainingGuides.Web.Features.Shared.Helpers;
 using TrainingGuides.Web.Features.Shared.Services;
 
 namespace TrainingGuides.Web.Features.Header;
+
 public class HeaderViewComponent : ViewComponent
 {
 
@@ -30,7 +31,7 @@ public class HeaderViewComponent : ViewComponent
 
         return page != null
             ? [new WebPageRelatedItem() { WebPageGuid = page.SystemFields.WebPageItemGUID }]
-            : Enumerable.Empty<WebPageRelatedItem>();
+            : [];
     }
     public HeaderViewModel BuildViewModel(IEnumerable<WebPageRelatedItem> signInPage, bool showNavigation = true)
     {

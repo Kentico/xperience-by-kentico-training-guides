@@ -10,5 +10,5 @@ public class FeaturedArticleWidgetProperties : IWidgetProperties
         MaximumPages = 1,
         Sortable = true,
         Order = 10)]
-    public IEnumerable<WebPageRelatedItem> Article { get; set; } = Enumerable.Empty<WebPageRelatedItem>();
+    public IEnumerable<WebPageRelatedItem> Article { get; set; } = [];
 }

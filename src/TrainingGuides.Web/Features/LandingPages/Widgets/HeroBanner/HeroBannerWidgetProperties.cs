@@ -30,7 +30,7 @@ public class HeroBannerWidgetProperties : IWidgetProperties
         Sortable = true,
         ExplanationText = "The widget will display the default product's content.",
         Order = 20)]
-    public IEnumerable<WebPageRelatedItem> ProductPage { get; set; } = Enumerable.Empty<WebPageRelatedItem>();
+    public IEnumerable<WebPageRelatedItem> ProductPage { get; set; } = [];
 
     [VisibleIfEqualTo(nameof(Mode), "heroContentItem", StringComparison.OrdinalIgnoreCase)]
     [ContentItemSelectorComponent(
@@ -39,7 +39,7 @@ public class HeroBannerWidgetProperties : IWidgetProperties
         ExplanationTextAsHtml = true,
         ExplanationText = "The widget will display the content from the selected Hero content item.",
         Order = 20)]
-    public IEnumerable<ContentItemReference> Hero { get; set; } = Enumerable.Empty<ContentItemReference>();
+    public IEnumerable<ContentItemReference> Hero { get; set; } = [];
 
     [VisibleIfEqualTo(nameof(Mode), "productPage", StringComparison.OrdinalIgnoreCase)]
     [TextInputComponent(

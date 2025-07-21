@@ -33,7 +33,7 @@ public class CallToActionWidgetProperties : IWidgetProperties
         ExplanationText = "Select a file (image, video, PDF, etc. that opens when a visitor clicks your CTA.\r\n",
         Order = 40)]
     [VisibleIfEqualTo(nameof(Type), "content", StringComparison.OrdinalIgnoreCase)]
-    public IEnumerable<ContentItemReference> ContentItem { get; set; } = Enumerable.Empty<ContentItemReference>();
+    public IEnumerable<ContentItemReference> ContentItem { get; set; } = [];
 
     [TextInputComponent(
         Label = "Absolute URL",

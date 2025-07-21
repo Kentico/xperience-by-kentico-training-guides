@@ -10,13 +10,13 @@ public class NatureSpotlightEmailModel
 
     public string PreviewText { get; set; } = string.Empty;
 
-    public IEnumerable<string> Countries { get; set; } = Enumerable.Empty<string>();
+    public IEnumerable<string> Countries { get; set; } = [];
 
     public string Topic { get; set; } = string.Empty;
 
     public MarkupString Text { get; set; } = new MarkupString();
 
-    public IEnumerable<ImageWidgetModel> Images { get; set; } = Enumerable.Empty<ImageWidgetModel>();
+    public IEnumerable<ImageWidgetModel> Images { get; set; } = [];
 
-    public IEnumerable<ArticleEmailWidgetModel> RelatedArticles { get; set; } = Enumerable.Empty<ArticleEmailWidgetModel>();
+    public IEnumerable<ArticleEmailWidgetModel> RelatedArticles { get; set; } = [];
 }

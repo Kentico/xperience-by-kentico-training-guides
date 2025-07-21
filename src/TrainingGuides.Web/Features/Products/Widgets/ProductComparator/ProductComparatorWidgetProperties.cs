@@ -6,6 +6,7 @@ using TrainingGuides.Web.Features.Shared.OptionProviders;
 using TrainingGuides.Web.Features.Shared.OptionProviders.Heading;
 
 namespace TrainingGuides.Web.Features.Products.Widgets.ProductComparator;
+
 public class ProductComparatorWidgetProperties : IWidgetProperties
 {
     [WebPageSelectorComponent(
@@ -14,7 +15,7 @@ public class ProductComparatorWidgetProperties : IWidgetProperties
         Sortable = true,
         ItemModifierType = typeof(ProductComparatorWidgetItemModifier),
         Order = 10)]
-    public IEnumerable<WebPageRelatedItem> Products { get; set; } = Enumerable.Empty<WebPageRelatedItem>();
+    public IEnumerable<WebPageRelatedItem> Products { get; set; } = [];
 
     [TextInputComponent(
         Label = "Comparator heading",

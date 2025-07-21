@@ -25,7 +25,7 @@ public class IsInContactGroupConditionType : ConditionType
     Label = "Contact groups",
     Order = 0,
     MaximumItems = 0)]
-    public IEnumerable<ObjectRelatedItem> SelectedContactGroups { get; set; } = Enumerable.Empty<ObjectRelatedItem>();
+    public IEnumerable<ObjectRelatedItem> SelectedContactGroups { get; set; } = [];
 
     /// <summary>
     /// Evaluate condition type.

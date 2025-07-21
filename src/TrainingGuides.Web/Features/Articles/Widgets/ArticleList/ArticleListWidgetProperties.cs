@@ -15,14 +15,14 @@ public class ArticleListWidgetProperties : IWidgetProperties
         MaximumPages = 1,
         Sortable = true,
         Order = 10)]
-    public IEnumerable<WebPageRelatedItem> ContentTreeSection { get; set; } = Enumerable.Empty<WebPageRelatedItem>();
+    public IEnumerable<WebPageRelatedItem> ContentTreeSection { get; set; } = [];
 
     [TagSelectorComponent(
         "ArticleCategory",
         Label = "Filter to categories",
         ExplanationText = "Select 0, 1 or more Article Type tags. Shows all if none are selected",
         Order = 15)]
-    public IEnumerable<TagReference> Tags { get; set; } = Enumerable.Empty<TagReference>();
+    public IEnumerable<TagReference> Tags { get; set; } = [];
 
     [NumberInputComponent(
         Label = "Number of articles to display",

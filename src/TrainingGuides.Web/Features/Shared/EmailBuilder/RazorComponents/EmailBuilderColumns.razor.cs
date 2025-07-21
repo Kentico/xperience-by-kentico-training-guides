@@ -50,10 +50,10 @@ public partial class EmailBuilderColumns : ComponentBase
     public ColorSchemeOption Column3ColorScheme { get; set; } = ColorSchemeOption.Light2;
 
     [Parameter]
-    public IEnumerable<string> AllowedWidgets { get; set; } = Enumerable.Empty<string>();
+    public IEnumerable<string> AllowedWidgets { get; set; } = [];
 
     [Parameter]
-    public IEnumerable<string> AllowedSections { get; set; } = Enumerable.Empty<string>();
+    public IEnumerable<string> AllowedSections { get; set; } = [];
 
     protected override void OnInitialized()
     {
@@ -171,6 +171,6 @@ public partial class EmailBuilderColumns : ComponentBase
         0 => ComponentStyleEnumService.GetColorSchemeClasses(Column1ColorScheme),
         1 => ComponentStyleEnumService.GetColorSchemeClasses(Column2ColorScheme),
         2 => ComponentStyleEnumService.GetColorSchemeClasses(Column3ColorScheme),
-        _ => Enumerable.Empty<string>()
+        _ => []
     };
 }
