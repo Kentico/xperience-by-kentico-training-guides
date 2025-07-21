@@ -1,3 +1,4 @@
+using CMS.ContentEngine;
 using CMS.Websites;
 using Kentico.Content.Web.Mvc.Routing;
 using Moq;
@@ -10,7 +11,7 @@ namespace TrainingGuides.Web.Tests.Features.Membership.Widgets.LinkOrSignOut;
 
 public class LinkOrSignOutWidgetViewComponentTests
 {
-    private readonly Mock<IWebPageUrlRetriever> webPageUrlRetrieverMock;
+    private readonly Mock<IContentItemRetrieverService> contentItemRetrieverServiceMock;
     private readonly Mock<IPreferredLanguageRetriever> preferredLanguageRetrieverMock;
     private readonly Mock<IMembershipService> membershipServiceMock;
     private readonly Mock<IHttpRequestService> httpRequestServiceMock;
@@ -21,7 +22,6 @@ public class LinkOrSignOutWidgetViewComponentTests
     private const string AUTHENTICATED_TEXT = "You're already signed in.";
     private const string AUTHENTICATED_BUTTON_TEXT = "Sign Out";
     private const string LANGUAGE = "en";
-    private const string PAGE_URL = "/page";
     private const string CURRENT_PAGE_URL = "/current-page";
     private static readonly Guid unauthenticatedGuid = new("00000000-0000-0000-0000-000000000000");
 
@@ -29,12 +29,9 @@ public class LinkOrSignOutWidgetViewComponentTests
 
     public LinkOrSignOutWidgetViewComponentTests()
     {
-        webPageUrlRetrieverMock = new Mock<IWebPageUrlRetriever>();
-        webPageUrlRetrieverMock.Setup(x => x.Retrieve(It.IsAny<Guid>(), It.IsAny<string>(), It.IsAny<bool>(), It.IsAny<CancellationToken>()))
-            .ReturnsAsync((Guid pageGuid, string language, bool useAbsoluteUrl, CancellationToken cancellationToken) =>
-            {
-                return new WebPageUrl(PAGE_URL, $"{BASE_URL}{PAGE_URL}");
-            });
+        contentItemRetrieverServiceMock = new Mock<IContentItemRetrieverService>();
+        contentItemRetrieverServiceMock.Setup(x => x.RetrieveWebPageByContentItemGuid(It.IsAny<Guid>()))
+            .ReturnsAsync((IWebPageFieldsSource?)null);
 
         preferredLanguageRetrieverMock = new Mock<IPreferredLanguageRetriever>();
         preferredLanguageRetrieverMock.Setup(x => x.Get()).Returns(LANGUAGE);
@@ -46,16 +43,16 @@ public class LinkOrSignOutWidgetViewComponentTests
         httpRequestServiceMock.Setup(x => x.GetBaseUrl()).Returns(BASE_URL);
         httpRequestServiceMock.Setup(x => x.GetCurrentPageUrlForLanguage(It.IsAny<string>())).ReturnsAsync(CURRENT_PAGE_URL);
 
-        var relatedItem = new WebPageRelatedItem()
+        var relatedItem = new ContentItemReference()
         {
-            WebPageGuid = unauthenticatedGuid,
+            Identifier = unauthenticatedGuid,
         };
 
         widgetProperties = new LinkOrSignOutWidgetProperties()
         {
             UnauthenticatedText = UNAUTHENTICATED_TEXT,
             UnauthenticatedButtonText = UNAUTHENTICATED_BUTTON_TEXT,
-            UnauthenticatedTargetContentPage = [relatedItem],
+            UnauthenticatedTargetContentPage = new[] { relatedItem },
             AuthenticatedText = AUTHENTICATED_TEXT,
             AuthenticatedButtonText = AUTHENTICATED_BUTTON_TEXT
         };
@@ -66,14 +63,18 @@ public class LinkOrSignOutWidgetViewComponentTests
     {
         membershipServiceMock.Setup(x => x.IsMemberAuthenticated()).ReturnsAsync(false);
 
-        var viewComponent = new LinkOrSignOutWidgetViewComponent(webPageUrlRetrieverMock.Object, preferredLanguageRetrieverMock.Object, membershipServiceMock.Object, httpRequestServiceMock.Object);
+        var viewComponent = new LinkOrSignOutWidgetViewComponent(
+            preferredLanguageRetrieverMock.Object,
+            membershipServiceMock.Object,
+            httpRequestServiceMock.Object,
+            contentItemRetrieverServiceMock.Object);
 
         var viewModel = await viewComponent.BuildWidgetViewModel(widgetProperties);
 
         Assert.False(viewModel.IsAuthenticated);
         Assert.Equal(UNAUTHENTICATED_TEXT, viewModel.Text);
         Assert.Equal(UNAUTHENTICATED_BUTTON_TEXT, viewModel.ButtonText);
-        Assert.Equal(PAGE_URL, viewModel.Url);
+        Assert.Equal(string.Empty, viewModel.Url); // When page is not found, URL should be empty
     }
 
     [Fact]
@@ -81,7 +82,11 @@ public class LinkOrSignOutWidgetViewComponentTests
     {
         membershipServiceMock.Setup(x => x.IsMemberAuthenticated()).ReturnsAsync(true);
 
-        var viewComponent = new LinkOrSignOutWidgetViewComponent(webPageUrlRetrieverMock.Object, preferredLanguageRetrieverMock.Object, membershipServiceMock.Object, httpRequestServiceMock.Object);
+        var viewComponent = new LinkOrSignOutWidgetViewComponent(
+            preferredLanguageRetrieverMock.Object,
+            membershipServiceMock.Object,
+            httpRequestServiceMock.Object,
+            contentItemRetrieverServiceMock.Object);
 
         var viewModel = await viewComponent.BuildWidgetViewModel(widgetProperties);
 
@@ -98,7 +103,11 @@ public class LinkOrSignOutWidgetViewComponentTests
 
         httpRequestServiceMock.Setup(x => x.GetCurrentPageUrlForLanguage(It.IsAny<string>())).ReturnsAsync(string.Empty);
 
-        var viewComponent = new LinkOrSignOutWidgetViewComponent(webPageUrlRetrieverMock.Object, preferredLanguageRetrieverMock.Object, membershipServiceMock.Object, httpRequestServiceMock.Object);
+        var viewComponent = new LinkOrSignOutWidgetViewComponent(
+            preferredLanguageRetrieverMock.Object,
+            membershipServiceMock.Object,
+            httpRequestServiceMock.Object,
+            contentItemRetrieverServiceMock.Object);
 
         var viewModel = await viewComponent.BuildWidgetViewModel(widgetProperties);
 

@@ -2,7 +2,6 @@
 using CMS.ContentEngine;
 using Kentico.PageBuilder.Web.Mvc;
 using Kentico.Xperience.Admin.Base.FormAnnotations;
-using Kentico.Xperience.Admin.Websites.FormAnnotations;
 using TrainingGuides.Web.Features.Shared.OptionProviders;
 
 namespace TrainingGuides.Web.Features.LandingPages.Widgets.HeroBanner;
@@ -24,13 +23,13 @@ public class HeroBannerWidgetProperties : IWidgetProperties
     public string ProductPageAnchor { get; set; } = string.Empty;
 
     [VisibleIfEqualTo(nameof(Mode), "productPage", StringComparison.OrdinalIgnoreCase)]
-    [WebPageSelectorComponent(
+    [ContentItemSelectorComponent(
+        TrainingGuides.ProductPage.CONTENT_TYPE_NAME,
         Label = "Selected product",
-        MaximumPages = 1,
-        Sortable = true,
+        MaximumItems = 1,
         ExplanationText = "The widget will display the default product's content.",
         Order = 20)]
-    public IEnumerable<WebPageRelatedItem> ProductPage { get; set; } = [];
+    public IEnumerable<ContentItemReference> ProductPage { get; set; } = [];
 
     [VisibleIfEqualTo(nameof(Mode), "heroContentItem", StringComparison.OrdinalIgnoreCase)]
     [ContentItemSelectorComponent(

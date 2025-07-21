@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.contenttype>
   <ClassContentTypeType>Website</ClassContentTypeType>
-  <ClassDisplayName>ProfilePage</ClassDisplayName>
+  <ClassDisplayName>Profile page</ClassDisplayName>
   <ClassFormDefinition>
     <form>
       <field column="ContentItemDataID" columntype="integer" enabled="true" guid="6eecf2e7-3f27-4854-aaf0-4a3b0ed14712" isPK="true" />

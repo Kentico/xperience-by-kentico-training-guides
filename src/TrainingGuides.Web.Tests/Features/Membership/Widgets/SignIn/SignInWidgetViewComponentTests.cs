@@ -55,7 +55,7 @@ public class SignInWidgetViewComponentTests
     public async Task BuildWidgetViewModel_WhenUserSetsRedirectPage_SetsDefaultRedirectPageGuid_ToWebPageGuid()
     {
         var testGuid = Guid.NewGuid();
-        referenceProperties.DefaultRedirectPage = [new() { WebPageGuid = testGuid }];
+        referenceProperties.DefaultRedirectPage = [new() { Identifier = testGuid }];
 
         var viewModel = await viewComponent.BuildWidgetViewModel(referenceProperties);
         Assert.Equal(testGuid, viewModel.DefaultRedirectPageGuid);

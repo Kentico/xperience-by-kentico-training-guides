@@ -1,6 +1,6 @@
+using CMS.ContentEngine;
 using Kentico.PageBuilder.Web.Mvc;
 using Kentico.Xperience.Admin.Base.FormAnnotations;
-using Kentico.Xperience.Admin.Websites.FormAnnotations;
 
 namespace TrainingGuides.Web.Features.Membership.Widgets.SignIn;
 
@@ -46,10 +46,18 @@ public class SignInWidgetProperties : IWidgetProperties
         Order = 50)]
     public string StaySignedInLabel { get; set; } = "Stay signed in";
 
-    [WebPageSelectorComponent(
-        Label = "default redirect page",
+    [ContentItemSelectorComponent(
+        [
+            ArticlePage.CONTENT_TYPE_NAME,
+            DownloadsPage.CONTENT_TYPE_NAME,
+            EmptyPage.CONTENT_TYPE_NAME,
+            LandingPage.CONTENT_TYPE_NAME,
+            ProductPage.CONTENT_TYPE_NAME,
+            ProfilePage.CONTENT_TYPE_NAME
+        ],
+        Label = "Default redirect page",
         ExplanationText = "Page to redirect to after successful sign in if no 'returnUrl' parameter is specified in the query string. If empty, falls back to the home page.",
-        MaximumPages = 1,
+        MaximumItems = 1,
         Order = 60)]
-    public IEnumerable<WebPageRelatedItem> DefaultRedirectPage { get; set; } = [];
+    public IEnumerable<ContentItemReference> DefaultRedirectPage { get; set; } = [];
 }
