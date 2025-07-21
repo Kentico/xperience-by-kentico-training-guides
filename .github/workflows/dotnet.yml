@@ -21,8 +21,12 @@ jobs:
       with:
         dotnet-version: 8.0.x
     - name: Restore dependencies
-      run: dotnet restore
+      run:
+        cd src/TrainingGuides.Web
+        dotnet restore
     - name: Build
       run: dotnet build --no-restore
     - name: Test
-      run: dotnet test --no-build --verbosity normal
+      run:
+        cd ../TrainingGuides.Web
+        dotnet test --no-build --verbosity normal
