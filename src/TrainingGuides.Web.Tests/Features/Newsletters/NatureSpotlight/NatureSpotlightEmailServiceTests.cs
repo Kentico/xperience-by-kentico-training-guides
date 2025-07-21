@@ -26,16 +26,18 @@ public class NatureSpotlightEmailServiceTests
             NatureSpotlightImages = []
         };
 
-        var emailContextMock = new Mock<IEmailContextAccessor>();
-        var emailContext = new Mock<EmailContext>();
-        emailContext.Setup(x => x.GetEmail<NatureSpotlightEmail>(default)).ReturnsAsync(email);
-        emailContextMock.Setup(x => x.GetContext()).Returns(emailContext.Object);
+        var emailContextAccessorMock = new Mock<IEmailContextAccessor>();
 
         var countryServiceMock = new Mock<ICountryService>();
         countryServiceMock.Setup(x => x.GetCountryDisplayNamesByGuids(It.IsAny<IEnumerable<Guid>>()))
             .Returns([Country]);
 
-        var service = new NatureSpotlightEmailService(emailContextMock.Object, countryServiceMock.Object);
+        var servicePartialMock = new Mock<NatureSpotlightEmailService>(emailContextAccessorMock.Object, countryServiceMock.Object);
+        // mock the new method
+        servicePartialMock.Setup(x => x.GetNatureSpotlightEmailFromContext()).ReturnsAsync(email);
+        servicePartialMock.CallBase = true;
+
+        var service = servicePartialMock.Object;
 
         // Act
         var result = await service.GetNatureSpotlightEmailModel();
