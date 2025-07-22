@@ -11,15 +11,15 @@ using TrainingGuides.Web.Features.Shared.Services;
     controllerType: typeof(TrainingGuides.Web.Features.Articles.ArticlePageController))]
 
 namespace TrainingGuides.Web.Features.Articles;
+
 public class ArticlePageController : Controller
 {
-
     private readonly IWebPageDataContextRetriever webPageDataContextRetriever;
-    private readonly IContentItemRetrieverService<ArticlePage> articlePageRetrieverService;
+    private readonly IContentItemRetrieverService articlePageRetrieverService;
     private readonly IArticlePageService articlePageService;
 
     public ArticlePageController(IWebPageDataContextRetriever webPageDataContextRetriever,
-        IContentItemRetrieverService<ArticlePage> articlePageRetrieverService,
+        IContentItemRetrieverService articlePageRetrieverService,
         IArticlePageService articlePageService)
     {
         this.webPageDataContextRetriever = webPageDataContextRetriever;
@@ -30,9 +30,8 @@ public class ArticlePageController : Controller
     public async Task<IActionResult> Index()
     {
         var context = webPageDataContextRetriever.Retrieve();
-        var articlePage = await articlePageRetrieverService.RetrieveWebPageById(
+        var articlePage = await articlePageRetrieverService.RetrieveWebPageById<ArticlePage>(
             context.WebPage.WebPageItemID,
-            ArticlePage.CONTENT_TYPE_NAME,
             2);
 
         var model = await articlePageService.GetArticlePageViewModel(articlePage);

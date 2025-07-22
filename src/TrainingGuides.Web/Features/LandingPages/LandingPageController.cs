@@ -10,13 +10,14 @@ using TrainingGuides.Web.Features.Shared.Services;
     controllerType: typeof(TrainingGuides.Web.Features.LandingPages.LandingPageController))]
 
 namespace TrainingGuides.Web.Features.LandingPages;
+
 public class LandingPageController : Controller
 {
     private readonly IWebPageDataContextRetriever webPageDataContextRetriever;
-    private readonly IContentItemRetrieverService<LandingPage> contentItemRetriever;
+    private readonly IContentItemRetrieverService contentItemRetriever;
 
     public LandingPageController(IWebPageDataContextRetriever webPageDataContextRetriever,
-    IContentItemRetrieverService<LandingPage> contentItemRetriever)
+    IContentItemRetrieverService contentItemRetriever)
     {
         this.webPageDataContextRetriever = webPageDataContextRetriever;
         this.contentItemRetriever = contentItemRetriever;
@@ -26,9 +27,8 @@ public class LandingPageController : Controller
     {
         var context = webPageDataContextRetriever.Retrieve();
 
-        var landingPage = await contentItemRetriever.RetrieveWebPageById
-            (context.WebPage.WebPageItemID,
-            LandingPage.CONTENT_TYPE_NAME);
+        var landingPage = await contentItemRetriever.RetrieveWebPageById<LandingPage>
+            (context.WebPage.WebPageItemID);
 
         var model = LandingPageViewModel.GetViewModel(landingPage);
 

@@ -15,11 +15,11 @@ public class FeaturedArticleWidgetViewComponent : ViewComponent
 {
     public const string IDENTIFIER = "TrainingGuides.FeaturedArticleWidget";
 
-    private readonly IContentItemRetrieverService<ArticlePage> articlePageRetrieverService;
+    private readonly IContentItemRetrieverService articlePageRetrieverService;
     private readonly IArticlePageService articlePageService;
 
     public FeaturedArticleWidgetViewComponent(
-        IContentItemRetrieverService<ArticlePage> articlePageRetrieverService,
+        IContentItemRetrieverService articlePageRetrieverService,
         IArticlePageService articlePageService)
     {
         this.articlePageRetrieverService = articlePageRetrieverService;
@@ -30,9 +30,8 @@ public class FeaturedArticleWidgetViewComponent : ViewComponent
     {
         var guid = properties.Article?.Select(i => i.Identifier).FirstOrDefault();
         var articlePage = guid.HasValue
-            ? await articlePageRetrieverService.RetrieveWebPageByContentItemGuid(
+            ? await articlePageRetrieverService.RetrieveWebPageByContentItemGuid<ArticlePage>(
                 guid.Value,
-                ArticlePage.CONTENT_TYPE_NAME,
                 3)
             : null;
 

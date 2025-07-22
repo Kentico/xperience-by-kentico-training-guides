@@ -10,13 +10,14 @@ using TrainingGuides.Web.Features.Shared.Services;
     controllerType: typeof(TrainingGuides.Web.Features.Downloads.DownloadsPageController))]
 
 namespace TrainingGuides.Web.Features.Downloads;
+
 public class DownloadsPageController : Controller
 {
     private readonly IWebPageDataContextRetriever webPageDataContextRetriever;
-    private readonly IContentItemRetrieverService<DownloadsPage> contentItemRetriever;
+    private readonly IContentItemRetrieverService contentItemRetriever;
 
     public DownloadsPageController(IWebPageDataContextRetriever webPageDataContextRetriever,
-        IContentItemRetrieverService<DownloadsPage> contentItemRetriever)
+        IContentItemRetrieverService contentItemRetriever)
     {
         this.webPageDataContextRetriever = webPageDataContextRetriever;
         this.contentItemRetriever = contentItemRetriever;
@@ -26,9 +27,8 @@ public class DownloadsPageController : Controller
     {
         var context = webPageDataContextRetriever.Retrieve();
 
-        var downloadsPage = await contentItemRetriever.RetrieveWebPageById(
+        var downloadsPage = await contentItemRetriever.RetrieveWebPageById<DownloadsPage>(
             context.WebPage.WebPageItemID,
-            DownloadsPage.CONTENT_TYPE_NAME,
             2);
 
         var model = DownloadsPageViewModel.GetViewModel(downloadsPage);
