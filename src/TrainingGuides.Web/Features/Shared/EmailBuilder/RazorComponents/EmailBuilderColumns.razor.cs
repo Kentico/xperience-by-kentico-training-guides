@@ -41,13 +41,13 @@ public partial class EmailBuilderColumns : ComponentBase
     public CornerStyleOption CornerStyle { get; set; } = CornerStyleOption.Round;
 
     [Parameter]
-    public ColorSchemeOption Column1ColorScheme { get; set; } = ColorSchemeOption.Light2;
+    public ColorSchemeOption Column1ColorScheme { get; set; } = ColorSchemeOption.Light1;
 
     [Parameter]
-    public ColorSchemeOption Column2ColorScheme { get; set; } = ColorSchemeOption.Light2;
+    public ColorSchemeOption Column2ColorScheme { get; set; } = ColorSchemeOption.Light1;
 
     [Parameter]
-    public ColorSchemeOption Column3ColorScheme { get; set; } = ColorSchemeOption.Light2;
+    public ColorSchemeOption Column3ColorScheme { get; set; } = ColorSchemeOption.Light1;
 
     [Parameter]
     public IEnumerable<string> AllowedWidgets { get; set; } = [];
