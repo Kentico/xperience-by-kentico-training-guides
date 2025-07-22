@@ -17,7 +17,9 @@
             {
                 <mj-image src="@image.ImageUrl" alt="@image.AltText" />
             }
-            <EditableArea AreaIdentifier="MainContent" />
+        </mj-section>
+        <EditableArea AreaIdentifier="MainContent" />
+        <mj-section>
             <mj-text>
                 <h2>@Model.Topic</h2>
                 <p>
@@ -47,8 +49,8 @@
                     Read More
                 </mj-button>
             }
-            <EditableArea AreaIdentifier="SecondaryContent" />
-            <EmailBuilderScripts />
         </mj-section>
+        <EditableArea AreaIdentifier="SecondaryContent" />
+        <EmailBuilderScripts />
     </mj-body>
 </mjml>

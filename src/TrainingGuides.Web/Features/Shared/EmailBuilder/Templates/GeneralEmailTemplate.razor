@@ -22,9 +22,7 @@
     <mj-wrapper css-class="@(string.Join(" ", MainCssClasses))" >
       @foreach (var rowIdentifier in RowIdentifiers)
       {
-        <mj-section width="600px" padding="8px">
-          <EditableArea AreaIdentifier="@rowIdentifier" AllowedSections="[GeneralEmailSection.IDENTIFIER]" />
-        </mj-section>
+        <EditableArea AreaIdentifier="@rowIdentifier" AllowedSections="[GeneralEmailSection.IDENTIFIER]" />
       }
     </mj-wrapper>
     <EmailBuilderScripts />
