@@ -126,24 +126,24 @@
 }
 
 .tg-txt-light {
-  	color: white !important;
+  	color: white;
 }
 
 .tg-txt-light a {
-	color: #f0561a !important;
+	color: #f0561a;
 }
 
 .tg-txt-medium {
-  	color: #f0561a !important;
+  	color: #f0561a;
 }
 
 .tg-txt-medium a {
-  	color: white !important;
+  	color: white;
 }
 .tg-txt-dark {
-  	color: #1e1a1b !important;
+  	color: #1e1a1b;
 }
 
 .tg-txt-dark a {
-	color: #f0561a !important;
+	color: #f0561a;
 }
