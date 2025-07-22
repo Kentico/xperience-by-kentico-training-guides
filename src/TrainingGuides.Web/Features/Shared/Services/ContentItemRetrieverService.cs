@@ -37,35 +37,46 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
 
         var pages = await contentRetriever.RetrievePages<T>(
             parameters,
-            query => query
-                .Where(where => where.WhereEquals(nameof(WebPageFields.WebPageItemID), webPageItemId)),
-            new RetrievalCacheSettings($"WebPageItemID_{webPageItemId}"));
+            query =>
+                query.Where(where => where.WhereEquals(nameof(WebPageFields.WebPageItemID), webPageItemId)),
+            RetrievalCacheSettings.CacheDisabled);
 
         return pages.FirstOrDefault();
     }
 
     /// <inheritdoc />
-    public async Task<T?> RetrieveWebPageByGuid<T>(
-        Guid? webPageItemGuid,
+    public async Task<T?> RetrieveCurrentPage<T>(
         int depth = 1,
         string? languageName = null)
         where T : IWebPageFieldsSource, new()
     {
-        if (!webPageItemGuid.HasValue)
-            return default;
-
-        var parameters = new RetrievePagesParameters
+        var parameters = new RetrieveCurrentPageParameters
         {
             LinkedItemsMaxLevel = depth,
             LanguageName = languageName ?? preferredLanguageRetriever.Get(),
             IsForPreview = webSiteChannelContext.IsPreview
         };
 
-        var pages = await contentRetriever.RetrievePages<T>(
-            parameters,
-            query => query
-                .Where(where => where.WhereEquals(nameof(WebPageFields.WebPageItemGUID), webPageItemGuid.Value)),
-            new RetrievalCacheSettings($"WebPageItemGUID_{webPageItemGuid}"));
+        return await contentRetriever.RetrieveCurrentPage<T>(parameters);
+    }
+
+    /// <inheritdoc />
+    public async Task<T?> RetrieveWebPageByGuid<T>(
+        Guid webPageItemGuid,
+        int depth = 1,
+        string? languageName = null)
+        where T : IWebPageFieldsSource, new()
+    {
+        var parameters = new RetrieveContentParameters
+        {
+            LinkedItemsMaxLevel = depth,
+            LanguageName = languageName ?? preferredLanguageRetriever.Get(),
+            IsForPreview = webSiteChannelContext.IsPreview
+        };
+
+        var pages = await contentRetriever.RetrieveContentByGuids<T>(
+            [webPageItemGuid],
+            parameters);
 
         return pages.FirstOrDefault();
     }
@@ -77,15 +88,14 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
         string? languageName = null)
         where T : IWebPageFieldsSource, new()
     {
-        // Following the rules: GUID-based retrievals should use RetrievePagesByGuids
-        var parameters = new RetrievePagesParameters
+        var parameters = new RetrieveContentParameters
         {
             LinkedItemsMaxLevel = depth,
             LanguageName = languageName ?? preferredLanguageRetriever.Get(),
             IsForPreview = webSiteChannelContext.IsPreview
         };
 
-        var pages = await contentRetriever.RetrievePagesByGuids<T>(
+        var pages = await contentRetriever.RetrieveContentByGuids<T>(
             [contentItemGuid],
             parameters);
 
@@ -109,7 +119,7 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
             return await contentRetriever.RetrievePages<T>(
                 parameters,
                 additionalQueryConfiguration,
-                new RetrievalCacheSettings("WebPageContentItems"));
+                RetrievalCacheSettings.CacheDisabled);
         }
         else
         {
@@ -142,7 +152,6 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
         string? languageName = null)
         where T : IContentItemFieldsSource, new()
     {
-        // Following the rules: GUID-based retrievals should use RetrieveContentByGuids
         var parameters = new RetrieveContentParameters
         {
             LinkedItemsMaxLevel = depth,
@@ -169,34 +178,11 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
             IsForPreview = webSiteChannelContext.IsPreview
         };
 
-        if (additionalQueryConfiguration != null)
-        {
-            return await contentRetriever.RetrieveContent<T>(
-                parameters,
-                additionalQueryConfiguration,
-                new RetrievalCacheSettings("ReusableContentItems"));
-        }
-        else
-        {
-            return await contentRetriever.RetrieveContent<T>(parameters);
-        }
-    }
-
-    /// <inheritdoc />
-    public async Task<IWebPageFieldsSource?> RetrieveWebPageByContentItemGuid(Guid pageContentItemGuid)
-    {
-        // Following the rules: GUID-based retrievals should use RetrievePagesByGuids
-        var parameters = new RetrievePagesParameters
-        {
-            LinkedItemsMaxLevel = 2,
-            LanguageName = preferredLanguageRetriever.Get(),
-            IsForPreview = webSiteChannelContext.IsPreview
-        };
-
-        var pages = await contentRetriever.RetrievePagesByGuids<IWebPageFieldsSource>(
-            [pageContentItemGuid],
-            parameters);
-
-        return pages.FirstOrDefault();
+        return additionalQueryConfiguration != null
+            ? await contentRetriever.RetrieveContent<T>(
+                    parameters,
+                    additionalQueryConfiguration,
+                    RetrievalCacheSettings.CacheDisabled)
+            : await contentRetriever.RetrieveContent<T>(parameters);
     }
 }

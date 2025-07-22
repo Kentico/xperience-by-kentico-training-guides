@@ -17,18 +17,14 @@ public class ArticleListWidgetViewComponent : ViewComponent
 {
     public const string IDENTIFIER = "TrainingGuides.ArticleListWidget";
 
-    private readonly IContentItemRetrieverService genericPageRetrieverService;
-    private readonly IContentItemRetrieverService articlePageRetrieverService;
-
+    private readonly IContentItemRetrieverService contentItemRetrieverService;
     private readonly IArticlePageService articlePageService;
 
     public ArticleListWidgetViewComponent(
-        IContentItemRetrieverService genericPageRetrieverService,
-        IContentItemRetrieverService articlePageRetrieverService,
+        IContentItemRetrieverService contentItemRetrieverService,
         IArticlePageService articlePageService)
     {
-        this.genericPageRetrieverService = genericPageRetrieverService;
-        this.articlePageRetrieverService = articlePageRetrieverService;
+        this.contentItemRetrieverService = contentItemRetrieverService;
         this.articlePageService = articlePageService;
     }
 
@@ -56,7 +52,10 @@ public class ArticleListWidgetViewComponent : ViewComponent
     {
         var selectedPageGuid = parentPageSelection.Identifier;
 
-        var selectedPage = await genericPageRetrieverService.RetrieveWebPageByContentItemGuid(selectedPageGuid);
+        var selectedPage = selectedPageGuid != Guid.Empty
+            ? await contentItemRetrieverService.RetrieveWebPageByContentItemGuid<ArticlePage>(selectedPageGuid)
+            : null;
+
         string selectedPagePath = selectedPage?.SystemFields.WebPageItemTreePath ?? string.Empty;
 
         if (string.IsNullOrEmpty(selectedPagePath))
@@ -64,7 +63,7 @@ public class ArticleListWidgetViewComponent : ViewComponent
             return Enumerable.Empty<ArticlePage>();
         }
 
-        return await articlePageRetrieverService.RetrieveWebPageChildrenByPath<ArticlePage>(
+        return await contentItemRetrieverService.RetrieveWebPageChildrenByPath<ArticlePage>(
             selectedPagePath,
             3);
     }

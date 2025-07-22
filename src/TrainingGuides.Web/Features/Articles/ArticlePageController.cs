@@ -1,5 +1,4 @@
-﻿using Kentico.Content.Web.Mvc;
-using Kentico.Content.Web.Mvc.Routing;
+﻿using Kentico.Content.Web.Mvc.Routing;
 using Kentico.PageBuilder.Web.Mvc.PageTemplates;
 using Microsoft.AspNetCore.Mvc;
 using TrainingGuides;
@@ -14,25 +13,20 @@ namespace TrainingGuides.Web.Features.Articles;
 
 public class ArticlePageController : Controller
 {
-    private readonly IWebPageDataContextRetriever webPageDataContextRetriever;
-    private readonly IContentItemRetrieverService articlePageRetrieverService;
+    private readonly IContentItemRetrieverService contentItemRetrieverService;
     private readonly IArticlePageService articlePageService;
 
-    public ArticlePageController(IWebPageDataContextRetriever webPageDataContextRetriever,
-        IContentItemRetrieverService articlePageRetrieverService,
+    public ArticlePageController(
+        IContentItemRetrieverService contentItemRetrieverService,
         IArticlePageService articlePageService)
     {
-        this.webPageDataContextRetriever = webPageDataContextRetriever;
-        this.articlePageRetrieverService = articlePageRetrieverService;
+        this.contentItemRetrieverService = contentItemRetrieverService;
         this.articlePageService = articlePageService;
     }
 
     public async Task<IActionResult> Index()
     {
-        var context = webPageDataContextRetriever.Retrieve();
-        var articlePage = await articlePageRetrieverService.RetrieveWebPageById<ArticlePage>(
-            context.WebPage.WebPageItemID,
-            2);
+        var articlePage = await contentItemRetrieverService.RetrieveCurrentPage<ArticlePage>(2);
 
         var model = await articlePageService.GetArticlePageViewModel(articlePage);
         return new TemplateResult(model);

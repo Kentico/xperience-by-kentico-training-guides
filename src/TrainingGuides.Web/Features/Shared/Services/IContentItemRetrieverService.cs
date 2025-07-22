@@ -18,13 +18,24 @@ public interface IContentItemRetrieverService
         where T : IWebPageFieldsSource, new();
 
     /// <summary>
+    /// Retrieves the current page using ContentRetriever API
+    /// </summary>
+    /// <param name="depth">The maximum level of recursively linked content items that should be included in the results. Default value is 1.</param>
+    /// <param name="languageName">The language to query. If null, the language will be inferred from the URL of the current request.</param>
+    /// <returns>The current web page content item of the specified type</returns>
+    Task<T?> RetrieveCurrentPage<T>(
+        int depth = 1,
+        string? languageName = null)
+        where T : IWebPageFieldsSource, new();
+
+    /// <summary>
     /// Retrieves Web page content item by Guid using ContentRetriever API
     /// </summary>
     /// <param name="webPageItemGuid">The Guid of the Web page content item.</param>
     /// <param name="depth">The maximum level of recursively linked content items that should be included in the results. Default value is 1.</param>
     /// <returns>A Web page content item of specified type, with the specified Id</returns>
     Task<T?> RetrieveWebPageByGuid<T>(
-        Guid? webPageItemGuid,
+        Guid webPageItemGuid,
         int depth = 1,
         string? languageName = null)
         where T : IWebPageFieldsSource, new();
@@ -86,11 +97,4 @@ public interface IContentItemRetrieverService
         Action<RetrieveContentQueryParameters>? additionalQueryConfiguration = null,
         string? languageName = null)
         where T : IContentItemFieldsSource, new();
-
-    /// <summary>
-    /// Retrieves the IWebPageFieldsSource of a web page item by Guid.
-    /// </summary>
-    /// <param name="pageContentItemGuid">the Guid of the web page item</param>
-    /// <returns><see cref="IWebPageFieldsSource"/> object containing generic <see cref="WebPageFields"/> for the item</returns>
-    Task<IWebPageFieldsSource?> RetrieveWebPageByContentItemGuid(Guid pageContentItemGuid);
 }

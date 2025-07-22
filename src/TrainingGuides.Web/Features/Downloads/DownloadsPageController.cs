@@ -1,5 +1,4 @@
-﻿using Kentico.Content.Web.Mvc;
-using Kentico.Content.Web.Mvc.Routing;
+﻿using Kentico.Content.Web.Mvc.Routing;
 using Kentico.PageBuilder.Web.Mvc.PageTemplates;
 using Microsoft.AspNetCore.Mvc;
 using TrainingGuides;
@@ -13,23 +12,16 @@ namespace TrainingGuides.Web.Features.Downloads;
 
 public class DownloadsPageController : Controller
 {
-    private readonly IWebPageDataContextRetriever webPageDataContextRetriever;
-    private readonly IContentItemRetrieverService contentItemRetriever;
+    private readonly IContentItemRetrieverService contentItemRetrieverService;
 
-    public DownloadsPageController(IWebPageDataContextRetriever webPageDataContextRetriever,
-        IContentItemRetrieverService contentItemRetriever)
+    public DownloadsPageController(IContentItemRetrieverService contentItemRetrieverService)
     {
-        this.webPageDataContextRetriever = webPageDataContextRetriever;
-        this.contentItemRetriever = contentItemRetriever;
+        this.contentItemRetrieverService = contentItemRetrieverService;
     }
 
     public async Task<IActionResult> Index()
     {
-        var context = webPageDataContextRetriever.Retrieve();
-
-        var downloadsPage = await contentItemRetriever.RetrieveWebPageById<DownloadsPage>(
-            context.WebPage.WebPageItemID,
-            2);
+        var downloadsPage = await contentItemRetrieverService.RetrieveCurrentPage<DownloadsPage>(2);
 
         var model = DownloadsPageViewModel.GetViewModel(downloadsPage);
         return new TemplateResult(model);

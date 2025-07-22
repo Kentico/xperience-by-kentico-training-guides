@@ -15,22 +15,22 @@ public class FeaturedArticleWidgetViewComponent : ViewComponent
 {
     public const string IDENTIFIER = "TrainingGuides.FeaturedArticleWidget";
 
-    private readonly IContentItemRetrieverService articlePageRetrieverService;
+    private readonly IContentItemRetrieverService contentItemRetrieverService;
     private readonly IArticlePageService articlePageService;
 
     public FeaturedArticleWidgetViewComponent(
-        IContentItemRetrieverService articlePageRetrieverService,
+        IContentItemRetrieverService contentItemRetrieverService,
         IArticlePageService articlePageService)
     {
-        this.articlePageRetrieverService = articlePageRetrieverService;
+        this.contentItemRetrieverService = contentItemRetrieverService;
         this.articlePageService = articlePageService;
     }
 
     public async Task<ViewViewComponentResult> InvokeAsync(FeaturedArticleWidgetProperties properties)
     {
         var guid = properties.Article?.Select(i => i.Identifier).FirstOrDefault();
-        var articlePage = guid.HasValue
-            ? await articlePageRetrieverService.RetrieveWebPageByContentItemGuid<ArticlePage>(
+        var articlePage = guid.HasValue && guid.Value != Guid.Empty
+            ? await contentItemRetrieverService.RetrieveWebPageByContentItemGuid<ArticlePage>(
                 guid.Value,
                 3)
             : null;

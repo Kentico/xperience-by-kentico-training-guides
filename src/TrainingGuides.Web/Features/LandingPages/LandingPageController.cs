@@ -1,5 +1,4 @@
-﻿using Kentico.Content.Web.Mvc;
-using Kentico.Content.Web.Mvc.Routing;
+﻿using Kentico.Content.Web.Mvc.Routing;
 using Kentico.PageBuilder.Web.Mvc.PageTemplates;
 using Microsoft.AspNetCore.Mvc;
 using TrainingGuides;
@@ -13,22 +12,16 @@ namespace TrainingGuides.Web.Features.LandingPages;
 
 public class LandingPageController : Controller
 {
-    private readonly IWebPageDataContextRetriever webPageDataContextRetriever;
-    private readonly IContentItemRetrieverService contentItemRetriever;
+    private readonly IContentItemRetrieverService contentItemRetrieverService;
 
-    public LandingPageController(IWebPageDataContextRetriever webPageDataContextRetriever,
-    IContentItemRetrieverService contentItemRetriever)
+    public LandingPageController(IContentItemRetrieverService contentItemRetrieverService)
     {
-        this.webPageDataContextRetriever = webPageDataContextRetriever;
-        this.contentItemRetriever = contentItemRetriever;
+        this.contentItemRetrieverService = contentItemRetrieverService;
     }
 
     public async Task<IActionResult> Index()
     {
-        var context = webPageDataContextRetriever.Retrieve();
-
-        var landingPage = await contentItemRetriever.RetrieveWebPageById<LandingPage>
-            (context.WebPage.WebPageItemID);
+        var landingPage = await contentItemRetrieverService.RetrieveCurrentPage<LandingPage>();
 
         var model = LandingPageViewModel.GetViewModel(landingPage);
 
