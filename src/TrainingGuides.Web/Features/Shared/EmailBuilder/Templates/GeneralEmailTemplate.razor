@@ -1,7 +1,6 @@
 @using Kentico.VisualBuilderComponents.Rcl.Components
 @using TrainingGuides.Web
 @using TrainingGuides.Web.Features.Shared.EmailBuilder.RazorComponents;
-@using TrainingGuides.Web.Features.Shared.EmailBuilder.Sections
 @using TrainingGuides.Web.Features.Shared.OptionProviders.ColumnLayout
 
 <mjml>
@@ -22,7 +21,7 @@
     <mj-wrapper css-class="@(string.Join(" ", MainCssClasses))" >
       @foreach (var rowIdentifier in RowIdentifiers)
       {
-        <EditableArea AreaIdentifier="@rowIdentifier" AllowedSections="[GeneralEmailSection.IDENTIFIER]" />
+        <EditableArea AreaIdentifier="@rowIdentifier" DefaultSectionIdentifier="@ComponentIdentifiers.EmailBuilderSections.GENERAL" AllowedSections="[ComponentIdentifiers.EmailBuilderSections.GENERAL]" />
       }
     </mj-wrapper>
     <EmailBuilderScripts />
