@@ -16,11 +16,11 @@ public class GalleryWidgetViewComponent : ViewComponent
 {
     public const string IDENTIFIER = "TrainingGuides.GalleryWidget";
 
-    private readonly IContentItemRetrieverService<GalleryImage> galleryImageRetriever;
+    private readonly IContentItemRetrieverService contentItemRetrieverService;
 
-    public GalleryWidgetViewComponent(IContentItemRetrieverService<GalleryImage> galleryImageRetriever)
+    public GalleryWidgetViewComponent(IContentItemRetrieverService contentItemRetrieverService)
     {
-        this.galleryImageRetriever = galleryImageRetriever;
+        this.contentItemRetrieverService = contentItemRetrieverService;
     }
 
     public async Task<ViewViewComponentResult> InvokeAsync(GalleryWidgetProperties properties)
@@ -46,7 +46,7 @@ public class GalleryWidgetViewComponent : ViewComponent
     }
 
     private async Task<IEnumerable<GalleryImage>> RetrieveGalleryImages(Guid smartFolderGuid, OrderByOption orderBy, int topN) =>
-        await galleryImageRetriever.RetrieveReusableContentItemsFromSmartFolder(
+        await contentItemRetrieverService.RetrieveReusableContentItemsFromSmartFolder<GalleryImage>(
             GalleryImage.CONTENT_TYPE_NAME,
             smartFolderGuid,
             orderBy,

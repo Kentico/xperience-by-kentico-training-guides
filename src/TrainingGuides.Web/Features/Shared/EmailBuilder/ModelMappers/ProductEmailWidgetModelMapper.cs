@@ -7,19 +7,18 @@ namespace TrainingGuides.Web.Features.Shared.EmailBuilder.ModelMappers;
 public class ProductEmailWidgetModelMapper : IComponentModelMapper<ProductWidgetModel>
 {
 
-    private readonly IContentItemRetrieverService<ProductPage> productPageRetrieverService;
+    private readonly IContentItemRetrieverService contentItemRetrieverService;
 
     public ProductEmailWidgetModelMapper(
-        IContentItemRetrieverService<ProductPage> productPageRetrieverService)
+        IContentItemRetrieverService contentItemRetrieverService)
     {
-        this.productPageRetrieverService = productPageRetrieverService;
+        this.contentItemRetrieverService = contentItemRetrieverService;
     }
 
     public async Task<ProductWidgetModel> Map(Guid webPageItemContentItemGuid, string languageName)
     {
-        var page = await productPageRetrieverService.RetrieveWebPageByContentItemGuid(
+        var page = await contentItemRetrieverService.RetrieveWebPageByContentItemGuid<ProductPage>(
             contentItemGuid: webPageItemContentItemGuid,
-            contentTypeName: ProductPage.CONTENT_TYPE_NAME,
             depth: 2,
             languageName: languageName);
 

@@ -1,5 +1,4 @@
-﻿using Kentico.Content.Web.Mvc;
-using Kentico.Content.Web.Mvc.Routing;
+﻿using Kentico.Content.Web.Mvc.Routing;
 using Kentico.PageBuilder.Web.Mvc.PageTemplates;
 using Microsoft.AspNetCore.Mvc;
 using TrainingGuides;
@@ -15,27 +14,20 @@ namespace TrainingGuides.Web.Features.Products;
 
 public class ProductPageController : Controller
 {
-    private readonly IWebPageDataContextRetriever webPageDataContextRetriever;
-    private readonly IContentItemRetrieverService<ProductPage> contentItemRetriever;
+    private readonly IContentItemRetrieverService contentItemRetriever;
     private readonly IProductPageService productPageService;
 
     public ProductPageController(
-        IWebPageDataContextRetriever webPageDataContextRetriever,
-        IContentItemRetrieverService<ProductPage> contentItemRetriever,
+        IContentItemRetrieverService contentItemRetriever,
         IProductPageService productPageService)
     {
-        this.webPageDataContextRetriever = webPageDataContextRetriever;
         this.contentItemRetriever = contentItemRetriever;
         this.productPageService = productPageService;
     }
+    
     public async Task<IActionResult> Index()
     {
-        var context = webPageDataContextRetriever.Retrieve();
-
-        var productPage = await contentItemRetriever.RetrieveWebPageById
-            (context.WebPage.WebPageItemID,
-            ProductPage.CONTENT_TYPE_NAME,
-            3);
+        var productPage = await contentItemRetriever.RetrieveCurrentPage<ProductPage>(3);
 
         var model = await productPageService.GetProductPageViewModel(productPage);
         model.Features.Add(

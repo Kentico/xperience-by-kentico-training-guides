@@ -6,19 +6,18 @@ namespace TrainingGuides.Web.Features.Shared.EmailBuilder.ModelMappers;
 
 public class ImageEmailWidgetModelMapper : IComponentModelMapper<ImageWidgetModel>
 {
-    private readonly IContentItemRetrieverService<Asset> assetRetrieverService;
+    private readonly IContentItemRetrieverService contentItemRetrieverService;
 
     public ImageEmailWidgetModelMapper(
-        IContentItemRetrieverService<Asset> assetRetrieverService)
+        IContentItemRetrieverService contentItemRetrieverService)
     {
-        this.assetRetrieverService = assetRetrieverService;
+        this.contentItemRetrieverService = contentItemRetrieverService;
     }
 
     public async Task<ImageWidgetModel> Map(Guid itemGuid, string languageName)
     {
-        var asset = await assetRetrieverService.RetrieveContentItemByGuid(
-                contentItemGuid: itemGuid,
-                contentTypeName: Asset.CONTENT_TYPE_NAME,
+        var asset = await contentItemRetrieverService.RetrieveContentItemByGuid<Asset>(
+                itemGuid,
                 languageName: languageName);
 
         if (asset is null)
