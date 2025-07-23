@@ -52,8 +52,9 @@ public partial class EmailBuilderColumns : ComponentBase
     [Parameter]
     public IEnumerable<string> AllowedWidgets { get; set; } = [];
 
-    [Parameter]
-    public IEnumerable<string> AllowedSections { get; set; } = [];
+    // If you want to apply this approach to Editable Areas rather than Widget Zones, you can also include this:
+    // [Parameter]
+    // public IEnumerable<string> AllowedSections { get; set; } = [];
 
     protected override void OnInitialized()
     {
@@ -162,7 +163,8 @@ public partial class EmailBuilderColumns : ComponentBase
             CssClasses = cssClasses,
             Identifier = columnIdentifier,
             AllowedWidgets = AllowedWidgets,
-            AllowedSections = AllowedSections
+            // If you want to apply this approach to Editable Areas rather than Widget Zones, you can also include this:
+            // AllowedSections = AllowedSections
         };
     }
 
