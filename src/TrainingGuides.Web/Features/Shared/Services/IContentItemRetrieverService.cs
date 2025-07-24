@@ -58,7 +58,6 @@ public interface IContentItemRetrieverService
     /// <param name="includeSecuredItems">If true, secured items will be included in the results.</param>
     /// <param name="languageName">The language to query. If null, the language will be inferred from the URL of the current request.</param>
     /// <returns>A collection of web pages which reference a given collection of content items</returns>
-    // TODO: This method requires complex query configuration that may not be directly supported by ContentRetriever API
     Task<IEnumerable<T>> RetrieveWebPageChildrenByPathAndReference<T>(
         string parentPageContentTypeName,
         string parentPagePath,
@@ -92,7 +91,6 @@ public interface IContentItemRetrieverService
     /// <param name="depth">The maximum level of recursively linked content items that should be included in the results. Default value is 1.</param>
     /// <param name="languageName">The language to query. If null, the language will be inferred from the URL of the current request.</param>
     /// <returns>Enumerable collection of content items from the given smart folder</returns>
-    // TODO: This method requires smart folder functionality that may not be directly supported by ContentRetriever API
     Task<IEnumerable<T>> RetrieveReusableContentItemsFromSmartFolder<T>(
         string contentTypeName,
         Guid smartFolderGuid,
@@ -109,7 +107,6 @@ public interface IContentItemRetrieverService
     /// <param name="taxonomyColumnName">The name of the column that holds the taxonomy value</param>
     /// <param name="tagGuids">Guids of tags to filter the output by</param>
     /// <returns>Enumerable list of content items</returns>
-    // TODO: This method requires complex query configuration that may not be directly supported by ContentRetriever API
     Task<IEnumerable<IContentItemFieldsSource>> RetrieveContentItemsBySchemaAndTags(
         string schemaName,
         string taxonomyColumnName,
