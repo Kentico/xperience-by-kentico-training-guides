@@ -10,10 +10,12 @@ public interface IContentItemRetrieverService
     /// Retrieves the current page using ContentRetriever API
     /// </summary>
     /// <param name="depth">The maximum level of recursively linked content items that should be included in the results. Default value is 1.</param>
+    /// <param name="includeSecuredItems">If true, secured items will be included in the results.</param>
     /// <param name="languageName">The language to query. If null, the language will be inferred from the URL of the current request.</param>
     /// <returns>The current web page content item of the specified type</returns>
     Task<T?> RetrieveCurrentPage<T>(
         int depth = 1,
+        bool includeSecuredItems = true,
         string? languageName = null)
         where T : IWebPageFieldsSource, new();
 
@@ -22,11 +24,13 @@ public interface IContentItemRetrieverService
     /// </summary>
     /// <param name="contentItemGuid">The content item Guid of the Web page content item.</param>
     /// <param name="depth">The maximum level of recursively linked content items that should be included in the results. Default value is 1.</param>
+    /// <param name="includeSecuredItems">If true, secured items will be included in the results.</param>
     /// <param name="languageName">The language to query. If null, the language will be inferred from the URL of the current request.</param>
     /// <returns>A web page content item of the specified type, with the specified content item Guid</returns>
     Task<T?> RetrieveWebPageByContentItemGuid<T>(
         Guid contentItemGuid,
         int depth = 1,
+        bool includeSecuredItems = true,
         string? languageName = null)
         where T : IWebPageFieldsSource, new();
 
@@ -73,11 +77,13 @@ public interface IContentItemRetrieverService
     /// </summary>
     /// <param name="contentItemGuid">The Guid of the reusable content item.</param>
     /// <param name="depth">The maximum level of recursively linked content items that should be included in the results. Default value is 1.</param>
+    /// <param name="includeSecuredItems">If true, secured items will be included in the results.</param>
     /// <param name="languageName">The language to query. If null, the language will be inferred from the URL of the current request.</param>
     /// <returns>A reusable content item of specified type, with the specified Guid</returns>
     Task<T?> RetrieveContentItemByGuid<T>(
         Guid contentItemGuid,
         int depth = 1,
+        bool includeSecuredItems = true,
         string? languageName = null)
         where T : IContentItemFieldsSource, new();
 
@@ -89,6 +95,7 @@ public interface IContentItemRetrieverService
     /// <param name="orderBy">Order the returned items ascending/descending</param>
     /// <param name="topN">Number of items to return</param>
     /// <param name="depth">The maximum level of recursively linked content items that should be included in the results. Default value is 1.</param>
+    /// <param name="includeSecuredItems">If true, secured items will be included in the results.</param>
     /// <param name="languageName">The language to query. If null, the language will be inferred from the URL of the current request.</param>
     /// <returns>Enumerable collection of content items from the given smart folder</returns>
     Task<IEnumerable<T>> RetrieveReusableContentItemsFromSmartFolder<T>(
@@ -97,6 +104,7 @@ public interface IContentItemRetrieverService
         OrderByOption orderBy,
         int topN = 20,
         int depth = 1,
+        bool includeSecuredItems = true,
         string? languageName = null)
         where T : IContentItemFieldsSource, new();
 
@@ -106,11 +114,15 @@ public interface IContentItemRetrieverService
     /// <param name="schemaName">The name of the reusable field schema</param>
     /// <param name="taxonomyColumnName">The name of the column that holds the taxonomy value</param>
     /// <param name="tagGuids">Guids of tags to filter the output by</param>
+    /// <param name="includeSecuredItems">If true, secured items will be included in the results.</param>
+    /// <param name="languageName">The language to query. If null, the language will be inferred from the URL of the current request.</param>
     /// <returns>An enumerable collection of content items that match the specified schema and tags</returns>
     Task<IEnumerable<IContentItemFieldsSource>> RetrieveContentItemsBySchemaAndTags(
         string schemaName,
         string taxonomyColumnName,
-        IEnumerable<Guid> tagGuids);
+        IEnumerable<Guid> tagGuids,
+        bool includeSecuredItems = true,
+        string? languageName = null);
 
     /// <summary>
     /// Retrieves a web page content item by path using ContentRetriever API
@@ -118,22 +130,28 @@ public interface IContentItemRetrieverService
     /// <typeparam name="T">The type of the web page content item.</typeparam>
     /// <param name="pathToMatch">The Tree path of the web page item (can be found in the administration under the Properties tab).</param>
     /// <param name="includeSecuredItems">If true, secured items will be included in the results.</param>
+    /// <param name="languageName">The language to query. If null, the language will be inferred from the URL of the current request.</param>
     /// <returns>A web page content item of the specified type</returns>
     Task<T?> RetrieveWebPageByPath<T>(string pathToMatch,
-        bool includeSecuredItems = true)
+        bool includeSecuredItems = true,
+        string? languageName = null)
         where T : IWebPageFieldsSource, new();
 
     /// <summary>
     /// Retrieves the IWebPageFieldsSource of a web page item by Id using ContentRetriever API
     /// </summary>
     /// <param name="webPageItemId">The Id of the web page item</param>
+    /// <param name="includeSecuredItems">If true, secured items will be included in the results.</param>
+    /// <param name="languageName">The language to query. If null, the language will be inferred from the URL of the current request.</param>
     /// <returns><see cref="IWebPageFieldsSource"/> object containing generic <see cref="WebPageFields"/> for the item</returns>
-    Task<IWebPageFieldsSource?> RetrieveWebPageById(int webPageItemId);
+    Task<IWebPageFieldsSource?> RetrieveWebPageById(int webPageItemId, bool includeSecuredItems = true, string? languageName = null);
 
     /// <summary>
     /// Retrieves the IWebPageFieldsSource of a web page item by Guid using ContentRetriever API
     /// </summary>
     /// <param name="pageContentItemGuid">The Guid of the web page item</param>
+    /// <param name="includeSecuredItems">If true, secured items will be included in the results.</param>
+    /// <param name="languageName">The language to query. If null, the language will be inferred from the URL of the current request.</param>
     /// <returns><see cref="IWebPageFieldsSource"/> object containing generic <see cref="WebPageFields"/> for the item</returns>
-    Task<IWebPageFieldsSource?> RetrieveWebPageByContentItemGuid(Guid pageContentItemGuid);
+    Task<IWebPageFieldsSource?> RetrieveWebPageByContentItemGuid(Guid pageContentItemGuid, bool includeSecuredItems = true, string? languageName = null);
 }

@@ -34,7 +34,7 @@ public class ArticleEmailWidgetModelMapper : IComponentModelMapper<ArticleEmailW
             return DefaultModel;
         }
 
-        var articlePage = await contentItemRetrieverService.RetrieveWebPageByContentItemGuid<ArticlePage>(contentItemGuid, 2, languageName);
+        var articlePage = await contentItemRetrieverService.RetrieveWebPageByContentItemGuid<ArticlePage>(contentItemGuid, 2, true, languageName);
 
         string articlePageUrl = articlePage.GetUrl().AbsoluteUrl;
 

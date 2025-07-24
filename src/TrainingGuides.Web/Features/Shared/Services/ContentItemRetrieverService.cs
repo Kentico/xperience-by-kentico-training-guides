@@ -29,6 +29,7 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
     /// <inheritdoc />
     public async Task<T?> RetrieveCurrentPage<T>(
         int depth = 1,
+        bool includeSecuredItems = true,
         string? languageName = null)
         where T : IWebPageFieldsSource, new()
     {
@@ -36,7 +37,8 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
         {
             LinkedItemsMaxLevel = depth,
             LanguageName = languageName ?? preferredLanguageRetriever.Get(),
-            IsForPreview = webSiteChannelContext.IsPreview
+            IsForPreview = webSiteChannelContext.IsPreview,
+            IncludeSecuredItems = includeSecuredItems
         };
 
         return await contentRetriever.RetrieveCurrentPage<T>(parameters);
@@ -47,6 +49,7 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
     public async Task<T?> RetrieveWebPageByContentItemGuid<T>(
         Guid contentItemGuid,
         int depth = 1,
+        bool includeSecuredItems = true,
         string? languageName = null)
         where T : IWebPageFieldsSource, new()
     {
@@ -54,7 +57,8 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
         {
             LinkedItemsMaxLevel = depth,
             LanguageName = languageName ?? preferredLanguageRetriever.Get(),
-            IsForPreview = webSiteChannelContext.IsPreview
+            IsForPreview = webSiteChannelContext.IsPreview,
+            IncludeSecuredItems = includeSecuredItems
         };
 
         var pages = await contentRetriever.RetrieveContentByGuids<T>(
@@ -108,6 +112,7 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
     public async Task<T?> RetrieveContentItemByGuid<T>(
         Guid contentItemGuid,
         int depth = 1,
+        bool includeSecuredItems = true,
         string? languageName = null)
         where T : IContentItemFieldsSource, new()
     {
@@ -115,7 +120,8 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
         {
             LinkedItemsMaxLevel = depth,
             LanguageName = languageName ?? preferredLanguageRetriever.Get(),
-            IsForPreview = webSiteChannelContext.IsPreview
+            IsForPreview = webSiteChannelContext.IsPreview,
+            IncludeSecuredItems = includeSecuredItems
         };
 
         var items = await contentRetriever.RetrieveContentByGuids<T>(
@@ -132,6 +138,7 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
         OrderByOption orderBy,
         int topN = 20,
         int depth = 1,
+        bool includeSecuredItems = true,
         string? languageName = null)
         where T : IContentItemFieldsSource, new()
     {
@@ -154,7 +161,8 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
         {
             LinkedItemsMaxLevel = depth,
             LanguageName = languageName ?? preferredLanguageRetriever.Get(),
-            IsForPreview = webSiteChannelContext.IsPreview
+            IsForPreview = webSiteChannelContext.IsPreview,
+            IncludeSecuredItems = includeSecuredItems
         };
 
         var a = await contentRetriever.RetrieveContent<T>(
@@ -174,12 +182,15 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
     public async Task<IEnumerable<IContentItemFieldsSource>> RetrieveContentItemsBySchemaAndTags(
         string schemaName,
         string taxonomyColumnName,
-        IEnumerable<Guid> tagGuids)
+        IEnumerable<Guid> tagGuids,
+        bool includeSecuredItems = true,
+        string? languageName = null)
     {
         var parameters = new RetrieveContentOfReusableSchemasParameters
         {
-            LanguageName = preferredLanguageRetriever.Get(),
-            IsForPreview = webSiteChannelContext.IsPreview
+            LanguageName = languageName ?? preferredLanguageRetriever.Get(),
+            IsForPreview = webSiteChannelContext.IsPreview,
+            IncludeSecuredItems = includeSecuredItems
         };
 
         return await contentRetriever.RetrieveContentOfReusableSchemas<IContentItemFieldsSource>(
@@ -191,12 +202,15 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
     }
 
     /// <inheritdoc />
-    public async Task<T?> RetrieveWebPageByPath<T>(string pathToMatch, bool includeSecuredItems = true)
+    public async Task<T?> RetrieveWebPageByPath<T>(
+        string pathToMatch,
+        bool includeSecuredItems = true,
+        string? languageName = null)
         where T : IWebPageFieldsSource, new()
     {
         var parameters = new RetrievePagesParameters
         {
-            LanguageName = preferredLanguageRetriever.Get(),
+            LanguageName = languageName ?? preferredLanguageRetriever.Get(),
             IsForPreview = webSiteChannelContext.IsPreview,
             PathMatch = PathMatch.Single(pathToMatch),
             IncludeSecuredItems = includeSecuredItems
@@ -222,28 +236,34 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
     //      RetrievalCacheSettings.CacheDisabled,
     //      configureModel: null);
     public async Task<IWebPageFieldsSource?> RetrieveWebPageByContentItemGuid(
-        Guid pageContentItemGuid)
+        Guid pageContentItemGuid,
+        bool includeSecuredItems = true,
+        string? languageName = null)
     {
         var pages = await RetrieveWebPages(parameters =>
             {
                 parameters.Where(where => where.WhereEquals(nameof(ContentItemFields.ContentItemGUID), pageContentItemGuid));
-            });
+            }, includeSecuredItems, languageName);
 
         return pages.FirstOrDefault();
     }
 
-    private async Task<IEnumerable<IWebPageFieldsSource>> RetrieveWebPages(Action<ContentQueryParameters> parameters)
+    private async Task<IEnumerable<IWebPageFieldsSource>> RetrieveWebPages(
+        Action<ContentQueryParameters> parameters,
+        bool includeSecuredItems = true,
+        string? languageName = null)
     {
         var builder = new ContentItemQueryBuilder()
             .ForContentTypes(query => query
             .WithLinkedItems(2, options => options.IncludeWebPageData(true))
             .ForWebsite(webSiteChannelContext.WebsiteChannelName))
         .Parameters(parameters)
-        .InLanguage(preferredLanguageRetriever.Get());
+        .InLanguage(languageName ?? preferredLanguageRetriever.Get());
 
         var queryExecutorOptions = new ContentQueryExecutionOptions
         {
-            ForPreview = webSiteChannelContext.IsPreview
+            ForPreview = webSiteChannelContext.IsPreview,
+            IncludeSecuredItems = includeSecuredItems
         };
 
         return await contentQueryExecutor.GetMappedResult<IWebPageFieldsSource>(builder, queryExecutorOptions);
@@ -252,12 +272,14 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
     /// <inheritdoc />
     /// see comment at Task<IWebPageFieldsSource?> RetrieveWebPageByContentItemGuid
     public async Task<IWebPageFieldsSource?> RetrieveWebPageById(
-        int webPageItemId)
+        int webPageItemId,
+        bool includeSecuredItems = true,
+        string? languageName = null)
     {
         var pages = await RetrieveWebPages(parameters =>
             {
                 parameters.Where(where => where.WhereEquals(nameof(WebPageFields.WebPageItemID), webPageItemId));
-            });
+            }, includeSecuredItems, languageName);
 
         return pages.FirstOrDefault();
     }

@@ -29,7 +29,7 @@ public class FeaturedArticleWidgetViewComponent : ViewComponent
     public async Task<ViewViewComponentResult> InvokeAsync(FeaturedArticleWidgetProperties properties)
     {
         var guid = properties.Article?.Select(i => i.Identifier).FirstOrDefault();
-        var articlePage = guid.HasValue
+        var articlePage = guid.HasValue && guid.Value != Guid.Empty
             ? await contentItemRetrieverService.RetrieveWebPageByContentItemGuid<ArticlePage>(
                 guid.Value,
                 3)
