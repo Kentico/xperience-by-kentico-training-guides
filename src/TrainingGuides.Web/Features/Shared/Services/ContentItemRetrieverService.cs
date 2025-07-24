@@ -126,7 +126,6 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
     }
 
     /// <inheritdoc />
-    // TODO: This method requires smart folder functionality that may not be directly supported by ContentRetriever API
     public async Task<IEnumerable<T>> RetrieveReusableContentItemsFromSmartFolder<T>(
         string contentTypeName,
         Guid smartFolderGuid,
@@ -136,8 +135,6 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
         string? languageName = null)
         where T : IContentItemFieldsSource, new()
     {
-        // Note: Smart folder functionality may require additional query configuration
-
         const string LAST_PUBLISHED_COLUMN_NAME = "ContentItemCommonDataLastPublishedWhen";
 
         Action<ContentTypesQueryParameters> contentTypesQueryParameters = parameters => parameters
