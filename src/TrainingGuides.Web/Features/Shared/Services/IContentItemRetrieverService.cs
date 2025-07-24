@@ -106,28 +106,14 @@ public interface IContentItemRetrieverService
     /// <param name="schemaName">The name of the reusable field schema</param>
     /// <param name="taxonomyColumnName">The name of the column that holds the taxonomy value</param>
     /// <param name="tagGuids">Guids of tags to filter the output by</param>
-    /// <returns>Enumerable list of content items</returns>
+    /// <returns>An enumerable collection of content items that match the specified schema and tags</returns>
     Task<IEnumerable<IContentItemFieldsSource>> RetrieveContentItemsBySchemaAndTags(
         string schemaName,
         string taxonomyColumnName,
         IEnumerable<Guid> tagGuids);
 
     /// <summary>
-    /// Retrieves the IWebPageFieldsSource of a web page item by Id.
-    /// </summary>
-    /// <param name="webPageItemId">The Id of the web page item</param>
-    /// <returns><see cref="IWebPageFieldsSource"/> object containing generic <see cref="WebPageFields"/> for the item</returns>
-    Task<IWebPageFieldsSource?> RetrieveWebPageById(int webPageItemId);
-
-    /// <summary>
-    /// Retrieves the IWebPageFieldsSource of a web page item by Guid.
-    /// </summary>
-    /// <param name="pageContentItemGuid">the Guid of the web page item</param>
-    /// <returns><see cref="IWebPageFieldsSource"/> object containing generic <see cref="WebPageFields"/> for the item</returns>
-    Task<IWebPageFieldsSource?> RetrieveWebPageByContentItemGuid(Guid pageContentItemGuid);
-
-    /// <summary>
-    /// Retrieves a web page content item by path.
+    /// Retrieves a web page content item by path using ContentRetriever API
     /// </summary>
     /// <typeparam name="T">The type of the web page content item.</typeparam>
     /// <param name="pathToMatch">The Tree path of the web page item (can be found in the administration under the Properties tab).</param>
@@ -136,4 +122,18 @@ public interface IContentItemRetrieverService
     Task<T?> RetrieveWebPageByPath<T>(string pathToMatch,
         bool includeSecuredItems = true)
         where T : IWebPageFieldsSource, new();
+
+    /// <summary>
+    /// Retrieves the IWebPageFieldsSource of a web page item by Id using ContentRetriever API
+    /// </summary>
+    /// <param name="webPageItemId">The Id of the web page item</param>
+    /// <returns><see cref="IWebPageFieldsSource"/> object containing generic <see cref="WebPageFields"/> for the item</returns>
+    Task<IWebPageFieldsSource?> RetrieveWebPageById(int webPageItemId);
+
+    /// <summary>
+    /// Retrieves the IWebPageFieldsSource of a web page item by Guid using ContentRetriever API
+    /// </summary>
+    /// <param name="pageContentItemGuid">The Guid of the web page item</param>
+    /// <returns><see cref="IWebPageFieldsSource"/> object containing generic <see cref="WebPageFields"/> for the item</returns>
+    Task<IWebPageFieldsSource?> RetrieveWebPageByContentItemGuid(Guid pageContentItemGuid);
 }

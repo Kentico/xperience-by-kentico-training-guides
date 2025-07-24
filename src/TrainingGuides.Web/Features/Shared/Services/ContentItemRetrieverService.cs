@@ -191,6 +191,26 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
     }
 
     /// <inheritdoc />
+    public async Task<T?> RetrieveWebPageByPath<T>(string pathToMatch, bool includeSecuredItems = true)
+        where T : IWebPageFieldsSource, new()
+    {
+        var parameters = new RetrievePagesParameters
+        {
+            LanguageName = preferredLanguageRetriever.Get(),
+            IsForPreview = webSiteChannelContext.IsPreview,
+            PathMatch = PathMatch.Single(pathToMatch),
+            IncludeSecuredItems = includeSecuredItems
+        };
+
+        var pages = await contentRetriever.RetrievePages<T>(
+            parameters,
+            additionalQueryConfiguration: null,
+            cacheSettings: RetrievalCacheSettings.CacheDisabled);
+
+        return pages.FirstOrDefault();
+    }
+
+    /// <inheritdoc />
     /// using the "old way" of retrieving content here, because we don't know the exact page type of the webpage item requested. Most of the new ContentRetriever API methods require a specific type and won't accept an interface,
     /// e.g., contentRetriever.RetrieveContentByGuids<IWebPageFieldsSource>.
     ///
@@ -238,26 +258,6 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
             {
                 parameters.Where(where => where.WhereEquals(nameof(WebPageFields.WebPageItemID), webPageItemId));
             });
-
-        return pages.FirstOrDefault();
-    }
-
-    /// <inheritdoc />
-    public async Task<T?> RetrieveWebPageByPath<T>(string pathToMatch, bool includeSecuredItems = true)
-        where T : IWebPageFieldsSource, new()
-    {
-        var parameters = new RetrievePagesParameters
-        {
-            LanguageName = preferredLanguageRetriever.Get(),
-            IsForPreview = webSiteChannelContext.IsPreview,
-            PathMatch = PathMatch.Single(pathToMatch),
-            IncludeSecuredItems = includeSecuredItems
-        };
-
-        var pages = await contentRetriever.RetrievePages<T>(
-            parameters,
-            additionalQueryConfiguration: null,
-            cacheSettings: RetrievalCacheSettings.CacheDisabled);
 
         return pages.FirstOrDefault();
     }
