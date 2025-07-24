@@ -1,4 +1,5 @@
 ﻿using CMS.ContentEngine;
+using Kentico.Content.Web.Mvc;
 using TrainingGuides.Web.Features.Shared.OptionProviders.OrderBy;
 
 namespace TrainingGuides.Web.Features.Shared.Services;
@@ -6,38 +7,12 @@ namespace TrainingGuides.Web.Features.Shared.Services;
 public interface IContentItemRetrieverService
 {
     /// <summary>
-    /// Retrieves Web page content item by Id using ContentRetriever API
-    /// </summary>
-    /// <param name="webPageItemId">The Id of the Web page content item.</param>
-    /// <param name="depth">The maximum level of recursively linked content items that should be included in the results. Default value is 1.</param>
-    /// <param name="languageName">The language to query. If null, the language will be inferred from the URL of the current request.</param>
-    /// <returns>A Web page content item of specified type, with the specified Id</returns>
-    Task<T?> RetrieveWebPageById<T>(
-        int webPageItemId,
-        int depth = 1,
-        string? languageName = null)
-        where T : IWebPageFieldsSource, new();
-
-    /// <summary>
     /// Retrieves the current page using ContentRetriever API
     /// </summary>
     /// <param name="depth">The maximum level of recursively linked content items that should be included in the results. Default value is 1.</param>
     /// <param name="languageName">The language to query. If null, the language will be inferred from the URL of the current request.</param>
     /// <returns>The current web page content item of the specified type</returns>
     Task<T?> RetrieveCurrentPage<T>(
-        int depth = 1,
-        string? languageName = null)
-        where T : IWebPageFieldsSource, new();
-
-    /// <summary>
-    /// Retrieves Web page content item by Guid using ContentRetriever API
-    /// </summary>
-    /// <param name="webPageItemGuid">The Guid of the Web page content item.</param>
-    /// <param name="depth">The maximum level of recursively linked content items that should be included in the results. Default value is 1.</param>
-    /// <param name="languageName">The language to query. If null, the language will be inferred from the URL of the current request.</param>
-    /// <returns>A Web page content item of specified type, with the specified web page item Guid</returns>
-    Task<T?> RetrieveWebPageByGuid<T>(
-        Guid webPageItemGuid,
         int depth = 1,
         string? languageName = null)
         where T : IWebPageFieldsSource, new();
@@ -61,12 +36,14 @@ public interface IContentItemRetrieverService
     /// <param name="path">Path of the parent page</param>
     /// <param name="depth">The maximum level of recursively linked content items that should be included in the results. Default value is 1.</param>
     /// <param name="includeSecuredItems">If true, secured items will be included in the results.</param>
+    /// <param name="additionalQueryConfiguration">Optional additional query configuration.</param>
     /// <param name="languageName">The language to query. If null, the language will be inferred from the URL of the current request.</param>
     /// <returns>A collection of web pages that exist under the specified path in the content tree</returns>
     Task<IEnumerable<T>> RetrieveWebPageChildrenByPath<T>(
         string path,
         int depth = 1,
         bool includeSecuredItems = true,
+        Action<RetrievePagesQueryParameters>? additionalQueryConfiguration = null,
         string? languageName = null)
         where T : IWebPageFieldsSource, new();
 

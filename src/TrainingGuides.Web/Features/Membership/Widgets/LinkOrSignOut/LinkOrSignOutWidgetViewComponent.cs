@@ -89,7 +89,8 @@ public class LinkOrSignOutWidgetViewComponent : ViewComponent
     {
         if (webPage is not null)
         {
-            var page = await contentItemRetrieverService.RetrieveWebPageByContentItemGuid(webPage.Identifier);
+            var page = await contentItemRetrieverService
+                .RetrieveWebPageByContentItemGuid(webPage.Identifier);
             return page?.GetUrl()?.RelativePath ?? string.Empty;
         }
         return string.Empty;

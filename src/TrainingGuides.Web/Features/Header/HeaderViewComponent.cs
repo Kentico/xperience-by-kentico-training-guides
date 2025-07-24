@@ -28,7 +28,7 @@ public class HeaderViewComponent : ViewComponent
 
     private async Task<IEnumerable<ContentItemReference>> GetSignInPageForWidget()
     {
-        var page = await contentItemRetrieverService.RetrieveWebPageByPath<LandingPage>(ApplicationConstants.EXPECTED_SIGN_IN_PATH);
+        var page = await contentItemRetrieverService.RetrieveWebPageByPath<EmptyPage>(ApplicationConstants.EXPECTED_SIGN_IN_PATH);
 
         return page != null
             ? [new ContentItemReference() { Identifier = page.SystemFields.ContentItemGUID }]
