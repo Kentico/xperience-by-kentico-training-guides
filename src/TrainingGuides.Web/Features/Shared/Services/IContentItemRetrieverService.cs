@@ -1,5 +1,4 @@
 ﻿using CMS.ContentEngine;
-using Kentico.Content.Web.Mvc;
 
 namespace TrainingGuides.Web.Features.Shared.Services;
 
@@ -30,23 +29,12 @@ public interface IContentItemRetrieverService
         where T : IWebPageFieldsSource, new();
 
     /// <summary>
-    /// Retrieves web page content items using ContentRetriever API
-    /// </summary>
-    /// <param name="additionalQueryConfiguration">Additional query configuration for filtering and ordering</param>
-    /// <param name="languageName">Determines the language of the retrieved content. PreferredLanguageRetriever is used if empty</param>
-    /// <returns>An enumerable set of items</returns>
-    Task<IEnumerable<T>> RetrieveWebPageContentItems<T>(
-        Action<RetrievePagesQueryParameters>? additionalQueryConfiguration = null,
-        string? languageName = null)
-        where T : IWebPageFieldsSource, new();
-
-    /// <summary>
-    /// Retrieves child pages of a given web page.
+    /// Retrieves child pages of a given web page using ContentRetriever API
     /// </summary>
     /// <param name="path">Path of the parent page</param>
     /// <param name="depth">The maximum level of recursively linked content items that should be included in the results. Default value is 1.</param>
     /// <param name="languageName">The language to query. If null, the language will be inferred from the URL of the current request.</param>
-    /// <returns>An enumerable collection of child web page content items of the specified type</returns>
+    /// <returns>A collection of web pages that exist under the specified path in the content tree</returns>
     Task<IEnumerable<T>> RetrieveWebPageChildrenByPath<T>(
         string path,
         int depth = 1,
@@ -67,27 +55,22 @@ public interface IContentItemRetrieverService
         where T : IContentItemFieldsSource, new();
 
     /// <summary>
-    /// Retrieves reusable content items using ContentRetriever API
-    /// </summary>
-    /// <param name="additionalQueryConfiguration">Additional query configuration for filtering and ordering</param>
-    /// <param name="languageName">The language to query. If null, the language will be inferred from the URL of the current request.</param>
-    /// <returns>An enumerable collection of reusable content items of the specified type</returns>
-    Task<IEnumerable<T>> RetrieveReusableContentItems<T>(
-        Action<RetrieveContentQueryParameters>? additionalQueryConfiguration = null,
-        string? languageName = null)
-        where T : IContentItemFieldsSource, new();
-
-    /// <summary>
-    /// Retrieves the IWebPageFieldsSource of a web page item by Id.
+    /// Retrieves a web page item by Id using the Content item query
     /// </summary>
     /// <param name="webPageItemId">The Id of the web page item</param>
+    /// <param name="languageName">The language to query. If null, the language will be inferred from the URL of the current request.</param>
     /// <returns><see cref="IWebPageFieldsSource"/> object containing generic <see cref="WebPageFields"/> for the item</returns>
-    Task<IWebPageFieldsSource?> RetrieveWebPageById(int webPageItemId);
+    Task<IWebPageFieldsSource?> RetrieveWebPageById(
+        int webPageItemId,
+        string? languageName = null);
 
     /// <summary>
-    /// Retrieves the IWebPageFieldsSource of a web page item by Guid.
+    /// Retrieves a web page item by Guid using the Content item query
     /// </summary>
-    /// <param name="pageContentItemGuid">the Guid of the web page item</param>
+    /// <param name="pageContentItemGuid">The Guid of the web page item</param>
+    /// <param name="languageName">The language to query. If null, the language will be inferred from the URL of the current request.</param>
     /// <returns><see cref="IWebPageFieldsSource"/> object containing generic <see cref="WebPageFields"/> for the item</returns>
-    Task<IWebPageFieldsSource?> RetrieveWebPageByContentItemGuid(Guid pageContentItemGuid);
+    Task<IWebPageFieldsSource?> RetrieveWebPageByContentItemGuid(
+        Guid pageContentItemGuid,
+        string? languageName = null);
 }

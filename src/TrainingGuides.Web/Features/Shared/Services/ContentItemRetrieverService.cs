@@ -62,31 +62,6 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
     }
 
     /// <inheritdoc />
-    public async Task<IEnumerable<T>> RetrieveWebPageContentItems<T>(
-        Action<RetrievePagesQueryParameters>? additionalQueryConfiguration = null,
-        string? languageName = null)
-        where T : IWebPageFieldsSource, new()
-    {
-        var parameters = new RetrievePagesParameters
-        {
-            LanguageName = languageName ?? preferredLanguageRetriever.Get(),
-            IsForPreview = webSiteChannelContext.IsPreview
-        };
-
-        if (additionalQueryConfiguration != null)
-        {
-            return await contentRetriever.RetrievePages<T>(
-                parameters,
-                additionalQueryConfiguration,
-                RetrievalCacheSettings.CacheDisabled);
-        }
-        else
-        {
-            return await contentRetriever.RetrievePages<T>(parameters);
-        }
-    }
-
-    /// <inheritdoc />
     public async Task<IEnumerable<T>> RetrieveWebPageChildrenByPath<T>(
         string path,
         int depth = 1,
@@ -126,26 +101,6 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
     }
 
     /// <inheritdoc />
-    public async Task<IEnumerable<T>> RetrieveReusableContentItems<T>(
-        Action<RetrieveContentQueryParameters>? additionalQueryConfiguration = null,
-        string? languageName = null)
-        where T : IContentItemFieldsSource, new()
-    {
-        var parameters = new RetrieveContentParameters
-        {
-            LanguageName = languageName ?? preferredLanguageRetriever.Get(),
-            IsForPreview = webSiteChannelContext.IsPreview
-        };
-
-        return additionalQueryConfiguration != null
-            ? await contentRetriever.RetrieveContent<T>(
-                    parameters,
-                    additionalQueryConfiguration,
-                    RetrievalCacheSettings.CacheDisabled)
-            : await contentRetriever.RetrieveContent<T>(parameters);
-    }
-
-    /// <inheritdoc />
     /// using the "old way" of retrieving content here, because we don't know the exact page type of the webpage item requested. Most of the new ContentRetriever API methods require a specific type and won't accept an interface,
     /// e.g., contentRetriever.RetrieveContentByGuids<IWebPageFieldsSource>.
     ///
@@ -157,24 +112,27 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
     //      RetrievalCacheSettings.CacheDisabled,
     //      configureModel: null);
     public async Task<IWebPageFieldsSource?> RetrieveWebPageByContentItemGuid(
-        Guid pageContentItemGuid)
+        Guid pageContentItemGuid,
+        string? languageName = null)
     {
         var pages = await RetrieveWebPages(parameters =>
             {
                 parameters.Where(where => where.WhereEquals(nameof(ContentItemFields.ContentItemGUID), pageContentItemGuid));
-            });
+            }, languageName);
 
         return pages.FirstOrDefault();
     }
 
-    private async Task<IEnumerable<IWebPageFieldsSource>> RetrieveWebPages(Action<ContentQueryParameters> parameters)
+    private async Task<IEnumerable<IWebPageFieldsSource>> RetrieveWebPages(
+        Action<ContentQueryParameters> parameters,
+        string? languageName = null)
     {
         var builder = new ContentItemQueryBuilder()
             .ForContentTypes(query => query
             .WithLinkedItems(2, options => options.IncludeWebPageData(true))
             .ForWebsite(webSiteChannelContext.WebsiteChannelName))
         .Parameters(parameters)
-        .InLanguage(preferredLanguageRetriever.Get());
+        .InLanguage(languageName ?? preferredLanguageRetriever.Get());
 
         var queryExecutorOptions = new ContentQueryExecutionOptions
         {
@@ -185,14 +143,15 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
     }
 
     /// <inheritdoc />
-    /// see the comment in RetrieveWebPageByContentItemGuid for why this method uses the "old way" of content item query to retrieve content
+    /// see the comment at the RetrieveWebPageByContentItemGuid method
     public async Task<IWebPageFieldsSource?> RetrieveWebPageById(
-        int webPageItemId)
+        int webPageItemId,
+        string? languageName = null)
     {
         var pages = await RetrieveWebPages(parameters =>
             {
                 parameters.Where(where => where.WhereEquals(nameof(WebPageFields.WebPageItemID), webPageItemId));
-            });
+            }, languageName);
 
         return pages.FirstOrDefault();
     }
