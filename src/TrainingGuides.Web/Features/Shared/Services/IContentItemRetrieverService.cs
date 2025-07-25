@@ -138,20 +138,26 @@ public interface IContentItemRetrieverService
         where T : IWebPageFieldsSource, new();
 
     /// <summary>
-    /// Retrieves the IWebPageFieldsSource of a web page item by Id using ContentRetriever API
+    /// Retrieves a web page item by Id using the Content item query
     /// </summary>
     /// <param name="webPageItemId">The Id of the web page item</param>
     /// <param name="includeSecuredItems">If true, secured items will be included in the results.</param>
     /// <param name="languageName">The language to query. If null, the language will be inferred from the URL of the current request.</param>
     /// <returns><see cref="IWebPageFieldsSource"/> object containing generic <see cref="WebPageFields"/> for the item</returns>
-    Task<IWebPageFieldsSource?> RetrieveWebPageById(int webPageItemId, bool includeSecuredItems = true, string? languageName = null);
+    Task<IWebPageFieldsSource?> RetrieveWebPageById(
+        int webPageItemId,
+        bool includeSecuredItems = true,
+        string? languageName = null);
 
     /// <summary>
-    /// Retrieves the IWebPageFieldsSource of a web page item by Guid using ContentRetriever API
+    /// Retrieves a web page item by Guid using the Content item query
     /// </summary>
     /// <param name="pageContentItemGuid">The Guid of the web page item</param>
     /// <param name="includeSecuredItems">If true, secured items will be included in the results.</param>
     /// <param name="languageName">The language to query. If null, the language will be inferred from the URL of the current request.</param>
     /// <returns><see cref="IWebPageFieldsSource"/> object containing generic <see cref="WebPageFields"/> for the item</returns>
-    Task<IWebPageFieldsSource?> RetrieveWebPageByContentItemGuid(Guid pageContentItemGuid, bool includeSecuredItems = true, string? languageName = null);
+    Task<IWebPageFieldsSource?> RetrieveWebPageByContentItemGuid(
+        Guid pageContentItemGuid,
+        bool includeSecuredItems = true,
+        string? languageName = null);
 }
