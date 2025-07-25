@@ -1,6 +1,9 @@
 using CMS.ContactManagement;
 using CMS.Core;
 using CMS.Websites.Routing;
+using Kentico.Content.Web.Mvc;
+using Kentico.PageBuilder.Web.Mvc;
+using Kentico.Web.Mvc;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Localization;
 using TrainingGuides.Web.Features.Membership.Profile;
@@ -72,8 +75,19 @@ public class MembershipService : IMembershipService
     /// <inheritdoc />
     public async Task<bool> IsMemberAuthenticated()
     {
-        var member = await GetCurrentMember();
-        return member is not null;
+        bool memberFound = await GetCurrentMember() is not null;
+        if (!memberFound)
+        {
+            var context = contextAccessor.HttpContext;
+            var mode = context?.Kentico().PageBuilder().GetMode() ?? PageBuilderMode.Off;
+
+            bool isPageBuilder = mode != PageBuilderMode.Off;
+            bool isPreview = context?.Kentico().Preview().Enabled ?? false;
+
+            return isPageBuilder || isPreview;
+        }
+
+        return memberFound;
     }
 
     /// <inheritdoc />
