@@ -1,3 +1,4 @@
+using CMS.EmailMarketing;
 using Kentico.EmailBuilder.Web.Mvc;
 using Kentico.Xperience.Mjml.StarterKit.Rcl;
 using Microsoft.AspNetCore.Components;
@@ -28,8 +29,15 @@ public partial class GeneralEmailTemplate : ComponentBase
         set => cssContent = value;
     }
 
+    private EmailRecipientContext? recipient;
+
+    protected EmailRecipientContext Recipient => recipient ??= RecipientContextAccessor.GetContext();
+
     [Parameter]
     public GeneralEmailTemplateProperties Properties { get; set; } = new();
+
+    [Inject]
+    private IEmailRecipientContextAccessor RecipientContextAccessor { get; set; } = default!;
 
     [Inject]
     private IEmailContextAccessor EmailContextAccessor { get; set; } = default!;

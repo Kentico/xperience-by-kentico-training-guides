@@ -23,6 +23,9 @@
       {
         <EditableArea AreaIdentifier="@rowIdentifier" DefaultSectionIdentifier="@ComponentIdentifiers.EmailBuilderSections.GENERAL" AllowedSections="[ComponentIdentifiers.EmailBuilderSections.GENERAL]" />
       }
+      <mj-text align="center">
+        <a href="@Recipient.UnsubscriptionUrl" data-click-tracking="false">Unsubscribe</a>
+      </mj-text>
     </mj-wrapper>
     <EmailBuilderScripts />
   </mj-body>

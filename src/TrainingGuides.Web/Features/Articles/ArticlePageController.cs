@@ -12,6 +12,7 @@ using TrainingGuides.Web.Features.Shared.Services;
     controllerType: typeof(TrainingGuides.Web.Features.Articles.ArticlePageController))]
 
 namespace TrainingGuides.Web.Features.Articles;
+
 public class ArticlePageController : Controller
 {
 
