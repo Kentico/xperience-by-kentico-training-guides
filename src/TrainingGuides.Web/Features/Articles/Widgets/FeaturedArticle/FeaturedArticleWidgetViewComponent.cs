@@ -38,7 +38,7 @@ public class FeaturedArticleWidgetViewComponent : ViewComponent
         var model = articlePage != null
             ? new FeaturedArticleWidgetViewModel()
             {
-                Article = await articlePageService.GetArticlePageViewModel(articlePage)
+                Article = articlePageService.GetArticlePageViewModel(articlePage)
             }
             : null;
 

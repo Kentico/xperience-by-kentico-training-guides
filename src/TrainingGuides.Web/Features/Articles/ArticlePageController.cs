@@ -28,7 +28,7 @@ public class ArticlePageController : Controller
     {
         var articlePage = await contentItemRetrieverService.RetrieveCurrentPage<ArticlePage>(2);
 
-        var model = await articlePageService.GetArticlePageViewModel(articlePage);
+        var model = articlePageService.GetArticlePageViewModel(articlePage);
         return new TemplateResult(model);
     }
 }

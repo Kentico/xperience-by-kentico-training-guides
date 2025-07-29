@@ -2,5 +2,5 @@ namespace TrainingGuides.Web.Features.Articles.Services;
 
 public interface IArticlePageService
 {
-    public Task<ArticlePageViewModel> GetArticlePageViewModel(ArticlePage? articlePage);
+    ArticlePageViewModel GetArticlePageViewModel(ArticlePage? articlePage);
 }

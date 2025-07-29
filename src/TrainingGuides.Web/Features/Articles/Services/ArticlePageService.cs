@@ -20,7 +20,7 @@ public class ArticlePageService : IArticlePageService
     /// </summary>
     /// <param name="articlePage">Corresponding Article page object.</param>
     /// <returns>New instance of ArticlePageViewModel.</returns>
-    public async Task<ArticlePageViewModel> GetArticlePageViewModel(ArticlePage? articlePage)
+    public ArticlePageViewModel GetArticlePageViewModel(ArticlePage? articlePage)
     {
         if (articlePage == null)
         {
@@ -30,8 +30,7 @@ public class ArticlePageService : IArticlePageService
         var article = articlePage.ArticlePageContent.FirstOrDefault();
         var articleTeaserImage = article?.ArticleTeaser.FirstOrDefault();
 
-        string language = preferredLanguageRetriever.Get();
-        string articleUrl = (await webPageUrlRetriever.Retrieve(articlePage, language)).RelativePath;
+        string articleUrl = articlePage.GetUrl().RelativePath;
 
         return new ArticlePageViewModel
         {

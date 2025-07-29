@@ -60,7 +60,7 @@ public class ArticlePageServiceTests
     [Fact]
     public async Task GetArticlePageViewModel_IfArticlePageNull_ReturnsEmptyModel()
     {
-        var articlePageViewModel = await articlePageServiceMock.Object.GetArticlePageViewModel(null);
+        var articlePageViewModel = articlePageServiceMock.Object.GetArticlePageViewModel(null);
         Assert.Equivalent(new ArticlePageViewModel(), articlePageViewModel);
     }
 
@@ -68,7 +68,7 @@ public class ArticlePageServiceTests
     public async Task GetArticlePageViewModel_ReturnsModel_WithArticleTitleSet()
     {
         var articlePage = BuildSampleArticlePage();
-        var articlePageViewModel = await articlePageServiceMock.Object.GetArticlePageViewModel(articlePage);
+        var articlePageViewModel = articlePageServiceMock.Object.GetArticlePageViewModel(articlePage);
         Assert.Equal(referenceArticleViewModel.Title, articlePageViewModel.Title);
     }
 
@@ -76,7 +76,7 @@ public class ArticlePageServiceTests
     public async Task GetArticlePageViewModel_ReturnsModel_WithArticleSummarySet()
     {
         var articlePage = BuildSampleArticlePage();
-        var articlePageViewModel = await articlePageServiceMock.Object.GetArticlePageViewModel(articlePage);
+        var articlePageViewModel = articlePageServiceMock.Object.GetArticlePageViewModel(articlePage);
         Assert.Equal(referenceArticleViewModel.SummaryHtml.Value, articlePageViewModel.SummaryHtml.Value);
     }
 
@@ -84,7 +84,7 @@ public class ArticlePageServiceTests
     public async Task GetArticlePageViewModel_ReturnsModel_WithArticleTextSet()
     {
         var articlePage = BuildSampleArticlePage();
-        var articlePageViewModel = await articlePageServiceMock.Object.GetArticlePageViewModel(articlePage);
+        var articlePageViewModel = articlePageServiceMock.Object.GetArticlePageViewModel(articlePage);
         Assert.Equal(referenceArticleViewModel.TextHtml.Value, articlePageViewModel.TextHtml.Value);
     }
 
@@ -92,7 +92,7 @@ public class ArticlePageServiceTests
     public async Task GetArticlePageViewModel_ReturnsModel_WithArticleUrlSet()
     {
         var articlePage = BuildSampleArticlePage();
-        var articlePageViewModel = await articlePageServiceMock.Object.GetArticlePageViewModel(articlePage);
+        var articlePageViewModel = articlePageServiceMock.Object.GetArticlePageViewModel(articlePage);
         Assert.Equal(referenceArticleViewModel.Url, articlePageViewModel.Url);
     }
 }

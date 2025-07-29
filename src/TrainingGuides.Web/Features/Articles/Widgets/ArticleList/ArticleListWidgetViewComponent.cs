@@ -37,8 +37,8 @@ public class ArticleListWidgetViewComponent : ViewComponent
             var articlePages = await RetrieveArticlePages(properties.ContentTreeSection.First());
 
             model.Articles = (properties.OrderBy.Equals("OldestFirst", StringComparison.OrdinalIgnoreCase)
-                ? (await GetArticlePageViewModels(articlePages)).OrderBy(article => article.CreatedOn)
-                : (await GetArticlePageViewModels(articlePages)).OrderByDescending(article => article.CreatedOn))
+                ? GetArticlePageViewModels(articlePages).OrderBy(article => article.CreatedOn)
+                : GetArticlePageViewModels(articlePages).OrderByDescending(article => article.CreatedOn))
                 .Take(properties.TopN)
                 .ToList();
 
@@ -68,7 +68,7 @@ public class ArticleListWidgetViewComponent : ViewComponent
             3);
     }
 
-    private async Task<List<ArticlePageViewModel>> GetArticlePageViewModels(IEnumerable<ArticlePage?>? articlePages)
+    private List<ArticlePageViewModel> GetArticlePageViewModels(IEnumerable<ArticlePage?>? articlePages)
     {
         var models = new List<ArticlePageViewModel>();
         if (articlePages != null)
@@ -77,7 +77,7 @@ public class ArticleListWidgetViewComponent : ViewComponent
             {
                 if (articlePage != null)
                 {
-                    var model = await articlePageService.GetArticlePageViewModel(articlePage);
+                    var model = articlePageService.GetArticlePageViewModel(articlePage);
                     models.Add(model);
                 }
             }
