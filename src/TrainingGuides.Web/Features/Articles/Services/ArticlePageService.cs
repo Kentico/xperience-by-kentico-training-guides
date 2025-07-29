@@ -1,5 +1,4 @@
 using CMS.ContentEngine;
-using Kentico.Content.Web.Mvc.Routing;
 using Microsoft.AspNetCore.Html;
 using Microsoft.Extensions.Localization;
 using TrainingGuides.Web.Features.Shared.Helpers;
@@ -10,18 +9,13 @@ namespace TrainingGuides.Web.Features.Articles.Services;
 
 public class ArticlePageService : IArticlePageService
 {
-    private readonly IWebPageUrlRetriever webPageUrlRetriever;
     private readonly IStringLocalizer<SharedResources> stringLocalizer;
-    private readonly IPreferredLanguageRetriever preferredLanguageRetriever;
     private readonly IHttpRequestService httpRequestService;
-    public ArticlePageService(IWebPageUrlRetriever webPageUrlRetriever,
+    public ArticlePageService(
         IStringLocalizer<SharedResources> stringLocalizer,
-        IPreferredLanguageRetriever preferredLanguageRetriever,
         IHttpRequestService httpRequestService)
     {
-        this.webPageUrlRetriever = webPageUrlRetriever;
         this.stringLocalizer = stringLocalizer;
-        this.preferredLanguageRetriever = preferredLanguageRetriever;
         this.httpRequestService = httpRequestService;
     }
 
@@ -33,7 +27,7 @@ public class ArticlePageService : IArticlePageService
             return new ArticlePageViewModel();
         }
 
-        string articleUrl = articlePage.GetUrl().RelativePath;
+        string articleUrl = GetArticlePageRelativeUrl(articlePage);
         var articleSchema = articlePage.ArticlePageArticleContent.FirstOrDefault();
 
         if (articleSchema != null)
@@ -66,6 +60,9 @@ public class ArticlePageService : IArticlePageService
             IsSecured = articlePage.SystemFields.ContentItemIsSecured
         };
     }
+
+    public virtual string GetArticlePageRelativeUrl(ArticlePage articlePage) =>
+        articlePage?.GetUrl().RelativePath ?? string.Empty;
 
     /// <inheritdoc/>
     public ArticlePageViewModel GetArticlePageViewModelWithSecurity(ArticlePage? articlePage, string signInUrl, bool isAuthenticated)
