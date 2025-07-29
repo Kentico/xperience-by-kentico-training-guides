@@ -24,7 +24,7 @@ public class ProductPageController : Controller
         this.contentItemRetriever = contentItemRetriever;
         this.productPageService = productPageService;
     }
-    
+
     public async Task<IActionResult> Index()
     {
         var productPage = await contentItemRetriever.RetrieveCurrentPage<ProductPage>(3);

@@ -40,7 +40,7 @@ public class ArticlePageController : Controller
             return Forbid();
         }
 
-        var model = await articlePageService.GetArticlePageViewModel(articlePage);
+        var model = articlePageService.GetArticlePageViewModel(articlePage);
         return new TemplateResult(model);
     }
 }

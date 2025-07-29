@@ -82,76 +82,76 @@ public class ArticlePageServiceTests
     };
 
     [Fact]
-    public async Task GetArticlePageViewModel_IfArticlePageNull_ReturnsEmptyModel()
+    public void GetArticlePageViewModel_IfArticlePageNull_ReturnsEmptyModel()
     {
-        var articlePageViewModel = await articlePageService.GetArticlePageViewModel(null);
+        var articlePageViewModel = articlePageService.GetArticlePageViewModel(null);
         Assert.Equivalent(new ArticlePageViewModel(), articlePageViewModel);
     }
 
     // old Article type, not using Reusable Field Schema
     [Fact]
-    public async Task GetArticlePageViewModel_ForOldArticle_ReturnsModel_WithArticleTitleSet()
+    public void GetArticlePageViewModel_ForOldArticle_ReturnsModel_WithArticleTitleSet()
     {
         var articlePage = BuildSampleArticlePageWithOldArticle();
-        var articlePageViewModel = await articlePageService.GetArticlePageViewModel(articlePage);
+        var articlePageViewModel = articlePageService.GetArticlePageViewModel(articlePage);
         Assert.Equal(referenceArticleViewModel.Title, articlePageViewModel.Title);
     }
 
     [Fact]
-    public async Task GetArticlePageViewModel_ForOldArticle_ReturnsModel_WithArticleSummarySet()
+    public void GetArticlePageViewModel_ForOldArticle_ReturnsModel_WithArticleSummarySet()
     {
         var articlePage = BuildSampleArticlePageWithOldArticle();
-        var articlePageViewModel = await articlePageService.GetArticlePageViewModel(articlePage);
+        var articlePageViewModel = articlePageService.GetArticlePageViewModel(articlePage);
         Assert.Equal(referenceArticleViewModel.SummaryHtml.Value, articlePageViewModel.SummaryHtml.Value);
     }
 
     [Fact]
-    public async Task GetArticlePageViewModel_ForOldArticle_ReturnsModel_WithArticleTextSet()
+    public void GetArticlePageViewModel_ForOldArticle_ReturnsModel_WithArticleTextSet()
     {
         var articlePage = BuildSampleArticlePageWithOldArticle();
-        var articlePageViewModel = await articlePageService.GetArticlePageViewModel(articlePage);
+        var articlePageViewModel = articlePageService.GetArticlePageViewModel(articlePage);
         Assert.Equal(referenceArticleViewModel.TextHtml.Value, articlePageViewModel.TextHtml.Value);
     }
 
     [Fact]
-    public async Task GetArticlePageViewModel_ForOldArticle_ReturnsModel_WithArticleUrlSet()
+    public void GetArticlePageViewModel_ForOldArticle_ReturnsModel_WithArticleUrlSet()
     {
         var articlePage = BuildSampleArticlePageWithOldArticle();
-        var articlePageViewModel = await articlePageService.GetArticlePageViewModel(articlePage);
+        var articlePageViewModel = articlePageService.GetArticlePageViewModel(articlePage);
         Assert.Equal(referenceArticleViewModel.Url, articlePageViewModel.Url);
     }
 
     // new General article type implementing the reusable field schema
 
     [Fact]
-    public async Task GetArticlePageViewModel_ForNewRFSArticle_ReturnsModel_WithArticleTitleSet()
+    public void GetArticlePageViewModel_ForNewRFSArticle_ReturnsModel_WithArticleTitleSet()
     {
         var articlePage = BuildSampleArticlePageWithNewRFSArticle();
-        var articlePageViewModel = await articlePageService.GetArticlePageViewModel(articlePage);
+        var articlePageViewModel = articlePageService.GetArticlePageViewModel(articlePage);
         Assert.Equal(referenceArticleViewModel.Title, articlePageViewModel.Title);
     }
 
     [Fact]
-    public async Task GetArticlePageViewModel_ForNewRFSArticle_ReturnsModel_WithArticleSummarySet()
+    public void GetArticlePageViewModel_ForNewRFSArticle_ReturnsModel_WithArticleSummarySet()
     {
         var articlePage = BuildSampleArticlePageWithNewRFSArticle();
-        var articlePageViewModel = await articlePageService.GetArticlePageViewModel(articlePage);
+        var articlePageViewModel = articlePageService.GetArticlePageViewModel(articlePage);
         Assert.Equal(referenceArticleViewModel.SummaryHtml.Value, articlePageViewModel.SummaryHtml.Value);
     }
 
     [Fact]
-    public async Task GetArticlePageViewModel_ForNewRFSArticle_ReturnsModel_WithArticleTextSet()
+    public void GetArticlePageViewModel_ForNewRFSArticle_ReturnsModel_WithArticleTextSet()
     {
         var articlePage = BuildSampleArticlePageWithNewRFSArticle();
-        var articlePageViewModel = await articlePageService.GetArticlePageViewModel(articlePage);
+        var articlePageViewModel = articlePageService.GetArticlePageViewModel(articlePage);
         Assert.Equal(referenceArticleViewModel.TextHtml.Value, articlePageViewModel.TextHtml.Value);
     }
 
     [Fact]
-    public async Task GetArticlePageViewModel_ForNewRFSArticle_ReturnsModel_WithArticleUrlSet()
+    public void GetArticlePageViewModel_ForNewRFSArticle_ReturnsModel_WithArticleUrlSet()
     {
         var articlePage = BuildSampleArticlePageWithNewRFSArticle();
-        var articlePageViewModel = await articlePageService.GetArticlePageViewModel(articlePage);
+        var articlePageViewModel = articlePageService.GetArticlePageViewModel(articlePage);
         Assert.Equal(referenceArticleViewModel.Url, articlePageViewModel.Url);
     }
 }

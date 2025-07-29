@@ -1,5 +1,4 @@
 ﻿using CMS.ContentEngine;
-using Kentico.Content.Web.Mvc;
 using TrainingGuides.Web.Features.Shared.OptionProviders.OrderBy;
 
 namespace TrainingGuides.Web.Features.Shared.Services;
@@ -40,14 +39,12 @@ public interface IContentItemRetrieverService
     /// <param name="path">Path of the parent page</param>
     /// <param name="depth">The maximum level of recursively linked content items that should be included in the results. Default value is 1.</param>
     /// <param name="includeSecuredItems">If true, secured items will be included in the results.</param>
-    /// <param name="additionalQueryConfiguration">Optional additional query configuration.</param>
     /// <param name="languageName">The language to query. If null, the language will be inferred from the URL of the current request.</param>
     /// <returns>A collection of web pages that exist under the specified path in the content tree</returns>
     Task<IEnumerable<T>> RetrieveWebPageChildrenByPath<T>(
         string path,
         int depth = 1,
         bool includeSecuredItems = true,
-        Action<RetrievePagesQueryParameters>? additionalQueryConfiguration = null,
         string? languageName = null)
         where T : IWebPageFieldsSource, new();
 

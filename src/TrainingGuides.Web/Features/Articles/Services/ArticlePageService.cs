@@ -26,16 +26,14 @@ public class ArticlePageService : IArticlePageService
     }
 
     ///  <inheritdoc/>
-    public async Task<ArticlePageViewModel> GetArticlePageViewModel(ArticlePage? articlePage)
+    public ArticlePageViewModel GetArticlePageViewModel(ArticlePage? articlePage)
     {
         if (articlePage == null)
         {
             return new ArticlePageViewModel();
         }
 
-        string language = preferredLanguageRetriever.Get();
-
-        string articleUrl = (await webPageUrlRetriever.Retrieve(articlePage, language)).RelativePath;
+        string articleUrl = articlePage.GetUrl().RelativePath;
         var articleSchema = articlePage.ArticlePageArticleContent.FirstOrDefault();
 
         if (articleSchema != null)
@@ -70,9 +68,9 @@ public class ArticlePageService : IArticlePageService
     }
 
     /// <inheritdoc/>
-    public async Task<ArticlePageViewModel> GetArticlePageViewModelWithSecurity(ArticlePage? articlePage, string signInUrl, bool isAuthenticated)
+    public ArticlePageViewModel GetArticlePageViewModelWithSecurity(ArticlePage? articlePage, string signInUrl, bool isAuthenticated)
     {
-        var originalViewModel = await GetArticlePageViewModel(articlePage);
+        var originalViewModel = GetArticlePageViewModel(articlePage);
 
         if (articlePage is null)
         {

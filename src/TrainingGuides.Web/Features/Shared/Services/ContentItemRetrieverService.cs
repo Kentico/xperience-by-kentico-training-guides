@@ -68,8 +68,7 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
         return pages.FirstOrDefault();
     }
 
-    /// <inheritdoc />
-    public async Task<IEnumerable<T>> RetrieveWebPageChildrenByPath<T>(
+    private async Task<IEnumerable<T>> RetrieveWebPageChildrenByPath<T>(
         string path,
         int depth = 1,
         bool includeSecuredItems = true,
@@ -91,6 +90,20 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
             additionalQueryConfiguration: additionalQueryConfiguration,
             cacheSettings: RetrievalCacheSettings.CacheDisabled);
     }
+
+    /// <inheritdoc />
+    public async Task<IEnumerable<T>> RetrieveWebPageChildrenByPath<T>(
+        string path,
+        int depth = 1,
+        bool includeSecuredItems = true,
+        string? languageName = null)
+        where T : IWebPageFieldsSource, new()
+        => await RetrieveWebPageChildrenByPath<T>(
+            path,
+            depth,
+            includeSecuredItems,
+            null,
+            languageName);
 
     public async Task<IEnumerable<T>> RetrieveWebPageChildrenByPathAndReference<T>(
         string parentPageContentTypeName,
@@ -144,19 +157,6 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
     {
         const string LAST_PUBLISHED_COLUMN_NAME = "ContentItemCommonDataLastPublishedWhen";
 
-        Action<ContentTypesQueryParameters> contentTypesQueryParameters = parameters => parameters
-            .InSmartFolder(smartFolderGuid)
-            .OfContentType(contentTypeName)
-            .WithLinkedItems(depth)
-            .WithContentTypeFields();
-
-        Action<ContentQueryParameters> contentQueryParameters = parameters
-            => parameters
-                .OrderBy(new OrderByColumn(
-                    LAST_PUBLISHED_COLUMN_NAME,
-                    orderBy.Equals(OrderByOption.NewestFirst) ? OrderDirection.Descending : OrderDirection.Ascending))
-                .TopN(topN);
-
         var parameters = new RetrieveContentParameters
         {
             LinkedItemsMaxLevel = depth,
@@ -165,7 +165,7 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
             IncludeSecuredItems = includeSecuredItems
         };
 
-        var a = await contentRetriever.RetrieveContent<T>(
+        return await contentRetriever.RetrieveContent<T>(
             parameters,
             query => query
                 .InSmartFolder(smartFolderGuid)
@@ -174,8 +174,6 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
                     orderBy.Equals(OrderByOption.NewestFirst) ? OrderDirection.Descending : OrderDirection.Ascending))
                 .TopN(topN),
             RetrievalCacheSettings.CacheDisabled);
-
-        return a;
     }
 
     /// <inheritdoc />
