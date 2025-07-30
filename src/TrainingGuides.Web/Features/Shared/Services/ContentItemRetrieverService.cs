@@ -113,23 +113,27 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
     //      configureModel: null);
     public async Task<IWebPageFieldsSource?> RetrieveWebPageByContentItemGuid(
         Guid pageContentItemGuid,
+        int depth = 2,
         string? languageName = null)
     {
         var pages = await RetrieveWebPages(parameters =>
             {
                 parameters.Where(where => where.WhereEquals(nameof(ContentItemFields.ContentItemGUID), pageContentItemGuid));
-            }, languageName);
+            },
+            depth,
+            languageName ?? preferredLanguageRetriever.Get());
 
         return pages.FirstOrDefault();
     }
 
     private async Task<IEnumerable<IWebPageFieldsSource>> RetrieveWebPages(
         Action<ContentQueryParameters> parameters,
+        int depth,
         string? languageName = null)
     {
         var builder = new ContentItemQueryBuilder()
             .ForContentTypes(query => query
-            .WithLinkedItems(2, options => options.IncludeWebPageData(true))
+            .WithLinkedItems(depth, options => options.IncludeWebPageData(true))
             .ForWebsite(webSiteChannelContext.WebsiteChannelName))
         .Parameters(parameters)
         .InLanguage(languageName ?? preferredLanguageRetriever.Get());
@@ -146,12 +150,15 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
     /// see the comment at the RetrieveWebPageByContentItemGuid method
     public async Task<IWebPageFieldsSource?> RetrieveWebPageById(
         int webPageItemId,
+        int depth = 2,
         string? languageName = null)
     {
         var pages = await RetrieveWebPages(parameters =>
             {
                 parameters.Where(where => where.WhereEquals(nameof(WebPageFields.WebPageItemID), webPageItemId));
-            }, languageName);
+            },
+            depth,
+            languageName ?? preferredLanguageRetriever.Get());
 
         return pages.FirstOrDefault();
     }

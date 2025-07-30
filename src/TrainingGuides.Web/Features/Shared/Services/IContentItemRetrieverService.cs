@@ -58,19 +58,23 @@ public interface IContentItemRetrieverService
     /// Retrieves a web page item by Id using the Content item query
     /// </summary>
     /// <param name="webPageItemId">The Id of the web page item</param>
+    /// <param name="depth">The maximum level of recursively linked content items that should be included in the results. Default value is 2.</param>
     /// <param name="languageName">The language to query. If null, the language will be inferred from the URL of the current request.</param>
     /// <returns><see cref="IWebPageFieldsSource"/> object containing generic <see cref="WebPageFields"/> for the item</returns>
     Task<IWebPageFieldsSource?> RetrieveWebPageById(
         int webPageItemId,
+        int depth = 2,
         string? languageName = null);
 
     /// <summary>
     /// Retrieves a web page item by Guid using the Content item query
     /// </summary>
     /// <param name="pageContentItemGuid">The Guid of the web page item</param>
+    /// <param name="depth">The maximum level of recursively linked content items that should be included in the results. Default value is 2.</param>
     /// <param name="languageName">The language to query. If null, the language will be inferred from the URL of the current request.</param>
     /// <returns><see cref="IWebPageFieldsSource"/> object containing generic <see cref="WebPageFields"/> for the item</returns>
     Task<IWebPageFieldsSource?> RetrieveWebPageByContentItemGuid(
         Guid pageContentItemGuid,
+        int depth = 2,
         string? languageName = null);
 }
