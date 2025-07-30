@@ -60,7 +60,6 @@ public interface IContentItemRetrieverService
     /// <param name="languageName">The language to query. If null, the language will be inferred from the URL of the current request.</param>
     /// <returns>A collection of web pages which reference a given collection of content items</returns>
     Task<IEnumerable<T>> RetrieveWebPageChildrenByPathAndReference<T>(
-        string parentPageContentTypeName,
         string parentPagePath,
         string referenceFieldName,
         IEnumerable<int> referenceIds,
@@ -96,7 +95,6 @@ public interface IContentItemRetrieverService
     /// <param name="languageName">The language to query. If null, the language will be inferred from the URL of the current request.</param>
     /// <returns>Enumerable collection of content items from the given smart folder</returns>
     Task<IEnumerable<T>> RetrieveReusableContentItemsFromSmartFolder<T>(
-        string contentTypeName,
         Guid smartFolderGuid,
         OrderByOption orderBy,
         int topN = 20,
@@ -138,11 +136,13 @@ public interface IContentItemRetrieverService
     /// Retrieves a web page item by Id using the Content item query
     /// </summary>
     /// <param name="webPageItemId">The Id of the web page item</param>
+    /// <param name="depth">The maximum level of recursively linked content items that should be included in the results. Default value is 2.</param>
     /// <param name="includeSecuredItems">If true, secured items will be included in the results.</param>
     /// <param name="languageName">The language to query. If null, the language will be inferred from the URL of the current request.</param>
     /// <returns><see cref="IWebPageFieldsSource"/> object containing generic <see cref="WebPageFields"/> for the item</returns>
     Task<IWebPageFieldsSource?> RetrieveWebPageById(
         int webPageItemId,
+        int depth = 2,
         bool includeSecuredItems = true,
         string? languageName = null);
 
@@ -150,11 +150,13 @@ public interface IContentItemRetrieverService
     /// Retrieves a web page item by Guid using the Content item query
     /// </summary>
     /// <param name="pageContentItemGuid">The Guid of the web page item</param>
+    /// <param name="depth">The maximum level of recursively linked content items that should be included in the results. Default value is 2.</param>
     /// <param name="includeSecuredItems">If true, secured items will be included in the results.</param>
     /// <param name="languageName">The language to query. If null, the language will be inferred from the URL of the current request.</param>
     /// <returns><see cref="IWebPageFieldsSource"/> object containing generic <see cref="WebPageFields"/> for the item</returns>
     Task<IWebPageFieldsSource?> RetrieveWebPageByContentItemGuid(
         Guid pageContentItemGuid,
+        int depth = 2,
         bool includeSecuredItems = true,
         string? languageName = null);
 }

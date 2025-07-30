@@ -47,7 +47,6 @@ public class GalleryWidgetViewComponent : ViewComponent
 
     private async Task<IEnumerable<GalleryImage>> RetrieveGalleryImages(Guid smartFolderGuid, OrderByOption orderBy, int topN) =>
         await contentItemRetrieverService.RetrieveReusableContentItemsFromSmartFolder<GalleryImage>(
-            GalleryImage.CONTENT_TYPE_NAME,
             smartFolderGuid,
             orderBy,
             topN);

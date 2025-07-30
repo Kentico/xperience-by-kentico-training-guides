@@ -94,7 +94,6 @@ public class ArticleListWidgetViewComponent : ViewComponent
                 ).Select(article => article.SystemFields.ContentItemID);
 
             return await contentItemRetrieverService.RetrieveWebPageChildrenByPathAndReference<ArticlePage>(
-                selectedPageContentTypeName,
                 selectedPagePath,
                 nameof(ArticlePage.ArticlePageArticleContent),
                 taggedArticleIds,

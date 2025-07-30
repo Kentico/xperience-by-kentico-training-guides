@@ -106,7 +106,6 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
             languageName);
 
     public async Task<IEnumerable<T>> RetrieveWebPageChildrenByPathAndReference<T>(
-        string parentPageContentTypeName,
         string parentPagePath,
         string referenceFieldName,
         IEnumerable<int> referenceIds,
@@ -146,7 +145,6 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
 
     /// <inheritdoc />
     public async Task<IEnumerable<T>> RetrieveReusableContentItemsFromSmartFolder<T>(
-        string contentTypeName,
         Guid smartFolderGuid,
         OrderByOption orderBy,
         int topN = 20,
@@ -235,25 +233,30 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
     //      configureModel: null);
     public async Task<IWebPageFieldsSource?> RetrieveWebPageByContentItemGuid(
         Guid pageContentItemGuid,
+        int depth = 2,
         bool includeSecuredItems = true,
         string? languageName = null)
     {
         var pages = await RetrieveWebPages(parameters =>
             {
                 parameters.Where(where => where.WhereEquals(nameof(ContentItemFields.ContentItemGUID), pageContentItemGuid));
-            }, includeSecuredItems, languageName);
+            },
+            depth,
+            includeSecuredItems,
+            languageName ?? preferredLanguageRetriever.Get());
 
         return pages.FirstOrDefault();
     }
 
     private async Task<IEnumerable<IWebPageFieldsSource>> RetrieveWebPages(
         Action<ContentQueryParameters> parameters,
+        int depth,
         bool includeSecuredItems = true,
         string? languageName = null)
     {
         var builder = new ContentItemQueryBuilder()
             .ForContentTypes(query => query
-            .WithLinkedItems(2, options => options.IncludeWebPageData(true))
+            .WithLinkedItems(depth, options => options.IncludeWebPageData(true))
             .ForWebsite(webSiteChannelContext.WebsiteChannelName))
         .Parameters(parameters)
         .InLanguage(languageName ?? preferredLanguageRetriever.Get());
@@ -271,13 +274,17 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
     /// see comment at Task<IWebPageFieldsSource?> RetrieveWebPageByContentItemGuid
     public async Task<IWebPageFieldsSource?> RetrieveWebPageById(
         int webPageItemId,
+        int depth = 2,
         bool includeSecuredItems = true,
         string? languageName = null)
     {
         var pages = await RetrieveWebPages(parameters =>
             {
                 parameters.Where(where => where.WhereEquals(nameof(WebPageFields.WebPageItemID), webPageItemId));
-            }, includeSecuredItems, languageName);
+            },
+            depth,
+            includeSecuredItems,
+            languageName ?? preferredLanguageRetriever.Get());
 
         return pages.FirstOrDefault();
     }
