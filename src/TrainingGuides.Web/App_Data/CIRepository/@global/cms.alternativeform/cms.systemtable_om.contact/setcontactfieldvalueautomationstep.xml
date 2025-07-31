@@ -151,8 +151,17 @@
         </properties>
       </field>
       <field column="TrainingGuidesContactMemberId" guid="2ea2f027-7796-4f06-acd6-6189d5c10163" enabled="" />
-      <field column="TrainingGuidesContactFavoriteCoffee" guid="a237d063-85ef-4191-ae93-bc1fae8fed69" enabled="" />
-      <field column="TrainingGuidesContactLastCommunitationDate" guid="4bca4c08-a464-4dc6-8f30-ce18a3fde2a4" enabled="" />
+      <field column="TrainingGuidesContactLastCommunitationDate" guid="4bca4c08-a464-4dc6-8f30-ce18a3fde2a4" enabled="" order="31" />
+      <field column="TrainingGuidesContactFavoriteCoffee" enabled="true" guid="21406831-dbe4-4860-9cdb-a73b59c05600" visible="true" order="32">
+        <settings>
+          <controlname>Kentico.Administration.TextInput</controlname>
+        </settings>
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Favorite coffee</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+      </field>
     </form>
   </FormDefinition>
   <FormDisplayName>Set contact field value automation step</FormDisplayName>

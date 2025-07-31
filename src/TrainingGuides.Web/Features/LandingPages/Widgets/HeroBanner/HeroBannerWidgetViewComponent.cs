@@ -1,5 +1,4 @@
-﻿using Kentico.Content.Web.Mvc;
-using Kentico.PageBuilder.Web.Mvc;
+﻿using Kentico.PageBuilder.Web.Mvc;
 using Microsoft.AspNetCore.Html;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ViewComponents;
@@ -21,20 +20,17 @@ namespace TrainingGuides.Web.Features.LandingPages.Widgets.HeroBanner;
 
 public class HeroBannerWidgetViewComponent : ViewComponent
 {
-    private readonly IWebPageDataContextRetriever webPageDataContextRetriever;
-    private readonly IContentItemRetrieverService<ProductPage> productRetrieverService;
-    private readonly IContentItemRetrieverService<Hero> heroRetrieverService;
+    private readonly IContentItemRetrieverService contentItemRetrieverService;
+    private readonly IEnumStringService enumStringService;
 
     public const string IDENTIFIER = "TrainingGuides.HeroBanner";
 
-    public HeroBannerWidgetViewComponent(IWebPageDataContextRetriever webPageDataContextRetriever,
-        IContentItemRetrieverService<ProductPage> productRetrieverService,
-        IContentItemRetrieverService<Hero> heroRetrieverService
-        )
+    public HeroBannerWidgetViewComponent(
+        IContentItemRetrieverService contentItemRetrieverService,
+        IEnumStringService enumStringService)
     {
-        this.webPageDataContextRetriever = webPageDataContextRetriever;
-        this.productRetrieverService = productRetrieverService;
-        this.heroRetrieverService = heroRetrieverService;
+        this.contentItemRetrieverService = contentItemRetrieverService;
+        this.enumStringService = enumStringService;
     }
 
     public async Task<ViewViewComponentResult> InvokeAsync(HeroBannerWidgetProperties properties)
@@ -43,12 +39,7 @@ public class HeroBannerWidgetViewComponent : ViewComponent
 
         if (string.Equals(properties.Mode, "currentProductPage"))
         {
-            var context = webPageDataContextRetriever.Retrieve();
-
-            var productPage = await productRetrieverService
-                .RetrieveWebPageById(context.WebPage.WebPageItemID,
-                    ProductPage.CONTENT_TYPE_NAME,
-                    3);
+            var productPage = await contentItemRetrieverService.RetrieveCurrentPage<ProductPage>(3);
 
             if (productPage != null)
             {
@@ -68,10 +59,8 @@ public class HeroBannerWidgetViewComponent : ViewComponent
             {
                 var productPageGuid = properties.ProductPage?.Select(i => i.Identifier).FirstOrDefault();
                 var productPage = productPageGuid.HasValue
-                    ? await productRetrieverService
-                        .RetrieveWebPageByContentItemGuid((Guid)productPageGuid,
-                            ProductPage.CONTENT_TYPE_NAME,
-                            3)
+                    ? await contentItemRetrieverService
+                        .RetrieveWebPageByContentItemGuid<ProductPage>((Guid)productPageGuid, 3)
                     : null;
 
                 banner = GetProductPageBanner(productPage);
@@ -94,10 +83,8 @@ public class HeroBannerWidgetViewComponent : ViewComponent
                 var heroGuid = properties?.Hero?.Select(i => i.Identifier).ToList().FirstOrDefault();
 
                 var hero = heroGuid.HasValue
-                    ? await heroRetrieverService
-                        .RetrieveContentItemByGuid((Guid)heroGuid,
-                            Hero.CONTENT_TYPE_NAME,
-                            3)
+                    ? await contentItemRetrieverService
+                        .RetrieveContentItemByGuid<Hero>((Guid)heroGuid, 3)
                     : null;
 
                 banner = GetModel(hero, properties);
@@ -122,7 +109,7 @@ public class HeroBannerWidgetViewComponent : ViewComponent
                 banner.ShowBenefits = properties.ShowBenefits;
                 banner.FullWidth = (properties.Width ?? "circle").Equals("full", StringComparison.InvariantCultureIgnoreCase);
                 banner.TextColor = properties.TextColor;
-                banner.ThemeClass = new DropdownEnumOptionProvider<TextColorOption>().Parse(properties.TextColor, TextColorOption.Dark) switch
+                banner.ThemeClass = enumStringService.Parse(properties.TextColor, TextColorOption.Dark) switch
                 {
                     TextColorOption.Light => "light",
                     TextColorOption.Dark => "",

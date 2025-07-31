@@ -26,18 +26,18 @@ public class LinkOrSignOutWidgetViewComponent : ViewComponent
     private readonly IMembershipService membershipService;
     private readonly IHttpRequestService httpRequestService;
 
-    private readonly IContentItemRetrieverService generalContentItemRetrieverService;
+    private readonly IContentItemRetrieverService contentItemRetrieverService;
 
     public LinkOrSignOutWidgetViewComponent(
         IPreferredLanguageRetriever preferredLanguageRetriever,
         IMembershipService membershipService,
         IHttpRequestService httpRequestService,
-        IContentItemRetrieverService generalContentItemRetrieverService)
+        IContentItemRetrieverService contentItemRetrieverService)
     {
         this.preferredLanguageRetriever = preferredLanguageRetriever;
         this.membershipService = membershipService;
         this.httpRequestService = httpRequestService;
-        this.generalContentItemRetrieverService = generalContentItemRetrieverService;
+        this.contentItemRetrieverService = contentItemRetrieverService;
     }
 
     public async Task<ViewViewComponentResult> InvokeAsync(LinkOrSignOutWidgetProperties properties)
@@ -89,7 +89,8 @@ public class LinkOrSignOutWidgetViewComponent : ViewComponent
     {
         if (webPage is not null)
         {
-            var page = await generalContentItemRetrieverService.RetrieveWebPageByContentItemGuid(webPage.Identifier);
+            var page = await contentItemRetrieverService
+                .RetrieveWebPageByContentItemGuid(webPage.Identifier);
             return page?.GetUrl()?.RelativePath ?? string.Empty;
         }
         return string.Empty;

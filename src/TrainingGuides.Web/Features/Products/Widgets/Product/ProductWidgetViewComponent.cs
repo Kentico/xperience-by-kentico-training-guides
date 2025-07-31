@@ -1,5 +1,4 @@
 using CMS.Helpers;
-using Kentico.Content.Web.Mvc;
 using Kentico.PageBuilder.Web.Mvc;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ViewComponents;
@@ -29,21 +28,18 @@ public class ProductWidgetViewComponent : ViewComponent
     private const string BS_PADDING_CLASS_3 = "p-3";
     private const string BS_PADDING_CLASS_5 = "p-5";
 
-    private readonly IContentItemRetrieverService<ProductPage> productRetrieverService;
+    private readonly IContentItemRetrieverService contentItemRetrieverService;
     private readonly IComponentStyleEnumService componentStyleEnumService;
     private readonly IProductPageService productPageService;
-    private readonly IWebPageDataContextRetriever webPageDataContextRetriever;
 
     public ProductWidgetViewComponent(
-        IContentItemRetrieverService<ProductPage> productRetrieverService,
+        IContentItemRetrieverService contentItemRetrieverService,
         IComponentStyleEnumService componentStyleEnumService,
-        IProductPageService productPageService,
-        IWebPageDataContextRetriever webPageDataContextRetriever)
+        IProductPageService productPageService)
     {
-        this.productRetrieverService = productRetrieverService;
+        this.contentItemRetrieverService = contentItemRetrieverService;
         this.componentStyleEnumService = componentStyleEnumService;
         this.productPageService = productPageService;
-        this.webPageDataContextRetriever = webPageDataContextRetriever;
     }
 
     public async Task<ViewViewComponentResult> InvokeAsync(ProductWidgetProperties properties)
@@ -85,19 +81,15 @@ public class ProductWidgetViewComponent : ViewComponent
 
         if (properties.Mode.Equals(ProductWidgetMode.CURRENT_PAGE))
         {
-            productPage = await productRetrieverService
-                .RetrieveWebPageById(webPageDataContextRetriever.Retrieve().WebPage.WebPageItemID,
-                    ProductPage.CONTENT_TYPE_NAME,
-                    3);
+            productPage = await contentItemRetrieverService.RetrieveCurrentPage<ProductPage>(3);
         }
         else
         {
             var guid = properties.SelectedProductPage?.Select(webPage => webPage.Identifier).FirstOrDefault();
 
             productPage = guid.HasValue
-                ? await productRetrieverService.RetrieveWebPageByContentItemGuid(
+                ? await contentItemRetrieverService.RetrieveWebPageByContentItemGuid<ProductPage>(
                     (Guid)guid,
-                    ProductPage.CONTENT_TYPE_NAME,
                     4)
                 : null;
         }

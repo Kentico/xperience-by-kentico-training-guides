@@ -21,21 +21,18 @@ public class ArticleListWidgetViewComponent : ViewComponent
 {
     public const string IDENTIFIER = "TrainingGuides.ArticleListWidget";
 
-    private readonly IContentItemRetrieverService genericPageRetrieverService;
-    private readonly IContentItemRetrieverService<ArticlePage> articlePageRetrieverService;
+    private readonly IContentItemRetrieverService contentItemRetrieverService;
     private readonly IArticlePageService articlePageService;
     private readonly IMembershipService membershipService;
     private readonly IPreferredLanguageRetriever preferredLanguageRetriever;
 
     public ArticleListWidgetViewComponent(
-        IContentItemRetrieverService genericPageRetrieverService,
-        IContentItemRetrieverService<ArticlePage> articlePageRetrieverService,
+        IContentItemRetrieverService contentItemRetrieverService,
         IArticlePageService articlePageService,
         IMembershipService membershipService,
         IPreferredLanguageRetriever preferredLanguageRetriever)
     {
-        this.genericPageRetrieverService = genericPageRetrieverService;
-        this.articlePageRetrieverService = articlePageRetrieverService;
+        this.contentItemRetrieverService = contentItemRetrieverService;
         this.articlePageService = articlePageService;
         this.membershipService = membershipService;
         this.preferredLanguageRetriever = preferredLanguageRetriever;
@@ -68,37 +65,35 @@ public class ArticleListWidgetViewComponent : ViewComponent
             || securedItemsDisplayMode.Equals(SecuredOption.PromptForLogin.ToString());
         var selectedPageGuid = parentPageSelection.Identifier;
 
-        var selectedPage = await genericPageRetrieverService.RetrieveWebPageByContentItemGuid(selectedPageGuid);
+        var selectedPage = await contentItemRetrieverService.RetrieveWebPageByContentItemGuid(selectedPageGuid);
         var selectedPageWebPageGuid = selectedPage?.SystemFields.WebPageItemGUID;
         string selectedPageContentTypeName = await GetWebPageContentTypeName(selectedPageWebPageGuid);
         string selectedPagePath = selectedPage?.SystemFields.WebPageItemTreePath ?? string.Empty;
 
         if (string.IsNullOrEmpty(selectedPagePath))
         {
-            return Enumerable.Empty<ArticlePage>();
+            return [];
         }
 
         if (tags.IsNullOrEmpty())
         {
-            return await articlePageRetrieverService.RetrieveWebPageChildrenByPath(
-                selectedPageContentTypeName,
+            return await contentItemRetrieverService.RetrieveWebPageChildrenByPath<ArticlePage>(
                 selectedPagePath,
-                includeSecuredItems,
-                3);
+                3,
+                includeSecuredItems);
         }
         else
         {
             var tagGuids = tags.Select(tag => tag.Identifier).ToList();
 
             var taggedArticleIds = (
-                await genericPageRetrieverService.RetrieveContentItemsBySchemaAndTags(
+                await contentItemRetrieverService.RetrieveContentItemsBySchemaAndTags(
                     IArticleSchema.REUSABLE_FIELD_SCHEMA_NAME,
                     nameof(IArticleSchema.ArticleSchemaCategory),
                     tagGuids)
                 ).Select(article => article.SystemFields.ContentItemID);
 
-            return await articlePageRetrieverService.RetrieveWebPageChildrenByPathAndReference(
-                selectedPageContentTypeName,
+            return await contentItemRetrieverService.RetrieveWebPageChildrenByPathAndReference<ArticlePage>(
                 selectedPagePath,
                 nameof(ArticlePage.ArticlePageArticleContent),
                 taggedArticleIds,
@@ -147,8 +142,8 @@ public class ArticleListWidgetViewComponent : ViewComponent
                     string signInUrl = await membershipService.GetSignInUrl(language);
 
                     var model = securedItemsDisplayMode.Equals(SecuredOption.PromptForLogin.ToString())
-                        ? await articlePageService.GetArticlePageViewModelWithSecurity(articlePage, signInUrl, await membershipService.IsMemberAuthenticated())
-                        : await articlePageService.GetArticlePageViewModel(articlePage);
+                        ? articlePageService.GetArticlePageViewModelWithSecurity(articlePage, signInUrl, await membershipService.IsMemberAuthenticated())
+                        : articlePageService.GetArticlePageViewModel(articlePage);
 
                     models.Add(model);
                 }

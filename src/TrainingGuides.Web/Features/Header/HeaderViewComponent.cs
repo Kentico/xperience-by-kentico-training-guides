@@ -6,6 +6,7 @@ using TrainingGuides.Web.Features.Shared.Services;
 
 namespace TrainingGuides.Web.Features.Header;
 
+
 public class HeaderViewComponent : ViewComponent
 {
 
@@ -28,11 +29,11 @@ public class HeaderViewComponent : ViewComponent
 
     private async Task<IEnumerable<ContentItemReference>> GetSignInPageForWidget()
     {
-        var page = await contentItemRetrieverService.RetrieveWebPageByPath(ApplicationConstants.EXPECTED_SIGN_IN_PATH);
+        var page = await contentItemRetrieverService.RetrieveWebPageByPath<EmptyPage>(ApplicationConstants.EXPECTED_SIGN_IN_PATH);
 
         return page != null
             ? [new ContentItemReference() { Identifier = page.SystemFields.ContentItemGUID }]
-            : Enumerable.Empty<ContentItemReference>();
+            : [];
     }
     public HeaderViewModel BuildViewModel(IEnumerable<ContentItemReference> signInPage, bool showNavigation = true)
     {

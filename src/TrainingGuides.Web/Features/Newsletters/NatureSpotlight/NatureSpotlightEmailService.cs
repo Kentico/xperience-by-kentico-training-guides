@@ -19,9 +19,14 @@ public class NatureSpotlightEmailService : INatureSpotlightEmailService
         this.countryService = countryService;
     }
 
+    /// <inheritdoc />
+    public virtual async Task<NatureSpotlightEmail> GetNatureSpotlightEmailFromContext() =>
+        await emailContextAccessor.GetContext().GetEmail<NatureSpotlightEmail>();
+
+    /// <inheritdoc />
     public async Task<NatureSpotlightEmailModel> GetNatureSpotlightEmailModel()
     {
-        var email = await emailContextAccessor.GetContext().GetEmail<NatureSpotlightEmail>();
+        var email = await GetNatureSpotlightEmailFromContext();
 
         var model = new NatureSpotlightEmailModel
         {

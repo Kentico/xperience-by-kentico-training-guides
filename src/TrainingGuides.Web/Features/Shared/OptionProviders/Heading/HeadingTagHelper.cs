@@ -5,6 +5,13 @@ namespace TrainingGuides.Web.Features.Shared.OptionProviders.Heading;
 [HtmlTargetElement("tg-heading", TagStructure = TagStructure.NormalOrSelfClosing)]
 public class HeadingTagHelper : TagHelper
 {
+    private readonly IEnumStringService enumStringService;
+
+    public HeadingTagHelper(IEnumStringService enumStringService)
+    {
+        this.enumStringService = enumStringService;
+    }
+
     [HtmlAttributeName("headingType")]
     public string HeadingType { get; set; } = string.Empty;
 
@@ -13,7 +20,7 @@ public class HeadingTagHelper : TagHelper
 
     public override void Process(TagHelperContext context, TagHelperOutput output)
     {
-        var headingType = new DropdownEnumOptionProvider<HeadingTypeOption>().Parse(string.Empty, HeadingTypeDefault);
+        var headingType = enumStringService.Parse(string.Empty, HeadingTypeDefault);
         output.TagName = GetSafeTagText(headingType);
     }
 

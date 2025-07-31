@@ -13,6 +13,7 @@ using TrainingGuides.Web.Features.SEO;
 using TrainingGuides.Web.Features.Shared.EmailBuilder;
 using TrainingGuides.Web.Features.Shared.EmailBuilder.ModelMappers;
 using TrainingGuides.Web.Features.Shared.Services;
+using TrainingGuides.Web.Features.Shared.OptionProviders;
 
 namespace TrainingGuides.Web;
 
@@ -32,6 +33,7 @@ public static class ServiceCollectionExtensions
         services.AddSingleton<IMemberContactService, MemberContactService>();
         services.AddSingleton<IUpdateProfileService, UpdateProfileService>();
         services.AddSingleton<ICountryService, CountryService>();
+        services.AddSingleton<IEnumStringService, EnumStringService>();
 
         services.AddScoped<IMembershipService, MembershipService>();
         services.AddScoped<IHeadTagStoreService, HeadTagStoreService>();
@@ -41,7 +43,7 @@ public static class ServiceCollectionExtensions
         services.AddScoped<IComponentModelMapper<ArticleEmailWidgetModel>, ArticleEmailWidgetModelMapper>();
         services.AddScoped<INatureSpotlightEmailService, NatureSpotlightEmailService>();
 
-        services.AddTransient(typeof(IContentItemRetrieverService<>), typeof(ContentItemRetrieverService<>));
+        services.AddTransient<IContentItemRetrieverService, ContentItemRetrieverService>();
 
     }
 
@@ -52,6 +54,7 @@ public static class ServiceCollectionExtensions
         services.Configure<TrainingGuidesEmailBuilderOptions>(options =>
         {
             options.AllowedArticleContentTypes = [ArticlePage.CONTENT_TYPE_NAME];
+            options.AllowedGeneralEmailTemplateContentTypes = [BasicEmail.CONTENT_TYPE_NAME];
         });
     }
 }

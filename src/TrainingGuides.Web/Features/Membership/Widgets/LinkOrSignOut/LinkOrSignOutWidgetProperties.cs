@@ -31,7 +31,7 @@ public class LinkOrSignOutWidgetProperties : IWidgetProperties
         ExplanationText = "Page to link to when the visitor is not authenticated.",
         MaximumItems = 1,
         Order = 30)]
-    public IEnumerable<ContentItemReference> UnauthenticatedTargetContentPage { get; set; } = Enumerable.Empty<ContentItemReference>();
+    public IEnumerable<ContentItemReference> UnauthenticatedTargetContentPage { get; set; } = [];
 
     [TextInputComponent(
         Label = "Authenticated text",

@@ -12,7 +12,6 @@ using Kentico.PageBuilder.Web.Mvc;
 using Kentico.Web.Mvc;
 using Kentico.Xperience.Mjml;
 using Kentico.Xperience.Mjml.StarterKit.Rcl;
-using Kentico.Xperience.Mjml.StarterKit.Rcl.Sections;
 using Microsoft.AspNetCore.Identity;
 using TrainingGuides;
 using TrainingGuides.Web;
@@ -86,7 +85,7 @@ builder.Services.Configure<EmailBuilderOptions>(options =>
     options.AllowedEmailContentTypeNames = [BasicEmail.CONTENT_TYPE_NAME, NatureSpotlightEmail.CONTENT_TYPE_NAME];
     // Replaces the default Email Builder section
     options.RegisterDefaultSection = false;
-    options.DefaultSectionIdentifier = FullWidthEmailSection.IDENTIFIER;
+    options.DefaultSectionIdentifier = ComponentIdentifiers.EmailBuilderSections.GENERAL;
 });
 
 builder.Services.AddMjmlForEmails();

@@ -30,7 +30,7 @@ public class LinkOrSignOutWidgetViewComponentTests
     public LinkOrSignOutWidgetViewComponentTests()
     {
         contentItemRetrieverServiceMock = new Mock<IContentItemRetrieverService>();
-        contentItemRetrieverServiceMock.Setup(x => x.RetrieveWebPageByContentItemGuid(It.IsAny<Guid>()))
+        contentItemRetrieverServiceMock.Setup(x => x.RetrieveWebPageByContentItemGuid(It.IsAny<Guid>(), It.IsAny<int>(), It.IsAny<bool>(), It.IsAny<string?>()))
             .ReturnsAsync((IWebPageFieldsSource?)null);
 
         preferredLanguageRetrieverMock = new Mock<IPreferredLanguageRetriever>();

@@ -1,0 +1,32 @@
+@using Kentico.VisualBuilderComponents.Rcl.Components
+@using TrainingGuides.Web
+@using TrainingGuides.Web.Features.Shared.EmailBuilder.RazorComponents;
+@using TrainingGuides.Web.Features.Shared.OptionProviders.ColumnLayout
+
+<mjml>
+  <mj-head>
+    <mj-title>@Subject</mj-title>
+    <mj-attributes>
+      <mj-all color="inherit" />
+    </mj-attributes>
+    <mj-preview>
+      @EmailPreviewText
+    </mj-preview>
+    <mj-style>
+      @((MarkupString)CssContent)
+    </mj-style>
+    <EmailBuilderStyles />
+  </mj-head>
+  <mj-body>
+    <mj-wrapper css-class="@(string.Join(" ", MainCssClasses))" >
+      @foreach (var rowIdentifier in RowIdentifiers)
+      {
+        <EditableArea AreaIdentifier="@rowIdentifier" DefaultSectionIdentifier="@ComponentIdentifiers.EmailBuilderSections.GENERAL" AllowedSections="[ComponentIdentifiers.EmailBuilderSections.GENERAL]" />
+      }
+      <mj-text align="center">
+        <a href="@Recipient.UnsubscriptionUrl" data-click-tracking="false">Unsubscribe</a>
+      </mj-text>
+    </mj-wrapper>
+    <EmailBuilderScripts />
+  </mj-body>
+</mjml>

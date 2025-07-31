@@ -14,7 +14,7 @@ public class ProductComparatorWidgetProperties : IWidgetProperties
         Label = "Selected products",
         MaximumItems = 0,
         Order = 10)]
-    public IEnumerable<ContentItemReference> Products { get; set; } = Enumerable.Empty<ContentItemReference>();
+    public IEnumerable<ContentItemReference> Products { get; set; } = [];
 
     [TextInputComponent(
         Label = "Comparator heading",

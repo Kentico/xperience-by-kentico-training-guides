@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.basicemail>
+  <ContentItemDataCommonDataID>
+    <GUID>5df0e403-bb55-452e-a335-5a2f83cf1ea0</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>HottestDeals-osr0o3kd</CodeName>
+      <GUID>9dddd79b-6cb4-49a7-b5ad-544d36e71c57</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>6a8d13ab-bc32-48d0-9a51-9d0f35b5da0b</ContentItemDataGUID>
+  <EmailPlainText />
+  <EmailPreviewText>
+    <![CDATA[Check out these deals on great hotel and resort stays!]]>
+  </EmailPreviewText>
+  <EmailSenderID>
+    <CodeName>admin</CodeName>
+    <GUID>6d945362-af4e-42dc-b021-b084f739765b</GUID>
+    <ObjectType>emaillibrary.emailchannelsender</ObjectType>
+    <Parent>
+      <GUID>b1bafb4b-824f-4605-aff0-9db29e2c64b1</GUID>
+      <ObjectType>emaillibrary.emailchannel</ObjectType>
+      <Parent>
+        <CodeName>TrainingGuidesEmails</CodeName>
+        <GUID>49e862ef-2963-49ef-a1f4-f209a01d8fc6</GUID>
+        <ObjectType>cms.channel</ObjectType>
+      </Parent>
+    </Parent>
+  </EmailSenderID>
+  <EmailSubject>Hottest deals of the season</EmailSubject>
+  <EmailTemplateID>0</EmailTemplateID>
+</contentitemdata.trainingguides.basicemail>
