@@ -1,220 +1,166 @@
 ﻿using CMS.ContentEngine;
 using CMS.Websites.Routing;
+using Kentico.Content.Web.Mvc;
 using Kentico.Content.Web.Mvc.Routing;
 
 namespace TrainingGuides.Web.Features.Shared.Services;
 
-public class ContentItemRetrieverService<T> : IContentItemRetrieverService<T>
+public class ContentItemRetrieverService : IContentItemRetrieverService
 {
-    private readonly IContentQueryExecutor contentQueryExecutor;
+    private readonly IContentRetriever contentRetriever;
     private readonly IWebsiteChannelContext webSiteChannelContext;
     private readonly IPreferredLanguageRetriever preferredLanguageRetriever;
+    private readonly IContentQueryExecutor contentQueryExecutor;
 
     public ContentItemRetrieverService(
-        IContentQueryExecutor contentQueryExecutor,
+        IContentRetriever contentRetriever,
         IWebsiteChannelContext webSiteChannelContext,
-        IPreferredLanguageRetriever preferredLanguageRetriever)
+        IPreferredLanguageRetriever preferredLanguageRetriever,
+        IContentQueryExecutor contentQueryExecutor)
     {
-        this.contentQueryExecutor = contentQueryExecutor;
+        this.contentRetriever = contentRetriever;
         this.webSiteChannelContext = webSiteChannelContext;
         this.preferredLanguageRetriever = preferredLanguageRetriever;
+        this.contentQueryExecutor = contentQueryExecutor;
     }
 
     /// <inheritdoc />
-    public async Task<T?> RetrieveWebPageById(
-        int webPageItemId,
-        string contentTypeName,
+    public async Task<T?> RetrieveCurrentPage<T>(
         int depth = 1,
         string? languageName = null)
+        where T : IWebPageFieldsSource, new()
     {
-        var pages = await RetrieveWebPageContentItems(
-                contentTypeName,
-                innerParams => innerParams
-                    .WithLinkedItems(depth),
-                outerParams => outerParams
-                    .Where(where => where.WhereEquals(nameof(WebPageFields.WebPageItemID), webPageItemId)),
-                languageName: languageName);
-        return pages.FirstOrDefault();
-    }
-
-    /// <inheritdoc />
-    public async Task<T?> RetrieveWebPageByGuid(
-        Guid? webPageItemGuid,
-        string contentTypeName,
-        int depth = 1,
-        string? languageName = null)
-    {
-        var pages = await RetrieveWebPageContentItems(
-                contentTypeName,
-                innerParams => innerParams
-                    .WithLinkedItems(depth),
-                outerParams => outerParams
-                    .Where(where => where.WhereEquals(nameof(WebPageFields.WebPageItemGUID), webPageItemGuid)),
-                languageName: languageName);
-        return pages.FirstOrDefault();
-    }
-
-    /// <inheritdoc />
-    public async Task<T?> RetrieveWebPageByContentItemGuid(
-        Guid contentItemGuid,
-        string contentTypeName,
-        int depth = 1,
-        string? languageName = null)
-    {
-        var pages = await RetrieveWebPageContentItems(
-            contentTypeName,
-            innerParams => innerParams.WithLinkedItems(depth),
-            outerParams => outerParams
-                .Where(where => where.WhereEquals(nameof(ContentItemFields.ContentItemGUID), contentItemGuid)),
-            languageName: languageName);
-        return pages.FirstOrDefault();
-    }
-
-    /// <inheritdoc />
-    public async Task<IEnumerable<T>> RetrieveWebPageContentItems(
-        string contentTypeName,
-        Func<ContentTypesQueryParameters, ContentTypesQueryParameters> innerQueryFilter,
-        Action<ContentQueryParameters> outerParams,
-        string? languageName = null)
-    {
-        var builder = new ContentItemQueryBuilder()
-                            .ForContentTypes(
-                                config => innerQueryFilter(config)
-                                .OfContentType(contentTypeName)
-                                .WithWebPageData()
-                            )
-                            .Parameters(outerParams)
-                            .InLanguage(languageName ?? preferredLanguageRetriever.Get());
-
-        var queryExecutorOptions = new ContentQueryExecutionOptions
+        var parameters = new RetrieveCurrentPageParameters
         {
-            ForPreview = webSiteChannelContext.IsPreview
+            LinkedItemsMaxLevel = depth,
+            LanguageName = languageName ?? preferredLanguageRetriever.Get(),
+            IsForPreview = webSiteChannelContext.IsPreview
         };
 
-        var pages = await contentQueryExecutor.GetMappedWebPageResult<T>(builder, queryExecutorOptions);
-
-        return pages;
+        return await contentRetriever.RetrieveCurrentPage<T>(parameters);
     }
 
     /// <inheritdoc />
-    public async Task<IEnumerable<T>> RetrieveWebPageChildrenByPath(
-        string parentPageContentTypeName,
-        string parentPagePath,
+    public async Task<T?> RetrieveWebPageByContentItemGuid<T>(
+        Guid contentItemGuid,
         int depth = 1,
         string? languageName = null)
+        where T : IWebPageFieldsSource, new()
     {
-        var builder = new ContentItemQueryBuilder()
-                            .ForContentType(
-                                parentPageContentTypeName,
-                                config => config
-                                    .ForWebsite(webSiteChannelContext.WebsiteChannelName, [PathMatch.Children(parentPagePath)])
-                                    .WithLinkedItems(depth))
-                            .InLanguage(languageName ?? preferredLanguageRetriever.Get());
-
-        var queryExecutorOptions = new ContentQueryExecutionOptions
+        var parameters = new RetrieveContentParameters
         {
-            ForPreview = webSiteChannelContext.IsPreview
+            LinkedItemsMaxLevel = depth,
+            LanguageName = languageName ?? preferredLanguageRetriever.Get(),
+            IsForPreview = webSiteChannelContext.IsPreview
         };
 
-        var pages = await contentQueryExecutor.GetMappedWebPageResult<T>(builder, queryExecutorOptions);
+        var pages = await contentRetriever.RetrieveContentByGuids<T>(
+            [contentItemGuid],
+            parameters);
 
-        return pages;
+        return pages.FirstOrDefault();
     }
 
     /// <inheritdoc />
-    public async Task<T?> RetrieveContentItemByGuid(
-        Guid contentItemGuid,
-        string contentTypeName,
+    public async Task<IEnumerable<T>> RetrieveWebPageChildrenByPath<T>(
+        string path,
         int depth = 1,
         string? languageName = null)
+        where T : IWebPageFieldsSource, new()
     {
-        var items = await RetrieveReusableContentItems(
-                contentTypeName ?? string.Empty,
-                config => config
-                    .Where(where => where.WhereEquals(nameof(ContentItemFields.ContentItemGUID), contentItemGuid))
-                    .WithLinkedItems(depth),
-                languageName: languageName);
+        var parameters = new RetrievePagesParameters
+        {
+            LinkedItemsMaxLevel = depth,
+            LanguageName = languageName ?? preferredLanguageRetriever.Get(),
+            IsForPreview = webSiteChannelContext.IsPreview,
+            PathMatch = PathMatch.Children(path)
+        };
+
+        return await contentRetriever.RetrievePages<T>(parameters);
+    }
+
+    /// <inheritdoc />
+    public async Task<T?> RetrieveContentItemByGuid<T>(
+        Guid contentItemGuid,
+        int depth = 1,
+        string? languageName = null)
+        where T : IContentItemFieldsSource, new()
+    {
+        var parameters = new RetrieveContentParameters
+        {
+            LinkedItemsMaxLevel = depth,
+            LanguageName = languageName ?? preferredLanguageRetriever.Get(),
+            IsForPreview = webSiteChannelContext.IsPreview
+        };
+
+        var items = await contentRetriever.RetrieveContentByGuids<T>(
+            [contentItemGuid],
+            parameters);
+
         return items.FirstOrDefault();
     }
 
     /// <inheritdoc />
-    public async Task<IEnumerable<T>> RetrieveReusableContentItems(
-        string contentTypeName,
-        Func<ContentTypeQueryParameters, ContentTypeQueryParameters> queryFilter,
+    /// using the "old way" of retrieving content here, because we don't know the exact page type of the webpage item requested. Most of the new ContentRetriever API methods require a specific type and won't accept an interface,
+    /// e.g., contentRetriever.RetrieveContentByGuids<IWebPageFieldsSource>.
+    ///
+    /// An alternative method could be implemented using the ContentRetriever API, but it would still require a listing of all page types:
+    /// var pages = await contentRetriever.RetrievePagesOfContentTypes<IWebPageFieldsSource>(
+    //      [ List of all pages content types ],
+    //      parameters,
+    //      query => query.Where(where => where.WhereEquals(nameof(ContentItemFields.ContentItemGUID), pageContentItemGuid)),
+    //      RetrievalCacheSettings.CacheDisabled,
+    //      configureModel: null);
+    public async Task<IWebPageFieldsSource?> RetrieveWebPageByContentItemGuid(
+        Guid pageContentItemGuid,
+        int depth = 2,
+        string? languageName = null)
+    {
+        var pages = await RetrieveWebPages(parameters =>
+            {
+                parameters.Where(where => where.WhereEquals(nameof(ContentItemFields.ContentItemGUID), pageContentItemGuid));
+            },
+            depth,
+            languageName ?? preferredLanguageRetriever.Get());
+
+        return pages.FirstOrDefault();
+    }
+
+    private async Task<IEnumerable<IWebPageFieldsSource>> RetrieveWebPages(
+        Action<ContentQueryParameters> parameters,
+        int depth,
         string? languageName = null)
     {
         var builder = new ContentItemQueryBuilder()
-                            .ForContentType(
-                                contentTypeName,
-                                config => queryFilter(config)
-                            )
-                            .InLanguage(languageName ?? preferredLanguageRetriever.Get());
+            .ForContentTypes(query => query
+            .WithLinkedItems(depth, options => options.IncludeWebPageData(true))
+            .ForWebsite(webSiteChannelContext.WebsiteChannelName))
+        .Parameters(parameters)
+        .InLanguage(languageName ?? preferredLanguageRetriever.Get());
 
         var queryExecutorOptions = new ContentQueryExecutionOptions
         {
             ForPreview = webSiteChannelContext.IsPreview
         };
 
-        var items = await contentQueryExecutor.GetMappedResult<T>(builder, queryExecutorOptions);
-
-        return items;
-    }
-}
-
-public class ContentItemRetrieverService : IContentItemRetrieverService
-{
-    private readonly IContentQueryExecutor contentQueryExecutor;
-    private readonly IWebsiteChannelContext websiteChannelContext;
-
-    private readonly IPreferredLanguageRetriever preferredLanguageRetriever;
-
-    public ContentItemRetrieverService(
-        IContentQueryExecutor contentQueryExecutor,
-        IWebsiteChannelContext websiteChannelContext,
-        IPreferredLanguageRetriever preferredLanguageRetriever)
-    {
-        this.contentQueryExecutor = contentQueryExecutor;
-        this.websiteChannelContext = websiteChannelContext;
-        this.preferredLanguageRetriever = preferredLanguageRetriever;
+        return await contentQueryExecutor.GetMappedResult<IWebPageFieldsSource>(builder, queryExecutorOptions);
     }
 
     /// <inheritdoc />
-    public async Task<IWebPageFieldsSource?> RetrieveWebPageByContentItemGuid(
-        Guid pageContentItemGuid)
+    /// see the comment at the RetrieveWebPageByContentItemGuid method
+    public async Task<IWebPageFieldsSource?> RetrieveWebPageById(
+        int webPageItemId,
+        int depth = 2,
+        string? languageName = null)
     {
         var pages = await RetrieveWebPages(parameters =>
             {
-                parameters.Where(where => where.WhereEquals(nameof(ContentItemFields.ContentItemGUID), pageContentItemGuid));
-            });
+                parameters.Where(where => where.WhereEquals(nameof(WebPageFields.WebPageItemID), webPageItemId));
+            },
+            depth,
+            languageName ?? preferredLanguageRetriever.Get());
 
         return pages.FirstOrDefault();
     }
 
-    private async Task<IEnumerable<IContentItemFieldsSource>> RetrieveContentItems(Action<ContentQueryParameters> contentQueryParameters,
-        Action<ContentTypesQueryParameters> contentTypesQueryParameters)
-    {
-        var builder = new ContentItemQueryBuilder();
-
-        builder.ForContentTypes(contentTypesQueryParameters)
-            .Parameters(contentQueryParameters);
-
-        return await contentQueryExecutor.GetMappedResult<IContentItemFieldsSource>(builder);
-    }
-
-    private async Task<IEnumerable<IWebPageFieldsSource>> RetrieveWebPages(Action<ContentQueryParameters> parameters)
-    {
-        var builder = new ContentItemQueryBuilder()
-            .ForContentTypes(query => query
-            .WithLinkedItems(2, options => options.IncludeWebPageData(true))
-            .ForWebsite(websiteChannelContext.WebsiteChannelName))
-        .Parameters(parameters)
-        .InLanguage(preferredLanguageRetriever.Get());
-
-        var queryExecutorOptions = new ContentQueryExecutionOptions
-        {
-            ForPreview = websiteChannelContext.IsPreview
-        };
-
-        return await contentQueryExecutor.GetMappedResult<IWebPageFieldsSource>(builder, queryExecutorOptions);
-    }
 }

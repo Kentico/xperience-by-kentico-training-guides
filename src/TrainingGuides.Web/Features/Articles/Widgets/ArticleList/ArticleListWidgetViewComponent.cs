@@ -1,5 +1,4 @@
 using CMS.ContentEngine;
-using CMS.DataEngine;
 using Kentico.PageBuilder.Web.Mvc;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ViewComponents;
@@ -18,18 +17,14 @@ public class ArticleListWidgetViewComponent : ViewComponent
 {
     public const string IDENTIFIER = "TrainingGuides.ArticleListWidget";
 
-    private readonly IContentItemRetrieverService genericPageRetrieverService;
-    private readonly IContentItemRetrieverService<ArticlePage> articlePageRetrieverService;
-
+    private readonly IContentItemRetrieverService contentItemRetrieverService;
     private readonly IArticlePageService articlePageService;
 
     public ArticleListWidgetViewComponent(
-        IContentItemRetrieverService genericPageRetrieverService,
-        IContentItemRetrieverService<ArticlePage> articlePageRetrieverService,
+        IContentItemRetrieverService contentItemRetrieverService,
         IArticlePageService articlePageService)
     {
-        this.genericPageRetrieverService = genericPageRetrieverService;
-        this.articlePageRetrieverService = articlePageRetrieverService;
+        this.contentItemRetrieverService = contentItemRetrieverService;
         this.articlePageService = articlePageService;
     }
 
@@ -42,8 +37,8 @@ public class ArticleListWidgetViewComponent : ViewComponent
             var articlePages = await RetrieveArticlePages(properties.ContentTreeSection.First());
 
             model.Articles = (properties.OrderBy.Equals("OldestFirst", StringComparison.OrdinalIgnoreCase)
-                ? (await GetArticlePageViewModels(articlePages)).OrderBy(article => article.CreatedOn)
-                : (await GetArticlePageViewModels(articlePages)).OrderByDescending(article => article.CreatedOn))
+                ? GetArticlePageViewModels(articlePages).OrderBy(article => article.CreatedOn)
+                : GetArticlePageViewModels(articlePages).OrderByDescending(article => article.CreatedOn))
                 .Take(properties.TopN)
                 .ToList();
 
@@ -57,50 +52,23 @@ public class ArticleListWidgetViewComponent : ViewComponent
     {
         var selectedPageGuid = parentPageSelection.Identifier;
 
-        var selectedPage = await genericPageRetrieverService.RetrieveWebPageByContentItemGuid(selectedPageGuid);
-        var selectedPageWebPageGuid = selectedPage?.SystemFields.WebPageItemGUID;
-        string selectedPageContentTypeName = await GetWebPageContentTypeName(selectedPageWebPageGuid);
+        var selectedPage = selectedPageGuid != Guid.Empty
+            ? await contentItemRetrieverService.RetrieveWebPageByContentItemGuid<ArticlePage>(selectedPageGuid)
+            : null;
+
         string selectedPagePath = selectedPage?.SystemFields.WebPageItemTreePath ?? string.Empty;
 
         if (string.IsNullOrEmpty(selectedPagePath))
         {
-            return Enumerable.Empty<ArticlePage>();
+            return [];
         }
 
-        return await articlePageRetrieverService.RetrieveWebPageChildrenByPath(
-            selectedPageContentTypeName,
+        return await contentItemRetrieverService.RetrieveWebPageChildrenByPath<ArticlePage>(
             selectedPagePath,
             3);
     }
 
-    private async Task<string> GetWebPageContentTypeName(Guid? id)
-    {
-        // database-related string constants, needed to retrieve Page content type name
-        const string WEB_PAGE_ITEM_OBJECT_TYPE = "cms.webpageitem";
-        const string CONTENT_ITEM_TABLE_NAME = "CMS_ContentItem";
-        const string WEB_PAGE_ITEM_CONTENT_ITEM_ID = "WebPageItemContentItemID";
-        const string CONTENT_ITEM_ID = "ContentItemID";
-        const string CONTENT_ITEM_CONTENT_TYPE_ID = "ContentItemContentTypeID";
-        const string CLASS_ID = "ClassID";
-        const string WEB_PAGE_ITEM_GUID = "WebPageItemGUID";
-        const string CLASS_NAME = "ClassName";
-
-        var query = new ObjectQuery(WEB_PAGE_ITEM_OBJECT_TYPE).Source(delegate (QuerySource source)
-        {
-            source.LeftJoin(
-                source: new QuerySourceTable(CONTENT_ITEM_TABLE_NAME),
-                leftColumn: WEB_PAGE_ITEM_CONTENT_ITEM_ID,
-                rightColumn: CONTENT_ITEM_ID);
-            source.LeftJoin<DataClassInfo>(
-                leftColumn: CONTENT_ITEM_CONTENT_TYPE_ID,
-                rightColumn: CLASS_ID);
-        }).WhereEquals(WEB_PAGE_ITEM_GUID, id)
-                .Column(CLASS_NAME);
-
-        return await query.GetScalarResultAsync<string>();
-    }
-
-    private async Task<List<ArticlePageViewModel>> GetArticlePageViewModels(IEnumerable<ArticlePage?>? articlePages)
+    private List<ArticlePageViewModel> GetArticlePageViewModels(IEnumerable<ArticlePage?>? articlePages)
     {
         var models = new List<ArticlePageViewModel>();
         if (articlePages != null)
@@ -109,7 +77,7 @@ public class ArticleListWidgetViewComponent : ViewComponent
             {
                 if (articlePage != null)
                 {
-                    var model = await articlePageService.GetArticlePageViewModel(articlePage);
+                    var model = articlePageService.GetArticlePageViewModel(articlePage);
                     models.Add(model);
                 }
             }

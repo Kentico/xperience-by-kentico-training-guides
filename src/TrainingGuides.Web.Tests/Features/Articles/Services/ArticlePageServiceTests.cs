@@ -1,40 +1,29 @@
 using Xunit;
-using CMS.Websites;
 using Moq;
 using TrainingGuides.Web.Features.Articles.Services;
 using TrainingGuides.Web.Features.Articles;
 using Microsoft.AspNetCore.Html;
-using Kentico.Content.Web.Mvc.Routing;
 
 namespace TrainingGuides.Web.Tests.Features.Articles.Services;
 
 public class ArticlePageServiceTests
 {
     private readonly Mock<ArticlePageService> articlePageServiceMock;
-    private readonly Mock<IWebPageUrlRetriever> webPageUrlRetrieverMock;
-    private readonly Mock<IPreferredLanguageRetriever> preferredLanguageRetrieverMock;
 
     private const string ARTICLE_TITLE = "Title";
     private const string ARTICLE_SUMMARY = "Summary";
     private const string ARTICLE_TEXT = "Text";
     private const string ARTICLE_URL = "test";
-    private const string ARTICLE_ABSOLUTE_URL = "https://test/test";
-    private const string LANGUAGE_EN = "en-US";
 
     private readonly ArticlePageViewModel referenceArticleViewModel;
 
     public ArticlePageServiceTests()
     {
-        webPageUrlRetrieverMock = new Mock<IWebPageUrlRetriever>();
-        webPageUrlRetrieverMock.Setup(x => x.Retrieve(It.IsAny<ArticlePage>(), LANGUAGE_EN, It.IsAny<CancellationToken>()))
-            .ReturnsAsync(new WebPageUrl(ARTICLE_URL, ARTICLE_ABSOLUTE_URL));
+        articlePageServiceMock = new Mock<ArticlePageService> { CallBase = true };
 
-        preferredLanguageRetrieverMock = new Mock<IPreferredLanguageRetriever>();
-        preferredLanguageRetrieverMock.Setup(x => x.Get()).Returns(LANGUAGE_EN);
-
-        articlePageServiceMock = new Mock<ArticlePageService>(
-            webPageUrlRetrieverMock.Object,
-            preferredLanguageRetrieverMock.Object);
+        // Mock the GetArticlePageRelativeUrl method to return our test URL
+        articlePageServiceMock.Setup(x => x.GetArticlePageRelativeUrl(It.IsAny<ArticlePage>()))
+            .Returns(ARTICLE_URL);
 
         referenceArticleViewModel = new()
         {
@@ -58,41 +47,60 @@ public class ArticlePageServiceTests
     };
 
     [Fact]
-    public async Task GetArticlePageViewModel_IfArticlePageNull_ReturnsEmptyModel()
+    public void GetArticlePageViewModel_IfArticlePageNull_ReturnsEmptyModel()
     {
-        var articlePageViewModel = await articlePageServiceMock.Object.GetArticlePageViewModel(null);
+        var articlePageViewModel = articlePageServiceMock.Object.GetArticlePageViewModel(null);
         Assert.Equivalent(new ArticlePageViewModel(), articlePageViewModel);
     }
 
     [Fact]
-    public async Task GetArticlePageViewModel_ReturnsModel_WithArticleTitleSet()
+    public void GetArticlePageViewModel_ReturnsModel_WithArticleTitleSet()
     {
         var articlePage = BuildSampleArticlePage();
-        var articlePageViewModel = await articlePageServiceMock.Object.GetArticlePageViewModel(articlePage);
+        var articlePageViewModel = articlePageServiceMock.Object.GetArticlePageViewModel(articlePage);
         Assert.Equal(referenceArticleViewModel.Title, articlePageViewModel.Title);
     }
 
     [Fact]
-    public async Task GetArticlePageViewModel_ReturnsModel_WithArticleSummarySet()
+    public void GetArticlePageViewModel_ReturnsModel_WithArticleSummarySet()
     {
         var articlePage = BuildSampleArticlePage();
-        var articlePageViewModel = await articlePageServiceMock.Object.GetArticlePageViewModel(articlePage);
+        var articlePageViewModel = articlePageServiceMock.Object.GetArticlePageViewModel(articlePage);
         Assert.Equal(referenceArticleViewModel.SummaryHtml.Value, articlePageViewModel.SummaryHtml.Value);
     }
 
     [Fact]
-    public async Task GetArticlePageViewModel_ReturnsModel_WithArticleTextSet()
+    public void GetArticlePageViewModel_ReturnsModel_WithArticleTextSet()
     {
         var articlePage = BuildSampleArticlePage();
-        var articlePageViewModel = await articlePageServiceMock.Object.GetArticlePageViewModel(articlePage);
+        var articlePageViewModel = articlePageServiceMock.Object.GetArticlePageViewModel(articlePage);
         Assert.Equal(referenceArticleViewModel.TextHtml.Value, articlePageViewModel.TextHtml.Value);
     }
 
     [Fact]
-    public async Task GetArticlePageViewModel_ReturnsModel_WithArticleUrlSet()
+    public void GetArticlePageViewModel_ReturnsModel_WithArticleUrlSet()
     {
         var articlePage = BuildSampleArticlePage();
-        var articlePageViewModel = await articlePageServiceMock.Object.GetArticlePageViewModel(articlePage);
+        var articlePageViewModel = articlePageServiceMock.Object.GetArticlePageViewModel(articlePage);
         Assert.Equal(referenceArticleViewModel.Url, articlePageViewModel.Url);
+    }
+
+    [Fact]
+    public void GetArticlePageRelativeUrl_IsCalledCorrectly()
+    {
+        var articlePage = BuildSampleArticlePage();
+        articlePageServiceMock.Object.GetArticlePageViewModel(articlePage);
+
+        // Verify that GetArticlePageRelativeUrl was called with the correct article page
+        articlePageServiceMock.Verify(x => x.GetArticlePageRelativeUrl(articlePage), Times.Once);
+    }
+
+    [Fact]
+    public void GetArticlePageRelativeUrl_IsNotCalledWhenArticlePageIsNull()
+    {
+        articlePageServiceMock.Object.GetArticlePageViewModel(null);
+
+        // Verify that GetArticlePageRelativeUrl was not called when article page is null
+        articlePageServiceMock.Verify(x => x.GetArticlePageRelativeUrl(It.IsAny<ArticlePage>()), Times.Never);
     }
 }

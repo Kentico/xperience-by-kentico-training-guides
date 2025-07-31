@@ -1,4 +1,3 @@
-using Kentico.Content.Web.Mvc.Routing;
 using Microsoft.AspNetCore.Html;
 using TrainingGuides.Web.Features.Shared.Models;
 
@@ -6,21 +5,15 @@ namespace TrainingGuides.Web.Features.Articles.Services;
 
 public class ArticlePageService : IArticlePageService
 {
-    private readonly IWebPageUrlRetriever webPageUrlRetriever;
-    private readonly IPreferredLanguageRetriever preferredLanguageRetriever;
-    public ArticlePageService(IWebPageUrlRetriever webPageUrlRetriever,
-        IPreferredLanguageRetriever preferredLanguageRetriever)
-    {
-        this.webPageUrlRetriever = webPageUrlRetriever;
-        this.preferredLanguageRetriever = preferredLanguageRetriever;
-    }
+    public ArticlePageService()
+    { }
 
     /// <summary>
     /// Creates a new instance of <see cref="ArticlePageViewModel"/>, setting the properties using ArticlePage given as a parameter.
     /// </summary>
     /// <param name="articlePage">Corresponding Article page object.</param>
     /// <returns>New instance of ArticlePageViewModel.</returns>
-    public async Task<ArticlePageViewModel> GetArticlePageViewModel(ArticlePage? articlePage)
+    public ArticlePageViewModel GetArticlePageViewModel(ArticlePage? articlePage)
     {
         if (articlePage == null)
         {
@@ -30,8 +23,7 @@ public class ArticlePageService : IArticlePageService
         var article = articlePage.ArticlePageContent.FirstOrDefault();
         var articleTeaserImage = article?.ArticleTeaser.FirstOrDefault();
 
-        string language = preferredLanguageRetriever.Get();
-        string articleUrl = (await webPageUrlRetriever.Retrieve(articlePage, language)).RelativePath;
+        string articleUrl = GetArticlePageRelativeUrl(articlePage);
 
         return new ArticlePageViewModel
         {
@@ -43,4 +35,7 @@ public class ArticlePageService : IArticlePageService
             Url = articleUrl
         };
     }
+
+    public virtual string GetArticlePageRelativeUrl(ArticlePage articlePage) =>
+        articlePage?.GetUrl().RelativePath ?? string.Empty;
 }

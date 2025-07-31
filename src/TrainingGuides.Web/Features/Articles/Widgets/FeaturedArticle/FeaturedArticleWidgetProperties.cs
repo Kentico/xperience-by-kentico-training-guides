@@ -11,5 +11,5 @@ public class FeaturedArticleWidgetProperties : IWidgetProperties
         Label = "Selected article",
         MaximumItems = 1,
         Order = 10)]
-    public IEnumerable<ContentItemReference> Article { get; set; } = Enumerable.Empty<ContentItemReference>();
+    public IEnumerable<ContentItemReference> Article { get; set; } = [];
 }

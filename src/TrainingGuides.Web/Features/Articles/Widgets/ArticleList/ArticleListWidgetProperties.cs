@@ -18,7 +18,7 @@ public class ArticleListWidgetProperties : IWidgetProperties
         AllowContentItemCreation = false,
         MaximumItems = 1,
         Order = 10)]
-    public IEnumerable<ContentItemReference> ContentTreeSection { get; set; } = Enumerable.Empty<ContentItemReference>();
+    public IEnumerable<ContentItemReference> ContentTreeSection { get; set; } = [];
 
     [NumberInputComponent(
         Label = "Number of articles to display",
