@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<emaillibrary.emailconfiguration>
+  <EmailConfigurationContentItemID>
+    <CodeName>HottestDeals-osr0o3kd</CodeName>
+    <GUID>9dddd79b-6cb4-49a7-b5ad-544d36e71c57</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </EmailConfigurationContentItemID>
+  <EmailConfigurationEmailChannelID>
+    <GUID>b1bafb4b-824f-4605-aff0-9db29e2c64b1</GUID>
+    <ObjectType>emaillibrary.emailchannel</ObjectType>
+    <Parent>
+      <CodeName>TrainingGuidesEmails</CodeName>
+      <GUID>49e862ef-2963-49ef-a1f4-f209a01d8fc6</GUID>
+      <ObjectType>cms.channel</ObjectType>
+    </Parent>
+  </EmailConfigurationEmailChannelID>
+  <EmailConfigurationGUID>d8bc44ae-8f4d-49c0-9cd6-ff130d1bd92d</EmailConfigurationGUID>
+  <EmailConfigurationName>HottestDeals-osr0o3kd</EmailConfigurationName>
+  <EmailConfigurationPurpose>Regular</EmailConfigurationPurpose>
+</emaillibrary.emailconfiguration>

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentitem>
+  <ContentItemChannelID>
+    <CodeName>TrainingGuidesEmails</CodeName>
+    <GUID>49e862ef-2963-49ef-a1f4-f209a01d8fc6</GUID>
+    <ObjectType>cms.channel</ObjectType>
+  </ContentItemChannelID>
+  <ContentItemContentTypeID>
+    <CodeName>TrainingGuides.BasicEmail</CodeName>
+    <GUID>10caf932-e6fa-4b10-9fed-1f13d7380445</GUID>
+    <ObjectType>cms.contenttype</ObjectType>
+  </ContentItemContentTypeID>
+  <ContentItemGUID>9dddd79b-6cb4-49a7-b5ad-544d36e71c57</ContentItemGUID>
+  <ContentItemIsReusable>False</ContentItemIsReusable>
+  <ContentItemIsSecured>False</ContentItemIsSecured>
+  <ContentItemName>HottestDeals-osr0o3kd</ContentItemName>
+</cms.contentitem>

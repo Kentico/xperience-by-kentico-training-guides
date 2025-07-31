@@ -1,3 +1,4 @@
+using CMS.EmailMarketing;
 using Kentico.EmailBuilder.Web.Mvc;
 using Kentico.Xperience.Mjml.StarterKit.Rcl;
 using Microsoft.AspNetCore.Components;
@@ -24,6 +25,13 @@ public partial class NatureSpotlightEmailTemplate
         get => cssContent ?? string.Empty;
         set => cssContent = value;
     }
+
+    private EmailRecipientContext? recipient;
+
+    protected EmailRecipientContext Recipient => recipient ??= RecipientContextAccessor.GetContext();
+
+    [Inject]
+    private IEmailRecipientContextAccessor RecipientContextAccessor { get; set; } = default!;
 
     [Inject]
     private INatureSpotlightEmailService NatureSpotlightEmailService { get; set; } = default!;

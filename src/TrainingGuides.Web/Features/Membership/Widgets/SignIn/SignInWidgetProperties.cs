@@ -59,5 +59,5 @@ public class SignInWidgetProperties : IWidgetProperties
         ExplanationText = "Page to redirect to after successful sign in if no 'returnUrl' parameter is specified in the query string. If empty, falls back to the home page.",
         MaximumItems = 1,
         Order = 60)]
-    public IEnumerable<ContentItemReference> DefaultRedirectPage { get; set; } = Enumerable.Empty<ContentItemReference>();
+    public IEnumerable<ContentItemReference> DefaultRedirectPage { get; set; } = [];
 }

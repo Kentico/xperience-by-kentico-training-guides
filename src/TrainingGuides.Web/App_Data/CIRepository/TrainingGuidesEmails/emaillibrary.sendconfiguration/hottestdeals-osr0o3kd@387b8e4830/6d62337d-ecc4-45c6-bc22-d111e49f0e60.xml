@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<emaillibrary.sendconfiguration>
+  <SendConfigurationEmailConfigurationID>
+    <CodeName>HottestDeals-osr0o3kd</CodeName>
+    <GUID>d8bc44ae-8f4d-49c0-9cd6-ff130d1bd92d</GUID>
+    <ObjectType>emaillibrary.emailconfiguration</ObjectType>
+  </SendConfigurationEmailConfigurationID>
+  <SendConfigurationGUID>6d62337d-ecc4-45c6-bc22-d111e49f0e60</SendConfigurationGUID>
+  <SendConfigurationRecipientListID>
+    <CodeName>NewsletterRecipients</CodeName>
+    <GUID>a82e4e4b-edd9-4829-8f54-85d8be9ea6b1</GUID>
+    <ObjectType>om.recipientlist</ObjectType>
+  </SendConfigurationRecipientListID>
+  <SendConfigurationStatus>0</SendConfigurationStatus>
+</emaillibrary.sendconfiguration>

@@ -17,7 +17,9 @@
             {
                 <mj-image src="@image.ImageUrl" alt="@image.AltText" />
             }
-            <EditableArea AreaIdentifier="MainContent" />
+        </mj-section>
+        <EditableArea AreaIdentifier="MainContent" />
+        <mj-section>
             <mj-text>
                 <h2>@Model.Topic</h2>
                 <p>
@@ -47,8 +49,11 @@
                     Read More
                 </mj-button>
             }
-            <EditableArea AreaIdentifier="SecondaryContent" />
-            <EmailBuilderScripts />
         </mj-section>
+        <EditableArea AreaIdentifier="SecondaryContent" />
+        <mj-text align="center">
+            <a href="@Recipient.UnsubscriptionUrl" data-click-tracking="false">Unsubscribe</a>
+        </mj-text>
+        <EmailBuilderScripts />
     </mj-body>
 </mjml>

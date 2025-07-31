@@ -36,7 +36,7 @@ public class SimpleCallToActionWidgetProperties : IWidgetProperties
         MaximumItems = 1,
         Order = 30)]
     [VisibleIfEqualTo(nameof(TargetContent), nameof(TargetContentOption.Page), StringComparison.OrdinalIgnoreCase)]
-    public IEnumerable<ContentItemReference> TargetContentPage { get; set; } = Enumerable.Empty<ContentItemReference>();
+    public IEnumerable<ContentItemReference> TargetContentPage { get; set; } = [];
 
     [TextInputComponent(
         Label = "Absolute URL",

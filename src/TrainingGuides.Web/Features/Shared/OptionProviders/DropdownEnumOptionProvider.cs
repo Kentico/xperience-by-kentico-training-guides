@@ -19,9 +19,4 @@ public class DropdownEnumOptionProvider<T> : IDropDownOptionsProvider where T : 
 
         return Task.FromResult(results.AsEnumerable());
     }
-
-    public virtual T Parse(string value, T defaultValue) =>
-        Enums.TryParse<T>(value, true, out var parsed)
-            ? parsed
-            : defaultValue;
 }

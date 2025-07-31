@@ -21,13 +21,16 @@ namespace TrainingGuides.Web.Features.LandingPages.Widgets.HeroBanner;
 public class HeroBannerWidgetViewComponent : ViewComponent
 {
     private readonly IContentItemRetrieverService contentItemRetrieverService;
+    private readonly IEnumStringService enumStringService;
 
     public const string IDENTIFIER = "TrainingGuides.HeroBanner";
 
     public HeroBannerWidgetViewComponent(
-        IContentItemRetrieverService contentItemRetrieverService)
+        IContentItemRetrieverService contentItemRetrieverService,
+        IEnumStringService enumStringService)
     {
         this.contentItemRetrieverService = contentItemRetrieverService;
+        this.enumStringService = enumStringService;
     }
 
     public async Task<ViewViewComponentResult> InvokeAsync(HeroBannerWidgetProperties properties)
@@ -106,7 +109,7 @@ public class HeroBannerWidgetViewComponent : ViewComponent
                 banner.ShowBenefits = properties.ShowBenefits;
                 banner.FullWidth = (properties.Width ?? "circle").Equals("full", StringComparison.InvariantCultureIgnoreCase);
                 banner.TextColor = properties.TextColor;
-                banner.ThemeClass = new DropdownEnumOptionProvider<TextColorOption>().Parse(properties.TextColor, TextColorOption.Dark) switch
+                banner.ThemeClass = enumStringService.Parse(properties.TextColor, TextColorOption.Dark) switch
                 {
                     TextColorOption.Light => "light",
                     TextColorOption.Dark => "",

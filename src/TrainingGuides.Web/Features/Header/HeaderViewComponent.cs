@@ -6,6 +6,7 @@ using TrainingGuides.Web.Features.Shared.Services;
 
 namespace TrainingGuides.Web.Features.Header;
 
+
 public class HeaderViewComponent : ViewComponent
 {
 
@@ -32,7 +33,7 @@ public class HeaderViewComponent : ViewComponent
 
         return page != null
             ? [new ContentItemReference() { Identifier = page.SystemFields.ContentItemGUID }]
-            : Enumerable.Empty<ContentItemReference>();
+            : [];
     }
     public HeaderViewModel BuildViewModel(IEnumerable<ContentItemReference> signInPage, bool showNavigation = true)
     {
