@@ -60,7 +60,7 @@ public class ArticleListWidgetViewComponent : ViewComponent
 
         if (string.IsNullOrEmpty(selectedPagePath))
         {
-            return Enumerable.Empty<ArticlePage>();
+            return [];
         }
 
         return await contentItemRetrieverService.RetrieveWebPageChildrenByPath<ArticlePage>(
