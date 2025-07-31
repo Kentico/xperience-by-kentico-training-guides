@@ -22,14 +22,14 @@ public class ProductComparatorWidgetViewComponent : ViewComponent
 {
     public const string IDENTIFIER = "TrainingGuides.ProductComparatorWidget";
 
-    private readonly IContentItemRetrieverService<ProductPage> productRetrieverService;
+    private readonly IContentItemRetrieverService contentItemRetrieverService;
     private readonly IHttpRequestService httpRequestService;
 
     public ProductComparatorWidgetViewComponent(
-        IContentItemRetrieverService<ProductPage> productRetrieverService,
+        IContentItemRetrieverService contentItemRetrieverService,
         IHttpRequestService httpRequestService)
     {
-        this.productRetrieverService = productRetrieverService;
+        this.contentItemRetrieverService = contentItemRetrieverService;
         this.httpRequestService = httpRequestService;
     }
 
@@ -68,9 +68,8 @@ public class ProductComparatorWidgetViewComponent : ViewComponent
 
     private async Task<ProductPageViewModel?> GetProduct(Guid guid, ProductComparatorWidgetProperties properties)
     {
-        var productPage = await productRetrieverService.RetrieveWebPageByContentItemGuid(
+        var productPage = await contentItemRetrieverService.RetrieveWebPageByContentItemGuid<ProductPage>(
                             guid,
-                            ProductPage.CONTENT_TYPE_NAME,
                             4);
 
         if (productPage == null)

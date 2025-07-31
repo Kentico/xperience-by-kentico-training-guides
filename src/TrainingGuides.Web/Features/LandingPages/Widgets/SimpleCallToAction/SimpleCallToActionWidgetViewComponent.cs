@@ -21,11 +21,11 @@ public class SimpleCallToActionWidgetViewComponent : ViewComponent
 {
     public const string IDENTIFIER = "TrainingGuides.SimpleCallToActionWidget";
 
-    private readonly IContentItemRetrieverService generalContentItemRetrieverService;
+    private readonly IContentItemRetrieverService contentItemRetrieverService;
 
-    public SimpleCallToActionWidgetViewComponent(IContentItemRetrieverService generalContentItemRetrieverService)
+    public SimpleCallToActionWidgetViewComponent(IContentItemRetrieverService contentItemRetrieverService)
     {
-        this.generalContentItemRetrieverService = generalContentItemRetrieverService;
+        this.contentItemRetrieverService = contentItemRetrieverService;
     }
 
     public async Task<ViewViewComponentResult> InvokeAsync(SimpleCallToActionWidgetProperties properties)
@@ -52,7 +52,7 @@ public class SimpleCallToActionWidgetViewComponent : ViewComponent
     {
         if (webPage is not null)
         {
-            var page = await generalContentItemRetrieverService.RetrieveWebPageByContentItemGuid(webPage.Identifier);
+            var page = await contentItemRetrieverService.RetrieveWebPageByContentItemGuid(webPage.Identifier);
             return page?.GetUrl()?.RelativePath ?? string.Empty;
         }
         return string.Empty;

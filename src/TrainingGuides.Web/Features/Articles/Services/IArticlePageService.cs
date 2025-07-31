@@ -7,7 +7,7 @@ public interface IArticlePageService
     /// </summary>
     /// <param name="articlePage">Corresponding Article page object.</param>
     /// <returns>New instance of ArticlePageViewModel.</returns>
-    Task<ArticlePageViewModel> GetArticlePageViewModel(ArticlePage? articlePage);
+    ArticlePageViewModel GetArticlePageViewModel(ArticlePage? articlePage);
 
     /// <summary>
     /// Creates a new instance of <see cref="ArticlePageViewModel"/>, setting the properties using ArticlePage given as a parameter.
@@ -16,7 +16,8 @@ public interface IArticlePageService
     /// <returns>New instance of ArticlePageViewModel.</returns>
     /// <remarks>
     /// If the articlePage is secured and the current visitor is not authenticated, the view model will prompt them to sign in.
-    Task<ArticlePageViewModel> GetArticlePageViewModelWithSecurity(ArticlePage? articlePage, string signInUrl, bool isAuthenticated);
+    /// </remarks>
+    ArticlePageViewModel GetArticlePageViewModelWithSecurity(ArticlePage? articlePage, string signInUrl, bool isAuthenticated);
 
     /// <summary>
     /// Determines whether the reusable article item referenced by the article page is secured.

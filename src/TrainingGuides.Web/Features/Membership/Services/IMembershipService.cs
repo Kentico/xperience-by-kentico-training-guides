@@ -21,9 +21,9 @@ public interface IMembershipService
     Task<GuidesMember?> GetCurrentMember();
 
     /// <summary>
-    /// Checks if the member is authenticated.
+    /// Checks if the member is authenticated or if the application is running in page builder or preview mode.
     /// </summary>
-    /// <returns>True if the member is authenticated; otherwise, false.</returns>
+    /// <returns>True if the member is authenticated, or if running in page builder or preview mode; otherwise, false.</returns>
     Task<bool> IsMemberAuthenticated();
 
     /// <summary>

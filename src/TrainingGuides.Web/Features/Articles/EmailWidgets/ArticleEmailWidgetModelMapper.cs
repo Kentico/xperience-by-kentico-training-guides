@@ -7,7 +7,7 @@ namespace TrainingGuides.Web.Features.Articles.EmailWidgets;
 
 public class ArticleEmailWidgetModelMapper : IComponentModelMapper<ArticleEmailWidgetModel>
 {
-    private readonly IContentItemRetrieverService<ArticlePage> articleRetrieverService;
+    private readonly IContentItemRetrieverService contentItemRetrieverService;
     private readonly IStringLocalizer<SharedResources> stringLocalizer;
 
     private ArticleEmailWidgetModel DefaultModel => new()
@@ -20,10 +20,10 @@ public class ArticleEmailWidgetModelMapper : IComponentModelMapper<ArticleEmailW
 
 
     public ArticleEmailWidgetModelMapper(
-        IContentItemRetrieverService<ArticlePage> articleRetrieverService,
+        IContentItemRetrieverService contentItemRetrieverService,
         IStringLocalizer<SharedResources> stringLocalizer)
     {
-        this.articleRetrieverService = articleRetrieverService;
+        this.contentItemRetrieverService = contentItemRetrieverService;
         this.stringLocalizer = stringLocalizer;
     }
 
@@ -34,7 +34,7 @@ public class ArticleEmailWidgetModelMapper : IComponentModelMapper<ArticleEmailW
             return DefaultModel;
         }
 
-        var articlePage = await articleRetrieverService.RetrieveWebPageByContentItemGuid(contentItemGuid, ArticlePage.CONTENT_TYPE_NAME, 2, languageName);
+        var articlePage = await contentItemRetrieverService.RetrieveWebPageByContentItemGuid<ArticlePage>(contentItemGuid, 2, true, languageName);
 
         string articlePageUrl = articlePage.GetUrl().AbsoluteUrl;
 

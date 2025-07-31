@@ -43,7 +43,7 @@ public static class ServiceCollectionExtensions
         services.AddScoped<IComponentModelMapper<ArticleEmailWidgetModel>, ArticleEmailWidgetModelMapper>();
         services.AddScoped<INatureSpotlightEmailService, NatureSpotlightEmailService>();
 
-        services.AddTransient(typeof(IContentItemRetrieverService<>), typeof(ContentItemRetrieverService<>));
+        services.AddTransient<IContentItemRetrieverService, ContentItemRetrieverService>();
 
     }
 

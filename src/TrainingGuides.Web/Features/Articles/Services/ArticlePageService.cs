@@ -1,5 +1,4 @@
 using CMS.ContentEngine;
-using Kentico.Content.Web.Mvc.Routing;
 using Microsoft.AspNetCore.Html;
 using Microsoft.Extensions.Localization;
 using TrainingGuides.Web.Features.Shared.Helpers;
@@ -10,32 +9,25 @@ namespace TrainingGuides.Web.Features.Articles.Services;
 
 public class ArticlePageService : IArticlePageService
 {
-    private readonly IWebPageUrlRetriever webPageUrlRetriever;
     private readonly IStringLocalizer<SharedResources> stringLocalizer;
-    private readonly IPreferredLanguageRetriever preferredLanguageRetriever;
     private readonly IHttpRequestService httpRequestService;
-    public ArticlePageService(IWebPageUrlRetriever webPageUrlRetriever,
+    public ArticlePageService(
         IStringLocalizer<SharedResources> stringLocalizer,
-        IPreferredLanguageRetriever preferredLanguageRetriever,
         IHttpRequestService httpRequestService)
     {
-        this.webPageUrlRetriever = webPageUrlRetriever;
         this.stringLocalizer = stringLocalizer;
-        this.preferredLanguageRetriever = preferredLanguageRetriever;
         this.httpRequestService = httpRequestService;
     }
 
     ///  <inheritdoc/>
-    public async Task<ArticlePageViewModel> GetArticlePageViewModel(ArticlePage? articlePage)
+    public ArticlePageViewModel GetArticlePageViewModel(ArticlePage? articlePage)
     {
         if (articlePage == null)
         {
             return new ArticlePageViewModel();
         }
 
-        string language = preferredLanguageRetriever.Get();
-
-        string articleUrl = (await webPageUrlRetriever.Retrieve(articlePage, language)).RelativePath;
+        string articleUrl = GetArticlePageRelativeUrl(articlePage);
         var articleSchema = articlePage.ArticlePageArticleContent.FirstOrDefault();
 
         if (articleSchema != null)
@@ -69,10 +61,13 @@ public class ArticlePageService : IArticlePageService
         };
     }
 
+    public virtual string GetArticlePageRelativeUrl(ArticlePage articlePage) =>
+        articlePage?.GetUrl().RelativePath ?? string.Empty;
+
     /// <inheritdoc/>
-    public async Task<ArticlePageViewModel> GetArticlePageViewModelWithSecurity(ArticlePage? articlePage, string signInUrl, bool isAuthenticated)
+    public ArticlePageViewModel GetArticlePageViewModelWithSecurity(ArticlePage? articlePage, string signInUrl, bool isAuthenticated)
     {
-        var originalViewModel = await GetArticlePageViewModel(articlePage);
+        var originalViewModel = GetArticlePageViewModel(articlePage);
 
         if (articlePage is null)
         {
