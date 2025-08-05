@@ -365,3 +365,8 @@ FodyWeavers.xsd
 src/TrainingGuides.Web/.config/dotnet-tools.json
 src/TrainingGuides.Web/License/
 .vscode/settings.json
+
+# MCP server definitions
+mcp.json
+claude_desktop_config.json
+mcp_config.json
