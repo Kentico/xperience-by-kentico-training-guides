@@ -11,7 +11,7 @@ using TrainingGuides.Web.Features.Newsletters.NatureSpotlight;
 using TrainingGuides.Web.Features.Products.Services;
 using TrainingGuides.Web.Features.SEO;
 using TrainingGuides.Web.Features.Shared.EmailBuilder;
-using TrainingGuides.Web.Features.Shared.EmailBuilder.ModelMappers;
+using TrainingGuides.Web.Features.Shared.EmailBuilder.Mappers;
 using TrainingGuides.Web.Features.Shared.Services;
 using TrainingGuides.Web.Features.Shared.OptionProviders;
 
@@ -42,6 +42,7 @@ public static class ServiceCollectionExtensions
         services.AddScoped<IComponentModelMapper<ProductWidgetModel>, ProductEmailWidgetModelMapper>();
         services.AddScoped<IComponentModelMapper<ArticleEmailWidgetModel>, ArticleEmailWidgetModelMapper>();
         services.AddScoped<INatureSpotlightEmailService, NatureSpotlightEmailService>();
+        services.AddScoped<IEmailDataMapper, TrainingGuidesEmailDataMapper>();
 
         services.AddTransient<IContentItemRetrieverService, ContentItemRetrieverService>();
 
