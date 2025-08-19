@@ -34,7 +34,8 @@ public class TrainingGuidesEmailDataMapper : IEmailDataMapper
                 var email = await emailContext.GetEmail<NatureSpotlightEmail>();
                 return GetEmailData(email?.EmailSubject, email?.EmailPreviewText);
             }
-            catch (InvalidCastException ex)
+            // If you have more email types to handle, add additional catch blocks for InvalidCastException
+            catch (Exception ex)
             {
                 eventLogService.LogException("EmailDataMapper", "MAPEMAIL", ex);
                 return GetEmailData();
