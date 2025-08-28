@@ -1,6 +1,7 @@
 using CMS.EmailMarketing;
-using Kentico.EmailBuilder.Web.Mvc;
 using Kentico.Xperience.Mjml.StarterKit.Rcl;
+using Kentico.Xperience.Mjml.StarterKit.Rcl.Contracts;
+using Kentico.Xperience.Mjml.StarterKit.Rcl.Mapping;
 using Microsoft.AspNetCore.Components;
 using TrainingGuides.Web.Features.Shared.OptionProviders;
 using TrainingGuides.Web.Features.Shared.OptionProviders.ColorScheme;
@@ -15,8 +16,7 @@ public partial class GeneralEmailTemplate : ComponentBase
 
     public const string AREA_MAIN = "MainContent";
 
-    private string Subject { get; set; } = string.Empty;
-    private string EmailPreviewText { get; set; } = string.Empty;
+    private IEmailData emailData = new EmailData(string.Empty, string.Empty);
     private CornerStyleOption CornerStyle => EnumStringService.Parse(Properties.CornerStyle, CornerStyleOption.Round);
     private ColorSchemeOption MainColorScheme => EnumStringService.Parse(Properties.MainColorScheme, ColorSchemeOption.Light2);
     private List<string> RowIdentifiers { get; set; } = [];
@@ -40,7 +40,7 @@ public partial class GeneralEmailTemplate : ComponentBase
     private IEmailRecipientContextAccessor RecipientContextAccessor { get; set; } = default!;
 
     [Inject]
-    private IEmailContextAccessor EmailContextAccessor { get; set; } = default!;
+    private IEmailDataMapper EmailDataMapper { get; set; } = default!;
 
     [Inject]
     private CssLoaderService CssLoaderService { get; set; } = default!;
@@ -53,8 +53,7 @@ public partial class GeneralEmailTemplate : ComponentBase
 
     protected override async Task OnInitializedAsync()
     {
-        Subject = EmailContextAccessor.GetContext().EmailFields.GetValue("Subject") as string ?? string.Empty;
-        EmailPreviewText = EmailContextAccessor.GetContext().EmailFields.GetValue("EmailPreviewText") as string ?? string.Empty;
+        emailData = await EmailDataMapper.Map();
         CssContent = await CssLoaderService.GetCssAsync();
 
         var cornerCssClasses = ComponentStyleEnumService.GetCornerStyleClasses(CornerStyle);

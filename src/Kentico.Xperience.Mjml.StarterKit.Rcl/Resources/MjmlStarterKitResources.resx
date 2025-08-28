@@ -22,40 +22,40 @@
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
     <data name="TextWidget.Name" xml:space="preserve">
-        <value>Text</value>
+        <value>Text - Starter kit</value>
     </data>
     <data name="TextWidget.Description" xml:space="preserve">
         <value>Allows you to add and format text content.</value>
     </data>
     <data name="ButtonWidget.Name" xml:space="preserve">
-        <value>Button</value>
+        <value>Button - Starter kit</value>
     </data>
     <data name="ButtonWidget.Description" xml:space="preserve">
         <value>Displays a button that opens a specified URL when clicked.</value>
     </data>
     <data name="DividerWidget.Name" xml:space="preserve">
-        <value>Divider</value>
+        <value>Divider - Starter kit</value>
     </data>
     <data name="DividerWidget.Description" xml:space="preserve">
         <value>Displays a horizontal divider that can be customized like a HTML border.</value>
     </data>
     <data name="ImageWidget.Name" xml:space="preserve">
-        <value>Image</value>
+        <value>Image - Starter kit</value>
     </data>
     <data name="ImageWidget.Description" xml:space="preserve">
         <value>Displays an image, which can be selected from images stored as assets in Content hub.</value>
     </data>
     <data name="ProductWidget.Name" xml:space="preserve">
-        <value>Product</value>
+        <value>Product - Starter kit</value>
     </data>
     <data name="ProductWidget.Description" xml:space="preserve">
         <value>Displays product content based on a selected website channel page. Consists of an image, title, text and a link button that opens the product page.</value>
     </data>
     <data name="FullWidthEmailSection.Name" xml:space="preserve">
-        <value>Full-width section</value>
+        <value>Full-width section - Starter kit</value>
     </data>
     <data name="TwoColumnsEmailSection.Name" xml:space="preserve">
-        <value>Two-column section</value>
+        <value>Two-column section - Starter kit</value>
     </data>
 
     <data name="ButtonWidget.Text.Label" xml:space="preserve">

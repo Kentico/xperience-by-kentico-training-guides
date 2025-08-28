@@ -2,7 +2,7 @@ using Kentico.Xperience.Mjml.StarterKit.Rcl.Mapping;
 using Kentico.Xperience.Mjml.StarterKit.Rcl.Widgets;
 using TrainingGuides.Web.Features.Shared.Services;
 
-namespace TrainingGuides.Web.Features.Shared.EmailBuilder.ModelMappers;
+namespace TrainingGuides.Web.Features.Shared.EmailBuilder.Mappers;
 
 public class ProductEmailWidgetModelMapper : IComponentModelMapper<ProductWidgetModel>
 {
