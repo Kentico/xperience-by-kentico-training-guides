@@ -27,6 +27,9 @@ public class TrainingGuidesEmailDataMapper : IEmailDataMapper
             // Promotional email content type
             NatureSpotlightEmail.CONTENT_TYPE_NAME => await MapNatureSpotlightEmail(emailContext),
 
+            // Subscription confirmation email content type
+            SubscriptionConfirmationEmail.CONTENT_TYPE_NAME => await MapSubscriptionConfirmationEmail(emailContext),
+
             // Default fallback for unknown content types
             _ => GetEmailData(DEFAULT_SUBJECT, DEFAULT_PREVIEW_TEXT)
         };
@@ -52,6 +55,18 @@ public class TrainingGuidesEmailDataMapper : IEmailDataMapper
     private async Task<EmailData> MapNatureSpotlightEmail(EmailContext emailContext)
     {
         var email = await emailContext.GetEmail<NatureSpotlightEmail>();
+
+        return GetEmailData(email?.EmailSubject, email?.EmailPreviewText);
+    }
+
+    /// <summary>
+    /// Maps a SubscriptionConfirmationEmail content item to an EmailData object, using its subject and preview text.
+    /// </summary>
+    /// <param name="emailContext">The email context containing the SubscriptionConfirmationEmail item.</param>
+    /// <returns>EmailData with subject and preview text from the SubscriptionConfirmationEmail item, or default values if null.</returns>
+    private async Task<EmailData> MapSubscriptionConfirmationEmail(EmailContext emailContext)
+    {
+        var email = await emailContext.GetEmail<SubscriptionConfirmationEmail>();
 
         return GetEmailData(email?.EmailSubject, email?.EmailPreviewText);
     }
