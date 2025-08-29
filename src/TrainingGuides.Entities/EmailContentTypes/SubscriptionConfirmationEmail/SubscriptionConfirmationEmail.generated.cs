@@ -17,15 +17,15 @@ using CMS.EmailLibrary;
 namespace TrainingGuides
 {
 	/// <summary>
-	/// Represents an email of type <see cref="NatureSpotlightEmail"/>.
+	/// Represents an email of type <see cref="SubscriptionConfirmationEmail"/>.
 	/// </summary>
 	[RegisterContentTypeMapping(CONTENT_TYPE_NAME)]
-	public partial class NatureSpotlightEmail : IEmailFieldsSource
+	public partial class SubscriptionConfirmationEmail : IEmailFieldsSource
 	{
 		/// <summary>
 		/// Code name of the content type.
 		/// </summary>
-		public const string CONTENT_TYPE_NAME = "TrainingGuides.NatureSpotlightEmail";
+		public const string CONTENT_TYPE_NAME = "TrainingGuides.SubscriptionConfirmationEmail";
 
 
 		/// <summary>
@@ -48,32 +48,8 @@ namespace TrainingGuides
 
 
 		/// <summary>
-		/// NatureSpotlightName.
+		/// EmailSubscriptionMessage.
 		/// </summary>
-		public string NatureSpotlightName { get; set; }
-
-
-		/// <summary>
-		/// NatureSpotlightText.
-		/// </summary>
-		public string NatureSpotlightText { get; set; }
-
-
-		/// <summary>
-		/// NatureSpotlightCountries.
-		/// </summary>
-		public IEnumerable<Guid> NatureSpotlightCountries { get; set; }
-
-
-		/// <summary>
-		/// NatureSpotlightRelatedArticles.
-		/// </summary>
-		public IEnumerable<ArticlePage> NatureSpotlightRelatedArticles { get; set; }
-
-
-		/// <summary>
-		/// NatureSpotlightImages.
-		/// </summary>
-		public IEnumerable<Asset> NatureSpotlightImages { get; set; }
+		public string EmailSubscriptionMessage { get; set; }
 	}
 }
