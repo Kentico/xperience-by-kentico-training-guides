@@ -1,0 +1,28 @@
+@using TrainingGuides.Web.OneTimeCode
+
+@model IEnumerable<ConversionAttempt>
+
+@{
+    Layout = null;
+}
+
+@foreach (ConversionAttempt attempt in Model)
+{
+    <div style="border-bottom:1px solid black; margin-bottom:5px; padding-bottom:20px; margin-top:5px;">
+        <strong>OldArticle:</strong>
+        <div>@($"{attempt.OldArticle.SystemFields.ContentItemName} ({attempt.OldArticle.SystemFields.ContentItemGUID}) ({attempt.OldArticle.SystemFields.ContentItemCommonDataContentLanguageID})")</div>
+        <ul style="color:grey">
+            @foreach (string log in attempt.LogMessages)
+            {
+                <li>@log</li>
+            }
+        </ul>
+        <ul style="color:red">
+            @foreach (var error in attempt.Exceptions)
+            {
+                <li>@error.Message</li>
+            }
+        </ul>
+    </div>
+}
+
