@@ -14,6 +14,7 @@ using TrainingGuides.Web.Features.Shared.EmailBuilder;
 using TrainingGuides.Web.Features.Shared.EmailBuilder.Mappers;
 using TrainingGuides.Web.Features.Shared.Services;
 using TrainingGuides.Web.Features.Shared.OptionProviders;
+using TrainingGuides.Web.OneTimeCode;
 
 namespace TrainingGuides.Web;
 
@@ -45,6 +46,8 @@ public static class ServiceCollectionExtensions
         services.AddScoped<IEmailDataMapper, TrainingGuidesEmailDataMapper>();
 
         services.AddTransient<IContentItemRetrieverService, ContentItemRetrieverService>();
+
+        services.AddTransient<ArticleConverter>();
 
     }
 
