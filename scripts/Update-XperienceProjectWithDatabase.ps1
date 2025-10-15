@@ -26,7 +26,7 @@ SETUP INSTRUCTIONS FOR NEW DEVELOPERS:
 
 3. HOW TO RUN:
    > cd C:\YourProject\Utilities
-   > .\Update-Xperience.ps1
+   > .\Update-XperienceProjectWithDatabase.ps1
 
 4. WHAT IT DOES:
    • Updates all Xperience NuGet packages to latest prerelease versions
@@ -67,7 +67,7 @@ SETUP INSTRUCTIONS FOR NEW DEVELOPERS:
     This script does not accept parameters. Configuration is done by modifying variables within the script.
 
 .EXAMPLE
-    PS C:\dev\YourProject\Utilities> .\Update-Xperience.ps1
+    PS C:\dev\YourProject\Utilities> .\Update-XperienceProjectWithDatabase.ps1
     
     Runs the update process for the Xperience by Kentico project.
 
@@ -184,7 +184,7 @@ function Write-Error {
     
     ProjectRoot/
     ├── Utilities/          (This script's location)
-    │   └── Update-Xperience.ps1
+    │   └── Update-XperienceProjectWithDatabase.ps1
     └── src/               (Project location)
         └── YourProject.csproj   (Main project file)
 #>
