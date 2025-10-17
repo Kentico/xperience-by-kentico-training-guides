@@ -63,6 +63,7 @@ public class ArticleConverter
                 ArticlePage.CONTENT_TYPE_NAME,
                 config => config
                     .Linking(nameof(ArticlePage.ArticlePageContent), [oldArticleId])
+                    // If you run this code somewhere that the channel context is not available, you can hard-code this value.
                     .ForWebsite(websiteChannelContext.WebsiteChannelName)
                     .WithLinkedItems(3)
             );
@@ -97,6 +98,7 @@ public class ArticleConverter
 
     private async Task<int> CreateNewReusableArticle(Article oldArticle, string languageName, ConversionAttempt attempt)
     {
+        // Specify the content type and generic content item properties
         var createParams =
             new CreateContentItemParameters(
                 contentTypeName: GeneralArticle.CONTENT_TYPE_NAME,
@@ -106,6 +108,7 @@ public class ArticleConverter
                 workspaceName: await GetWorkspaceName(oldArticle.SystemFields.ContentItemID)
                 );
 
+        // Assemble the field values for a new GeneralArticle item
         var contentItemData = new ContentItemData(new Dictionary<string, object> {
             {nameof(GeneralArticle.ArticleSchemaTitle), oldArticle.ArticleTitle},
             {nameof(GeneralArticle.ArticleSchemaSummary), oldArticle.ArticleSummary},
@@ -118,6 +121,7 @@ public class ArticleConverter
 
         try
         {
+            // Create the new item, log any exceptions that occur
             newId = await contentItemManager.Create(createParams, contentItemData);
 
             if (newId > 0)
@@ -127,14 +131,15 @@ public class ArticleConverter
             }
             else
             {
-                throw new Exception();
+                // Log an exception if the ID is not valid
+                throw new Exception($"Invalid ID value [{newId}].");
             }
         }
         catch (Exception ex)
         {
-            // Handle exception (e.g., log it)
             newId = -1; // Indicate failure
 
+            // Combine exception message with our own, if applicable
             string newMessage = $" Failed to create new article for [{oldArticle.ArticleTitle}] with ID [{oldArticle.SystemFields.ContentItemID}] in language [{languageName}]."
                 + (!string.IsNullOrWhiteSpace(ex.Message) ? $" Error: {ex.Message}" : string.Empty);
             attempt.Exceptions.Add(new Exception(newMessage));
@@ -145,11 +150,13 @@ public class ArticleConverter
 
     private async Task AddLanguageVersionOfReusableArticle(Article oldArticle, int publishableID, string languageName, ConversionAttempt attempt)
     {
+        // Specify namespace to distinguish CreateLanguageVariantParameters from CMS.Websites version
         var languageVariantParams = new CMS.ContentEngine.CreateLanguageVariantParameters(
             publishableID,
-            oldArticle.SystemFields.ContentItemName,
+            oldArticle.ArticleTitle,
             languageName);
 
+        // Assemble the field values for a neW language version
         var contentItemData = new ContentItemData(new Dictionary<string, object> {
             {nameof(GeneralArticle.ArticleSchemaTitle), oldArticle.ArticleTitle},
             {nameof(GeneralArticle.ArticleSchemaSummary), oldArticle.ArticleSummary},
@@ -162,16 +169,19 @@ public class ArticleConverter
         {
             if (await contentItemManager.TryCreateLanguageVariant(languageVariantParams, contentItemData))
             {
+                // Log success
                 attempt.LogMessages.Add($"Added language version [{languageName}] for article [{oldArticle.ArticleTitle}] with ID [{publishableID}].");
                 attempt.FinishedLanguagesReusable.Add(languageName);
             }
             else
             {
+                // Log an error if TryCreateLanguageVariant returns false without throwing an exception
                 throw new Exception();
             }
         }
         catch (Exception ex)
         {
+            // Combine exception message with our own, if applicable
             string newMessage = $" Failed to add language version [{languageName}] for article [{oldArticle.ArticleTitle}] with ID [{publishableID}]."
                 + (!string.IsNullOrWhiteSpace(ex.Message) ? $" Error: {ex.Message}" : string.Empty);
             attempt.Exceptions.Add(new Exception(newMessage));
@@ -195,31 +205,13 @@ public class ArticleConverter
         }
         catch (Exception ex)
         {
+            // Combine exception message with our own, if applicable
             string newMessage = $" Failed to schedule unpublish for reusable article [{oldItem.SystemFields.ContentItemName}] with ID [{newItemId}] in language [{languageName}]."
                 + (!string.IsNullOrWhiteSpace(ex.Message) ? $" Error: {ex.Message}" : string.Empty);
             attempt.Exceptions.Add(new Exception(newMessage));
         }
     }
 
-    private async Task TrySchedulePage(DateTime? unpublishDate, ArticlePage page, string languageName, ConversionAttempt conversionAttempt)
-    {
-        try
-        {
-            // Check if the unpublish date is scheduled
-            if (unpublishDate is DateTime unpDate && unpDate > DateTime.MinValue)
-            {
-                // Schedule unpublish
-                await webPageManager.ScheduleUnpublish(page.SystemFields.WebPageItemID, languageName, unpDate);
-                conversionAttempt.LogMessages.Add($"Scheduled unpublish for page [{page.SystemFields.WebPageItemTreePath}] with ID [{page.SystemFields.ContentItemID}] in language [{languageName}] at [{unpublishDate}].");
-            }
-        }
-        catch (Exception e)
-        {
-            string newMessage = $" Failed to schedule unpublish for page [{page.SystemFields.WebPageItemTreePath}] with ID [{page.SystemFields.ContentItemID}] in language [{languageName}]."
-                + (!string.IsNullOrWhiteSpace(e.Message) ? $" Error: {e.Message}" : string.Empty);
-            conversionAttempt.Exceptions.Add(new Exception(newMessage));
-        }
-    }
     private async Task PublishReusableArticle(Article oldArticle, int publishableID, string languageName, ConversionAttempt attempt)
     {
         try
@@ -230,9 +222,15 @@ public class ArticleConverter
                 // Check if the old article was scheduled for unpublish, and if so, replicate that on the new article.
                 await TryScheduleReusableItem(oldArticle, publishableID, languageName, attempt);
             }
+            else
+            {
+                // Log an error if TryPublish returns false without throwing an exception
+                throw new Exception();
+            }
         }
         catch (Exception ex)
         {
+            // Combine exception message with our own, if applicable
             string newMessage = $" Failed to publish article [{oldArticle.ArticleTitle}] with ID [{publishableID}] in language [{languageName}]."
                 + (!string.IsNullOrWhiteSpace(ex.Message) ? $" Error: {ex.Message}" : string.Empty);
             attempt.Exceptions.Add(new Exception(newMessage));
@@ -327,6 +325,26 @@ public class ArticleConverter
         else
         {
             return null;
+        }
+    }
+
+    private async Task TrySchedulePage(DateTime? unpublishDate, ArticlePage page, string languageName, ConversionAttempt conversionAttempt)
+    {
+        try
+        {
+            // Check if the unpublish date is scheduled
+            if (unpublishDate is DateTime unpDate && unpDate > DateTime.MinValue)
+            {
+                // Schedule unpublish
+                await webPageManager.ScheduleUnpublish(page.SystemFields.WebPageItemID, languageName, unpDate);
+                conversionAttempt.LogMessages.Add($"Scheduled unpublish for page [{page.SystemFields.WebPageItemTreePath}] with ID [{page.SystemFields.ContentItemID}] in language [{languageName}] at [{unpublishDate}].");
+            }
+        }
+        catch (Exception e)
+        {
+            string newMessage = $" Failed to schedule unpublish for page [{page.SystemFields.WebPageItemTreePath}] with ID [{page.SystemFields.ContentItemID}] in language [{languageName}]."
+                + (!string.IsNullOrWhiteSpace(e.Message) ? $" Error: {e.Message}" : string.Empty);
+            conversionAttempt.Exceptions.Add(new Exception(newMessage));
         }
     }
 
