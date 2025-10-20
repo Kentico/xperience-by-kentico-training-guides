@@ -251,7 +251,7 @@ public class ArticleConverter
             // We are working with multiple language versions here, so there may be multiple entries for items with the same ContentItemID.
             var previousAttemptsForSameItem = result.Where(attempt => attempt.OldArticle.SystemFields.ContentItemID == publishedOldArticle.SystemFields.ContentItemID);
 
-            //
+            // Filter previous attempts with valid IDs
             var previousAttemptsForSameItemWithValidIds = previousAttemptsForSameItem.Where(attempt => attempt.NewArticleContentItemId is not null and > 0);
 
             string languageName = GetContentLanguageName(publishedOldArticle.SystemFields.ContentItemCommonDataContentLanguageID);
@@ -259,7 +259,7 @@ public class ArticleConverter
             // If there are no previous attempts that contain a valid ID
             if (!previousAttemptsForSameItemWithValidIds.Any())
             {
-                // If there is already an attempt for the same old article, but it does not have a new article id greater than 0, this will reuse it.
+                // If there is already an attempt for the same old article, but it does not have a new article ID greater than 0, this will reuse it.
                 currentAttempt = previousAttemptsForSameItem.FirstOrDefault()
                     ?? new ConversionAttempt(publishedOldArticle, null);
 
@@ -455,15 +455,16 @@ public class ArticleConverter
 
     private async Task<IEnumerable<ConversionAttempt>> UpdatePageReferences(IEnumerable<ConversionAttempt> conversionAttempts)
     {
+        // Focus on attempts with a valid GeneralArticle ID
         foreach (var conversionAttempt in conversionAttempts.Where(attempt => attempt.NewArticleContentItemId is not null and > 0))
         {
-            // Retrieve all published pages linking to the old article. This includes all languages, as the content item id is the same for all languages.
+            // Retrieve all published pages linking to the old article. This includes all languages, as the content item ID is shared between languages.
             var publishedPages = await RetrieveArticlePagesLinkingArticle(conversionAttempt.OldArticle.SystemFields.ContentItemID);
 
             // Iterate through the language versions of the page
             foreach (var page in publishedPages)
             {
-                // Get the language name from the id
+                // Get the language name from the ID
                 string languageName = GetContentLanguageName(page.SystemFields.ContentItemCommonDataContentLanguageID);
 
                 // Try to create a new draft and update the reference. Use the existing draft if it exists.
