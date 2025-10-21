@@ -36,14 +36,14 @@ public class ArticleConverter
     }
 
     private async Task<IEnumerable<T>> RetrieveArticles<T>(
-        Func<ContentTypeQueryParameters,
-        ContentTypeQueryParameters> queryFilter,
+        Func<ContentTypeQueryParameters, ContentTypeQueryParameters> queryFilter,
         string contentTypeName)
     {
         var builder = new ContentItemQueryBuilder()
             .ForContentType(
                 contentTypeName,
                 config => queryFilter(config)
+                    .WithLinkedItems(3)
             );
 
         var queryExecutorOptions = new ContentQueryExecutionOptions
@@ -112,9 +112,17 @@ public class ArticleConverter
         var contentItemData = new ContentItemData(new Dictionary<string, object> {
             {nameof(GeneralArticle.ArticleSchemaTitle), oldArticle.ArticleTitle},
             {nameof(GeneralArticle.ArticleSchemaSummary), oldArticle.ArticleSummary},
-            {nameof(GeneralArticle.ArticleSchemaTeaser), oldArticle.ArticleTeaser},
+            {nameof(GeneralArticle.ArticleSchemaTeaser), new List<ContentItemReference>(){
+                    new(){ Identifier = oldArticle.ArticleTeaser.FirstOrDefault()?.SystemFields.ContentItemGUID ?? Guid.Empty }
+            }},
             {nameof(GeneralArticle.ArticleSchemaText), oldArticle.ArticleText},
-
+            {nameof(GeneralArticle.ArticleSchemaRelatedArticles), oldArticle
+                .ArticleRelatedArticles.Select(oldRef => new ContentItemReference()
+                {
+                    Identifier = oldRef.SystemFields.ContentItemGUID
+                })
+                .ToList()
+            }
         });
 
         int newId;
@@ -160,8 +168,17 @@ public class ArticleConverter
         var contentItemData = new ContentItemData(new Dictionary<string, object> {
             {nameof(GeneralArticle.ArticleSchemaTitle), oldArticle.ArticleTitle},
             {nameof(GeneralArticle.ArticleSchemaSummary), oldArticle.ArticleSummary},
-            {nameof(GeneralArticle.ArticleSchemaTeaser), oldArticle.ArticleTeaser},
+            {nameof(GeneralArticle.ArticleSchemaTeaser), new List<ContentItemReference>(){
+                    new(){ Identifier = oldArticle.ArticleTeaser.FirstOrDefault()?.SystemFields.ContentItemGUID ?? Guid.Empty }
+            }},
             {nameof(GeneralArticle.ArticleSchemaText), oldArticle.ArticleText},
+            {nameof(GeneralArticle.ArticleSchemaRelatedArticles), oldArticle
+                .ArticleRelatedArticles.Select(oldRef => new ContentItemReference()
+                {
+                    Identifier = oldRef.SystemFields.ContentItemGUID
+                })
+                .ToList()
+            }
 
         });
 
