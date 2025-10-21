@@ -35,6 +35,8 @@ public class ArticleConverter
         webPageManager = webPageManagerFactory.Create(websiteChannelContext.WebsiteChannelID, administrator.UserID);
     }
 
+    // Retrieve reusable articles of the provided type
+    // We'll use this to get the old articles for migration, then later to retrieve new articles
     private async Task<IEnumerable<T>> RetrieveArticles<T>(
         Func<ContentTypeQueryParameters, ContentTypeQueryParameters> queryFilter,
         string contentTypeName)
@@ -56,6 +58,8 @@ public class ArticleConverter
         return items;
     }
 
+    // Retrieve article pages that link a specific old article
+    // We'll use this when we update the pages that reference old articles.
     private async Task<IEnumerable<ArticlePage>> RetrieveArticlePagesLinkingArticle(int oldArticleId)
     {
         var builder = new ContentItemQueryBuilder()
@@ -78,12 +82,14 @@ public class ArticleConverter
         return items;
     }
 
+    // Retrieve the name of a language based on its ID
     private string GetContentLanguageName(int contentLanguageId)
     {
         var contentLanguage = contentLanguageInfoProvider.Get(contentLanguageId);
         return contentLanguage.ContentLanguageName;
     }
 
+    // Retrieve the name of a workspace in which the provided content item lives
     private async Task<string> GetWorkspaceName(int contentItemID)
     {
         var metadata = await contentItemManager.GetContentItemMetadata(contentItemID);
@@ -96,8 +102,10 @@ public class ArticleConverter
         return result ?? "KenticoDefault";
     }
 
+    // Construct a code name for a new schema-based article based on an old article
     private string GetNewReusableArticleName(Article oldArticle) => $"{oldArticle.SystemFields.ContentItemName}-schema";
 
+    // Retrieve the display name of an article in a specific language
     private async Task<string> GetArticleDisplayName(Article oldArticle, string languageName, ConversionAttempt attempt)
     {
         string displayName;
@@ -185,7 +193,7 @@ public class ArticleConverter
             oldArticle.ArticleTitle,
             languageName);
 
-        // Assemble the field values for a neW language version
+        // Assemble the field values for a new language version
         var contentItemData = new ContentItemData(new Dictionary<string, object> {
             {nameof(GeneralArticle.ArticleSchemaTitle), oldArticle.ArticleTitle},
             {nameof(GeneralArticle.ArticleSchemaSummary), oldArticle.ArticleSummary},
@@ -378,7 +386,9 @@ public class ArticleConverter
         foreach (var schemaArticle in applicableSchemaArticles)
         {
             // Find the corresponding conversion attempt
-            var conversionAttempt = conversionAttempts.FirstOrDefault(attempt => attempt.NewArticleContentItemId == schemaArticle.SystemFields.ContentItemID);
+            var conversionAttempt = conversionAttempts
+                .Where(attempt => attempt.NewArticleContentItemId == schemaArticle.SystemFields.ContentItemID)
+                .FirstOrDefault();
 
             if (conversionAttempt is null)
             {
@@ -397,12 +407,13 @@ public class ArticleConverter
             string languageName = GetContentLanguageName(schemaArticle.SystemFields.ContentItemCommonDataContentLanguageID);
 
             // Update the related articles field of the newly created schema articles, so that they point to new articles instead of old ones.
-            await UpdateReusableItemRelatedArticles(schemaArticle, languageName, conversionAttempt);
+            await CreateOrUpdateItemDraftRelatedArticles(schemaArticle, languageName, conversionAttempt);
         }
 
         return conversionAttempts;
     }
-    private async Task UpdateReusableItemRelatedArticles(GeneralArticle article, string languageName, ConversionAttempt conversionAttempt)
+
+    private async Task CreateOrUpdateItemDraftRelatedArticles(GeneralArticle article, string languageName, ConversionAttempt conversionAttempt)
     {
         // Before we create a new draft, check if the existing article has a scheduled unpublish date
         var unpublishDate = await GetReusableUnpublishTimeIfScheduled(article, languageName, conversionAttempt);
@@ -435,7 +446,7 @@ public class ArticleConverter
         }
 
         // Update draft with new reference
-        bool updated = await UpdateGeneralArticleRelatedArticlesDraft(article, contentItemData, languageName, conversionAttempt, unpublishDate);
+        bool updated = await UpdateItemDraftRelatedArticles(article, contentItemData, languageName, conversionAttempt, unpublishDate);
 
         // If we could not create a new draft or update an existing draft, log an exception
         if (!newCreated && !updated)
@@ -444,7 +455,7 @@ public class ArticleConverter
         }
     }
 
-    private async Task<bool> UpdateGeneralArticleRelatedArticlesDraft(GeneralArticle article, ContentItemData contentItemData, string languageName, ConversionAttempt conversionAttempt, DateTime? unpublishDate)
+    private async Task<bool> UpdateItemDraftRelatedArticles(GeneralArticle article, ContentItemData contentItemData, string languageName, ConversionAttempt conversionAttempt, DateTime? unpublishDate)
     {
         try
         {
@@ -455,6 +466,7 @@ public class ArticleConverter
                     //success if trying to publish
                     conversionAttempt.LogMessages.Add($"The draft of schema article [{article.ArticleSchemaTitle}] with ID [{article.SystemFields.ContentItemID}] in language [{languageName}] was updated with new related articles and published successfully.");
 
+                    // Schedule unpublish if applicable
                     await TryScheduleReusableItem(unpublishDate, article, article.SystemFields.ContentItemID, languageName, conversionAttempt);
 
                     return true;
@@ -475,18 +487,22 @@ public class ArticleConverter
         return false;
     }
 
+    // Conditionally update ContentItemReference list for related articles
     private async Task<List<ContentItemReference>> BuildUpdatedRelatedArticlesList(GeneralArticle article, string languageName, ConversionAttempt conversionAttempt)
     {
         List<ContentItemReference> relatedArticles = [];
 
         foreach (var relatedArticle in article.ArticleSchemaRelatedArticles)
         {
+            //Only update references to old Article items
             if (relatedArticle is Article oldArticle)
             {
+                // Find the GUID of the schema-based article that corresponds to the old article
                 var newArticleGuid = await GetNewArticleItemGuid(oldArticle);
 
                 if (newArticleGuid is Guid newGuid)
                 {
+                    // Update the reference if the GUID is valid
                     relatedArticles.Add(new ContentItemReference() { Identifier = newGuid });
                 }
                 else
