@@ -96,14 +96,35 @@ public class ArticleConverter
         return result ?? "KenticoDefault";
     }
 
+    private string GetNewReusableArticleName(Article oldArticle) => $"{oldArticle.SystemFields.ContentItemName}-schema";
+
+    private async Task<string> GetArticleDisplayName(Article oldArticle, string languageName, ConversionAttempt attempt)
+    {
+        string displayName;
+
+        try
+        {
+            displayName = (await contentItemManager.GetContentItemLanguageMetadata(oldArticle.SystemFields.ContentItemID, languageName)).DisplayName;
+        }
+        catch (Exception ex)
+        {
+            displayName = oldArticle.ArticleTitle;
+            string newMessage = $" Failed to retrieve display name for [{oldArticle.ArticleTitle}] with ID [{oldArticle.SystemFields.ContentItemID}] in language [{languageName}]."
+                + (!string.IsNullOrWhiteSpace(ex.Message) ? $" Error: {ex.Message}" : string.Empty);
+            attempt.Exceptions.Add(new Exception(newMessage));
+        }
+
+        return displayName;
+    }
+
     private async Task<int> CreateNewReusableArticle(Article oldArticle, string languageName, ConversionAttempt attempt)
     {
         // Specify the content type and generic content item properties
         var createParams =
             new CreateContentItemParameters(
                 contentTypeName: GeneralArticle.CONTENT_TYPE_NAME,
-                name: $"{oldArticle.SystemFields.ContentItemName}-schema",
-                displayName: oldArticle.ArticleTitle,
+                name: GetNewReusableArticleName(oldArticle),
+                displayName: await GetArticleDisplayName(oldArticle, languageName, attempt),
                 languageName: languageName,
                 workspaceName: await GetWorkspaceName(oldArticle.SystemFields.ContentItemID)
                 );
@@ -179,7 +200,6 @@ public class ArticleConverter
                 })
                 .ToList()
             }
-
         });
 
         try
@@ -205,18 +225,15 @@ public class ArticleConverter
         }
     }
 
-    private async Task TryScheduleReusableItem(IContentItemFieldsSource oldItem, int newItemId, string languageName, ConversionAttempt attempt)
+    private async Task TryScheduleReusableItem(DateTime? unpublishDate, IContentItemFieldsSource oldItem, int newItemId, string languageName, ConversionAttempt attempt)
     {
         try
         {
             // Check if the unpublish date is scheduled
-            if (await contentItemManager.IsUnpublishScheduled(oldItem.SystemFields.ContentItemID, languageName))
+            if (unpublishDate is DateTime unpDate && unpDate > DateTime.MinValue)
             {
-                // If the manager says the item is scheduled for unpublish but there's no date, use the maximum possible date, keeping the item published
-                var unpublishDate = (await contentItemManager.GetContentItemLanguageMetadata(oldItem.SystemFields.ContentItemID, languageName)).ScheduledUnpublishWhen ?? DateTime.MaxValue;
-
                 // Schedule unpublish
-                await contentItemManager.ScheduleUnpublish(newItemId, languageName, unpublishDate);
+                await contentItemManager.ScheduleUnpublish(newItemId, languageName, unpDate);
                 attempt.LogMessages.Add($"Scheduled unpublish for item [{oldItem.SystemFields.ContentItemName}] with ID [{newItemId}] in language [{languageName}] at [{unpublishDate}].");
             }
         }
@@ -229,6 +246,27 @@ public class ArticleConverter
         }
     }
 
+    private async Task<DateTime?> GetReusableUnpublishTimeIfScheduled(IContentItemFieldsSource item, string languageName, ConversionAttempt conversionAttempt)
+    {
+        try
+        {
+            // Check if the unpublish date is scheduled
+            if (await contentItemManager.IsUnpublishScheduled(item.SystemFields.ContentItemID, languageName))
+            {
+                // If the manager says the item is scheduled for unpublish but there's no date, use the maximum possible date, keeping the item published
+                return (await contentItemManager.GetContentItemLanguageMetadata(item.SystemFields.ContentItemID, languageName)).ScheduledUnpublishWhen;
+            }
+        }
+        catch (Exception e)
+        {
+            string newMessage = $" Failed to check or retrieve unpublish date for item [{item.SystemFields.ContentItemName}] with ID [{item.SystemFields.ContentItemID}] in language [{languageName}]."
+                + (!string.IsNullOrWhiteSpace(e.Message) ? $" Error: {e.Message}" : string.Empty);
+            conversionAttempt.Exceptions.Add(new Exception(newMessage));
+        }
+
+        return null;
+    }
+
     private async Task PublishReusableArticle(Article oldArticle, int publishableID, string languageName, ConversionAttempt attempt)
     {
         try
@@ -236,8 +274,11 @@ public class ArticleConverter
             // Try to publish the new article
             if (await contentItemManager.TryPublish(publishableID, languageName))
             {
-                // Check if the old article was scheduled for unpublish, and if so, replicate that on the new article.
-                await TryScheduleReusableItem(oldArticle, publishableID, languageName, attempt);
+                // Check if the old article was scheduled for unpublish,
+                var unpublishDate = await GetReusableUnpublishTimeIfScheduled(oldArticle, languageName, attempt);
+
+                // Schedule for unpublish if applicable
+                await TryScheduleReusableItem(unpublishDate, oldArticle, publishableID, languageName, attempt);
             }
             else
             {
@@ -254,7 +295,7 @@ public class ArticleConverter
         }
     }
 
-    private async Task<IEnumerable<ConversionAttempt>> ConvertReusableArticles(IEnumerable<Article> oldReusableArticles)
+    private async Task<List<ConversionAttempt>> ConvertReusableArticles(IEnumerable<Article> oldReusableArticles)
     {
         List<ConversionAttempt> result = [];
 
@@ -317,6 +358,168 @@ public class ArticleConverter
                 result.Add(currentAttempt);
         }
         return result;
+    }
+
+    private async Task<List<ConversionAttempt>> UpdateRelatedArticlesInNewArticles(List<ConversionAttempt> conversionAttempts)
+    {
+        // Retrieve all of our newly created schema articles
+        var schemaArticles = await RetrieveArticles<GeneralArticle>(
+            query => query
+                .Where(where => where.WhereIn(nameof(GeneralArticle.SystemFields.ContentItemID), conversionAttempts
+                    .Where(attempt => attempt.NewArticleContentItemId is not null and > 0)
+                    .Select(attempt => attempt.NewArticleContentItemId!.Value)))
+                .WithLinkedItems(3),
+            GeneralArticle.CONTENT_TYPE_NAME);
+
+        // We want to skip this logic for schema articles that aren't related to old articles
+        var applicableSchemaArticles = schemaArticles
+            .Where(article => article.ArticleSchemaRelatedArticles.Any(relatedArticle => relatedArticle is Article));
+
+        foreach (var schemaArticle in applicableSchemaArticles)
+        {
+            // Find the corresponding conversion attempt
+            var conversionAttempt = conversionAttempts.FirstOrDefault(attempt => attempt.NewArticleContentItemId == schemaArticle.SystemFields.ContentItemID);
+
+            if (conversionAttempt is null)
+            {
+                // If no conversion attempt is found, create a new one, then log an exception in it
+                var oldArticle = new Article()
+                {
+                    ArticleTitle = $"Error"
+                };
+                conversionAttempt = new ConversionAttempt(oldArticle, schemaArticle.SystemFields.ContentItemID);
+
+                conversionAttempt.Exceptions.Add(new Exception($"Could not find conversion attempt for new article [{schemaArticle.ArticleSchemaTitle}] with ID [{schemaArticle.SystemFields.ContentItemID}]"));
+
+                conversionAttempts.Add(conversionAttempt);
+            }
+
+            string languageName = GetContentLanguageName(schemaArticle.SystemFields.ContentItemCommonDataContentLanguageID);
+
+            // Update the related articles field of the newly created schema articles, so that they point to new articles instead of old ones.
+            await UpdateReusableItemRelatedArticles(schemaArticle, languageName, conversionAttempt);
+        }
+
+        return conversionAttempts;
+    }
+    private async Task UpdateReusableItemRelatedArticles(GeneralArticle article, string languageName, ConversionAttempt conversionAttempt)
+    {
+        // Before we create a new draft, check if the existing article has a scheduled unpublish date
+        var unpublishDate = await GetReusableUnpublishTimeIfScheduled(article, languageName, conversionAttempt);
+
+        // Create a list of ContentItemReference objects for the updated related articles
+        var relatedArticles = await BuildUpdatedRelatedArticlesList(article, languageName, conversionAttempt);
+
+        // Assemble updated ContentItemData
+        var contentItemData = new ContentItemData(new Dictionary<string, object> {
+            {nameof(GeneralArticle.ArticleSchemaTitle), article.ArticleSchemaTitle},
+            {nameof(GeneralArticle.ArticleSchemaSummary), article.ArticleSchemaSummary},
+            {nameof(GeneralArticle.ArticleSchemaTeaser), new List<ContentItemReference>(){
+                    new(){ Identifier = article.ArticleSchemaTeaser.FirstOrDefault()?.SystemFields.ContentItemGUID ?? Guid.Empty }
+            }},
+            {nameof(GeneralArticle.ArticleSchemaText), article.ArticleSchemaText},
+            {nameof(GeneralArticle.ArticleSchemaRelatedArticles), relatedArticles}
+        });
+
+        bool newCreated = false;
+
+        try
+        {
+            newCreated = await contentItemManager.TryCreateDraft(article.SystemFields.ContentItemID, languageName);
+        }
+        catch (Exception ex)
+        {
+            string newMessage = $" Failed to create draft for schema article [{article.ArticleSchemaTitle}] with ID [{article.SystemFields.ContentItemID}] in language [{languageName}] to update its related articles."
+                + (!string.IsNullOrWhiteSpace(ex.Message) ? $" Error: {ex.Message}" : string.Empty);
+            conversionAttempt.Exceptions.Add(new Exception(newMessage));
+        }
+
+        // Update draft with new reference
+        bool updated = await UpdateGeneralArticleRelatedArticlesDraft(article, contentItemData, languageName, conversionAttempt, unpublishDate);
+
+        // If we could not create a new draft or update an existing draft, log an exception
+        if (!newCreated && !updated)
+        {
+            conversionAttempt.Exceptions.Add(new Exception($"Could not create draft or update existing draft for schema article [{article.ArticleSchemaTitle}] with ID [{article.SystemFields.ContentItemID}] in language [{languageName}] to update its related articles."));
+        }
+    }
+
+    private async Task<bool> UpdateGeneralArticleRelatedArticlesDraft(GeneralArticle article, ContentItemData contentItemData, string languageName, ConversionAttempt conversionAttempt, DateTime? unpublishDate)
+    {
+        try
+        {
+            if (await contentItemManager.TryUpdateDraft(article.SystemFields.ContentItemID, languageName, contentItemData))
+            {
+                if (await contentItemManager.TryPublish(article.SystemFields.ContentItemID, languageName))
+                {
+                    //success if trying to publish
+                    conversionAttempt.LogMessages.Add($"The draft of schema article [{article.ArticleSchemaTitle}] with ID [{article.SystemFields.ContentItemID}] in language [{languageName}] was updated with new related articles and published successfully.");
+
+                    await TryScheduleReusableItem(unpublishDate, article, article.SystemFields.ContentItemID, languageName, conversionAttempt);
+
+                    return true;
+                }
+                // Update draft succeeded, but publish failed
+                conversionAttempt.Exceptions.Add(new Exception($"The draft of reusable article [{article.ArticleSchemaTitle}] with ID [{article.SystemFields.ContentItemID}] in language [{languageName}] was updated with new related articles, but it failed to publish."));
+                return false;
+            }
+        }
+        catch (Exception ex)
+        {
+            // Update draft threw an exception
+            conversionAttempt.Exceptions.Add(new Exception($"Updating the draft of schema article [{article.ArticleSchemaTitle}] with ID [{article.SystemFields.ContentItemID}] in language [{languageName}] to update related articles failed with an exception: {ex.Message}"));
+            return false;
+        }
+        // Update draft failed
+        conversionAttempt.Exceptions.Add(new Exception($"Draft of schema article [{article.ArticleSchemaTitle}] with ID [{article.SystemFields.ContentItemID}] in language [{languageName}] could not be updated with the new related articles."));
+        return false;
+    }
+
+    private async Task<List<ContentItemReference>> BuildUpdatedRelatedArticlesList(GeneralArticle article, string languageName, ConversionAttempt conversionAttempt)
+    {
+        List<ContentItemReference> relatedArticles = [];
+
+        foreach (var relatedArticle in article.ArticleSchemaRelatedArticles)
+        {
+            if (relatedArticle is Article oldArticle)
+            {
+                var newArticleGuid = await GetNewArticleItemGuid(oldArticle);
+
+                if (newArticleGuid is Guid newGuid)
+                {
+                    relatedArticles.Add(new ContentItemReference() { Identifier = newGuid });
+                }
+                else
+                {
+                    // Log an exception if the new GUID could not be found
+                    conversionAttempt.Exceptions.Add(new Exception($" Failed to find new article for related article [{oldArticle.ArticleTitle}] with ID [{oldArticle.SystemFields.ContentItemID}] in language [{languageName}]."));
+                }
+            }
+            else
+            {
+                // If the related article is not an Article, keep the existing reference
+                relatedArticles.Add(new ContentItemReference() { Identifier = relatedArticle.SystemFields.ContentItemGUID });
+            }
+        }
+
+        return relatedArticles;
+    }
+
+    // Get the guid for the GeneralArticle corresponding to the provided Article
+    private async Task<Guid?> GetNewArticleItemGuid(Article oldArticle)
+    {
+        // Use the same method that generated the codename of the new article.
+        string newArticleCodeName = GetNewReusableArticleName(oldArticle);
+
+        // Retrieve the new article based on the generated codename
+        var newArticle = (await RetrieveArticles<GeneralArticle>(
+            query => query
+                .Where(where => where.WhereEquals(nameof(Article.SystemFields.ContentItemName), newArticleCodeName))
+                .TopN(1),
+            GeneralArticle.CONTENT_TYPE_NAME)).FirstOrDefault();
+
+        // Return the guid of the new article, or null if not found
+        return newArticle?.SystemFields.ContentItemGUID;
     }
 
     // Return the guid for the schema article with the provided ID
@@ -470,7 +673,7 @@ public class ArticleConverter
         }
     }
 
-    private async Task<IEnumerable<ConversionAttempt>> UpdatePageReferences(IEnumerable<ConversionAttempt> conversionAttempts)
+    private async Task<List<ConversionAttempt>> UpdatePageReferences(List<ConversionAttempt> conversionAttempts)
     {
         // Focus on attempts with a valid GeneralArticle ID
         foreach (var conversionAttempt in conversionAttempts.Where(attempt => attempt.NewArticleContentItemId is not null and > 0))
@@ -491,13 +694,18 @@ public class ArticleConverter
         return conversionAttempts;
     }
 
-    public async Task<IEnumerable<ConversionAttempt>> Convert()
+    public async Task<List<ConversionAttempt>> Convert()
     {
         var oldArticles = await RetrieveArticles<Article>(para => para, Article.CONTENT_TYPE_NAME);
 
+        // Create new schema-based GeneralArticle items from old Article items
         var reusableAttempts = await ConvertReusableArticles(oldArticles);
 
-        return await UpdatePageReferences(reusableAttempts);
+        // Update pages that reference old Article items to reference new GeneralArticle items
+        var updatedAttempts = await UpdatePageReferences(reusableAttempts);
+
+        // Update related articles in newly created GeneralArticle items to reference other new GeneralArticle items
+        return await UpdateRelatedArticlesInNewArticles(updatedAttempts);
     }
 
 }
