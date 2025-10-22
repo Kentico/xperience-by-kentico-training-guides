@@ -66,10 +66,14 @@ public class ArticleConverter
             .ForContentType(
                 ArticlePage.CONTENT_TYPE_NAME,
                 config => config
+                    // Specify pages that link the old article via the ArticlePageContent field
                     .Linking(nameof(ArticlePage.ArticlePageContent), [oldArticleId])
-                    // If you run this code somewhere that the channel context is not available, you can hard-code this value.
+                    // Specify the web channel based on the current context
+                    // Using the context is not necessary, especially if you want to change which web channel you are working with,
+                    // or run this code from somewhere context is not available.
                     .ForWebsite(websiteChannelContext.WebsiteChannelName)
-                    .WithLinkedItems(3)
+                    // Retrieve items linked by article pages, and items linked by those items, in case we decide to work with that data.
+                    .WithLinkedItems(2)
             );
 
         var queryExecutorOptions = new ContentQueryExecutionOptions
@@ -494,7 +498,7 @@ public class ArticleConverter
 
         foreach (var relatedArticle in article.ArticleSchemaRelatedArticles)
         {
-            //Only update references to old Article items
+            // Only update references to old Article items
             if (relatedArticle is Article oldArticle)
             {
                 // Find the GUID of the schema-based article that corresponds to the old article
@@ -586,7 +590,7 @@ public class ArticleConverter
 
     private async Task<bool> UpdatePageDraft(ArticlePage page, string languageName, ConversionAttempt conversionAttempt, DateTime? unpublishDate)
     {
-        // get Guid of new schema article from conversion attempt
+        // Get the GUID of the new schema-based article from the conversion attempt
         var schemaArticleGuid = await GetNewArticleItemGuid(conversionAttempt.NewArticleContentItemId);
 
         if (schemaArticleGuid is Guid newItemGuid)
@@ -608,7 +612,7 @@ public class ArticleConverter
                 {
                     if (await webPageManager.TryPublish(page.SystemFields.WebPageItemID, languageName))
                     {
-                        //success if trying to publish
+                        // Successfully published
                         conversionAttempt.LogMessages.Add($"The draft of page [{page.SystemFields.WebPageItemTreePath}] with ID [{page.SystemFields.ContentItemID}] in language [{languageName}] was updated with a new reference and published successfully.");
 
                         await TrySchedulePage(unpublishDate, page, languageName, conversionAttempt);

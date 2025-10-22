@@ -10,7 +10,7 @@
 {
     <div style="border-bottom:1px solid black; margin-bottom:5px; padding-bottom:20px; margin-top:5px;">
         <strong>OldArticle:</strong>
-        <div>@($"{attempt.OldArticle.ArticleTitle} ({attempt.OldArticle.SystemFields.ContentItemGUID}) ({attempt.OldArticle.SystemFields.ContentItemCommonDataContentLanguageID})")</div>
+        <div>@($"{attempt.OldArticle.ArticleTitle} ({attempt.OldArticle.SystemFields?.ContentItemGUID}) ({attempt.OldArticle.SystemFields?.ContentItemCommonDataContentLanguageID})")</div>
         <ul style="color:grey">
             @foreach (string log in attempt.LogMessages)
             {
