@@ -61,7 +61,7 @@ namespace TrainingGuides
 		/// <summary>
 		/// ArticleSchemaRelatedArticles.
 		/// </summary>
-		public IEnumerable<Article> ArticleSchemaRelatedArticles { get; set; }
+		public IEnumerable<IContentItemFieldsSource> ArticleSchemaRelatedArticles { get; set; }
 
 
 		/// <summary>
