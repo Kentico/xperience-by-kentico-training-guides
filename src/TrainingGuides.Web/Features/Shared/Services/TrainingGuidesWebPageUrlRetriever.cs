@@ -6,13 +6,13 @@ public class TrainingGuidesWebPageUrlRetriever : IWebPageUrlRetriever
 {
     private WebPageUrl EmptyUrl => new(string.Empty, string.Empty);
     private readonly IWebPageUrlRetriever webPageUrlRetriever;
-    private readonly IEventLogService eventLogService;
+    private readonly ILogger<TrainingGuidesWebPageUrlRetriever> logger;
 
     public TrainingGuidesWebPageUrlRetriever(IWebPageUrlRetriever webPageUrlRetriever,
-        IEventLogService eventLogService)
+        ILogger<TrainingGuidesWebPageUrlRetriever> logger)
     {
         this.webPageUrlRetriever = webPageUrlRetriever;
-        this.eventLogService = eventLogService;
+        this.logger = logger;
     }
 
     /// <summary>
@@ -42,8 +42,7 @@ public class TrainingGuidesWebPageUrlRetriever : IWebPageUrlRetriever
         }
         catch (InvalidOperationException ex)
         {
-            string message = $"{ex.Message}\r\nweb page guid: {webPageFieldsSource?.SystemFields.WebPageItemGUID},\r\nweb page id: {webPageFieldsSource?.SystemFields.WebPageItemID},\r\ntree path: {webPageFieldsSource?.SystemFields.WebPageItemTreePath}";
-            eventLogService.LogError(ex.Source, "Retrieve URL", message);
+            logger.LogError(0, ex, "An error occurred while retrieving URL for web page with GUID {WebPageItemGuid} and ID {WebPageItemId} at path {TreePath}.", webPageFieldsSource?.SystemFields.WebPageItemGUID, webPageFieldsSource?.SystemFields.WebPageItemID, webPageFieldsSource?.SystemFields.WebPageItemTreePath);
             return EmptyUrl;
         }
     }
@@ -78,8 +77,7 @@ public class TrainingGuidesWebPageUrlRetriever : IWebPageUrlRetriever
         }
         catch (InvalidOperationException ex)
         {
-            string message = $"{ex.Message}\r\nweb page guid: {webPageFieldsSource?.SystemFields.WebPageItemGUID},\r\nweb page id: {webPageFieldsSource?.SystemFields.WebPageItemID},\r\ntree path: {webPageFieldsSource?.SystemFields.WebPageItemTreePath}\r\nlanguage: {languageName}";
-            eventLogService.LogError(ex.Source, "Retrieve URL", message);
+            logger.LogError(0, ex, "An error occurred while retrieving URL for web page with GUID {WebPageItemGuid} and ID {WebPageItemId} at path {TreePath} in language {LanguageName}.", webPageFieldsSource?.SystemFields.WebPageItemGUID, webPageFieldsSource?.SystemFields.WebPageItemID, webPageFieldsSource?.SystemFields.WebPageItemTreePath, languageName);
             return EmptyUrl;
         }
     }
@@ -113,8 +111,7 @@ public class TrainingGuidesWebPageUrlRetriever : IWebPageUrlRetriever
         }
         catch (InvalidOperationException ex)
         {
-            string message = $"{ex.Message}\r\ntree path: {webPageTreePath},\r\nweb page URL path: {webPageUrlPath},\r\nwebsite channel id: {websiteChannelId}\r\nlanguage: {languageName}";
-            eventLogService.LogError(ex.Source, "Retrieve URL", message);
+            logger.LogError(0, ex, "An error occurred retrieving URL for web page with URL path {WebPageUrlPath} and tree path {WebPageTreePath} in website channel with ID {WebsiteChannelId} in language {languageName}.", webPageUrlPath, webPageTreePath, websiteChannelId, languageName);
             return EmptyUrl;
         }
     }
@@ -140,7 +137,7 @@ public class TrainingGuidesWebPageUrlRetriever : IWebPageUrlRetriever
         catch (InvalidOperationException ex)
         {
             string message = $"{ex.Message}\r\nweb page id: {webPageItemId},\r\nlanguage: {languageName}\r\nfor preview: {forPreview}";
-            eventLogService.LogError(ex.Source, "Retrieve URL", message);
+            logger.LogError(ex.Source, "Retrieve URL", message);
             return EmptyUrl;
         }
     }
@@ -165,8 +162,7 @@ public class TrainingGuidesWebPageUrlRetriever : IWebPageUrlRetriever
         }
         catch (InvalidOperationException ex)
         {
-            string message = $"{ex.Message}\r\nweb page guid: {webPageItemGuid},\r\nlanguage: {languageName}\r\nfor preview: {forPreview}";
-            eventLogService.LogError(ex.Source, "Retrieve URL", message);
+            logger.LogError(0, ex, "An error occurred retrieving URL for web page with GUID {WebPageItemGuid} in language {LanguageName} (for preview: {ForPreview}).", webPageItemGuid, languageName, forPreview);
             return EmptyUrl;
         }
     }
@@ -192,8 +188,7 @@ public class TrainingGuidesWebPageUrlRetriever : IWebPageUrlRetriever
         }
         catch (InvalidOperationException ex)
         {
-            string message = $"{ex.Message}\r\nweb page guids: {string.Join(", ", webPageItemGuids)},\r\nwebsite channel name: {websiteChannelName},\r\nlanguage: {languageName}\r\nfor preview: {forPreview}";
-            eventLogService.LogError(ex.Source, "Retrieve URLs", message);
+            logger.LogError(0, ex, "An error occurred retrieving URLs for web pages with GUIDs {WebPageItemGuids} in website channel {WebsiteChannelName} in language {LanguageName} (for preview: {ForPreview}).", string.Join(", ", webPageItemGuids), websiteChannelName, languageName, forPreview);
             return webPageItemGuids.ToDictionary(guid => guid, _ => EmptyUrl);
         }
     }
@@ -220,8 +215,7 @@ public class TrainingGuidesWebPageUrlRetriever : IWebPageUrlRetriever
         }
         catch (InvalidOperationException ex)
         {
-            string message = $"{ex.Message}\r\ntree path: {webPageTreePath},\r\nwebsite channel name: {websiteChannelName},\r\nlanguage: {languageName}\r\nfor preview: {forPreview}";
-            eventLogService.LogError(ex.Source, "Retrieve URL", message);
+            logger.LogError(0, ex, "An error occurred retrieving URL for web page with tree path {WebPageTreePath} in website channel {WebsiteChannelName} in language {LanguageName} (for preview: {ForPreview}).", webPageTreePath, websiteChannelName, languageName, forPreview);
             return EmptyUrl;
         }
     }
