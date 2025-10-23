@@ -5,6 +5,7 @@ using Kentico.Xperience.Mjml.StarterKit.Rcl.Mapping;
 using Kentico.Xperience.Mjml.StarterKit.Rcl.Widgets;
 
 using Microsoft.AspNetCore.Components;
+using Microsoft.Extensions.Logging;
 
 [assembly: RegisterEmailWidget(
     identifier: ProductWidget.IDENTIFIER,
@@ -34,7 +35,7 @@ public partial class ProductWidget : ComponentBase
     private IEmailContextAccessor EmailContextAccessor { get; set; } = default!;
 
     [Inject]
-    private IEventLogService EventLogService { get; set; } = default!;
+    private ILogger<ProductWidget> Logger { get; set; } = default!;
 
     /// <summary>
     /// The widget model.
@@ -57,13 +58,13 @@ public partial class ProductWidget : ComponentBase
             return;
         }
 
-        var languageName = EmailContextAccessor.GetContext().LanguageName;
+        string languageName = EmailContextAccessor.GetContext().LanguageName;
 
         Model = await ProductComponentModelMapper.Map(webPageItem.Identifier, languageName);
 
         if (Model is null)
         {
-            EventLogService.LogError(nameof(ProductWidget), nameof(OnInitializedAsync), $"An attempt to use the {nameof(ProductWidget)} email builder widget component has been made, but the {nameof(IComponentModelMapper<ProductWidget>)} has not been registered.");
+            Logger.LogError("An attempt to use the {ProductWidget} email builder widget component has been made, but the {Mapper} has not been registered.", nameof(ProductWidget), nameof(IComponentModelMapper<ProductWidget>));
         }
     }
 }

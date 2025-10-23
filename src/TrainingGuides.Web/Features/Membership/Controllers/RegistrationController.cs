@@ -19,7 +19,7 @@ namespace TrainingGuides.Web.Features.Membership.Controllers;
 public class RegistrationController : Controller
 {
     private readonly IMembershipService membershipService;
-    private readonly IEventLogService log;
+    private readonly ILogger<RegistrationController> logger;
     private readonly IStringLocalizer<SharedResources> stringLocalizer;
     private readonly IEmailService emailService;
     private readonly SystemEmailOptions systemEmailOptions;
@@ -30,7 +30,7 @@ public class RegistrationController : Controller
 
     public RegistrationController(
     IMembershipService membershipService,
-    IEventLogService log,
+    ILogger<RegistrationController> logger,
     IStringLocalizer<SharedResources> stringLocalizer,
     IEmailService emailService,
     IOptions<SystemEmailOptions> systemEmailOptions,
@@ -38,7 +38,7 @@ public class RegistrationController : Controller
     IPreferredLanguageRetriever preferredLanguageRetriever)
     {
         this.membershipService = membershipService;
-        this.log = log;
+        this.logger = logger;
         this.stringLocalizer = stringLocalizer;
         this.emailService = emailService;
         this.systemEmailOptions = systemEmailOptions.Value;
@@ -75,7 +75,7 @@ public class RegistrationController : Controller
         }
         catch (Exception ex)
         {
-            log.LogException(nameof(RegistrationController), nameof(Register), ex);
+            logger.LogError(0, ex, "An error occurred while registering a new member with username {UserName} in {Controller}.{Action}", model.UserName, nameof(RegistrationController), nameof(Register));
             result = IdentityResult.Failed([new() { Code = "Failure", Description = stringLocalizer["Registration failed."] }]);
         }
 
