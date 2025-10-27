@@ -16,6 +16,9 @@ public class ArticleConverter
     private readonly IWebPageManager webPageManager;
     private readonly IContentItemManager contentItemManager;
 
+    private const string ADMINISTRATOR_USERNAME = "administrator";
+    private const string DEFAULT_WORKSPACE_NAME = "KenticoDefault";
+
     public ArticleConverter(
         IInfoProvider<UserInfo> userInfoProvider,
         IContentItemManagerFactory contentItemManagerFactory,
@@ -30,9 +33,17 @@ public class ArticleConverter
         this.workspaceInfoProvider = workspaceInfoProvider;
         this.contentLanguageInfoProvider = contentLanguageInfoProvider;
 
-        var administrator = userInfoProvider.Get().WhereEquals(nameof(UserInfo.UserName), "administrator").FirstOrDefault() ?? new UserInfo();
-        contentItemManager = contentItemManagerFactory.Create(administrator.UserID);
-        webPageManager = webPageManagerFactory.Create(websiteChannelContext.WebsiteChannelID, administrator.UserID);
+        var adminUser = userInfoProvider.Get()
+            .WhereEquals(nameof(UserInfo.UserName), ADMINISTRATOR_USERNAME)
+            .FirstOrDefault() ?? new UserInfo();
+
+        if (adminUser is null)
+        {
+            throw new Exception("Administrator user not found. Cannot proceed with ArticleConverter initialization.");
+        }
+
+        contentItemManager = contentItemManagerFactory.Create(adminUser.UserID);
+        webPageManager = webPageManagerFactory.Create(websiteChannelContext.WebsiteChannelID, adminUser.UserID);
     }
 
     // Retrieve reusable articles of the provided type
@@ -100,10 +111,10 @@ public class ArticleConverter
 
         string result = await workspaceInfoProvider.Get()
             .WhereEquals(nameof(WorkspaceInfo.WorkspaceID), metadata.WorkspaceId)
-            .AsSingleColumn("WorkspaceName")
+            .AsSingleColumn(nameof(WorkspaceInfo.WorkspaceName))
             .GetScalarResultAsync<string>();
 
-        return result ?? "KenticoDefault";
+        return result ?? DEFAULT_WORKSPACE_NAME;
     }
 
     // Construct a code name for a new schema-based article based on an old article
@@ -129,6 +140,24 @@ public class ArticleConverter
         return displayName;
     }
 
+    // Assemble content item data for a new GeneralArticle item based on the provided Article item
+    private async Task<ContentItemData> GetContentItemData(Article oldArticle) =>
+        new(new Dictionary<string, object> {
+            { nameof(GeneralArticle.ArticleSchemaTitle), oldArticle.ArticleTitle },
+            { nameof(GeneralArticle.ArticleSchemaSummary), oldArticle.ArticleSummary },
+            { nameof(GeneralArticle.ArticleSchemaTeaser), new List<ContentItemReference>(){
+                    new(){ Identifier = oldArticle.ArticleTeaser.FirstOrDefault()?.SystemFields.ContentItemGUID ?? Guid.Empty }
+            }},
+            { nameof(GeneralArticle.ArticleSchemaText), oldArticle.ArticleText },
+            { nameof(GeneralArticle.ArticleSchemaRelatedArticles), oldArticle
+                .ArticleRelatedArticles.Select(oldRef => new ContentItemReference()
+                {
+                    Identifier = oldRef.SystemFields.ContentItemGUID
+                })
+                .ToList()
+            }
+        });
+
     private async Task<int> CreateNewReusableArticle(Article oldArticle, string languageName, ConversionAttempt attempt)
     {
         // Specify the content type and generic content item properties
@@ -142,21 +171,7 @@ public class ArticleConverter
                 );
 
         // Assemble the field values for a new GeneralArticle item
-        var contentItemData = new ContentItemData(new Dictionary<string, object> {
-            {nameof(GeneralArticle.ArticleSchemaTitle), oldArticle.ArticleTitle},
-            {nameof(GeneralArticle.ArticleSchemaSummary), oldArticle.ArticleSummary},
-            {nameof(GeneralArticle.ArticleSchemaTeaser), new List<ContentItemReference>(){
-                    new(){ Identifier = oldArticle.ArticleTeaser.FirstOrDefault()?.SystemFields.ContentItemGUID ?? Guid.Empty }
-            }},
-            {nameof(GeneralArticle.ArticleSchemaText), oldArticle.ArticleText},
-            {nameof(GeneralArticle.ArticleSchemaRelatedArticles), oldArticle
-                .ArticleRelatedArticles.Select(oldRef => new ContentItemReference()
-                {
-                    Identifier = oldRef.SystemFields.ContentItemGUID
-                })
-                .ToList()
-            }
-        });
+        var contentItemData = await GetContentItemData(oldArticle);
 
         int newId;
 
@@ -198,21 +213,7 @@ public class ArticleConverter
             languageName);
 
         // Assemble the field values for a new language version
-        var contentItemData = new ContentItemData(new Dictionary<string, object> {
-            {nameof(GeneralArticle.ArticleSchemaTitle), oldArticle.ArticleTitle},
-            {nameof(GeneralArticle.ArticleSchemaSummary), oldArticle.ArticleSummary},
-            {nameof(GeneralArticle.ArticleSchemaTeaser), new List<ContentItemReference>(){
-                    new(){ Identifier = oldArticle.ArticleTeaser.FirstOrDefault()?.SystemFields.ContentItemGUID ?? Guid.Empty }
-            }},
-            {nameof(GeneralArticle.ArticleSchemaText), oldArticle.ArticleText},
-            {nameof(GeneralArticle.ArticleSchemaRelatedArticles), oldArticle
-                .ArticleRelatedArticles.Select(oldRef => new ContentItemReference()
-                {
-                    Identifier = oldRef.SystemFields.ContentItemGUID
-                })
-                .ToList()
-            }
-        });
+        var contentItemData = await GetContentItemData(oldArticle);
 
         try
         {
@@ -286,7 +287,7 @@ public class ArticleConverter
             // Try to publish the new article
             if (await contentItemManager.TryPublish(publishableID, languageName))
             {
-                // Check if the old article was scheduled for unpublish,
+                // Check if the old article was scheduled for unpublish
                 var unpublishDate = await GetReusableUnpublishTimeIfScheduled(oldArticle, languageName, attempt);
 
                 // Schedule for unpublish if applicable
@@ -355,7 +356,6 @@ public class ArticleConverter
                     // Log an exception, as there is a logical error leading us to process the same language version multiple times.
                     currentAttempt.Exceptions.Add(new Exception($"Skipped creating new language version for [{publishedOldArticle.ArticleTitle}] with ID [{publishedOldArticle.SystemFields.ContentItemID}] in language [{languageName}] because a version in this language already exists."));
                 }
-
                 else
                 {
                     // If no version exists in this language, add a new language version.
@@ -410,7 +410,7 @@ public class ArticleConverter
 
             string languageName = GetContentLanguageName(schemaArticle.SystemFields.ContentItemCommonDataContentLanguageID);
 
-            // Update the related articles field of the newly created schema articles, so that they point to new articles instead of old ones.
+            // Update the related articles field of the newly created schema articles, so that they point to new articles instead of old ones
             await CreateOrUpdateItemDraftRelatedArticles(schemaArticle, languageName, conversionAttempt);
         }
 
@@ -467,7 +467,7 @@ public class ArticleConverter
             {
                 if (await contentItemManager.TryPublish(article.SystemFields.ContentItemID, languageName))
                 {
-                    //success if trying to publish
+                    // Success if trying to publish
                     conversionAttempt.LogMessages.Add($"The draft of schema article [{article.ArticleSchemaTitle}] with ID [{article.SystemFields.ContentItemID}] in language [{languageName}] was updated with new related articles and published successfully.");
 
                     // Schedule unpublish if applicable
@@ -517,7 +517,7 @@ public class ArticleConverter
             }
             else
             {
-                // If the related article is not an Article, keep the existing reference
+                // If the related article is not of type Article, keep the existing reference
                 relatedArticles.Add(new ContentItemReference() { Identifier = relatedArticle.SystemFields.ContentItemGUID });
             }
         }
@@ -525,7 +525,7 @@ public class ArticleConverter
         return relatedArticles;
     }
 
-    // Get the guid for the GeneralArticle corresponding to the provided Article
+    // Get the GUID for the GeneralArticle corresponding to the provided Article
     private async Task<Guid?> GetNewArticleItemGuid(Article oldArticle)
     {
         // Use the same method that generated the codename of the new article.
@@ -538,11 +538,11 @@ public class ArticleConverter
                 .TopN(1),
             GeneralArticle.CONTENT_TYPE_NAME)).FirstOrDefault();
 
-        // Return the guid of the new article, or null if not found
+        // Return the GUID of the new article, or null if not found
         return newArticle?.SystemFields.ContentItemGUID;
     }
 
-    // Return the guid for the schema article with the provided ID
+    // Return the GUID for the schema article with the provided ID
     private async Task<Guid?> GetNewArticleItemGuid(int? articleItemId)
     {
         if (articleItemId is null)
@@ -635,7 +635,7 @@ public class ArticleConverter
         }
         else
         {
-            // Failed to retrieve content item guid based on ID - can't find the new article
+            // Failed to retrieve content item GUID based on ID - can't find the new article
             conversionAttempt.Exceptions.Add(new Exception($"The new article with ID [{conversionAttempt.NewArticleContentItemId}] could not be found in language [{languageName}] to update the page reference."));
             return false;
         }
@@ -667,7 +667,7 @@ public class ArticleConverter
         // Before we create a new draft, check if the existing page has a scheduled unpublish date.
         var unpublishDate = await GetPageUnpublishTimeIfScheduled(page, languageName, conversionAttempt);
 
-        // create a new draft with the same properties, or update the existing draft if it exists
+        // Create a new draft with the same properties, or update the existing draft if it exists
         // This may be false if the published page already has a draft, in which case we will try to update the existing draft.
         bool newCreated = false;
 
@@ -714,8 +714,14 @@ public class ArticleConverter
         return conversionAttempts;
     }
 
+    /// <summary>
+    /// Main method to convert old Article items to new GeneralArticle items and update references in ArticlePage items and GeneralArticle.RelatedArticles.
+    /// </summary>
+    /// <returns>Collection of <see cref="ConversionAttempt"/> objects representing the results for each item.</returns>
     public async Task<List<ConversionAttempt>> Convert()
     {
+        // Implement batches using the Offset and OrderBy extensions if necessary to avoid timeouts or memory issues.
+        // https://docs.kentico.com/documentation/developers-and-admins/api/content-item-api/reference-content-item-query#offset
         var oldArticles = await RetrieveArticles<Article>(para => para, Article.CONTENT_TYPE_NAME);
 
         // Create new schema-based GeneralArticle items from old Article items

@@ -47,6 +47,7 @@ public static class ServiceCollectionExtensions
 
         services.AddTransient<IContentItemRetrieverService, ContentItemRetrieverService>();
 
+        // Since the ArticleConverter is one-time code, meant to be deleted after its first use, we won't bother with an interface.
         services.AddTransient<ArticleConverter>();
 
     }
