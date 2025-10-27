@@ -1,5 +1,4 @@
 using CMS.ContentEngine;
-using CMS.Websites;
 using TrainingGuides.Web.OneTimeCode;
 using Xunit;
 
@@ -36,9 +35,9 @@ public class ConversionAttemptTests
     {
         // Arrange
         var oldArticle = CreateSampleArticle();
-        var newId = 200;
+        int newId = 200;
         var exception = new Exception("Test exception");
-        var logMessage = "Test log message";
+        string logMessage = "Test log message";
 
         // Act
         var attempt = new ConversionAttempt(oldArticle, newId, exception, logMessage);
@@ -72,7 +71,7 @@ public class ConversionAttemptTests
     {
         // Arrange
         var oldArticle = CreateSampleArticle();
-        var newId = 200;
+        int newId = 200;
 
         // Act
         var attempt = new ConversionAttempt(oldArticle, newId);
@@ -89,9 +88,11 @@ public class ConversionAttemptTests
     {
         // Arrange
         var oldArticle = CreateSampleArticle();
+        int newId = 200;
+        string logMessage = "Test log";
 
         // Act
-        var attempt = new ConversionAttempt(oldArticle, 200, null, "Test log");
+        var attempt = new ConversionAttempt(oldArticle, newId, null, logMessage);
 
         // Assert
         Assert.Empty(attempt.Exceptions);
@@ -103,9 +104,11 @@ public class ConversionAttemptTests
     {
         // Arrange
         var oldArticle = CreateSampleArticle();
+        int newId = 200;
+        var exception = new Exception("Test exception");
 
         // Act
-        var attempt = new ConversionAttempt(oldArticle, 200, new Exception("Error"), null);
+        var attempt = new ConversionAttempt(oldArticle, newId, exception, null);
 
         // Assert
         Assert.Single(attempt.Exceptions);
@@ -175,11 +178,14 @@ public class ConversionAttemptTests
         // Arrange
         var oldArticle = CreateSampleArticle();
         var attempt = new ConversionAttempt(oldArticle, null);
+        var exception1 = new Exception("Generic error");
+        var exception2 = new InvalidOperationException("Invalid operation");
+        var exception3 = new ArgumentNullException("paramName", "Argument was null");
 
         // Act
-        attempt.Exceptions.Add(new Exception("Generic error"));
-        attempt.Exceptions.Add(new InvalidOperationException("Invalid operation"));
-        attempt.Exceptions.Add(new ArgumentNullException("paramName", "Argument was null"));
+        attempt.Exceptions.Add(exception1);
+        attempt.Exceptions.Add(exception2);
+        attempt.Exceptions.Add(exception3);
 
         // Assert
         Assert.Equal(3, attempt.Exceptions.Count);
@@ -198,13 +204,14 @@ public class ConversionAttemptTests
         // Arrange
         var oldArticle = CreateSampleArticle();
         var attempt = new ConversionAttempt(oldArticle, null);
+        string logMessage = "Log message 1";
 
         // Act
-        attempt.LogMessages.Add("Log message 1");
+        attempt.LogMessages.Add(logMessage);
 
         // Assert
         Assert.Single(attempt.LogMessages);
-        Assert.Equal("Log message 1", attempt.LogMessages[0]);
+        Assert.Equal(logMessage, attempt.LogMessages[0]);
     }
 
     [Fact]
@@ -213,11 +220,14 @@ public class ConversionAttemptTests
         // Arrange
         var oldArticle = CreateSampleArticle();
         var attempt = new ConversionAttempt(oldArticle, null);
+        string logMessage1 = "Log 1";
+        string logMessage2 = "Log 2";
+        string logMessage3 = "Log 3";
 
         // Act
-        attempt.LogMessages.Add("Log 1");
-        attempt.LogMessages.Add("Log 2");
-        attempt.LogMessages.Add("Log 3");
+        attempt.LogMessages.Add(logMessage1);
+        attempt.LogMessages.Add(logMessage2);
+        attempt.LogMessages.Add(logMessage3);
 
         // Assert
         Assert.Equal(3, attempt.LogMessages.Count);
@@ -229,16 +239,19 @@ public class ConversionAttemptTests
         // Arrange
         var oldArticle = CreateSampleArticle();
         var attempt = new ConversionAttempt(oldArticle, null);
+        string logMessage1 = "First log";
+        string logMessage2 = "Second log";
+        string logMessage3 = "Third log";
 
         // Act
-        attempt.LogMessages.Add("First log");
-        attempt.LogMessages.Add("Second log");
-        attempt.LogMessages.Add("Third log");
+        attempt.LogMessages.Add(logMessage1);
+        attempt.LogMessages.Add(logMessage2);
+        attempt.LogMessages.Add(logMessage3);
 
         // Assert
-        Assert.Equal("First log", attempt.LogMessages[0]);
-        Assert.Equal("Second log", attempt.LogMessages[1]);
-        Assert.Equal("Third log", attempt.LogMessages[2]);
+        Assert.Equal(logMessage1, attempt.LogMessages[0]);
+        Assert.Equal(logMessage2, attempt.LogMessages[1]);
+        Assert.Equal(logMessage3, attempt.LogMessages[2]);
     }
 
     [Fact]
@@ -247,15 +260,17 @@ public class ConversionAttemptTests
         // Arrange
         var oldArticle = CreateSampleArticle();
         var attempt = new ConversionAttempt(oldArticle, null);
+        string emptyLog = string.Empty;
+        string nonEmptyLog = "Non-empty log";
 
         // Act
-        attempt.LogMessages.Add("");
-        attempt.LogMessages.Add("Non-empty log");
+        attempt.LogMessages.Add(emptyLog);
+        attempt.LogMessages.Add(nonEmptyLog);
 
         // Assert
         Assert.Equal(2, attempt.LogMessages.Count);
-        Assert.Equal("", attempt.LogMessages[0]);
-        Assert.Equal("Non-empty log", attempt.LogMessages[1]);
+        Assert.Equal(string.Empty, attempt.LogMessages[0]);
+        Assert.False(string.IsNullOrEmpty(attempt.LogMessages[1]));
     }
 
     #endregion
@@ -357,14 +372,15 @@ public class ConversionAttemptTests
     public void OldArticle_RetainsReferenceToOriginalArticle()
     {
         // Arrange
-        var oldArticle = CreateSampleArticle(123);
+        int oldId = 123;
+        var oldArticle = CreateSampleArticle(oldId);
 
         // Act
         var attempt = new ConversionAttempt(oldArticle, 456);
 
         // Assert
         Assert.Same(oldArticle, attempt.OldArticle);
-        Assert.Equal(123, attempt.OldArticle.SystemFields.ContentItemID);
+        Assert.Equal(oldId, attempt.OldArticle.SystemFields.ContentItemID);
     }
 
     [Fact]
@@ -372,13 +388,15 @@ public class ConversionAttemptTests
     {
         // Arrange
         var oldArticle = CreateSampleArticle();
-        var attempt = new ConversionAttempt(oldArticle, null);
-
-        // Act
-        attempt.NewArticleContentItemId = 999;
+        int newId = 999;
+        var attempt = new ConversionAttempt(oldArticle, null)
+        {
+            // Act
+            NewArticleContentItemId = newId
+        };
 
         // Assert
-        Assert.Equal(999, attempt.NewArticleContentItemId);
+        Assert.Equal(newId, attempt.NewArticleContentItemId);
     }
 
     [Fact]
@@ -386,10 +404,11 @@ public class ConversionAttemptTests
     {
         // Arrange
         var oldArticle = CreateSampleArticle();
-        var attempt = new ConversionAttempt(oldArticle, 500);
-
-        // Act
-        attempt.NewArticleContentItemId = null;
+        var attempt = new ConversionAttempt(oldArticle, 500)
+        {
+            // Act
+            NewArticleContentItemId = null
+        };
 
         // Assert
         Assert.Null(attempt.NewArticleContentItemId);
@@ -400,13 +419,15 @@ public class ConversionAttemptTests
     {
         // Arrange
         var oldArticle = CreateSampleArticle();
-        var attempt = new ConversionAttempt(oldArticle, 200);
-
-        // Act
-        attempt.OldArticle = CreateSampleArticle(999);
+        int newOldId = 999;
+        var attempt = new ConversionAttempt(oldArticle, 200)
+        {
+            // Act
+            OldArticle = CreateSampleArticle(newOldId)
+        };
 
         // Assert
-        Assert.Equal(999, attempt.OldArticle.SystemFields.ContentItemID);
+        Assert.Equal(newOldId, attempt.OldArticle.SystemFields.ContentItemID);
     }
 
     #endregion
@@ -418,11 +439,13 @@ public class ConversionAttemptTests
     {
         // Arrange
         var oldArticle = CreateSampleArticle();
-        var attempt = new ConversionAttempt(oldArticle, null);
-
-        // Act - Simulate a conversion process
-        // Step 1: Create reusable article
-        attempt.NewArticleContentItemId = 200;
+        int newId = 200;
+        var attempt = new ConversionAttempt(oldArticle, null)
+        {
+            // Act - Simulate a conversion process
+            // Step 1: Create reusable article
+            NewArticleContentItemId = newId
+        };
         attempt.LogMessages.Add("Created new reusable article with ID [200]");
         attempt.FinishedLanguagesReusable.Add(ENGLISH_LANGUAGE_NAME);
 
@@ -438,7 +461,7 @@ public class ConversionAttemptTests
         attempt.Exceptions.Add(new Exception("Warning: Spanish page reference could not be updated"));
 
         // Assert
-        Assert.Equal(200, attempt.NewArticleContentItemId);
+        Assert.Equal(newId, attempt.NewArticleContentItemId);
         Assert.Equal(3, attempt.LogMessages.Count);
         Assert.Equal(2, attempt.FinishedLanguagesReusable.Count);
         Assert.Single(attempt.FinishedLanguagesPage);
@@ -451,11 +474,14 @@ public class ConversionAttemptTests
         // Arrange
         var oldArticle = CreateSampleArticle();
         var attempt = new ConversionAttempt(oldArticle, null);
+        var exception1 = new Exception("Failed to create new article: Database connection failed");
+        var exception2 = new Exception("Retry attempt 1 failed");
+        var exception3 = new Exception("Retry attempt 2 failed");
 
         // Act - Simulate a failed conversion
-        attempt.Exceptions.Add(new Exception("Failed to create new article: Database connection failed"));
-        attempt.Exceptions.Add(new Exception("Retry attempt 1 failed"));
-        attempt.Exceptions.Add(new Exception("Retry attempt 2 failed"));
+        attempt.Exceptions.Add(exception1);
+        attempt.Exceptions.Add(exception2);
+        attempt.Exceptions.Add(exception3);
 
         // Assert
         Assert.Null(attempt.NewArticleContentItemId);
@@ -470,18 +496,23 @@ public class ConversionAttemptTests
     {
         // Arrange
         var oldArticle = CreateSampleArticle();
-        var attempt = new ConversionAttempt(oldArticle, 300);
+        int newId = 300;
+        var attempt = new ConversionAttempt(oldArticle, newId);
+        string logMessage1 = "Created reusable article";
+        string logMessage2 = "Published English version";
+        var exception1 = new Exception("Failed to create Spanish version");
+        var exception2 = new Exception("Page reference update failed for English");
 
         // Act - Simulate partial success
-        attempt.LogMessages.Add("Created reusable article");
+        attempt.LogMessages.Add(logMessage1);
         attempt.FinishedLanguagesReusable.Add(ENGLISH_LANGUAGE_NAME);
-        attempt.LogMessages.Add("Published English version");
+        attempt.LogMessages.Add(logMessage2);
 
-        attempt.Exceptions.Add(new Exception("Failed to create Spanish version"));
-        attempt.Exceptions.Add(new Exception("Page reference update failed for English"));
+        attempt.Exceptions.Add(exception1);
+        attempt.Exceptions.Add(exception2);
 
         // Assert
-        Assert.Equal(300, attempt.NewArticleContentItemId);
+        Assert.Equal(newId, attempt.NewArticleContentItemId);
         Assert.Single(attempt.FinishedLanguagesReusable);
         Assert.Empty(attempt.FinishedLanguagesPage);
         Assert.Equal(2, attempt.LogMessages.Count);
