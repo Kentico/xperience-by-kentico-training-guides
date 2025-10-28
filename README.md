@@ -25,8 +25,10 @@ However, keep in mind that the code in this repository is intended to be examine
     ```
     dotnet kentico-xperience-dbmanager -- -s "[YOUR SQL SERVER]" -a "TrainingGuides123*" -d "Xperience.TrainingGuides" --hash-string-salt "59642433-67b2-4230-9c5b-ad98d02b0c72" --license-file "[OPTIONAL: PATH TO TEXT A FILE CONTAINING YOUR LICENSE KEY]"
     ```
+
     > [!NOTE]
     > This automatically updates your **appsettings.json** file, creating a connection string and setting the value of `CMSHashStringSalt`.
+    
 1. Run a [*Continuous integration restore*](https://docs.xperience.io/xp/developers-and-admins/ci-cd/continuous-integration#ContinuousIntegration-Restorerepositoryfilestothedatabase) to populate the database with the necessary data
 1. Log in with the username **administrator** and the password **TrainingGuides123\***
 1. If you didn't include your license key when you installed the database, add it to the instance now:
