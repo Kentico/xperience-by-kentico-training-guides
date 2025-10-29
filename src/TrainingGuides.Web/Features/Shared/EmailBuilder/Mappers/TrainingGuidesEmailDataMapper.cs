@@ -6,8 +6,8 @@ namespace TrainingGuides.Web.Features.Shared.EmailBuilder.Mappers;
 
 public class TrainingGuidesEmailDataMapper : IEmailDataMapper
 {
-    private const string DEFAULT_SUBJECT = "Training Guides";
-    private const string DEFAULT_PREVIEW_TEXT = "The latest communication from Training Guides.";
+    private const string DEFAULT_SUBJECT = "Training guides";
+    private const string DEFAULT_PREVIEW_TEXT = "The latest communication from Training guides.";
     private readonly IEmailContextAccessor emailContextAccessor;
 
     public TrainingGuidesEmailDataMapper(IEmailContextAccessor emailContextAccessor)
