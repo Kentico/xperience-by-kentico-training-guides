@@ -1,5 +1,6 @@
 using CMS;
 using CMS.Core;
+using TrainingGuides.Web.Features.Shared.Logging;
 
 [assembly: RegisterImplementation(typeof(IWebPageUrlRetriever), typeof(TrainingGuidesWebPageUrlRetriever))]
 public class TrainingGuidesWebPageUrlRetriever : IWebPageUrlRetriever
@@ -42,7 +43,7 @@ public class TrainingGuidesWebPageUrlRetriever : IWebPageUrlRetriever
         }
         catch (InvalidOperationException ex)
         {
-            logger.LogError(0, ex, "An error occurred while retrieving URL for web page with GUID {WebPageItemGuid} and ID {WebPageItemId} at path {TreePath}.", webPageFieldsSource?.SystemFields.WebPageItemGUID, webPageFieldsSource?.SystemFields.WebPageItemID, webPageFieldsSource?.SystemFields.WebPageItemTreePath);
+            logger.LogError(EventIds.RetrieveUrl, ex, "An error occurred while retrieving URL for web page with GUID {WebPageItemGuid} and ID {WebPageItemId} at path {TreePath}.", webPageFieldsSource?.SystemFields.WebPageItemGUID, webPageFieldsSource?.SystemFields.WebPageItemID, webPageFieldsSource?.SystemFields.WebPageItemTreePath);
             return EmptyUrl;
         }
     }
@@ -77,7 +78,7 @@ public class TrainingGuidesWebPageUrlRetriever : IWebPageUrlRetriever
         }
         catch (InvalidOperationException ex)
         {
-            logger.LogError(0, ex, "An error occurred while retrieving URL for web page with GUID {WebPageItemGuid} and ID {WebPageItemId} at path {TreePath} in language {LanguageName}.", webPageFieldsSource?.SystemFields.WebPageItemGUID, webPageFieldsSource?.SystemFields.WebPageItemID, webPageFieldsSource?.SystemFields.WebPageItemTreePath, languageName);
+            logger.LogError(EventIds.RetrieveUrl, ex, "An error occurred while retrieving URL for web page with GUID {WebPageItemGuid} and ID {WebPageItemId} at path {TreePath} in language {LanguageName}.", webPageFieldsSource?.SystemFields.WebPageItemGUID, webPageFieldsSource?.SystemFields.WebPageItemID, webPageFieldsSource?.SystemFields.WebPageItemTreePath, languageName);
             return EmptyUrl;
         }
     }
@@ -111,7 +112,7 @@ public class TrainingGuidesWebPageUrlRetriever : IWebPageUrlRetriever
         }
         catch (InvalidOperationException ex)
         {
-            logger.LogError(0, ex, "An error occurred retrieving URL for web page with URL path {WebPageUrlPath} and tree path {WebPageTreePath} in website channel with ID {WebsiteChannelId} in language {languageName}.", webPageUrlPath, webPageTreePath, websiteChannelId, languageName);
+            logger.LogError(EventIds.RetrieveUrl, ex, "An error occurred retrieving URL for web page with URL path {WebPageUrlPath} and tree path {WebPageTreePath} in website channel with ID {WebsiteChannelId} in language {languageName}.", webPageUrlPath, webPageTreePath, websiteChannelId, languageName);
             return EmptyUrl;
         }
     }
@@ -136,8 +137,7 @@ public class TrainingGuidesWebPageUrlRetriever : IWebPageUrlRetriever
         }
         catch (InvalidOperationException ex)
         {
-            string message = $"{ex.Message}\r\nweb page id: {webPageItemId},\r\nlanguage: {languageName}\r\nfor preview: {forPreview}";
-            logger.LogError(ex.Source, "Retrieve URL", message);
+            logger.LogError(EventIds.RetrieveUrl, ex, "An error occurred retrieving URL for web page with ID {WebPageItemId} in language {LanguageName} (for preview: {ForPreview}).", webPageItemId, languageName, forPreview);
             return EmptyUrl;
         }
     }
@@ -162,7 +162,7 @@ public class TrainingGuidesWebPageUrlRetriever : IWebPageUrlRetriever
         }
         catch (InvalidOperationException ex)
         {
-            logger.LogError(0, ex, "An error occurred retrieving URL for web page with GUID {WebPageItemGuid} in language {LanguageName} (for preview: {ForPreview}).", webPageItemGuid, languageName, forPreview);
+            logger.LogError(EventIds.RetrieveUrl, ex, "An error occurred retrieving URL for web page with GUID {WebPageItemGuid} in language {LanguageName} (for preview: {ForPreview}).", webPageItemGuid, languageName, forPreview);
             return EmptyUrl;
         }
     }
@@ -188,7 +188,7 @@ public class TrainingGuidesWebPageUrlRetriever : IWebPageUrlRetriever
         }
         catch (InvalidOperationException ex)
         {
-            logger.LogError(0, ex, "An error occurred retrieving URLs for web pages with GUIDs {WebPageItemGuids} in website channel {WebsiteChannelName} in language {LanguageName} (for preview: {ForPreview}).", string.Join(", ", webPageItemGuids), websiteChannelName, languageName, forPreview);
+            logger.LogError(EventIds.RetrieveUrl, ex, "An error occurred retrieving URLs for web pages with GUIDs {WebPageItemGuids} in website channel {WebsiteChannelName} in language {LanguageName} (for preview: {ForPreview}).", string.Join(", ", webPageItemGuids), websiteChannelName, languageName, forPreview);
             return webPageItemGuids.ToDictionary(guid => guid, _ => EmptyUrl);
         }
     }
@@ -215,7 +215,7 @@ public class TrainingGuidesWebPageUrlRetriever : IWebPageUrlRetriever
         }
         catch (InvalidOperationException ex)
         {
-            logger.LogError(0, ex, "An error occurred retrieving URL for web page with tree path {WebPageTreePath} in website channel {WebsiteChannelName} in language {LanguageName} (for preview: {ForPreview}).", webPageTreePath, websiteChannelName, languageName, forPreview);
+            logger.LogError(EventIds.RetrieveUrl, ex, "An error occurred retrieving URL for web page with tree path {WebPageTreePath} in website channel {WebsiteChannelName} in language {LanguageName} (for preview: {ForPreview}).", webPageTreePath, websiteChannelName, languageName, forPreview);
             return EmptyUrl;
         }
     }
