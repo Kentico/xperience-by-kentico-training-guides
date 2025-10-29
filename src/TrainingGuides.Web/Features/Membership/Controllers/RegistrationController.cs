@@ -12,6 +12,7 @@ using Microsoft.Extensions.Options;
 using TrainingGuides.Web.Features.Membership.Services;
 using TrainingGuides.Web.Features.Membership.Widgets.Registration;
 using TrainingGuides.Web.Features.Shared.Helpers;
+using TrainingGuides.Web.Features.Shared.Logging;
 using TrainingGuides.Web.Features.Shared.Services;
 
 namespace TrainingGuides.Web.Features.Membership.Controllers;
@@ -75,7 +76,7 @@ public class RegistrationController : Controller
         }
         catch (Exception ex)
         {
-            logger.LogError(0, ex, "An error occurred while registering a new member with username {UserName} in {Controller}.{Action}", model.UserName, nameof(RegistrationController), nameof(Register));
+            logger.LogError(EventIds.MemberRegistration, ex, "An error occurred while registering a new member with username {UserName} in {Controller}.{Action}", model.UserName, nameof(RegistrationController), nameof(Register));
             result = IdentityResult.Failed([new() { Code = "Failure", Description = stringLocalizer["Registration failed."] }]);
         }
 

@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Localization;
 using TrainingGuides.Web.Features.Membership.Profile;
 using TrainingGuides.Web.Features.Shared.Helpers;
+using TrainingGuides.Web.Features.Shared.Logging;
 using TrainingGuides.Web.Features.Shared.Services;
 
 namespace TrainingGuides.Web.Features.Membership.Services;
@@ -164,7 +165,7 @@ public class MembershipService : IMembershipService
         }
         catch (Exception ex)
         {
-            logger.LogError(0, ex, "An error occurred while signing in member with username or email {UserNameOrEmail} in {Service}.{Method}.", userNameOrEmail, nameof(MembershipService), nameof(SignIn));
+            logger.LogError(EventIds.MemberSignIn, ex, "An error occurred while signing in member with username or email {UserNameOrEmail} in {Service}.{Method}.", userNameOrEmail, nameof(MembershipService), nameof(SignIn));
             return SignInResult.Failed;
         }
     }
