@@ -1,3 +1,4 @@
+using CMS.DataEngine;
 using CMS.Helpers;
 using Kentico.PageBuilder.Web.Mvc;
 using Microsoft.AspNetCore.Mvc;
@@ -31,15 +32,18 @@ public class ProductWidgetViewComponent : ViewComponent
     private readonly IContentItemRetrieverService contentItemRetrieverService;
     private readonly IComponentStyleEnumService componentStyleEnumService;
     private readonly IProductPageService productPageService;
+    private readonly IContentTypeService contentTypeService;
 
     public ProductWidgetViewComponent(
         IContentItemRetrieverService contentItemRetrieverService,
         IComponentStyleEnumService componentStyleEnumService,
-        IProductPageService productPageService)
+        IProductPageService productPageService,
+        IContentTypeService contentTypeService)
     {
         this.contentItemRetrieverService = contentItemRetrieverService;
         this.componentStyleEnumService = componentStyleEnumService;
         this.productPageService = productPageService;
+        this.contentTypeService = contentTypeService;
     }
 
     public async Task<ViewViewComponentResult> InvokeAsync(ProductWidgetProperties properties)
@@ -94,8 +98,13 @@ public class ProductWidgetViewComponent : ViewComponent
                 : null;
         }
 
-        return productPage;
+        int? productContentTypeId = contentTypeService.GetContentTypeId(ProductPage.CONTENT_TYPE_NAME);
+
+        return productPage?.SystemFields.ContentItemContentTypeID == productContentTypeId
+            ? productPage
+            : null;
     }
+
     private async Task<ProductPageViewModel?> GetProductPageViewModel(ProductWidgetProperties properties)
     {
         var productPage = await GetProductPage(properties);

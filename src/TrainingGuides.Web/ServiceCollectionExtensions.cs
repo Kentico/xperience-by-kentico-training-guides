@@ -21,6 +21,7 @@ public static class ServiceCollectionExtensions
 {
     public static void AddTrainingGuidesServices(this IServiceCollection services)
     {
+        services.AddSingleton<IContentTypeService, ContentTypeService>();
         services.AddSingleton<IStringEncryptionService, AesEncryptionService>();
         services.AddSingleton<IFormCollectionService, FormCollectionService>();
         services.AddSingleton<ICookieConsentService, CookieConsentService>();
