@@ -1,13 +1,13 @@
-# Xperience by Kentico Training Guides starter repository
+# Xperience by Kentico *Training guides* starter repository
 
-This repository is the starting point for the [Xperience by Kentico technical Training Guides](https://docs.kentico.com/guides/development). Use this branch to follow along with the Training guides.
+This repository is the starting point for the [Xperience by Kentico technical training guides](https://docs.kentico.com/guides/development). Use this branch to follow along with the training guides.
 
 > [!NOTE]  
 > This repository uses Xperience by Kentico version **30.6.2**.
 
-The [finished branch](https://github.com/Kentico/xperience-by-kentico-training-guides/tree/finished) contains the cumulative results of the Training guides, as well as some sample widgets, and can be used for reference. As it contains several independent examples, it is not built comprehensively, and we recommend against using it as a boilerplate. We continuously add new features to this repository as we create new Training guide materials. 
+The [finished branch](https://github.com/Kentico/xperience-by-kentico-training-guides/tree/finished) contains the cumulative results of the training guides, as well as some sample widgets, and can be used for reference. As it contains several independent examples, it is not built comprehensively, and we recommend against using it as a boilerplate. We continuously add new features to this repository as we create new training guide materials. 
 
-The goal of the [Training Guides](https://docs.kentico.com/guides/development) is to teach recommended development practices with Xperience by Kentico.
+The goal of the [training guides](https://docs.kentico.com/guides/development) is to teach recommended development practices with Xperience by Kentico.
 However, keep in mind that the code in this repository is intended to be examined in the context of individual guides -- some aspects are simplified to keep attention on the main topic of the corresponding lesson.
 
 ## Installation requirements
@@ -39,7 +39,7 @@ However, keep in mind that the code in this repository is intended to be examine
 
 ## Contributing
 
-This repository is related to Training Guides for developers and has an educational purpose. For this reason, please do not submit ideas for new functionality. However, please do let us know if you encounter a bug that needs to be fixed, either by submitting an issue or contributing a fix directly.
+This repository is related to Training guides for developers and has an educational purpose. For this reason, please do not submit ideas for new functionality. However, please do let us know if you encounter a bug that needs to be fixed, either by submitting an issue or contributing a fix directly.
 
 To see the guidelines for Contributing to Kentico open source software, please see [Kentico's `CONTRIBUTING.md`](https://github.com/Kentico/.github/blob/main/CONTRIBUTING.md) for more information and follow the [Kentico's `CODE_OF_CONDUCT`](https://github.com/Kentico/.github/blob/main/CODE_OF_CONDUCT.md).
 
