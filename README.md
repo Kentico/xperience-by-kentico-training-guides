@@ -3,7 +3,7 @@
 This repository is the starting point for the [Xperience by Kentico technical Training Guides](https://docs.kentico.com/guides/development). Use this branch to follow along with the Training guides.
 
 > [!NOTE]  
-> This repository uses Xperience by Kentico version **30.6.2**.
+> This repository uses Xperience by Kentico version **30.11.1**.
 
 The [finished branch](https://github.com/Kentico/xperience-by-kentico-training-guides/tree/finished) contains the cumulative results of the Training guides, as well as some sample widgets, and can be used for reference. As it contains several independent examples, it is not built comprehensively, and we recommend against using it as a boilerplate. We continuously add new features to this repository as we create new Training guide materials. 
 
@@ -12,21 +12,24 @@ However, keep in mind that the code in this repository is intended to be examine
 
 ## Installation requirements
 
-- The database backup included in this repository requires SQL Server 2022 or newer. 
-  - If you are using an older version of SQL server, you can prepare a fresh database by installing a fresh instance of Xperience by Kentico version **30.6.2**
+- Installation of this repository requires the [.NET CLI](https://learn.microsoft.com/en-us/dotnet/core/tools/)
 - This repository targets the .NET 8 SDK.
   - If you are using a different .NET version, you can update the target framework in your solution. Note that the files in this repository use [C# 12 features and syntax](https://learn.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-12), some of which are not supported in lower versions.
 
 ## Getting started
 
 1. Clone or download this repository to your development environment
-1. Open **`TrainingGuides.sln`** under the **src** folder and restore all NuGet packages.
-1. Restore **`Xperience.TrainingGuides.bak`** from the **Database** folder to your SQL server
-1. Update the connection string in the **`appsettings.json`** file under the **.\src\TrainingGuides.Web** folder to point to your newly restored database
+1. Open **TrainingGuides.sln** under the **src** folder, restore all NuGet packages, and rebuild the solution.
+1. Open a command line in the **~/src/TrainingGuides.Web** folder and run the `dotnet tool restore` command to restore the *dbmanager* tool.
+1. Edit the following command to target your server and license key, then run it:
+    ```
+    dotnet kentico-xperience-dbmanager -- -s "[YOUR SQL SERVER]" -a "TrainingGuides123*" -d "Xperience.TrainingGuides" --hash-string-salt "59642433-67b2-4230-9c5b-ad98d02b0c72" --license-file "[OPTIONAL: PATH TO TEXT A FILE CONTAINING YOUR LICENSE KEY]"
+    ```
+    This automatically updates your **appsettings.json** file, creating a connection string and setting the value of `CMSHashStringSalt`.
+
 1. Run a [*Continuous integration restore*](https://docs.xperience.io/xp/developers-and-admins/ci-cd/continuous-integration#ContinuousIntegration-Restorerepositoryfilestothedatabase) to populate the database with the necessary data
-1. Clean and rebuild the solution
 1. Log in with the username **administrator** and the password **TrainingGuides123\***
-1. Apply your license key to the instance:
+1. If you didn't include your license key when you installed the database, add it to the instance now:
     1. Access the **Settings** application.
     1. Paste your license key into the **License key** field under the **System → License** category and click **Save**.
     ![Screenshot of Settings application](/images/SettingsApp.png)

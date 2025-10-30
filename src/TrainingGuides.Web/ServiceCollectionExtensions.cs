@@ -7,6 +7,7 @@ public static class ServiceCollectionExtensions
 {
     public static void AddTrainingGuidesServices(this IServiceCollection services)
     {
+        services.AddSingleton<IContentTypeService, ContentTypeService>();
         services.AddSingleton<IHttpRequestService, HttpRequestService>();
         services.AddSingleton<IArticlePageService, ArticlePageService>();
         services.AddSingleton<IContentItemRetrieverService, ContentItemRetrieverService>();
