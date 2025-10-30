@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Localization;
 using TrainingGuides.Web.Features.Membership.Profile;
 using TrainingGuides.Web.Features.Shared.Helpers;
+using TrainingGuides.Web.Features.Shared.Logging;
 using TrainingGuides.Web.Features.Shared.Services;
 
 namespace TrainingGuides.Web.Features.Membership.Services;
@@ -31,7 +32,7 @@ public class MembershipService : IMembershipService
     private readonly UserManager<GuidesMember> userManager;
     private readonly SignInManager<GuidesMember> signInManager;
     private readonly IHttpContextAccessor contextAccessor;
-    private readonly IEventLogService eventLogService;
+    private readonly ILogger<MembershipService> logger;
     private readonly IMemberContactService memberContactService;
     private readonly IWebPageUrlRetriever webPageUrlRetriever;
     private readonly IWebsiteChannelContext websiteChannelContext;
@@ -42,7 +43,7 @@ public class MembershipService : IMembershipService
         UserManager<GuidesMember> userManager,
         SignInManager<GuidesMember> signInManager,
         IHttpContextAccessor contextAccessor,
-        IEventLogService eventLogService,
+        ILogger<MembershipService> logger,
         IMemberContactService memberContactService,
         IWebPageUrlRetriever webPageUrlRetriever,
         IWebsiteChannelContext websiteChannelContext,
@@ -52,7 +53,7 @@ public class MembershipService : IMembershipService
         this.userManager = userManager;
         this.signInManager = signInManager;
         this.contextAccessor = contextAccessor;
-        this.eventLogService = eventLogService;
+        this.logger = logger;
         this.memberContactService = memberContactService;
         this.webPageUrlRetriever = webPageUrlRetriever;
         this.websiteChannelContext = websiteChannelContext;
@@ -164,7 +165,7 @@ public class MembershipService : IMembershipService
         }
         catch (Exception ex)
         {
-            eventLogService.LogException(nameof(MembershipService), nameof(SignIn), ex);
+            logger.LogError(EventIds.MemberSignIn, ex, "An error occurred while signing in member with username or email {UserNameOrEmail} in {Service}.{Method}.", userNameOrEmail, nameof(MembershipService), nameof(SignIn));
             return SignInResult.Failed;
         }
     }
