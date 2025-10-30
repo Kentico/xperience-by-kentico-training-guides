@@ -1,4 +1,5 @@
-﻿using Kentico.PageBuilder.Web.Mvc;
+﻿using CMS.DataEngine;
+using Kentico.PageBuilder.Web.Mvc;
 using Microsoft.AspNetCore.Html;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ViewComponents;
@@ -22,15 +23,18 @@ public class HeroBannerWidgetViewComponent : ViewComponent
 {
     private readonly IContentItemRetrieverService contentItemRetrieverService;
     private readonly IEnumStringService enumStringService;
+    private readonly IContentTypeService contentTypeService;
 
     public const string IDENTIFIER = "TrainingGuides.HeroBanner";
 
     public HeroBannerWidgetViewComponent(
         IContentItemRetrieverService contentItemRetrieverService,
-        IEnumStringService enumStringService)
+        IEnumStringService enumStringService,
+        IContentTypeService contentTypeService)
     {
         this.contentItemRetrieverService = contentItemRetrieverService;
         this.enumStringService = enumStringService;
+        this.contentTypeService = contentTypeService;
     }
 
     public async Task<ViewViewComponentResult> InvokeAsync(HeroBannerWidgetProperties properties)
@@ -41,11 +45,13 @@ public class HeroBannerWidgetViewComponent : ViewComponent
         {
             var productPage = await contentItemRetrieverService.RetrieveCurrentPage<ProductPage>(3);
 
-            if (productPage != null)
+            int? productClassId = contentTypeService.GetContentTypeId(ProductPage.CONTENT_TYPE_NAME);
+
+            if (productPage is not null && productPage.SystemFields.ContentItemContentTypeID == productClassId)
             {
                 banner = GetProductPageBanner(productPage);
 
-                if (banner != null)
+                if (banner is not null)
                 {
                     banner.CTALink = properties.ProductPageAnchor;
                     banner.CTAText = properties.CTA;
@@ -55,7 +61,7 @@ public class HeroBannerWidgetViewComponent : ViewComponent
         }
         else if (string.Equals(properties.Mode, "productPage"))
         {
-            if (properties.ProductPage.FirstOrDefault() != null)
+            if (properties.ProductPage.FirstOrDefault() is not null)
             {
                 var productPageGuid = properties.ProductPage?.Select(i => i.Identifier).FirstOrDefault();
                 var productPage = productPageGuid.HasValue
@@ -64,7 +70,7 @@ public class HeroBannerWidgetViewComponent : ViewComponent
                     : null;
 
                 banner = GetProductPageBanner(productPage);
-                if (banner != null)
+                if (banner is not null)
                 {
                     string relativeUrl = productPage?.SystemFields.WebPageUrlPath is not null
                         ? $"~/{productPage.SystemFields.WebPageUrlPath}"
@@ -78,7 +84,7 @@ public class HeroBannerWidgetViewComponent : ViewComponent
         }
         else
         {
-            if (properties.Hero != null && properties.Hero.Any())
+            if (properties.Hero is not null && properties.Hero.Any())
             {
                 var heroGuid = properties?.Hero?.Select(i => i.Identifier).ToList().FirstOrDefault();
 
@@ -89,7 +95,7 @@ public class HeroBannerWidgetViewComponent : ViewComponent
 
                 banner = GetModel(hero, properties);
 
-                if (banner?.Link != null)
+                if (banner?.Link is not null)
                 {
                     banner.CTALink = !string.IsNullOrEmpty(banner.Link.LinkUrl) ? banner!.Link.LinkUrl : banner.Link.LinkToExternal ?? string.Empty;
                     banner.CTAText = !string.IsNullOrEmpty(properties?.CTA) ? properties.CTA : banner.Link.CallToAction;
@@ -98,7 +104,7 @@ public class HeroBannerWidgetViewComponent : ViewComponent
             }
         }
 
-        if (banner != null)
+        if (banner is not null)
         {
 
             banner.DisplayCTA = !string.IsNullOrEmpty(banner.CTALink) && !string.IsNullOrEmpty(banner.CTAText) && properties!.DisplayCTA;
@@ -135,13 +141,13 @@ public class HeroBannerWidgetViewComponent : ViewComponent
     }
 
     private HeroBannerWidgetViewModel? GetProductPageBanner(ProductPage? productPage) =>
-        productPage == null ? null : GetHeroBannerViewModel(productPage);
+        productPage is null ? null : GetHeroBannerViewModel(productPage);
 
     private static HeroBannerWidgetViewModel? GetHeroBannerViewModel(ProductPage productPage)
     {
         var product = productPage.ProductPageProduct.FirstOrDefault();
 
-        if (product != null)
+        if (product is not null)
         {
             var benefits = product.ProductBenefits.ToList();
             var media = product.ProductMedia.FirstOrDefault();
@@ -151,7 +157,7 @@ public class HeroBannerWidgetViewComponent : ViewComponent
                 Header = product.ProductName,
                 SubheaderHtml = new HtmlString(product.ProductShortDescription),
                 Benefits = benefits.Select(BenefitViewModel.GetViewModel).ToList(),
-                Media = media != null
+                Media = media is not null
                     ? AssetViewModel.GetViewModel(media)
                     : new AssetViewModel()
             };
@@ -162,7 +168,7 @@ public class HeroBannerWidgetViewComponent : ViewComponent
 
     private HeroBannerWidgetViewModel? GetModel(Hero? hero, HeroBannerWidgetProperties? properties)
     {
-        if (hero == null || properties == null)
+        if (hero is null || properties is null)
         {
             return null;
         }
@@ -181,7 +187,7 @@ public class HeroBannerWidgetViewComponent : ViewComponent
                 LinkUrl = url?.RelativePath ?? string.Empty,
                 CallToAction = hero.HeroCallToAction
             },
-            Media = media != null
+            Media = media is not null
                 ? AssetViewModel.GetViewModel(media)
                 : new AssetViewModel()
         };
