@@ -18,6 +18,42 @@ public class ContactishContactImportService(IInfoProvider<ContactInfo> contactIn
     ICacheDependencyBuilderFactory cacheDependencyBuilderFactory,
     ILogger<ContactishContactImportService> logger) : IContactImportService
 {
+
+    // Note: This is an expensive operation, use it sparingly.
+    private async Task RebuildContactGroup(ContactGroupInfo contactGroup)
+    {
+        contactGroup.ContactGroupStatus = ContactGroupStatusEnum.Rebuilding;
+        contactGroup.Generalized.SetObject();
+
+        // Invoke in new thread
+        await Task.Factory.StartNew(CMSThread.Wrap(() =>
+            {
+                try
+                {
+                    if (contactGroup.ContactGroupStatus != ContactGroupStatusEnum.Rebuilding)
+                    {
+                        // Set status that the contact group is being rebuilt
+                        contactGroup.ContactGroupStatus = ContactGroupStatusEnum.Rebuilding;
+                        contactGroup.Update();
+                    }
+
+                    new ContactGroupRebuilder().RebuildGroup(contactGroup);
+                }
+                catch (Exception ex)
+                {
+                    logger.LogError(EventIds.ContactGroupRebuildFailed, ex, "Failed to rebuild contact group {ContactGroupName}.", contactGroup.ContactGroupName);
+                    throw;
+                }
+                finally
+                {
+                    // Return to ready status
+                    contactGroup.ContactGroupStatus = ContactGroupStatusEnum.Ready;
+                    contactGroup.Update();
+                }
+            }),
+            TaskCreationOptions.LongRunning);
+    }
+
     /// <inheritdoc/>
     public int ImportContactsFromXml(XmlDocument document)
     {
@@ -108,41 +144,6 @@ public class ContactishContactImportService(IInfoProvider<ContactInfo> contactIn
         {
             await RebuildContactGroup(contactGroup);
         }
-    }
-
-    // Note: This is an expensive operation, use it sparingly.
-    private async Task RebuildContactGroup(ContactGroupInfo contactGroup)
-    {
-        contactGroup.ContactGroupStatus = ContactGroupStatusEnum.Rebuilding;
-        contactGroup.Generalized.SetObject();
-
-        // Invoke in new thread
-        await Task.Factory.StartNew(CMSThread.Wrap(() =>
-            {
-                try
-                {
-                    if (contactGroup.ContactGroupStatus != ContactGroupStatusEnum.Rebuilding)
-                    {
-                        // Set status that the contact group is being rebuilt
-                        contactGroup.ContactGroupStatus = ContactGroupStatusEnum.Rebuilding;
-                        contactGroup.Update();
-                    }
-
-                    new ContactGroupRebuilder().RebuildGroup(contactGroup);
-                }
-                catch (Exception ex)
-                {
-                    logger.LogError(EventIds.ContactGroupRebuildFailed, ex, "Failed to rebuild contact group {ContactGroupName}.", contactGroup.ContactGroupName);
-                    throw;
-                }
-                finally
-                {
-                    // Return to ready status
-                    contactGroup.ContactGroupStatus = ContactGroupStatusEnum.Ready;
-                    contactGroup.Update();
-                }
-            }),
-            TaskCreationOptions.LongRunning);
     }
 
     /// <summary>
@@ -311,6 +312,16 @@ public class ContactishContactImportService(IInfoProvider<ContactInfo> contactIn
 
     }
 
+    /// <summary>
+    /// Makes sure that a subscription confirmation exists for the specified contact and recipient list.
+    /// </summary>
+    /// <remarks>
+    /// You  must ensure that the contact has agreed and consented to receive emails in the external system before running this code.
+    /// Make sure to consult your legal team to ensure that you are compliant with the laws of your region.
+    /// </remarks>
+    /// <param name="contactId"></param>
+    /// <param name="recipientListContactGroupId"></param>
+    /// <returns></returns>
     public async Task EnsureSubscriptionConfirmation(int contactId, int recipientListContactGroupId)
     {
         var existingConfirmation = (await emailSubscriptionConfirmationInfoProvider.Get()
@@ -345,20 +356,6 @@ public class ContactishContactImportService(IInfoProvider<ContactInfo> contactIn
 
         return recipientExists > 0;
     }
-
-    // public void UpsertRecipient(int contactId)
-    // {
-    //     int? recipientListContactGroupId = GetContactGroupCached(ContactishContactGroupConstants.RecipientListName).Result?.ContactGroupID;
-
-
-    //     if (recipientListContactGroupId is null or 0)
-    //     {
-    //         LogMissingContactGroup(ContactishContactGroupConstants.RecipientListName);
-    //         return;
-    //     }
-
-    //     CreateOrUpdateRecipient(contactId, (int)recipientListContactGroupId).Wait();
-    // }
 
     /// <inheritdoc/>
     public async Task UpsertRecipient(int contactId)
