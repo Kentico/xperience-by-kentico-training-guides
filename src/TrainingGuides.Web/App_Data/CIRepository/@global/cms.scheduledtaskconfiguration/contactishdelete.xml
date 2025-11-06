@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.scheduledtaskconfiguration>
+  <ScheduledTaskConfigurationCreatedDynamically>False</ScheduledTaskConfigurationCreatedDynamically>
+  <ScheduledTaskConfigurationData />
+  <ScheduledTaskConfigurationDisplayName>Contactish Delete</ScheduledTaskConfigurationDisplayName>
+  <ScheduledTaskConfigurationEnabled>True</ScheduledTaskConfigurationEnabled>
+  <ScheduledTaskConfigurationGUID>60dc5f6f-a3bb-4802-97ad-5f43a36e82f9</ScheduledTaskConfigurationGUID>
+  <ScheduledTaskConfigurationInterval>once;10/30/2025 5:44:16 PM</ScheduledTaskConfigurationInterval>
+  <ScheduledTaskConfigurationIsSystem>False</ScheduledTaskConfigurationIsSystem>
+  <ScheduledTaskConfigurationName>ContactishDelete</ScheduledTaskConfigurationName>
+  <ScheduledTaskConfigurationScheduledTaskIdentifier>
+    <![CDATA[TrainingGuides.ContactishContactDeleteScheduledTask]]>
+  </ScheduledTaskConfigurationScheduledTaskIdentifier>
+</cms.scheduledtaskconfiguration>

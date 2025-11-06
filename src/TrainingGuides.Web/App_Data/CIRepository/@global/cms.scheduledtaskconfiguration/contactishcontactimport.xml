@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.scheduledtaskconfiguration>
+  <ScheduledTaskConfigurationCreatedDynamically>False</ScheduledTaskConfigurationCreatedDynamically>
+  <ScheduledTaskConfigurationData />
+  <ScheduledTaskConfigurationDisplayName>Contactish contact import</ScheduledTaskConfigurationDisplayName>
+  <ScheduledTaskConfigurationEnabled>True</ScheduledTaskConfigurationEnabled>
+  <ScheduledTaskConfigurationGUID>cc0c46be-4cfa-4d7b-a02c-32a990b3bf4b</ScheduledTaskConfigurationGUID>
+  <ScheduledTaskConfigurationInterval>once;10/30/2025 4:47:29 PM</ScheduledTaskConfigurationInterval>
+  <ScheduledTaskConfigurationIsSystem>False</ScheduledTaskConfigurationIsSystem>
+  <ScheduledTaskConfigurationName>ContactishContactImport</ScheduledTaskConfigurationName>
+  <ScheduledTaskConfigurationScheduledTaskIdentifier>
+    <![CDATA[TrainingGuides.ContactishContactImportScheduledTask]]>
+  </ScheduledTaskConfigurationScheduledTaskIdentifier>
+</cms.scheduledtaskconfiguration>
