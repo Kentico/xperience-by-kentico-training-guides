@@ -14,6 +14,7 @@ using TrainingGuides.ProjectSettings;
     order: 10)]
 
 namespace TrainingGuides.Admin.ProjectSettings.WebChannelSettings;
+
 public class WebChannelSnippetListingPage : ListingPage
 {
     private readonly IStringLocalizer<SharedResources> stringLocalizer;

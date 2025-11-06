@@ -2,7 +2,6 @@ using CMS.ContactManagement;
 using CMS.DataEngine;
 using CMS.EmailMarketing;
 using CMS.Scheduler;
-using Kentico.PageBuilder.Web.Mvc;
 using TrainingGuides.Web.Features.ContactImport;
 
 [assembly: RegisterScheduledTask(identifier: ContactishContactDeleteScheduledTask.IDENTIFIER, typeof(ContactishContactDeleteScheduledTask))]
