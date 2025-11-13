@@ -13,6 +13,9 @@ public class ContactishRecipientTransferScheduledTask(
 {
     public const string IDENTIFIER = "TrainingGuides.ContactishRecipientTransferScheduledTask";
 
+    public const int BatchSize = 25;
+
+    // This scheduled task moves batches of contacts from the source contact group to the target recipient list, and deletes any contacts from the recipient list that are no longer in the source contact group
     public async Task<ScheduledTaskExecutionResult> Execute(ScheduledTaskConfigurationInfo task, CancellationToken cancellationToken)
     {
         var sourceContactGroup = await contactImportService.GetContactGroupCached(ContactishValues.ContactGroupName);
@@ -30,7 +33,7 @@ public class ContactishRecipientTransferScheduledTask(
         }
 
         // Get members of source contact group not in target recipient list
-        var topUnsyncedRecipients = await contactImportService.GetGroupXMembersNotInGroupY(sourceContactGroup, targetRecipientList, 25);
+        var topUnsyncedRecipients = await contactImportService.GetGroupXMembersNotInGroupY(sourceContactGroup, targetRecipientList, BatchSize);
 
         // Add these members as recipients in the target recipient list
         foreach (int contactId in topUnsyncedRecipients)
@@ -39,7 +42,8 @@ public class ContactishRecipientTransferScheduledTask(
         }
 
         // Get members of target recipient list not in source contact group
-        var topDeletableRecipients = await contactImportService.GetGroupXMembersNotInGroupY(targetRecipientList, sourceContactGroup, 25);
+        // Since the contact group is how recipients are added to the list, this must mean the missing contacts were deleted
+        var topDeletableRecipients = await contactImportService.GetGroupXMembersNotInGroupY(targetRecipientList, sourceContactGroup, BatchSize);
 
         // Delete these members from the target recipient list
         // Avoid this approach if you do not want the source contact group to be the source of truth for your recipient list.

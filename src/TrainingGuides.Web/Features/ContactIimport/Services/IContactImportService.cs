@@ -27,7 +27,7 @@ public interface IContactImportService
     /// Gets the Contact Group ID from cache or database if not found in cache.
     /// </summary>
     /// <param name="contactGroupCodeName">Code name of the contact group to fetch</param>
-    /// <returns></returns>
+    /// <returns>The contact group if found, otherwise null</returns>
     Task<ContactGroupInfo?> GetContactGroupCached(string contactGroupCodeName);
 
     /// <summary>
@@ -39,7 +39,6 @@ public interface IContactImportService
 
     /// <summary>
     /// Creates or updates a contact group member binding for a recipient list, corresponding to the provided standard contact group member.
-    /// 
     /// </summary>
     /// <param name="contactGroupMember">Member of the contact group to copy to the recipient list</param>
     /// <param name="recipientListContactGroupId">ID of the recipient list contact group</param>

@@ -3,7 +3,6 @@ using CMS.Scheduler;
 using TrainingGuides.Web.Features.ContactImport;
 using TrainingGuides.Web.Features.Shared.Logging;
 
-// Only registered scheduled tasks can be configured via the 'Scheduled tasks' application.
 [assembly: RegisterScheduledTask(identifier: ContactishContactImportScheduledTask.IDENTIFIER, typeof(ContactishContactImportScheduledTask))]
 
 namespace TrainingGuides.Web.Features.ContactImport;
@@ -19,7 +18,6 @@ public class ContactishContactImportScheduledTask(
     public async Task<ScheduledTaskExecutionResult> Execute(ScheduledTaskConfigurationInfo taskConfiguration, CancellationToken cancellationToken)
     {
         string directoryPath = System.IO.Path.Combine(webHostEnvironment.ContentRootPath, IMPORT_FOLDER_PATH);
-
 
         if (!Directory.Exists(directoryPath))
         {
@@ -37,9 +35,19 @@ public class ContactishContactImportScheduledTask(
             var doc = new XmlDocument();
 
             using var fileStream = new FileStream(System.IO.Path.Combine(directoryPath, xmlFile), FileMode.Open);
-
-            doc.Load(fileStream);
-
+            try
+            {
+                // Load the XML document from the file stream
+                doc.Load(fileStream);
+            }
+            catch (XmlException ex)
+            {
+                logger.LogError(EventIds.ImportContactsFromFileError,
+                    ex,
+                    "Failed to load XML document from file: {XmlFile}",
+                    xmlFile);
+                return await Task.FromResult(new ScheduledTaskExecutionResult(ex.Message));
+            }
             try
             {
                 int contactsImported = contactImportService.ImportContactsFromXml(doc);
@@ -84,8 +92,6 @@ public class ContactishContactImportScheduledTask(
 
                 return await Task.FromResult(new ScheduledTaskExecutionResult(ex.Message));
             }
-
-            fileStream.Close();
         }
         return await Task.FromResult(ScheduledTaskExecutionResult.Success);
     }

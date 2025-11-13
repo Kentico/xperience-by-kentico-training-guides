@@ -66,6 +66,11 @@ public class ContactishContactImportService(IInfoProvider<ContactInfo> contactIn
         return contactInfos.Count();
     }
 
+    /// <summary>
+    /// Parses the provided XML document and returns a list of <see cref="ContactInfo"/> objects based on the data in the document.
+    /// </summary>
+    /// <param name="document">XML document containing serialized contact data from Contactish</param>
+    /// <returns></returns>
     public IEnumerable<ContactInfo> GetContactsFromXml(XmlDocument document)
     {
         List<ContactInfo> contactInfos = [];
@@ -88,13 +93,13 @@ public class ContactishContactImportService(IInfoProvider<ContactInfo> contactIn
                     ContactLastModified = DateTime.Now,
                 };
 
-                var LastUpdated = DateTime.TryParse(contactElement[ContactishValues.LAST_UPDATED_ELEMENT]?.InnerText, out var parsedDate)
+                var lastUpdated = DateTime.TryParse(contactElement[ContactishValues.LAST_UPDATED_ELEMENT]?.InnerText, out var parsedDate)
                     ? parsedDate
                     : DateTime.MinValue;
 
                 contact.SetValue(ContactishValues.IDENTIFIER_FIELD, contactElement[ContactishValues.IDENTIFIER_ELEMENT]?.InnerText ?? string.Empty);
                 contact.SetValue(ContactishValues.SEGMENT_IDENTIFIERS_FIELD, contactElement[ContactishValues.SEGMENT_IDENTIFIERS_ELEMENT]?.InnerText ?? string.Empty);
-                contact.SetValue(ContactishValues.LAST_UPDATED_FIELD, LastUpdated);
+                contact.SetValue(ContactishValues.LAST_UPDATED_FIELD, lastUpdated);
                 contact.SetValue(ContactishValues.LAST_SYNCED_FIELD, DateTime.Now);
 
                 if (!string.IsNullOrWhiteSpace(contact.ContactEmail) && !string.IsNullOrWhiteSpace(contact.GetValue(ContactishValues.IDENTIFIER_FIELD)?.ToString()))
@@ -315,13 +320,12 @@ public class ContactishContactImportService(IInfoProvider<ContactInfo> contactIn
     /// <summary>
     /// Makes sure that a subscription confirmation exists for the specified contact and recipient list.
     /// </summary>
+    /// <param name="contactId">ID of the contact you want to subscribe</param>
+    /// <param name="recipientListContactGroupId">The recipient list to subscribe the contact to</param>
     /// <remarks>
     /// You  must ensure that the contact has agreed and consented to receive emails in the external system before running this code.
-    /// Make sure to consult your legal team to ensure that you are compliant with the laws of your region.
     /// </remarks>
-    /// <param name="contactId"></param>
-    /// <param name="recipientListContactGroupId"></param>
-    /// <returns></returns>
+#warning "Make sure to consult your legal team to ensure that your subscriptions are compliant with the laws of your region."
     public async Task EnsureSubscriptionConfirmation(int contactId, int recipientListContactGroupId)
     {
         var existingConfirmation = (await emailSubscriptionConfirmationInfoProvider.Get()
@@ -346,15 +350,21 @@ public class ContactishContactImportService(IInfoProvider<ContactInfo> contactIn
         }
     }
 
+    /// <summary>
+    /// Checks if the provided contacat is a member of the specified recipient list.
+    /// </summary>
+    /// <param name="contactId">ID of the contact to check</param>
+    /// <param name="recipientListContactGroupId">ID of the recipient list (contact group)</param>
+    /// <returns>True if the contact with the provided ID is a member of the specified recipient list</returns>
     public async Task<bool> ContactAlreadyInGroup(int contactId, int recipientListContactGroupId)
     {
-        int recipientExists = await contactGroupMemberInfoProvider.Get()
+        int recipientCount = await contactGroupMemberInfoProvider.Get()
             .WhereEquals(nameof(ContactGroupMemberInfo.ContactGroupMemberRelatedID), contactId)
             .WhereEquals(nameof(ContactGroupMemberInfo.ContactGroupMemberType), ContactGroupMemberTypeEnum.Contact)
             .WhereEquals(nameof(ContactGroupMemberInfo.ContactGroupMemberContactGroupID), recipientListContactGroupId)
             .GetCountAsync();
 
-        return recipientExists > 0;
+        return recipientCount > 0;
     }
 
     /// <inheritdoc/>
@@ -392,6 +402,7 @@ public class ContactishContactImportService(IInfoProvider<ContactInfo> contactIn
         return groupXMembersNotInY;
     }
 
+    /// <inheritdoc/>
     public void LogMissingContactGroup(string contactGroupName) => logger.LogError(EventIds.ContactGroupNotFound, "Recipient list contact group {ContactGroupName} not found for Contactish recipients.", contactGroupName);
 
 }
