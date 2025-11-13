@@ -27,6 +27,7 @@ public class ContactishContactImportScheduledTask(
             return await Task.FromResult(new ScheduledTaskExecutionResult("Failed - Directory does not exist"));
         }
 
+        // Find all XML files in the directory
         var xmlFiles = Directory.EnumerateFiles(directoryPath, "*.xml", SearchOption.TopDirectoryOnly)
             .ToList();
 
@@ -48,6 +49,8 @@ public class ContactishContactImportScheduledTask(
                     xmlFile);
                 return await Task.FromResult(new ScheduledTaskExecutionResult(ex.Message));
             }
+
+            // Import contacts from the XML document
             try
             {
                 int contactsImported = contactImportService.ImportContactsFromXml(doc);
@@ -67,6 +70,7 @@ public class ContactishContactImportScheduledTask(
                 return await Task.FromResult(new ScheduledTaskExecutionResult(ex.Message));
             }
 
+            // Ensure the Contactish contact group exists, and rebuild the group to populate it with imported contacts
             try
             {
                 await contactImportService.EnsureContactGroup(rebuildContactGroup: true);
@@ -80,6 +84,7 @@ public class ContactishContactImportScheduledTask(
                 return await Task.FromResult(new ScheduledTaskExecutionResult(ex.Message));
             }
 
+            // Ensure the Contactish recipient lists exist, so that we can add contacts to them
             try
             {
                 await contactImportService.EnsureRecipientLists();

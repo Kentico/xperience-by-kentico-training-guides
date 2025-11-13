@@ -74,4 +74,11 @@ public interface IContactImportService
     /// </summary>
     /// <param name="contactGroupName">The name of the contact group that was not found</param>
     void LogMissingContactGroup(string contactGroupName);
+
+    /// <summary>
+    /// Deletes the specified contacts from the specified recipient list, including their subscription confirmations and contact group member bindings.
+    /// </summary>
+    /// <param name="contactIds">IDs of the contacts to remove</param>
+    /// <param name="recipientListContactGroupId">ID of the recipient list contact group</param>
+    Task DeleteRecipients(IEnumerable<int> contactIds, int recipientListContactGroupId);
 }

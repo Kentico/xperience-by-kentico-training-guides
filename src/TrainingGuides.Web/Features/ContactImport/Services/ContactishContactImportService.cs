@@ -404,4 +404,20 @@ public class ContactishContactImportService(IInfoProvider<ContactInfo> contactIn
     /// <inheritdoc/>
     public void LogMissingContactGroup(string contactGroupName) => logger.LogError(EventIds.ContactGroupNotFound, "Recipient list contact group {ContactGroupName} not found for Contactish recipients.", contactGroupName);
 
+    /// <inheritdoc/>
+    public async Task DeleteRecipients(IEnumerable<int> contactIds, int recipientListContactGroupId)
+    {
+        // Delete the subscription confirmations and contact group members for the specified contacts and recipient list
+        // Alternately, you can keep the subscription confirmations, but set EmailSubscriptionConfirmationIsApproved to false to indicate that the contact is unsubscribed
+        emailSubscriptionConfirmationInfoProvider.BulkDelete(new WhereCondition()
+            .WhereIn(nameof(EmailSubscriptionConfirmationInfo.EmailSubscriptionConfirmationContactID), contactIds)
+            .WhereEquals(nameof(EmailSubscriptionConfirmationInfo.EmailSubscriptionConfirmationRecipientListID), recipientListContactGroupId));
+
+        // Delete contact group member bindings for the specified contacts and recipient list
+        contactGroupMemberInfoProvider.BulkDelete(new WhereCondition()
+            .WhereIn(nameof(ContactGroupMemberInfo.ContactGroupMemberRelatedID), contactIds)
+            .WhereEquals(nameof(ContactGroupMemberInfo.ContactGroupMemberContactGroupID), recipientListContactGroupId)
+            .WhereEquals(nameof(ContactGroupMemberInfo.ContactGroupMemberType), ContactGroupMemberTypeEnum.Contact));
+    }
+
 }

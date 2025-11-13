@@ -13,6 +13,8 @@ public class ContactishRecipientTransferScheduledTask(
 {
     public const string IDENTIFIER = "TrainingGuides.ContactishRecipientTransferScheduledTask";
 
+    // Keep in mind that each recipient added to the list will lead to two queries - one to check if it exists, and, potentially, another to create or update it.
+    // Consider being conservative with batch size if you plan to run this task during peak hours, or if you have a large number of contacts.
     public const int BatchSize = 25;
 
     // This scheduled task moves batches of contacts from the source contact group to the target recipient list, and deletes any contacts from the recipient list that are no longer in the source contact group
@@ -45,12 +47,12 @@ public class ContactishRecipientTransferScheduledTask(
         // Since the contact group is how recipients are added to the list, this must mean the missing contacts were deleted
         var topDeletableRecipients = await contactImportService.GetGroupXMembersNotInGroupY(targetRecipientList, sourceContactGroup, BatchSize);
 
-        // Delete these members from the target recipient list
-        // Avoid this approach if you do not want the source contact group to be the source of truth for your recipient list.
-        contactGroupMemberInfoProvider.BulkDelete(new WhereCondition()
-            .WhereIn(nameof(ContactGroupMemberInfo.ContactGroupMemberRelatedID), topDeletableRecipients)
-            .WhereEquals(nameof(ContactGroupMemberInfo.ContactGroupMemberContactGroupID), targetRecipientList.ContactGroupID)
-            .WhereEquals(nameof(ContactGroupMemberInfo.ContactGroupMemberType), ContactGroupMemberTypeEnum.Contact));
+        if (topDeletableRecipients.Any())
+        {
+            // Delete these members from the target recipient list
+            // Avoid this approach if you do not want the source contact group to be the source of truth for your recipient list.
+            await contactImportService.DeleteRecipients(topDeletableRecipients, targetRecipientList.ContactGroupID);
+        }
 
         return await Task.FromResult(ScheduledTaskExecutionResult.Success);
     }
