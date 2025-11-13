@@ -248,9 +248,8 @@ public class ContactishContactImportService(IInfoProvider<ContactInfo> contactIn
                 {
                     cacheSettings.CacheDependency = cacheDependencyBuilderFactory.Create()
                         .ForInfoObjects<ContactGroupInfo>()
-                            // .ById(contactGroup.ContactGroupID)
-                            // .ByCodeName(contactGroupCodeName)
-                            // .ByGuid(contactGroup.ContactGroupGUID)
+                            // Clear the cache when any contact group is created, updated, or deleted
+                            // .ByCodname could also work here, since we know what the code name will be. However, .ById and .ByGuid will only cover updates and deletions, not creations. 
                             .All()
                             .Builder()
                         .Build();
