@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,178 +117,64 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ButtonWidget.Alignment.ExplanationText" xml:space="preserve">
-    <value>Sélectionnez comment vous souhaitez positionner le bouton</value>
-  </data>
-  <data name="ButtonWidget.Alignment.Label" xml:space="preserve">
-    <value>Alignement</value>
-  </data>
-  <data name="ButtonWidget.ButtonType.ExplanationText" xml:space="preserve">
-    <value>Choisissez comment le bouton est affiché</value>
-  </data>
-  <data name="ButtonWidget.ButtonType.Label" xml:space="preserve">
-    <value>Type de bouton</value>
-  </data>
-  <data name="ButtonWidget.Description" xml:space="preserve">
-    <value>Affiche un bouton qui ouvre une URL spécifiée lorsqu&apos;on clique dessus.</value>
-  </data>
-  <data name="ButtonWidget.Name" xml:space="preserve">
-    <value>Bouton - Kit de démarrage</value>
-  </data>
-  <data name="ButtonWidget.Text.ExplanationText" xml:space="preserve">
-    <value>Saisissez le texte affiché comme légende du bouton</value>
-  </data>
-  <data name="ButtonWidget.Text.Label" xml:space="preserve">
-    <value>Texte du bouton</value>
-  </data>
-  <data name="ButtonWidget.Url.ExplanationText" xml:space="preserve">
-    <value>Saisissez l&apos;URL ouverte lorsque le bouton est sélectionné. Formats d&apos;URL autorisés : absolu (commençant par un protocole), relatif (commençant par /), ou virtuel (commençant par ~)</value>
-  </data>
-  <data name="ButtonWidget.Url.Label" xml:space="preserve">
-    <value>URL</value>
-  </data>
-  <data name="DividerWidget.BorderColor.ExplanationText" xml:space="preserve">
-    <value>Définissez la couleur du séparateur par nom de couleur ou code hexadécimal (par exemple, &apos;blue&apos; ou &apos;#fed&apos;)</value>
-  </data>
-  <data name="DividerWidget.BorderColor.Label" xml:space="preserve">
-    <value>Couleur de bordure</value>
-  </data>
-  <data name="DividerWidget.BorderStyle.ExplanationText" xml:space="preserve">
-    <value>Vous permet de définir le style de bordure (par exemple, &apos;solid&apos;, &apos;dotted&apos;, &apos;dashed&apos;, &apos;dotted double&apos;)</value>
-  </data>
-  <data name="DividerWidget.BorderStyle.Label" xml:space="preserve">
-    <value>Style de bordure</value>
-  </data>
-  <data name="DividerWidget.BorderWidth.ExplanationText" xml:space="preserve">
-    <value>Définit la taille de bordure du séparateur en pixels</value>
-  </data>
-  <data name="DividerWidget.BorderWidth.Label" xml:space="preserve">
-    <value>Largeur de bordure</value>
-  </data>
-  <data name="DividerWidget.Description" xml:space="preserve">
-    <value>Affiche un séparateur horizontal qui peut être personnalisé comme une bordure HTML.</value>
-  </data>
-  <data name="DividerWidget.Name" xml:space="preserve">
-    <value>Séparateur - Kit de démarrage</value>
-  </data>
-  <data name="FullWidthEmailSection.Name" xml:space="preserve">
-    <value>Section pleine largeur - Kit de démarrage</value>
-  </data>
-  <data name="ImageWidget.Alignment.ExplanationText" xml:space="preserve">
-    <value>Sélectionnez comment vous souhaitez positionner l&apos;image</value>
-  </data>
-  <data name="ImageWidget.Alignment.Label" xml:space="preserve">
-    <value>Alignement</value>
-  </data>
-  <data name="ImageWidget.Description" xml:space="preserve">
-    <value>Affiche une image, qui peut être sélectionnée parmi les images stockées comme actifs dans le centre de contenu.</value>
-  </data>
-  <data name="ImageWidget.Image.ExplanationText" xml:space="preserve">
-    <value>Sélectionnez l&apos;image parmi les actifs stockés dans le centre de contenu</value>
-  </data>
-  <data name="ImageWidget.Image.Label" xml:space="preserve">
-    <value>Image</value>
-  </data>
-  <data name="ImageWidget.Name" xml:space="preserve">
-    <value>Image - Kit de démarrage</value>
-  </data>
-  <data name="ImageWidget.Width.ExplanationText" xml:space="preserve">
-    <value>Vous permet de définir la largeur de l&apos;image en pixels</value>
-  </data>
-  <data name="ImageWidget.Width.Label" xml:space="preserve">
-    <value>Largeur</value>
-  </data>
-  <data name="ProductWidget.Description" xml:space="preserve">
-    <value>Affiche le contenu du produit basé sur une page de canal de site web sélectionnée. Se compose d&apos;une image, d&apos;un titre, d&apos;un texte et d&apos;un bouton de lien qui ouvre la page du produit.</value>
-  </data>
-  <data name="ProductWidget.Name" xml:space="preserve">
-    <value>Produit - Kit de démarrage</value>
-  </data>
-  <data name="ProductWidget.Page.ExplanationText" xml:space="preserve">
-    <value>Sélectionnez une page de canal de site web représentant le produit que vous souhaitez afficher.</value>
-  </data>
-  <data name="ProductWidget.Page.Label" xml:space="preserve">
-    <value>Page du produit</value>
-  </data>
-  <data name="ProductWidget.ReadMoreButton.ExplanationText" xml:space="preserve">
-    <value>Saisissez le texte affiché comme légende du bouton qui renvoie à la page du produit</value>
-  </data>
-  <data name="ProductWidget.ReadMoreButton.Label" xml:space="preserve">
-    <value>Texte du bouton de la page du produit</value>
-  </data>
-  <data name="TextWidget.Description" xml:space="preserve">
-    <value>Vous permet d&apos;ajouter et de formater du contenu textuel.</value>
-  </data>
-  <data name="TextWidget.Name" xml:space="preserve">
-    <value>Texte - Kit de démarrage</value>
-  </data>
-  <data name="TwoColumnsEmailSection.Name" xml:space="preserve">
-    <value>Section à deux colonnes - Kit de démarrage</value>
-  </data>
-  <data name="WidgetPropertiesBase.CssClass.ExplanationText" xml:space="preserve">
-    <value>Vous permet de définir une classe CSS pour l&apos;élément englobant du widget</value>
-  </data>
-  <data name="WidgetPropertiesBase.CssClass.Label" xml:space="preserve">
-    <value>Classe CSS</value>
-  </data>
   <data name="TrainingGuides.CallToActionWidget.Text.Label" xml:space="preserve">
-    <value>Texte du bouton CTA</value>
+    <value>CTA button text</value>
   </data>
   <data name="TrainingGuides.CallToActionWidget.Text.ExplanationText" xml:space="preserve">
-    <value>Ajoutez votre appel à l&apos;action. Limitez-le à moins de 30 caractères.</value>
+    <value>Add your call to action. Keep it under 30 characters.</value>
   </data>
   <data name="TrainingGuides.CallToActionWidget.Type.Label" xml:space="preserve">
-    <value>Contenu cible</value>
+    <value>Target content</value>
   </data>
   <data name="TrainingGuides.CallToActionWidget.Type.ExplanationText" xml:space="preserve">
-    <value>Sélectionnez ce qui se passe lorsqu&apos;un visiteur clique sur votre CTA.</value>
+    <value>Select what happens when a visitor clicks your CTA.</value>
   </data>
   <data name="TrainingGuides.CallToActionWidget.TargetPage.Label" xml:space="preserve">
-    <value>Page cible</value>
+    <value>Target page</value>
   </data>
   <data name="TrainingGuides.CallToActionWidget.TargetPage.ExplanationText" xml:space="preserve">
-    <value>Sélectionnez la page dans l&apos;arborescence.</value>
+    <value>Select the page in the tree.</value>
   </data>
   <data name="TrainingGuides.CallToActionWidget.ContentItem.Label" xml:space="preserve">
-    <value>Actif du hub de contenu</value>
+    <value>Content hub asset</value>
   </data>
   <data name="TrainingGuides.CallToActionWidget.ContentItem.ExplanationText" xml:space="preserve">
-    <value>Sélectionnez un fichier (image, vidéo, PDF, etc.) qui s&apos;ouvre lorsqu&apos;un visiteur clique sur votre CTA.</value>
+    <value>Select a file (image, video, PDF, etc. that opens when a visitor clicks your CTA.</value>
   </data>
   <data name="TrainingGuides.CallToActionWidget.AbsoluteUrl.Label" xml:space="preserve">
-    <value>URL absolue</value>
+    <value>Absolute URL</value>
   </data>
   <data name="TrainingGuides.CallToActionWidget.AbsoluteUrl.ExplanationText" xml:space="preserve">
-    <value>Ajoutez un lien hypertexte vers un site externe, ou utilisez l&apos;URL du produit + balise d&apos;ancrage # pour référencer une ancre sur la page, par exemple, &apos;https://your-doma.in/contact-us#form&apos;</value>
+    <value>Add a hyperlink to an external site, or use the product's URL + anchor tag # for referencing an anchor on the page, for example, "https://your-doma.in/contact-us#form"</value>
   </data>
   <data name="TrainingGuides.CallToActionWidget.IsDownload.Label" xml:space="preserve">
-    <value>Téléchargement de fichier</value>
+    <value>File download</value>
   </data>
   <data name="TrainingGuides.CallToActionWidget.IsDownload.ExplanationText" xml:space="preserve">
-    <value>Sélectionnez si vous souhaitez enregistrer &apos;Activité de téléchargement de fichier&apos; sur le contact.</value>
+    <value>Select if you want to log "File download activity" to the contact.</value>
   </data>
   <data name="TrainingGuides.CallToActionWidget.Identifier.Label" xml:space="preserve">
-    <value>Identifiant de données unique CTA</value>
+    <value>CTA unique data identifier</value>
   </data>
   <data name="TrainingGuides.CallToActionWidget.Identifier.ExplanationText" xml:space="preserve">
-    <value>Utilisez ce champ pour définir un identifiant de cette instance de widget. Par exemple, cela peut être utile pour enregistrer des activités personnalisées ou distinguer des variantes de personnalisation.</value>
+    <value>Use this field to set an identifier of this widget instance. For example, it can come in handy for logging custom activities or distinguishing personalization variants.</value>
   </data>
   <data name="TrainingGuides.CallToActionWidget.OpenInNewTab.Label" xml:space="preserve">
-    <value>Ouvrir dans un nouvel onglet</value>
+    <value>Open in new tab</value>
   </data>
   <data name="TrainingGuides.CallToActionWidget.Type.Options.Page" xml:space="preserve">
     <value>Page</value>
   </data>
   <data name="TrainingGuides.CallToActionWidget.Type.Options.Content" xml:space="preserve">
-    <value>Actif du hub de contenu</value>
+    <value>Content hub asset</value>
   </data>
   <data name="TrainingGuides.CallToActionWidget.Type.Options.Absolute" xml:space="preserve">
-    <value>URL absolue</value>
+    <value>Absolute URL</value>
   </data>
   <data name="TrainingGuides.CallToActionWidget.Name" xml:space="preserve">
-    <value>Appel à l&apos;action (CTA)</value>
+    <value>Call to action (CTA)</value>
   </data>
   <data name="TrainingGuides.CallToActionWidget.Description" xml:space="preserve">
-    <value>Affiche un bouton d&apos;appel à l&apos;action. Tel que vu sur le site de démonstration KBank.</value>
+    <value>Displays a call to action button. As seen in KBank demo site.</value>
   </data>
 </root>

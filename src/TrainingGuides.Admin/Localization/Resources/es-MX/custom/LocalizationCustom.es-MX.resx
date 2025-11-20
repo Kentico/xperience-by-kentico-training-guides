@@ -231,4 +231,64 @@
   <data name="WidgetPropertiesBase.CssClass.Label" xml:space="preserve">
     <value>Clase CSS</value>
   </data>
+  <data name="TrainingGuides.CallToActionWidget.Text.Label" xml:space="preserve">
+    <value>Texto del botón CTA</value>
+  </data>
+  <data name="TrainingGuides.CallToActionWidget.Text.ExplanationText" xml:space="preserve">
+    <value>Agregue su llamado a la acción. Manténgalo en menos de 30 caracteres.</value>
+  </data>
+  <data name="TrainingGuides.CallToActionWidget.Type.Label" xml:space="preserve">
+    <value>Contenido de destino</value>
+  </data>
+  <data name="TrainingGuides.CallToActionWidget.Type.ExplanationText" xml:space="preserve">
+    <value>Seleccione qué sucede cuando un visitante hace clic en su CTA.</value>
+  </data>
+  <data name="TrainingGuides.CallToActionWidget.TargetPage.Label" xml:space="preserve">
+    <value>Página de destino</value>
+  </data>
+  <data name="TrainingGuides.CallToActionWidget.TargetPage.ExplanationText" xml:space="preserve">
+    <value>Seleccione la página en el árbol.</value>
+  </data>
+  <data name="TrainingGuides.CallToActionWidget.ContentItem.Label" xml:space="preserve">
+    <value>Activo del centro de contenido</value>
+  </data>
+  <data name="TrainingGuides.CallToActionWidget.ContentItem.ExplanationText" xml:space="preserve">
+    <value>Seleccione un archivo (imagen, video, PDF, etc.) que se abre cuando un visitante hace clic en su CTA.</value>
+  </data>
+  <data name="TrainingGuides.CallToActionWidget.AbsoluteUrl.Label" xml:space="preserve">
+    <value>URL absoluta</value>
+  </data>
+  <data name="TrainingGuides.CallToActionWidget.AbsoluteUrl.ExplanationText" xml:space="preserve">
+    <value>Agregue un hipervínculo a un sitio externo, o use la URL del producto + etiqueta de ancla # para hacer referencia a un ancla en la página, por ejemplo, &apos;https://your-doma.in/contact-us#form&apos;</value>
+  </data>
+  <data name="TrainingGuides.CallToActionWidget.IsDownload.Label" xml:space="preserve">
+    <value>Descarga de archivo</value>
+  </data>
+  <data name="TrainingGuides.CallToActionWidget.IsDownload.ExplanationText" xml:space="preserve">
+    <value>Seleccione si desea registrar &apos;Actividad de descarga de archivo&apos; en el contacto.</value>
+  </data>
+  <data name="TrainingGuides.CallToActionWidget.Identifier.Label" xml:space="preserve">
+    <value>Identificador de datos único de CTA</value>
+  </data>
+  <data name="TrainingGuides.CallToActionWidget.Identifier.ExplanationText" xml:space="preserve">
+    <value>Use este campo para establecer un identificador de esta instancia del widget. Por ejemplo, puede ser útil para registrar actividades personalizadas o distinguir variantes de personalización.</value>
+  </data>
+  <data name="TrainingGuides.CallToActionWidget.OpenInNewTab.Label" xml:space="preserve">
+    <value>Abrir en nueva pestaña</value>
+  </data>
+  <data name="TrainingGuides.CallToActionWidget.Type.Options.Page" xml:space="preserve">
+    <value>Página</value>
+  </data>
+  <data name="TrainingGuides.CallToActionWidget.Type.Options.Content" xml:space="preserve">
+    <value>Activo del centro de contenido</value>
+  </data>
+  <data name="TrainingGuides.CallToActionWidget.Type.Options.Absolute" xml:space="preserve">
+    <value>URL absoluta</value>
+  </data>
+  <data name="TrainingGuides.CallToActionWidget.Name" xml:space="preserve">
+    <value>Llamado a la acción (CTA)</value>
+  </data>
+  <data name="TrainingGuides.CallToActionWidget.Description" xml:space="preserve">
+    <value>Muestra un botón de llamado a la acción. Como se ve en el sitio de demostración de KBank.</value>
+  </data>
 </root>

@@ -20,6 +20,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <!-- English (US) translations -->
+    <EmbeddedResource Update="Localization\Resources\en-US\custom\LocalizationCustom.en-US.resx">
+      <LogicalName>TrainingGuides.Admin.Localization.Resources.LocalizationCustom.en-US.resources</LogicalName>
+    </EmbeddedResource>
+
     <!-- Spanish (Mexico) translations -->
     <EmbeddedResource Update="Localization\Resources\es-MX\system\LocalizationBuilder.es-MX.resx">
       <LogicalName>TrainingGuides.Admin.Localization.Resources.LocalizationBuilder.es-MX.resources</LogicalName>
