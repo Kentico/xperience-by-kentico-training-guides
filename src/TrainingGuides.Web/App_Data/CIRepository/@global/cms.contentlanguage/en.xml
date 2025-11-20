@@ -3,6 +3,6 @@
   <ContentLanguageCultureFormat>en-US</ContentLanguageCultureFormat>
   <ContentLanguageDisplayName>English</ContentLanguageDisplayName>
   <ContentLanguageGUID>e81b5172-f240-4041-88b1-653089984e29</ContentLanguageGUID>
-  <ContentLanguageIsDefault>True</ContentLanguageIsDefault>
+  <ContentLanguageIsDefault>False</ContentLanguageIsDefault>
   <ContentLanguageName>en</ContentLanguageName>
 </cms.contentlanguage>

@@ -15,6 +15,7 @@ using TrainingGuides.ProjectSettings;
     order: 0)]
 
 namespace TrainingGuides.Admin.ProjectSettings.GlobalSettings;
+
 public class GlobalSettingsListingPage : ListingPage
 {
     private readonly IStringLocalizer<SharedResources> stringLocalizer;

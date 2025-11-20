@@ -19,4 +19,34 @@
     <ProjectReference Include="..\TrainingGuides.Entities\TrainingGuides.Entities.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <!-- Spanish (Mexico) translations -->
+    <EmbeddedResource Update="Localization\Resources\es-MX\system\LocalizationBuilder.es-MX.resx">
+      <LogicalName>TrainingGuides.Admin.Localization.Resources.LocalizationBuilder.es-MX.resources</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Localization\Resources\es-MX\system\LocalizationClient.es-MX.resx">
+      <LogicalName>TrainingGuides.Admin.Localization.Resources.LocalizationClient.es-MX.resources</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Localization\Resources\es-MX\system\LocalizationServer.es-MX.resx">
+      <LogicalName>TrainingGuides.Admin.Localization.Resources.LocalizationServer.es-MX.resources</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Localization\Resources\es-MX\custom\LocalizationCustom.es-MX.resx">
+      <LogicalName>TrainingGuides.Admin.Localization.Resources.LocalizationCustom.es-MX.resources</LogicalName>
+    </EmbeddedResource>
+
+    <!-- French translations -->
+    <EmbeddedResource Update="Localization\Resources\fr-FR\system\LocalizationBuilder.fr-FR.resx">
+      <LogicalName>TrainingGuides.Admin.Localization.Resources.LocalizationBuilder.fr-FR.resources</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Localization\Resources\fr-FR\system\LocalizationClient.fr-FR.resx">
+      <LogicalName>TrainingGuides.Admin.Localization.Resources.LocalizationClient.fr-FR.resources</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Localization\Resources\fr-FR\system\LocalizationServer.fr-FR.resx">
+      <LogicalName>TrainingGuides.Admin.Localization.Resources.LocalizationServer.fr-FR.resources</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Localization\Resources\fr-FR\custom\LocalizationCustom.fr-FR.resx">
+      <LogicalName>TrainingGuides.Admin.Localization.Resources.LocalizationCustom.fr-FR.resources</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+
 </Project>

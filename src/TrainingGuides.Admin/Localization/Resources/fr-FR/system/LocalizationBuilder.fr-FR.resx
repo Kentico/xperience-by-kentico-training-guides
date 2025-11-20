@@ -1,0 +1,1592 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root"
+      xmlns=""
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+      xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="kentico.builder.customelements.duplicateregistration" xml:space="preserve">
+        <value>L'élément personnalisé '{0}' a déjà été enregistré.</value>
+    </data>
+  <data name="kentico.builder.errors.generalerror" xml:space="preserve">
+        <value>Une erreur s'est produite. Si le problème persiste, contactez votre administrateur système.</value>
+    </data>
+  <data name="kentico.builder.changesection.invalidsectionstate" xml:space="preserve">
+        <value>Le constructeur est entré dans un état invalide lors du changement de sections. Rechargez le constructeur.</value>
+    </data>
+  <data name="kentico.builder.inlineeditors.duplicateregistration" xml:space="preserve">
+        <value>L'éditeur en ligne '{0}' a déjà été enregistré.</value>
+    </data>
+  <data name="kentico.builder.inlineeditors.initinvalidname" xml:space="preserve">
+        <value>Identifiant d'éditeur de propriété de type chaîne attendu lors de l'enregistrement d'un éditeur en ligne.</value>
+    </data>
+  <data name="kentico.builder.inlineeditors.initmissing" xml:space="preserve">
+        <value>L'éditeur en ligne '{0}' ne dispose pas de fonction init.</value>
+    </data>
+  <data name="kentico.builder.inlineeditors.initwrongtype" xml:space="preserve">
+        <value>Argument de fonction attendu lors de l'enregistrement d'un éditeur en ligne '{0}'</value>
+    </data>
+  <data name="kentico.builder.inlineeditors.missingpropertyname" xml:space="preserve">
+        <value>L'éditeur en ligne '{0}' ne dispose pas d'un attribut de données de nom de propriété ou sa valeur est vide.</value>
+    </data>
+  <data name="kentico.builder.inlineeditors.notregistered" xml:space="preserve">
+        <value>L'enregistrement de l'éditeur en ligne '{0}' a échoué.</value>
+    </data>
+  <data name="kentico.builder.inlineeditors.wrongtype" xml:space="preserve">
+        <value>Les gestionnaires de l'éditeur en ligne '{0}' ne sont pas de type objet.</value>
+    </data>
+  <data name="kentico.builder.messaging.forbiddenorigin" xml:space="preserve">
+        <value>Message reçu d'une origine interdite : {0}.</value>
+    </data>
+  <data name="kentico.builder.modaldialog.buttons.apply" xml:space="preserve">
+        <value>Appliquer</value>
+    </data>
+  <data name="kentico.builder.modaldialog.buttons.cancel" xml:space="preserve">
+        <value>Annuler</value>
+    </data>
+  <data name="kentico.builder.modalDialog.close.confirmation" xml:space="preserve">
+        <value>Êtes-vous sûr de vouloir fermer la boîte de dialogue ?
+
+Vous avez des modifications non sauvegardées.
+
+Sélectionnez OK pour continuer ou Annuler pour rester sur la page actuelle.</value>
+    </data>
+  <data name="kentico.builder.modaldialogs.loading" xml:space="preserve">
+        <value>Chargement</value>
+    </data>
+  <data name="kentico.builder.section.error" xml:space="preserve">
+        <value>Une erreur inattendue s'est produite. Consultez les développeurs de vos composants Email Builder ou consultez le journal des événements pour plus de détails.</value>
+    </data>
+  <data name="kentico.builder.section.propertiesButtonTooltip" xml:space="preserve">
+        <value>Configurer la section</value>
+    </data>
+  <data name="kentico.builder.template.error" xml:space="preserve">
+        <value>Une erreur inattendue s'est produite. Consultez les développeurs de votre modèle d'e-mail ou consultez le journal des événements pour plus de détails.</value>
+    </data>
+  <data name="kentico.builder.typelist.closeTooltip" xml:space="preserve">
+        <value>Fermer</value>
+    </data>
+  <data name="kentico.builder.widget.error" xml:space="preserve">
+        <value>Une erreur inattendue s'est produite. Consultez les développeurs de vos composants Email Builder ou consultez le journal des événements pour plus de détails.</value>
+    </data>
+  <data name="kentico.builder.widgetproperties.apply" xml:space="preserve">
+        <value>Appliquer</value>
+    </data>
+  <data name="kentico.builder.widgetproperties.applytooltip" xml:space="preserve">
+        <value>Appliquer les propriétés</value>
+    </data>
+  <data name="kentico.builder.widgetproperties.cancel" xml:space="preserve">
+        <value>Annuler</value>
+    </data>
+  <data name="kentico.builder.widgetproperties.header" xml:space="preserve">
+        <value>Propriétés de {0}</value>
+    </data>
+  <data name="kentico.components.contentselector.dialog.button.apply" xml:space="preserve">
+        <value>Appliquer</value>
+    </data>
+  <data name="kentico.components.contentselector.dialogtitle" xml:space="preserve">
+        <value>Sélectionner le contenu</value>
+    </data>
+  <data name="kentico.components.contentselector.mediatabtitle" xml:space="preserve">
+        <value>Média</value>
+    </data>
+  <data name="kentico.components.contentselector.pagestabtitle" xml:space="preserve">
+        <value>Pages</value>
+    </data>
+  <data name="kentico.components.formcomponent.richtext.applyandclosebutton" xml:space="preserve">
+        <value>Appliquer et fermer</value>
+    </data>
+  <data name="kentico.components.formcomponent.richtext.applybutton" xml:space="preserve">
+        <value>Appliquer</value>
+    </data>
+  <data name="kentico.components.formcomponent.richtext.editbutton" xml:space="preserve">
+        <value>Modifier</value>
+    </data>
+  <data name="kentico.components.formcomponent.richtext.emptyfieldtext" xml:space="preserve">
+        <value>Le champ est vide.</value>
+    </data>
+  <data name="kentico.components.formcomponent.richtext.name" xml:space="preserve">
+        <value>Texte enrichi</value>
+    </data>
+  <data name="kentico.components.formcomponent.richtext.previewinfotext" xml:space="preserve">
+        <value>Ceci est un aperçu de votre texte.</value>
+    </data>
+  <data name="kentico.components.mediafileselector.cannotloaddata" xml:space="preserve">
+        <value>Les fichiers multimédias n'ont pas pu être chargés. Contactez votre administrateur système.</value>
+    </data>
+  <data name="kentico.components.mediafileselector.clear" xml:space="preserve">
+        <value>effacer la sélection</value>
+    </data>
+  <data name="kentico.components.mediafileselector.clearall" xml:space="preserve">
+        <value>Tout effacer</value>
+    </data>
+  <data name="kentico.components.mediafileselector.collapse" xml:space="preserve">
+        <value>Réduire</value>
+    </data>
+  <data name="kentico.components.mediafileselector.dialog.button.apply" xml:space="preserve">
+        <value>Sélectionner</value>
+    </data>
+  <data name="kentico.components.mediafileselector.dialogtitle.multiple" xml:space="preserve">
+        <value>Sélectionner les fichiers multimédias</value>
+    </data>
+  <data name="kentico.components.mediafileselector.dialogtitle.single" xml:space="preserve">
+        <value>Sélectionner le fichier multimédia</value>
+    </data>
+  <data name="kentico.components.mediafileselector.empty" xml:space="preserve">
+        <value>Aucun élément sélectionné.</value>
+    </data>
+  <data name="kentico.components.mediafileselector.emptyfolder" xml:space="preserve">
+        <value>Ce dossier est vide</value>
+    </data>
+  <data name="kentico.components.mediafileselector.expand" xml:space="preserve">
+        <value>Développer</value>
+    </data>
+  <data name="kentico.components.mediafileselector.fileerror" xml:space="preserve">
+        <value>Erreur de fichier</value>
+    </data>
+  <data name="kentico.components.mediafileselector.fileerror.title" xml:space="preserve">
+        <value>Le type du fichier multimédia sélectionné n'est pas autorisé ou vous n'avez pas les autorisations pour voir le fichier.</value>
+    </data>
+  <data name="kentico.components.mediafileselector.filter.button" xml:space="preserve">
+        <value>Rechercher</value>
+    </data>
+  <data name="kentico.components.mediafileselector.filter.noFiles" xml:space="preserve">
+        <value>Aucun fichier ne correspond à votre recherche.</value>
+    </data>
+  <data name="kentico.components.mediafileselector.filter.placeholder" xml:space="preserve">
+        <value>Rechercher par nom de fichier, titre ou description</value>
+    </data>
+  <data name="kentico.components.mediafileselector.changeFile" xml:space="preserve">
+        <value>Changer de fichier</value>
+    </data>
+  <data name="kentico.components.mediafileselector.invalidvalue" xml:space="preserve">
+        <value>Le(s) fichier(s) sélectionné(s) ne sont pas valides.</value>
+    </data>
+  <data name="kentico.components.mediafileselector.libraryname" xml:space="preserve">
+        <value>Bibliothèque :</value>
+    </data>
+  <data name="kentico.components.mediafileselector.librarynotfound" xml:space="preserve">
+        <value>La bibliothèque multimédia n'a pas été trouvée.</value>
+    </data>
+  <data name="kentico.components.mediafileselector.maxFilesLimitExceeded" xml:space="preserve">
+        <value>Le nombre de fichiers sélectionnés dépasse la limite maximale autorisée.</value>
+    </data>
+  <data name="kentico.components.mediafileselector.missingfile" xml:space="preserve">
+        <value>Fichier manquant</value>
+    </data>
+  <data name="kentico.components.mediafileselector.missingfile.title" xml:space="preserve">
+        <value>Le fichier multimédia sélectionné a été supprimé.</value>
+    </data>
+  <data name="kentico.components.mediafileselector.name" xml:space="preserve">
+        <value>Sélecteur de fichier multimédia</value>
+    </data>
+  <data name="kentico.components.mediafileselector.notauthorized" xml:space="preserve">
+        <value>Vous n'êtes pas autorisé à voir le contenu de la bibliothèque multimédia.</value>
+    </data>
+  <data name="kentico.components.mediafileselector.or" xml:space="preserve">
+        <value>ou</value>
+    </data>
+  <data name="kentico.components.mediafileselector.removeFile" xml:space="preserve">
+        <value>Supprimer le fichier</value>
+    </data>
+  <data name="kentico.components.mediafileselector.select" xml:space="preserve">
+        <value>Sélectionner</value>
+    </data>
+  <data name="kentico.components.mediafileselector.selectdifferent" xml:space="preserve">
+        <value>Sélectionner un fichier différent</value>
+    </data>
+  <data name="kentico.components.mediafileselector.showAll" xml:space="preserve">
+        <value>Tout afficher</value>
+    </data>
+  <data name="kentico.components.mediafileuploader.droptext" xml:space="preserve">
+        <value>Déposez le fichier ici ou cliquez pour parcourir</value>
+    </data>
+  <data name="kentico.components.mediafileuploader.forbiddenextension" xml:space="preserve">
+        <value>Le type du fichier '{0}' n'est pas autorisé.</value>
+    </data>
+  <data name="kentico.components.mediafileuploader.timeout" xml:space="preserve">
+        <value>Le téléchargement du fichier '{0}' a expiré.</value>
+    </data>
+  <data name="kentico.components.mediafileuploader.uploaderror" xml:space="preserve">
+        <value>Une erreur s'est produite lors du téléchargement du fichier '{0}'. Contactez votre administrateur système.</value>
+    </data>
+  <data name="kentico.components.mediafileuploader.uploadsuccess" xml:space="preserve">
+        <value>Tous les fichiers ont été téléchargés avec succès.</value>
+    </data>
+  <data name="kentico.components.messagesPlaceholder.close" xml:space="preserve">
+        <value>Fermer</value>
+    </data>
+  <data name="kentico.components.messagesPlaceholder.error" xml:space="preserve">
+        <value>Erreur</value>
+    </data>
+  <data name="kentico.components.messagesPlaceholder.success" xml:space="preserve">
+        <value>Succès</value>
+    </data>
+  <data name="kentico.components.objectselector.clear" xml:space="preserve">
+        <value>Effacer</value>
+    </data>
+  <data name="kentico.components.objectselector.loadingmore" xml:space="preserve">
+        <value>Chargement d'autres éléments...</value>
+    </data>
+  <data name="kentico.components.objectselector.name" xml:space="preserve">
+        <value>Sélecteur d'objet</value>
+    </data>
+  <data name="kentico.components.objectselector.noitemselected" xml:space="preserve">
+        <value>(Aucun élément sélectionné)</value>
+    </data>
+  <data name="kentico.components.objectselector.noresults" xml:space="preserve">
+        <value>Aucune donnée trouvée</value>
+    </data>
+  <data name="kentico.components.objectselector.searching" xml:space="preserve">
+        <value>Recherche en cours…</value>
+    </data>
+  <data name="kentico.components.objectselector.searchplaceholder" xml:space="preserve">
+        <value>Tapez ici pour rechercher</value>
+    </data>
+  <data name="kentico.components.objectselector.showall" xml:space="preserve">
+        <value>Tout afficher</value>
+    </data>
+  <data name="kentico.components.objectselector.toomanyselected" xml:space="preserve">
+        <value>Trop d'éléments sont sélectionnés</value>
+    </data>
+  <data name="kentico.components.pageselector.button.clear" xml:space="preserve">
+        <value>Effacer</value>
+    </data>
+  <data name="kentico.components.pageselector.button.clearall" xml:space="preserve">
+        <value>Tout effacer</value>
+    </data>
+  <data name="kentico.components.pageselector.button.select" xml:space="preserve">
+        <value>Sélectionner</value>
+    </data>
+  <data name="kentico.components.pageselector.dialog.button.apply" xml:space="preserve">
+        <value>Sélectionner</value>
+    </data>
+  <data name="kentico.components.pageselector.dialogtitle.multiple" xml:space="preserve">
+        <value>Sélectionner les pages</value>
+    </data>
+  <data name="kentico.components.pageselector.dialogtitle.single" xml:space="preserve">
+        <value>Sélectionner la page</value>
+    </data>
+  <data name="kentico.components.pageselector.invalidroot" xml:space="preserve">
+        <value>La page racine préconfigurée '{0}' n'a pas été trouvée.</value>
+    </data>
+  <data name="kentico.components.pageselector.invalidvalue" xml:space="preserve">
+        <value>Page invalide</value>
+    </data>
+  <data name="kentico.components.pageselector.invalidvalue.explanationtext" xml:space="preserve">
+        <value>La page sélectionnée a été supprimée ou vous n'avez pas les autorisations pour la sélectionner.</value>
+    </data>
+  <data name="kentico.components.pageselector.invalidvalue.validationtext" xml:space="preserve">
+        <value>La page sélectionnée a été supprimée ou vous n'avez pas les autorisations pour la sélectionner. Sélectionnez une page différente.</value>
+    </data>
+  <data name="kentico.components.pageselector.maxPagesLimitExceeded" xml:space="preserve">
+        <value>Le nombre de pages sélectionnées dépasse la limite maximale autorisée.</value>
+    </data>
+  <data name="kentico.components.pageselector.missingpage" xml:space="preserve">
+        <value>Page manquante</value>
+    </data>
+  <data name="kentico.components.pageselector.name" xml:space="preserve">
+        <value>Sélecteur de page</value>
+    </data>
+  <data name="kentico.components.pageselector.nopageselected" xml:space="preserve">
+        <value>Aucune page sélectionnée</value>
+    </data>
+  <data name="kentico.components.pageselector.notauthorized" xml:space="preserve">
+        <value>Vous n'êtes pas autorisé à voir les pages enfants de la page '{0}'.</value>
+    </data>
+  <data name="kentico.components.pageselector.removepage" xml:space="preserve">
+        <value>Supprimer la page</value>
+    </data>
+  <data name="kentico.components.pageselector.replacePage" xml:space="preserve">
+        <value>Remplacer la page</value>
+    </data>
+  <data name="kentico.components.pageselector.selecteditemscount.limited" xml:space="preserve">
+        <value>{0} sur {1} pages sélectionnées</value>
+    </data>
+  <data name="kentico.components.pageselector.selecteditemscount.notlimited" xml:space="preserve">
+        <value>{0} pages sélectionnées</value>
+    </data>
+  <data name="kentico.components.pageselector.showAll" xml:space="preserve">
+        <value>Tout afficher</value>
+    </data>
+  <data name="kentico.components.pathselector.name" xml:space="preserve">
+        <value>Sélecteur de chemin</value>
+    </data>
+  <data name="kentico.components.selector.selectall.allowed" xml:space="preserve">
+        <value>Sélectionner toutes les pages à ce niveau</value>
+    </data>
+  <data name="kentico.components.selector.selectall.notallowed" xml:space="preserve">
+        <value>Impossible de sélectionner des éléments au-dessus de la limite maximale : {0}.</value>
+    </data>
+  <data name="kentico.components.selector.selecteditemscount.limited" xml:space="preserve">
+        <value>{0} sur {1} fichiers sélectionnés</value>
+    </data>
+  <data name="kentico.components.selector.selecteditemscount.notlimited" xml:space="preserve">
+        <value>{0} fichiers sélectionnés</value>
+    </data>
+  <data name="kentico.components.urlselector.button.select" xml:space="preserve">
+        <value>Sélectionner</value>
+    </data>
+  <data name="kentico.components.urlselector.name" xml:space="preserve">
+        <value>Sélecteur d'URL</value>
+    </data>
+  <data name="kentico.components.widget.richtext.description" xml:space="preserve">
+        <value>Widget de texte enrichi</value>
+    </data>
+  <data name="kentico.components.widget.richtext.linkplugin.asset" xml:space="preserve">
+        <value>Ressource</value>
+    </data>
+  <data name="kentico.components.widget.richtext.linkplugin.command.insertlink" xml:space="preserve">
+        <value>Insérer un lien</value>
+    </data>
+  <data name="kentico.components.widget.richtext.linkplugin.command.openlink" xml:space="preserve">
+        <value>Ouvrir le lien</value>
+    </data>
+  <data name="kentico.components.widget.richtext.linkplugin.external" xml:space="preserve">
+        <value>URL Web</value>
+    </data>
+  <data name="kentico.components.widget.richtext.linkplugin.page" xml:space="preserve">
+        <value>Page</value>
+    </data>
+  <data name="kentico.components.widget.richtext.macroplugin.actionbutton.insert" xml:space="preserve">
+        <value>Insérer</value>
+    </data>
+  <data name="kentico.components.widget.richtext.macroplugin.actionbutton.save" xml:space="preserve">
+        <value>Enregistrer</value>
+    </data>
+  <data name="kentico.components.widget.richtext.macroplugin.command.configuremacro" xml:space="preserve">
+        <value>Configurer</value>
+    </data>
+  <data name="kentico.components.widget.richtext.macroplugin.command.contactattribute" xml:space="preserve">
+        <value>Attribut de contact</value>
+    </data>
+  <data name="kentico.components.widget.richtext.macroplugin.command.insertdynamictext" xml:space="preserve">
+        <value>Insérer du texte dynamique</value>
+    </data>
+  <data name="kentico.components.widget.richtext.macroplugin.command.popupback" xml:space="preserve">
+        <value>Retour</value>
+    </data>
+  <data name="kentico.components.widget.richtext.macroplugin.command.removemacro" xml:space="preserve">
+        <value>Supprimer</value>
+    </data>
+  <data name="kentico.components.widget.richtext.macroplugin.command.urlparameter" xml:space="preserve">
+        <value>Paramètre d'URL</value>
+    </data>
+  <data name="kentico.components.widget.richtext.macroplugin.label.contactattribute" xml:space="preserve">
+        <value>Attribut de contact</value>
+    </data>
+  <data name="kentico.components.widget.richtext.macroplugin.label.defaulttext" xml:space="preserve">
+        <value>Texte par défaut</value>
+    </data>
+  <data name="kentico.components.widget.richtext.macroplugin.label.urlparameter" xml:space="preserve">
+        <value>Paramètre d'URL</value>
+    </data>
+  <data name="kentico.components.widget.richtext.macroplugin.macroelement.urlparameterprefix" xml:space="preserve">
+        <value>param</value>
+    </data>
+  <data name="kentico.components.widget.richtext.macroplugin.pattern.contactdescriptivename" xml:space="preserve">
+        <value>Nom complet</value>
+    </data>
+  <data name="kentico.components.widget.richtext.macroplugin.pattern.contactfirstname" xml:space="preserve">
+        <value>Prénom</value>
+    </data>
+  <data name="kentico.components.widget.richtext.macroplugin.pattern.contactlastname" xml:space="preserve">
+        <value>Nom de famille</value>
+    </data>
+  <data name="kentico.components.widget.richtext.name" xml:space="preserve">
+        <value>Texte enrichi</value>
+    </data>
+  <data name="kentico.emailbuilder.areas.bannedsectionmessage" xml:space="preserve">
+        <value>Cette section ou certains de ses widgets ne sont pas autorisés ici.</value>
+    </data>
+  <data name="kentico.emailbuilder.areas.bannedwidgetmessage" xml:space="preserve">
+        <value>Ce widget n'est pas autorisé ici.</value>
+    </data>
+  <data name="kentico.emailbuilder.areas.excessAreas" xml:space="preserve">
+        <value>Les zones avec les identifiants suivants sont manquantes dans le balisage de l'e-mail : {0}. Enregistrer l'e-mail entraînera une perte de données.</value>
+    </data>
+  <data name="kentico.emailbuilder.clipboard.deletebuttontooltip" xml:space="preserve">
+        <value>Supprimer du presse-papiers</value>
+    </data>
+  <data name="kentico.emailbuilder.clipboard.section.removesucessmessage" xml:space="preserve">
+        <value>La section '{0}' a été supprimée du presse-papiers.</value>
+    </data>
+  <data name="kentico.emailbuilder.clipboard.sections.copybutton.tooltip" xml:space="preserve">
+        <value>Copier la section</value>
+    </data>
+  <data name="kentico.emailbuilder.clipboard.sections.copysuccessmessage" xml:space="preserve">
+        <value>La section '{0}' a été copiée dans le presse-papiers.</value>
+    </data>
+  <data name="kentico.emailbuilder.clipboard.widgets.copybutton.tooltip" xml:space="preserve">
+        <value>Copier le widget</value>
+    </data>
+  <data name="kentico.emailbuilder.clipboard.widgets.copysuccessmessage" xml:space="preserve">
+        <value>Le widget '{0}' a été copié dans le presse-papiers.</value>
+    </data>
+  <data name="kentico.emailbuilder.clipboard.widgets.removesucessmessage" xml:space="preserve">
+        <value>Le widget '{0}' a été supprimé du presse-papiers.</value>
+    </data>
+  <data name="kentico.emailbuilder.clipboard.widgets.tooltipwithvariants" xml:space="preserve">
+        <value>{0} (Inclut les variantes de personnalisation)</value>
+    </data>
+  <data name="kentico.emailbuilder.conditiontype.isincontactgroup.description" xml:space="preserve">
+        <value>Afficher aux visiteurs qui correspondent à au moins un des groupes de contacts sélectionnés.</value>
+    </data>
+  <data name="kentico.emailbuilder.conditiontype.isincontactgroup.name" xml:space="preserve">
+        <value>Est dans le groupe de contacts</value>
+    </data>
+  <data name="kentico.emailbuilder.conditiontype.isincontactgroup.property.contactgroups.label" xml:space="preserve">
+        <value>Groupes de contacts</value>
+    </data>
+  <data name="kentico.emailbuilder.defaultsection.description" xml:space="preserve">
+        <value>Section intégrée d'Email Builder.</value>
+    </data>
+  <data name="kentico.emailbuilder.defaultsection.name" xml:space="preserve">
+        <value>Par défaut</value>
+    </data>
+  <data name="kentico.emailbuilder.notinitialized" xml:space="preserve">
+        <value>Email Builder est initialisé avec un identifiant d'e-mail manquant.</value>
+    </data>
+  <data name="kentico.emailbuilder.propertiesdialog.disabled.message" xml:space="preserve">
+        <value>Vous visualisez l'e-mail en mode lecture seule. Pour modifier les propriétés, créez une nouvelle version de l'e-mail.</value>
+    </data>
+  <data name="kentico.emailbuilder.section.addTooltip" xml:space="preserve">
+        <value>Ajouter une section</value>
+    </data>
+  <data name="kentico.emailbuilder.section.copiedsections.popup.header" xml:space="preserve">
+        <value>Sections copiées</value>
+    </data>
+  <data name="kentico.emailbuilder.section.deleteTooltip" xml:space="preserve">
+        <value>Supprimer la section</value>
+    </data>
+  <data name="kentico.emailbuilder.section.dragTooltip" xml:space="preserve">
+        <value>Déplacer la section</value>
+    </data>
+  <data name="kentico.emailbuilder.section.headerTitle" xml:space="preserve">
+        <value>Sections</value>
+    </data>
+  <data name="kentico.emailbuilder.section.change.restrictedwidgets" xml:space="preserve">
+        <value>Suite à un changement récent de type de section, certains widgets n'ont pas pu être insérés en raison des restrictions de zone de widget de la nouvelle section. Ces widgets sont temporairement disponibles dans la boîte de dialogue d'insertion de widget et vous pouvez les ajouter à nouveau dans des zones valides.</value>
+    </data>
+  <data name="kentico.emailbuilder.section.missingmetadata" xml:space="preserve">
+        <value>Les sections avec les identifiants suivants ne sont pas enregistrées dans le système : {0}. Enregistrer l'e-mail entraînera une perte de données.</value>
+    </data>
+  <data name="kentico.emailbuilder.section.missingNonemptyZone" xml:space="preserve">
+        <value>Certains widgets ne peuvent pas être affichés, car les sections avec les identifiants suivants ne contiennent pas assez de zones de widgets : {0}. Enregistrer l'e-mail entraînera une perte de données de widget.</value>
+    </data>
+  <data name="kentico.emailbuilder.section.remove.confirmation" xml:space="preserve">
+        <value>Êtes-vous sûr de vouloir supprimer la section ?</value>
+    </data>
+  <data name="kentico.emailbuilder.section.sections.popup.header" xml:space="preserve">
+        <value>Sections</value>
+    </data>
+  <data name="kentico.emailbuilder.section.typelist.title" xml:space="preserve">
+        <value>Changer le type de section</value>
+    </data>
+  <data name="kentico.emailbuilder.section.withoutZones" xml:space="preserve">
+        <value>Les sections avec les identifiants de section suivants ne contiennent aucune zone de widget : {0}. Les sections sans zones de widget ne sont pas prises en charge.</value>
+    </data>
+  <data name="kentico.emailbuilder.sectionlist.copiedsection.notallowed" xml:space="preserve">
+        <value>La section ne peut pas être collée dans cette zone.</value>
+    </data>
+  <data name="kentico.emailbuilder.sectionlist.copiedsection.tooltipwithvariants" xml:space="preserve">
+        <value>{0} (Inclut certains widgets avec des variantes de personnalisation)</value>
+    </data>
+  <data name="kentico.emailbuilder.template.change" xml:space="preserve">
+        <value>Changer le modèle</value>
+    </data>
+  <data name="kentico.emailbuilder.template.change.confirmation" xml:space="preserve">
+        <value>Êtes-vous sûr de vouloir changer le modèle d'e-mail ?
+
+Tout le contenu de l'e-mail, c'est-à-dire les widgets et sections avec leurs données et propriétés, sera perdu.
+
+Appuyez sur OK pour continuer ou Annuler pour conserver ce modèle.</value>
+    </data>
+  <data name="kentico.emailbuilder.template.changebuttontooltip" xml:space="preserve">
+        <value>Changer le modèle</value>
+    </data>
+  <data name="kentico.emailbuilder.template.changeInfoMessage" xml:space="preserve">
+        <value>Vous pouvez maintenant sélectionner un nouveau modèle pour votre e-mail. Notez que changer le modèle peut entraîner une perte de vos données de widget.&lt;br&gt;
+                    &lt;a href="{0}" target="_blank"&gt;En savoir plus sur les modèles d'e-mail dans notre documentation&lt;/a&gt;</value>
+    </data>
+  <data name="kentico.emailbuilder.template.propertiesbuttontooltip" xml:space="preserve">
+        <value>Configurer le modèle</value>
+    </data>
+  <data name="kentico.emailbuilder.variant.add" xml:space="preserve">
+        <value>Ajouter une variante</value>
+    </data>
+  <data name="kentico.emailbuilder.variant.addTooltip" xml:space="preserve">
+        <value>Ajouter une nouvelle variante de personnalisation</value>
+    </data>
+  <data name="kentico.emailbuilder.variant.apply" xml:space="preserve">
+        <value>Appliquer</value>
+    </data>
+  <data name="kentico.emailbuilder.variant.applyTooltip" xml:space="preserve">
+        <value>Appliquer les modifications de variante</value>
+    </data>
+  <data name="kentico.emailbuilder.variant.back" xml:space="preserve">
+        <value>Retour</value>
+    </data>
+  <data name="kentico.emailbuilder.variant.delete" xml:space="preserve">
+        <value>Supprimer la variante</value>
+    </data>
+  <data name="kentico.emailbuilder.variant.delete.confirmation" xml:space="preserve">
+        <value>Êtes-vous sûr de vouloir supprimer la variante ?</value>
+    </data>
+  <data name="kentico.emailbuilder.variant.drag.tooltip" xml:space="preserve">
+        <value>Changer la priorité</value>
+    </data>
+  <data name="kentico.emailbuilder.variant.edit" xml:space="preserve">
+        <value>Modifier la variante</value>
+    </data>
+  <data name="kentico.emailbuilder.variant.name" xml:space="preserve">
+        <value>Nom de la variante</value>
+    </data>
+  <data name="kentico.emailbuilder.variant.original" xml:space="preserve">
+        <value>Original</value>
+    </data>
+  <data name="kentico.emailbuilder.widget.addTooltip" xml:space="preserve">
+        <value>Ajouter un widget</value>
+    </data>
+  <data name="kentico.emailbuilder.widget.conditiontypepopup.conditiontypeheader" xml:space="preserve">
+        <value>Personnaliser le contenu en fonction de :</value>
+    </data>
+  <data name="kentico.emailbuilder.widget.conditiontypepopup.header" xml:space="preserve">
+        <value>Types de condition</value>
+    </data>
+  <data name="kentico.emailbuilder.widget.conditiontypepopup.variantheader" xml:space="preserve">
+        <value>Afficher une des variantes :</value>
+    </data>
+  <data name="kentico.emailbuilder.widget.copiedwidgets.popup.header" xml:space="preserve">
+        <value>Widgets copiés</value>
+    </data>
+  <data name="kentico.emailbuilder.widget.deleteTooltip" xml:space="preserve">
+        <value>Supprimer le widget</value>
+    </data>
+  <data name="kentico.emailbuilder.widget.dragTooltip" xml:space="preserve">
+        <value>Déplacer le widget</value>
+    </data>
+  <data name="kentico.emailbuilder.widget.headerTitle" xml:space="preserve">
+        <value>Widgets</value>
+    </data>
+  <data name="kentico.emailbuilder.widget.missingmetadata" xml:space="preserve">
+        <value>Les widgets avec les identifiants suivants ne sont pas enregistrés dans le système : {0}. Enregistrer l'e-mail entraînera une perte de données.</value>
+    </data>
+  <data name="kentico.emailbuilder.widget.personalizeTooltip" xml:space="preserve">
+        <value>Personnaliser</value>
+    </data>
+  <data name="kentico.emailbuilder.widget.propertiesButtonTooltip" xml:space="preserve">
+        <value>Configurer le widget</value>
+    </data>
+  <data name="kentico.emailbuilder.widget.remove.confirmation" xml:space="preserve">
+        <value>Êtes-vous sûr de vouloir supprimer le widget sélectionné ?</value>
+    </data>
+  <data name="kentico.emailbuilder.widget.restrictedwidgets.popup.header" xml:space="preserve">
+        <value>Widgets restreints</value>
+    </data>
+  <data name="kentico.emailbuilder.widget.variantlist.header" xml:space="preserve">
+        <value>Afficher la variante</value>
+    </data>
+  <data name="kentico.emailbuilder.widget.widgets.popup.header" xml:space="preserve">
+        <value>Widgets</value>
+    </data>
+  <data name="kentico.emailbuilder.widgetlist.copiedwidget.notallowed" xml:space="preserve">
+        <value>Le widget ne peut pas être collé dans cette zone.</value>
+    </data>
+  <data name="kentico.emailbuilder.widgetlist.copiedwidget.zoneareanotallowed" xml:space="preserve">
+        <value>Le widget ne peut pas être collé dans cette zone ni cette région.</value>
+    </data>
+  <data name="kentico.emailbuilder.widgetlist.copiedwidget.zonenotallowed" xml:space="preserve">
+        <value>Le widget ne peut pas être collé dans cette zone.</value>
+    </data>
+  <data name="kentico.emailbuilder.widgetlist.nowidgets" xml:space="preserve">
+        <value>Aucun widget trouvé.</value>
+    </data>
+  <data name="kentico.emailbuilder.widgetzone.namechanged" xml:space="preserve">
+        <value>Les développeurs ont changé le nom d'une ou plusieurs zones de widget sur cet e-mail. Cela peut faire que le mode d'édition actuel affiche le contenu différemment de l'e-mail sur le site en ligne. Assurez-vous que le contenu du widget est correct et enregistrez l'e-mail pour appliquer les modifications.</value>
+    </data>
+  <data name="kentico.formbuilder.boolfieldvaluetypes.isfalse" xml:space="preserve">
+        <value>Est faux</value>
+    </data>
+  <data name="kentico.formbuilder.boolfieldvaluetypes.istrue" xml:space="preserve">
+        <value>Est vrai</value>
+    </data>
+  <data name="kentico.formbuilder.component.comparetofieldselector.nofieldsavailable" xml:space="preserve">
+        <value>Aucun champ de formulaire compatible</value>
+    </data>
+  <data name="kentico.formbuilder.component.consentagreement.description" xml:space="preserve">
+        <value>Fournit un champ de case à cocher qui permet aux utilisateurs de donner leur accord avec un consentement pré-sélectionné. Affiche le texte court du consentement sélectionné à côté de la case à cocher.</value>
+    </data>
+  <data name="kentico.formbuilder.component.consentagreement.name" xml:space="preserve">
+        <value>Accord de consentement</value>
+    </data>
+  <data name="kentico.formbuilder.component.consentagreement.properties.consentnotavailable" xml:space="preserve">
+        <value>Aucun consentement n'a été sélectionné ou le consentement n'est plus disponible. Sélectionnez un consentement dans la boîte de dialogue de configuration du champ.</value>
+    </data>
+  <data name="kentico.formbuilder.component.consentagreement.properties.consenttext" xml:space="preserve">
+        <value>Consentement</value>
+    </data>
+  <data name="kentico.formbuilder.component.consentagreement.properties.noconsentchosen" xml:space="preserve">
+        <value>Aucun consentement n'a été sélectionné. Sélectionnez-en un dans la boîte de dialogue de configuration de ce champ.</value>
+    </data>
+  <data name="kentico.formbuilder.component.consentselector.description" xml:space="preserve">
+        <value>Fournit un sélecteur de liste déroulante de consentements (définis dans l'application Protection des données).</value>
+    </data>
+  <data name="kentico.formbuilder.component.consentselector.invalidconsentselected" xml:space="preserve">
+        <value>Sélectionnez un consentement existant.</value>
+    </data>
+  <data name="kentico.formbuilder.component.consentselector.name" xml:space="preserve">
+        <value>Sélecteur de consentement</value>
+    </data>
+  <data name="kentico.formbuilder.component.consentselector.optionlabel" xml:space="preserve">
+        <value>(sélectionner le consentement)</value>
+    </data>
+  <data name="kentico.formbuilder.component.doubleinput.description" xml:space="preserve">
+        <value>Fournit un champ de saisie de zone de texte pour entrer des nombres à virgule flottante.</value>
+    </data>
+  <data name="kentico.formbuilder.component.doubleinput.name" xml:space="preserve">
+        <value>Saisie de nombre décimal (virgule flottante)</value>
+    </data>
+  <data name="kentico.formbuilder.component.dropdown.description" xml:space="preserve">
+        <value>Fournit un sélecteur déroulant offrant plusieurs options. Une seule option peut être sélectionnée.</value>
+    </data>
+  <data name="kentico.formbuilder.component.dropdown.name" xml:space="preserve">
+        <value>Liste déroulante</value>
+    </data>
+  <data name="kentico.formbuilder.component.dropdown.properties.optionlabel" xml:space="preserve">
+        <value>Texte de la première option</value>
+    </data>
+  <data name="kentico.formbuilder.component.dropdown.properties.optionlabel.tooltip" xml:space="preserve">
+        <value>Ajoute un élément au début de la liste d'options, avec le texte saisi et une valeur vide. Par exemple : (sélectionner)</value>
+    </data>
+  <data name="kentico.formbuilder.component.emailinput.description" xml:space="preserve">
+        <value>Fournit un champ pour saisir une ou plusieurs adresses e-mail.</value>
+    </data>
+  <data name="kentico.formbuilder.component.emailinput.name" xml:space="preserve">
+        <value>E-mail</value>
+    </data>
+  <data name="kentico.formbuilder.component.emailinput.validationerror" xml:space="preserve">
+        <value>Entrez un e-mail au format 'monmail@domaine.com'.</value>
+    </data>
+  <data name="kentico.formbuilder.component.fileuploader.deletefile" xml:space="preserve">
+        <value>Supprimer le fichier</value>
+    </data>
+  <data name="kentico.formbuilder.component.fileuploader.description" xml:space="preserve">
+        <value>Fournit un champ pour télécharger des fichiers.</value>
+    </data>
+  <data name="kentico.formbuilder.component.fileuploader.exceededmaxfilesize.errormessage" xml:space="preserve">
+        <value>Le fichier sélectionné dépasse la taille de fichier maximale autorisée de {0} Mo.</value>
+    </data>
+  <data name="kentico.formbuilder.component.fileuploader.name" xml:space="preserve">
+        <value>Télécharger un fichier</value>
+    </data>
+  <data name="kentico.formbuilder.component.fileuploader.selectfile" xml:space="preserve">
+        <value>Sélectionner un fichier</value>
+    </data>
+  <data name="kentico.formbuilder.component.fileuploader.tempfiledeleted" xml:space="preserve">
+        <value>Le fichier a expiré. Sélectionnez-le à nouveau et renvoyez le formulaire.</value>
+    </data>
+  <data name="kentico.formbuilder.component.fileuploader.viewfile" xml:space="preserve">
+        <value>Voir '{0}' (dans un nouvel onglet).</value>
+    </data>
+  <data name="kentico.formbuilder.component.checkbox.description" xml:space="preserve">
+        <value>Fournit un champ de case à cocher qui enregistre une valeur booléenne (vrai pour une case cochée, faux pour une case décochée).</value>
+    </data>
+  <data name="kentico.formbuilder.component.checkbox.name" xml:space="preserve">
+        <value>Case à cocher unique</value>
+    </data>
+  <data name="kentico.formbuilder.component.checkbox.properties.text" xml:space="preserve">
+        <value>Texte</value>
+    </data>
+  <data name="kentico.formbuilder.component.intinput.description" xml:space="preserve">
+        <value>Fournit un champ de saisie de zone de texte pour entrer des nombres entiers.</value>
+    </data>
+  <data name="kentico.formbuilder.component.intinput.name" xml:space="preserve">
+        <value>Nombre</value>
+    </data>
+  <data name="kentico.formbuilder.component.invalidcomponent.name" xml:space="preserve">
+        <value>Champ invalide</value>
+    </data>
+  <data name="kentico.formbuilder.component.multiplechoice.description" xml:space="preserve">
+        <value>Fournit un sélecteur offrant des options sous forme de cases à cocher. Plusieurs options peuvent être sélectionnées en même temps.</value>
+    </data>
+  <data name="kentico.formbuilder.component.multiplechoice.name" xml:space="preserve">
+        <value>Cases à cocher</value>
+    </data>
+  <data name="kentico.formbuilder.component.name.description" xml:space="preserve">
+        <value>Saisie pour un nom de champ.</value>
+    </data>
+  <data name="kentico.formbuilder.component.name.invalidformat" xml:space="preserve">
+        <value>Le nom de champ '{0}' est invalide. Le nom de champ doit commencer par une lettre ou un caractère de soulignement ('_'). Il peut contenir des lettres, des chiffres et des caractères de soulignement.</value>
+    </data>
+  <data name="kentico.formbuilder.component.name.name" xml:space="preserve">
+        <value>Nom du champ</value>
+    </data>
+  <data name="kentico.formbuilder.component.name.notunique" xml:space="preserve">
+        <value>Le nom de champ '{0}' n'est pas unique dans le formulaire.</value>
+    </data>
+  <data name="kentico.formbuilder.component.name.toolong" xml:space="preserve">
+        <value>Le nom de champ est trop long. La longueur maximale est de {0} caractères.</value>
+    </data>
+  <data name="kentico.formbuilder.component.radiobuttons.description" xml:space="preserve">
+        <value>Fournit un sélecteur offrant plusieurs options sous forme de boutons radio. Une seule option peut être sélectionnée.</value>
+    </data>
+  <data name="kentico.formbuilder.component.radiobuttons.name" xml:space="preserve">
+        <value>Boutons radio</value>
+    </data>
+  <data name="kentico.formbuilder.component.recaptcha.description" xml:space="preserve">
+        <value>Fournit un service CAPTCHA robuste basé sur reCAPTCHA, qui exige de l'utilisateur qu'il coche une case indiquant qu'il n'est pas un robot. Cela fera soit passer l'utilisateur immédiatement (avec No CAPTCHA) soit le défier de valider s'il est humain ou non.</value>
+    </data>
+  <data name="kentico.formbuilder.component.recaptcha.name" xml:space="preserve">
+        <value>reCAPTCHA</value>
+    </data>
+  <data name="kentico.formbuilder.component.recaptcha.properties.badge" xml:space="preserve">
+        <value>Position du badge (reCAPTCHA v3)</value>
+    </data>
+  <data name="kentico.formbuilder.component.recaptcha.properties.badge.bottomleft" xml:space="preserve">
+        <value>En bas à gauche</value>
+    </data>
+  <data name="kentico.formbuilder.component.recaptcha.properties.badge.bottomright" xml:space="preserve">
+        <value>En bas à droite</value>
+    </data>
+  <data name="kentico.formbuilder.component.recaptcha.properties.badge.inline" xml:space="preserve">
+        <value>En ligne</value>
+    </data>
+  <data name="kentico.formbuilder.component.recaptcha.properties.label" xml:space="preserve">
+        <value>Étiquette (reCAPTCHA v2)</value>
+    </data>
+  <data name="kentico.formbuilder.component.recaptcha.properties.layout" xml:space="preserve">
+        <value>Taille (reCAPTCHA v2)</value>
+    </data>
+  <data name="kentico.formbuilder.component.recaptcha.properties.layout.compact" xml:space="preserve">
+        <value>Compact</value>
+    </data>
+  <data name="kentico.formbuilder.component.recaptcha.properties.layout.normal" xml:space="preserve">
+        <value>Normal</value>
+    </data>
+  <data name="kentico.formbuilder.component.recaptcha.properties.theme" xml:space="preserve">
+        <value>Thème</value>
+    </data>
+  <data name="kentico.formbuilder.component.recaptcha.properties.theme.dark" xml:space="preserve">
+        <value>Sombre</value>
+    </data>
+  <data name="kentico.formbuilder.component.recaptcha.properties.theme.light" xml:space="preserve">
+        <value>Clair</value>
+    </data>
+  <data name="kentico.formbuilder.component.recaptcha.properties.threshold" xml:space="preserve">
+        <value>Seuil de score</value>
+    </data>
+  <data name="kentico.formbuilder.component.recaptcha.properties.threshold.explanation" xml:space="preserve">
+        <value>Un nombre décimal entre 0 et 1</value>
+    </data>
+  <data name="kentico.formbuilder.component.recaptcha.properties.threshold.tooltip" xml:space="preserve">
+        <value>reCAPTCHA v3 renvoie un score entre 0,0 (très probablement un robot) et 1,0 (très probablement une bonne interaction). Définissez le seuil de score requis pour que la validation reCAPTCHA soit réussie. Laissez vide pour utiliser la valeur 'Seuil de score' configurée dans l'application Paramètres.</value>
+    </data>
+  <data name="kentico.formbuilder.component.recaptcha.properties.type" xml:space="preserve">
+        <value>Type (reCAPTCHA v2)</value>
+    </data>
+  <data name="kentico.formbuilder.component.recaptcha.properties.type.audio" xml:space="preserve">
+        <value>Audio</value>
+    </data>
+  <data name="kentico.formbuilder.component.recaptcha.properties.type.image" xml:space="preserve">
+        <value>Image</value>
+    </data>
+  <data name="kentico.formbuilder.component.recaptcha.properties.version" xml:space="preserve">
+        <value>Version</value>
+    </data>
+  <data name="kentico.formbuilder.component.recaptcha.properties.version.tooltip" xml:space="preserve">
+        <value>La version de reCAPTCHA utilisée est déterminée par le canal du site web où ce formulaire est affiché.</value>
+    </data>
+  <data name="kentico.formbuilder.component.recaptcha.properties.version.v2" xml:space="preserve">
+        <value>reCAPTCHA v2</value>
+    </data>
+  <data name="kentico.formbuilder.component.recaptcha.properties.version.v3" xml:space="preserve">
+        <value>reCAPTCHA v3</value>
+    </data>
+  <data name="kentico.formbuilder.component.selector.properties.datasourceseparator" xml:space="preserve">
+        <value>Séparateur de valeurs d'options</value>
+    </data>
+  <data name="kentico.formbuilder.component.selector.properties.datasourceseparator.tooltip" xml:space="preserve">
+        <value>La chaîne qui sépare la 'valeur' du 'texte' dans une entrée d'option.</value>
+    </data>
+  <data name="kentico.formbuilder.component.selector.properties.options" xml:space="preserve">
+        <value>Options</value>
+    </data>
+  <data name="kentico.formbuilder.component.selector.properties.options.tooltip" xml:space="preserve">
+        <value>Pour spécifier la liste d'options : 
+a) Tapez une valeur par ligne. Dans ce cas, la valeur enregistrée dans le champ est la même que le texte affiché de l'option. Par exemple :
+Option1
+Option2
+b) Tapez des paires valeur et texte au format 'valeur&lt;séparateur&gt;texte'. La valeur est enregistrée dans le champ et le texte est affiché dans la liste d'options. Par exemple, en utilisant le caractère ';' comme séparateur :
+usa;États-Unis
+cz;République tchèque</value>
+    </data>
+  <data name="kentico.formbuilder.component.selector.validation.selectedvaluenotpresent" xml:space="preserve">
+        <value>La valeur sélectionnée n'est pas présente dans la liste d'options.</value>
+    </data>
+  <data name="kentico.formbuilder.component.textarea.description" xml:space="preserve">
+        <value>Fournit un champ qui permet aux utilisateurs de saisir du texte dans une zone de taille ajustable.</value>
+    </data>
+  <data name="kentico.formbuilder.component.textarea.name" xml:space="preserve">
+        <value>Zone de texte</value>
+    </data>
+  <data name="kentico.formbuilder.component.textinput.description" xml:space="preserve">
+        <value>Fournit un champ de saisie de zone de texte.</value>
+    </data>
+  <data name="kentico.formbuilder.component.textinput.name" xml:space="preserve">
+        <value>Texte</value>
+    </data>
+  <data name="kentico.formbuilder.component.usphone.description" xml:space="preserve">
+        <value>Fournit un champ pour saisir un numéro de téléphone au format américain.</value>
+    </data>
+  <data name="kentico.formbuilder.component.usphone.name" xml:space="preserve">
+        <value>Numéro de téléphone américain</value>
+    </data>
+  <data name="kentico.formbuilder.component.usphone.validationerror" xml:space="preserve">
+        <value>Entrez la valeur au format '(123) 123-1234'.</value>
+    </data>
+  <data name="kentico.formbuilder.defaultvalue" xml:space="preserve">
+        <value>Valeur par défaut</value>
+    </data>
+  <data name="kentico.formbuilder.defaultvalue.multiple" xml:space="preserve">
+        <value>Valeur(s) par défaut</value>
+    </data>
+  <data name="kentico.formbuilder.defaultvalue.multiple.tooltip" xml:space="preserve">
+        <value>Définit les options qui sont sélectionnées par défaut. Entrez le texte de valeur correspondant pour chaque option, tel que spécifié dans la propriété 'Options' du champ. Utilisez des points-virgules pour séparer les valeurs.</value>
+    </data>
+  <data name="kentico.formbuilder.error" xml:space="preserve">
+        <value>Le formulaire sélectionné '{0}' est dans un état invalide. Consultez le journal des événements pour plus d'informations.</value>
+    </data>
+  <data name="kentico.formbuilder.error.componentloading" xml:space="preserve">
+        <value>Le composant de formulaire n'a pas pu être chargé. Ce formulaire sera masqué sur le site en direct jusqu'à ce que le problème soit résolu.</value>
+    </data>
+  <data name="kentico.formbuilder.error.invalidcomponentconfiguration" xml:space="preserve">
+        <value>Le composant de formulaire est dans un état invalide et ne peut pas être chargé.</value>
+    </data>
+  <data name="kentico.formbuilder.error.propertiespanel" xml:space="preserve">
+        <value>Une erreur s'est produite lors de la configuration du composant de formulaire. Cela peut être causé par des composants d'édition incorrectement initialisés. Consultez le journal des événements pour plus d'informations.</value>
+    </data>
+  <data name="kentico.formbuilder.error.property" xml:space="preserve">
+        <value>La propriété '{0}' est dans un état invalide.</value>
+    </data>
+  <data name="kentico.formbuilder.error.sectionconfig" xml:space="preserve">
+        <value>Une section de formulaire est indisponible en raison d'une mauvaise configuration. Ses composants de formulaire ont été déplacés vers une section par défaut. Enregistrer le formulaire dans cet état entraînera une perte de la mise en page existante. Consultez le journal des événements pour plus d'informations.</value>
+    </data>
+  <data name="kentico.formbuilder.error.sectionrender" xml:space="preserve">
+        <value>Une erreur s'est produite lors du rendu d'une ou plusieurs sections de formulaire. Consultez le journal des événements pour plus d'informations.</value>
+    </data>
+  <data name="kentico.formbuilder.error.view" xml:space="preserve">
+        <value>Erreur de rendu de la vue pour le composant '{0}'.</value>
+    </data>
+  <data name="kentico.formbuilder.explanation" xml:space="preserve">
+        <value>Texte d'explication</value>
+    </data>
+  <data name="kentico.formbuilder.fieldname.label" xml:space="preserve">
+        <value>Nom</value>
+    </data>
+  <data name="kentico.formbuilder.fieldname.tooltip" xml:space="preserve">
+        <value>L'identifiant unique du champ dans le formulaire. Notez que changer le nom du champ peut entraîner un dysfonctionnement du formulaire (si le nom original est utilisé dans des expressions de macro ou le code du site web).</value>
+    </data>
+  <data name="kentico.formbuilder.formitempreview.title" xml:space="preserve">
+        <value>Aperçu de l'élément de formulaire</value>
+    </data>
+  <data name="kentico.formbuilder.formnotfound" xml:space="preserve">
+        <value>Formulaire avec l'ID '{0}' introuvable.</value>
+    </data>
+  <data name="kentico.formbuilder.formrecordnotfound" xml:space="preserve">
+        <value>Enregistrement de formulaire avec l'ID '{0}' et l'ID de formulaire '{1}' introuvable.</value>
+    </data>
+  <data name="kentico.formbuilder.mvc.nofieldselected" xml:space="preserve">
+        <value>&lt;strong&gt;Composition de formulaires&lt;/strong&gt;&lt;br/&gt;Cliquez sur le bouton plus bleu (&lt;i aria-hidden="true" class="icon-plus"&gt;&lt;/i&gt;) dans la fenêtre du concepteur pour ajouter de nouveaux champs de formulaire. Déplacez les champs individuels en faisant glisser la poignée (&lt;i aria-hidden="true" class="icon-dots-vertical"&gt;&lt;/i&gt;) ou l'en-tête affiché lors du survol d'un champ. Les champs existants peuvent être supprimés en cliquant sur l'icône de suppression (&lt;i aria-hidden="true" class="icon-bin"&gt;&lt;/i&gt;).&lt;br /&gt;&lt;br /&gt;Utilisez les boutons gris sur les bords gauche et droit de la fenêtre du concepteur pour ajouter ou ajuster les sections, qui définissent la mise en page générale du formulaire.</value>
+    </data>
+  <data name="kentico.formbuilder.notinitialized" xml:space="preserve">
+        <value>Le constructeur de formulaire est initialisé avec un identifiant de formulaire manquant.</value>
+    </data>
+  <data name="kentico.formbuilder.numericfieldcomparisontypes.equal" xml:space="preserve">
+        <value>Égal</value>
+    </data>
+  <data name="kentico.formbuilder.numericfieldcomparisontypes.greaterthan" xml:space="preserve">
+        <value>Est supérieur à</value>
+    </data>
+  <data name="kentico.formbuilder.numericfieldcomparisontypes.greaterthanorequal" xml:space="preserve">
+        <value>Est supérieur ou égal</value>
+    </data>
+  <data name="kentico.formbuilder.numericfieldcomparisontypes.lessthan" xml:space="preserve">
+        <value>Est inférieur à</value>
+    </data>
+  <data name="kentico.formbuilder.numericfieldcomparisontypes.lessthanorequal" xml:space="preserve">
+        <value>Est inférieur ou égal</value>
+    </data>
+  <data name="kentico.formbuilder.numericfieldcomparisontypes.notequal" xml:space="preserve">
+        <value>N'est pas égal</value>
+    </data>
+  <data name="kentico.formbuilder.placeholder.label" xml:space="preserve">
+        <value>Espace réservé</value>
+    </data>
+  <data name="kentico.formbuilder.propertiespanel.propertiestab.name" xml:space="preserve">
+        <value>Propriétés</value>
+    </data>
+  <data name="kentico.formbuilder.propertiespanel.validationtab.addvalidationrule" xml:space="preserve">
+        <value>Ajouter une règle de validation</value>
+    </data>
+  <data name="kentico.formbuilder.propertiespanel.validationtab.confirmationmessage.removevalidationrule" xml:space="preserve">
+        <value>Êtes-vous sûr de vouloir supprimer la règle sélectionnée ?</value>
+    </data>
+  <data name="kentico.formbuilder.propertiespanel.validationtab.name" xml:space="preserve">
+        <value>Validation</value>
+    </data>
+  <data name="kentico.formbuilder.propertiespanel.validationtab.novalidationrules" xml:space="preserve">
+        <value>Aucune règle de validation n'est disponible pour ce champ.</value>
+    </data>
+  <data name="kentico.formbuilder.propertiespanel.validationtab.removerule" xml:space="preserve">
+        <value>Supprimer la règle</value>
+    </data>
+  <data name="kentico.formbuilder.propertiespanel.validationtab.rules" xml:space="preserve">
+        <value>Règles :</value>
+    </data>
+  <data name="kentico.formbuilder.propertiespanel.visibilityconditions.alertheader" xml:space="preserve">
+        <value>Visibilité conditionnelle</value>
+    </data>
+  <data name="kentico.formbuilder.propertiespanel.visibilityconditions.currentvisibilitycondition.isnotvalid" xml:space="preserve">
+        <value>Le champ actuel sera toujours masqué, car la condition de visibilité sélectionnée est invalide.</value>
+    </data>
+  <data name="kentico.formbuilder.propertiespanel.visibilityconditions.noavailableconditions" xml:space="preserve">
+        <value>Il n'y a pas de conditions de visibilité disponibles pour le champ actuel. Cela dépend du type de champ et de sa position dans le formulaire.</value>
+    </data>
+  <data name="kentico.formbuilder.propertiespanel.visibilityconditions.selectedcondition.label" xml:space="preserve">
+        <value>{0} est visible si :</value>
+    </data>
+  <data name="kentico.formbuilder.propertiespanel.visibilityconditions.selectedcondition.placeholder" xml:space="preserve">
+        <value>(sélectionner le champ ou la condition personnalisée)</value>
+    </data>
+  <data name="kentico.formbuilder.propertiespanel.visibilityconditions.tab.always" xml:space="preserve">
+        <value>Toujours</value>
+    </data>
+  <data name="kentico.formbuilder.propertiespanel.visibilityconditions.tab.condition" xml:space="preserve">
+        <value>Condition</value>
+    </data>
+  <data name="kentico.formbuilder.propertiespanel.visibilityconditions.tab.never" xml:space="preserve">
+        <value>Jamais</value>
+    </data>
+  <data name="kentico.formbuilder.propertiespanel.visibilitytab.name" xml:space="preserve">
+        <value>Visibilité</value>
+    </data>
+  <data name="kentico.formbuilder.required.label" xml:space="preserve">
+        <value>Requis</value>
+    </data>
+  <data name="kentico.formbuilder.saved" xml:space="preserve">
+        <value>Toutes les modifications sauvegardées</value>
+    </data>
+  <data name="kentico.formbuilder.saving" xml:space="preserve">
+        <value>Sauvegarde...</value>
+    </data>
+  <data name="kentico.formbuilder.section.addTooltip" xml:space="preserve">
+        <value>Ajouter une section</value>
+    </data>
+  <data name="kentico.formbuilder.section.default.description" xml:space="preserve">
+        <value>Une seule colonne de champs de formulaire.</value>
+    </data>
+  <data name="kentico.formbuilder.section.default.name" xml:space="preserve">
+        <value>Par défaut</value>
+    </data>
+  <data name="kentico.formbuilder.section.deleteTooltip" xml:space="preserve">
+        <value>Supprimer la section</value>
+    </data>
+  <data name="kentico.formbuilder.section.dragTooltip" xml:space="preserve">
+        <value>Déplacer la section</value>
+    </data>
+  <data name="kentico.formbuilder.section.headerTitle" xml:space="preserve">
+        <value>Sections</value>
+    </data>
+  <data name="kentico.formbuilder.section.missingmetadata" xml:space="preserve">
+        <value>Les sections avec les identifiants suivants ne sont pas enregistrées dans le système : {0}. Toute modification de la configuration du formulaire entraînera une perte de données.</value>
+    </data>
+  <data name="kentico.formbuilder.section.missingNonemptyZone" xml:space="preserve">
+        <value>Certains composants ne peuvent pas être affichés, car les sections avec les identifiants suivants ne contiennent pas assez de zones de composants.</value>
+    </data>
+  <data name="kentico.formbuilder.section.remove.confirmation" xml:space="preserve">
+        <value>Êtes-vous sûr de vouloir supprimer la section ?</value>
+    </data>
+  <data name="kentico.formbuilder.section.typelist.title" xml:space="preserve">
+        <value>Changer le type de section</value>
+    </data>
+  <data name="kentico.formbuilder.section.withoutZones" xml:space="preserve">
+        <value>Les sections avec les identifiants de section suivants ne contiennent aucune zone de composant. Les sections sans zones de composant ne sont pas prises en charge.</value>
+    </data>
+  <data name="kentico.formbuilder.seeeventlog" xml:space="preserve">
+        <value>Consultez le journal des événements pour plus d'informations.</value>
+    </data>
+  <data name="kentico.formbuilder.smartfield.label" xml:space="preserve">
+        <value>Champ intelligent</value>
+    </data>
+  <data name="kentico.formbuilder.smartfield.tooltip" xml:space="preserve">
+        <value>Les champs intelligents vous permettent de collecter des données sur plusieurs soumissions de formulaire, ce qui aide à garder vos formulaires courts et faciles à compléter. Ils ne sont pas affichés dans le formulaire initialement, mais remplacent progressivement les champs pour lesquels l'utilisateur a déjà soumis une valeur. Le nombre total de champs affichés est déterminé par le nombre de champs non intelligents dans le formulaire. Important : Les champs intelligents n'apparaissent que pour les visiteurs qui sont suivis comme contacts et visualisent le formulaire à nouveau après une soumission précédente.</value>
+    </data>
+  <data name="kentico.formbuilder.stringfieldcomparisontypes.contains" xml:space="preserve">
+        <value>Contient</value>
+    </data>
+  <data name="kentico.formbuilder.stringfieldcomparisontypes.endswith" xml:space="preserve">
+        <value>Se termine par</value>
+    </data>
+  <data name="kentico.formbuilder.stringfieldcomparisontypes.equal" xml:space="preserve">
+        <value>Égal</value>
+    </data>
+  <data name="kentico.formbuilder.stringfieldcomparisontypes.notequal" xml:space="preserve">
+        <value>N'est pas égal</value>
+    </data>
+  <data name="kentico.formbuilder.stringfieldcomparisontypes.startswith" xml:space="preserve">
+        <value>Commence par</value>
+    </data>
+  <data name="kentico.formbuilder.submit.error" xml:space="preserve">
+        <value>La soumission a échoué. Réessayez plus tard.</value>
+    </data>
+  <data name="kentico.formbuilder.submitbutton.submitbuttontext" xml:space="preserve">
+        <value>Texte du bouton de soumission</value>
+    </data>
+  <data name="kentico.formbuilder.submitbutton.submitbuttontext.watermarktext" xml:space="preserve">
+        <value>Envoyer</value>
+    </data>
+  <data name="kentico.formbuilder.submitbutton.text" xml:space="preserve">
+        <value>Soumettre</value>
+    </data>
+  <data name="kentico.formbuilder.submitbutton.title" xml:space="preserve">
+        <value>Bouton de soumission</value>
+    </data>
+  <data name="kentico.formbuilder.tooltip" xml:space="preserve">
+        <value>Info-bulle</value>
+    </data>
+  <data name="kentico.formbuilder.validation.recaptcha.threshold.errorformat" xml:space="preserve">
+        <value>La valeur est dans le mauvais format.</value>
+    </data>
+  <data name="kentico.formbuilder.validation.recaptcha.threshold.numberoutofrange" xml:space="preserve">
+        <value>Le seuil de score reCAPTCHA doit être un nombre décimal entre 0 et 1</value>
+    </data>
+  <data name="kentico.formbuilder.validation.smartfield.errorrequired" xml:space="preserve">
+        <value>Un champ obligatoire ne peut pas être marqué comme champ intelligent.</value>
+    </data>
+  <data name="kentico.formbuilder.validationrule.boolisset.description" xml:space="preserve">
+        <value>Vérifie si le champ est sélectionné ou activé.</value>
+    </data>
+  <data name="kentico.formbuilder.validationrule.boolisset.name" xml:space="preserve">
+        <value>Le champ est activé</value>
+    </data>
+  <data name="kentico.formbuilder.validationrule.boolisset.title" xml:space="preserve">
+        <value>Le champ est activé</value>
+    </data>
+  <data name="kentico.formbuilder.validationrule.comparetofield.comparisontype.label" xml:space="preserve">
+        <value>Valeur</value>
+    </data>
+  <data name="kentico.formbuilder.validationrule.comparetofield.contains.title" xml:space="preserve">
+        <value>La valeur contient le texte d'un autre champ</value>
+    </data>
+  <data name="kentico.formbuilder.validationrule.comparetofield.dependeefieldname.label" xml:space="preserve">
+        <value>Champ</value>
+    </data>
+  <data name="kentico.formbuilder.validationrule.comparetofield.description" xml:space="preserve">
+        <value>Compare le champ sélectionné avec un autre champ existant dans le formulaire.</value>
+    </data>
+  <data name="kentico.formbuilder.validationrule.comparetofield.endswith.title" xml:space="preserve">
+        <value>La valeur se termine par le texte d'un autre champ</value>
+    </data>
+  <data name="kentico.formbuilder.validationrule.comparetofield.equal.title" xml:space="preserve">
+        <value>La valeur est égale à un autre champ</value>
+    </data>
+  <data name="kentico.formbuilder.validationrule.comparetofield.greaterthan.title" xml:space="preserve">
+        <value>La valeur est supérieure à un autre champ</value>
+    </data>
+  <data name="kentico.formbuilder.validationrule.comparetofield.greaterthanorequal.title" xml:space="preserve">
+        <value>La valeur est supérieure ou égale à un autre champ</value>
+    </data>
+  <data name="kentico.formbuilder.validationrule.comparetofield.lessthan.title" xml:space="preserve">
+        <value>La valeur est inférieure à un autre champ</value>
+    </data>
+  <data name="kentico.formbuilder.validationrule.comparetofield.lessthanorequal.title" xml:space="preserve">
+        <value>La valeur est inférieure ou égale à un autre champ</value>
+    </data>
+  <data name="kentico.formbuilder.validationrule.comparetofield.name" xml:space="preserve">
+        <value>Comparer à un autre champ</value>
+    </data>
+  <data name="kentico.formbuilder.validationrule.comparetofield.notequal.title" xml:space="preserve">
+        <value>La valeur n'est pas égale à un autre champ</value>
+    </data>
+  <data name="kentico.formbuilder.validationrule.comparetofield.startswith.title" xml:space="preserve">
+        <value>La valeur commence par le texte d'un autre champ</value>
+    </data>
+  <data name="kentico.formbuilder.validationrule.email.description" xml:space="preserve">
+        <value>Vérifie si l'e-mail saisi dans le champ est au format d'e-mail standard.</value>
+    </data>
+  <data name="kentico.formbuilder.validationrule.email.name" xml:space="preserve">
+        <value>E-mail</value>
+    </data>
+  <data name="kentico.formbuilder.validationrule.email.title" xml:space="preserve">
+        <value>E-mail</value>
+    </data>
+  <data name="kentico.formbuilder.validationrule.maximumlength.description" xml:space="preserve">
+        <value>Vérifie si le texte saisi dans le champ est plus court ou égal au nombre spécifié de caractères.</value>
+    </data>
+  <data name="kentico.formbuilder.validationrule.maximumlength.maximumlength.label" xml:space="preserve">
+        <value>Longueur maximale</value>
+    </data>
+  <data name="kentico.formbuilder.validationrule.maximumlength.name" xml:space="preserve">
+        <value>Longueur maximale</value>
+    </data>
+  <data name="kentico.formbuilder.validationrule.maximumlength.title" xml:space="preserve">
+        <value>La longueur maximale est {0}</value>
+    </data>
+  <data name="kentico.formbuilder.validationrule.maximumvalue.description" xml:space="preserve">
+        <value>Vérifie si le nombre saisi dans le champ est inférieur ou égal au nombre spécifié.</value>
+    </data>
+  <data name="kentico.formbuilder.validationrule.maximumvalue.maximumvalue.label" xml:space="preserve">
+        <value>Valeur maximale</value>
+    </data>
+  <data name="kentico.formbuilder.validationrule.maximumvalue.name" xml:space="preserve">
+        <value>Valeur maximale</value>
+    </data>
+  <data name="kentico.formbuilder.validationrule.maximumvalue.title" xml:space="preserve">
+        <value>La valeur maximale est {0}</value>
+    </data>
+  <data name="kentico.formbuilder.validationrule.minimumlength.description" xml:space="preserve">
+        <value>Vérifie si le texte saisi dans le champ est plus long ou égal au nombre spécifié de caractères.</value>
+    </data>
+  <data name="kentico.formbuilder.validationrule.minimumlength.minimumlength.label" xml:space="preserve">
+        <value>Longueur minimale</value>
+    </data>
+  <data name="kentico.formbuilder.validationrule.minimumlength.name" xml:space="preserve">
+        <value>Longueur minimale</value>
+    </data>
+  <data name="kentico.formbuilder.validationrule.minimumlength.title" xml:space="preserve">
+        <value>La longueur minimale est {0}</value>
+    </data>
+  <data name="kentico.formbuilder.validationrule.minimumvalue.description" xml:space="preserve">
+        <value>Vérifie si le nombre saisi dans le champ est supérieur ou égal au nombre spécifié.</value>
+    </data>
+  <data name="kentico.formbuilder.validationrule.minimumvalue.minimumvalue.label" xml:space="preserve">
+        <value>Valeur minimale</value>
+    </data>
+  <data name="kentico.formbuilder.validationrule.minimumvalue.name" xml:space="preserve">
+        <value>Valeur minimale</value>
+    </data>
+  <data name="kentico.formbuilder.validationrule.minimumvalue.title" xml:space="preserve">
+        <value>La valeur minimale est {0}</value>
+    </data>
+  <data name="kentico.formbuilder.validationrule.regularexpression.description" xml:space="preserve">
+        <value>Vérifie s'il y a une correspondance pour l'expression régulière spécifiée dans le texte tapé dans le champ.</value>
+    </data>
+  <data name="kentico.formbuilder.validationrule.regularexpression.name" xml:space="preserve">
+        <value>Expression régulière</value>
+    </data>
+  <data name="kentico.formbuilder.validationrule.regularexpression.regularexpression.label" xml:space="preserve">
+        <value>Expression régulière</value>
+    </data>
+  <data name="kentico.formbuilder.validationrule.regularexpression.title" xml:space="preserve">
+        <value>Correspond à l'expression régulière '{0}'</value>
+    </data>
+  <data name="kentico.formbuilder.validationrule.uszipcode.title" xml:space="preserve">
+        <value>Est un code postal américain</value>
+    </data>
+  <data name="kentico.formbuilder.widget.addTooltip" xml:space="preserve">
+        <value>Ajouter un champ</value>
+    </data>
+  <data name="kentico.formbuilder.widget.deleteTooltip" xml:space="preserve">
+        <value>Supprimer le champ</value>
+    </data>
+  <data name="kentico.formbuilder.widget.description" xml:space="preserve">
+        <value>Affiche un formulaire sélectionné.</value>
+    </data>
+  <data name="kentico.formbuilder.widget.dragTooltip" xml:space="preserve">
+        <value>Déplacer le champ</value>
+    </data>
+  <data name="kentico.formbuilder.widget.headerTitle" xml:space="preserve">
+        <value>Champs</value>
+    </data>
+  <data name="kentico.formbuilder.widget.missingmetadata" xml:space="preserve">
+        <value>Le formulaire contient une configuration qui n'est plus valide. Par exemple, un développeur peut avoir modifié les propriétés d'un champ, ou le formulaire contient un composant de formulaire qui n'est plus enregistré dans le système (identifiants de composants de formulaire inconnus : {0}). Form Builder sauvegarde automatiquement les modifications apportées au formulaire, ce qui peut entraîner une perte de données. Contactez l'administrateur de votre site pour résoudre le problème.</value>
+    </data>
+  <data name="kentico.formbuilder.widget.name" xml:space="preserve">
+        <value>Formulaire</value>
+    </data>
+  <data name="kentico.formbuilder.widget.noformselected" xml:space="preserve">
+        <value>Sélectionnez un formulaire en utilisant la boîte de dialogue de configuration du widget.</value>
+    </data>
+  <data name="kentico.formbuilder.widget.propertiesButtonTooltip" xml:space="preserve">
+        <value>Configurer</value>
+    </data>
+  <data name="kentico.formbuilder.widget.remove.confirmation" xml:space="preserve">
+        <value>Êtes-vous sûr de vouloir supprimer le champ sélectionné ?</value>
+    </data>
+  <data name="kentico.formbuilder.widget.selectform.label" xml:space="preserve">
+        <value>Sélectionner un formulaire</value>
+    </data>
+  <data name="kentico.formbuilder.widget.selectform.placeholder" xml:space="preserve">
+        <value>Sélectionner un formulaire</value>
+    </data>
+  <data name="kentico.formbuilder.widgetlist.featured" xml:space="preserve">
+        <value>En vedette</value>
+    </data>
+  <data name="kentico.formbuilder.widgetlist.headline" xml:space="preserve">
+        <value>Choisissez un champ approprié</value>
+    </data>
+  <data name="kentico.formbuilder.widgetlist.newfield" xml:space="preserve">
+        <value>Nouveau champ</value>
+    </data>
+  <data name="kentico.formbuilder.widgetlist.nowidgets" xml:space="preserve">
+        <value>Aucun champ trouvé.</value>
+    </data>
+  <data name="kentico.formbuilder.widgetzone.namechanged" xml:space="preserve">
+        <value>Les développeurs ont changé le nom d'une ou plusieurs zones de formulaire sur ce formulaire. Cela peut faire que le mode d'édition actuel affiche le formulaire différemment que sur le site en direct.</value>
+    </data>
+  <data name="kentico.formwidget.aftersubmit.displaymessage.errormessage" xml:space="preserve">
+        <value>Entrez le message affiché aux utilisateurs après qu'ils soumettent le formulaire.</value>
+    </data>
+  <data name="kentico.formwidget.aftersubmit.displaymessage.watermark" xml:space="preserve">
+        <value>Merci ! Nous vous recontacterons bientôt.</value>
+    </data>
+  <data name="kentico.formwidget.aftersubmit.redirecttopage.errormessage" xml:space="preserve">
+        <value>Sélectionnez la page vers laquelle les utilisateurs sont envoyés après qu'ils soumettent le formulaire.</value>
+    </data>
+  <data name="kentico.formwidget.aftersubmit.redirecttourl.errormessage" xml:space="preserve">
+        <value>Entrez l'URL où les utilisateurs sont envoyés après qu'ils soumettent le formulaire.</value>
+    </data>
+  <data name="kentico.formwidget.aftersubmit.redirecttourl.watermark" xml:space="preserve">
+        <value>https://domaine.com</value>
+    </data>
+  <data name="kentico.formwidget.option.afterformsubmit.displaymessage" xml:space="preserve">
+        <value>Afficher un message</value>
+    </data>
+  <data name="kentico.formwidget.option.afterformsubmit.redirecttopage" xml:space="preserve">
+        <value>Rediriger vers la page</value>
+    </data>
+  <data name="kentico.formwidget.option.afterformsubmit.redirecttourl" xml:space="preserve">
+        <value>Rediriger vers l'URL</value>
+    </data>
+  <data name="kentico.formwidget.option.aftersubmit.headline" xml:space="preserve">
+        <value>Après la soumission du formulaire</value>
+    </data>
+  <data name="kentico.pagebuilder.areas.bannedsectionmessage" xml:space="preserve">
+        <value>Cette section ou certains de ses widgets ne sont pas autorisés ici.</value>
+    </data>
+  <data name="kentico.pagebuilder.areas.bannedwidgetmessage" xml:space="preserve">
+        <value>Ce widget n'est pas autorisé ici.</value>
+    </data>
+  <data name="kentico.pagebuilder.areas.excessAreas" xml:space="preserve">
+        <value>Les zones avec les identifiants suivants sont manquantes dans le balisage de la page : {0}. Enregistrer la page entraînera une perte de données.</value>
+    </data>
+  <data name="kentico.pagebuilder.clipboard.deletebuttontooltip" xml:space="preserve">
+        <value>Supprimer du presse-papiers</value>
+    </data>
+  <data name="kentico.pagebuilder.clipboard.section.removesucessmessage" xml:space="preserve">
+        <value>La section '{0}' a été supprimée du presse-papiers.</value>
+    </data>
+  <data name="kentico.pagebuilder.clipboard.sections.copybutton.tooltip" xml:space="preserve">
+        <value>Copier la section</value>
+    </data>
+  <data name="kentico.pagebuilder.clipboard.sections.copysuccessmessage" xml:space="preserve">
+        <value>La section '{0}' a été copiée dans le presse-papiers.</value>
+    </data>
+  <data name="kentico.pagebuilder.clipboard.widgets.copybutton.tooltip" xml:space="preserve">
+        <value>Copier le widget</value>
+    </data>
+  <data name="kentico.pagebuilder.clipboard.widgets.copysuccessmessage" xml:space="preserve">
+        <value>Le widget '{0}' a été copié dans le presse-papiers.</value>
+    </data>
+  <data name="kentico.pagebuilder.clipboard.widgets.removesucessmessage" xml:space="preserve">
+        <value>Le widget '{0}' a été supprimé du presse-papiers.</value>
+    </data>
+  <data name="kentico.pagebuilder.clipboard.widgets.tooltipwithvariants" xml:space="preserve">
+        <value>{0} (Inclut les variantes de personnalisation)</value>
+    </data>
+  <data name="kentico.pagebuilder.conditiontype.missingConfigForm" xml:space="preserve">
+        <value>La vue partielle de la configuration du type de condition doit contenir un formulaire.</value>
+    </data>
+  <data name="kentico.pagebuilder.conditiontype.missingmetadata" xml:space="preserve">
+        <value>Les types de condition avec les identifiants suivants ne sont pas enregistrés dans le système : {0}. Enregistrer la page entraînera une perte de données.</value>
+    </data>
+  <data name="kentico.pagebuilder.conditiontype.missingVariantName" xml:space="preserve">
+        <value>Le nom de variante n'a pas été trouvé dans les données POST du formulaire.</value>
+    </data>
+  <data name="kentico.pagebuilder.conditiontype.wrongFormPostResponse" xml:space="preserve">
+        <value>Format invalide de réponse du message POST du formulaire de configuration. Attendu est l'un de : application/json OU text/html.</value>
+    </data>
+  <data name="kentico.pagebuilder.defaultsection.description" xml:space="preserve">
+        <value>Section intégrée de Page Builder.</value>
+    </data>
+  <data name="kentico.pagebuilder.defaultsection.name" xml:space="preserve">
+        <value>Par défaut</value>
+    </data>
+  <data name="kentico.pagebuilder.notinitialized" xml:space="preserve">
+        <value>Page Builder est initialisé avec un identifiant de page manquant.</value>
+    </data>
+  <data name="kentico.pagebuilder.propertiesdialog.disabled.message" xml:space="preserve">
+        <value>Vous visualisez la page en mode lecture seule. Pour modifier les propriétés, créez une nouvelle version de la page.</value>
+    </data>
+  <data name="kentico.pagebuilder.section.addTooltip" xml:space="preserve">
+        <value>Ajouter une section</value>
+    </data>
+  <data name="kentico.pagebuilder.section.copiedsections.popup.header" xml:space="preserve">
+        <value>Sections copiées</value>
+    </data>
+  <data name="kentico.pagebuilder.section.deleteTooltip" xml:space="preserve">
+        <value>Supprimer la section</value>
+    </data>
+  <data name="kentico.pagebuilder.section.dragTooltip" xml:space="preserve">
+        <value>Déplacer la section</value>
+    </data>
+  <data name="kentico.pagebuilder.section.headerTitle" xml:space="preserve">
+        <value>Sections</value>
+    </data>
+  <data name="kentico.pagebuilder.section.change.restrictedwidgets" xml:space="preserve">
+        <value>Suite à un changement récent de type de section, certains widgets n'ont pas pu être insérés en raison des restrictions de zone de widget de la nouvelle section. Ces widgets sont temporairement disponibles dans la boîte de dialogue d'insertion de widget et vous pouvez les ajouter à nouveau dans des zones valides.</value>
+    </data>
+  <data name="kentico.pagebuilder.section.missingmetadata" xml:space="preserve">
+        <value>Les sections avec les identifiants suivants ne sont pas enregistrées dans le système : {0}. Enregistrer la page entraînera une perte de données.</value>
+    </data>
+  <data name="kentico.pagebuilder.section.missingNonemptyZone" xml:space="preserve">
+        <value>Certains widgets ne peuvent pas être affichés, car les sections avec les identifiants suivants ne contiennent pas assez de zones de widgets : {0}. Enregistrer la page entraînera une perte de données de widget.</value>
+    </data>
+  <data name="kentico.pagebuilder.section.remove.confirmation" xml:space="preserve">
+        <value>Êtes-vous sûr de vouloir supprimer la section ?</value>
+    </data>
+  <data name="kentico.pagebuilder.section.sections.popup.header" xml:space="preserve">
+        <value>Sections</value>
+    </data>
+  <data name="kentico.pagebuilder.section.typelist.title" xml:space="preserve">
+        <value>Changer le type de section</value>
+    </data>
+  <data name="kentico.pagebuilder.section.withoutZones" xml:space="preserve">
+        <value>Les sections avec les identifiants de section suivants ne contiennent aucune zone de widget : {0}. Les sections sans zones de widget ne sont pas prises en charge.</value>
+    </data>
+  <data name="kentico.pagebuilder.sectionlist.copiedsection.notallowed" xml:space="preserve">
+        <value>La section ne peut pas être collée dans cette zone.</value>
+    </data>
+  <data name="kentico.pagebuilder.sectionlist.copiedsection.tooltipwithvariants" xml:space="preserve">
+        <value>{0} (Inclut certains widgets avec des variantes de personnalisation)</value>
+    </data>
+  <data name="kentico.pagebuilder.template.change" xml:space="preserve">
+        <value>Changer le modèle</value>
+    </data>
+  <data name="kentico.pagebuilder.template.change.confirmation" xml:space="preserve">
+        <value>Êtes-vous sûr de vouloir changer le modèle de page ?
+
+Tout le contenu de la page, c'est-à-dire les widgets et sections avec leurs données et propriétés, sera perdu.
+
+Appuyez sur OK pour continuer ou Annuler pour conserver ce modèle.</value>
+    </data>
+  <data name="kentico.pagebuilder.template.changebuttontooltip" xml:space="preserve">
+        <value>Changer le modèle</value>
+    </data>
+  <data name="kentico.pagebuilder.template.changeInfoMessage" xml:space="preserve">
+        <value>Vous pouvez maintenant sélectionner un nouveau modèle pour votre page. Notez que changer le modèle peut entraîner une perte de vos données de widget.&lt;br&gt;
+                    &lt;a href="{0}" target="_blank"&gt;En savoir plus sur les modèles de page dans notre documentation&lt;/a&gt;</value>
+    </data>
+  <data name="kentico.pagebuilder.template.propertiesbuttontooltip" xml:space="preserve">
+        <value>Configurer le modèle</value>
+    </data>
+  <data name="kentico.pagebuilder.variant.add" xml:space="preserve">
+        <value>Ajouter une variante</value>
+    </data>
+  <data name="kentico.pagebuilder.variant.addTooltip" xml:space="preserve">
+        <value>Ajouter une nouvelle variante de personnalisation</value>
+    </data>
+  <data name="kentico.pagebuilder.variant.apply" xml:space="preserve">
+        <value>Appliquer</value>
+    </data>
+  <data name="kentico.pagebuilder.variant.applyTooltip" xml:space="preserve">
+        <value>Appliquer les modifications de variante</value>
+    </data>
+  <data name="kentico.pagebuilder.variant.back" xml:space="preserve">
+        <value>Retour</value>
+    </data>
+  <data name="kentico.pagebuilder.variant.delete" xml:space="preserve">
+        <value>Supprimer la variante</value>
+    </data>
+  <data name="kentico.pagebuilder.variant.delete.confirmation" xml:space="preserve">
+        <value>Êtes-vous sûr de vouloir supprimer la variante ?</value>
+    </data>
+  <data name="kentico.pagebuilder.variant.drag.tooltip" xml:space="preserve">
+        <value>Changer la priorité</value>
+    </data>
+  <data name="kentico.pagebuilder.variant.edit" xml:space="preserve">
+        <value>Modifier la variante</value>
+    </data>
+  <data name="kentico.pagebuilder.variant.name" xml:space="preserve">
+        <value>Nom de la variante</value>
+    </data>
+  <data name="kentico.pagebuilder.variant.original" xml:space="preserve">
+        <value>Original</value>
+    </data>
+  <data name="kentico.pagebuilder.widget.addTooltip" xml:space="preserve">
+        <value>Ajouter un widget</value>
+    </data>
+  <data name="kentico.pagebuilder.widget.conditiontypepopup.conditiontypeheader" xml:space="preserve">
+        <value>Personnaliser le contenu en fonction de :</value>
+    </data>
+  <data name="kentico.pagebuilder.widget.conditiontypepopup.header" xml:space="preserve">
+        <value>Types de condition</value>
+    </data>
+  <data name="kentico.pagebuilder.widget.conditiontypepopup.variantheader" xml:space="preserve">
+        <value>Afficher une des variantes :</value>
+    </data>
+  <data name="kentico.pagebuilder.widget.copiedwidgets.popup.header" xml:space="preserve">
+        <value>Widgets copiés</value>
+    </data>
+  <data name="kentico.pagebuilder.widget.deleteTooltip" xml:space="preserve">
+        <value>Supprimer le widget</value>
+    </data>
+  <data name="kentico.pagebuilder.widget.dragTooltip" xml:space="preserve">
+        <value>Déplacer le widget</value>
+    </data>
+  <data name="kentico.pagebuilder.widget.headerTitle" xml:space="preserve">
+        <value>Widgets</value>
+    </data>
+  <data name="kentico.pagebuilder.widget.missingmetadata" xml:space="preserve">
+        <value>Les widgets avec les identifiants suivants ne sont pas enregistrés dans le système : {0}. Enregistrer la page entraînera une perte de données.</value>
+    </data>
+  <data name="kentico.pagebuilder.widget.personalizeTooltip" xml:space="preserve">
+        <value>Personnaliser</value>
+    </data>
+  <data name="kentico.pagebuilder.widget.propertiesButtonTooltip" xml:space="preserve">
+        <value>Configurer le widget</value>
+    </data>
+  <data name="kentico.pagebuilder.widget.remove.confirmation" xml:space="preserve">
+        <value>Êtes-vous sûr de vouloir supprimer le widget sélectionné ?</value>
+    </data>
+  <data name="kentico.pagebuilder.widget.restrictedwidgets.popup.header" xml:space="preserve">
+        <value>Widgets restreints</value>
+    </data>
+  <data name="kentico.pagebuilder.widget.variantlist.header" xml:space="preserve">
+        <value>Afficher la variante</value>
+    </data>
+  <data name="kentico.pagebuilder.widget.widgets.popup.header" xml:space="preserve">
+        <value>Widgets</value>
+    </data>
+  <data name="kentico.pagebuilder.widgetlist.copiedwidget.notallowed" xml:space="preserve">
+        <value>Le widget ne peut pas être collé dans cette zone.</value>
+    </data>
+  <data name="kentico.pagebuilder.widgetlist.copiedwidget.zoneareanotallowed" xml:space="preserve">
+        <value>Le widget ne peut pas être collé dans cette zone ni cette région.</value>
+    </data>
+  <data name="kentico.pagebuilder.widgetlist.copiedwidget.zonenotallowed" xml:space="preserve">
+        <value>Le widget ne peut pas être collé dans cette zone.</value>
+    </data>
+  <data name="kentico.pagebuilder.widgetlist.nowidgets" xml:space="preserve">
+        <value>Aucun widget trouvé.</value>
+    </data>
+  <data name="kentico.pagebuilder.widgetzone.namechanged" xml:space="preserve">
+        <value>Les développeurs ont changé le nom d'une ou plusieurs zones de widget sur cette page. Cela peut faire que le mode d'édition actuel affiche le contenu différemment de la page sur le site en ligne. Assurez-vous que le contenu du widget est correct et enregistrez la page pour appliquer les modifications.</value>
+    </data>
+</root>

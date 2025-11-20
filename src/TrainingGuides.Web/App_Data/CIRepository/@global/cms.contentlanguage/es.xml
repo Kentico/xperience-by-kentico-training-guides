@@ -10,6 +10,6 @@
     <ObjectType>cms.contentlanguage</ObjectType>
   </ContentLanguageFallbackContentLanguageID>
   <ContentLanguageGUID>b2e99971-c2dd-4a47-bb64-0d9a0d28d226</ContentLanguageGUID>
-  <ContentLanguageIsDefault>False</ContentLanguageIsDefault>
+  <ContentLanguageIsDefault>True</ContentLanguageIsDefault>
   <ContentLanguageName>es</ContentLanguageName>
 </cms.contentlanguage>
