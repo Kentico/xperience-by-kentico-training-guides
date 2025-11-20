@@ -141,7 +141,7 @@ public class ArticleConverter
     }
 
     // Assemble content item data for a new GeneralArticle item based on the provided Article item
-    private async Task<ContentItemData> GetContentItemData(Article oldArticle) =>
+    private ContentItemData GetContentItemData(Article oldArticle) =>
         new(new Dictionary<string, object> {
             { nameof(GeneralArticle.ArticleSchemaTitle), oldArticle.ArticleTitle },
             { nameof(GeneralArticle.ArticleSchemaSummary), oldArticle.ArticleSummary },
@@ -171,7 +171,7 @@ public class ArticleConverter
                 );
 
         // Assemble the field values for a new GeneralArticle item
-        var contentItemData = await GetContentItemData(oldArticle);
+        var contentItemData = GetContentItemData(oldArticle);
 
         int newId;
 
@@ -213,7 +213,7 @@ public class ArticleConverter
             languageName);
 
         // Assemble the field values for a new language version
-        var contentItemData = await GetContentItemData(oldArticle);
+        var contentItemData = GetContentItemData(oldArticle);
 
         try
         {

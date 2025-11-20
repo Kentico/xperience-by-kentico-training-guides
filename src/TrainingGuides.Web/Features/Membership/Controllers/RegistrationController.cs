@@ -76,7 +76,13 @@ public class RegistrationController : Controller
         }
         catch (Exception ex)
         {
-            logger.LogError(EventIds.MemberRegistration, ex, "An error occurred while registering a new member with username {UserName} in {Controller}.{Action}", model.UserName, nameof(RegistrationController), nameof(Register));
+            logger.LogError(EventIds.MemberRegistration,
+                ex,
+                "An error occurred while registering a new member with username {UserName} in {Controller}.{Action}",
+                model.UserName,
+                nameof(RegistrationController),
+                nameof(Register));
+
             result = IdentityResult.Failed([new() { Code = "Failure", Description = stringLocalizer["Registration failed."] }]);
         }
 

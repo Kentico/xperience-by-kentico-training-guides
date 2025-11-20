@@ -190,6 +190,20 @@
           <fielddescriptionashtml>False</fielddescriptionashtml>
         </properties>
       </field>
+      <field column="TrainingGuidesContactishIdentifier" guid="76d048f1-fbd3-4283-a974-da08a753e7d1" enabled="" />
+      <field column="TrainingGuidesContactishLastSynced" guid="e5b14458-dcab-42a1-9e2c-3b1b0db192ae" enabled="" order="34" />
+      <field column="TrainingGuidesContactishLastUpdated" guid="86c90422-7136-47c9-8785-dfe187617dae" enabled="" order="35" />
+      <field column="TrainingGuidesContactishSegmentIdentifiers" enabled="true" guid="8db61945-6a58-42e2-a4cb-29ccdbf96cf6" visible="true" order="36">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Contactish segment identifiers</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.TextInput</controlname>
+        </settings>
+      </field>
+      <field column="TrainingGuidesContactishSegmentIdentifiers" guid="2d394b9e-49a2-45e9-b8b2-fbbd0f78ab1a" enabled="" order="37" />
     </form>
   </FormDefinition>
   <FormDisplayName>Contact edit</FormDisplayName>

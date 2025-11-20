@@ -165,7 +165,12 @@ public class MembershipService : IMembershipService
         }
         catch (Exception ex)
         {
-            logger.LogError(EventIds.MemberSignIn, ex, "An error occurred while signing in member with username or email {UserNameOrEmail} in {Service}.{Method}.", userNameOrEmail, nameof(MembershipService), nameof(SignIn));
+            logger.LogError(EventIds.MemberSignIn,
+                ex,
+                "An error occurred while signing in member with username or email {UserNameOrEmail} in {Service}.{Method}.",
+                userNameOrEmail,
+                nameof(MembershipService),
+                nameof(SignIn));
             return SignInResult.Failed;
         }
     }

@@ -7,6 +7,7 @@ using TrainingGuides.Web.Features.EmailNotifications;
 [assembly: RegisterModule(typeof(EmailNotificationHandlerModule))]
 
 namespace TrainingGuides.Web.Features.EmailNotifications;
+
 public class EmailNotificationHandlerModule : Module
 {
 

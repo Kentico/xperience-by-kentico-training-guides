@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.scheduledtaskconfiguration>
+  <ScheduledTaskConfigurationCreatedDynamically>False</ScheduledTaskConfigurationCreatedDynamically>
+  <ScheduledTaskConfigurationData />
+  <ScheduledTaskConfigurationDisplayName>Contactish transfer contact groups to recipients</ScheduledTaskConfigurationDisplayName>
+  <ScheduledTaskConfigurationEnabled>True</ScheduledTaskConfigurationEnabled>
+  <ScheduledTaskConfigurationGUID>7b1f1de5-9f96-4bdd-911d-dd44bbbb9618</ScheduledTaskConfigurationGUID>
+  <ScheduledTaskConfigurationInterval>
+    <![CDATA[hour;11/4/2025 12:34:17 PM;1;00:00:00;23:59:00;Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday]]>
+  </ScheduledTaskConfigurationInterval>
+  <ScheduledTaskConfigurationIsSystem>False</ScheduledTaskConfigurationIsSystem>
+  <ScheduledTaskConfigurationName>ContactishTransferContactGroupsToRecipients</ScheduledTaskConfigurationName>
+  <ScheduledTaskConfigurationScheduledTaskIdentifier>
+    <![CDATA[TrainingGuides.ContactishRecipientTransferScheduledTask]]>
+  </ScheduledTaskConfigurationScheduledTaskIdentifier>
+</cms.scheduledtaskconfiguration>

@@ -15,6 +15,7 @@ using TrainingGuides.Web.Features.Shared.EmailBuilder.Mappers;
 using TrainingGuides.Web.Features.Shared.Services;
 using TrainingGuides.Web.Features.Shared.OptionProviders;
 using TrainingGuides.Web.OneTimeCode;
+using TrainingGuides.Web.Features.ContactImport;
 
 namespace TrainingGuides.Web;
 
@@ -36,6 +37,7 @@ public static class ServiceCollectionExtensions
         services.AddSingleton<IUpdateProfileService, UpdateProfileService>();
         services.AddSingleton<ICountryService, CountryService>();
         services.AddSingleton<IEnumStringService, EnumStringService>();
+        services.AddSingleton<IContactImportService, ContactishContactImportService>();
 
         services.AddScoped<IMembershipService, MembershipService>();
         services.AddScoped<IHeadTagStoreService, HeadTagStoreService>();
