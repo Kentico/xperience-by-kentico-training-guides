@@ -5,6 +5,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Localization;
 using TrainingGuides.Web.Features.Videos.Widgets.VideoEmbed;
 
+// NOTE: For an example of localizing widget name and description,
+// see CallToActionWidgetViewComponent in Features/LandingPages/Widgets/CallToAction/
+
 [assembly: RegisterWidget(
     VideoEmbedWidgetViewComponent.IDENTIFIER,
     typeof(VideoEmbedWidgetViewComponent),

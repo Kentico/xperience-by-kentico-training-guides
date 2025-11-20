@@ -7,6 +7,9 @@ using TrainingGuides.Web.Features.Membership.Services;
 using TrainingGuides.Web.Features.Membership.Widgets.LinkOrSignOut;
 using TrainingGuides.Web.Features.Shared.Services;
 
+// NOTE: For an example of localizing widget name and description,
+// see CallToActionWidgetViewComponent in Features/LandingPages/Widgets/CallToAction/
+
 [assembly:
     RegisterWidget(
         identifier: LinkOrSignOutWidgetViewComponent.IDENTIFIER,

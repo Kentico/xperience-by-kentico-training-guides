@@ -7,6 +7,9 @@ using TrainingGuides.Web.Features.Shared.OptionProviders.Heading;
 
 namespace TrainingGuides.Web.Features.Products.Widgets.ProductComparator;
 
+// NOTE: For an example of localizing widget properties (labels, explanation texts, and options),
+// see CallToActionWidgetProperties in Features/LandingPages/Widgets/CallToAction/
+
 public class ProductComparatorWidgetProperties : IWidgetProperties
 {
     [ContentItemSelectorComponent(

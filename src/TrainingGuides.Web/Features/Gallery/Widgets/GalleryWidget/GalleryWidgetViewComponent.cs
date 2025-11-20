@@ -6,6 +6,9 @@ using TrainingGuides.Web.Features.Shared.Services;
 using TrainingGuides.Web.Features.Gallery.Widgets.GalleryWidget;
 using TrainingGuides.Web.Features.Shared.Models;
 
+// NOTE: For an example of localizing widget name and description,
+// see CallToActionWidgetViewComponent in Features/LandingPages/Widgets/CallToAction/
+
 [assembly:
     RegisterWidget(GalleryWidgetViewComponent.IDENTIFIER, typeof(GalleryWidgetViewComponent), "Gallery widget",
         typeof(GalleryWidgetProperties), Description = "Displays gallery of images from a smart folder", IconClass = "icon-pictures")]

@@ -6,6 +6,9 @@ using TrainingGuides.Web.Features.Shared.OptionProviders;
 
 namespace TrainingGuides.Web.Features.LandingPages.Widgets.HeroBanner;
 
+// NOTE: For an example of localizing widget properties (labels, explanation texts, and options),
+// see CallToActionWidgetProperties in Features/LandingPages/Widgets/CallToAction/
+
 public class HeroBannerWidgetProperties : IWidgetProperties
 {
     [RadioGroupComponent(

@@ -5,6 +5,9 @@ using TrainingGuides.Web.Features.Articles.Services;
 using TrainingGuides.Web.Features.Articles.Widgets.FeaturedArticle;
 using TrainingGuides.Web.Features.Shared.Services;
 
+// NOTE: For an example of localizing widget name and description,
+// see CallToActionWidgetViewComponent in Features/LandingPages/Widgets/CallToAction/
+
 [assembly:
     RegisterWidget(FeaturedArticleWidgetViewComponent.IDENTIFIER, typeof(FeaturedArticleWidgetViewComponent), "Featured article",
         typeof(FeaturedArticleWidgetProperties), Description = "Displays a featured article of your choosing.", IconClass = "icon-ribbon")]

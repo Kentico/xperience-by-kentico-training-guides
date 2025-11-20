@@ -7,6 +7,9 @@ using Microsoft.AspNetCore.Mvc.ViewComponents;
 using TrainingGuides.Web.Features.Activities.Widgets.PageLike;
 using TrainingGuides.Web.Features.Shared.Services;
 
+// NOTE: For an example of localizing widget name and description,
+// see CallToActionWidgetViewComponent in Features/LandingPages/Widgets/CallToAction/
+
 [assembly: RegisterWidget(
     identifier: PageLikeWidgetViewComponent.IDENTIFIER,
     viewComponentType: typeof(PageLikeWidgetViewComponent),

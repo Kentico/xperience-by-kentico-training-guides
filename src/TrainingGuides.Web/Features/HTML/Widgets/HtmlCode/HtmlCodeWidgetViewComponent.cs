@@ -5,6 +5,9 @@ using Microsoft.AspNetCore.Mvc.ViewComponents;
 using TrainingGuides.Web.Features.Html.Services;
 using TrainingGuides.Web.Features.Html.Widgets.HtmlCode;
 
+// NOTE: For an example of localizing widget name and description,
+// see CallToActionWidgetViewComponent in Features/LandingPages/Widgets/CallToAction/
+
 [assembly: RegisterWidget(
     identifier: HtmlCodeWidgetViewComponent.IDENTIFIER,
     viewComponentType: typeof(HtmlCodeWidgetViewComponent),

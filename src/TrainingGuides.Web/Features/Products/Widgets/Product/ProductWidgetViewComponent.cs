@@ -1,4 +1,3 @@
-using CMS.DataEngine;
 using CMS.Helpers;
 using Kentico.PageBuilder.Web.Mvc;
 using Microsoft.AspNetCore.Mvc;
@@ -10,6 +9,9 @@ using TrainingGuides.Web.Features.Products.Widgets.Product;
 using TrainingGuides.Web.Features.Shared.Models;
 using TrainingGuides.Web.Features.Shared.OptionProviders.CornerStyle;
 using TrainingGuides.Web.Features.Shared.Services;
+
+// NOTE: For an example of localizing widget name and description,
+// see CallToActionWidgetViewComponent in Features/LandingPages/Widgets/CallToAction/
 
 [assembly: RegisterWidget(
     identifier: ProductWidgetViewComponent.IDENTIFIER,
