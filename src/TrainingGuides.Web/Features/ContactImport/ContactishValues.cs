@@ -2,7 +2,7 @@ namespace TrainingGuides.Web.Features.ContactImport;
 
 internal static class ContactishValues
 {
-    // Properties of the standard contact group
+    // Properties of the condition-based contact group
     internal const string ContactGroupName = "ContactishRecipientSegment";
     internal const string ContactGroupDisplayName = "Contactish recipient segment";
     internal const string ContactGroupDescription = "Contact group representing the 'Recipients' segment from Contactish.";

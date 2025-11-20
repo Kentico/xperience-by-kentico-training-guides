@@ -1,5 +1,3 @@
-using CMS.ContactManagement;
-using CMS.DataEngine;
 using CMS.Scheduler;
 using TrainingGuides.Web.Features.ContactImport;
 
@@ -8,12 +6,11 @@ using TrainingGuides.Web.Features.ContactImport;
 namespace TrainingGuides.Web.Features.ContactImport;
 
 public class ContactishRecipientTransferScheduledTask(
-    IInfoProvider<ContactGroupMemberInfo> contactGroupMemberInfoProvider,
     IContactImportService contactImportService) : IScheduledTask
 {
     public const string IDENTIFIER = "TrainingGuides.ContactishRecipientTransferScheduledTask";
 
-    // Keep in mind that each recipient added to the list will lead to two queries - one to check if it exists, and, potentially, another to create or update it.
+    // Keep in mind that each contact we transfer will lead to two database queries in the upsert method - one to check if it already exists, and a second to insert the recipient.
     // Consider being conservative with batch size if you plan to run this task during peak hours, or if you have a large number of contacts.
     public const int BatchSize = 25;
 

@@ -87,7 +87,7 @@ public class ContactishContactImportScheduledTask(
             // Ensure the Contactish recipient lists exist, so that we can add contacts to them
             try
             {
-                await contactImportService.EnsureRecipientLists();
+                await contactImportService.EnsureRecipientList();
             }
             catch (Exception ex)
             {

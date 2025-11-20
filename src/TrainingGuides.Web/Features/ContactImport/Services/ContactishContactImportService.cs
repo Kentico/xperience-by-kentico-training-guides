@@ -70,7 +70,7 @@ public class ContactishContactImportService(IInfoProvider<ContactInfo> contactIn
     /// Parses the provided XML document and returns a list of <see cref="ContactInfo"/> objects based on the data in the document.
     /// </summary>
     /// <param name="document">XML document containing serialized contact data from Contactish</param>
-    /// <returns></returns>
+    /// <returns>Collection of ContactInfo objects parsed from the provided XML</returns>
     public IEnumerable<ContactInfo> GetContactsFromXml(XmlDocument document)
     {
         List<ContactInfo> contactInfos = [];
@@ -155,7 +155,7 @@ public class ContactishContactImportService(IInfoProvider<ContactInfo> contactIn
     /// <inheritdoc/>
     /// Populates data based on <see cref="ContactishValues"/>
     /// </summary>
-    public async Task EnsureRecipientLists()
+    public async Task EnsureRecipientList()
     {
         var existingGroup = await GetContactGroup(ContactishValues.RecipientListName);
 
@@ -190,7 +190,10 @@ public class ContactishContactImportService(IInfoProvider<ContactInfo> contactIn
         await EnsureRecipientListSettings(contactGroup);
     }
 
-    /// <inheritdoc/>
+    /// <summary>
+    /// Ensures that the recipient list settings exist for the specified recipient list contact group, and creates or updates them as necessary.
+    /// </summary>
+    /// <param name="recipientList">ContactGroupInfo representing a recipient list</param>
     public async Task EnsureRecipientListSettings(ContactGroupInfo? recipientList)
     {
         if (recipientList is null)
@@ -237,6 +240,14 @@ public class ContactishContactImportService(IInfoProvider<ContactInfo> contactIn
     }
 
     /// <inheritdoc/>
+    public async Task<ContactGroupInfo?> GetContactGroup(string contactGroupCodeName)
+    {
+        var contactGroup = await contactGroupInfoProvider.GetAsync(contactGroupCodeName);
+
+        return contactGroup;
+    }
+
+    /// <inheritdoc/>
     public async Task<ContactGroupInfo?> GetContactGroupCached(string contactGroupCodeName) =>
         await progressiveCache.LoadAsync(
             async cacheSettings =>
@@ -249,7 +260,7 @@ public class ContactishContactImportService(IInfoProvider<ContactInfo> contactIn
                     cacheSettings.CacheDependency = cacheDependencyBuilderFactory.Create()
                         .ForInfoObjects<ContactGroupInfo>()
                             // Clear the cache when any contact group is created, updated, or deleted
-                            // .ByCodname could also work here, since we know what the code name will be. However, .ById and .ByGuid will only cover updates and deletions, not creations. 
+                            // .ByCodename could also work here, since we know what the code name will be. However, .ById and .ByGuid will only cover updates and deletions, not creations. 
                             .All()
                             .Builder()
                         .Build();
@@ -262,14 +273,6 @@ public class ContactishContactImportService(IInfoProvider<ContactInfo> contactIn
                 cacheItemNameParts: [nameof(ContactishContactImportService),
                     nameof(GetContactGroupCached),
                     contactGroupCodeName]));
-
-    /// <inheritdoc/>
-    public async Task<ContactGroupInfo?> GetContactGroup(string contactGroupCodeName)
-    {
-        var contactGroup = await contactGroupInfoProvider.GetAsync(contactGroupCodeName);
-
-        return contactGroup;
-    }
 
     /// <inheritdoc/>
     public async Task CreateOrUpdateRecipient(int contactId, int recipientListContactGroupId)
@@ -322,7 +325,7 @@ public class ContactishContactImportService(IInfoProvider<ContactInfo> contactIn
     /// <param name="contactId">ID of the contact you want to subscribe</param>
     /// <param name="recipientListContactGroupId">The recipient list to subscribe the contact to</param>
     /// <remarks>
-    /// You  must ensure that the contact has agreed and consented to receive emails in the external system before running this code.
+    /// You must ensure that the contact has agreed and consented to receive emails in the external system before running this code.
     /// </remarks>
 #warning "Make sure to consult your legal team to ensure that your subscriptions are compliant with the laws of your region."
     public async Task EnsureSubscriptionConfirmation(int contactId, int recipientListContactGroupId)
@@ -350,7 +353,7 @@ public class ContactishContactImportService(IInfoProvider<ContactInfo> contactIn
     }
 
     /// <summary>
-    /// Checks if the provided contacat is a member of the specified recipient list.
+    /// Checks if the provided contact is a member of the specified recipient list.
     /// </summary>
     /// <param name="contactId">ID of the contact to check</param>
     /// <param name="recipientListContactGroupId">ID of the recipient list (contact group)</param>
@@ -419,5 +422,4 @@ public class ContactishContactImportService(IInfoProvider<ContactInfo> contactIn
             .WhereEquals(nameof(ContactGroupMemberInfo.ContactGroupMemberContactGroupID), recipientListContactGroupId)
             .WhereEquals(nameof(ContactGroupMemberInfo.ContactGroupMemberType), ContactGroupMemberTypeEnum.Contact));
     }
-
 }
