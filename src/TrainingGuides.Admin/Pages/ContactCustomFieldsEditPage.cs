@@ -14,6 +14,7 @@ using TrainingGuides.Admin.Pages;
     order: 150)]
 
 namespace TrainingGuides.Admin.Pages;
+
 public class ContactCustomFieldsEditPage : InfoEditPage<ContactInfo>
 {
     [PageParameter(typeof(IntPageModelBinder))]

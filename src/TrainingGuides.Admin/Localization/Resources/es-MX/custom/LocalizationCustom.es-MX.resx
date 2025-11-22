@@ -291,4 +291,13 @@
   <data name="TrainingGuides.CallToActionWidget.Description" xml:space="preserve">
     <value>Muestra un botón de llamado a la acción. Como se ve en el sitio de demostración de KBank.</value>
   </data>
+  <data name="TrainingGuides.EmailChannel.Name" xml:space="preserve">
+    <value>Correos electrónicos de guías de formación</value>
+  </data>
+  <data name="TrainingGuides.WebsiteChannelMain.Name" xml:space="preserve">
+    <value>Páginas de guías de formación</value>
+  </data>
+  <data name="TrainingGuides.WebsiteChannelSecondary.Name" xml:space="preserve">
+    <value>Canal web secundario de guías de formación</value>
+  </data>
 </root>
