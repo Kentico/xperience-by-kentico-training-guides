@@ -17,16 +17,20 @@
           <MinRowsNumber>3</MinRowsNumber>
         </settings>
         <properties>
-          <explanationtext>Enter the content of the Robots.txt file</explanationtext>
+          <explanationtext>
+            <![CDATA[{$TrainingGuides.Page.SeoSettingsEdit.Form.RobotsField.Explanation$}]]>
+          </explanationtext>
           <explanationtextashtml>False</explanationtextashtml>
-          <fieldcaption>Robots.txt</fieldcaption>
+          <fieldcaption>
+            <![CDATA[{$TrainingGuides.Page.SeoSettingsEdit.Form.RobotsField.Name$}]]>
+          </fieldcaption>
           <fielddescriptionashtml>False</fielddescriptionashtml>
         </properties>
       </field>
       <field column="SeoSettingsGUID" guid="da670291-0211-4ffb-8db8-348354c45b66" enabled="" />
     </form>
   </FormDefinition>
-  <FormDisplayName>SEO settings edit</FormDisplayName>
+  <FormDisplayName>{$TrainingGuides.Page.SeoSettingsEdit.Form.Name$}</FormDisplayName>
   <FormGUID>e32c1af1-bdc7-497e-a0bc-40f8fd05c2f8</FormGUID>
   <FormIsCustom>True</FormIsCustom>
   <FormName>SeoSettingsEdit</FormName>

@@ -1,4 +1,3 @@
-using CMS.Core;
 using CMS.Membership;
 using Kentico.Xperience.Admin.Base;
 using TrainingGuides.Admin.ProjectSettings;
@@ -18,23 +17,17 @@ namespace TrainingGuides.Admin.ProjectSettings.GlobalSettings;
 
 public class GlobalSettingsListingPage : ListingPage
 {
-    private readonly ILocalizationService localizationService;
     protected override string ObjectType => GlobalSettingsKeyInfo.OBJECT_TYPE;
-
-    public GlobalSettingsListingPage(ILocalizationService localizationService) : base()
-    {
-        this.localizationService = localizationService;
-    }
 
     public override async Task ConfigurePage()
     {
         PageConfiguration.ColumnConfigurations
-                    .AddColumn(nameof(GlobalSettingsKeyInfo.GlobalSettingsKeyDisplayName), localizationService.GetString("TrainingGuides.Page.GlobalSettingsListing.Name"))
-                    .AddColumn(nameof(GlobalSettingsKeyInfo.GlobalSettingsKeyValue), localizationService.GetString("TrainingGuides.Page.GlobalSettingsListing.Value"))
-                    .AddColumn(nameof(GlobalSettingsKeyInfo.GlobalSettingsKeyNote), localizationService.GetString("TrainingGuides.Page.GlobalSettingsListing.Note"))
-                    .AddColumn(nameof(GlobalSettingsKeyInfo.GlobalSettingsKeyName), localizationService.GetString("TrainingGuides.Page.GlobalSettingsListing.Codename"));
+                    .AddColumn(nameof(GlobalSettingsKeyInfo.GlobalSettingsKeyDisplayName), "Name")
+                    .AddColumn(nameof(GlobalSettingsKeyInfo.GlobalSettingsKeyValue), "Value")
+                    .AddColumn(nameof(GlobalSettingsKeyInfo.GlobalSettingsKeyNote), "Note")
+                    .AddColumn(nameof(GlobalSettingsKeyInfo.GlobalSettingsKeyName), "Codename");
 
-        PageConfiguration.HeaderActions.AddLink<GlobalSettingsCreatePage>(localizationService.GetString("TrainingGuides.Page.GlobalSettingsListing.NewSetting"));
+        PageConfiguration.HeaderActions.AddLink<GlobalSettingsCreatePage>("New setting");
 
         PageConfiguration.AddEditRowAction<GlobalSettingsEditSection>();
 

@@ -9,7 +9,7 @@ using TrainingGuides.ProjectSettings;
     parentType: typeof(WebChannelSettingsEditSection),
     slug: "edit",
     uiPageType: typeof(SeoSettingsEditPage),
-    name: "SEO settings",
+    name: "{$TrainingGuides.Page.SeoSettingsEdit.Name$}",
     templateName: TemplateNames.EDIT,
     order: 0)]
 

@@ -1,5 +1,4 @@
 using CMS.ContentEngine;
-using CMS.Core;
 using CMS.DataEngine;
 using Kentico.Xperience.Admin.Base;
 using TrainingGuides.Admin.ProjectSettings;
@@ -21,20 +20,17 @@ public class WebChannelSettingsListingPage : ListingPage
     private readonly IInfoProvider<ChannelInfo> channelInfoProvider;
     private readonly IInfoProvider<WebChannelSettingsInfo> webChannelSettingsInfoProvider;
     private readonly IInfoProvider<SeoSettingsInfo> seoSettingsInfoProvider;
-    private readonly ILocalizationService localizationService;
 
     protected override string ObjectType => WebChannelSettingsInfo.OBJECT_TYPE;
 
     public WebChannelSettingsListingPage(
         IInfoProvider<ChannelInfo> channelInfoProvider,
         IInfoProvider<WebChannelSettingsInfo> webChannelSettingsInfoProvider,
-        IInfoProvider<SeoSettingsInfo> seoSettingsInfoProvider,
-        ILocalizationService localizationService) : base()
+        IInfoProvider<SeoSettingsInfo> seoSettingsInfoProvider) : base()
     {
         this.channelInfoProvider = channelInfoProvider;
         this.webChannelSettingsInfoProvider = webChannelSettingsInfoProvider;
         this.seoSettingsInfoProvider = seoSettingsInfoProvider;
-        this.localizationService = localizationService;
 
         EnsureSettingsListData();
     }
@@ -43,7 +39,7 @@ public class WebChannelSettingsListingPage : ListingPage
     {
         PageConfiguration.ColumnConfigurations
                      .AddColumn(nameof(
-                        WebChannelSettingsInfo.WebChannelSettingsChannelDisplayName), localizationService.GetString("TrainingGuides.Page.WebChannelSettingsListing.Channel"));
+                        WebChannelSettingsInfo.WebChannelSettingsChannelDisplayName), "Channel");
 
         PageConfiguration.AddEditRowAction<WebChannelSettingsEditSection>();
 
