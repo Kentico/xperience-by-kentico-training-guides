@@ -14,7 +14,9 @@
         </settings>
         <properties>
           <explanationtextashtml>False</explanationtextashtml>
-          <fieldcaption>Display name</fieldcaption>
+          <fieldcaption>
+            <![CDATA[{$TrainingGuides.Page.GlobalSettingsCreate.DisplayName$}]]>
+          </fieldcaption>
           <fielddescriptionashtml>False</fielddescriptionashtml>
         </properties>
       </field>
@@ -24,7 +26,9 @@
         </settings>
         <properties>
           <explanationtextashtml>False</explanationtextashtml>
-          <fieldcaption>Settings key code name</fieldcaption>
+          <fieldcaption>
+            <![CDATA[{$TrainingGuides.Page.GlobalSettingsCreate.Codename$}]]>
+          </fieldcaption>
           <fielddescriptionashtml>False</fielddescriptionashtml>
         </properties>
       </field>
@@ -37,7 +41,7 @@
         </settings>
         <properties>
           <explanationtextashtml>False</explanationtextashtml>
-          <fieldcaption>Value</fieldcaption>
+          <fieldcaption>{$TrainingGuides.Page.GlobalSettingsCreate.Value$}</fieldcaption>
           <fielddescriptionashtml>False</fielddescriptionashtml>
         </properties>
       </field>
@@ -50,14 +54,16 @@
         </settings>
         <properties>
           <explanationtextashtml>False</explanationtextashtml>
-          <fieldcaption>Notes</fieldcaption>
-          <fielddescription>Explain the purpose of this settings key.</fielddescription>
+          <fieldcaption>{$TrainingGuides.Page.GlobalSettingsCreate.Notes$}</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$TrainingGuides.Page.GlobalSettingsCreate.Notes.ExplanationText$}]]>
+          </fielddescription>
           <fielddescriptionashtml>False</fielddescriptionashtml>
         </properties>
       </field>
     </form>
   </FormDefinition>
-  <FormDisplayName>Global settings key edit</FormDisplayName>
+  <FormDisplayName>{$TrainingGuides.Page.GlobalSettingsCreate.Name$}</FormDisplayName>
   <FormGUID>03f82fca-3ec0-47ce-b8f1-451874e054ef</FormGUID>
   <FormIsCustom>True</FormIsCustom>
   <FormName>GlobalSettingsKeyEdit</FormName>
