@@ -1,7 +1,7 @@
+using CMS.Core;
 using CMS.DataEngine;
 using CMS.Membership;
 using Kentico.Xperience.Admin.Base;
-using Microsoft.Extensions.Localization;
 using TrainingGuides.Admin.ProjectSettings.WebChannelSettings;
 using TrainingGuides.ProjectSettings;
 
@@ -14,27 +14,28 @@ using TrainingGuides.ProjectSettings;
     order: 10)]
 
 namespace TrainingGuides.Admin.ProjectSettings.WebChannelSettings;
+
 public class WebChannelSnippetListingPage : ListingPage
 {
-    private readonly IStringLocalizer<SharedResources> stringLocalizer;
+    private readonly ILocalizationService localizationService;
     protected override string ObjectType => WebChannelSnippetInfo.OBJECT_TYPE;
 
     [PageParameter(typeof(IntPageModelBinder))]
     public int WebChannelSettingsId { get; set; }
 
-    public WebChannelSnippetListingPage(IStringLocalizer<SharedResources> stringLocalizer) : base()
+    public WebChannelSnippetListingPage(ILocalizationService localizationService) : base()
     {
-        this.stringLocalizer = stringLocalizer;
+        this.localizationService = localizationService;
     }
 
     public override Task ConfigurePage()
     {
         PageConfiguration.ColumnConfigurations
-            .AddColumn(nameof(WebChannelSnippetInfo.WebChannelSnippetDisplayName), stringLocalizer["Snippet"])
-            .AddColumn(nameof(WebChannelSnippetInfo.WebChannelSnippetType), stringLocalizer["Type"]);
+            .AddColumn(nameof(WebChannelSnippetInfo.WebChannelSnippetDisplayName), localizationService.GetString("TrainingGuides.Page.WebChannelSnippetListing.Snippet"))
+            .AddColumn(nameof(WebChannelSnippetInfo.WebChannelSnippetType), localizationService.GetString("TrainingGuides.Page.WebChannelSnippetListing.Type"));
 
         PageConfiguration.HeaderActions.AddLink<WebChannelSnippetCreatePage>(
-            stringLocalizer["New snippet"],
+            localizationService.GetString("TrainingGuides.Page.WebChannelSnippetListing.NewSnippet"),
             parameters: new PageParameterValues
                 {
                     { typeof(WebChannelSettingsEditSection), WebChannelSettingsId }

@@ -300,4 +300,34 @@
   <data name="TrainingGuides.WebsiteChannelSecondary.Name" xml:space="preserve">
     <value>Canal web secondaire des guides de formation</value>
   </data>
+  <data name="TrainingGuides.Page.GlobalSettingsListing.Name" xml:space="preserve">
+    <value>Nom</value>
+  </data>
+  <data name="TrainingGuides.Page.GlobalSettingsListing.Value" xml:space="preserve">
+    <value>Valeur</value>
+  </data>
+  <data name="TrainingGuides.Page.GlobalSettingsListing.Note" xml:space="preserve">
+    <value>Note</value>
+  </data>
+  <data name="TrainingGuides.Page.GlobalSettingsListing.Codename" xml:space="preserve">
+    <value>Nom de code</value>
+  </data>
+  <data name="TrainingGuides.Page.GlobalSettingsListing.NewSetting" xml:space="preserve">
+    <value>Nouveau paramètre</value>
+  </data>
+  <data name="TrainingGuides.Page.WebChannelSnippetListing.Snippet" xml:space="preserve">
+    <value>Extrait</value>
+  </data>
+  <data name="TrainingGuides.Page.WebChannelSnippetListing.Type" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="TrainingGuides.Page.WebChannelSnippetListing.NewSnippet" xml:space="preserve">
+    <value>Nouvel extrait</value>
+  </data>
+  <data name="TrainingGuides.Page.SeoSettingsEdit.WebChannelSettings" xml:space="preserve">
+    <value>Paramètres du canal web</value>
+  </data>
+  <data name="TrainingGuides.Page.WebChannelSettingsListing.Channel" xml:space="preserve">
+    <value>Canal</value>
+  </data>
 </root>

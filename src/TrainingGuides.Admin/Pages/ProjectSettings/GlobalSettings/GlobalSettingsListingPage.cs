@@ -1,6 +1,6 @@
+using CMS.Core;
 using CMS.Membership;
 using Kentico.Xperience.Admin.Base;
-using Microsoft.Extensions.Localization;
 using TrainingGuides.Admin.ProjectSettings;
 using TrainingGuides.Admin.ProjectSettings.GlobalSettings;
 using TrainingGuides.ProjectSettings;
@@ -18,23 +18,23 @@ namespace TrainingGuides.Admin.ProjectSettings.GlobalSettings;
 
 public class GlobalSettingsListingPage : ListingPage
 {
-    private readonly IStringLocalizer<SharedResources> stringLocalizer;
+    private readonly ILocalizationService localizationService;
     protected override string ObjectType => GlobalSettingsKeyInfo.OBJECT_TYPE;
 
-    public GlobalSettingsListingPage(IStringLocalizer<SharedResources> stringLocalizer) : base()
+    public GlobalSettingsListingPage(ILocalizationService localizationService) : base()
     {
-        this.stringLocalizer = stringLocalizer;
+        this.localizationService = localizationService;
     }
 
     public override async Task ConfigurePage()
     {
         PageConfiguration.ColumnConfigurations
-                    .AddColumn(nameof(GlobalSettingsKeyInfo.GlobalSettingsKeyDisplayName), stringLocalizer["Name"])
-                    .AddColumn(nameof(GlobalSettingsKeyInfo.GlobalSettingsKeyValue), stringLocalizer["Value"])
-                    .AddColumn(nameof(GlobalSettingsKeyInfo.GlobalSettingsKeyNote), stringLocalizer["Note"])
-                    .AddColumn(nameof(GlobalSettingsKeyInfo.GlobalSettingsKeyName), stringLocalizer["Codename"]);
+                    .AddColumn(nameof(GlobalSettingsKeyInfo.GlobalSettingsKeyDisplayName), localizationService.GetString("TrainingGuides.Page.GlobalSettingsListing.Name"))
+                    .AddColumn(nameof(GlobalSettingsKeyInfo.GlobalSettingsKeyValue), localizationService.GetString("TrainingGuides.Page.GlobalSettingsListing.Value"))
+                    .AddColumn(nameof(GlobalSettingsKeyInfo.GlobalSettingsKeyNote), localizationService.GetString("TrainingGuides.Page.GlobalSettingsListing.Note"))
+                    .AddColumn(nameof(GlobalSettingsKeyInfo.GlobalSettingsKeyName), localizationService.GetString("TrainingGuides.Page.GlobalSettingsListing.Codename"));
 
-        PageConfiguration.HeaderActions.AddLink<GlobalSettingsCreatePage>(stringLocalizer["New setting"]);
+        PageConfiguration.HeaderActions.AddLink<GlobalSettingsCreatePage>(localizationService.GetString("TrainingGuides.Page.GlobalSettingsListing.NewSetting"));
 
         PageConfiguration.AddEditRowAction<GlobalSettingsEditSection>();
 
