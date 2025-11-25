@@ -24,7 +24,7 @@
         </settings>
         <properties>
           <explanationtextashtml>False</explanationtextashtml>
-          <fieldcaption>    Settings key code name</fieldcaption>
+          <fieldcaption>Settings key code name</fieldcaption>
           <fielddescriptionashtml>False</fielddescriptionashtml>
         </properties>
       </field>
@@ -51,7 +51,7 @@
         <properties>
           <explanationtextashtml>False</explanationtextashtml>
           <fieldcaption>Notes</fieldcaption>
-          <fielddescription>    Explain the purpose of this settings key.</fielddescription>
+          <fielddescription>Explain the purpose of this settings key.</fielddescription>
           <fielddescriptionashtml>False</fielddescriptionashtml>
         </properties>
       </field>
