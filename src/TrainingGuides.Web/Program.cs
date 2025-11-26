@@ -76,7 +76,7 @@ builder.Services
         features.UseEmailMarketing();
         features.UseEmailBuilder();
     })
-    // Must happen AFTER AddKentico to ensure that the Kentico localization services are registered (TODO: mention in a guide)
+    // Must happen AFTER AddKentico to ensure that the Kentico localization services are registered
     .Configure<AdminLocalizationOptions>(options =>
     {
         options.DefaultCultureCode = LocalizationConstants.EnglishUSCultureCode;
