@@ -4,6 +4,9 @@ using Kentico.Xperience.Admin.Base.FormAnnotations;
 
 namespace TrainingGuides.Web.Features.Membership.Widgets.LinkOrSignOut;
 
+// NOTE: For an example of localizing widget properties (labels, explanation texts, and options),
+// see CallToActionWidgetProperties in Features/LandingPages/Widgets/CallToAction/
+
 public class LinkOrSignOutWidgetProperties : IWidgetProperties
 {
     [TextInputComponent(

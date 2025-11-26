@@ -5,6 +5,9 @@ using TrainingGuides.Web.Features.Membership.Widgets.ResetPassword;
 using TrainingGuides.Web.Features.Shared.Helpers;
 using TrainingGuides.Web.Features.Shared.Services;
 
+// NOTE: For an example of localizing widget name and description,
+// see CallToActionWidgetViewComponent in Features/LandingPages/Widgets/CallToAction/
+
 [assembly: RegisterWidget(
     identifier: ResetPasswordWidgetViewComponent.IDENTIFIER,
     viewComponentType: typeof(ResetPasswordWidgetViewComponent),
@@ -14,6 +17,7 @@ using TrainingGuides.Web.Features.Shared.Services;
     IconClass = "icon-key")]
 
 namespace TrainingGuides.Web.Features.Membership.Widgets.ResetPassword;
+
 public class ResetPasswordWidgetViewComponent : ViewComponent
 {
     private readonly IHttpRequestService httpRequestService;

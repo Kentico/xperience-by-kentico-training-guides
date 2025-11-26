@@ -1,7 +1,7 @@
+using CMS.Core;
 using CMS.DataEngine;
 using Kentico.Xperience.Admin.Base;
 using Kentico.Xperience.Admin.Base.Forms;
-using Microsoft.Extensions.Localization;
 using TrainingGuides.Admin.ProjectSettings.WebChannelSettings;
 using TrainingGuides.ProjectSettings;
 
@@ -9,7 +9,7 @@ using TrainingGuides.ProjectSettings;
     parentType: typeof(WebChannelSettingsEditSection),
     slug: "edit",
     uiPageType: typeof(SeoSettingsEditPage),
-    name: "SEO settings",
+    name: "{$TrainingGuides.Page.SeoSettingsEdit.Name$}",
     templateName: TemplateNames.EDIT,
     order: 0)]
 
@@ -19,14 +19,14 @@ public class SeoSettingsEditPage : InfoEditPage<SeoSettingsInfo>
 {
     private readonly IInfoProvider<SeoSettingsInfo> seoSettingsInfoProvider;
     private readonly IInfoProvider<WebChannelSettingsInfo> webChannelSettingsInfoProvider;
-    private readonly IStringLocalizer<SharedResources> stringLocalizer;
+    private readonly ILocalizationService localizationService;
 
     private string WebChannelSettingsDisplayName =>
         webChannelSettingsInfoProvider
             .Get()
             .WhereEquals(nameof(WebChannelSettingsInfo.WebChannelSettingsID), WebChannelSettingsId)
             .FirstOrDefault()?
-            .WebChannelSettingsChannelDisplayName ?? stringLocalizer["Web channel settings"];
+            .WebChannelSettingsChannelDisplayName ?? localizationService.GetString("TrainingGuides.Page.SeoSettingsEdit.WebChannelSettings");
 
     [PageParameter(typeof(IntPageModelBinder))]
     public int WebChannelSettingsId { get; set; }
@@ -47,12 +47,12 @@ public class SeoSettingsEditPage : InfoEditPage<SeoSettingsInfo>
         IFormDataBinder formDataBinder,
         IInfoProvider<SeoSettingsInfo> seoSettingsInfoProvider,
         IInfoProvider<WebChannelSettingsInfo> webChannelSettingsInfoProvider,
-        IStringLocalizer<SharedResources> stringLocalizer)
+        ILocalizationService localizationService)
              : base(formComponentMapper, formDataBinder)
     {
         this.seoSettingsInfoProvider = seoSettingsInfoProvider;
         this.webChannelSettingsInfoProvider = webChannelSettingsInfoProvider;
-        this.stringLocalizer = stringLocalizer;
+        this.localizationService = localizationService;
     }
 
     public override Task ConfigurePage()

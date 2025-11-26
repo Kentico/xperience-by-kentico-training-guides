@@ -14,6 +14,9 @@ using TrainingGuides.Web.Features.DataProtection.Shared;
 using TrainingGuides.Web.Features.DataProtection.Widgets.CookiePreferences;
 using TrainingGuides.Web.Features.Shared.Services;
 
+// NOTE: For an example of localizing widget name and description,
+// see CallToActionWidgetViewComponent in Features/LandingPages/Widgets/CallToAction/
+
 [assembly: RegisterWidget(
     identifier: CookiePreferencesWidgetViewComponent.IDENTIFIER,
     viewComponentType: typeof(CookiePreferencesWidgetViewComponent),

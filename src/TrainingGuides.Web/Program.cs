@@ -10,6 +10,7 @@ using Kentico.OnlineMarketing.Web.Mvc;
 // using Kentico.OnlineMarketing.Web.Mvc;
 using Kentico.PageBuilder.Web.Mvc;
 using Kentico.Web.Mvc;
+using Kentico.Xperience.Admin.Base;
 using Kentico.Xperience.Mjml;
 using Kentico.Xperience.Mjml.StarterKit.Rcl;
 using Microsoft.AspNetCore.Identity;
@@ -18,6 +19,7 @@ using TrainingGuides.Web;
 using TrainingGuides.Web.Features.DataProtection.Shared;
 using TrainingGuides.Web.Features.Membership;
 using TrainingGuides.Web.Features.Shared.Helpers;
+using TrainingGuides.Admin.Localization;
 //using TrainingGuides.Web.Features.Shared.Helpers.Startup;
 
 // Functionality related to cross-site tracking is currently disabled while we investigate an issue (#85 on GitHub)
@@ -40,39 +42,64 @@ var builder = WebApplication.CreateBuilder(args);
 // });
 
 // Enable desired Kentico Xperience features
-builder.Services.AddKentico(async features =>
-{
-    features.UsePageBuilder(new PageBuilderOptions
+builder.Services
+    .AddKentico(async features =>
     {
-        DefaultSectionIdentifier = ComponentIdentifiers.Sections.SINGLE_COLUMN,
-        RegisterDefaultSection = false,
-        ContentTypeNames = new[] {
-            LandingPage.CONTENT_TYPE_NAME,
-            ArticlePage.CONTENT_TYPE_NAME,
-            DownloadsPage.CONTENT_TYPE_NAME,
-            EmptyPage.CONTENT_TYPE_NAME,
-            ProductPage.CONTENT_TYPE_NAME,
-            ProfilePage.CONTENT_TYPE_NAME
-        }
+        features.UsePageBuilder(new PageBuilderOptions
+        {
+            DefaultSectionIdentifier = ComponentIdentifiers.Sections.SINGLE_COLUMN,
+            RegisterDefaultSection = false,
+            ContentTypeNames = new[] {
+                LandingPage.CONTENT_TYPE_NAME,
+                ArticlePage.CONTENT_TYPE_NAME,
+                DownloadsPage.CONTENT_TYPE_NAME,
+                EmptyPage.CONTENT_TYPE_NAME,
+                ProductPage.CONTENT_TYPE_NAME,
+                ProfilePage.CONTENT_TYPE_NAME
+            }
+        });
+        // Functionality related to cross-site tracking is currently disabled while we investigate an issue (#85 on GitHub)
+        // features.UseCrossSiteTracking(
+        //     new CrossSiteTrackingOptions
+        //     {
+        //         ConsentSettings = new[] {
+        //             new CrossSiteTrackingConsentOptions
+        //             {
+        //                 WebsiteChannelName = "TrainingGuidesPages",
+        //                 ConsentName = await StartupHelper.GetMarketingConsentCodeName(),
+        //                 AgreeCookieLevel = CookieLevel.All.Level
+        //             }
+        //         },
+        //     });
+        features.UseActivityTracking();
+        features.UseWebPageRouting(new WebPageRoutingOptions { LanguageNameRouteValuesKey = ApplicationConstants.LANGUAGE_KEY });
+        features.UseEmailMarketing();
+        features.UseEmailBuilder();
+    })
+    // Must happen AFTER AddKentico to ensure that the Kentico localization services are registered
+    .Configure<AdminLocalizationOptions>(options =>
+    {
+        options.DefaultCultureCode = LocalizationConstants.EnglishUSCultureCode;
+        options.SupportedCultures =
+        [
+            new AdminCulture
+            {
+                CultureCode = LocalizationConstants.EnglishUSCultureCode,
+                DisplayName = LocalizationConstants.EnglishUSDisplayName,
+                UseDefaultSystemUICulture = true
+            },
+            new AdminCulture
+            {
+                CultureCode = LocalizationConstants.SpanishMXCultureCode,
+                DisplayName = LocalizationConstants.SpanishMXDisplayName,
+            },
+            new AdminCulture
+            {
+                CultureCode = LocalizationConstants.FrenchCultureCode,
+                DisplayName = LocalizationConstants.FrenchDisplayName,
+            }
+        ];
     });
-    // Functionality related to cross-site tracking is currently disabled while we investigate an issue (#85 on GitHub)
-    // features.UseCrossSiteTracking(
-    //     new CrossSiteTrackingOptions
-    //     {
-    //         ConsentSettings = new[] {
-    //             new CrossSiteTrackingConsentOptions
-    //             {
-    //                 WebsiteChannelName = "TrainingGuidesPages",
-    //                 ConsentName = await StartupHelper.GetMarketingConsentCodeName(),
-    //                 AgreeCookieLevel = CookieLevel.All.Level
-    //             }
-    //         },
-    //     });
-    features.UseActivityTracking();
-    features.UseWebPageRouting(new WebPageRoutingOptions { LanguageNameRouteValuesKey = ApplicationConstants.LANGUAGE_KEY });
-    features.UseEmailMarketing();
-    features.UseEmailBuilder();
-});
 
 builder.Services.AddXperienceSmtp(options =>
 {

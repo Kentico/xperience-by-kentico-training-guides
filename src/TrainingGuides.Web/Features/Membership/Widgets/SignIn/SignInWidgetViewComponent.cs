@@ -5,6 +5,9 @@ using TrainingGuides.Web.Features.Membership.Widgets.SignIn;
 using TrainingGuides.Web.Features.Shared.Helpers;
 using TrainingGuides.Web.Features.Shared.Services;
 
+// NOTE: For an example of localizing widget name and description,
+// see CallToActionWidgetViewComponent in Features/LandingPages/Widgets/CallToAction/
+
 [assembly: RegisterWidget(
     identifier: SignInWidgetViewComponent.IDENTIFIER,
     viewComponentType: typeof(SignInWidgetViewComponent),
@@ -33,7 +36,7 @@ public class SignInWidgetViewComponent : ViewComponent
     public async Task<IViewComponentResult> InvokeAsync(SignInWidgetProperties properties) =>
         View("~/Features/Membership/Widgets/SignIn/SignInWidget.cshtml", await BuildWidgetViewModel(properties));
 
-    public async Task<SignInWidgetViewModel> BuildWidgetViewModel(SignInWidgetProperties properties) => new SignInWidgetViewModel
+    public async Task<SignInWidgetViewModel> BuildWidgetViewModel(SignInWidgetProperties properties) => new()
     {
         ActionUrl = GetActionUrl(),
         DefaultRedirectPageGuid = properties.DefaultRedirectPage.FirstOrDefault()?.Identifier ?? Guid.Empty,

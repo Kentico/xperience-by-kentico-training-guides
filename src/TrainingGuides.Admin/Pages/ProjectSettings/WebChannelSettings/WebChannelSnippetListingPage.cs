@@ -1,7 +1,6 @@
 using CMS.DataEngine;
 using CMS.Membership;
 using Kentico.Xperience.Admin.Base;
-using Microsoft.Extensions.Localization;
 using TrainingGuides.Admin.ProjectSettings.WebChannelSettings;
 using TrainingGuides.ProjectSettings;
 
@@ -17,25 +16,19 @@ namespace TrainingGuides.Admin.ProjectSettings.WebChannelSettings;
 
 public class WebChannelSnippetListingPage : ListingPage
 {
-    private readonly IStringLocalizer<SharedResources> stringLocalizer;
     protected override string ObjectType => WebChannelSnippetInfo.OBJECT_TYPE;
 
     [PageParameter(typeof(IntPageModelBinder))]
     public int WebChannelSettingsId { get; set; }
 
-    public WebChannelSnippetListingPage(IStringLocalizer<SharedResources> stringLocalizer) : base()
-    {
-        this.stringLocalizer = stringLocalizer;
-    }
-
     public override Task ConfigurePage()
     {
         PageConfiguration.ColumnConfigurations
-            .AddColumn(nameof(WebChannelSnippetInfo.WebChannelSnippetDisplayName), stringLocalizer["Snippet"])
-            .AddColumn(nameof(WebChannelSnippetInfo.WebChannelSnippetType), stringLocalizer["Type"]);
+            .AddColumn(nameof(WebChannelSnippetInfo.WebChannelSnippetDisplayName), "Snippet")
+            .AddColumn(nameof(WebChannelSnippetInfo.WebChannelSnippetType), "Type");
 
         PageConfiguration.HeaderActions.AddLink<WebChannelSnippetCreatePage>(
-            stringLocalizer["New snippet"],
+            "New snippet",
             parameters: new PageParameterValues
                 {
                     { typeof(WebChannelSettingsEditSection), WebChannelSettingsId }

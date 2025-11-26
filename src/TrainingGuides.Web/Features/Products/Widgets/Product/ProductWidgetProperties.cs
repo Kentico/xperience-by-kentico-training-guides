@@ -8,6 +8,9 @@ using TrainingGuides.Web.Features.Shared.OptionProviders.CornerStyle;
 
 namespace TrainingGuides.Web.Features.Products.Widgets.Product;
 
+// NOTE: For an example of localizing widget properties (labels, explanation texts, and options),
+// see CallToActionWidgetProperties in Features/LandingPages/Widgets/CallToAction/
+
 public class ProductWidgetProperties : IWidgetProperties
 {
     [RadioGroupComponent(

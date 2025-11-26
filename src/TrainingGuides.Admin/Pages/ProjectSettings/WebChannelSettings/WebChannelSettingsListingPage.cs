@@ -1,7 +1,6 @@
 using CMS.ContentEngine;
 using CMS.DataEngine;
 using Kentico.Xperience.Admin.Base;
-using Microsoft.Extensions.Localization;
 using TrainingGuides.Admin.ProjectSettings;
 using TrainingGuides.Admin.ProjectSettings.WebChannelSettings;
 using TrainingGuides.ProjectSettings;
@@ -15,25 +14,23 @@ using TrainingGuides.ProjectSettings;
     order: 0)]
 
 namespace TrainingGuides.Admin.ProjectSettings.WebChannelSettings;
+
 public class WebChannelSettingsListingPage : ListingPage
 {
     private readonly IInfoProvider<ChannelInfo> channelInfoProvider;
     private readonly IInfoProvider<WebChannelSettingsInfo> webChannelSettingsInfoProvider;
     private readonly IInfoProvider<SeoSettingsInfo> seoSettingsInfoProvider;
-    private readonly IStringLocalizer<SharedResources> stringLocalizer;
 
     protected override string ObjectType => WebChannelSettingsInfo.OBJECT_TYPE;
 
     public WebChannelSettingsListingPage(
         IInfoProvider<ChannelInfo> channelInfoProvider,
         IInfoProvider<WebChannelSettingsInfo> webChannelSettingsInfoProvider,
-        IInfoProvider<SeoSettingsInfo> seoSettingsInfoProvider,
-        IStringLocalizer<SharedResources> stringLocalizer) : base()
+        IInfoProvider<SeoSettingsInfo> seoSettingsInfoProvider) : base()
     {
         this.channelInfoProvider = channelInfoProvider;
         this.webChannelSettingsInfoProvider = webChannelSettingsInfoProvider;
         this.seoSettingsInfoProvider = seoSettingsInfoProvider;
-        this.stringLocalizer = stringLocalizer;
 
         EnsureSettingsListData();
     }
@@ -42,7 +39,7 @@ public class WebChannelSettingsListingPage : ListingPage
     {
         PageConfiguration.ColumnConfigurations
                      .AddColumn(nameof(
-                        WebChannelSettingsInfo.WebChannelSettingsChannelDisplayName), stringLocalizer["Channel"]);
+                        WebChannelSettingsInfo.WebChannelSettingsChannelDisplayName), "Channel");
 
         PageConfiguration.AddEditRowAction<WebChannelSettingsEditSection>();
 

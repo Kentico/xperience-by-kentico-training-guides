@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<trainingguides.seosettings>
+  <SeoSettingsGUID>3834c3c1-c124-42aa-a1d5-aa5d80e199ae</SeoSettingsGUID>
+  <SeoSettingsRobots />
+  <SeoSettingsWebChannelSettingID>
+    <GUID>fb9c14e1-0c02-4257-a49c-a4b8bbcfded0</GUID>
+    <ObjectType>trainingguides.webchannelsettings</ObjectType>
+    <Parent>
+      <CodeName>TrainingGuidesEmails</CodeName>
+      <GUID>49e862ef-2963-49ef-a1f4-f209a01d8fc6</GUID>
+      <ObjectType>cms.channel</ObjectType>
+    </Parent>
+  </SeoSettingsWebChannelSettingID>
+</trainingguides.seosettings>

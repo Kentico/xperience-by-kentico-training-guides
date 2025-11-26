@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.channel>
-  <ChannelDisplayName>Training guides secondary web channel</ChannelDisplayName>
+  <ChannelDisplayName>{$TrainingGuides.WebsiteChannelSecondary.Name$}</ChannelDisplayName>
   <ChannelGUID>c0a280dc-1a6e-4f76-be70-0c74a5d29338</ChannelGUID>
   <ChannelName>TrainingGuidesSecondaryWebChannel</ChannelName>
   <ChannelSize>Standard</ChannelSize>

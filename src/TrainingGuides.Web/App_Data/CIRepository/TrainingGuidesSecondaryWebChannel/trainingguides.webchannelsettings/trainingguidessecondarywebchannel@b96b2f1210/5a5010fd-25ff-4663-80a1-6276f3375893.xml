@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <trainingguides.webchannelsettings>
-  <WebChannelSettingsChannelDisplayName>Training guides secondary web channel</WebChannelSettingsChannelDisplayName>
+  <WebChannelSettingsChannelDisplayName>{$TrainingGuides.WebsiteChannelSecondary.Name$}</WebChannelSettingsChannelDisplayName>
   <WebChannelSettingsChannelID>
     <CodeName>TrainingGuidesSecondaryWebChannel</CodeName>
     <GUID>c0a280dc-1a6e-4f76-be70-0c74a5d29338</GUID>

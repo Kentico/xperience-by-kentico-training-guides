@@ -10,7 +10,7 @@ using TrainingGuides.Web.Features.Shared.Services;
         viewComponentType: typeof(CallToActionWidgetViewComponent),
         name: CallToActionWidgetViewComponent.NAME,
         propertiesType: typeof(CallToActionWidgetProperties),
-        Description = "Displays a call to action button. As seen in KBank demo site.",
+        Description = "{$TrainingGuides.CallToActionWidget.Description$}",
         IconClass = "icon-bubbles")]
 
 namespace TrainingGuides.Web.Features.LandingPages.Widgets.CallToAction;
@@ -21,7 +21,7 @@ public class CallToActionWidgetViewComponent : ViewComponent
 
     public const string IDENTIFIER = "TrainingGuides.CallToActionWidget";
 
-    public const string NAME = "Call to action (CTA)";
+    public const string NAME = "{$TrainingGuides.CallToActionWidget.Name$}";
 
     public CallToActionWidgetViewComponent(
         IContentItemRetrieverService contentItemRetrieverService)

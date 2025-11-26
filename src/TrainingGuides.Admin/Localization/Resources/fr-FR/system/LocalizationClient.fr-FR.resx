@@ -1,0 +1,3219 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root"
+      xmlns=""
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+      xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="admin.aira.emailBody.cancelButton" xml:space="preserve">
+        <value>Annuler</value>
+    </data>
+  <data name="admin.aira.emailBody.defaultRefinementText" xml:space="preserve">
+        <value>Générer un brouillon du corps de l'e-mail</value>
+    </data>
+  <data name="admin.aira.emailBody.editTooltipText" xml:space="preserve">
+        <value>Modifier les paramètres de génération de contenu</value>
+    </data>
+  <data name="admin.aira.emailBody.failedRequest" xml:space="preserve">
+        <value>Votre demande a échoué !</value>
+    </data>
+  <data name="admin.aira.emailBody.generateButton" xml:space="preserve">
+        <value>Générer</value>
+    </data>
+  <data name="admin.aira.emailBody.promptPlaceholder" xml:space="preserve">
+        <value>Comment souhaitez-vous ajuster le texte généré ?</value>
+    </data>
+  <data name="admin.aira.emailBody.quickTip" xml:space="preserve">
+        <value>Conseil rapide</value>
+    </data>
+  <data name="admin.aira.emailBody.quickTipBody" xml:space="preserve">
+        <value>Spécifiez la longueur maximale du texte généré. Décrivez le public cible, le message principal et ce que le lecteur doit faire après avoir lu le contenu (appel à l'action).</value>
+    </data>
+  <data name="admin.aira.emailBody.quickTipHeadline" xml:space="preserve">
+        <value>Comment obtenir les meilleurs résultats ?</value>
+    </data>
+  <data name="admin.aira.emailBody.title" xml:space="preserve">
+        <value>Générer avec AIRA</value>
+    </data>
+  <data name="admin.aira.emailsubject.failedRequest" xml:space="preserve">
+        <value>Votre demande a échoué !</value>
+    </data>
+  <data name="admin.aira.emailsubject.initialRefinementText" xml:space="preserve">
+        <value>Générer l'objet de l'e-mail</value>
+    </data>
+  <data name="admin.aira.emailsubject.promptPlaceholder" xml:space="preserve">
+        <value>Comment souhaitez-vous ajuster le texte généré ?</value>
+    </data>
+  <data name="admin.aira.emailsubject.title" xml:space="preserve">
+        <value>Générer avec AIRA</value>
+    </data>
+  <data name="admin.aira.emailsubject.wrongAiConfiguration" xml:space="preserve">
+        <value>Aucun des champs sélectionnés comme source de contenu pour la fonctionnalité AIRA n'a été trouvé. Contactez vos administrateurs pour vérifier la configuration des champs.</value>
+    </data>
+  <data name="admin.aira.general.ai" xml:space="preserve">
+        <value>AIRA</value>
+    </data>
+  <data name="admin.aira.general.clickToReplace" xml:space="preserve">
+        <value>Cliquez pour remplacer &apos;Sujet&apos;</value>
+    </data>
+  <data name="admin.aira.general.copyAllToClipboardTooltip" xml:space="preserve">
+        <value>Copier dans le presse-papiers</value>
+    </data>
+  <data name="admin.aira.general.copyToClipboard" xml:space="preserve">
+        <value>Copier dans le presse-papiers</value>
+    </data>
+  <data name="admin.aira.general.disabledButtonOnOpenedAIRATooltip" xml:space="preserve">
+        <value>Le panneau AIRA est déjà ouvert</value>
+    </data>
+  <data name="admin.aira.general.fetchSuggestions" xml:space="preserve">
+        <value>Obtenir des suggestions</value>
+    </data>
+  <data name="admin.aira.general.fieldReplaced" xml:space="preserve">
+        <value>Le champ &apos;Sujet&apos; a été remplacé</value>
+    </data>
+  <data name="admin.aira.general.moreButtonLabel" xml:space="preserve">
+        <value>Plus</value>
+    </data>
+  <data name="admin.aira.general.sendButtonInputTooltip" xml:space="preserve">
+        <value>Envoyer le message</value>
+    </data>
+  <data name="admin.aira.general.sendButtonNoInputTooltip" xml:space="preserve">
+        <value>Envoyer le message</value>
+    </data>
+  <data name="admin.aira.general.spinnerText" xml:space="preserve">
+        <value>Génération en cours...</value>
+    </data>
+  <data name="admin.aira.general.stopRequest" xml:space="preserve">
+        <value>Arrêter la demande</value>
+    </data>
+  <data name="admin.aira.general.stopRequestButtonTooltip" xml:space="preserve">
+        <value>Arrêter la génération</value>
+    </data>
+  <data name="admin.aira.general.toneWarningText" xml:space="preserve">
+        <value>Le ton n'a pas encore été défini. AIRA utilise actuellement un ton neutre. Vous pouvez ajouter des directives sur le ton dans l'application Paramètres, dans la catégorie AIRA.</value>
+    </data>
+  <data name="admin.aira.general.toneWarningTextSubheadline" xml:space="preserve">
+        <value>Avertissement amical</value>
+    </data>
+  <data name="admin.aira.chat.airaError" xml:space="preserve">
+        <value>Erreur AIRA : </value>
+    </data>
+  <data name="admin.aira.chat.airaErrorUnknown" xml:space="preserve">
+        <value>Erreur inconnue</value>
+    </data>
+  <data name="admin.aira.chat.askAiraPlaceholder" xml:space="preserve">
+        <value>Demander à AIRA</value>
+    </data>
+  <data name="admin.aira.chat.closeAiraTitle" xml:space="preserve">
+        <value>Masquer AIRA</value>
+    </data>
+  <data name="admin.aira.chat.copyMessage" xml:space="preserve">
+        <value>Copier le message</value>
+    </data>
+  <data name="admin.aira.chat.logo" xml:space="preserve">
+        <value>AIRA</value>
+    </data>
+  <data name="admin.aira.chat.newConversationTitle" xml:space="preserve">
+        <value>Nouvelle conversation</value>
+    </data>
+  <data name="admin.aira.chat.noConversationsAvailable" xml:space="preserve">
+        <value>Aucune conversation disponible</value>
+    </data>
+  <data name="admin.aira.refinements.custom" xml:space="preserve">
+        <value>Appliquer une invite personnalisée</value>
+    </data>
+  <data name="admin.aira.refinements.exemplify" xml:space="preserve">
+        <value>Donner un exemple</value>
+    </data>
+  <data name="admin.aira.refinements.failedRequest" xml:space="preserve">
+        <value>Votre demande a échoué !</value>
+    </data>
+  <data name="admin.aira.refinements.improveSpellingAndGrammar" xml:space="preserve">
+        <value>Améliorer l'orthographe et la grammaire</value>
+    </data>
+  <data name="admin.aira.refinements.improveWriting" xml:space="preserve">
+        <value>Améliorer la rédaction</value>
+    </data>
+  <data name="admin.aira.refinements.makeItShorter" xml:space="preserve">
+        <value>Raccourcir</value>
+    </data>
+  <data name="admin.aira.refinements.simplifyLanguage" xml:space="preserve">
+        <value>Simplifier le langage</value>
+    </data>
+  <data name="admin.aira.sidePanel.closePromptConfirmLabel" xml:space="preserve">
+        <value>Annuler</value>
+    </data>
+  <data name="admin.aira.sidePanel.closePromptHeadline" xml:space="preserve">
+        <value>Quitter la fenêtre AIRA</value>
+    </data>
+  <data name="admin.aira.sidePanel.closePromptMessage" xml:space="preserve">
+        <value>Êtes-vous sûr de vouloir continuer ? En quittant, toute la configuration actuelle et le contenu généré seront perdus.</value>
+    </data>
+  <data name="admin.aira.sidePanel.closeTooltip" xml:space="preserve">
+        <value>Fermer</value>
+    </data>
+  <data name="admin.aira.sidePanel.maximizeTooltip" xml:space="preserve">
+        <value>Agrandir</value>
+    </data>
+  <data name="admin.aira.sidePanel.minimizeTooltip" xml:space="preserve">
+        <value>Réduire</value>
+    </data>
+  <data name="admin.aira.status.outdated" xml:space="preserve">
+        <value>Votre version de Xperience n'est plus compatible avec le service AIRA actuel. Veuillez mettre à jour vers la dernière version de Xperience pour restaurer la fonctionnalité AIRA.</value>
+    </data>
+  <data name="admin.aira.status.unavailable" xml:space="preserve">
+        <value>AIRA n'est pas disponible pour votre projet. Si vous êtes intéressé, contactez votre représentant commercial pour obtenir une licence avec accès à AIRA.</value>
+    </data>
+  <data name="admin.aira.status.unknown" xml:space="preserve">
+        <value>AIRA n'est pas disponible pour le moment.</value>
+    </data>
+  <data name="admin.aira.textRefinement.failedRequest" xml:space="preserve">
+        <value>Votre demande a échoué !</value>
+    </data>
+  <data name="admin.aira.textRefinement.promptPlaceholder" xml:space="preserve">
+        <value>Comment souhaitez-vous ajuster le texte généré ?</value>
+    </data>
+  <data name="admin.aira.textRefinement.selectedText" xml:space="preserve">
+        <value>Texte sélectionné</value>
+    </data>
+  <data name="admin.aira.textRefinement.title" xml:space="preserve">
+        <value>Générer avec AIRA</value>
+    </data>
+  <data name="admin.aira.textRefinement.triggerButtonTooltip" xml:space="preserve">
+        <value>Affiner le texte avec AIRA</value>
+    </data>
+  <data name="admin.base.app.about" xml:space="preserve">
+        <value>À propos</value>
+    </data>
+  <data name="admin.base.app.applicationList.applications" xml:space="preserve">
+        <value>Applications</value>
+    </data>
+  <data name="admin.base.app.applicationList.list" xml:space="preserve">
+        <value>Afficher en liste</value>
+    </data>
+  <data name="admin.base.app.applicationList.noApplicationsFound" xml:space="preserve">
+        <value>Aucune application correspondante trouvée.</value>
+    </data>
+  <data name="admin.base.app.applicationList.search" xml:space="preserve">
+        <value>Rechercher</value>
+    </data>
+  <data name="admin.base.app.applicationList.searchPlaceholder" xml:space="preserve">
+        <value>Rechercher toutes les applications</value>
+    </data>
+  <data name="admin.base.app.applicationList.tiles" xml:space="preserve">
+        <value>Afficher en tuiles</value>
+    </data>
+  <data name="admin.base.app.applicationMenuMobile.applications" xml:space="preserve">
+        <value>Applications</value>
+    </data>
+  <data name="admin.base.app.applicationMenuMobile.home" xml:space="preserve">
+        <value>Accueil</value>
+    </data>
+  <data name="admin.base.app.profile" xml:space="preserve">
+        <value>Compte</value>
+    </data>
+  <data name="admin.base.app.signOut" xml:space="preserve">
+        <value>Se déconnecter</value>
+    </data>
+  <data name="admin.base.app.versionDialog.copy" xml:space="preserve">
+        <value>Copier dans le presse-papiers</value>
+    </data>
+  <data name="admin.base.app.versionDialog.title" xml:space="preserve">
+        <value>Version du produit</value>
+    </data>
+  <data name="admin.base.app.versionDialog.version" xml:space="preserve">
+        <value>version</value>
+    </data>
+  <data name="admin.base.assetFolderTree.dialogs.createFolder.confirmActionLabel" xml:space="preserve">
+        <value>Enregistrer</value>
+    </data>
+  <data name="admin.base.assetFolderTree.dialogs.createFolder.headline" xml:space="preserve">
+        <value>Ajouter un nouveau dossier</value>
+    </data>
+  <data name="admin.base.assetFolderTree.dialogs.renameFolder.confirmActionLabel" xml:space="preserve">
+        <value>Enregistrer</value>
+    </data>
+  <data name="admin.base.assetFolderTree.dialogs.renameFolder.headline" xml:space="preserve">
+        <value>Renommer le dossier</value>
+    </data>
+  <data name="admin.base.assetFolderTree.nodeActions.label" xml:space="preserve">
+        <value>Plus d'actions</value>
+    </data>
+  <data name="admin.base.assetLoader.loadMore" xml:space="preserve">
+        <value>Chargement d'autres éléments...</value>
+    </data>
+  <data name="admin.base.assetMove.confirmMove" xml:space="preserve">
+        <value>Déplacer</value>
+    </data>
+  <data name="admin.base.assetMove.disabledButtonTooltip" xml:space="preserve">
+        <value>Sélectionnez un dossier.</value>
+    </data>
+  <data name="admin.base.assetMove.headline" xml:space="preserve">
+        <value>Sélectionnez un dossier de destination pour le fichier "{{assetName}}"</value>
+    </data>
+  <data name="admin.base.assetPanel.actionButtonLabel" xml:space="preserve">
+        <value>Sélectionner le fichier</value>
+    </data>
+  <data name="admin.base.assetPanel.cancelButtonLabel" xml:space="preserve">
+        <value>Annuler</value>
+    </data>
+  <data name="admin.base.assetPanel.headline" xml:space="preserve">
+        <value>Panneau multimédia</value>
+    </data>
+  <data name="admin.base.assetPanel.noExistingLibrary" xml:space="preserve">
+        <value>Impossible d'insérer un fichier depuis une médiathèque. Aucune bibliothèque disponible pour sélectionner les fichiers.</value>
+    </data>
+  <data name="admin.base.assetPanelContent.fileCounter.default" xml:space="preserve">
+        <value>Fichiers</value>
+    </data>
+  <data name="admin.base.assetPanelContent.fileCounter.selected" xml:space="preserve">
+        <value>Fichiers sélectionnés</value>
+    </data>
+  <data name="admin.base.assetSelector.assetPanel.cancelButtonLabel" xml:space="preserve">
+        <value>Annuler</value>
+    </data>
+  <data name="admin.base.assetSelector.assetPanel.disabledImage" xml:space="preserve">
+        <value>Cet élément ne peut pas être sélectionné car il n'a pas de variante de secours appropriée, par conséquent aucune image ne serait affichée dans l'éditeur de texte riche.</value>
+    </data>
+  <data name="admin.base.assetSelector.assetPanel.toggles.contentHub" xml:space="preserve">
+        <value>Hub de contenu</value>
+    </data>
+  <data name="admin.base.assetSelector.assetPanel.toggles.mediaLibrary" xml:space="preserve">
+        <value>Médiathèque</value>
+    </data>
+  <data name="admin.base.assetUploadTile.buttonLabel" xml:space="preserve">
+        <value>Parcourir</value>
+    </data>
+  <data name="admin.base.assetUploadTile.firstLine" xml:space="preserve">
+        <value>Glissez-déposez les fichiers ici</value>
+    </data>
+  <data name="admin.base.assetUploadTile.inactiveMessage" xml:space="preserve">
+        <value>Téléversement actuellement indisponible. Un autre téléversement est déjà en cours.</value>
+    </data>
+  <data name="admin.base.assetUploadTile.secondLine" xml:space="preserve">
+        <value>ou</value>
+    </data>
+  <data name="admin.base.callout.friendlyWarning" xml:space="preserve">
+        <value>Avertissement amical</value>
+    </data>
+  <data name="admin.base.callout.quickTip" xml:space="preserve">
+        <value>Conseil rapide</value>
+    </data>
+  <data name="admin.base.cascadePublishDialog.headline" xml:space="preserve">
+        <value>Sélectionnez les éléments de contenu liés qui doivent être publiés avec les éléments (parents) sélectionnés</value>
+    </data>
+  <data name="admin.base.cascadePublishDialog.publish" xml:space="preserve">
+        <value>Publier</value>
+    </data>
+  <data name="admin.base.command.forbiddenAccess" xml:space="preserve">
+        <value>&lt;b&gt;Accès refusé&lt;/b&gt;&lt;br&gt;Vous n'avez pas l'autorisation d'effectuer cette action. Si vous pensez que c'est une erreur, contactez votre administrateur.</value>
+    </data>
+  <data name="admin.base.conditionBuilder.addConditionLabel" xml:space="preserve">
+        <value>Ajouter une autre condition</value>
+    </data>
+  <data name="admin.base.conditionBuilder.addGroupLabel" xml:space="preserve">
+        <value>Ajouter un groupe de conditions</value>
+    </data>
+  <data name="admin.base.conditionBuilder.and" xml:space="preserve">
+        <value>Et</value>
+    </data>
+  <data name="admin.base.conditionBuilder.cancelConfirmation" xml:space="preserve">
+        <value>Les modifications que vous avez apportées ne sont pas enregistrées. Voulez-vous annuler les modifications non enregistrées ?</value>
+    </data>
+  <data name="admin.base.conditionBuilder.conditionPickerHeadline" xml:space="preserve">
+        <value>Choisir une condition appropriée</value>
+    </data>
+  <data name="admin.base.conditionBuilder.conditionPickerNoData" xml:space="preserve">
+        <value>Aucun résultat correspondant trouvé</value>
+    </data>
+  <data name="admin.base.conditionBuilder.conditionPickerSearch" xml:space="preserve">
+        <value>Rechercher</value>
+    </data>
+  <data name="admin.base.conditionBuilder.deleteConditionGroupTooltip" xml:space="preserve">
+        <value>Supprimer le groupe de conditions</value>
+    </data>
+  <data name="admin.base.conditionBuilder.deleteConditionTooltip" xml:space="preserve">
+        <value>Supprimer la condition</value>
+    </data>
+  <data name="admin.base.conditionBuilder.or" xml:space="preserve">
+        <value>Ou</value>
+    </data>
+  <data name="admin.base.conditionBuilder.overview.all" xml:space="preserve">
+        <value>Tout</value>
+    </data>
+  <data name="admin.base.conditionBuilder.overview.any" xml:space="preserve">
+        <value>N'importe lequel</value>
+    </data>
+  <data name="admin.base.conditionBuilder.overview.emptyCondition" xml:space="preserve">
+        <value>Conditions non encore définies.</value>
+    </data>
+  <data name="admin.base.conditionBuilder.overview.headlineForMultipleConditionGroupsAfterOperator" xml:space="preserve">
+        <value>des groupes de conditions suivants sont remplis :</value>
+    </data>
+  <data name="admin.base.conditionBuilder.overview.headlineForMultipleConditionGroupsBeforeOperator" xml:space="preserve">
+        <value>S'applique si</value>
+    </data>
+  <data name="admin.base.conditionBuilder.overview.headlineForOneConditionGroup" xml:space="preserve">
+        <value>S'applique si les conditions suivantes sont remplies :</value>
+    </data>
+  <data name="admin.base.conditionBuilder.overview.loaderError" xml:space="preserve">
+        <value>Une erreur inattendue s'est produite et vos conditions n'ont pas pu être chargées.</value>
+    </data>
+  <data name="admin.base.conditionBuilder.textAfterOperatorSelector" xml:space="preserve">
+        <value>des groupes de conditions suivants sont remplis.</value>
+    </data>
+  <data name="admin.base.conditionBuilder.textAfterOperatorSelectorInConditionGroup" xml:space="preserve">
+        <value>des conditions suivantes sont remplies.</value>
+    </data>
+  <data name="admin.base.conditionBuilder.textBeforeOperatorSelector" xml:space="preserve">
+        <value>S'applique si :</value>
+    </data>
+  <data name="admin.base.conditionBuilder.textBeforeOperatorSelectorInConditionGroup" xml:space="preserve">
+        <value>S'applique si :</value>
+    </data>
+  <data name="admin.base.contentItemActions.noChangesToSave" xml:space="preserve">
+        <value>Il n'y a aucune modification non enregistrée.</value>
+    </data>
+  <data name="admin.base.contentItemPanel.authentication" xml:space="preserve">
+        <value>Authentification</value>
+    </data>
+  <data name="admin.base.contentItemPanel.cancel" xml:space="preserve">
+        <value>Annuler</value>
+    </data>
+  <data name="admin.base.contentItemPanel.contentType" xml:space="preserve">
+        <value>Type de contenu</value>
+    </data>
+  <data name="admin.base.contentItemPanel.items" xml:space="preserve">
+        <value>éléments</value>
+    </data>
+  <data name="admin.base.contentItemPanel.itemsSelected" xml:space="preserve">
+        <value>éléments sélectionnés</value>
+    </data>
+  <data name="admin.base.contentItemPanel.lastModified" xml:space="preserve">
+        <value>Dernière modification</value>
+    </data>
+  <data name="admin.base.contentItemPanel.name" xml:space="preserve">
+        <value>Nom</value>
+    </data>
+  <data name="admin.base.contentItemPanel.noContentItems" xml:space="preserve">
+        <value>Il n'y a aucun élément de contenu des types sélectionnés disponible.</value>
+    </data>
+  <data name="admin.base.contentItemPanel.status" xml:space="preserve">
+        <value>Statut</value>
+    </data>
+  <data name="admin.base.contentItems.deleteContentItem.dialog.cancelButtonLabel" xml:space="preserve">
+        <value>Annuler</value>
+    </data>
+  <data name="admin.base.contentItems.deleteContentItem.dialog.confirmButtonLabel" xml:space="preserve">
+        <value>Supprimer</value>
+    </data>
+  <data name="admin.base.contentItems.deleteContentItem.dialog.messageInUse" xml:space="preserve">
+        <value>Cela supprime également toutes les références aux éléments d'autres contenus du système - pages, e-mails, autres éléments de contenu, etc.</value>
+    </data>
+  <data name="admin.base.contentItems.deleteContentItem.dialog.refreshButtonLabel" xml:space="preserve">
+        <value>Actualiser</value>
+    </data>
+  <data name="admin.base.contentItems.editContentItem.noFieldsTitle" xml:space="preserve">
+        <value>Cet élément de contenu n'a pas de champs modifiables.</value>
+    </data>
+  <data name="admin.base.contentItems.editContentItem.rename.headline" xml:space="preserve">
+        <value>Renommer l'élément de contenu</value>
+    </data>
+  <data name="admin.base.contentItems.editContentItem.rename.label" xml:space="preserve">
+        <value>Nom de l'élément de contenu</value>
+    </data>
+  <data name="admin.base.contentItems.editContentItem.rename.save" xml:space="preserve">
+        <value>Enregistrer</value>
+    </data>
+  <data name="admin.base.contentItemSelector.buttons.createNewButtonLabel" xml:space="preserve">
+        <value>Créer nouveau</value>
+    </data>
+  <data name="admin.base.contentItemSelector.buttons.selectExistingButtonLabel" xml:space="preserve">
+        <value>Sélectionner un élément de contenu existant</value>
+    </data>
+  <data name="admin.base.contentItemSelector.buttons.selectExistingWebPageButtonLabel" xml:space="preserve">
+        <value>Sélectionner une page existante</value>
+    </data>
+  <data name="admin.base.contentItemSelector.closePrompts.closeAll.confirmLabel" xml:space="preserve">
+        <value>Annuler</value>
+    </data>
+  <data name="admin.base.contentItemSelector.closePrompts.closeAll.headline" xml:space="preserve">
+        <value>Vous avez des modifications non enregistrées</value>
+    </data>
+  <data name="admin.base.contentItemSelector.closePrompts.closeAll.message" xml:space="preserve">
+        <value>Êtes-vous sûr de vouloir fermer TOUTES les boîtes de dialogue et annuler les modifications non enregistrées ?</value>
+    </data>
+  <data name="admin.base.contentItemSelector.closePrompts.closeOne.confirmLabel" xml:space="preserve">
+        <value>Annuler</value>
+    </data>
+  <data name="admin.base.contentItemSelector.closePrompts.closeOne.headline" xml:space="preserve">
+        <value>Vous avez des modifications non enregistrées</value>
+    </data>
+  <data name="admin.base.contentItemSelector.closePrompts.closeOne.message" xml:space="preserve">
+        <value>Êtes-vous sûr de vouloir fermer la boîte de dialogue actuelle et annuler les modifications non enregistrées ?</value>
+    </data>
+  <data name="admin.base.contentItemSelector.contentItemGrid.delete" xml:space="preserve">
+        <value>Supprimer l'élément</value>
+    </data>
+  <data name="admin.base.contentItemSelector.contentItemList.contentTypeType.reusable" xml:space="preserve">
+        <value>Contenu réutilisable</value>
+    </data>
+  <data name="admin.base.contentItemSelector.contentItemList.contentTypeType.website" xml:space="preserve">
+        <value>Page</value>
+    </data>
+  <data name="admin.base.contentItemSelector.contentItemList.delete" xml:space="preserve">
+        <value>Supprimer l'élément</value>
+    </data>
+  <data name="admin.base.contentItemSelector.contentItemPanel.cancel" xml:space="preserve">
+        <value>Annuler</value>
+    </data>
+  <data name="admin.base.contentItemSelector.contentItemPanel.disabledImage" xml:space="preserve">
+        <value>Cet élément ne peut pas être sélectionné car il n'a pas de variante de secours appropriée, par conséquent aucune image ne serait affichée dans l'éditeur de texte riche.</value>
+    </data>
+  <data name="admin.base.contentItemSelector.contentItemPanel.headlineMultiple" xml:space="preserve">
+        <value>Sélectionner des éléments de contenu</value>
+    </data>
+  <data name="admin.base.contentItemSelector.contentItemPanel.headlineSingle" xml:space="preserve">
+        <value>Sélectionner un élément de contenu</value>
+    </data>
+  <data name="admin.base.contentItemSelector.contentItemPanel.items" xml:space="preserve">
+        <value>éléments</value>
+    </data>
+  <data name="admin.base.contentItemSelector.contentItemPanel.itemsSelected" xml:space="preserve">
+        <value>éléments sélectionnés</value>
+    </data>
+  <data name="admin.base.contentItemSelector.contentItemPanel.listing.search.placeholder" xml:space="preserve">
+        <value>Rechercher</value>
+    </data>
+  <data name="admin.base.contentItemSelector.contentItemPanel.noContentItems" xml:space="preserve">
+        <value>Il n'y a aucun élément de contenu des types sélectionnés disponible.</value>
+    </data>
+  <data name="admin.base.contentItemSelector.contentItemPanel.selectButtonLabel" xml:space="preserve">
+        <value>Sélectionner</value>
+    </data>
+  <data name="admin.base.contentItemSelector.contentItemPanel.showLess" xml:space="preserve">
+        <value>Afficher moins</value>
+    </data>
+  <data name="admin.base.contentItemSelector.contentItemPanel.showMore" xml:space="preserve">
+        <value>Afficher plus ({{count}})</value>
+    </data>
+  <data name="admin.base.contentItemSelector.createContentItemPanel.headline" xml:space="preserve">
+        <value>Créer un nouvel élément</value>
+    </data>
+  <data name="admin.base.contentItemSelector.createContentItemPanel.saveButtonLabel" xml:space="preserve">
+        <value>Enregistrer</value>
+    </data>
+  <data name="admin.base.contentItemSelector.or" xml:space="preserve">
+        <value>ou</value>
+    </data>
+  <data name="admin.base.contentItemSelector.possibleFallbackMessage" xml:space="preserve">
+        <value>Certains des éléments sélectionnés ne sont pas traduits ou n'ont pas de version publiée. Une variante de langue de secours sera utilisée si disponible.</value>
+    </data>
+  <data name="admin.base.contentItemSelector.webPagePanel.headlineMultiple" xml:space="preserve">
+        <value>Sélectionner des pages</value>
+    </data>
+  <data name="admin.base.contentItemSelector.webPagePanel.headlineSingle" xml:space="preserve">
+        <value>Sélectionner une page</value>
+    </data>
+  <data name="admin.base.contentItemSelector.webPagePanel.selectButtonLabel" xml:space="preserve">
+        <value>Sélectionner</value>
+    </data>
+  <data name="admin.base.contentSynchronization.panel.cancelButtonLabel" xml:space="preserve">
+        <value>Annuler</value>
+    </data>
+  <data name="admin.base.contentSynchronization.panel.closeButtonLabel" xml:space="preserve">
+        <value>Fermer</value>
+    </data>
+  <data name="admin.base.contentSynchronization.panel.configurationHeadline" xml:space="preserve">
+        <value>Synchronisation du contenu</value>
+    </data>
+  <data name="admin.base.contentSynchronization.panel.contentItemSelectorHeadline" xml:space="preserve">
+        <value>Sélectionner les éléments de contenu à synchroniser</value>
+    </data>
+  <data name="admin.base.contentSynchronization.panel.genericError.message" xml:space="preserve">
+        <value>Une erreur s'est produite lors de la synchronisation. Veuillez réessayer plus tard.</value>
+    </data>
+  <data name="admin.base.contentSynchronization.panel.genericError.name" xml:space="preserve">
+        <value>Une erreur s'est produite lors de la synchronisation</value>
+    </data>
+  <data name="admin.base.contentSynchronization.panel.initialProgressMessage" xml:space="preserve">
+        <value>Préparation de la synchronisation...</value>
+    </data>
+  <data name="admin.base.contentSynchronization.panel.linkedInfo.contentItems" xml:space="preserve">
+        <value>Les éléments de contenu réutilisables liés, les pages, les balises attribuées et leurs taxonomies, ainsi que les dossiers de contenu seront synchronisés avec les éléments sélectionnés. Pour les éléments à l'état Brouillon (Nouvelle version) ou à une étape de flux de travail personnalisée, la dernière version publiée sera synchronisée.</value>
+    </data>
+  <data name="admin.base.contentSynchronization.panel.linkedInfo.webPages" xml:space="preserve">
+        <value>Les éléments de contenu réutilisables liés, les pages, les balises attribuées et leurs taxonomies, ainsi que les dossiers parents seront synchronisés avec les pages sélectionnées. Pour les éléments à l'état Brouillon (Nouvelle version) ou à une étape de flux de travail personnalisée, la dernière version publiée sera synchronisée.</value>
+    </data>
+  <data name="admin.base.contentSynchronization.panel.moreErrors" xml:space="preserve">
+        <value>plus d'erreurs</value>
+    </data>
+  <data name="admin.base.contentSynchronization.panel.restorationSchedule.ariaLabel" xml:space="preserve">
+        <value>Heure de planification de la synchronisation</value>
+    </data>
+  <data name="admin.base.contentSynchronization.panel.restorationSchedule.message" xml:space="preserve">
+        <value>Une erreur s'est produite lors de la synchronisation. Réessayez plus tard.</value>
+    </data>
+  <data name="admin.base.contentSynchronization.panel.restorationSchedule.scheduleTimeSelectorExplain" xml:space="preserve">
+        <value>Affiché dans votre heure locale (GMT {{offset}})</value>
+    </data>
+  <data name="admin.base.contentSynchronization.panel.restorationSchedule.scheduleTimeSelectorLabel" xml:space="preserve">
+        <value>Date et heure</value>
+    </data>
+  <data name="admin.base.contentSynchronization.panel.retryButtonLabel" xml:space="preserve">
+        <value>Réessayer</value>
+    </data>
+  <data name="admin.base.contentSynchronization.panel.successful.finishCompletedSubTitle" xml:space="preserve">
+        <value>Le contenu de la synchronisation sera restauré sur la cible le {{date}}</value>
+    </data>
+  <data name="admin.base.contentSynchronization.panel.successful.finishCompletedTitle" xml:space="preserve">
+        <value>Restauration planifiée</value>
+    </data>
+  <data name="admin.base.contentSynchronization.panel.successful.finishTitle" xml:space="preserve">
+        <value>Synchronisation terminée avec succès</value>
+    </data>
+  <data name="admin.base.contentSynchronization.panel.successful.tipHeadline" xml:space="preserve">
+        <value>Modification de la restauration planifiée</value>
+    </data>
+  <data name="admin.base.contentSynchronization.panel.successful.tipSubHeadline" xml:space="preserve">
+        <value>Conseil rapide</value>
+    </data>
+  <data name="admin.base.contentSynchronization.panel.successful.tipText" xml:space="preserve">
+        <value>Si vous devez annuler ou replanifier la restauration, accédez à l'application de synchronisation de contenu sur l'instance cible et supprimez la tâche de synchronisation.</value>
+    </data>
+  <data name="admin.base.contentSynchronization.panel.syncButtonLabel" xml:space="preserve">
+        <value>Synchroniser</value>
+    </data>
+  <data name="admin.base.contentSynchronization.panel.synchronizationHeadline" xml:space="preserve">
+        <value>Synchronisation du contenu</value>
+    </data>
+  <data name="admin.base.contentSynchronization.panel.webPageSelectorHeadline" xml:space="preserve">
+        <value>Sélectionner les pages à synchroniser</value>
+    </data>
+  <data name="admin.base.contentTypes.binding.channelDisplayName" xml:space="preserve">
+        <value>Canal</value>
+    </data>
+  <data name="admin.base.contentTypes.binding.channelType" xml:space="preserve">
+        <value>Type de canal</value>
+    </data>
+  <data name="admin.base.contentTypes.binding.noChannelsText" xml:space="preserve">
+        <value>Il n'y a pas de canaux disponibles. Vous pouvez en créer un nouveau dans l'application de gestion des canaux.</value>
+    </data>
+  <data name="admin.base.contentTypes.binding.noChannelsTitle" xml:space="preserve">
+        <value>Aucun canal</value>
+    </data>
+  <data name="admin.base.contentVersions.versionDetail.noFieldsTitle" xml:space="preserve">
+        <value>Cet élément n'a pas de champs modifiables.</value>
+    </data>
+  <data name="admin.base.contentVersionsLoader.loadMore" xml:space="preserve">
+        <value>Chargement d'autres éléments...</value>
+    </data>
+  <data name="admin.base.dashboard.applications" xml:space="preserve">
+        <value>Applications</value>
+    </data>
+  <data name="admin.base.dashboard.home" xml:space="preserve">
+        <value>Accueil</value>
+    </data>
+  <data name="admin.base.dateInput.invalidFormat" xml:space="preserve">
+        <value>Format de date invalide</value>
+    </data>
+  <data name="admin.base.dateTimeInput.invalidFormat" xml:space="preserve">
+        <value>Format de date invalide</value>
+    </data>
+  <data name="admin.base.dialog.cancel" xml:space="preserve">
+        <value>Annuler</value>
+    </data>
+  <data name="admin.base.dialog.close" xml:space="preserve">
+        <value>Fermer</value>
+    </data>
+  <data name="admin.base.edit.noElementText" xml:space="preserve">
+        <value>Cela peut être dû à une mauvaise configuration du formulaire ou à une erreur inattendue.</value>
+    </data>
+  <data name="admin.base.edit.noElementTitle" xml:space="preserve">
+        <value>Il n'y a aucun élément de formulaire à afficher.</value>
+    </data>
+  <data name="admin.base.emailList.delete" xml:space="preserve">
+        <value>Supprimer</value>
+    </data>
+  <data name="admin.base.fetch.networkError" xml:space="preserve">
+        <value>Nous avons rencontré une erreur inattendue. Statut de l'erreur d'origine :</value>
+    </data>
+  <data name="admin.base.fetch.unexpectedError" xml:space="preserve">
+        <value>Nous avons rencontré une erreur inattendue. Code d'état de l'erreur :</value>
+    </data>
+  <data name="admin.base.fieldEditor.cancel" xml:space="preserve">
+        <value>Annuler</value>
+    </data>
+  <data name="admin.base.fieldEditor.cancelConfirmation" xml:space="preserve">
+        <value>Les modifications que vous avez apportées ne sont pas enregistrées. Voulez-vous annuler les modifications non enregistrées ?</value>
+    </data>
+  <data name="admin.base.fieldEditor.categoryIndicator" xml:space="preserve">
+        <value>Catégorie</value>
+    </data>
+  <data name="admin.base.fieldEditor.deleteConfirmation" xml:space="preserve">
+        <value>Êtes-vous sûr de vouloir supprimer le champ ?</value>
+    </data>
+  <data name="admin.base.fieldEditor.deleteConfirmationButtonLabel" xml:space="preserve">
+        <value>Supprimer</value>
+    </data>
+  <data name="admin.base.fieldEditor.deleteField" xml:space="preserve">
+        <value>Supprimer le champ</value>
+    </data>
+  <data name="admin.base.fieldEditor.editSchema" xml:space="preserve">
+        <value>Modifier le schéma</value>
+    </data>
+  <data name="admin.base.fieldEditor.fieldInvisible" xml:space="preserve">
+        <value>Ce champ n'est pas visible dans le formulaire de modification</value>
+    </data>
+  <data name="admin.base.fieldEditor.fieldRequired" xml:space="preserve">
+        <value>Obligatoire</value>
+    </data>
+  <data name="admin.base.fieldEditor.fieldsCollectionEmpty" xml:space="preserve">
+        <value>La collection de champs est vide.</value>
+    </data>
+  <data name="admin.base.fieldEditor.fieldVisible" xml:space="preserve">
+        <value>Ce champ est visible dans le formulaire de modification</value>
+    </data>
+  <data name="admin.base.fieldEditor.fundamentalField" xml:space="preserve">
+        <value>Ce champ est fondamental et ne peut donc pas être supprimé</value>
+    </data>
+  <data name="admin.base.fieldEditor.newCategory" xml:space="preserve">
+        <value>Nouvelle catégorie</value>
+    </data>
+  <data name="admin.base.fieldEditor.newCategoryButtonLabel" xml:space="preserve">
+        <value>Nouvelle catégorie</value>
+    </data>
+  <data name="admin.base.fieldEditor.newField" xml:space="preserve">
+        <value>Nouveau champ</value>
+    </data>
+  <data name="admin.base.fieldEditor.newFieldButtonLabel" xml:space="preserve">
+        <value>Nouveau champ</value>
+    </data>
+  <data name="admin.base.fieldEditor.newSchema" xml:space="preserve">
+        <value>Nouveau schéma</value>
+    </data>
+  <data name="admin.base.fieldEditor.newSchemaButtonLabel" xml:space="preserve">
+        <value>Ajouter un schéma de champ réutilisable</value>
+    </data>
+  <data name="admin.base.fieldEditor.removeSchema" xml:space="preserve">
+        <value>Supprimer le schéma</value>
+    </data>
+  <data name="admin.base.fieldEditor.reusableFieldSchemaIndicator" xml:space="preserve">
+        <value>Schéma de champ réutilisable</value>
+    </data>
+  <data name="admin.base.fieldEditor.save" xml:space="preserve">
+        <value>Enregistrer</value>
+    </data>
+  <data name="admin.base.fieldEditor.sidePanel.cancelButtonLabel" xml:space="preserve">
+        <value>Annuler</value>
+    </data>
+  <data name="admin.base.fieldEditor.sidePanel.noAvailableSchemaText" xml:space="preserve">
+        <value>Vous pouvez créer de nouveaux schémas dans l'onglet &lt;i&gt;Liste des schémas de champs réutilisables&lt;/i&gt;.</value>
+    </data>
+  <data name="admin.base.fieldEditor.sidePanel.noAvailableSchemaTitle" xml:space="preserve">
+        <value>Il n'y a plus de schémas de champs réutilisables pouvant être sélectionnés.</value>
+    </data>
+  <data name="admin.base.fieldEditor.sidePanel.saveButtonLabel" xml:space="preserve">
+        <value>Confirmer</value>
+    </data>
+  <data name="admin.base.formComponent.additionalActions.delete" xml:space="preserve">
+        <value>Supprimer</value>
+    </data>
+  <data name="admin.base.formComponent.additionalActions.dialog.continue" xml:space="preserve">
+        <value>Continuer</value>
+    </data>
+  <data name="admin.base.formComponent.additionalActions.dialog.save" xml:space="preserve">
+        <value>Enregistrer</value>
+    </data>
+  <data name="admin.base.formComponent.additionalActions.edit" xml:space="preserve">
+        <value>Modifier</value>
+    </data>
+  <data name="admin.base.formComponent.additionalActions.optionsDepleted" xml:space="preserve">
+        <value>Toutes les options disponibles ont déjà été ajoutées.</value>
+    </data>
+  <data name="admin.base.formComponent.assetSelector.dropTileText" xml:space="preserve">
+        <value>Dépôt de l'élément</value>
+    </data>
+  <data name="admin.base.formComponent.assetSelector.library" xml:space="preserve">
+        <value>Médiathèque</value>
+    </data>
+  <data name="admin.base.formComponent.assetSelector.selectAssets" xml:space="preserve">
+        <value>Sélectionnez ou glissez-déposez des fichiers depuis une</value>
+    </data>
+  <data name="admin.base.formComponent.codeName.explanationText" xml:space="preserve">
+        <value>&lt;ul&gt;&lt;li&gt;Seuls les caractères alphanumériques et quelques caractères spéciaux (&apos;_&apos;, &apos;-&apos;, &apos;.&apos;) sont autorisés&lt;/li&gt;&lt;li&gt;Ne peut pas commencer ou se terminer par &apos;.&apos;&lt;/li&gt;&lt;/ul&gt;</value>
+    </data>
+  <data name="admin.base.formComponent.codeName.checkboxLabel" xml:space="preserve">
+        <value>Pré-remplir automatiquement le nom de code</value>
+    </data>
+  <data name="admin.base.formComponent.codeName.tooltip" xml:space="preserve">
+        <value>Un identifiant utilisé par les développeurs. Doit être unique pour tous les objets du même type.</value>
+    </data>
+  <data name="admin.base.formComponent.codeName.wrapperLabel" xml:space="preserve">
+        <value>Identifiants</value>
+    </data>
+  <data name="admin.base.formComponent.conditionBuilder.editBuilderCancel" xml:space="preserve">
+        <value>Annuler</value>
+    </data>
+  <data name="admin.base.formComponent.conditionBuilder.editBuilderConfirm" xml:space="preserve">
+        <value>Appliquer</value>
+    </data>
+  <data name="admin.base.formComponent.conditionBuilder.editBuilderHeader" xml:space="preserve">
+        <value>Créez votre propre condition</value>
+    </data>
+  <data name="admin.base.formComponent.conditionBuilder.editButton.add" xml:space="preserve">
+        <value>Ajouter une condition</value>
+    </data>
+  <data name="admin.base.formComponent.conditionBuilder.editButton.edit" xml:space="preserve">
+        <value>Modifier la condition</value>
+    </data>
+  <data name="admin.base.formComponent.contentFolderSelector.clear" xml:space="preserve">
+        <value>Effacer</value>
+    </data>
+  <data name="admin.base.formComponent.contentFolderSelector.dialogSubTitle" xml:space="preserve">
+        <value>Emplacement :</value>
+    </data>
+  <data name="admin.base.formComponent.contentFolderSelector.dialogTitle" xml:space="preserve">
+        <value>Sélectionner l'emplacement</value>
+    </data>
+  <data name="admin.base.formComponent.contentFolderSelector.rootFolder" xml:space="preserve">
+        <value>Non classé (aucun dossier)</value>
+    </data>
+  <data name="admin.base.formComponent.contentFolderSelector.select" xml:space="preserve">
+        <value>Sélectionner</value>
+    </data>
+  <data name="admin.base.formComponent.contentItemAssetUploader.adjustImageDialog.calloutSubheadline" xml:space="preserve">
+        <value>Conseil rapide</value>
+    </data>
+  <data name="admin.base.formComponent.contentItemAssetUploader.adjustImageDialog.calloutText" xml:space="preserve">
+        <value>Utilisez le point violet pour sélectionner un point focal. Sauf recadrage manuel, les variantes d'image sont automatiquement recadrées en fonction du point focal.</value>
+    </data>
+  <data name="admin.base.formComponent.contentItemAssetUploader.adjustImageDialog.cancel" xml:space="preserve">
+        <value>Annuler</value>
+    </data>
+  <data name="admin.base.formComponent.contentItemAssetUploader.adjustImageDialog.close" xml:space="preserve">
+        <value>Fermer</value>
+    </data>
+  <data name="admin.base.formComponent.contentItemAssetUploader.adjustImageDialog.copied" xml:space="preserve">
+        <value>URL copiée dans le presse-papiers.</value>
+    </data>
+  <data name="admin.base.formComponent.contentItemAssetUploader.adjustImageDialog.crop" xml:space="preserve">
+        <value>Recadrage de l'image</value>
+    </data>
+  <data name="admin.base.formComponent.contentItemAssetUploader.adjustImageDialog.cropExplanationIfNoOptions" xml:space="preserve">
+        <value>Aucun recadrage d'image n'est actuellement configuré. Demandez à vos administrateurs de projet de les configurer.</value>
+    </data>
+  <data name="admin.base.formComponent.contentItemAssetUploader.adjustImageDialog.cropTooltip" xml:space="preserve">
+        <value>Un recadrage d'image applique un rapport d'aspect prédéfini et des dimensions fixes à l'image. Le système redimensionne automatiquement l'image vers le haut ou vers le bas selon les besoins pour respecter les dimensions spécifiées.</value>
+    </data>
+  <data name="admin.base.formComponent.contentItemAssetUploader.adjustImageDialog.dimensions" xml:space="preserve">
+        <value>Dimensions : {{width}}x{{height}}px</value>
+    </data>
+  <data name="admin.base.formComponent.contentItemAssetUploader.adjustImageDialog.filename" xml:space="preserve">
+        <value>Nom du fichier : {{filename}}</value>
+    </data>
+  <data name="admin.base.formComponent.contentItemAssetUploader.adjustImageDialog.fileSize" xml:space="preserve">
+        <value>Taille approximative du fichier : {{size}}</value>
+    </data>
+  <data name="admin.base.formComponent.contentItemAssetUploader.adjustImageDialog.headline" xml:space="preserve">
+        <value>Ajuster l'image</value>
+    </data>
+  <data name="admin.base.formComponent.contentItemAssetUploader.adjustImageDialog.imageFormat" xml:space="preserve">
+        <value>Format de l'image</value>
+    </data>
+  <data name="admin.base.formComponent.contentItemAssetUploader.adjustImageDialog.info" xml:space="preserve">
+        <value>Informations sur l'image ajustée</value>
+    </data>
+  <data name="admin.base.formComponent.contentItemAssetUploader.adjustImageDialog.noCrop" xml:space="preserve">
+        <value>Pas de recadrage</value>
+    </data>
+  <data name="admin.base.formComponent.contentItemAssetUploader.adjustImageDialog.primaryImage" xml:space="preserve">
+        <value>Image principale</value>
+    </data>
+  <data name="admin.base.formComponent.contentItemAssetUploader.adjustImageDialog.quality" xml:space="preserve">
+        <value>Qualité</value>
+    </data>
+  <data name="admin.base.formComponent.contentItemAssetUploader.adjustImageDialog.qualityExplanation" xml:space="preserve">
+        <value>Une qualité supérieure conserve les détails de l'image ; une qualité inférieure réduit la taille du fichier.</value>
+    </data>
+  <data name="admin.base.formComponent.contentItemAssetUploader.adjustImageDialog.save" xml:space="preserve">
+        <value>Enregistrer</value>
+    </data>
+  <data name="admin.base.formComponent.contentItemAssetUploader.adjustImageDialog.variantInfo" xml:space="preserve">
+        <value>Informations sur la variante de l'image</value>
+    </data>
+  <data name="admin.base.formComponent.contentItemAssetUploader.adjustImageDialog.variants" xml:space="preserve">
+        <value>Variantes d'image</value>
+    </data>
+  <data name="admin.base.formComponent.contentItemAssetUploader.adjustTooltip" xml:space="preserve">
+        <value>Ajuster l'image</value>
+    </data>
+  <data name="admin.base.formComponent.contentItemAssetUploader.copyUrl" xml:space="preserve">
+        <value>Copier l'URL</value>
+    </data>
+  <data name="admin.base.formComponent.contentItemAssetUploader.delete" xml:space="preserve">
+        <value>Supprimer l'élément</value>
+    </data>
+  <data name="admin.base.formComponent.contentItemAssetUploader.download" xml:space="preserve">
+        <value>Télécharger l'élément</value>
+    </data>
+  <data name="admin.base.formComponent.contentItemAssetUploader.unsupportedAdjustTooltip" xml:space="preserve">
+        <value>L'image ne peut pas être ajustée en raison d'une extension de fichier non prise en charge. Si vous pensez que c'est une erreur, contactez votre administrateur système.</value>
+    </data>
+  <data name="admin.base.formComponent.contentItemAssetUploader.uploadCancelled" xml:space="preserve">
+        <value>Le téléchargement du fichier a été annulé.</value>
+    </data>
+  <data name="admin.base.formComponent.dateInput.today" xml:space="preserve">
+        <value>AUJOURD'HUI</value>
+    </data>
+  <data name="admin.base.formComponent.dateTimeInput.now" xml:space="preserve">
+        <value>MAINTENANT</value>
+    </data>
+  <data name="admin.base.formComponent.dateTimeInput.save" xml:space="preserve">
+        <value>ENREGISTRER</value>
+    </data>
+  <data name="admin.base.formComponent.dateTimeRangeInput.save" xml:space="preserve">
+        <value>ENREGISTRER</value>
+    </data>
+  <data name="admin.base.formComponent.dropDown.clearSelection" xml:space="preserve">
+        <value>Effacer la sélection</value>
+    </data>
+  <data name="admin.base.formComponent.extensionSelector.checkboxLabel" xml:space="preserve">
+        <value>Hériter des paramètres</value>
+    </data>
+  <data name="admin.base.formComponent.fileSelector.buttonTitle" xml:space="preserve">
+        <value>Téléverser le fichier</value>
+    </data>
+  <data name="admin.base.formComponent.fileSelector.label" xml:space="preserve">
+        <value>ou glissez-déposez ici</value>
+    </data>
+  <data name="admin.base.formComponent.formSelector.editInFormsButton" xml:space="preserve">
+        <value>Modifier dans les formulaires</value>
+    </data>
+  <data name="admin.base.formComponent.iconSelector.clear" xml:space="preserve">
+        <value>Effacer</value>
+    </data>
+  <data name="admin.base.formComponent.iconSelector.dialogTitle" xml:space="preserve">
+        <value>Sélectionner une icône</value>
+    </data>
+  <data name="admin.base.formComponent.iconSelector.none" xml:space="preserve">
+        <value>Aucune icône sélectionnée</value>
+    </data>
+  <data name="admin.base.formComponent.iconSelector.searchPlaceholder" xml:space="preserve">
+        <value>Rechercher une icône</value>
+    </data>
+  <data name="admin.base.formComponent.iconSelector.select" xml:space="preserve">
+        <value>Sélectionner</value>
+    </data>
+  <data name="admin.base.formComponent.macroWrapper.macroMode" xml:space="preserve">
+        <value>Mode macro</value>
+    </data>
+  <data name="admin.base.formComponent.macroWrapper.textMode" xml:space="preserve">
+        <value>Mode standard</value>
+    </data>
+  <data name="admin.base.formComponent.namespaceCodeName.explanationText" xml:space="preserve">
+        <value>&lt;ul&gt;&lt;li&gt;Seuls les caractères alphanumériques et les traits de soulignement sont autorisés&lt;/li&gt;&lt;li&gt;Doit commencer par une lettre ou un trait de soulignement&lt;/li&gt;&lt;/ul&gt;</value>
+    </data>
+  <data name="admin.base.formComponent.namespaceCodeName.name" xml:space="preserve">
+        <value>Nom</value>
+    </data>
+  <data name="admin.base.formComponent.namespaceCodeName.namespace" xml:space="preserve">
+        <value>Espace de noms</value>
+    </data>
+  <data name="admin.base.formComponent.objectSelector.invalidItemName" xml:space="preserve">
+        <value>ÉLÉMENT SUPPRIMÉ</value>
+    </data>
+  <data name="admin.base.formComponent.objectSelector.statusTextMultiple" xml:space="preserve">
+        <value>Sélectionnez jusqu'à {{max}} éléments</value>
+    </data>
+  <data name="admin.base.formComponent.objectSelector.statusTextMultipleWithCurrentCount" xml:space="preserve">
+        <value>{{current}} éléments sélectionnés, le maximum est de {{max}}</value>
+    </data>
+  <data name="admin.base.formComponent.objectSelector.statusTextSingle" xml:space="preserve">
+        <value>Sélectionnez 1 élément</value>
+    </data>
+  <data name="admin.base.formComponent.objectSelector.statusTextSingleWithCurrentCount" xml:space="preserve">
+        <value>{{current}} élément sélectionné, le maximum est de {{max}}</value>
+    </data>
+  <data name="admin.base.formComponent.richTextEditor.heading5" xml:space="preserve">
+        <value>Titre 5</value>
+    </data>
+  <data name="admin.base.formComponent.richTextEditor.heading6" xml:space="preserve">
+        <value>Titre 6</value>
+    </data>
+  <data name="admin.base.formComponent.validationRules.addRule" xml:space="preserve">
+        <value>Ajouter une règle</value>
+    </data>
+  <data name="admin.base.formComponent.validationRules.delete" xml:space="preserve">
+        <value>Supprimer</value>
+    </data>
+  <data name="admin.base.formComponent.validationRules.deleteConfirmation" xml:space="preserve">
+        <value>Êtes-vous sûr de vouloir supprimer la règle de validation ?</value>
+    </data>
+  <data name="admin.base.formComponent.validationRules.dialog.continue" xml:space="preserve">
+        <value>Continuer</value>
+    </data>
+  <data name="admin.base.formComponent.validationRules.dialog.save" xml:space="preserve">
+        <value>Enregistrer</value>
+    </data>
+  <data name="admin.base.formComponent.validationRules.edit" xml:space="preserve">
+        <value>Modifier</value>
+    </data>
+  <data name="admin.base.formComponent.validationRules.editRule" xml:space="preserve">
+        <value>Modifier la règle</value>
+    </data>
+  <data name="admin.base.formComponent.validationRules.noRules" xml:space="preserve">
+        <value>Aucune règle définie.</value>
+    </data>
+  <data name="admin.base.changeWorkflowStep.contentItemPublishTable.refresh.label" xml:space="preserve">
+        <value>Actualiser</value>
+    </data>
+  <data name="admin.base.languages.listing.defaultLanguage.tag" xml:space="preserve">
+        <value>Par défaut</value>
+    </data>
+  <data name="admin.base.languageSelector.headline" xml:space="preserve">
+        <value>Variantes linguistiques</value>
+    </data>
+  <data name="admin.base.latestActivitiesCard.daysAgo" xml:space="preserve">
+        <value>il y a {{days}} jours</value>
+    </data>
+  <data name="admin.base.latestActivitiesCard.today" xml:space="preserve">
+        <value>Aujourd'hui</value>
+    </data>
+  <data name="admin.base.latestActivitiesCard.yesterday" xml:space="preserve">
+        <value>Hier</value>
+    </data>
+  <data name="admin.base.listing.filters.appliedFiltersLabel" xml:space="preserve">
+        <value>Filtres appliqués :</value>
+    </data>
+  <data name="admin.base.listing.filters.clearButtonLabel" xml:space="preserve">
+        <value>Effacez vos filtres ici</value>
+    </data>
+  <data name="admin.base.listing.filters.filterButtonLabel" xml:space="preserve">
+        <value>Filtrer</value>
+    </data>
+  <data name="admin.base.listing.filters.filterPanel.applyButtonLabel" xml:space="preserve">
+        <value>Appliquer</value>
+    </data>
+  <data name="admin.base.listing.filters.filterPanel.cancelButtonLabel" xml:space="preserve">
+        <value>Annuler</value>
+    </data>
+  <data name="admin.base.listing.filters.filterPanel.clearAllButtonLabel" xml:space="preserve">
+        <value>Tout effacer</value>
+    </data>
+  <data name="admin.base.listing.filters.filterPanel.headline" xml:space="preserve">
+        <value>Filtrer par :</value>
+    </data>
+  <data name="admin.base.listing.filters.noResultText" xml:space="preserve">
+        <value>Essayez de modifier vos filtres ou recommencez</value>
+    </data>
+  <data name="admin.base.listing.horizontalActionMenu.extendedLabel" xml:space="preserve">
+        <value>{{count}} éléments sélectionnés</value>
+    </data>
+  <data name="admin.base.listing.horizontalActionMenu.extendedLabelSingular" xml:space="preserve">
+        <value>1 élément sélectionné</value>
+    </data>
+  <data name="admin.base.listing.horizontalActionMenu.label" xml:space="preserve">
+        <value>{{count}} éléments</value>
+    </data>
+  <data name="admin.base.listing.horizontalActionMenu.moreActionsButtonLabel" xml:space="preserve">
+        <value>Plus d'actions</value>
+    </data>
+  <data name="admin.base.listing.noDataTitle" xml:space="preserve">
+        <value>Il n'y a aucun enregistrement à afficher</value>
+    </data>
+  <data name="admin.base.listing.noItemsText" xml:space="preserve">
+        <value>Créez du nouveau contenu ou déplacez des éléments existants ici.</value>
+    </data>
+  <data name="admin.base.listing.noItemsTitle" xml:space="preserve">
+        <value>Ce dossier est vide.</value>
+    </data>
+  <data name="admin.base.listing.noResultTitle" xml:space="preserve">
+        <value>Nous n'avons trouvé aucune correspondance</value>
+    </data>
+  <data name="admin.base.listing.search.clearButtonLabel" xml:space="preserve">
+        <value>Effacez votre expression de recherche ici</value>
+    </data>
+  <data name="admin.base.listing.search.noResultText" xml:space="preserve">
+        <value>Essayez de changer votre expression de recherche ou recommencez</value>
+    </data>
+  <data name="admin.base.listing.search.placeholder" xml:space="preserve">
+        <value>Rechercher</value>
+    </data>
+  <data name="admin.base.listing.searchAndFilter.clearButtonLabel" xml:space="preserve">
+        <value>Effacez votre expression de recherche et vos filtres ici</value>
+    </data>
+  <data name="admin.base.listing.searchAndFilter.noResultText" xml:space="preserve">
+        <value>Essayez de changer votre expression de recherche, de modifier vos filtres ou de recommencer</value>
+    </data>
+  <data name="admin.base.listing.table.selectAllRows" xml:space="preserve">
+        <value>Sélectionner toutes les lignes</value>
+    </data>
+  <data name="admin.base.listing.table.selectRow" xml:space="preserve">
+        <value>Sélectionner la ligne</value>
+    </data>
+  <data name="admin.base.listing.tableEditor.cancel" xml:space="preserve">
+        <value>Annuler</value>
+    </data>
+  <data name="admin.base.listing.tableEditor.editColumns" xml:space="preserve">
+        <value>Modifier les colonnes</value>
+    </data>
+  <data name="admin.base.listing.tableEditor.hideColumn" xml:space="preserve">
+        <value>Masquer</value>
+    </data>
+  <data name="admin.base.listing.tableEditor.openiteminnewtab" xml:space="preserve">
+        <value>Ouvrir l'élément dans un nouvel onglet</value>
+    </data>
+  <data name="admin.base.listing.tableEditor.save" xml:space="preserve">
+        <value>Enregistrer</value>
+    </data>
+  <data name="admin.base.listing.tableEditor.showColumn" xml:space="preserve">
+        <value>Afficher</value>
+    </data>
+  <data name="admin.base.multiTagSelectorPanel.cancel" xml:space="preserve">
+        <value>Annuler</value>
+    </data>
+  <data name="admin.base.multiTagSelectorPanel.noTagsTooltip" xml:space="preserve">
+        <value>Balises ou taxonomies non disponibles</value>
+    </data>
+  <data name="admin.base.multiTagSelectorPanel.noTaxonomy" xml:space="preserve">
+        <value>Il n'y a pas de taxonomies disponibles.</value>
+    </data>
+  <data name="admin.base.multiTagSelectorPanel.search.clearButtonTooltip" xml:space="preserve">
+        <value>Effacer l'expression de recherche</value>
+    </data>
+  <data name="admin.base.multiTagSelectorPanel.search.noResult.clearButton" xml:space="preserve">
+        <value>Effacez l'expression de recherche ici</value>
+    </data>
+  <data name="admin.base.multiTagSelectorPanel.search.noResult.headline" xml:space="preserve">
+        <value>Nous n'avons trouvé aucune correspondance</value>
+    </data>
+  <data name="admin.base.multiTagSelectorPanel.search.noResult.text" xml:space="preserve">
+        <value>Essayez de changer votre expression de recherche ou recommencez</value>
+    </data>
+  <data name="admin.base.multiTagSelectorPanel.search.placeholder" xml:space="preserve">
+        <value>Rechercher des balises</value>
+    </data>
+  <data name="admin.base.multiTagSelectorPanel.selectedTags" xml:space="preserve">
+        <value>{{selected}} sur {{total}} éléments sélectionnés</value>
+    </data>
+  <data name="admin.base.notificationEmails.preview.subject" xml:space="preserve">
+        <value>Sujet</value>
+    </data>
+  <data name="admin.base.notificationEmails.preview.templateNotConfigured" xml:space="preserve">
+        <value>L'aperçu de l'e-mail de notification ne peut pas être affiché car aucun modèle d'e-mail de notification n'a été sélectionné.</value>
+    </data>
+  <data name="admin.base.pageLoader.preparingYourExperience" xml:space="preserve">
+        <value>Préparation de votre Xperience</value>
+    </data>
+  <data name="admin.base.pagePanel.cancel" xml:space="preserve">
+        <value>Annuler</value>
+    </data>
+  <data name="admin.base.pagePanel.noChildren" xml:space="preserve">
+        <value>Cet élément n'a pas d'enfants</value>
+    </data>
+  <data name="admin.base.pagePanel.page" xml:space="preserve">
+        <value>page sélectionnée</value>
+    </data>
+  <data name="admin.base.pagePanel.pages" xml:space="preserve">
+        <value>pages sélectionnées</value>
+    </data>
+  <data name="admin.base.permissions.appSelectApplicationDisabled" xml:space="preserve">
+        <value>L'ensemble d'autorisations pour cette application est déjà défini</value>
+    </data>
+  <data name="admin.base.permissions.appSelectPlaceholder" xml:space="preserve">
+        <value>Choisir une application</value>
+    </data>
+  <data name="admin.base.permissions.appSelectValidation" xml:space="preserve">
+        <value>Veuillez sélectionner une application.</value>
+    </data>
+  <data name="admin.base.permissions.appSelectWorkspaceDisabled" xml:space="preserve">
+        <value>L'ensemble d'autorisations pour cette application et cet espace de travail est déjà défini</value>
+    </data>
+  <data name="admin.base.permissions.delete" xml:space="preserve">
+        <value>Supprimer</value>
+    </data>
+  <data name="admin.base.permissions.newPermissionSetButtonLabel" xml:space="preserve">
+        <value>Ajouter un ensemble d'autorisations</value>
+    </data>
+  <data name="admin.base.permissions.noDataTitle" xml:space="preserve">
+        <value>Il n'y a aucun enregistrement à afficher</value>
+    </data>
+  <data name="admin.base.permissions.noChangesToSave" xml:space="preserve">
+        <value>Il n'y a aucune modification non enregistrée.</value>
+    </data>
+  <data name="admin.base.permissions.permissionSetLabel1" xml:space="preserve">
+        <value>Pour</value>
+    </data>
+  <data name="admin.base.permissions.permissionSetLabel2" xml:space="preserve">
+        <value>Dans</value>
+    </data>
+  <data name="admin.base.permissions.permissionSetLabel3" xml:space="preserve">
+        <value>autoriser les utilisateurs à</value>
+    </data>
+  <data name="admin.base.permissions.save" xml:space="preserve">
+        <value>Enregistrer</value>
+    </data>
+  <data name="admin.base.permissions.workspaceSelectPlaceholder" xml:space="preserve">
+        <value>Choisir un espace de travail</value>
+    </data>
+  <data name="admin.base.permissions.workspaceSelectValidation" xml:space="preserve">
+        <value>Veuillez sélectionner un espace de travail.</value>
+    </data>
+  <data name="admin.base.plugins.imageReplace.buttonLabel" xml:space="preserve">
+        <value>Remplacer</value>
+    </data>
+  <data name="admin.base.plugins.insertImage.actionButtonLabel" xml:space="preserve">
+        <value>Insérer</value>
+    </data>
+  <data name="admin.base.plugins.insertImage.buttonLabel" xml:space="preserve">
+        <value>Insérer une image</value>
+    </data>
+  <data name="admin.base.plugins.insertImage.headline" xml:space="preserve">
+        <value>Insérer une image</value>
+    </data>
+  <data name="admin.base.plugins.insertLink.buttonLabel" xml:space="preserve">
+        <value>Insérer un lien</value>
+    </data>
+  <data name="admin.base.plugins.insertLink.options.asset.noExistingLibrary" xml:space="preserve">
+        <value>Impossible d'insérer un lien vers un fichier depuis une médiathèque. Aucune bibliothèque disponible pour sélectionner les fichiers.</value>
+    </data>
+  <data name="admin.base.plugins.insertLink.options.asset.panelHeadline" xml:space="preserve">
+        <value>Sélectionner le fichier multimédia à lier</value>
+    </data>
+  <data name="admin.base.plugins.insertLink.options.asset.selectButtonLabel" xml:space="preserve">
+        <value>Insérer</value>
+    </data>
+  <data name="admin.base.plugins.insertLink.options.asset.title" xml:space="preserve">
+        <value>Fichier</value>
+    </data>
+  <data name="admin.base.plugins.insertLink.options.asset.tooltip" xml:space="preserve">
+        <value>Insérer un lien vers un fichier d'une médiathèque.</value>
+    </data>
+  <data name="admin.base.plugins.insertLink.options.external.title" xml:space="preserve">
+        <value>URL Web</value>
+    </data>
+  <data name="admin.base.plugins.insertLink.options.external.tooltip" xml:space="preserve">
+        <value>Insérer un lien vers un site Web ou une ressource externe.</value>
+    </data>
+  <data name="admin.base.plugins.openLink.buttonLabel" xml:space="preserve">
+        <value>Ouvrir le lien</value>
+    </data>
+  <data name="admin.base.promptDialog.confirm" xml:space="preserve">
+        <value>Annuler</value>
+    </data>
+  <data name="admin.base.promptDialog.message" xml:space="preserve">
+        <value>Êtes-vous sûr de vouloir continuer et annuler les modifications non enregistrées ?</value>
+    </data>
+  <data name="admin.base.promptDialog.title" xml:space="preserve">
+        <value>Vous avez des modifications non enregistrées</value>
+    </data>
+  <data name="admin.base.publishabilityCheckDialog.buttonContinue" xml:space="preserve">
+        <value>Continuer</value>
+    </data>
+  <data name="admin.base.publishabilityCheckDialog.buttonPublish" xml:space="preserve">
+        <value>Publier</value>
+    </data>
+  <data name="admin.base.publishabilityCheckDialog.headline" xml:space="preserve">
+        <value>Publier les éléments de contenu sélectionnés ?</value>
+    </data>
+  <data name="admin.base.publishabilityCheckDialog.checkInProgress" xml:space="preserve">
+        <value>Vérification des éléments sélectionnés...</value>
+    </data>
+  <data name="admin.base.settings.clearSearchPhrase" xml:space="preserve">
+        <value>Effacer l'expression de recherche</value>
+    </data>
+  <data name="admin.base.settings.noSearchPhrase" xml:space="preserve">
+        <value>Saisir une expression de recherche</value>
+    </data>
+  <data name="admin.base.settings.noSettingsFoundText" xml:space="preserve">
+        <value>Essayez d'ajuster votre expression de recherche</value>
+    </data>
+  <data name="admin.base.settings.noSettingsFoundTitle" xml:space="preserve">
+        <value>Aucune correspondance trouvée</value>
+    </data>
+  <data name="admin.base.settings.noSettingsText" xml:space="preserve">
+        <value>Cette catégorie ne contient aucun paramètre ou vous n'êtes pas autorisé à afficher ces paramètres. Essayez de sélectionner une sous-catégorie si disponible.</value>
+    </data>
+  <data name="admin.base.settings.noSettingsTitle" xml:space="preserve">
+        <value>Il n'y a aucun paramètre à afficher</value>
+    </data>
+  <data name="admin.base.settings.save" xml:space="preserve">
+        <value>Enregistrer</value>
+    </data>
+  <data name="admin.base.settings.searchPlaceholder" xml:space="preserve">
+        <value>Rechercher dans les paramètres</value>
+    </data>
+  <data name="admin.base.settings.settingFound" xml:space="preserve">
+        <value>paramètre trouvé</value>
+    </data>
+  <data name="admin.base.settings.settings" xml:space="preserve">
+        <value>Paramètres</value>
+    </data>
+  <data name="admin.base.settings.settingsFound" xml:space="preserve">
+        <value>paramètres trouvés</value>
+    </data>
+  <data name="admin.base.schemaBarItem.noFields" xml:space="preserve">
+        <value>Le schéma de champ réutilisable n'a aucun champ configuré.</value>
+    </data>
+  <data name="admin.base.smartFolderSelector.buttonShowLess" xml:space="preserve">
+        <value>Afficher moins</value>
+    </data>
+  <data name="admin.base.smartFolderSelector.buttonShowMore" xml:space="preserve">
+        <value>Afficher plus</value>
+    </data>
+  <data name="admin.base.smartFolderSelector.cancelButtonLabel" xml:space="preserve">
+        <value>Annuler</value>
+    </data>
+  <data name="admin.base.smartFolderSelector.createNewButtonLabel" xml:space="preserve">
+        <value>Créer nouveau</value>
+    </data>
+  <data name="admin.base.smartFolderSelector.disabledFolderTooltip" xml:space="preserve">
+        <value>La livraison de contenu dynamique n'est pas activée pour ce dossier intelligent. Vous pouvez l'activer dans l'application Hub de contenu (utilisez l'icône de modification).</value>
+    </data>
+  <data name="admin.base.smartFolderSelector.orButtonOperator" xml:space="preserve">
+        <value>ou</value>
+    </data>
+  <data name="admin.base.smartFolderSelector.selectButtonLabel" xml:space="preserve">
+        <value>Sélectionner</value>
+    </data>
+  <data name="admin.base.smartFolderSelector.selectExistingButtonLabel" xml:space="preserve">
+        <value>Sélectionner existant</value>
+    </data>
+  <data name="admin.base.smartFolderSelector.smartFolderSelectedItem.remove" xml:space="preserve">
+        <value>Supprimer le dossier intelligent</value>
+    </data>
+  <data name="admin.base.smartFolderSelector.smartFolderSelectedItem.smartFolder" xml:space="preserve">
+        <value>Dossier intelligent</value>
+    </data>
+  <data name="admin.base.smartFolderSelector.smartFolderSelectedItem.table.itemCountPlural" xml:space="preserve">
+        <value>{{count}} éléments</value>
+    </data>
+  <data name="admin.base.smartFolderSelector.smartFolderSelectedItem.table.itemCountSingular" xml:space="preserve">
+        <value>{{count}} élément</value>
+    </data>
+  <data name="admin.base.smartFolderSelector.smartFolderSelectedItem.table.label" xml:space="preserve">
+        <value>Aperçu de l'élément</value>
+    </data>
+  <data name="admin.base.smartFolderSelector.smartFolderSelectorPanelHeadline" xml:space="preserve">
+        <value>Sélectionner un dossier intelligent</value>
+    </data>
+  <data name="admin.base.standardMediaDimensions.cropCodeNameLabel" xml:space="preserve">
+        <value>Nom de code</value>
+    </data>
+  <data name="admin.base.standardMediaDimensions.cropHeightLabel" xml:space="preserve">
+        <value>Hauteur</value>
+    </data>
+  <data name="admin.base.standardMediaDimensions.cropHeightPlaceholder" xml:space="preserve">
+        <value>px</value>
+    </data>
+  <data name="admin.base.standardMediaDimensions.cropHeightValidation" xml:space="preserve">
+        <value>Veuillez indiquer la hauteur de la variante.</value>
+    </data>
+  <data name="admin.base.standardMediaDimensions.cropNameLabel" xml:space="preserve">
+        <value>Nom</value>
+    </data>
+  <data name="admin.base.standardMediaDimensions.cropNameValidation" xml:space="preserve">
+        <value>Veuillez indiquer le nom de la variante.</value>
+    </data>
+  <data name="admin.base.standardMediaDimensions.cropWidthLabel" xml:space="preserve">
+        <value>Largeur</value>
+    </data>
+  <data name="admin.base.standardMediaDimensions.cropWidthPlaceholder" xml:space="preserve">
+        <value>px</value>
+    </data>
+  <data name="admin.base.standardMediaDimensions.cropWidthValidation" xml:space="preserve">
+        <value>Veuillez indiquer la largeur de la variante.</value>
+    </data>
+  <data name="admin.base.standardMediaDimensions.delete" xml:space="preserve">
+        <value>Supprimer</value>
+    </data>
+  <data name="admin.base.standardMediaDimensions.newCropButtonLabel" xml:space="preserve">
+        <value>Ajouter une nouvelle variante</value>
+    </data>
+  <data name="admin.base.standardMediaDimensions.noDataTitle" xml:space="preserve">
+        <value>Il n'y a aucun enregistrement à afficher</value>
+    </data>
+  <data name="admin.base.standardMediaDimensions.noChangesToSave" xml:space="preserve">
+        <value>Il n'y a aucune modification non enregistrée.</value>
+    </data>
+  <data name="admin.base.standardMediaDimensions.save" xml:space="preserve">
+        <value>Enregistrer</value>
+    </data>
+  <data name="admin.base.structuredListing.relatedItems.multiple" xml:space="preserve">
+        <value>{{count}} éléments</value>
+    </data>
+  <data name="admin.base.structuredListing.relatedItems.single" xml:space="preserve">
+        <value>{{count}} élément</value>
+    </data>
+  <data name="admin.base.tagDeleteDialog.callout.content" xml:space="preserve">
+        <value>Une fois supprimé, le contenu publié peut être affecté et éventuellement cassé.</value>
+    </data>
+  <data name="admin.base.tagDeleteDialog.callout.headline" xml:space="preserve">
+        <value>Cette balise ou certains de ses enfants peuvent être utilisés dans du contenu publié</value>
+    </data>
+  <data name="admin.base.tagDeleteDialog.confirmButtonLabel" xml:space="preserve">
+        <value>Oui, supprimer</value>
+    </data>
+  <data name="admin.base.tagDeleteDialog.headline" xml:space="preserve">
+        <value>Voulez-vous supprimer les éléments suivants ?</value>
+    </data>
+  <data name="admin.base.tagSelector.addGroupButton" xml:space="preserve">
+        <value>Ajouter un autre groupe de taxonomie</value>
+    </data>
+  <data name="admin.base.tagSelector.confirmButton" xml:space="preserve">
+        <value>Sélectionner</value>
+    </data>
+  <data name="admin.base.tagSelector.headline" xml:space="preserve">
+        <value>Sélectionner des balises</value>
+    </data>
+  <data name="admin.base.tagSelector.noTags" xml:space="preserve">
+        <value>Il n'y a pas de balises disponibles dans cette taxonomie.</value>
+    </data>
+  <data name="admin.base.tagSelector.selectButton" xml:space="preserve">
+        <value>Sélectionner des balises</value>
+    </data>
+  <data name="admin.base.tagSelectorPanel.cancel" xml:space="preserve">
+        <value>Annuler</value>
+    </data>
+  <data name="admin.base.tagSelectorPanel.noTagsTooltip" xml:space="preserve">
+        <value>Balises ou taxonomie non disponibles</value>
+    </data>
+  <data name="admin.base.tagSelectorPanel.taxonomyNotConfigured.contactAdminText" xml:space="preserve">
+        <value>Contactez votre administrateur système pour &lt;a href="{{link}}"&gt;configurer le champ&lt;/a&gt; afin d'utiliser une taxonomie différente.</value>
+    </data>
+  <data name="admin.base.tagSelectorPanel.taxonomyNotConfigured.headline" xml:space="preserve">
+        <value>La taxonomie n'est pas configurée</value>
+    </data>
+  <data name="admin.base.tagSelectorPanel.taxonomyNotConfigured.notAvailableText" xml:space="preserve">
+        <value>La taxonomie de ce champ n'est pas configurée correctement.</value>
+    </data>
+  <data name="admin.base.taxonomyStatus.tagTooltip" xml:space="preserve">
+        <value>Cette balise n'est pas traduite. La variante de langue par défaut sera utilisée.</value>
+    </data>
+  <data name="admin.base.taxonomyStatus.taxonomyTooltip" xml:space="preserve">
+        <value>Cette taxonomie n'est pas traduite. La variante de langue par défaut sera utilisée.</value>
+    </data>
+  <data name="admin.base.taxonomyTree.creatingPlaceholder" xml:space="preserve">
+        <value>Création en cours...</value>
+    </data>
+  <data name="admin.base.taxonomyTree.menuButtonTooltip" xml:space="preserve">
+        <value>Plus d'actions</value>
+    </data>
+  <data name="admin.base.taxonomyTree.preview.moreButtonLabel" xml:space="preserve">
+        <value>et plus</value>
+    </data>
+  <data name="admin.base.template.errorReload" xml:space="preserve">
+        <value>Recharger la page</value>
+    </data>
+  <data name="admin.base.template.errorText" xml:space="preserve">
+        <value>Nous avons rencontré une erreur inattendue.</value>
+    </data>
+  <data name="admin.base.template.forbiddenAccessText" xml:space="preserve">
+        <value>Vous n'avez pas l'autorisation d'effectuer cette action. Si vous pensez qu'il s'agit d'une erreur, contactez votre administrateur.</value>
+    </data>
+  <data name="admin.base.template.forbiddenAccessTitle" xml:space="preserve">
+        <value>Accès refusé</value>
+    </data>
+  <data name="admin.base.template.goToDashboard" xml:space="preserve">
+        <value>Aller au tableau de bord</value>
+    </data>
+  <data name="admin.base.tileSelector.search.clearButtonLabel" xml:space="preserve">
+        <value>Effacez votre expression de recherche ici</value>
+    </data>
+  <data name="admin.base.tileSelector.search.noSearchResultText" xml:space="preserve">
+        <value>Essayez de changer votre expression de recherche ou recommencez</value>
+    </data>
+  <data name="admin.base.tileSelector.search.noSearchResultTitle" xml:space="preserve">
+        <value>Aucune correspondance trouvée</value>
+    </data>
+  <data name="admin.base.tileSelector.search.searchPlaceholder" xml:space="preserve">
+        <value>Rechercher</value>
+    </data>
+  <data name="admin.base.unsavedChangesWrapper.closePrompts.closeOne.confirmLabel" xml:space="preserve">
+        <value>Annuler</value>
+    </data>
+  <data name="admin.base.unsavedChangesWrapper.closePrompts.closeOne.headline" xml:space="preserve">
+        <value>Vous avez des modifications non enregistrées</value>
+    </data>
+  <data name="admin.base.unsavedChangesWrapper.closePrompts.closeOne.message" xml:space="preserve">
+        <value>Êtes-vous sûr de vouloir fermer la boîte de dialogue actuelle et annuler les modifications non enregistrées ?</value>
+    </data>
+  <data name="admin.base.visualBuilder.changeTemplate.confirmActionLabel" xml:space="preserve">
+        <value>Appliquer</value>
+    </data>
+  <data name="admin.base.visualBuilder.changeTemplate.confirmChange" xml:space="preserve">
+        <value>En changeant de modèle, tout le contenu (widgets et sections avec leurs données et propriétés) sera perdu</value>
+    </data>
+  <data name="admin.base.visualBuilder.changeTemplate.dialogConfirm" xml:space="preserve">
+        <value>Oui, appliquer</value>
+    </data>
+  <data name="admin.base.visualBuilder.changeTemplate.dialogHeadline" xml:space="preserve">
+        <value>Voulez-vous vraiment appliquer les modifications ?</value>
+    </data>
+  <data name="admin.base.visualBuilder.changeTemplate.headline" xml:space="preserve">
+        <value>Changer de modèle</value>
+    </data>
+  <data name="admin.base.visualBuilder.changeTemplate.keepConfigurationLabel" xml:space="preserve">
+        <value>Conserver les widgets et sections actuels si possible</value>
+    </data>
+  <data name="admin.base.workflows.step.cancel" xml:space="preserve">
+        <value>Annuler</value>
+    </data>
+  <data name="admin.base.workflows.step.delete" xml:space="preserve">
+        <value>Supprimer l'étape</value>
+    </data>
+  <data name="admin.base.workflows.step.deleteConfirmation" xml:space="preserve">
+        <value>Êtes-vous sûr de vouloir supprimer l'étape sélectionnée ?</value>
+    </data>
+  <data name="admin.base.workflows.step.deleteConfirmationButton" xml:space="preserve">
+        <value>Supprimer</value>
+    </data>
+  <data name="admin.base.workflows.step.missingPermissions" xml:space="preserve">
+        <value>Vous n'avez pas les autorisations requises</value>
+    </data>
+  <data name="admin.base.workflows.step.new" xml:space="preserve">
+        <value>Nouvelle étape</value>
+    </data>
+  <data name="admin.base.workflows.step.newStepCaption" xml:space="preserve">
+        <value>Nouvelle étape</value>
+    </data>
+  <data name="admin.base.workflows.step.notificationsEnabled" xml:space="preserve">
+        <value>Notifications par e-mail activées</value>
+    </data>
+  <data name="admin.base.workflows.step.save" xml:space="preserve">
+        <value>Enregistrer</value>
+    </data>
+  <data name="admin.base.workspaceSelector.headline" xml:space="preserve">
+        <value>Espaces de travail</value>
+    </data>
+  <data name="admin.base.workspaceSelector.label" xml:space="preserve">
+        <value>Espace de travail</value>
+    </data>
+  <data name="admin.commerce.orderStatuses.cancel" xml:space="preserve">
+        <value>Annuler</value>
+    </data>
+  <data name="admin.commerce.orderStatuses.cancelEditDialog.confirm" xml:space="preserve">
+        <value>Annuler</value>
+    </data>
+  <data name="admin.commerce.orderStatuses.cancelEditDialog.message" xml:space="preserve">
+        <value>Êtes-vous sûr de vouloir continuer et annuler les modifications non enregistrées ?</value>
+    </data>
+  <data name="admin.commerce.orderStatuses.cancelEditDialog.title" xml:space="preserve">
+        <value>Vous avez des modifications non enregistrées</value>
+    </data>
+  <data name="admin.commerce.orderStatuses.delete" xml:space="preserve">
+        <value>Supprimer</value>
+    </data>
+  <data name="admin.commerce.orderStatuses.deleteConfirmation" xml:space="preserve">
+        <value>Êtes-vous sûr de vouloir supprimer l'étape sélectionnée ?</value>
+    </data>
+  <data name="admin.commerce.orderStatuses.deleteConfirmationButton" xml:space="preserve">
+        <value>Supprimer</value>
+    </data>
+  <data name="admin.commerce.orderStatuses.missingCreatePermissionMessage" xml:space="preserve">
+        <value>Autorisation de création manquante.</value>
+    </data>
+  <data name="admin.commerce.orderStatuses.missingDeletePermissionMessage" xml:space="preserve">
+        <value>Autorisation de suppression manquante.</value>
+    </data>
+  <data name="admin.commerce.orderStatuses.newOrderStatus" xml:space="preserve">
+        <value>Nouveau statut de commande</value>
+    </data>
+  <data name="admin.commerce.orderStatuses.save" xml:space="preserve">
+        <value>Enregistrer</value>
+    </data>
+  <data name="admin.content.assetSelector.assetPanel.headline" xml:space="preserve">
+        <value>Sélectionner un élément</value>
+    </data>
+  <data name="admin.content.assetSelector.assetPanel.selectButtonLabel" xml:space="preserve">
+        <value>Sélectionner</value>
+    </data>
+  <data name="admin.content.contentItemAssetUploader.uploadCancelled" xml:space="preserve">
+        <value>Le téléchargement du fichier a été annulé.</value>
+    </data>
+  <data name="admin.content.contentItems.content" xml:space="preserve">
+        <value>Contenu</value>
+    </data>
+  <data name="admin.content.contentItems.editContentItem.headline" xml:space="preserve">
+        <value>Création d'un nouvel élément</value>
+    </data>
+  <data name="admin.content.contentItems.editContentItem.hint" xml:space="preserve">
+        <value>Sélectionnez le type de contenu pour le nouvel élément</value>
+    </data>
+  <data name="admin.content.contentItems.editContentItem.noContentTypesMessage" xml:space="preserve">
+        <value>Impossible de créer un nouvel élément de contenu car il n'y a pas de types de contenu disponibles. Contactez vos administrateurs au sujet de la configuration de votre projet.</value>
+    </data>
+  <data name="admin.content.contentItems.usages.headline" xml:space="preserve">
+        <value>Utilisé dans</value>
+    </data>
+  <data name="admin.content.contentItems.usages.tooltip" xml:space="preserve">
+        <value>Affiche les éléments qui utilisent l'élément de contenu actuel. La structure montre les utilisations directes et se poursuit avec les éléments faisant indirectement référence à cet élément.</value>
+    </data>
+  <data name="admin.content.pageBuilder.changeTemplate.calloutWarning" xml:space="preserve">
+        <value>Vous pouvez maintenant sélectionner un nouveau modèle pour votre page. Notez que le changement de modèle peut entraîner la perte de vos données de widget. &lt;a href="https://devnet.kentico.com/CMSPages/DocLinkMapper.ashx?version=xp&amp;link=page_templates_using_mvc"&gt;En savoir plus sur les modèles de page dans notre documentation&lt;/a&gt;</value>
+    </data>
+  <data name="admin.content.pageBuilder.changeTemplate.keepConfigurationTooltip" xml:space="preserve">
+        <value>Les widgets et les sections du modèle actuel seront transférés si le nouveau modèle contient des zones modifiables avec des identifiants correspondants. Sinon, le contenu du Générateur de pages de la page actuelle sera supprimé. Si vous n'êtes pas sûr du comportement attendu sur votre site, consultez vos administrateurs.</value>
+    </data>
+  <data name="admin.content.pageBuilder.changeTemplate.selectorLabel" xml:space="preserve">
+        <value>Modèle de page</value>
+    </data>
+  <data name="admin.content.pageBuilder.propertiesDialog.confirmActionLabel" xml:space="preserve">
+        <value>Appliquer</value>
+    </data>
+  <data name="admin.content.pageBuilder.propertiesDialog.discardChanges" xml:space="preserve">
+        <value>Êtes-vous sûr de vouloir fermer la boîte de dialogue ?
+
+Vous avez des modifications non enregistrées.
+
+Sélectionnez OK pour continuer ou Annuler pour continuer la modification.</value>
+    </data>
+  <data name="admin.content.pageBuilder.propertiesDialog.headline" xml:space="preserve">
+        <value>propriétés</value>
+    </data>
+  <data name="admin.content.pageBuilder.restrictedWidgets.saveWarning" xml:space="preserve">
+        <value>La mise à jour de la page inclut un changement de type de section, et certains widgets n'ont pas pu être insérés en raison des restrictions de la nouvelle zone de widgets de la section. Les widgets sont disponibles dans la boîte de dialogue d'insertion de widgets et vous pouvez les ajouter à nouveau aux zones valides. Après avoir enregistré la page, ces widgets seront perdus de manière permanente.</value>
+    </data>
+  <data name="admin.content.pageBuilder.saveAsTemplate.confirmButton" xml:space="preserve">
+        <value>Enregistrer et continuer</value>
+    </data>
+  <data name="admin.content.pageBuilder.saveAsTemplate.modalHeadline" xml:space="preserve">
+        <value>Vous avez des modifications non enregistrées</value>
+    </data>
+  <data name="admin.content.pageBuilder.saveAsTemplate.unsavedChanges" xml:space="preserve">
+        <value>Vous avez des modifications non enregistrées sur cette page. Enregistrez vos modifications pour créer un nouveau modèle prédéfini.</value>
+    </data>
+  <data name="admin.content.pageMenuActions.showMoreActions" xml:space="preserve">
+        <value>Afficher plus d'actions</value>
+    </data>
+  <data name="admin.content.pages.content" xml:space="preserve">
+        <value>Contenu</value>
+    </data>
+  <data name="admin.content.pages.createNewPage.headline" xml:space="preserve">
+        <value>Création d'un nouvel élément</value>
+    </data>
+  <data name="admin.content.pages.createNewPage.hint" xml:space="preserve">
+        <value>Sélectionnez le type de contenu pour le nouvel élément</value>
+    </data>
+  <data name="admin.content.pages.createNewPage.noPageTypesMessage" xml:space="preserve">
+        <value>Impossible de créer une nouvelle page, car il n'y a pas de types de contenu disponibles pour les pages. Vos administrateurs doivent créer un nouveau type de contenu avec la fonctionnalité 'Page' activée.</value>
+    </data>
+  <data name="admin.content.pages.createNewVersion" xml:space="preserve">
+        <value>Créer une nouvelle version</value>
+    </data>
+  <data name="admin.content.pages.editPage" xml:space="preserve">
+        <value>Modifier la page</value>
+    </data>
+  <data name="admin.content.pages.noContentTypeAvailable" xml:space="preserve">
+        <value>Impossible de créer une nouvelle page dans cette section. Vos administrateurs doivent créer un nouveau type de contenu pour ce canal de site Web ou configurer les 'Types de contenu autorisés' dans les paramètres du type de contenu ou les 'Portées pour les types de contenu' dans la gestion des canaux.</value>
+    </data>
+  <data name="admin.content.pages.noContentTypeAvailableTitle" xml:space="preserve">
+        <value>Aucun type de contenu disponible.</value>
+    </data>
+  <data name="admin.content.pages.noFieldsTitle" xml:space="preserve">
+        <value>Cette page n'a pas de champs modifiables.</value>
+    </data>
+  <data name="admin.content.pages.noChangesToSave" xml:space="preserve">
+        <value>Il n'y a aucune modification non enregistrée.</value>
+    </data>
+  <data name="admin.content.pages.noPageBuilderText" xml:space="preserve">
+        <value>Si cette page doit avoir le Générateur de pages activé, contactez les développeurs de votre projet.</value>
+    </data>
+  <data name="admin.content.pages.noPageBuilderTitle" xml:space="preserve">
+        <value>Le Générateur de pages n'est pas disponible pour cette page.</value>
+    </data>
+  <data name="admin.content.pages.noPreviewText" xml:space="preserve">
+        <value>Cette page n'a pas de représentation visuelle à prévisualiser.</value>
+    </data>
+  <data name="admin.content.pages.noPreviewTitle" xml:space="preserve">
+        <value>L'aperçu n'est pas disponible pour cette page.</value>
+    </data>
+  <data name="admin.content.pages.preview" xml:space="preserve">
+        <value>Aperçu</value>
+    </data>
+  <data name="admin.content.pages.publish" xml:space="preserve">
+        <value>Publier</value>
+    </data>
+  <data name="admin.content.pages.save" xml:space="preserve">
+        <value>Enregistrer</value>
+    </data>
+  <data name="admin.content.pages.templateSelector.clearButtonLabel" xml:space="preserve">
+        <value>Effacez votre expression de recherche ici</value>
+    </data>
+  <data name="admin.content.pages.templateSelector.defaultDividerLabel" xml:space="preserve">
+        <value>Par défaut</value>
+    </data>
+  <data name="admin.content.pages.templateSelector.defaultDividerTooltip" xml:space="preserve">
+        <value>Modèles de page par défaut - détermine la mise en page d'une page. Les modèles de ce type doivent d'abord être créés par les développeurs du projet. Ils ne peuvent pas être modifiés dans l'application 'Modèles prédéfinis'.</value>
+    </data>
+  <data name="admin.content.pages.templateSelector.label" xml:space="preserve">
+        <value>Modèle de page</value>
+    </data>
+  <data name="admin.content.pages.templateSelector.noSearchResultText" xml:space="preserve">
+        <value>Essayez de changer votre expression de recherche ou recommencez</value>
+    </data>
+  <data name="admin.content.pages.templateSelector.noSearchResultTitle" xml:space="preserve">
+        <value>Aucune correspondance trouvée</value>
+    </data>
+  <data name="admin.content.pages.templateSelector.noTemplatesText" xml:space="preserve">
+        <value>Il n'y a pas de modèles disponibles pour le type de contenu sélectionné.</value>
+    </data>
+  <data name="admin.content.pages.templateSelector.noTemplatesTitle" xml:space="preserve">
+        <value>Aucun modèle disponible</value>
+    </data>
+  <data name="admin.content.pages.templateSelector.presetDividerLabel" xml:space="preserve">
+        <value>Prédéfini</value>
+    </data>
+  <data name="admin.content.pages.templateSelector.presetDividerTooltip" xml:space="preserve">
+        <value>Vous pouvez configurer une page basée sur un modèle et l'enregistrer comme modèle de page prédéfini. Les modèles de page prédéfinis peuvent être modifiés dans l'application 'Modèles prédéfinis' et réutilisés plus tard.</value>
+    </data>
+  <data name="admin.content.pages.templateSelector.searchPlaceholder" xml:space="preserve">
+        <value>Rechercher</value>
+    </data>
+  <data name="admin.content.pages.templateSelector.validationMessage" xml:space="preserve">
+        <value>Un modèle de page doit être sélectionné.</value>
+    </data>
+  <data name="admin.content.pageSelector.buttonLabel" xml:space="preserve">
+        <value>Ajouter une page</value>
+    </data>
+  <data name="admin.content.pageSelector.invalidPageName" xml:space="preserve">
+        <value>PAGE SUPPRIMÉE</value>
+    </data>
+  <data name="admin.content.pageSelector.pagePanel.headlineMultiple" xml:space="preserve">
+        <value>Sélectionner des pages</value>
+    </data>
+  <data name="admin.content.pageSelector.pagePanel.headlineSingle" xml:space="preserve">
+        <value>Sélectionner une page</value>
+    </data>
+  <data name="admin.content.pageSelector.pagePanel.selectButtonLabel" xml:space="preserve">
+        <value>Sélectionner</value>
+    </data>
+  <data name="admin.content.pageSelector.statusTextMultiple" xml:space="preserve">
+        <value>Sélectionnez jusqu'à {{max}} éléments</value>
+    </data>
+  <data name="admin.content.pageSelector.statusTextMultipleWithCurrentCount" xml:space="preserve">
+        <value>{{current}} éléments sélectionnés, le maximum est de {{max}}</value>
+    </data>
+  <data name="admin.content.pageSelector.statusTextSingleWithCurrentCount" xml:space="preserve">
+        <value>{{current}} élément sélectionné, le maximum est de {{max}}</value>
+    </data>
+  <data name="admin.content.plugins.imageReplace.buttonLabel" xml:space="preserve">
+        <value>Remplacer</value>
+    </data>
+  <data name="admin.content.plugins.insertImage.actionButtonLabel" xml:space="preserve">
+        <value>Insérer</value>
+    </data>
+  <data name="admin.content.plugins.insertImage.buttonLabel" xml:space="preserve">
+        <value>Insérer une image</value>
+    </data>
+  <data name="admin.content.plugins.insertImage.headline" xml:space="preserve">
+        <value>Insérer une image</value>
+    </data>
+  <data name="admin.content.plugins.insertLink.buttonLabel" xml:space="preserve">
+        <value>Insérer un lien</value>
+    </data>
+  <data name="admin.content.plugins.insertLink.options.asset.noExistingLibrary" xml:space="preserve">
+        <value>Impossible d'insérer un lien vers un fichier depuis une médiathèque. Aucune bibliothèque disponible pour sélectionner les fichiers.</value>
+    </data>
+  <data name="admin.content.plugins.insertLink.options.asset.panelHeadline" xml:space="preserve">
+        <value>Sélectionner le fichier multimédia à lier</value>
+    </data>
+  <data name="admin.content.plugins.insertLink.options.asset.selectButtonLabel" xml:space="preserve">
+        <value>Insérer</value>
+    </data>
+  <data name="admin.content.plugins.insertLink.options.asset.title" xml:space="preserve">
+        <value>Fichier</value>
+    </data>
+  <data name="admin.content.plugins.insertLink.options.asset.tooltip" xml:space="preserve">
+        <value>Insérer un lien vers un fichier d'une médiathèque.</value>
+    </data>
+  <data name="admin.content.plugins.insertLink.options.external.title" xml:space="preserve">
+        <value>URL Web</value>
+    </data>
+  <data name="admin.content.plugins.insertLink.options.external.tooltip" xml:space="preserve">
+        <value>Insérer un lien vers un site Web ou une ressource externe.</value>
+    </data>
+  <data name="admin.content.plugins.insertLink.options.page.panelHeadline" xml:space="preserve">
+        <value>Sélectionner la page à lier</value>
+    </data>
+  <data name="admin.content.plugins.insertLink.options.page.selectButtonLabel" xml:space="preserve">
+        <value>Insérer</value>
+    </data>
+  <data name="admin.content.plugins.insertLink.options.page.title" xml:space="preserve">
+        <value>Page</value>
+    </data>
+  <data name="admin.content.plugins.insertLink.options.page.tooltip" xml:space="preserve">
+        <value>Insérer un lien vers une page de l'arborescence de contenu.</value>
+    </data>
+  <data name="admin.content.properties.url.headline" xml:space="preserve">
+        <value>URL</value>
+    </data>
+  <data name="admin.content.taxonomy.move.tagMovedUnderItselfError" xml:space="preserve">
+        <value>Vous ne pouvez pas déplacer une balise sous elle-même.</value>
+    </data>
+  <data name="admin.content.urlSelector.buttonLabel" xml:space="preserve">
+        <value>Sélectionner</value>
+    </data>
+  <data name="admin.content.urlSelector.buttonTooltip" xml:space="preserve">
+        <value>Sélectionner une page dans l'arborescence de contenu</value>
+    </data>
+  <data name="admin.content.urlSelector.inputButtonConnector" xml:space="preserve">
+        <value>OU</value>
+    </data>
+  <data name="admin.content.urlSelector.inputPlaceholder" xml:space="preserve">
+        <value>Entrer l'URL</value>
+    </data>
+  <data name="admin.content.urlSelector.inputTooltip" xml:space="preserve">
+        <value>Les URL relatives seront résolues sur le site en direct.</value>
+    </data>
+  <data name="admin.content.urlSelector.pagePanel.headline" xml:space="preserve">
+        <value>Sélectionner une page</value>
+    </data>
+  <data name="admin.content.urlSelector.pagePanel.selectButtonLabel" xml:space="preserve">
+        <value>Sélectionner</value>
+    </data>
+  <data name="admin.contentHub.cloneSmartFolderDialog.cancel" xml:space="preserve">
+        <value>Annuler</value>
+    </data>
+  <data name="admin.contentHub.cloneSmartFolderDialog.clone" xml:space="preserve">
+        <value>Cloner</value>
+    </data>
+  <data name="admin.contentHub.cloneSmartFolderDialog.header" xml:space="preserve">
+        <value>Voulez-vous cloner le dossier intelligent sélectionné ?</value>
+    </data>
+  <data name="admin.contentHub.contentItemListing.saveSmartFolder" xml:space="preserve">
+        <value>Enregistrer</value>
+    </data>
+  <data name="admin.contentHub.contentItemListing.saveSmartFolderTooltip" xml:space="preserve">
+        <value>Enregistrer comme dossier intelligent</value>
+    </data>
+  <data name="admin.contentHub.contentItemListing.searchAllItems" xml:space="preserve">
+        <value>Rechercher tous les éléments</value>
+    </data>
+  <data name="admin.contentHub.contentItemListing.searchNotification" xml:space="preserve">
+        <value>Résultats pour le dossier &apos;{{folderName}}&apos; et ses sous-dossiers</value>
+    </data>
+  <data name="admin.contentHub.contentItemListing.smartFolderFilterInvalidNotification" xml:space="preserve">
+        <value>Les critères de filtre du dossier intelligent peuvent être invalides.</value>
+    </data>
+  <data name="admin.contentHub.contentItemListing.smartFolderFilterInvalidNotificationButton" xml:space="preserve">
+        <value>Vérifiez, ajustez et réappliquez votre filtre</value>
+    </data>
+  <data name="admin.contentHub.contentItemListing.smartFolderIsEnabledForContentDeliveryNotification" xml:space="preserve">
+        <value>Ce dossier intelligent peut être utilisé pour la livraison de contenu dynamique. Toute modification peut affecter la manière dont le contenu est affiché dans vos canaux.</value>
+    </data>
+  <data name="admin.contentHub.contentItemListing.updateSmartFolder" xml:space="preserve">
+        <value>Enregistrer les modifications</value>
+    </data>
+  <data name="admin.contentHub.contentItemListing.updateSmartFolderDisabledTooltip" xml:space="preserve">
+        <value>Il n'y a aucune modification non enregistrée</value>
+    </data>
+  <data name="admin.contentHub.createFolderDialog.create" xml:space="preserve">
+        <value>Créer</value>
+    </data>
+  <data name="admin.contentHub.createFolderDialog.createFolder" xml:space="preserve">
+        <value>Créer un nouveau dossier</value>
+    </data>
+  <data name="admin.contentHub.createSmartFolderDialog.cancel" xml:space="preserve">
+        <value>Annuler</value>
+    </data>
+  <data name="admin.contentHub.createSmartFolderDialog.clearAllButtonLabel" xml:space="preserve">
+        <value>Tout effacer</value>
+    </data>
+  <data name="admin.contentHub.createSmartFolderDialog.continue" xml:space="preserve">
+        <value>Continuer</value>
+    </data>
+  <data name="admin.contentHub.createSmartFolderDialog.save" xml:space="preserve">
+        <value>Enregistrer</value>
+    </data>
+  <data name="admin.contentHub.folderTree.deleteFolderDialog.callout.headline" xml:space="preserve">
+        <value>Seuls le dossier et les sous-dossiers seront supprimés</value>
+    </data>
+  <data name="admin.contentHub.folderTree.deleteFolderDialog.callout.quickTip" xml:space="preserve">
+        <value>Conseil rapide</value>
+    </data>
+  <data name="admin.contentHub.folderTree.deleteFolderDialog.callout.text" xml:space="preserve">
+        <value>Lorsque le dossier et ses sous-dossiers sont supprimés, tous les éléments de contenu qu'ils contiennent sont conservés et vous pouvez les trouver directement sous 'Tous les éléments de contenu'.</value>
+    </data>
+  <data name="admin.contentHub.folderTree.deleteFolderDialog.confirmationButtonLabel" xml:space="preserve">
+        <value>Supprimer</value>
+    </data>
+  <data name="admin.contentHub.folderTree.deleteFolderDialog.headline" xml:space="preserve">
+        <value>Êtes-vous sûr de vouloir supprimer les dossiers sélectionnés ?</value>
+    </data>
+  <data name="admin.contentHub.folderTree.nodeActions.createFolder" xml:space="preserve">
+        <value>Nouveau dossier</value>
+    </data>
+  <data name="admin.contentHub.folderTree.nodeActions.deleteFolder" xml:space="preserve">
+        <value>Supprimer</value>
+    </data>
+  <data name="admin.contentHub.folderTree.nodeActions.moveFolder" xml:space="preserve">
+        <value>Déplacer</value>
+    </data>
+  <data name="admin.contentHub.folderTree.nodeActions.properties" xml:space="preserve">
+        <value>Propriétés</value>
+    </data>
+  <data name="admin.contentHub.folderTree.nodeActions.renameFolder" xml:space="preserve">
+        <value>Renommer</value>
+    </data>
+  <data name="admin.contentHub.folderTree.rootFolderName" xml:space="preserve">
+        <value>Non classé (aucun dossier)</value>
+    </data>
+  <data name="admin.contentHub.massAssetUpload.dropzone.title" xml:space="preserve">
+        <value>Déposer les fichiers ici</value>
+    </data>
+  <data name="admin.contentHub.massAssetUpload.extensionError" xml:space="preserve">
+        <value>Les fichiers suivants ne peuvent pas être téléversés car ils utilisent des extensions de fichier interdites : {{invalidExtensions}}&lt;br /&gt;&lt;br /&gt;Les extensions autorisées sont : {{allowedExtensions}}</value>
+    </data>
+  <data name="admin.contentHub.massAssetUpload.label" xml:space="preserve">
+        <value>Téléverser des fichiers</value>
+    </data>
+  <data name="admin.contentHub.massAssetUpload.sizeError" xml:space="preserve">
+        <value>Les fichiers suivants ne peuvent pas être téléversés car ils dépassent la taille de fichier maximale : {{fileNames}}&lt;br /&gt;&lt;br /&gt;Taille maximale du fichier : {{maxFileSize}}</value>
+    </data>
+  <data name="admin.contentHub.massAssetUpload.systemError" xml:space="preserve">
+        <value>Une erreur système s'est produite</value>
+    </data>
+  <data name="admin.contentHub.massAssetUpload.uploadLabel" xml:space="preserve">
+        <value>Le téléversement massif d'actifs est actuellement en cours. Veuillez attendre la fin du téléversement en cours avant de téléverser de nouveaux actifs.</value>
+    </data>
+  <data name="admin.contentHub.massAssetUpload.uploadProgressPanel.closeButtonLabel" xml:space="preserve">
+        <value>Fermer</value>
+    </data>
+  <data name="admin.contentHub.massAssetUpload.uploadProgressPanel.closePrompt.confirmLabel" xml:space="preserve">
+        <value>Arrêter le téléversement</value>
+    </data>
+  <data name="admin.contentHub.massAssetUpload.uploadProgressPanel.closePrompt.headline" xml:space="preserve">
+        <value>Téléversement en cours</value>
+    </data>
+  <data name="admin.contentHub.massAssetUpload.uploadProgressPanel.closePrompt.message" xml:space="preserve">
+        <value>Êtes-vous sûr de vouloir continuer et arrêter le téléversement ? Les fichiers qui ont déjà été téléversés resteront dans le système et ne seront pas affectés.</value>
+    </data>
+  <data name="admin.contentHub.massAssetUpload.uploadProgressPanel.headlineFailed" xml:space="preserve">
+        <value>Le téléversement a échoué</value>
+    </data>
+  <data name="admin.contentHub.massAssetUpload.uploadProgressPanel.headlineInProgressMultiple" xml:space="preserve">
+        <value>Téléversement de {{current}} sur {{total}} éléments</value>
+    </data>
+  <data name="admin.contentHub.massAssetUpload.uploadProgressPanel.headlineInProgressSingle" xml:space="preserve">
+        <value>Téléversement de 1 élément</value>
+    </data>
+  <data name="admin.contentHub.massAssetUpload.uploadProgressPanel.headlinePartialSuccess" xml:space="preserve">
+        <value>Téléversement terminé avec des exceptions</value>
+    </data>
+  <data name="admin.contentHub.massAssetUpload.uploadProgressPanel.headlineSuccess" xml:space="preserve">
+        <value>Téléversement réussi</value>
+    </data>
+  <data name="admin.contentHub.massAssetUpload.uploadProgressPanel.itemTileErrorMessage" xml:space="preserve">
+        <value>Le téléversement a échoué</value>
+    </data>
+  <data name="admin.contentHub.massAssetUpload.uploadProgressPanel.notificationBar.message" xml:space="preserve">
+        <value>Tous les fichiers ont été téléversés avec succès.</value>
+    </data>
+  <data name="admin.contentHub.massAssetUpload.uploadProgressPanel.notificationBar.uploadFailed" xml:space="preserve">
+        <value>Le téléversement a échoué. Aucun élément n'a été téléversé.</value>
+    </data>
+  <data name="admin.contentHub.massAssetUpload.uploadProgressPanel.notificationBar.uploadSuccess" xml:space="preserve">
+        <value>{{count}} éléments téléversés avec succès.</value>
+    </data>
+  <data name="admin.contentHub.massAssetUpload.uploadProgressPanel.notificationBar.uploadSuccessMultipleFailedMultiple" xml:space="preserve">
+        <value>{{successCount}} éléments téléversés. {{failedCount}} téléversements ont échoué.</value>
+    </data>
+  <data name="admin.contentHub.massAssetUpload.uploadProgressPanel.notificationBar.uploadSuccessMultipleFailedSingle" xml:space="preserve">
+        <value>{{count}} éléments téléversés. 1 téléversement a échoué.</value>
+    </data>
+  <data name="admin.contentHub.massAssetUpload.uploadProgressPanel.notificationBar.uploadSuccessSingle" xml:space="preserve">
+        <value>1 élément téléversé avec succès.</value>
+    </data>
+  <data name="admin.contentHub.massAssetUpload.uploadProgressPanel.notificationBar.uploadSuccessSingleFailedMultiple" xml:space="preserve">
+        <value>1 élément téléversé. {{count}} téléversements ont échoué.</value>
+    </data>
+  <data name="admin.contentHub.massAssetUpload.uploadProgressPanel.notificationBar.uploadSuccessSingleFailedSingle" xml:space="preserve">
+        <value>1 élément téléversé. 1 téléversement a échoué.</value>
+    </data>
+  <data name="admin.contentHub.massAssetUpload.uploadProgressPanel.snackbar.itemUploadCanceled" xml:space="preserve">
+        <value>Le téléversement du fichier '{{fileName}}' a été annulé.</value>
+    </data>
+  <data name="admin.contentHub.massAssetUpload.uploadProgressPanel.stopButtonLabel" xml:space="preserve">
+        <value>Arrêter le téléversement</value>
+    </data>
+  <data name="admin.contentHub.massAssetUpload.uploadsCancelled" xml:space="preserve">
+        <value>Les téléversements ont été annulés car vous avez quitté le Hub de contenu. Veuillez rester sur la page du Hub de contenu pendant que le téléversement en masse est en cours.</value>
+    </data>
+  <data name="admin.contentHub.missingPermissions" xml:space="preserve">
+        <value>Vous n'avez pas les autorisations requises.</value>
+    </data>
+  <data name="admin.contentHub.moveFolderDialog.move" xml:space="preserve">
+        <value>Déplacer</value>
+    </data>
+  <data name="admin.contentHub.moveFolderDialog.moveFolder" xml:space="preserve">
+        <value>Déplacer le dossier</value>
+    </data>
+  <data name="admin.contentHub.navigationPanel.allContentButton" xml:space="preserve">
+        <value>Tous les éléments de contenu</value>
+    </data>
+  <data name="admin.contentHub.navigationPanel.createNewContentFolderTooltip" xml:space="preserve">
+        <value>Créer un nouveau dossier</value>
+    </data>
+  <data name="admin.contentHub.navigationPanel.createNewSmartFolderTooltip" xml:space="preserve">
+        <value>Créer un nouveau dossier intelligent</value>
+    </data>
+  <data name="admin.contentHub.navigationPanel.folders" xml:space="preserve">
+        <value>Dossiers</value>
+    </data>
+  <data name="admin.contentHub.navigationPanel.menuActionsTooltip" xml:space="preserve">
+        <value>Actions du menu</value>
+    </data>
+  <data name="admin.contentHub.navigationPanel.smartFolders" xml:space="preserve">
+        <value>Dossiers intelligents</value>
+    </data>
+  <data name="admin.contentHub.propertiesDialog.headline" xml:space="preserve">
+        <value>Propriétés</value>
+    </data>
+  <data name="admin.contentHub.propertiesDialog.save" xml:space="preserve">
+        <value>Enregistrer</value>
+    </data>
+  <data name="admin.contentHub.renameFolderDialog.rename" xml:space="preserve">
+        <value>Renommer</value>
+    </data>
+  <data name="admin.contentHub.renameFolderDialog.renameFolder" xml:space="preserve">
+        <value>Renommer le dossier</value>
+    </data>
+  <data name="admin.contentHub.saveSmartFolderDialog.headline" xml:space="preserve">
+        <value>Enregistrer comme dossier intelligent</value>
+    </data>
+  <data name="admin.contentHub.saveSmartFolderDialog.invalidFilterWarningLine1" xml:space="preserve">
+        <value>Les critères du dossier intelligent ont changé.</value>
+    </data>
+  <data name="admin.contentHub.saveSmartFolderDialog.invalidFilterWarningLine2" xml:space="preserve">
+        <value>Vérifiez à nouveau votre filtre et assurez-vous qu'il est correctement configuré.</value>
+    </data>
+  <data name="admin.contentHub.saveSmartFolderDialog.save" xml:space="preserve">
+        <value>Enregistrer</value>
+    </data>
+  <data name="admin.contentHub.smartFolders.deleteDialog.callout.headline" xml:space="preserve">
+        <value>Seul le dossier intelligent sera supprimé</value>
+    </data>
+  <data name="admin.contentHub.smartFolders.deleteDialog.callout.quickTip" xml:space="preserve">
+        <value>Conseil rapide</value>
+    </data>
+  <data name="admin.contentHub.smartFolders.deleteDialog.callout.text" xml:space="preserve">
+        <value>Lorsque le dossier intelligent est supprimé, les éléments de contenu qu'il contient ne sont pas affectés et vous pouvez les trouver directement sous 'Tous les éléments de contenu'.</value>
+    </data>
+  <data name="admin.contentHub.smartFolders.deleteDialog.calloutEnabledContentDelivery.friendlyWarning" xml:space="preserve">
+        <value>Avertissement amical</value>
+    </data>
+  <data name="admin.contentHub.smartFolders.deleteDialog.calloutEnabledContentDelivery.headline" xml:space="preserve">
+        <value>Ce dossier intelligent peut être utilisé pour la livraison de contenu dynamique. Toute modification peut affecter la manière dont le contenu est affiché dans vos canaux.</value>
+    </data>
+  <data name="admin.contentHub.smartFolders.deleteDialog.calloutEnabledContentDelivery.text" xml:space="preserve">
+        <value>Lorsque le dossier intelligent est supprimé, les éléments de contenu affichés à l'intérieur ne seront pas affectés et vous pourrez les trouver sous 'Tous les éléments de contenu'.</value>
+    </data>
+  <data name="admin.contentHub.smartFolders.deleteDialog.calloutEnabledContentDelivery.textHeadline" xml:space="preserve">
+        <value>Seul le dossier intelligent sera supprimé.</value>
+    </data>
+  <data name="admin.contentHub.smartFolders.deleteDialog.confirmationButtonLabel" xml:space="preserve">
+        <value>Supprimer</value>
+    </data>
+  <data name="admin.contentHub.smartFolders.deleteDialog.headline" xml:space="preserve">
+        <value>Êtes-vous sûr de vouloir supprimer le dossier intelligent sélectionné ?</value>
+    </data>
+  <data name="admin.contentHub.smartFolders.enableContentDeliveryDialog.confirmationButtonLabel" xml:space="preserve">
+        <value>Oui, activer</value>
+    </data>
+  <data name="admin.contentHub.smartFolders.enableContentDeliveryDialog.headline" xml:space="preserve">
+        <value>Voulez-vous activer la livraison de contenu dynamique pour le dossier intelligent sélectionné ?</value>
+    </data>
+  <data name="admin.contentHub.smartFolders.enableContentDeliveryDialog.textFirstParagraph" xml:space="preserve">
+        <value>Cela permet aux développeurs de récupérer des éléments du dossier intelligent à l'aide de diverses API de livraison de contenu pour les canaux, et rend également le dossier disponible dans les sélecteurs de dossiers intelligents.</value>
+    </data>
+  <data name="admin.contentHub.smartFolders.enableContentDeliveryDialog.textSecondParagraph" xml:space="preserve">
+        <value>Les critères de filtre &lt;b&gt;Statut du flux de travail&lt;/b&gt;, &lt;b&gt;Nécessite une authentification&lt;/b&gt; et &lt;b&gt;Dernière modification&lt;/b&gt; ne sont pas pris en charge pour les dossiers intelligents avec livraison de contenu dynamique.</value>
+    </data>
+  <data name="admin.contentHub.smartFolders.enableContentDeliveryDialog.textThirdParagraph" xml:space="preserve">
+        <value>Vous ne pouvez pas désactiver la livraison de contenu dynamique pour un dossier intelligent après avoir choisi de l'activer.</value>
+    </data>
+  <data name="admin.contentHub.smartFolders.itemActions.clone" xml:space="preserve">
+        <value>Cloner</value>
+    </data>
+  <data name="admin.contentHub.smartFolders.itemActions.delete" xml:space="preserve">
+        <value>Supprimer</value>
+    </data>
+  <data name="admin.contentHub.smartFolders.itemActions.enableContentDelivery" xml:space="preserve">
+        <value>Activer la livraison de contenu dynamique</value>
+    </data>
+  <data name="admin.contentHub.smartFolders.itemActions.properties" xml:space="preserve">
+        <value>Propriétés</value>
+    </data>
+  <data name="admin.contentHub.smartFolders.itemActions.rename" xml:space="preserve">
+        <value>Renommer</value>
+    </data>
+  <data name="admin.contentHub.smartFolders.renameDialog.renameSmartFolder" xml:space="preserve">
+        <value>Renommer le dossier intelligent</value>
+    </data>
+  <data name="admin.contentHub.smartFolders.renameDialog.save" xml:space="preserve">
+        <value>Enregistrer</value>
+    </data>
+  <data name="admin.digitalmarketing.activityList.crossSiteActivity.yes" xml:space="preserve">
+        <value>Oui</value>
+    </data>
+  <data name="admin.digitalmarketing.automation.addStepDialog.stepsHeadline" xml:space="preserve">
+        <value>Sélectionner le type d'étape</value>
+    </data>
+  <data name="admin.digitalmarketing.automation.addStepDialog.triggersHeadline" xml:space="preserve">
+        <value>Sélectionner le type de déclencheur</value>
+    </data>
+  <data name="admin.digitalmarketing.automation.addWaitStepDialog.confirmationButtonLabel" xml:space="preserve">
+        <value>Ajouter une étape d'attente</value>
+    </data>
+  <data name="admin.digitalmarketing.automation.addWaitStepDialog.content" xml:space="preserve">
+        <value>Une étape d'attente donne aux contacts le temps d'effectuer les actions évaluées. Par exemple, si votre processus envoie un e-mail puis suit immédiatement avec une condition qui vérifie si un lien dans l'e-mail a été cliqué, les contacts n'auront pas le temps de recevoir et de lire l'e-mail.</value>
+    </data>
+  <data name="admin.digitalmarketing.automation.addWaitStepDialog.headline" xml:space="preserve">
+        <value>Ajouter une étape d'attente avant la condition ?</value>
+    </data>
+  <data name="admin.digitalmarketing.automation.contextMenu.delete.conditionStep.disabledTooltip" xml:space="preserve">
+        <value>Vous ne pouvez pas supprimer les étapes de condition lorsque les chemins vrai et faux sont connectés à des étapes de suivi. L'un des chemins doit être vide. Le chemin restant est ensuite connecté à l'étape précédente après la suppression de la condition.</value>
+    </data>
+  <data name="admin.digitalmarketing.automation.contextMenu.delete.disabledTooltip" xml:space="preserve">
+        <value>Vous ne pouvez pas supprimer d'étapes, car ce processus est activé ou a été activé et déclenché par le passé. Il se peut que des contacts passent par les étapes.</value>
+    </data>
+  <data name="admin.digitalmarketing.automation.contextMenu.delete.label" xml:space="preserve">
+        <value>Supprimer</value>
+    </data>
+  <data name="admin.digitalmarketing.automation.contextMenu.editLabel" xml:space="preserve">
+        <value>Modifier</value>
+    </data>
+  <data name="admin.digitalmarketing.automation.contextMenu.tooltip" xml:space="preserve">
+        <value>Plus d'actions</value>
+    </data>
+  <data name="admin.digitalmarketing.automation.enableDisableButton.confirmationDialog.heading" xml:space="preserve">
+        <value>Enregistrer le processus et modifier son statut ?</value>
+    </data>
+  <data name="admin.digitalmarketing.automation.enableDisableButton.confirmationDialog.label" xml:space="preserve">
+        <value>Confirmer</value>
+    </data>
+  <data name="admin.digitalmarketing.automation.enableDisableButton.confirmationDialog.paragraph1" xml:space="preserve">
+        <value>Il y a actuellement des modifications non enregistrées dans le Générateur d'automatisation. L'activation du processus enregistre automatiquement ces modifications.</value>
+    </data>
+  <data name="admin.digitalmarketing.automation.enableDisableButton.confirmationDialog.paragraph2" xml:space="preserve">
+        <value>Notez que des modifications importantes apportées à un processus qui a été activé par le passé peuvent entraîner des incohérences dans les statistiques affichées pour les étapes. Nous vous recommandons de créer un nouveau processus si vous devez apporter des modifications majeures.</value>
+    </data>
+  <data name="admin.digitalmarketing.automation.enableDisableButton.disable" xml:space="preserve">
+        <value>Désactiver les nouveaux déclencheurs</value>
+    </data>
+  <data name="admin.digitalmarketing.automation.enableDisableButton.disableTooltip" xml:space="preserve">
+        <value>Empêche les contacts de démarrer le processus. Tous les contacts existants dans le processus continuent comme si le processus était activé.</value>
+    </data>
+  <data name="admin.digitalmarketing.automation.enableDisableButton.enable" xml:space="preserve">
+        <value>Activer</value>
+    </data>
+  <data name="admin.digitalmarketing.automation.enableDisableButton.enableTooltip" xml:space="preserve">
+        <value>Permet au processus de démarrer pour les contacts qui remplissent la condition de déclenchement.</value>
+    </data>
+  <data name="admin.digitalmarketing.automation.enableDisableButton.permissionRequired" xml:space="preserve">
+        <value>Vous n'avez pas les autorisations requises.</value>
+    </data>
+  <data name="admin.digitalmarketing.automation.placeholder.endLabel" xml:space="preserve">
+        <value>Ajouter une étape</value>
+    </data>
+  <data name="admin.digitalmarketing.automation.placeholder.startLabel" xml:space="preserve">
+        <value>Ajouter un déclencheur</value>
+    </data>
+  <data name="admin.digitalmarketing.automation.processSidePanel.applyButtonLabel" xml:space="preserve">
+        <value>Appliquer</value>
+    </data>
+  <data name="admin.digitalmarketing.automation.processSidePanel.conditionPathSelectLabel" xml:space="preserve">
+        <value>Connecter les étapes de suivi existantes à</value>
+    </data>
+  <data name="admin.digitalmarketing.automation.processSidePanel.conditionPathSelectOptionElse" xml:space="preserve">
+        <value>Chemin Faux</value>
+    </data>
+  <data name="admin.digitalmarketing.automation.processSidePanel.conditionPathSelectOptionIf" xml:space="preserve">
+        <value>Chemin Vrai</value>
+    </data>
+  <data name="admin.digitalmarketing.automation.startStepFlag" xml:space="preserve">
+        <value>Ligne de départ</value>
+    </data>
+  <data name="admin.digitalmarketing.automationProcessList.createNewButtonLabel" xml:space="preserve">
+        <value>Créer nouveau</value>
+    </data>
+  <data name="admin.digitalmarketing.automationProcessList.createNewDialogConfirmationLabel" xml:space="preserve">
+        <value>Créer et ouvrir</value>
+    </data>
+  <data name="admin.digitalmarketing.automationProcessList.createNewDialogHeadline" xml:space="preserve">
+        <value>Créer un nouveau processus d'automatisation</value>
+    </data>
+  <data name="admin.digitalmarketing.customerJourneys.builder.atLeastOneStage" xml:space="preserve">
+        <value>Au moins une étape est requise.</value>
+    </data>
+  <data name="admin.digitalmarketing.customerJourneys.builder.cardHeadline" xml:space="preserve">
+        <value>Étapes</value>
+    </data>
+  <data name="admin.digitalmarketing.customerJourneys.builder.cardSubheadline" xml:space="preserve">
+        <value>Étapes</value>
+    </data>
+  <data name="admin.digitalmarketing.customerJourneys.builder.cardSubheadlineTooltip" xml:space="preserve">
+        <value>Les étapes représentent les étapes clés du parcours client, telles que la visite d'une page spécifique ou la soumission d'un formulaire. Elles vous aident à suivre la progression des utilisateurs et à identifier les individus à chaque étape, ce qui vous permet de prendre des mesures ciblées, comme réengager les utilisateurs ou analyser les conversions en clients payants.</value>
+    </data>
+  <data name="admin.digitalmarketing.customerJourneys.builder.createNewButton.label" xml:space="preserve">
+        <value>Nouvelle étape</value>
+    </data>
+  <data name="admin.digitalmarketing.customerJourneys.builder.createNewButton.maxStagesReached" xml:space="preserve">
+        <value>Maximum de {{maxStages}} étapes atteint.</value>
+    </data>
+  <data name="admin.digitalmarketing.customerJourneys.builder.noChangesToSave" xml:space="preserve">
+        <value>Il n'y a aucune modification non enregistrée.</value>
+    </data>
+  <data name="admin.digitalmarketing.customerJourneys.builder.permissionRequired" xml:space="preserve">
+        <value>Vous n'avez pas les autorisations requises.</value>
+    </data>
+  <data name="admin.digitalmarketing.customerJourneys.builder.saveButton.label" xml:space="preserve">
+        <value>Enregistrer</value>
+    </data>
+  <data name="admin.digitalmarketing.customerJourneys.builder.sidePanel.applyButtonLabel" xml:space="preserve">
+        <value>Appliquer</value>
+    </data>
+  <data name="admin.digitalmarketing.customerJourneys.builder.sidePanel.createNewHeadline" xml:space="preserve">
+        <value>Créer une nouvelle étape</value>
+    </data>
+  <data name="admin.digitalmarketing.customerJourneys.builder.table.actions.delete" xml:space="preserve">
+        <value>Supprimer</value>
+    </data>
+  <data name="admin.digitalmarketing.customerJourneys.builder.table.actions.edit" xml:space="preserve">
+        <value>Modifier</value>
+    </data>
+  <data name="admin.digitalmarketing.customerJourneys.builder.table.columns.actions" xml:space="preserve">
+        <value>Actions</value>
+    </data>
+  <data name="admin.digitalmarketing.customerJourneys.builder.table.columns.name" xml:space="preserve">
+        <value>Nom</value>
+    </data>
+  <data name="admin.digitalmarketing.customerJourneys.columnGraph.columnTooltip" xml:space="preserve">
+        <value>Afficher les {{contacts}}
+contacts convertis
+à l'étape {{stage}}.</value>
+    </data>
+  <data name="admin.digitalmarketing.customerJourneys.columnGraph.converted" xml:space="preserve">
+        <value>converti</value>
+    </data>
+  <data name="admin.digitalmarketing.customerJourneys.columnGraph.dropOffTooltip" xml:space="preserve">
+        <value>Afficher les {{contacts}}
+contacts qui ont
+abandonné après
+l'étape {{stage}}.</value>
+    </data>
+  <data name="admin.digitalmarketing.customerJourneys.detail.recalculate.buttonLabel" xml:space="preserve">
+        <value>Recalculer</value>
+    </data>
+  <data name="admin.digitalmarketing.customerJourneys.detail.recalculate.buttonLabelInProgress" xml:space="preserve">
+        <value>Calcul en cours</value>
+    </data>
+  <data name="admin.digitalmarketing.customerJourneys.detail.recalculate.buttonTooltip" xml:space="preserve">
+        <value>Calcul en cours</value>
+    </data>
+  <data name="admin.digitalmarketing.customerJourneys.detail.recalculate.permissionRequired" xml:space="preserve">
+        <value>Vous n'avez pas les autorisations requises.</value>
+    </data>
+  <data name="admin.digitalmarketing.customerJourneys.detail.recalculate.recalculateLabelTemplate" xml:space="preserve">
+        <value>Données de : {{time}}</value>
+    </data>
+  <data name="admin.digitalmarketing.customerJourneys.detail.recalculate.recalculateLabelTooltipTemplate" xml:space="preserve">
+        <value>Données de : {0}</value>
+    </data>
+  <data name="admin.digitalmarketing.customerJourneys.detail.recalculate.recalculationFinished" xml:space="preserve">
+        <value>Le calcul des données est terminé.</value>
+    </data>
+  <data name="admin.digitalmarketing.customerJourneys.detail.showConditionsDialog.closeButton" xml:space="preserve">
+        <value>Fermer</value>
+    </data>
+  <data name="admin.digitalmarketing.customerJourneys.detail.showConditionsDialog.closeTooltip" xml:space="preserve">
+        <value>Fermer</value>
+    </data>
+  <data name="admin.digitalmarketing.customerJourneys.detail.showConditionsDialog.headline" xml:space="preserve">
+        <value>Afficher les conditions</value>
+    </data>
+  <data name="admin.digitalmarketing.customerJourneys.detail.showConditionsDialog.subHeadline" xml:space="preserve">
+        <value>Conditions</value>
+    </data>
+  <data name="admin.digitalmarketing.customerJourneys.detail.showConditionsDialog.subHeadlineTooltip" xml:space="preserve">
+        <value>Conditions que les contacts doivent remplir pour passer à cette étape.</value>
+    </data>
+  <data name="admin.digitalmarketing.customerJourneys.detail.table.actions.disabledShowConditions" xml:space="preserve">
+        <value>Il n'y a aucune condition que les contacts doivent remplir pour passer à cette étape.</value>
+    </data>
+  <data name="admin.digitalmarketing.customerJourneys.detail.table.actions.enabledShowConditions" xml:space="preserve">
+        <value>Afficher les conditions que les contacts doivent remplir pour passer à cette étape.</value>
+    </data>
+  <data name="admin.digitalmarketing.customerJourneys.detail.table.columns.converted" xml:space="preserve">
+        <value>Converti</value>
+    </data>
+  <data name="admin.digitalmarketing.customerJourneys.detail.table.columns.dropOff" xml:space="preserve">
+        <value>Abandonné</value>
+    </data>
+  <data name="admin.digitalmarketing.customerJourneys.detail.table.columns.stage" xml:space="preserve">
+        <value>Étape</value>
+    </data>
+  <data name="admin.digitalmarketing.customerJourneys.detail.table.columns.stageConditions" xml:space="preserve">
+        <value>Conditions</value>
+    </data>
+  <data name="admin.digitalmarketing.customerJourneys.detail.table.columns.stageKpi" xml:space="preserve">
+        <value>KPI de l'étape</value>
+    </data>
+  <data name="admin.digitalmarketing.customerJourneys.detail.table.rows.converted" xml:space="preserve">
+        <value>{{contacts}} ({{percentage}} %)</value>
+    </data>
+  <data name="admin.digitalmarketing.customerJourneys.detail.table.rows.dropOff" xml:space="preserve">
+        <value>{{contacts}} ({{percentage}} %)</value>
+    </data>
+  <data name="admin.digitalmarketing.customerJourneys.detail.table.rows.stageKpi" xml:space="preserve">
+        <value>{{percentage}} % ({{contacts}} sur {{kpi}} convertis)</value>
+    </data>
+  <data name="admin.digitalmarketing.customerJourneys.detail.table.tooltips.noConverted" xml:space="preserve">
+        <value>Aucun contact n'a rempli les conditions pour passer à cette étape.</value>
+    </data>
+  <data name="admin.digitalmarketing.customerJourneys.detail.table.tooltips.noDropOff" xml:space="preserve">
+        <value>Aucun contact n'a abandonné après cette étape.</value>
+    </data>
+  <data name="admin.digitalmarketing.customerJourneys.propertiesHeadline" xml:space="preserve">
+        <value>Propriétés</value>
+    </data>
+  <data name="admin.digitalmarketing.customerJourneys.renameDialog.headline" xml:space="preserve">
+        <value>Renommer le parcours client</value>
+    </data>
+  <data name="admin.digitalmarketing.customerJourneys.renameDialog.label" xml:space="preserve">
+        <value>Nom du parcours client</value>
+    </data>
+  <data name="admin.digitalmarketing.dataprotection.personaldatamanagement.dataErasureDialogConfirm" xml:space="preserve">
+        <value>Supprimer</value>
+    </data>
+  <data name="admin.digitalmarketing.dataprotection.personaldatamanagement.dataErasureDialogHeadline" xml:space="preserve">
+        <value>Supprimer les données personnelles</value>
+    </data>
+  <data name="admin.digitalmarketing.dataprotection.personaldatamanagement.dataErasureOpenDialogButtonLabel" xml:space="preserve">
+        <value>Sélectionner les données à supprimer</value>
+    </data>
+  <data name="admin.digitalmarketing.dataprotection.personaldatamanagement.enterEmail" xml:space="preserve">
+        <value>Saisir l'e-mail</value>
+    </data>
+  <data name="admin.digitalmarketing.dataprotection.personaldatamanagement.noMatchingDataSubject" xml:space="preserve">
+        <value>Aucun sujet de données correspondant trouvé.</value>
+    </data>
+  <data name="admin.digitalmarketing.dataprotection.personaldatamanagement.search" xml:space="preserve">
+        <value>Rechercher</value>
+    </data>
+  <data name="admin.digitalmarketing.emailBuilder.assetSelector.assetPanel.headline" xml:space="preserve">
+        <value>Sélectionner un élément</value>
+    </data>
+  <data name="admin.digitalmarketing.emailBuilder.assetSelector.assetPanel.selectButtonLabel" xml:space="preserve">
+        <value>Sélectionner</value>
+    </data>
+  <data name="admin.digitalmarketing.emailBuilder.changeTemplate.calloutWarning" xml:space="preserve">
+        <value>Vous pouvez maintenant sélectionner un nouveau modèle pour votre e-mail. Notez que le changement de modèle peut entraîner la perte de vos données de widget. &lt;a href="https://devnet.kentico.com/CMSPages/DocLinkMapper.ashx?version=xp&amp;link=email_builder_templates"&gt;En savoir plus sur les modèles prédéfinis d'e-mail dans notre documentation&lt;/a&gt;</value>
+    </data>
+  <data name="admin.digitalmarketing.emailBuilder.changeTemplate.keepConfigurationTooltip" xml:space="preserve">
+        <value>Les widgets et les sections du modèle actuel seront transférés si le nouveau modèle contient des zones modifiables avec des identifiants correspondants. Sinon, le contenu du Générateur d'e-mails de l'e-mail actuel sera supprimé. Si vous n'êtes pas sûr du comportement attendu sur votre canal, consultez vos administrateurs.</value>
+    </data>
+  <data name="admin.digitalmarketing.emailBuilder.noEmailBuilderText" xml:space="preserve">
+        <value>Si cet e-mail doit avoir le Générateur d'e-mails activé, contactez les développeurs de votre projet.</value>
+    </data>
+  <data name="admin.digitalmarketing.emailBuilder.noEmailBuilderTitle" xml:space="preserve">
+        <value>Le Générateur d'e-mails n'est pas disponible pour cet e-mail.</value>
+    </data>
+  <data name="admin.digitalmarketing.emailBuilder.restrictedWidgets.saveWarning" xml:space="preserve">
+        <value>La mise à jour de la page inclut un changement de type de section, et certains widgets n'ont pas pu être insérés en raison des restrictions de la nouvelle zone de widgets de la section. Les widgets sont disponibles dans la boîte de dialogue d'insertion de widgets et vous pouvez les ajouter à nouveau aux zones valides. Après avoir enregistré la page, ces widgets seront perdus de manière permanente.</value>
+    </data>
+  <data name="admin.digitalmarketing.emailBuilder.saveAsPresetTemplate.confirmButton" xml:space="preserve">
+        <value>Enregistrer et continuer</value>
+    </data>
+  <data name="admin.digitalmarketing.emailBuilder.saveAsPresetTemplate.modalHeadline" xml:space="preserve">
+        <value>Vous avez des modifications non enregistrées</value>
+    </data>
+  <data name="admin.digitalmarketing.emailBuilder.saveAsPresetTemplate.unsavedChanges" xml:space="preserve">
+        <value>Vous avez des modifications non enregistrées dans cet e-mail. Enregistrez vos modifications pour créer un nouveau modèle prédéfini.</value>
+    </data>
+  <data name="admin.digitalmarketing.emailBuilder.webpagePanel.panelHeadline" xml:space="preserve">
+        <value>Sélectionner la page à lier</value>
+    </data>
+  <data name="admin.digitalmarketing.emailBuilder.webpagePanel.selectButtonLabel" xml:space="preserve">
+        <value>Insérer</value>
+    </data>
+  <data name="admin.digitalmarketing.emailPanel.cancel" xml:space="preserve">
+        <value>Annuler</value>
+    </data>
+  <data name="admin.digitalmarketing.emailPanel.email" xml:space="preserve">
+        <value>e-mail sélectionné</value>
+    </data>
+  <data name="admin.digitalmarketing.emailPanel.emails" xml:space="preserve">
+        <value>e-mails sélectionnés</value>
+    </data>
+  <data name="admin.digitalmarketing.emailPanel.name" xml:space="preserve">
+        <value>Nom de l'e-mail</value>
+    </data>
+  <data name="admin.digitalmarketing.emailPanel.noEmails" xml:space="preserve">
+        <value>Il n'y a aucun e-mail des types sélectionnés disponible.</value>
+    </data>
+  <data name="admin.digitalmarketing.emailPanel.purpose" xml:space="preserve">
+        <value>Objectif</value>
+    </data>
+  <data name="admin.digitalmarketing.emailPanel.showLess" xml:space="preserve">
+        <value>Afficher moins</value>
+    </data>
+  <data name="admin.digitalmarketing.emailPanel.showMore" xml:space="preserve">
+        <value>Afficher plus ({{count}})</value>
+    </data>
+  <data name="admin.digitalmarketing.emailPanel.status" xml:space="preserve">
+        <value>Statut</value>
+    </data>
+  <data name="admin.digitalmarketing.emails.content.noFieldsTitle" xml:space="preserve">
+        <value>Le type de contenu sélectionné pour cet e-mail n'a pas de champs modifiables.</value>
+    </data>
+  <data name="admin.digitalmarketing.emails.content.renamePageHeadline" xml:space="preserve">
+        <value>Renommer l'e-mail</value>
+    </data>
+  <data name="admin.digitalmarketing.emails.content.renamePageLabel" xml:space="preserve">
+        <value>Nom de l'e-mail</value>
+    </data>
+  <data name="admin.digitalmarketing.emails.placeholders.label" xml:space="preserve">
+        <value>Espaces réservés</value>
+    </data>
+  <data name="admin.digitalmarketing.emails.preview.copyButtonAriaLabel" xml:space="preserve">
+        <value>Copier le code source HTML de l'e-mail dans le presse-papiers</value>
+    </data>
+  <data name="admin.digitalmarketing.emails.preview.copyButtonLabel" xml:space="preserve">
+        <value>Copier le HTML</value>
+    </data>
+  <data name="admin.digitalmarketing.emails.preview.copySuccessMessage" xml:space="preserve">
+        <value>Le code source HTML de l'e-mail a été copié avec succès dans le presse-papiers.</value>
+    </data>
+  <data name="admin.digitalmarketing.emails.preview.desktopViewToggleButton" xml:space="preserve">
+        <value>Bureau</value>
+    </data>
+  <data name="admin.digitalmarketing.emails.preview.fromLabel" xml:space="preserve">
+        <value>De</value>
+    </data>
+  <data name="admin.digitalmarketing.emails.preview.inboxViewToggleButton" xml:space="preserve">
+        <value>Boîte de réception</value>
+    </data>
+  <data name="admin.digitalmarketing.emails.preview.mobileViewToggleButton" xml:space="preserve">
+        <value>Mobile</value>
+    </data>
+  <data name="admin.digitalmarketing.emails.preview.previewTextLabel" xml:space="preserve">
+        <value>Texte d'aperçu</value>
+    </data>
+  <data name="admin.digitalmarketing.emails.preview.subjectLabel" xml:space="preserve">
+        <value>Sujet</value>
+    </data>
+  <data name="admin.digitalmarketing.emails.preview.templateNotConfigured" xml:space="preserve">
+        <value>L'aperçu de l'e-mail ne peut pas être affiché car aucun modèle d'e-mail n'a été sélectionné.</value>
+    </data>
+  <data name="admin.digitalmarketing.emailSelector.buttonLabel" xml:space="preserve">
+        <value>Sélectionner existant</value>
+    </data>
+  <data name="admin.digitalmarketing.emailSelector.emailPanel.headlineMultiple" xml:space="preserve">
+        <value>Sélectionner un e-mail</value>
+    </data>
+  <data name="admin.digitalmarketing.emailSelector.emailPanel.headlineSingle" xml:space="preserve">
+        <value>Sélectionner un e-mail</value>
+    </data>
+  <data name="admin.digitalmarketing.emailSelector.emailPanel.selectButtonLabel" xml:space="preserve">
+        <value>Sélectionner</value>
+    </data>
+  <data name="admin.digitalmarketing.emailSelector.invalidEmailName" xml:space="preserve">
+        <value>E-MAIL SUPPRIMÉ</value>
+    </data>
+  <data name="admin.digitalmarketing.emailSelector.statusTextMultiple" xml:space="preserve">
+        <value>Sélectionnez jusqu'à {{max}} éléments</value>
+    </data>
+  <data name="admin.digitalmarketing.emailSelector.statusTextMultipleWithCurrentCount" xml:space="preserve">
+        <value>{{current}} éléments sélectionnés, le maximum est de {{max}}</value>
+    </data>
+  <data name="admin.digitalmarketing.emailSelector.statusTextSingleWithCurrentCount" xml:space="preserve">
+        <value>{{current}} élément sélectionné, le maximum est de {{max}}</value>
+    </data>
+  <data name="admin.digitalmarketing.plugins.insertDoubleOptInLink.buttonLabel" xml:space="preserve">
+        <value>Insérer un lien de double opt-in</value>
+    </data>
+  <data name="admin.digitalmarketing.plugins.insertDoubleOptInLink.dialog.headline" xml:space="preserve">
+        <value>Lien de double opt-in</value>
+    </data>
+  <data name="admin.digitalmarketing.plugins.insertDoubleOptInLink.dialog.insertButtonLabel" xml:space="preserve">
+        <value>Insérer</value>
+    </data>
+  <data name="admin.digitalmarketing.plugins.insertDoubleOptInLink.dialog.updateButtonLabel" xml:space="preserve">
+        <value>Mettre à jour</value>
+    </data>
+  <data name="admin.digitalmarketing.plugins.insertDynamicText.buttonLabel" xml:space="preserve">
+        <value>Insérer du texte dynamique</value>
+    </data>
+  <data name="admin.digitalmarketing.plugins.insertDynamicText.dialog.headline" xml:space="preserve">
+        <value>Insérer du texte dynamique</value>
+    </data>
+  <data name="admin.digitalmarketing.plugins.insertDynamicText.dialog.insertButtonLabel" xml:space="preserve">
+        <value>Insérer</value>
+    </data>
+  <data name="admin.digitalmarketing.templateSelector.clearButtonLabel" xml:space="preserve">
+        <value>Effacez votre expression de recherche ici</value>
+    </data>
+  <data name="admin.digitalmarketing.templateSelector.defaultDividerLabel" xml:space="preserve">
+        <value>Par défaut</value>
+    </data>
+  <data name="admin.digitalmarketing.templateSelector.defaultDividerTooltip" xml:space="preserve">
+        <value>Modèles d'e-mails par défaut - détermine la mise en page d'un e-mail. Les modèles de ce type doivent d'abord être créés par les développeurs du projet. Ils ne peuvent pas être modifiés dans l'application 'Modèles prédéfinis'.</value>
+    </data>
+  <data name="admin.digitalmarketing.templateSelector.label" xml:space="preserve">
+        <value>Modèle d'e-mail</value>
+    </data>
+  <data name="admin.digitalmarketing.templateSelector.macroBasedDividerLabel" xml:space="preserve">
+        <value>Basé sur des macros</value>
+    </data>
+  <data name="admin.digitalmarketing.templateSelector.macroBasedDividerTooltip" xml:space="preserve">
+        <value>Modèles qui utilisent des macros pour le contenu dynamique. Les modèles de ce type peuvent être modifiés dans l'application 'Modèles d'e-mail'.</value>
+    </data>
+  <data name="admin.digitalmarketing.templateSelector.noSearchResultText" xml:space="preserve">
+        <value>Essayez de changer votre expression de recherche ou recommencez</value>
+    </data>
+  <data name="admin.digitalmarketing.templateSelector.noSearchResultTitle" xml:space="preserve">
+        <value>Aucune correspondance trouvée</value>
+    </data>
+  <data name="admin.digitalmarketing.templateSelector.noTemplatesText" xml:space="preserve">
+        <value>Il n'y a pas de modèles disponibles pour l'objectif de l'e-mail et le type de contenu sélectionnés.</value>
+    </data>
+  <data name="admin.digitalmarketing.templateSelector.noTemplatesTitle" xml:space="preserve">
+        <value>Aucun modèle disponible</value>
+    </data>
+  <data name="admin.digitalmarketing.templateSelector.presetDividerLabel" xml:space="preserve">
+        <value>Prédéfini</value>
+    </data>
+  <data name="admin.digitalmarketing.templateSelector.presetDividerTooltip" xml:space="preserve">
+        <value>Vous pouvez configurer un e-mail basé sur un modèle et l'enregistrer comme modèle d'e-mail prédéfini. Les modèles d'e-mail prédéfinis peuvent être modifiés dans l'application 'Modèles prédéfinis' et réutilisés plus tard.</value>
+    </data>
+  <data name="admin.digitalmarketing.templateSelector.searchPlaceholder" xml:space="preserve">
+        <value>Rechercher</value>
+    </data>
+  <data name="admin.digitalmarketing.templateSelector.validationMessage" xml:space="preserve">
+        <value>Un modèle d'e-mail doit être sélectionné.</value>
+    </data>
+  <data name="admin.headless.headlessItems.content.noFieldsTitle" xml:space="preserve">
+        <value>Le type de contenu sélectionné pour cet élément sans tête n'a pas de champs modifiables.</value>
+    </data>
+  <data name="admin.headless.headlessItems.content.renameHeadlessItemHeadline" xml:space="preserve">
+        <value>Renommer l'élément sans tête</value>
+    </data>
+  <data name="admin.headless.headlessItems.content.renameHeadlessItemLabel" xml:space="preserve">
+        <value>Nom de l'élément sans tête</value>
+    </data>
+  <data name="admin.headless.headlessItemSelector.buttons.createNewButtonLabel" xml:space="preserve">
+        <value>Créer nouveau</value>
+    </data>
+  <data name="admin.headless.headlessItemSelector.buttons.selectExistingButtonLabel" xml:space="preserve">
+        <value>Sélectionner existant</value>
+    </data>
+  <data name="admin.headless.headlessItemSelector.contentItemPanel.cancel" xml:space="preserve">
+        <value>Annuler</value>
+    </data>
+  <data name="admin.headless.headlessItemSelector.contentItemPanel.disabledImage" xml:space="preserve">
+        <value>Cet élément ne peut pas être sélectionné car il n'a pas de variante de secours appropriée, par conséquent aucune image ne serait affichée dans l'éditeur de texte riche.</value>
+    </data>
+  <data name="admin.headless.headlessItemSelector.contentItemPanel.headlineMultiple" xml:space="preserve">
+        <value>Sélectionner des éléments sans tête</value>
+    </data>
+  <data name="admin.headless.headlessItemSelector.contentItemPanel.headlineSingle" xml:space="preserve">
+        <value>Sélectionner un élément sans tête</value>
+    </data>
+  <data name="admin.headless.headlessItemSelector.contentItemPanel.items" xml:space="preserve">
+        <value>éléments</value>
+    </data>
+  <data name="admin.headless.headlessItemSelector.contentItemPanel.itemsSelected" xml:space="preserve">
+        <value>éléments sélectionnés</value>
+    </data>
+  <data name="admin.headless.headlessItemSelector.contentItemPanel.listing.search.placeholder" xml:space="preserve">
+        <value>Rechercher</value>
+    </data>
+  <data name="admin.headless.headlessItemSelector.contentItemPanel.noContentItems" xml:space="preserve">
+        <value>Il n'y a aucun élément sans tête des types sélectionnés disponible.</value>
+    </data>
+  <data name="admin.headless.headlessItemSelector.contentItemPanel.selectButtonLabel" xml:space="preserve">
+        <value>Sélectionner</value>
+    </data>
+  <data name="admin.headless.headlessItemSelector.or" xml:space="preserve">
+        <value>ou</value>
+    </data>
+  <data name="admin.headless.headlessItemSelector.possibleFallbackMessage" xml:space="preserve">
+        <value>Certains des éléments sélectionnés ne sont pas traduits ou n'ont pas de version publiée. Une variante de langue de secours sera utilisée si disponible.</value>
+    </data>
+  <data name="admin.pages.pageBuilderTitle" xml:space="preserve">
+        <value>Générateur de pages</value>
+    </data>
+  <data name="admin.websites.contentTree.createNewFolder" xml:space="preserve">
+        <value>Nouveau dossier</value>
+    </data>
+  <data name="admin.websites.contentTree.createNewItem" xml:space="preserve">
+        <value>Nouvelle page</value>
+    </data>
+  <data name="admin.websites.contentTree.creatingPlaceholder" xml:space="preserve">
+        <value>Création en cours...</value>
+    </data>
+  <data name="admin.websites.contentTree.dialogs.deletePageConfirmation.confirmActionLabel" xml:space="preserve">
+        <value>Oui, supprimer</value>
+    </data>
+  <data name="admin.websites.contentTree.dialogs.deletePageConfirmation.explanationTextInUse" xml:space="preserve">
+        <value>Cela supprime également toutes les références aux éléments d'autres contenus du système - pages, e-mails, autres éléments de contenu, etc.</value>
+    </data>
+  <data name="admin.websites.contentTree.dialogs.deletePageConfirmation.explanationTextMultiple" xml:space="preserve">
+        <value>Voulez-vous supprimer définitivement les pages sélectionnées ?</value>
+    </data>
+  <data name="admin.websites.contentTree.dialogs.deletePageConfirmation.headline.multiple" xml:space="preserve">
+        <value>Supprimer les pages sélectionnées ?</value>
+    </data>
+  <data name="admin.websites.contentTree.dialogs.deletePageConfirmation.headline.single" xml:space="preserve">
+        <value>Supprimer cette page ?</value>
+    </data>
+  <data name="admin.websites.contentTree.move.confirmMove" xml:space="preserve">
+        <value>Oui, déplacer les éléments</value>
+    </data>
+  <data name="admin.websites.contentTree.move.confirmMoveHeader" xml:space="preserve">
+        <value>Êtes-vous sûr de vouloir déplacer '{{nodeName}}' et toutes ses pages enfants ?</value>
+    </data>
+  <data name="admin.websites.contentTree.move.confirmResolveConflicts" xml:space="preserve">
+        <value>Ajouter un suffixe et déplacer</value>
+    </data>
+  <data name="admin.websites.contentTree.move.confirmResolveConflictsHeader" xml:space="preserve">
+        <value>élément(s) avec des URL en conflit trouvé(s) dans la destination cible</value>
+    </data>
+  <data name="admin.websites.contentTree.move.confirmResolveConflictsText" xml:space="preserve">
+        <value>Les éléments doivent avoir des URL uniques. Nous pouvons résoudre ce problème en ajoutant un suffixe aux URL système des éléments en conflit. Souhaitez-vous ajouter un suffixe ?</value>
+    </data>
+  <data name="admin.websites.contentTree.move.editUrlTitleDraftSuffix" xml:space="preserve">
+        <value>brouillon</value>
+    </data>
+  <data name="admin.websites.contentTree.move.pageMovedUnderItselfError" xml:space="preserve">
+        <value>Vous ne pouvez pas déplacer une page sous elle-même.</value>
+    </data>
+  <data name="admin.websites.contentTree.nodeActions.label" xml:space="preserve">
+        <value>Plus d'actions</value>
+    </data>
+  <data name="admin.websites.contentTree.preview.moreButtonLabel" xml:space="preserve">
+        <value>et plus</value>
+    </data>
+  <data name="admin.websites.contentTree.search.moreResultsWarningMessage" xml:space="preserve">
+        <value>Plus de résultats ont été trouvés.&lt;br&gt;Envisagez d'affiner votre expression de recherche.</value>
+    </data>
+  <data name="admin.websites.contentTree.search.newPageButtonDisabledTooltip" xml:space="preserve">
+        <value>Vous ne pouvez pas créer de nouvelle page car la page sélectionnée n'est pas dans l'arborescence de pages actuelle. Effacez l'expression de recherche ou sélectionnez une page pour l'activer.</value>
+    </data>
+  <data name="admin.websites.contentTree.search.noResult.clearButton" xml:space="preserve">
+        <value>Effacer l'expression de recherche</value>
+    </data>
+  <data name="admin.websites.contentTree.search.noResult.headline" xml:space="preserve">
+        <value>Nous n'avons trouvé aucune correspondance</value>
+    </data>
+  <data name="admin.websites.contentTree.search.noResult.text" xml:space="preserve">
+        <value>Essayez de changer votre expression de recherche ou recommencez</value>
+    </data>
+  <data name="admin.websites.contentTree.search.searchPlaceholder" xml:space="preserve">
+        <value>Rechercher</value>
+    </data>
+  <data name="admin.websites.plugins.insertLink.buttonLabel" xml:space="preserve">
+        <value>Insérer un lien de page</value>
+    </data>
+  <data name="admin.websites.plugins.insertLink.options.page.noExistingLibrary" xml:space="preserve">
+        <value>Impossible d'insérer un lien vers une page. Aucune page disponible à sélectionner.</value>
+    </data>
+  <data name="admin.websites.plugins.insertLink.options.page.panelHeadline" xml:space="preserve">
+        <value>Sélectionner une page à lier</value>
+    </data>
+  <data name="admin.websites.plugins.insertLink.options.page.selectButtonLabel" xml:space="preserve">
+        <value>Insérer</value>
+    </data>
+  <data name="admin.websites.plugins.insertLink.options.page.title" xml:space="preserve">
+        <value>Page</value>
+    </data>
+  <data name="admin.websites.plugins.insertLink.options.page.tooltip" xml:space="preserve">
+        <value>Insérer un lien vers une page sélectionnée.</value>
+    </data>
+  <data name="admin.websites.properties.permissions.addRoles.buttonLabel" xml:space="preserve">
+        <value>Ajouter des rôles</value>
+    </data>
+  <data name="admin.websites.properties.permissions.addRoles.dialogHeadline" xml:space="preserve">
+        <value>Ajouter des rôles</value>
+    </data>
+  <data name="admin.websites.properties.permissions.addRoles.submitButton" xml:space="preserve">
+        <value>Ajouter des rôles</value>
+    </data>
+  <data name="admin.websites.properties.permissions.brokenInheritanceInfo" xml:space="preserve">
+        <value>Cette page a des autorisations &lt;b&gt;différentes&lt;/b&gt; de celles de son parent en raison d'une rupture d'héritage.</value>
+    </data>
+  <data name="admin.websites.properties.permissions.discardChanges" xml:space="preserve">
+        <value>Êtes-vous sûr de vouloir continuer et annuler les modifications apportées aux autorisations ?</value>
+    </data>
+  <data name="admin.websites.properties.permissions.inheritance.break.button" xml:space="preserve">
+        <value>Rompre l'héritage</value>
+    </data>
+  <data name="admin.websites.properties.permissions.inheritance.break.confirm" xml:space="preserve">
+        <value>Rompre l'héritage</value>
+    </data>
+  <data name="admin.websites.properties.permissions.inheritance.break.headline" xml:space="preserve">
+        <value>Voulez-vous rompre l'héritage ?</value>
+    </data>
+  <data name="admin.websites.properties.permissions.inheritance.break.text" xml:space="preserve">
+        <value>Cette action rompt l'héritage des autorisations et permet la définition de nouvelles autorisations for la page et ses enfants.</value>
+    </data>
+  <data name="admin.websites.properties.permissions.inheritance.restore.button" xml:space="preserve">
+        <value>Restaurer l'héritage</value>
+    </data>
+  <data name="admin.websites.properties.permissions.inheritance.restore.confirm" xml:space="preserve">
+        <value>Restaurer l'héritage</value>
+    </data>
+  <data name="admin.websites.properties.permissions.inheritance.restore.headline" xml:space="preserve">
+        <value>Voulez-vous restaurer l'héritage ?</value>
+    </data>
+  <data name="admin.websites.properties.permissions.inheritance.restore.text" xml:space="preserve">
+        <value>Cette action fait en sorte que la page et ses enfants héritent des autorisations du parent de la page.</value>
+    </data>
+  <data name="admin.websites.properties.permissions.inheritance.restore.warning" xml:space="preserve">
+        <value>Toutes les règles d'héritage rompues existantes sur les pages enfants resteront inchangées.</value>
+    </data>
+  <data name="admin.websites.properties.permissions.quickTip" xml:space="preserve">
+        <value>Conseil rapide</value>
+    </data>
+  <data name="admin.websites.properties.permissions.quickTipBody" xml:space="preserve">
+        <value>Les autorisations sont propagées à toutes les pages enfants jusqu'à ce qu'une page enfant rompe l'héritage.</value>
+    </data>
+  <data name="admin.websites.properties.permissions.savePermissionsTitle" xml:space="preserve">
+        <value>Enregistrer les autorisations</value>
+    </data>
+  <data name="admin.websites.webpages.cancel" xml:space="preserve">
+        <value>Annuler</value>
+    </data>
+  <data name="admin.websites.webpages.clonePage.confirm" xml:space="preserve">
+        <value>Cloner</value>
+    </data>
+  <data name="admin.websites.webpages.clonePage.title" xml:space="preserve">
+        <value>Cloner la page</value>
+    </data>
+  <data name="admin.websites.webpages.content" xml:space="preserve">
+        <value>Contenu</value>
+    </data>
+  <data name="admin.websites.webpages.continue" xml:space="preserve">
+        <value>Continuer</value>
+    </data>
+  <data name="admin.websites.webpages.create" xml:space="preserve">
+        <value>Créer</value>
+    </data>
+  <data name="admin.websites.webpages.createFolder" xml:space="preserve">
+        <value>Créer un nouveau dossier</value>
+    </data>
+  <data name="admin.websites.webpages.createFolderLabel" xml:space="preserve">
+        <value>Nom du dossier</value>
+    </data>
+  <data name="admin.websites.webpages.createPageNameLabel" xml:space="preserve">
+        <value>Nom de la page</value>
+    </data>
+  <data name="admin.websites.webpages.discard" xml:space="preserve">
+        <value>Annuler</value>
+    </data>
+  <data name="admin.websites.webpages.noFieldsTitle" xml:space="preserve">
+        <value>Cette page n'a pas de champs modifiables.</value>
+    </data>
+  <data name="admin.websites.webpages.publish" xml:space="preserve">
+        <value>Publier</value>
+    </data>
+  <data name="admin.websites.webpages.renameFolderHeadline" xml:space="preserve">
+        <value>Renommer le dossier</value>
+    </data>
+  <data name="admin.websites.webpages.renameFolderLabel" xml:space="preserve">
+        <value>Nom du dossier</value>
+    </data>
+  <data name="admin.websites.webpages.renamePageHeadline" xml:space="preserve">
+        <value>Renommer la page</value>
+    </data>
+  <data name="admin.websites.webpages.renamePageLabel" xml:space="preserve">
+        <value>Nom de la page</value>
+    </data>
+  <data name="admin.websites.webpages.rootPage.buttonDivider" xml:space="preserve">
+        <value>ou</value>
+    </data>
+  <data name="admin.websites.webpages.rootPage.newFolderButton" xml:space="preserve">
+        <value>Créer un nouveau dossier</value>
+    </data>
+  <data name="admin.websites.webpages.rootPage.newPageButton" xml:space="preserve">
+        <value>Créer une nouvelle page</value>
+    </data>
+  <data name="admin.websites.webpages.rootPage.title" xml:space="preserve">
+        <value>Ceci est le canal {{nodeName}}.</value>
+    </data>
+  <data name="admin.websites.webpages.rootPage.titleMicrochannel" xml:space="preserve">
+        <value>Ceci est le microcanal {{nodeName}}.</value>
+    </data>
+  <data name="admin.websites.webpages.save" xml:space="preserve">
+        <value>Enregistrer</value>
+    </data>
+  <data name="admin.websites.webpages.selectContentTypeLabel" xml:space="preserve">
+        <value>Type de contenu</value>
+    </data>
+  <data name="admin.websites.webpages.urlTab.currentUrls.actions" xml:space="preserve">
+        <value>Actions</value>
+    </data>
+  <data name="admin.websites.webpages.urlTab.currentUrls.add" xml:space="preserve">
+        <value>Ajouter</value>
+    </data>
+  <data name="admin.websites.webpages.urlTab.currentUrls.addVanityUrl" xml:space="preserve">
+        <value>Ajouter une URL personnalisée</value>
+    </data>
+  <data name="admin.websites.webpages.urlTab.currentUrls.addVanityUrlTitle" xml:space="preserve">
+        <value>Ajouter une URL personnalisée</value>
+    </data>
+  <data name="admin.websites.webpages.urlTab.currentUrls.canonical" xml:space="preserve">
+        <value>Canonique</value>
+    </data>
+  <data name="admin.websites.webpages.urlTab.currentUrls.canonicalTooltip" xml:space="preserve">
+        <value>Lorsque cette option est sélectionnée, toutes les URL représentant cette page redirigeront vers cette URL via une redirection 301. Cette URL représente alors l'URL canonique de cette page (c'est-à-dire l'URL qui est indexée par les moteurs de recherche).</value>
+    </data>
+  <data name="admin.websites.webpages.urlTab.currentUrls.deleteAction" xml:space="preserve">
+        <value>Supprimer</value>
+    </data>
+  <data name="admin.websites.webpages.urlTab.currentUrls.deleteConfirmationDialog.confirmationButtonLabel" xml:space="preserve">
+        <value>Oui, supprimer</value>
+    </data>
+  <data name="admin.websites.webpages.urlTab.currentUrls.deleteConfirmationDialog.content" xml:space="preserve">
+        <value>Êtes-vous sûr de vouloir supprimer l'URL personnalisée ?</value>
+    </data>
+  <data name="admin.websites.webpages.urlTab.currentUrls.deleteConfirmationDialog.headline" xml:space="preserve">
+        <value>Supprimer l'URL personnalisée</value>
+    </data>
+  <data name="admin.websites.webpages.urlTab.currentUrls.editAction" xml:space="preserve">
+        <value>Modifier</value>
+    </data>
+  <data name="admin.websites.webpages.urlTab.currentUrls.editSystemUrlTitle" xml:space="preserve">
+        <value>Modifier l'URL système</value>
+    </data>
+  <data name="admin.websites.webpages.urlTab.currentUrls.editVanityUrlTitle" xml:space="preserve">
+        <value>Modifier l'URL personnalisée</value>
+    </data>
+  <data name="admin.websites.webpages.urlTab.currentUrls.invalidUrlTooltip" xml:space="preserve">
+        <value>Cette URL est déjà prise.</value>
+    </data>
+  <data name="admin.websites.webpages.urlTab.currentUrls.save" xml:space="preserve">
+        <value>Enregistrer</value>
+    </data>
+  <data name="admin.websites.webpages.urlTab.currentUrls.systemUrlDeleteAction" xml:space="preserve">
+        <value>L'URL système ne peut pas être supprimée</value>
+    </data>
+  <data name="admin.websites.webpages.urlTab.currentUrls.systemUrlTypeTitle" xml:space="preserve">
+        <value>URL système</value>
+    </data>
+  <data name="admin.websites.webpages.urlTab.currentUrls.title" xml:space="preserve">
+        <value>URL actuelles</value>
+    </data>
+  <data name="admin.websites.webpages.urlTab.currentUrls.type" xml:space="preserve">
+        <value>Type</value>
+    </data>
+  <data name="admin.websites.webpages.urlTab.currentUrls.url" xml:space="preserve">
+        <value>URL</value>
+    </data>
+  <data name="admin.websites.webpages.urlTab.currentUrls.urlTooltip" xml:space="preserve">
+        <value>Les visiteurs peuvent actuellement accéder à la page en utilisant les URL actives. Les URL inactives reflètent les modifications non publiées et deviendront actives une fois la page publiée.</value>
+    </data>
+  <data name="admin.websites.webpages.urlTab.currentUrls.vanityUrlTypeTitle" xml:space="preserve">
+        <value>URL personnalisée</value>
+    </data>
+  <data name="admin.websites.webpages.urlTab.redirect.edit.forbiddenTooltip" xml:space="preserve">
+        <value>Vous n'avez pas les autorisations requises.</value>
+    </data>
+  <data name="admin.websites.webpages.urlTab.redirect.title" xml:space="preserve">
+        <value>Rediriger</value>
+    </data>
+  <data name="admin.websites.webpages.usageTab.headline" xml:space="preserve">
+        <value>Utilisé dans</value>
+    </data>
+  <data name="admin.websites.webpages.usageTab.tooltip" xml:space="preserve">
+        <value>Affiche les éléments qui utilisent la page actuelle. La structure montre les utilisations directes et se poursuit avec les éléments faisant indirectement référence à cette page.</value>
+    </data>
+  <data name="admin.websites.webpages.webPageVersions.versionDetail.contentFieldsHeadline" xml:space="preserve">
+        <value>Champs de contenu</value>
+    </data>
+  <data name="admin.websites.webpages.webPageVersions.versionDetail.noData" xml:space="preserve">
+        <value>Cette page n'a pas de champs modifiables et pas de contenu de générateur de pages.</value>
+    </data>
+  <data name="admin.websites.webpages.webPageVersions.versionDetail.pageBuilderDataHeadline" xml:space="preserve">
+        <value>Données du générateur de pages</value>
+    </data>
+  <data name="admin.websites.webpages.webPageVersions.versionDetail.pageTemplateHeadline" xml:space="preserve">
+        <value>Modèle de page</value>
+    </data>
+  <data name="admin.websites.webpages.webPageVersions.versionDetail.pageTemplateName" xml:space="preserve">
+        <value>Nom du modèle</value>
+    </data>
+  <data name="admin.websites.webpages.webPageVersions.versionDetail.sectionHeadline" xml:space="preserve">
+        <value>Section {{index}} ({{name}})</value>
+    </data>
+  <data name="admin.websites.webpages.webPageVersions.versionDetail.sectionProperties" xml:space="preserve">
+        <value>Propriétés de la section</value>
+    </data>
+  <data name="admin.websites.webpages.webPageVersions.versionDetail.widgetVariantHeadline" xml:space="preserve">
+        <value>Variante : {{name}}</value>
+    </data>
+  <data name="admin.websites.webPageSelector.buttonLabel" xml:space="preserve">
+        <value>Sélectionner une page existante</value>
+    </data>
+  <data name="admin.websites.webPageSelector.invalidPageName" xml:space="preserve">
+        <value>PAGE SUPPRIMÉE</value>
+    </data>
+  <data name="admin.websites.webPageSelector.possibleFallbackMessage.multiple" xml:space="preserve">
+        <value>Certaines des pages Web sélectionnées ne sont pas traduites ou n'ont pas de version publiée. Une variante de langue de secours sera utilisée si disponible.</value>
+    </data>
+  <data name="admin.websites.webPageSelector.possibleFallbackMessage.single" xml:space="preserve">
+        <value>La page Web sélectionnée n'est pas traduite ou n'a pas de version publiée. La variante de langue de secours sera utilisée si disponible.</value>
+    </data>
+  <data name="admin.websites.webPageSelector.statusTextMultiple" xml:space="preserve">
+        <value>Sélectionnez jusqu'à {{max}} éléments</value>
+    </data>
+  <data name="admin.websites.webPageSelector.statusTextMultipleWithCurrentCount" xml:space="preserve">
+        <value>{{current}} éléments sélectionnés, le maximum est de {{max}}</value>
+    </data>
+  <data name="admin.websites.webPageSelector.statusTextSingleWithCurrentCount" xml:space="preserve">
+        <value>{{current}} élément sélectionné, le maximum est de {{max}}</value>
+    </data>
+  <data name="admin.websites.webPageSelector.webPagePanel.headlineMultiple" xml:space="preserve">
+        <value>Sélectionner des pages</value>
+    </data>
+  <data name="admin.websites.webPageSelector.webPagePanel.headlineSingle" xml:space="preserve">
+        <value>Sélectionner une page</value>
+    </data>
+  <data name="admin.websites.webPageSelector.webPagePanel.selectButtonLabel" xml:space="preserve">
+        <value>Sélectionner</value>
+    </data>
+  <data name="kxp.public.admin.app.accountUnlock.accountUnlockedHeader" xml:space="preserve">
+        <value>Compte déverrouillé</value>
+    </data>
+  <data name="kxp.public.admin.app.accountUnlock.accountUnlockedText" xml:space="preserve">
+        <value>Votre compte a été déverrouillé. Vous pouvez maintenant vous connecter.</value>
+    </data>
+  <data name="kxp.public.admin.app.accountUnlock.linkExpired" xml:space="preserve">
+        <value>Le lien de déverrouillage du compte a expiré</value>
+    </data>
+  <data name="kxp.public.admin.app.accountUnlock.signIn" xml:space="preserve">
+        <value>Se connecter</value>
+    </data>
+  <data name="kxp.public.admin.app.logon.buttonLabel" xml:space="preserve">
+        <value>Se connecter</value>
+    </data>
+  <data name="kxp.public.admin.app.logon.buttonLabelExternal" xml:space="preserve">
+        <value>Se connecter via SSO</value>
+    </data>
+  <data name="kxp.public.admin.app.logon.enterUserName" xml:space="preserve">
+        <value>Saisir un nom d'utilisateur</value>
+    </data>
+  <data name="kxp.public.admin.app.logon.externalLogonError" xml:space="preserve">
+        <value>Vous n'avez pas l'autorisation d'accéder à l'administration de Xperience. Si vous pensez qu'il s'agit d'une erreur, contactez votre administrateur.</value>
+    </data>
+  <data name="kxp.public.admin.app.logon.forgottenPassword" xml:space="preserve">
+        <value>Mot de passe oublié</value>
+    </data>
+  <data name="kxp.public.admin.app.logon.keepSigned" xml:space="preserve">
+        <value>Rester connecté</value>
+    </data>
+  <data name="kxp.public.admin.app.logon.or" xml:space="preserve">
+        <value>OU</value>
+    </data>
+  <data name="kxp.public.admin.app.logon.password" xml:space="preserve">
+        <value>Mot de passe</value>
+    </data>
+  <data name="kxp.public.admin.app.logon.signIn" xml:space="preserve">
+        <value>Se connecter</value>
+    </data>
+  <data name="kxp.public.admin.app.logon.userName" xml:space="preserve">
+        <value>Nom d'utilisateur</value>
+    </data>
+  <data name="kxp.public.admin.app.logonMfaRecovery.back" xml:space="preserve">
+        <value>Retour</value>
+    </data>
+  <data name="kxp.public.admin.app.logonMfaRecovery.headline" xml:space="preserve">
+        <value>Se connecter via un code de récupération</value>
+    </data>
+  <data name="kxp.public.admin.app.logonMfaRecovery.recoveryCode" xml:space="preserve">
+        <value>Code de récupération</value>
+    </data>
+  <data name="kxp.public.admin.app.logonMfaRecovery.signIn" xml:space="preserve">
+        <value>Se connecter</value>
+    </data>
+  <data name="kxp.public.admin.app.logonMfaRecovery.useMfaPasscode" xml:space="preserve">
+        <value>Utiliser un code d'authentification multifacteur</value>
+    </data>
+  <data name="kxp.public.admin.app.mfa.back" xml:space="preserve">
+        <value>Retour</value>
+    </data>
+  <data name="kxp.public.admin.app.mfa.callout.headline" xml:space="preserve">
+        <value>Se connecter à votre application d'authentification</value>
+    </data>
+  <data name="kxp.public.admin.app.mfa.callout.text" xml:space="preserve">
+        <value>Sur votre téléphone, téléchargez et installez une application d'authentification (par ex., Google Authenticator, Microsoft Authenticator, LastPass Authenticator, etc.). Dans l'application, scannez le code QR ou saisissez la clé secrète manuellement.</value>
+    </data>
+  <data name="kxp.public.admin.app.mfa.continue" xml:space="preserve">
+        <value>Continuer</value>
+    </data>
+  <data name="kxp.public.admin.app.mfa.headline" xml:space="preserve">
+        <value>Authentification multifacteur</value>
+    </data>
+  <data name="kxp.public.admin.app.mfa.passcode" xml:space="preserve">
+        <value>Code d'authentification</value>
+    </data>
+  <data name="kxp.public.admin.app.mfa.secretKey" xml:space="preserve">
+        <value>Clé secrète</value>
+    </data>
+  <data name="kxp.public.admin.app.mfa.useRecoveryCode" xml:space="preserve">
+        <value>Utiliser un code de récupération</value>
+    </data>
+  <data name="kxp.public.admin.app.passwordReset.create" xml:space="preserve">
+        <value>Créer</value>
+    </data>
+  <data name="kxp.public.admin.app.passwordReset.header" xml:space="preserve">
+        <value>Créer un nouveau mot de passe</value>
+    </data>
+  <data name="kxp.public.admin.app.passwordReset.invalidTokenHeader" xml:space="preserve">
+        <value>Le lien de réinitialisation du mot de passe a expiré</value>
+    </data>
+  <data name="kxp.public.admin.app.passwordReset.newPassword" xml:space="preserve">
+        <value>Mot de passe</value>
+    </data>
+  <data name="kxp.public.admin.app.passwordReset.resendPasswordResetEmail" xml:space="preserve">
+        <value>Retour au mot de passe oublié</value>
+    </data>
+  <data name="kxp.public.admin.app.passwordResetLink.back" xml:space="preserve">
+        <value>Retour à la connexion</value>
+    </data>
+  <data name="kxp.public.admin.app.passwordResetLink.email" xml:space="preserve">
+        <value>E-mail associé à votre compte</value>
+    </data>
+  <data name="kxp.public.admin.app.passwordResetLink.emailEmpty" xml:space="preserve">
+        <value>Saisir une adresse e-mail</value>
+    </data>
+  <data name="kxp.public.admin.app.passwordResetLink.header" xml:space="preserve">
+        <value>Mot de passe oublié</value>
+    </data>
+  <data name="kxp.public.admin.app.passwordResetLink.resetRequestedExternal" xml:space="preserve">
+        <value>Si vous utilisez un fournisseur d'authentification externe, vous devez réinitialiser votre mot de passe sur le site Web de votre fournisseur d'authentification.</value>
+    </data>
+  <data name="kxp.public.admin.app.passwordResetLink.resetRequestedHeader" xml:space="preserve">
+        <value>Demande de réinitialisation du mot de passe</value>
+    </data>
+  <data name="kxp.public.admin.app.passwordResetLink.resetRequestedPt1" xml:space="preserve">
+        <value>Si un compte avec l'adresse e-mail fournie</value>
+    </data>
+  <data name="kxp.public.admin.app.passwordResetLink.resetRequestedPt2" xml:space="preserve">
+        <value>existe, vous recevrez un e-mail contenant un lien pour réinitialiser votre mot de passe.</value>
+    </data>
+  <data name="kxp.public.admin.app.passwordResetLink.signIn" xml:space="preserve">
+        <value>Se connecter</value>
+    </data>
+  <data name="kxp.public.admin.app.passwordResetLink.submit" xml:space="preserve">
+        <value>Envoyer</value>
+    </data>
+  <data name="kxp.public.admin.app.productName" xml:space="preserve">
+        <value>Xperience by Kentico</value>
+    </data>
+  <data name="kxp.public.admin.app.recoveryCode.calloutSubHeadline" xml:space="preserve">
+        <value>Conservez ce code en lieu sûr</value>
+    </data>
+  <data name="kxp.public.admin.app.recoveryCode.calloutText" xml:space="preserve">
+        <value>Utilisez ce code de récupération pour vous connecter si vous perdez l'accès à l'application d'authentification. Le code ne peut être utilisé qu'une seule fois.</value>
+    </data>
+  <data name="kxp.public.admin.app.recoveryCode.continue" xml:space="preserve">
+        <value>Continuer</value>
+    </data>
+  <data name="kxp.public.admin.app.recoveryCode.title" xml:space="preserve">
+        <value>Code de récupération</value>
+    </data>
+  <data name="kxp.public.admin.app.register.buttonLabel" xml:space="preserve">
+        <value>S'inscrire</value>
+    </data>
+  <data name="kxp.public.admin.app.register.linkExpired" xml:space="preserve">
+        <value>Le lien d'inscription a expiré</value>
+    </data>
+  <data name="kxp.public.admin.app.register.password" xml:space="preserve">
+        <value>Mot de passe</value>
+    </data>
+  <data name="kxp.public.admin.app.register.signUp" xml:space="preserve">
+        <value>S'inscrire</value>
+    </data>
+  <data name="kxp.public.admin.app.register.userName" xml:space="preserve">
+        <value>Nom d'utilisateur</value>
+    </data>
+  <data name="kxp.public.admin.app.ssoLoginMessage" xml:space="preserve">
+        <value>Utilisez votre compte d'entreprise pour vous connecter</value>
+    </data>
+  <data name="kxp.public.admin.app.validationError" xml:space="preserve">
+        <value>Des problèmes sont survenus lors de la soumission de votre formulaire. Voir les entrées individuelles pour plus de détails.</value>
+    </data>
+  <data name="kxp.public.admin.base.formComponent.password.hide" xml:space="preserve">
+        <value>MASQUER</value>
+    </data>
+  <data name="kxp.public.admin.base.formComponent.password.lowercaseCount" xml:space="preserve">
+        <value>&lt;li&gt;Doit contenir une lettre minuscule&lt;/li&gt;</value>
+    </data>
+  <data name="kxp.public.admin.base.formComponent.password.numberCount" xml:space="preserve">
+        <value>&lt;li&gt;Doit contenir un chiffre&lt;/li&gt;</value>
+    </data>
+  <data name="kxp.public.admin.base.formComponent.password.passwordLength" xml:space="preserve">
+        <value>&lt;li&gt;Au moins {{length}} caractères&lt;/li&gt;</value>
+    </data>
+  <data name="kxp.public.admin.base.formComponent.password.passwordLengthOne" xml:space="preserve">
+        <value>&lt;li&gt;Au moins 1 caractère&lt;/li&gt;</value>
+    </data>
+  <data name="kxp.public.admin.base.formComponent.password.show" xml:space="preserve">
+        <value>AFFICHER</value>
+    </data>
+  <data name="kxp.public.admin.base.formComponent.password.symbolCount" xml:space="preserve">
+        <value>&lt;li&gt;Doit contenir un caractère spécial&lt;/li&gt;</value>
+    </data>
+  <data name="kxp.public.admin.base.formComponent.password.uniqueCharacterCount" xml:space="preserve">
+        <value>&lt;li&gt;Au moins {{count}} caractères uniques&lt;/li&gt;</value>
+    </data>
+  <data name="kxp.public.admin.base.formComponent.password.uniqueCharacterCountOne" xml:space="preserve">
+        <value>&lt;li&gt;Au moins 1 caractère unique&lt;/li&gt;</value>
+    </data>
+  <data name="kxp.public.admin.base.formComponent.password.uppercaseCount" xml:space="preserve">
+        <value>&lt;li&gt;Doit contenir une lettre majuscule&lt;/li&gt;</value>
+    </data>
+  <data name="kxp.public.admin.base.notFound.goToSignIn" xml:space="preserve">
+        <value>Aller à la connexion</value>
+    </data>
+  <data name="kxp.public.admin.base.notFound.text" xml:space="preserve">
+        <value>La page que vous cherchiez n'a pas pu être trouvée (Erreur 404).</value>
+    </data>
+  <data name="kxp.public.admin.base.notFound.title" xml:space="preserve">
+        <value>Oups !</value>
+    </data>
+  <data name="kxp.public.admin.base.pageLoader.loading" xml:space="preserve">
+        <value>Chargement en cours</value>
+    </data>
+  <data name="kxp.public.admin.base.template.errorTitle" xml:space="preserve">
+        <value>Quelque chose s'est mal passé !</value>
+    </data>
+  <data name="kxp.public.admin.base.textArea.copyButtonLabel" xml:space="preserve">
+        <value>Copier</value>
+    </data>
+  <data name="kxp.public.admin.base.textArea.copyError" xml:space="preserve">
+        <value>Une erreur s'est produite lors de la copie</value>
+    </data>
+  <data name="kxp.public.admin.base.textArea.copySuccess" xml:space="preserve">
+        <value>Copié</value>
+    </data>
+</root>

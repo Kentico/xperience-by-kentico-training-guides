@@ -8,55 +8,55 @@ namespace TrainingGuides.Web.Features.LandingPages.Widgets.CallToAction;
 public class CallToActionWidgetProperties : IWidgetProperties
 {
     [TextInputComponent(
-        Label = "CTA button text",
-        ExplanationText = "Add your call to action. Keep it under 30 characters.",
+        Label = "{$TrainingGuides.CallToActionWidget.Text.Label$}",
+        ExplanationText = "{$TrainingGuides.CallToActionWidget.Text.ExplanationText$}",
         Order = 10)]
     public string Text { get; set; } = string.Empty;
 
     [RadioGroupComponent(
-        Label = "Target content",
-        ExplanationText = "Select what happens when a visitor clicks your CTA.",
-        Options = "page;Page\ncontent;Content hub asset\nabsolute;Absolute URL",
+        Label = "{$TrainingGuides.CallToActionWidget.Type.Label$}",
+        ExplanationText = "{$TrainingGuides.CallToActionWidget.Type.ExplanationText$}",
+        Options = "page;{$TrainingGuides.CallToActionWidget.Type.Options.Page$}\ncontent;{$TrainingGuides.CallToActionWidget.Type.Options.Content$}\nabsolute;{$TrainingGuides.CallToActionWidget.Type.Options.Absolute$}",
         Order = 20)]
     public string Type { get; set; } = "page";
 
     [UrlSelectorComponent(
-        Label = "Target page",
-        ExplanationText = "Select the page in the tree.",
+        Label = "{$TrainingGuides.CallToActionWidget.TargetPage.Label$}",
+        ExplanationText = "{$TrainingGuides.CallToActionWidget.TargetPage.ExplanationText$}",
         Order = 30)]
     [VisibleIfEqualTo(nameof(Type), "page", StringComparison.OrdinalIgnoreCase)]
     public string TargetPage { get; set; } = string.Empty;
 
     [ContentItemSelectorComponent(
         Asset.CONTENT_TYPE_NAME,
-        Label = "Content hub asset",
-        ExplanationText = "Select a file (image, video, PDF, etc. that opens when a visitor clicks your CTA.\r\n",
+        Label = "{$TrainingGuides.CallToActionWidget.ContentItem.Label$}",
+        ExplanationText = "{$TrainingGuides.CallToActionWidget.ContentItem.ExplanationText$}",
         Order = 40)]
     [VisibleIfEqualTo(nameof(Type), "content", StringComparison.OrdinalIgnoreCase)]
     public IEnumerable<ContentItemReference> ContentItem { get; set; } = [];
 
     [TextInputComponent(
-        Label = "Absolute URL",
-        ExplanationText = "Add a hyperlink to an external site, or use the product's URL + anchor tag # for referencing an anchor on the page, for example, \"https://your-doma.in/contact-us#form\"",
+        Label = "{$TrainingGuides.CallToActionWidget.AbsoluteUrl.Label$}",
+        ExplanationText = "{$TrainingGuides.CallToActionWidget.AbsoluteUrl.ExplanationText$}",
         Order = 50)]
     [VisibleIfEqualTo(nameof(Type), "absolute", StringComparison.OrdinalIgnoreCase)]
     public string AbsoluteUrl { get; set; } = string.Empty;
 
     [CheckBoxComponent(
-        Label = "File download",
-        ExplanationText = "Select if you want to log “File download activity” to the contact.",
+        Label = "{$TrainingGuides.CallToActionWidget.IsDownload.Label$}",
+        ExplanationText = "{$TrainingGuides.CallToActionWidget.IsDownload.ExplanationText$}",
         Order = 60)]
     [VisibleIfEqualTo(nameof(Type), "absolute", StringComparison.OrdinalIgnoreCase)]
     public bool IsDownload { get; set; } = false;
 
     [TextInputComponent(
-        Label = "CTA unique data identifier",
-        ExplanationText = "Use this field to set an identifier of this widget instance. For example, it can come in handy for logging custom activities or distinguishing personalization variants.",
+        Label = "{$TrainingGuides.CallToActionWidget.Identifier.Label$}",
+        ExplanationText = "{$TrainingGuides.CallToActionWidget.Identifier.ExplanationText$}",
         Order = 70)]
     public string Identifier { get; set; } = string.Empty;
 
     [CheckBoxComponent(
-        Label = "Open in new tab",
+        Label = "{$TrainingGuides.CallToActionWidget.OpenInNewTab.Label$}",
         Order = 80)]
     public bool OpenInNewTab { get; set; }
 }

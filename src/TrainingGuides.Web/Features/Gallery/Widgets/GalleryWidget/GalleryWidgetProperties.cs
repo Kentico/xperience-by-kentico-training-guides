@@ -6,6 +6,9 @@ using TrainingGuides.Web.Features.Shared.OptionProviders.OrderBy;
 
 namespace TrainingGuides.Web.Features.Gallery.Widgets.GalleryWidget;
 
+// NOTE: For an example of localizing widget properties (labels, explanation texts, and options),
+// see CallToActionWidgetProperties in Features/LandingPages/Widgets/CallToAction/
+
 public class GalleryWidgetProperties : IWidgetProperties
 {
     [SmartFolderSelectorComponent(

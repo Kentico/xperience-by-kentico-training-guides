@@ -3,6 +3,9 @@ using Kentico.Xperience.Admin.Base.FormAnnotations;
 
 namespace TrainingGuides.Web.Features.Membership.Widgets.Registration;
 
+// NOTE: For an example of localizing widget properties (labels, explanation texts, and options),
+// see CallToActionWidgetProperties in Features/LandingPages/Widgets/CallToAction/
+
 public class RegistrationWidgetProperties : IWidgetProperties
 {
     /// <summary>

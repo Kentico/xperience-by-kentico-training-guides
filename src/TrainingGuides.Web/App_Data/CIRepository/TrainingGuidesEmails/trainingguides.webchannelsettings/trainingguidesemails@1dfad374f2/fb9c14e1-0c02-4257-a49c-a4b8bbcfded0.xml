@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<trainingguides.webchannelsettings>
+  <WebChannelSettingsChannelDisplayName>{$TrainingGuides.EmailChannel.Name$}</WebChannelSettingsChannelDisplayName>
+  <WebChannelSettingsChannelID>
+    <CodeName>TrainingGuidesEmails</CodeName>
+    <GUID>49e862ef-2963-49ef-a1f4-f209a01d8fc6</GUID>
+    <ObjectType>cms.channel</ObjectType>
+  </WebChannelSettingsChannelID>
+  <WebChannelSettingsGUID>fb9c14e1-0c02-4257-a49c-a4b8bbcfded0</WebChannelSettingsGUID>
+</trainingguides.webchannelsettings>

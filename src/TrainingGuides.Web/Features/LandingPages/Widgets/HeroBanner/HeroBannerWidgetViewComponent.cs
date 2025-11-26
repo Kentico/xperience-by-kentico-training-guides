@@ -7,6 +7,9 @@ using TrainingGuides.Web.Features.Shared.Models;
 using TrainingGuides.Web.Features.Shared.OptionProviders;
 using TrainingGuides.Web.Features.Shared.Services;
 
+// NOTE: For an example of localizing widget name and description,
+// see CallToActionWidgetViewComponent in Features/LandingPages/Widgets/CallToAction/
+
 [assembly:
     RegisterWidget(
     identifier: HeroBannerWidgetViewComponent.IDENTIFIER,

@@ -1,6 +1,5 @@
 using CMS.Membership;
 using Kentico.Xperience.Admin.Base;
-using Microsoft.Extensions.Localization;
 using TrainingGuides.Admin.ProjectSettings;
 using TrainingGuides.Admin.ProjectSettings.GlobalSettings;
 using TrainingGuides.ProjectSettings;
@@ -15,25 +14,20 @@ using TrainingGuides.ProjectSettings;
     order: 0)]
 
 namespace TrainingGuides.Admin.ProjectSettings.GlobalSettings;
+
 public class GlobalSettingsListingPage : ListingPage
 {
-    private readonly IStringLocalizer<SharedResources> stringLocalizer;
     protected override string ObjectType => GlobalSettingsKeyInfo.OBJECT_TYPE;
-
-    public GlobalSettingsListingPage(IStringLocalizer<SharedResources> stringLocalizer) : base()
-    {
-        this.stringLocalizer = stringLocalizer;
-    }
 
     public override async Task ConfigurePage()
     {
         PageConfiguration.ColumnConfigurations
-                    .AddColumn(nameof(GlobalSettingsKeyInfo.GlobalSettingsKeyDisplayName), stringLocalizer["Name"])
-                    .AddColumn(nameof(GlobalSettingsKeyInfo.GlobalSettingsKeyValue), stringLocalizer["Value"])
-                    .AddColumn(nameof(GlobalSettingsKeyInfo.GlobalSettingsKeyNote), stringLocalizer["Note"])
-                    .AddColumn(nameof(GlobalSettingsKeyInfo.GlobalSettingsKeyName), stringLocalizer["Codename"]);
+                    .AddColumn(nameof(GlobalSettingsKeyInfo.GlobalSettingsKeyDisplayName), "Name")
+                    .AddColumn(nameof(GlobalSettingsKeyInfo.GlobalSettingsKeyValue), "Value")
+                    .AddColumn(nameof(GlobalSettingsKeyInfo.GlobalSettingsKeyNote), "Note")
+                    .AddColumn(nameof(GlobalSettingsKeyInfo.GlobalSettingsKeyName), "Codename");
 
-        PageConfiguration.HeaderActions.AddLink<GlobalSettingsCreatePage>(stringLocalizer["New setting"]);
+        PageConfiguration.HeaderActions.AddLink<GlobalSettingsCreatePage>("New setting");
 
         PageConfiguration.AddEditRowAction<GlobalSettingsEditSection>();
 
