@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -488,42 +488,6 @@
   </data>
   <data name="base.forms.asset.move" xml:space="preserve">
     <value>Mover archivo</value>
-  </data>
-  <data name="base.datetime.january" xml:space="preserve">
-    <value>Enero</value>
-  </data>
-  <data name="base.datetime.february" xml:space="preserve">
-    <value>Febrero</value>
-  </data>
-  <data name="base.datetime.march" xml:space="preserve">
-    <value>Marzo</value>
-  </data>
-  <data name="base.datetime.april" xml:space="preserve">
-    <value>Abril</value>
-  </data>
-  <data name="base.datetime.may" xml:space="preserve">
-    <value>Mayo</value>
-  </data>
-  <data name="base.datetime.june" xml:space="preserve">
-    <value>Junio</value>
-  </data>
-  <data name="base.datetime.july" xml:space="preserve">
-    <value>Julio</value>
-  </data>
-  <data name="base.datetime.august" xml:space="preserve">
-    <value>Agosto</value>
-  </data>
-  <data name="base.datetime.september" xml:space="preserve">
-    <value>Septiembre</value>
-  </data>
-  <data name="base.datetime.october" xml:space="preserve">
-    <value>Octubre</value>
-  </data>
-  <data name="base.datetime.november" xml:space="preserve">
-    <value>Noviembre</value>
-  </data>
-  <data name="base.datetime.december" xml:space="preserve">
-    <value>Diciembre</value>
   </data>
   <data name="base.fieldeditor.caption" xml:space="preserve">
     <value>Campos</value>
@@ -1494,8 +1458,8 @@
     <value>Uso de canales</value>
   </data>
   <data name="base.channels.channel.list.callout" xml:space="preserve">
-    <value>Canales estándar utilizados: &lt;span style=&quot;{0}&quot;&gt;&lt;strong&gt;{1}&lt;/strong&gt;&lt;/span&gt;&lt;br/&gt;
-Microcanales utilizados: &lt;span style=&quot;{2}&quot;&gt;&lt;strong&gt;{3}&lt;/strong&gt;&lt;/span&gt;&lt;br/&gt;&lt;br/&gt;
+    <value>Canales estándar utilizados: &lt;span style="{0}"&gt;&lt;strong&gt;{1}&lt;/strong&gt;&lt;/span&gt;&lt;br/&gt;
+Microcanales utilizados: &lt;span style="{2}"&gt;&lt;strong&gt;{3}&lt;/strong&gt;&lt;/span&gt;&lt;br/&gt;&lt;br/&gt;
 El uso se rastrea en todas las instancias de producción diariamente.</value>
   </data>
   <data name="base.channels.allowedcontenttype.callout.email" xml:space="preserve">
@@ -1993,365 +1957,6 @@ El uso se rastrea en todas las instancias de producción diariamente.</value>
   </data>
   <data name="base.eventlog.filter.username.placeholder" xml:space="preserve">
     <value>Cualquiera</value>
-  </data>
-  <data name="base.forms.daterangeinput.explanation" xml:space="preserve">
-    <value>Use el formato: {0}.</value>
-  </data>
-  <data name="base.application.breadcrumbs.microchannel" xml:space="preserve">
-    <value>Microcanal</value>
-  </data>
-  <data name="base.channels.channel.list.callout" xml:space="preserve">
-    <value>Canales estándar utilizados: &lt;span style=&quot;{0}&quot;&gt;&lt;strong&gt;{1}&lt;/strong&gt;&lt;/span&gt;&lt;br/&gt;
-Microcanales utilizados: &lt;span style=&quot;{2}&quot;&gt;&lt;strong&gt;{3}&lt;/strong&gt;&lt;/span&gt;&lt;br/&gt;&lt;br/&gt;
-El uso se rastrea en todas las instancias de producción diariamente.</value>
-  </data>
-  <data name="base.channels.channel.list.callout.headline" xml:space="preserve">
-    <value>Uso de canales</value>
-  </data>
-  <data name="base.delete.table.contenttype" xml:space="preserve">
-    <value>Tipo de contenido</value>
-  </data>
-  <data name="base.delete.table.displayname" xml:space="preserve">
-    <value>Nombre del elemento de contenido</value>
-  </data>
-  <data name="base.delete.table.inuse" xml:space="preserve">
-    <value>En uso</value>
-  </data>
-  <data name="base.delete.table.inuse.yes" xml:space="preserve">
-    <value>Sí</value>
-  </data>
-  <data name="base.delete.table.inuse.no" xml:space="preserve">
-    <value>No</value>
-  </data>
-  <data name="base.delete.table.status" xml:space="preserve">
-    <value>Estado</value>
-  </data>
-  <data name="base.channels.allowedcontenttype.callout.email" xml:space="preserve">
-    <value>Los siguientes tipos de contenido se pueden usar para crear correos electrónicos en este canal de correo electrónico.</value>
-  </data>
-  <data name="base.channels.allowedcontenttype.callout.headless" xml:space="preserve">
-    <value>Los siguientes tipos de contenido se pueden usar para crear elementos headless en este canal headless.</value>
-  </data>
-  <data name="base.channels.allowedcontenttype.callout.website" xml:space="preserve">
-    <value>Los siguientes tipos de contenido se pueden usar para crear páginas en este canal de sitio web.</value>
-  </data>
-  <data name="base.channels.allowedcontenttype.contenttypes" xml:space="preserve">
-    <value>Seleccionar tipos de contenido permitidos</value>
-  </data>
-  <data name="base.channels.allowedcontenttype.existing" xml:space="preserve">
-    <value>Tipos de contenido permitidos</value>
-  </data>
-  <data name="base.channels.allowedcontenttype.remove.deleteobjectnotfound" xml:space="preserve">
-    <value>No se encontró el objeto.</value>
-  </data>
-  <data name="base.channels.allowedcontenttype.remove.notallowed.email" xml:space="preserve">
-    <value>Los enlaces seleccionados no se pueden eliminar porque ya existen correos electrónicos de los siguientes tipos de contenido en este canal:</value>
-  </data>
-  <data name="base.channels.allowedcontenttype.remove.notallowed.headless" xml:space="preserve">
-    <value>Los enlaces seleccionados no se pueden eliminar porque ya existen elementos headless de los siguientes tipos de contenido en este canal:</value>
-  </data>
-  <data name="base.channels.allowedcontenttype.remove.notallowed.website" xml:space="preserve">
-    <value>Los enlaces seleccionados no se pueden eliminar porque ya existen páginas de los siguientes tipos de contenido en este canal:</value>
-  </data>
-  <data name="base.channels.channel.codename.alphanumeric.explanationtext" xml:space="preserve">
-    <value>&lt;ul&gt;&lt;li&gt;Solo se permiten caracteres alfanuméricos&lt;/li&gt;&lt;/ul&gt;</value>
-  </data>
-  <data name="base.channels.channel.email.delete.title" xml:space="preserve">
-    <value>¿Está seguro de que desea eliminar el canal de correo electrónico &apos;{0}&apos;?</value>
-  </data>
-  <data name="base.channels.channel.email.delete.detail" xml:space="preserve">
-    <value>Esto elimina todos los correos electrónicos asociados con el canal y el contenido que contienen. &lt;br&gt;
-    El contenido reutilizable no se verá afectado. &lt;br&gt;
-    &lt;br&gt;
-    Esta acción no se puede deshacer.</value>
-  </data>
-  <data name="base.channels.channel.headless.delete.title" xml:space="preserve">
-    <value>¿Está seguro de que desea eliminar el canal headless &apos;{0}&apos;?</value>
-  </data>
-  <data name="base.channels.channel.headless.delete.detail" xml:space="preserve">
-    <value>Esto elimina todos los elementos headless asociados con el canal y el contenido que contienen. &lt;br&gt;
-    El contenido reutilizable no se verá afectado. &lt;br&gt;
-    &lt;br&gt;
-    Esta acción no se puede deshacer.</value>
-  </data>
-  <data name="base.channels.channel.website.delete.title" xml:space="preserve">
-    <value>¿Está seguro de que desea eliminar el canal de sitio web &apos;{0}&apos;?</value>
-  </data>
-  <data name="base.channels.channel.website.delete.detail" xml:space="preserve">
-    <value>Esto elimina todas las páginas asociadas con el canal y el contenido que contienen. &lt;br&gt;
-    El contenido reutilizable no se verá afectado. &lt;br&gt;
-    &lt;br&gt;
-    Esta acción no se puede deshacer.</value>
-  </data>
-  <data name="base.channels.channel.size.tooltip" xml:space="preserve">
-    <value>&lt;ul&gt;&lt;li&gt;Los canales estándar pueden contener un número ilimitado de elementos.&lt;/li&gt;
-&lt;li&gt;Los microcanales de sitio web y headless están limitados a un máximo de 20 elementos, y los microcanales de correo electrónico están limitados a un máximo de 5 correos electrónicos. Cada elemento de microcanal puede vincularse a un número ilimitado de elementos de contenido reutilizables.&lt;/li&gt;
-&lt;/ul&gt;</value>
-  </data>
-  <data name="base.channels.channel.size.error.validation" xml:space="preserve">
-    <value>El canal contiene más de {0} elementos y no se puede convertir en un microcanal.</value>
-  </data>
-  <data name="base.class.general.system.label" xml:space="preserve">
-    <value>Esta es una clase del sistema predeterminada y no se puede editar ni eliminar.</value>
-  </data>
-  <data name="base.class.general.system.tooltip" xml:space="preserve">
-    <value>Esta es una clase del sistema predeterminada y no se puede editar ni eliminar</value>
-  </data>
-  <data name="base.class.create.system.tooltip" xml:space="preserve">
-    <value>No puede agregar nuevas clases de datos a los módulos del sistema predeterminados</value>
-  </data>
-  <data name="base.class.generated.tableName" xml:space="preserve">
-    <value>Generado a partir de los campos &apos;Espacio de nombres&apos; y &apos;Nombre&apos; proporcionados en el formato: Espacio_de_nombres_Nombre</value>
-  </data>
-  <data name="base.class.obsoleteconfiguration" xml:space="preserve">
-    <value>La clase contiene campos que usan una combinación obsoleta del componente de formulario &lt;b&gt;Editor de texto enriquecido&lt;/b&gt; y los tipos de datos &lt;b&gt;Texto&lt;/b&gt; o &lt;b&gt;Texto largo&lt;/b&gt;. Use el componente de formulario &lt;b&gt;Editor de texto enriquecido&lt;/b&gt; con el tipo de dato &lt;b&gt;Texto enriquecido (HTML)&lt;/b&gt; en su lugar.
-&lt;br&gt; &lt;br&gt;Lista de campos afectados: {0}</value>
-  </data>
-  <data name="base.command.confirmation.error.validationerror" xml:space="preserve">
-    <value>Los valores ingresados no se pueden enviar. Consulte los campos resaltados para obtener más detalles.</value>
-  </data>
-  <data name="base.contentitems.status.draft.sync.tooltip" xml:space="preserve">
-    <value>Se sincronizará la última versión publicada de este elemento de contenido.</value>
-  </data>
-  <data name="base.contentitems.status.initialdraft.multilingual.tooltip" xml:space="preserve">
-    <value>Este elemento aún no se ha publicado. Se utilizará una variante de idioma de respaldo si está disponible.</value>
-  </data>
-  <data name="base.contentitems.status.unpublished.multilingual.tooltip" xml:space="preserve">
-    <value>Este elemento no está publicado y no está disponible fuera de la administración. Se utilizará una variante de idioma de respaldo si está disponible.</value>
-  </data>
-  <data name="base.contentitems.status.scheduledpublishandunpublish.tooltip" xml:space="preserve">
-    <value>El elemento está programado para publicarse el {0} y despublicarse el {1}.</value>
-  </data>
-  <data name="base.contentitems.status.customworkflowstep.tooltip" xml:space="preserve">
-    <value>El elemento se está editando en un paso de flujo de trabajo personalizado y su contenido actual aún no está publicado.</value>
-  </data>
-  <data name="base.contentitems.actions.changeworkflowstep.disabled.tooltip" xml:space="preserve">
-    <value>No pertenece a un rol que tenga permiso para trabajar con el elemento en el paso de flujo de trabajo actual.</value>
-  </data>
-  <data name="base.contentitems.actions.discardchanges.disabled.tooltip" xml:space="preserve">
-    <value>No pertenece a un rol que tenga permiso para trabajar con el elemento en el paso de flujo de trabajo actual.</value>
-  </data>
-  <data name="base.contentitems.error.workspacemismatch" xml:space="preserve">
-    <value>Este elemento de contenido no existe en el espacio de trabajo actual.</value>
-  </data>
-  <data name="base.contentlanguages.language.codename.tooltip" xml:space="preserve">
-    <value>El nombre en código del idioma se utiliza en las URL como prefijo de idioma. Cuando se cambia este nombre en código, todas las URL en vivo también se cambian.</value>
-  </data>
-  <data name="base.contentlanguages.language.cultureformat.tooltip" xml:space="preserve">
-    <value>Cultura que define el formato de fecha del calendario, hora, decimales y otras convenciones relacionadas con la cultura.</value>
-  </data>
-  <data name="base.contentlanguages.language.cultureformat.validationerror" xml:space="preserve">
-    <value>El valor ingresado no es un código de cultura válido.</value>
-  </data>
-  <data name="base.contentlanguages.language.displayname.tooltip" xml:space="preserve">
-    <value>Nombre del idioma. Se mostrará en todo el sistema.</value>
-  </data>
-  <data name="base.contentlanguages.language.contentlanguageisdefault.defaultlanguage.tooltip" xml:space="preserve">
-    <value>El idioma en el que se muestra el contenido en la interfaz de administración de forma predeterminada. Esta configuración no afecta los respaldos de idioma ni el sitio en vivo.</value>
-  </data>
-  <data name="base.contentlanguages.language.contentlanguageisdefault.defaultlanguage.explanationtext" xml:space="preserve">
-    <value>Siempre debe tener un idioma predeterminado. Establezca otro idioma como predeterminado y esta opción se deseleccionará para el idioma actual.</value>
-  </data>
-  <data name="base.contentlanguages.language.contentlanguageisdefault.nondefaultlanguage.explanationtext" xml:space="preserve">
-    <value>Si selecciona esta opción, &quot;{0}&quot; ya no será su idioma predeterminado.</value>
-  </data>
-  <data name="base.contentlanguages.language.fallbacklanguage.tooltip" xml:space="preserve">
-    <value>Mostrar variante de idioma del idioma de respaldo si un elemento de contenido no está traducido.</value>
-  </data>
-  <data name="base.contentlanguages.language.fallbacklanguage.noselfreference" xml:space="preserve">
-    <value>Un idioma no puede usarse a sí mismo como respaldo.</value>
-  </data>
-  <data name="base.contentlanguages.language.languageflag" xml:space="preserve">
-    <value>Bandera</value>
-  </data>
-  <data name="base.contentlanguages.language.languageflag.tooltip" xml:space="preserve">
-    <value>Icono de bandera utilizado en la interfaz de usuario que representa visualmente el idioma.</value>
-  </data>
-  <data name="base.contentlanguages.language.flagicon" xml:space="preserve">
-    <value>Icono de bandera</value>
-  </data>
-  <data name="base.contentlanguages.language.list.cannotdelete" xml:space="preserve">
-    <value>El idioma predeterminado no se puede eliminar.</value>
-  </data>
-  <data name="base.contentlanguages.language.list.existingcontent.cannotdelete" xml:space="preserve">
-    <value>No se puede eliminar un idioma si se utiliza en el sistema, es decir, el idioma está establecido como idioma principal de un canal o hay contenido en el idioma.</value>
-  </data>
-  <data name="base.contentlanguages.language.quicktip.headline" xml:space="preserve">
-    <value>Cultura de formato</value>
-  </data>
-  <data name="base.contentlanguages.language.quicktip.content" xml:space="preserve">
-    <value>La cultura de formato consiste en un identificador de idioma, por ejemplo, &lt;b&gt;&quot;en&quot; para inglés&lt;/b&gt; y un código de país/región, por ejemplo, &lt;b&gt;&quot;US&quot; para Estados Unidos&lt;/b&gt;.&lt;br/&gt;La cultura de formato sería entonces &lt;b&gt;&quot;en-US&quot;&lt;/b&gt;.&lt;br/&gt;&lt;br/&gt; Los valores de cultura de formato deben basarse en &lt;a href=&quot;https://www.venea.net/web/culture_code&quot;&gt;IETF o uno de los estándares ISO-639&lt;/a&gt;.</value>
-  </data>
-  <data name="base.forms.codename.isautomaticcodenameenabled.label" xml:space="preserve">
-    <value>Habilitar opción para prellenar automáticamente los nombres en código</value>
-  </data>
-  <data name="base.forms.codename.iscollapsed.label" xml:space="preserve">
-    <value>Mostrar el componente plegado al cargar</value>
-  </data>
-  <data name="base.forms.password.ignorepolicy.label" xml:space="preserve">
-    <value>Deshabilitar la aplicación de política de contraseñas</value>
-  </data>
-  <data name="base.forms.password.ignorepolicy.tooltip" xml:space="preserve">
-    <value>Al validar la entrada, el componente ignora todos los requisitos de política de contraseñas configurados mediante las siguientes configuraciones: Longitud requerida, Caracteres únicos requeridos, Requiere dígito, Requiere no alfanumérico, Requiere mayúsculas, Requiere minúsculas</value>
-  </data>
-  <data name="base.forms.additionalactions.ai.addaction" xml:space="preserve">
-    <value>Agregar característica de AIRA</value>
-  </data>
-  <data name="base.forms.additionalactions.ai.editaction" xml:space="preserve">
-    <value>Editar característica de AIRA</value>
-  </data>
-  <data name="base.forms.additionalactions.ai.deleteconfirm" xml:space="preserve">
-    <value>¿Está seguro de que desea eliminar la característica de AIRA?</value>
-  </data>
-  <data name="base.forms.additionalactions.ai.noactions" xml:space="preserve">
-    <value>Aún no hay características de AIRA.</value>
-  </data>
-  <data name="base.fieldeditor.section.appearance" xml:space="preserve">
-    <value>Apariencia del campo</value>
-  </data>
-  <data name="base.fieldeditor.section.settings" xml:space="preserve">
-    <value>Configuración del componente de formulario</value>
-  </data>
-  <data name="base.fieldeditor.defaulterrormessage" xml:space="preserve">
-    <value>Mensaje de error predeterminado</value>
-  </data>
-  <data name="base.fieldeditor.validationrulelist" xml:space="preserve">
-    <value>Reglas de validación</value>
-  </data>
-  <data name="base.fieldeditor.validationrule.errormessage" xml:space="preserve">
-    <value>Mensaje de error</value>
-  </data>
-  <data name="base.fieldeditor.validationrule.errormessage.watermarktext" xml:space="preserve">
-    <value>Ej. La entrada ingresada no es válida</value>
-  </data>
-  <data name="base.fieldeditor.visibilitycondition.title" xml:space="preserve">
-    <value>Visibilidad</value>
-  </data>
-  <data name="base.fieldeditor.visibilitycondition.disabledWhenRequired" xml:space="preserve">
-    <value>Las condiciones de visibilidad no son compatibles con campos Requeridos.</value>
-  </data>
-  <data name="base.fieldeditor.collapsible" xml:space="preserve">
-    <value>Plegable</value>
-  </data>
-  <data name="base.fieldeditor.collapsibledefault" xml:space="preserve">
-    <value>Mostrar plegado</value>
-  </data>
-  <data name="base.fieldeditor.explanationtextashtml" xml:space="preserve">
-    <value>Renderizar HTML en el texto debajo de la entrada</value>
-  </data>
-  <data name="base.fieldeditor.explanationtextashtml.tooltip" xml:space="preserve">
-    <value>Cuando está seleccionado, toda la sintaxis HTML en el contenido de este campo se resuelve. El contenido HTML se desinfecta cuando se muestra en la interfaz de administración para evitar la ejecución de scripts potencialmente inseguros. Cuando no está seleccionado, todos los caracteres especiales se escapan y se muestran como texto sin formato.</value>
-  </data>
-  <data name="base.fieldeditor.fielddescriptionashtml" xml:space="preserve">
-    <value>Renderizar HTML en el texto de información sobre herramientas</value>
-  </data>
-  <data name="base.fieldeditor.fielddescriptionashtml.tooltip" xml:space="preserve">
-    <value>Cuando está seleccionado, toda la sintaxis HTML en el contenido de este campo se resuelve. El contenido HTML se desinfecta cuando se muestra en la interfaz de administración para evitar la ejecución de scripts potencialmente inseguros. Cuando no está seleccionado, todos los caracteres especiales se escapan y se muestran como texto sin formato.</value>
-  </data>
-  <data name="base.fieldeditor.fieldupdateerror" xml:space="preserve">
-    <value>Ocurrió un error al actualizar el campo. Consulte el registro de eventos para obtener más información.</value>
-  </data>
-  <data name="base.fieldeditor.fieldupdateerror.sqlerror" xml:space="preserve">
-    <value>Este campo no se puede cambiar al tipo de dato seleccionado. El sistema no admite la conversión entre los tipos de datos actuales y seleccionados del campo. Consulte el registro de eventos para obtener más información.</value>
-  </data>
-  <data name="base.fieldeditor.fielddeleteerror" xml:space="preserve">
-    <value>Ocurrió un error al eliminar el campo. Consulte el registro de eventos para obtener más información.</value>
-  </data>
-  <data name="base.fieldeditor.fieldvalidationerror" xml:space="preserve">
-    <value>La validación del campo {0} falló: {1}</value>
-  </data>
-  <data name="base.fieldeditor.noavailablecomponents" xml:space="preserve">
-    <value>No hay componentes disponibles para este tipo de dato</value>
-  </data>
-  <data name="base.fieldeditor.noavailabledatatypes" xml:space="preserve">
-    <value>No hay tipos de datos disponibles para este tipo de contenido</value>
-  </data>
-  <data name="base.fieldeditor.noformcomponent" xml:space="preserve">
-    <value>No se seleccionó ningún componente de formulario.</value>
-  </data>
-  <data name="base.fieldeditor.unavailablecomponent" xml:space="preserve">
-    <value>Componente no disponible ({0})</value>
-  </data>
-  <data name="base.fieldeditor.fieldwithoutdbcolumn" xml:space="preserve">
-    <value>Nuevo campo sin columna de base de datos</value>
-  </data>
-  <data name="base.fieldeditor.decimalprecision.label" xml:space="preserve">
-    <value>Número de lugares decimales</value>
-  </data>
-  <data name="base.fieldeditor.decimalsize.label" xml:space="preserve">
-    <value>Número de todos los dígitos</value>
-  </data>
-  <data name="base.fieldeditor.referencedobjecttype" xml:space="preserve">
-    <value>Referencia a</value>
-  </data>
-  <data name="base.fieldeditor.referencetype" xml:space="preserve">
-    <value>Tipo de referencia</value>
-  </data>
-  <data name="base.fieldeditor.extensionselector" xml:space="preserve">
-    <value>Selector de extensión de archivo</value>
-  </data>
-  <data name="base.fieldeditor.additionalactionlist" xml:space="preserve">
-    <value>Acciones adicionales</value>
-  </data>
-  <data name="base.fieldeditor.additionalactionlist.ai" xml:space="preserve">
-    <value>Características de AIRA</value>
-  </data>
-  <data name="base.fieldeditor.aira.translation.label" xml:space="preserve">
-    <value>Incluir contenido del campo en traducción de AIRA</value>
-  </data>
-  <data name="base.fieldeditor.aira.translation.disabled.tooltip" xml:space="preserve">
-    <value>El tipo de dato del campo no está permitido para traducción en la aplicación AIRA.</value>
-  </data>
-  <data name="base.fieldmanager.emptyattributename.errormessage" xml:space="preserve">
-    <value>Ingrese un nombre de campo.</value>
-  </data>
-  <data name="base.fieldmanager.existingcolumnname.errormessage" xml:space="preserve">
-    <value>El nombre del campo ya está en uso. Ingrese un nombre único.</value>
-  </data>
-  <data name="base.fieldmanager.nameisused.errormessage" xml:space="preserve">
-    <value>Ya existe una categoría o campo con este nombre.</value>
-  </data>
-  <data name="base.fieldmanager.categorynameisused.errormessage" xml:space="preserve">
-    <value>El nombre de categoría debe ser único dentro del alcance del formulario (incluidas las columnas de base de datos de la clase).</value>
-  </data>
-  <data name="base.fieldmanager.dummyfieldnameisused.errormessage" xml:space="preserve">
-    <value>El nombre del campo sin columna de base de datos debe ser único dentro del alcance del formulario (incluidas las columnas de base de datos de la clase).</value>
-  </data>
-  <data name="base.fieldmanager.attributenamedoesnotstartwithletter.errormessage" xml:space="preserve">
-    <value>Por favor ingrese el nombre del campo en formato de identificador sin espacios ni caracteres especiales; se permite &apos;_&apos;.</value>
-  </data>
-  <data name="base.fieldmanager.toolongfieldname.errormessage" xml:space="preserve">
-    <value>La longitud máxima permitida del texto de entrada es {0}.</value>
-  </data>
-  <data name="base.fieldmanager.invalidattributesize.errormessage" xml:space="preserve">
-    <value>El tamaño del campo debe ser mayor que cero y máximo {0}.</value>
-  </data>
-  <data name="base.fieldmanager.invalidattributeprecision.errormessage" xml:space="preserve">
-    <value>La precisión del campo debe estar entre 0 y {0}.</value>
-  </data>
-  <data name="base.fieldmanager.invalidattributedecimalsize.errormessage" xml:space="preserve">
-    <value>El número de todos los dígitos de un valor decimal debe ser mayor que cero y máximo {0}.</value>
-  </data>
-  <data name="base.fieldmanager.invalidattributedecimalprecision.errormessage" xml:space="preserve">
-    <value>El número de lugares decimales debe estar entre 0 y {0}.</value>
-  </data>
-  <data name="base.fieldmanager.defaultvaluesize.errormessage" xml:space="preserve">
-    <value>La longitud de la cadena del valor predeterminado del campo no debe exceder el tamaño del campo.</value>
-  </data>
-  <data name="base.fieldmanager.allowempty.errormessage" xml:space="preserve">
-    <value>El campo debe establecerse como requerido debido a la restricción en la columna de base de datos subyacente.</value>
-  </data>
-  <data name="base.fieldmanager.cannotdeleteprimarykey.errormessage" xml:space="preserve">
-    <value>El campo seleccionado es la clave primaria y no se puede eliminar.</value>
-  </data>
-  <data name="base.conditionbuilder.pickerCategoryAll" xml:space="preserve">
-    <value>Todos</value>
-  </data>
-  <data name="base.conditionbuilder.requiredparamsmissing" xml:space="preserve">
-    <value>Algunos de los parámetros requeridos no están establecidos. Establezca un valor para todos los parámetros de la condición.</value>
-  </data>
-  <data name="base.conditionbuilder.error.multipleconditiongroupsnotallowed" xml:space="preserve">
-    <value>No se permiten múltiples grupos de condiciones.</value>
   </data>
   <data name="base.forms.taxonomy.selector.minselectedtagscount.label" xml:space="preserve">
     <value>Número mínimo de etiquetas seleccionadas</value>
@@ -12719,7 +12324,7 @@ Vea el envío completo en la interfaz de administración de Xperience.</value>
   </data>
   <data name="websites.websitechannel.primarylanguage.tooltip" xml:space="preserve">
     <value>El prefijo de idioma no está presente en las rutas de URL para el idioma principal.
-Por ejemplo, 'www.misitio.com/es-mx/inicio' se convierte en 'www.misitio.com/inicio' cuando el español se establece como el idioma principal.</value>
+Por ejemplo, &apos;www.misitio.com/es-mx/inicio&apos; se convierte en &apos;www.misitio.com/inicio&apos; cuando el español se establece como el idioma principal.</value>
   </data>
   <data name="websites.websitechannel.scopes.applyforsubitems" xml:space="preserve">
     <value>Aplicar para todos los subelementos</value>
@@ -12855,5 +12460,236 @@ Por ejemplo, 'www.misitio.com/es-mx/inicio' se convierte en 'www.misitio.com/ini
   </data>
   <data name="workspaces.data.permissions.view" xml:space="preserve">
     <value>Ver</value>
+  </data>
+  <data name="base.forms.datetime.april" xml:space="preserve">
+    <value>Abril</value>
+  </data>
+  <data name="base.forms.datetime.august" xml:space="preserve">
+    <value>Agosto</value>
+  </data>
+  <data name="base.forms.datetime.december" xml:space="preserve">
+    <value>Diciembre</value>
+  </data>
+  <data name="base.forms.datetime.february" xml:space="preserve">
+    <value>Febrero</value>
+  </data>
+  <data name="base.forms.datetime.january" xml:space="preserve">
+    <value>Enero</value>
+  </data>
+  <data name="base.forms.datetime.july" xml:space="preserve">
+    <value>Julio</value>
+  </data>
+  <data name="base.forms.datetime.june" xml:space="preserve">
+    <value>Junio</value>
+  </data>
+  <data name="base.forms.datetime.march" xml:space="preserve">
+    <value>Marzo</value>
+  </data>
+  <data name="base.forms.datetime.may" xml:space="preserve">
+    <value>Mayo</value>
+  </data>
+  <data name="base.forms.datetime.november" xml:space="preserve">
+    <value>Noviembre</value>
+  </data>
+  <data name="base.forms.datetime.october" xml:space="preserve">
+    <value>Octubre</value>
+  </data>
+  <data name="base.forms.datetime.september" xml:space="preserve">
+    <value>Septiembre</value>
+  </data>
+  <data name="base.forms.folder.rename.label" xml:space="preserve">
+    <value>Renombrar</value>
+  </data>
+  <data name="contentengine.contentversions.error.disabled" xml:space="preserve">
+    <value>El versionado de contenido está deshabilitado.</value>
+  </data>
+  <data name="contentengine.contentversions.headline" xml:space="preserve">
+    <value>Historial de versiones: {0}</value>
+  </data>
+  <data name="contentengine.contentversions.incompatiblefield.errormessage" xml:space="preserve">
+    <value>El tipo de datos del campo de esta versión ya no es compatible con el tipo de datos de la versión actual. Si se revierte, el campo quedará vacío.</value>
+  </data>
+  <data name="contentengine.contentversions.restore.button" xml:space="preserve">
+    <value>Restaurar esta versión</value>
+  </data>
+  <data name="contentengine.contentversions.restore.confirmation.button" xml:space="preserve">
+    <value>Restaurar versión</value>
+  </data>
+  <data name="contentengine.contentversions.restore.confirmation.headline" xml:space="preserve">
+    <value>¿Restaurar esta versión?</value>
+  </data>
+  <data name="contentengine.contentversions.restore.confirmation.text" xml:space="preserve">
+    <value>Se creará un nuevo borrador con datos de la versión seleccionada. La versión publicada actual no se verá afectada por esta acción.&lt;br/&gt;&lt;br/&gt;Los elementos vinculados se muestran en su versión publicada más reciente. Los recursos no están versionados. &lt;a target=&apos;_blank&apos; rel=&apos;noopener&apos; href=&apos;{0}&apos;&gt;Obtenga más información aquí.&lt;/a&gt;</value>
+  </data>
+  <data name="contentengine.contentversions.restore.scheduledpublish.disabled.tooltip" xml:space="preserve">
+    <value>Este elemento está actualmente programado para ser publicado. Para restaurar una versión anterior del elemento, cancele primero la publicación programada.</value>
+  </data>
+  <data name="contentengine.contentversions.restore.scheduledpublishandunpublish.disabled.tooltip" xml:space="preserve">
+    <value>Este elemento está actualmente programado tanto para publicación como para despublicación. Para restaurar una versión anterior del elemento, cancele primero todas las acciones programadas.</value>
+  </data>
+  <data name="contentengine.contentversions.restore.scheduledunpublish.disabled.tooltip" xml:space="preserve">
+    <value>Este elemento está actualmente programado para ser despublicado. Para restaurar una versión anterior del elemento, cancele primero la despublicación programada.</value>
+  </data>
+  <data name="contentengine.contentversions.restore.success" xml:space="preserve">
+    <value>Se restauró la versión del elemento de {0}.</value>
+  </data>
+  <data name="contentengine.contentversions.scheduledpublish.info" xml:space="preserve">
+    <value>Este elemento está actualmente programado para ser publicado. Para restaurar una versión anterior del elemento, cancele primero la publicación programada.</value>
+  </data>
+  <data name="contentengine.contentversions.scheduledpublishandunpublish.info" xml:space="preserve">
+    <value>Este elemento está actualmente programado tanto para publicación como para despublicación. Para restaurar una versión anterior del elemento, cancele primero todas las acciones programadas.</value>
+  </data>
+  <data name="contentengine.contentversions.scheduledunpublish.info" xml:space="preserve">
+    <value>Este elemento está actualmente programado para ser despublicado. Para restaurar una versión anterior del elemento, cancele primero la despublicación programada.</value>
+  </data>
+  <data name="contentengine.imageprocessing.height.islarge" xml:space="preserve">
+    <value>La altura de la imagen es demasiado grande.</value>
+  </data>
+  <data name="contentengine.imageprocessing.height.iszero" xml:space="preserve">
+    <value>La altura de la imagen es 0.</value>
+  </data>
+  <data name="contentengine.imageprocessing.width.islarge" xml:space="preserve">
+    <value>El ancho de la imagen es demasiado grande.</value>
+  </data>
+  <data name="contentengine.imageprocessing.width.iszero" xml:space="preserve">
+    <value>El ancho de la imagen es 0.</value>
+  </data>
+  <data name="contentengine.tag.edit.translations" xml:space="preserve">
+    <value>Traducciones</value>
+  </data>
+  <data name="contentengine.taxonomy.create" xml:space="preserve">
+    <value>Nueva taxonomía</value>
+  </data>
+  <data name="contentengine.taxonomy.edit" xml:space="preserve">
+    <value>Etiquetas</value>
+  </data>
+  <data name="contentengine.taxonomy.edit.codename" xml:space="preserve">
+    <value>Nombre de código</value>
+  </data>
+  <data name="contentengine.taxonomy.edit.description" xml:space="preserve">
+    <value>Descripción</value>
+  </data>
+  <data name="contentengine.taxonomy.edit.headline" xml:space="preserve">
+    <value>Etiquetas</value>
+  </data>
+  <data name="contentengine.taxonomy.edit.tagmanagement" xml:space="preserve">
+    <value>Gestión de etiquetas</value>
+  </data>
+  <data name="contentengine.taxonomy.edit.title" xml:space="preserve">
+    <value>Nombre de taxonomía</value>
+  </data>
+  <data name="contentengine.taxonomy.edit.title.explanation" xml:space="preserve">
+    <value>Nombre de su taxonomía en el idioma predeterminado - {0}</value>
+  </data>
+  <data name="contentengine.taxonomy.edit.title.translation" xml:space="preserve">
+    <value>Nombre en {0}</value>
+  </data>
+  <data name="contentengine.taxonomy.edit.translations" xml:space="preserve">
+    <value>Traducciones</value>
+  </data>
+  <data name="contentengine.taxonomy.erroroccured" xml:space="preserve">
+    <value>Ocurrió un error inesperado, consulte el registro de eventos para obtener más detalles. (Origen del evento: {0}, Código del evento: {1}).</value>
+  </data>
+  <data name="contentengine.taxonomy.group.edit" xml:space="preserve">
+    <value>Editar taxonomía</value>
+  </data>
+  <data name="contentengine.taxonomy.list" xml:space="preserve">
+    <value>Lista de taxonomías</value>
+  </data>
+  <data name="contentengine.taxonomy.list.delete.disabled" xml:space="preserve">
+    <value>Esta taxonomía está siendo utilizada por uno o más tipos de contenido y no se puede eliminar. Para eliminar la taxonomía, retírela de la configuración de cualquier tipo de contenido.</value>
+  </data>
+  <data name="contentengine.taxonomy.list.delete.success" xml:space="preserve">
+    <value>La taxonomía &apos;{0}&apos; se eliminó correctamente.</value>
+  </data>
+  <data name="contentengine.taxonomy.list.lastmodified" xml:space="preserve">
+    <value>Última modificación</value>
+  </data>
+  <data name="contentengine.taxonomy.list.name" xml:space="preserve">
+    <value>Nombre de taxonomía</value>
+  </data>
+  <data name="contentengine.taxonomy.new.taxonomy" xml:space="preserve">
+    <value>Nueva taxonomía</value>
+  </data>
+  <data name="contentengine.taxonomy.save" xml:space="preserve">
+    <value>Guardar</value>
+  </data>
+  <data name="contentengine.taxonomy.saveandcreate" xml:space="preserve">
+    <value>Guardar y crear otra</value>
+  </data>
+  <data name="contentengine.taxonomy.tag.create" xml:space="preserve">
+    <value>Nueva etiqueta</value>
+  </data>
+  <data name="contentengine.taxonomy.tag.delete.button" xml:space="preserve">
+    <value>Eliminar</value>
+  </data>
+  <data name="contentengine.taxonomy.tag.delete.tag.error" xml:space="preserve">
+    <value>Ocurrió un error al intentar eliminar la etiqueta &apos;{0}&apos;.</value>
+  </data>
+  <data name="contentengine.taxonomy.tag.delete.tag.success" xml:space="preserve">
+    <value>La etiqueta &apos;{0}&apos; se eliminó correctamente.</value>
+  </data>
+  <data name="contentengine.taxonomy.tag.delete.tagwithchildren.error" xml:space="preserve">
+    <value>Ocurrió un error al intentar eliminar la etiqueta &apos;{0}&apos; o sus etiquetas secundarias.</value>
+  </data>
+  <data name="contentengine.taxonomy.tag.delete.tagwithchildren.success" xml:space="preserve">
+    <value>La etiqueta &apos;{0}&apos; y sus etiquetas secundarias se eliminaron correctamente.</value>
+  </data>
+  <data name="contentengine.taxonomy.tag.edit" xml:space="preserve">
+    <value>Editar etiqueta</value>
+  </data>
+  <data name="contentengine.taxonomy.tag.edit.codename" xml:space="preserve">
+    <value>Nombre de código</value>
+  </data>
+  <data name="contentengine.taxonomy.tag.edit.description" xml:space="preserve">
+    <value>Descripción</value>
+  </data>
+  <data name="contentengine.taxonomy.tag.edit.description.translation" xml:space="preserve">
+    <value>Descripción en {0}</value>
+  </data>
+  <data name="contentengine.taxonomy.tag.edit.title" xml:space="preserve">
+    <value>Título</value>
+  </data>
+  <data name="contentengine.taxonomy.tag.edit.title.explanation" xml:space="preserve">
+    <value>Nombre de su etiqueta en el idioma predeterminado - {0}</value>
+  </data>
+  <data name="contentengine.taxonomy.tag.edit.title.translation" xml:space="preserve">
+    <value>Título en {0}</value>
+  </data>
+  <data name="synchronization.communication.error.connection.message" xml:space="preserve">
+    <value>No se puede establecer una conexión con la instancia de destino configurada para la sincronización de contenido. Contacte a su administrador.</value>
+  </data>
+  <data name="synchronization.permission.evaluation.error.contentitem.message" xml:space="preserve">
+    <value>No tiene permitido restaurar el elemento de contenido &apos;{0}&apos; porque no tiene acceso al espacio de trabajo &apos;{1}&apos;.</value>
+  </data>
+  <data name="synchronization.session.status.ready.title" xml:space="preserve">
+    <value>Esperando restauración</value>
+  </data>
+  <data name="websites.data.permissions.read" xml:space="preserve">
+    <value>Leer</value>
+  </data>
+  <data name="websites.pagetemplates.application" xml:space="preserve">
+    <value>Plantillas de página predefinidas</value>
+  </data>
+  <data name="websites.urls.vanity.status" xml:space="preserve">
+    <value>Estado</value>
+  </data>
+  <data name="websites.webpages.clone.alllanguages" xml:space="preserve">
+    <value>Clonar todas las variantes de idioma</value>
+  </data>
+  <data name="websites.webpages.edit.discard.success" xml:space="preserve">
+    <value>Los cambios fueron descartados.</value>
+  </data>
+  <data name="websites.webpages.pagebuilder" xml:space="preserve">
+    <value>Constructor de páginas</value>
+  </data>
+  <data name="websites.webpages.properties.publishchange" xml:space="preserve">
+    <value>Publicar cambio</value>
+  </data>
+  <data name="websites.webpages.unpublish.headline" xml:space="preserve">
+    <value>Opciones de despublicación</value>
+  </data>
+  <data name="websites.websitechannel.nocontenttypesallowedunderroot.callout" xml:space="preserve">
+    <value>El canal del sitio web aún no permite la creación de ningún tipo de contenido. Agregue uno o más tipos de contenido en las pestañas &lt;a href=&quot;{0}&quot; rel=&quot;noreferrer&quot;&gt;Tipos de contenido permitidos&lt;/a&gt; y &lt;a href=&quot;{1}&quot; rel=&quot;noreferrer&quot;&gt;Ámbitos para tipos de contenido&lt;/a&gt;.</value>
   </data>
 </root>

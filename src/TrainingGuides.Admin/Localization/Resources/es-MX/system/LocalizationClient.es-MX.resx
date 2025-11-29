@@ -4,274 +4,163 @@
     <value>Error de AIRA: </value>
   </data>
   <data name="admin.aira.chat.airaErrorUnknown" xml:space="preserve">
-    <value>Error desconocido</value>
-  </data>
-    <data name="admin.aira.chat.askAiraPlaceholder" xml:space="preserve">
+      <value>Error desconocido</value>
+    </data>
+  <data name="admin.aira.chat.askAiraPlaceholder" xml:space="preserve">
       <value>Preguntar a AIRA</value>
     </data>
-    <data name="admin.aira.chat.closeAiraTitle" xml:space="preserve">
+  <data name="admin.aira.chat.closeAiraTitle" xml:space="preserve">
       <value>Ocultar AIRA</value>
     </data>
-    <data name="admin.aira.chat.copyMessage" xml:space="preserve">
+  <data name="admin.aira.chat.copyMessage" xml:space="preserve">
       <value>Copiar mensaje</value>
     </data>
-    <data name="admin.aira.chat.logo" xml:space="preserve">
+  <data name="admin.aira.chat.logo" xml:space="preserve">
       <value>AIRA</value>
     </data>
-    <data name="admin.aira.chat.newConversationTitle" xml:space="preserve">
+  <data name="admin.aira.chat.newConversationTitle" xml:space="preserve">
       <value>Nueva conversación</value>
     </data>
-    <data name="admin.aira.chat.noConversationsAvailable" xml:space="preserve">
+  <data name="admin.aira.chat.noConversationsAvailable" xml:space="preserve">
       <value>No hay conversaciones disponibles</value>
     </data>
-    <data name="admin.aira.emailBody.cancelButton" xml:space="preserve">
+  <data name="admin.aira.emailBody.cancelButton" xml:space="preserve">
       <value>Cancelar</value>
     </data>
-    <data name="admin.aira.emailBody.defaultRefinementText" xml:space="preserve">
+  <data name="admin.aira.emailBody.defaultRefinementText" xml:space="preserve">
       <value>Generar borrador del cuerpo del correo</value>
     </data>
-    <data name="admin.aira.emailBody.editTooltipText" xml:space="preserve">
+  <data name="admin.aira.emailBody.editTooltipText" xml:space="preserve">
       <value>Editar parámetros de generación de contenido</value>
     </data>
-    <data name="admin.aira.emailBody.failedRequest" xml:space="preserve">
+  <data name="admin.aira.emailBody.failedRequest" xml:space="preserve">
       <value>Tu solicitud ha fallado.</value>
     </data>
-    <data name="admin.aira.emailBody.generateButton" xml:space="preserve">
+  <data name="admin.aira.emailBody.generateButton" xml:space="preserve">
       <value>Generar</value>
     </data>
-    <data name="admin.aira.emailBody.promptPlaceholder" xml:space="preserve">
+  <data name="admin.aira.emailBody.promptPlaceholder" xml:space="preserve">
       <value>¿Cómo quieres ajustar el texto generado?</value>
     </data>
-    <data name="admin.aira.emailBody.quickTip" xml:space="preserve">
+  <data name="admin.aira.emailBody.quickTip" xml:space="preserve">
       <value>Consejo rápido</value>
     </data>
-    <data name="admin.aira.emailBody.quickTipBody" xml:space="preserve">
+  <data name="admin.aira.emailBody.quickTipBody" xml:space="preserve">
       <value>Especifica la longitud máxima del texto generado. Describe al público objetivo, cuál es el mensaje principal y qué debe hacer el lector después de leer el contenido (llamado a la acción).</value>
     </data>
-    <data name="admin.aira.emailBody.quickTipHeadline" xml:space="preserve">
+  <data name="admin.aira.emailBody.quickTipHeadline" xml:space="preserve">
       <value>¿Cómo obtener los mejores resultados?</value>
     </data>
-    <data name="admin.aira.emailBody.title" xml:space="preserve">
+  <data name="admin.aira.emailBody.title" xml:space="preserve">
       <value>Generar con AIRA</value>
     </data>
-    <data name="admin.aira.emailsubject.failedRequest" xml:space="preserve">
+  <data name="admin.aira.emailsubject.failedRequest" xml:space="preserve">
       <value>Tu solicitud ha fallado.</value>
     </data>
-    <data name="admin.aira.emailsubject.initialRefinementText" xml:space="preserve">
+  <data name="admin.aira.emailsubject.initialRefinementText" xml:space="preserve">
       <value>Generar asunto del correo</value>
     </data>
-    <data name="admin.aira.emailsubject.promptPlaceholder" xml:space="preserve">
+  <data name="admin.aira.emailsubject.promptPlaceholder" xml:space="preserve">
       <value>¿Cómo quieres ajustar el texto generado?</value>
     </data>
-    <data name="admin.aira.emailsubject.title" xml:space="preserve">
+  <data name="admin.aira.emailsubject.title" xml:space="preserve">
       <value>Generar con AIRA</value>
     </data>
-    <data name="admin.aira.emailsubject.wrongAiConfiguration" xml:space="preserve">
+  <data name="admin.aira.emailsubject.wrongAiConfiguration" xml:space="preserve">
       <value>No se encontraron los campos seleccionados como origen de contenido para la función AIRA. Contacta a tus administradores para revisar la configuración de campos.</value>
     </data>
-    <data name="admin.aira.general.clickToReplace" xml:space="preserve">
+  <data name="admin.aira.general.clickToReplace" xml:space="preserve">
       <value>Haz clic para reemplazar &apos;Asunto&apos;</value>
     </data>
-    <data name="admin.aira.general.copyAllToClipboardTooltip" xml:space="preserve">
+  <data name="admin.aira.general.copyAllToClipboardTooltip" xml:space="preserve">
       <value>Copiar al portapapeles</value>
     </data>
-    <data name="admin.aira.general.copyToClipboard" xml:space="preserve">
+  <data name="admin.aira.general.copyToClipboard" xml:space="preserve">
       <value>Copiar al portapapeles</value>
     </data>
-    <data name="admin.aira.general.disabledButtonOnOpenedAIRATooltip" xml:space="preserve">
+  <data name="admin.aira.general.disabledButtonOnOpenedAIRATooltip" xml:space="preserve">
       <value>El panel de AIRA ya está abierto</value>
     </data>
-    <data name="admin.aira.general.fetchSuggestions" xml:space="preserve">
+  <data name="admin.aira.general.fetchSuggestions" xml:space="preserve">
       <value>Obtener sugerencias</value>
     </data>
-    <data name="admin.aira.general.fieldReplaced" xml:space="preserve">
+  <data name="admin.aira.general.fieldReplaced" xml:space="preserve">
       <value>Se reemplazó el campo &apos;Asunto&apos;</value>
     </data>
-    <data name="admin.aira.general.moreButtonLabel" xml:space="preserve">
+  <data name="admin.aira.general.moreButtonLabel" xml:space="preserve">
       <value>Más</value>
     </data>
-    <data name="admin.aira.general.sendButtonInputTooltip" xml:space="preserve">
+  <data name="admin.aira.general.sendButtonInputTooltip" xml:space="preserve">
       <value>Enviar mensaje</value>
     </data>
-    <data name="admin.aira.general.sendButtonNoInputTooltip" xml:space="preserve">
+  <data name="admin.aira.general.sendButtonNoInputTooltip" xml:space="preserve">
       <value>Enviar mensaje</value>
     </data>
-    <data name="admin.aira.general.spinnerText" xml:space="preserve">
+  <data name="admin.aira.general.spinnerText" xml:space="preserve">
       <value>Generando...</value>
     </data>
-    <data name="admin.aira.general.stopRequest" xml:space="preserve">
+  <data name="admin.aira.general.stopRequest" xml:space="preserve">
       <value>Detener solicitud</value>
     </data>
-    <data name="admin.aira.general.stopRequestButtonTooltip" xml:space="preserve">
+  <data name="admin.aira.general.stopRequestButtonTooltip" xml:space="preserve">
       <value>Detener generación</value>
     </data>
-    <data name="admin.aira.general.toneWarningText" xml:space="preserve">
+  <data name="admin.aira.general.toneWarningText" xml:space="preserve">
       <value>El tono de voz aún no se ha definido. AIRA utiliza actualmente un tono neutral. Puedes agregar directrices de tono de voz en la aplicación AIRA, en la categoría Generación de contenido.</value>
     </data>
-    <data name="admin.aira.general.toneWarningTextSubheadline" xml:space="preserve">
+  <data name="admin.aira.general.toneWarningTextSubheadline" xml:space="preserve">
       <value>Advertencia amistosa</value>
     </data>
-    <data name="admin.aira.refinements.custom" xml:space="preserve">
+  <data name="admin.aira.refinements.custom" xml:space="preserve">
       <value>Aplicar prompt personalizado</value>
     </data>
-    <data name="admin.aira.refinements.exemplify" xml:space="preserve">
+  <data name="admin.aira.refinements.exemplify" xml:space="preserve">
       <value>Dar un ejemplo</value>
     </data>
-    <data name="admin.aira.refinements.failedRequest" xml:space="preserve">
+  <data name="admin.aira.refinements.failedRequest" xml:space="preserve">
       <value>Tu solicitud ha fallado.</value>
     </data>
-    <data name="admin.aira.refinements.improveSpellingAndGrammar" xml:space="preserve">
+  <data name="admin.aira.refinements.improveSpellingAndGrammar" xml:space="preserve">
       <value>Mejorar ortografía y gramática</value>
     </data>
-    <data name="admin.aira.refinements.improveWriting" xml:space="preserve">
+  <data name="admin.aira.refinements.improveWriting" xml:space="preserve">
       <value>Mejorar redacción</value>
     </data>
-    <data name="admin.aira.refinements.makeItShorter" xml:space="preserve">
+  <data name="admin.aira.refinements.makeItShorter" xml:space="preserve">
       <value>Hacerlo más breve</value>
     </data>
-    <data name="admin.aira.refinements.simplifyLanguage" xml:space="preserve">
+  <data name="admin.aira.refinements.simplifyLanguage" xml:space="preserve">
       <value>Simplificar el lenguaje</value>
     </data>
-    <data name="admin.aira.sidePanel.closePromptConfirmLabel" xml:space="preserve">
+  <data name="admin.aira.sidePanel.closePromptConfirmLabel" xml:space="preserve">
       <value>Descartar</value>
     </data>
-    <data name="admin.aira.sidePanel.closePromptHeadline" xml:space="preserve">
+  <data name="admin.aira.sidePanel.closePromptHeadline" xml:space="preserve">
       <value>Salir de la ventana de AIRA</value>
     </data>
-    <data name="admin.aira.sidePanel.closePromptMessage" xml:space="preserve">
+  <data name="admin.aira.sidePanel.closePromptMessage" xml:space="preserve">
       <value>¿Seguro que deseas continuar? Al salir se descartará toda la configuración y el contenido generados.</value>
     </data>
-    <data name="admin.aira.sidePanel.closeTooltip" xml:space="preserve">
+  <data name="admin.aira.sidePanel.closeTooltip" xml:space="preserve">
       <value>Cerrar</value>
     </data>
-    <data name="admin.aira.sidePanel.maximizeTooltip" xml:space="preserve">
+  <data name="admin.aira.sidePanel.maximizeTooltip" xml:space="preserve">
       <value>Maximizar</value>
     </data>
-    <data name="admin.aira.sidePanel.minimizeTooltip" xml:space="preserve">
+  <data name="admin.aira.sidePanel.minimizeTooltip" xml:space="preserve">
       <value>Minimizar</value>
     </data>
-    <data name="admin.aira.status.outdated" xml:space="preserve">
+  <data name="admin.aira.status.outdated" xml:space="preserve">
       <value>Tu versión de Xperience ya no es compatible con el servicio AIRA actual. Actualiza a la versión más reciente de Xperience para restaurar la funcionalidad de AIRA.</value>
     </data>
-    <data name="admin.aira.status.unavailable" xml:space="preserve">
+  <data name="admin.aira.status.unavailable" xml:space="preserve">
       <value>AIRA no está disponible para tu proyecto. Si te interesa, contacta a tu representante de ventas para obtener una licencia con acceso a AIRA.</value>
     </data>
-    <data name="admin.aira.status.unknown" xml:space="preserve">
+  <data name="admin.aira.status.unknown" xml:space="preserve">
       <value>AIRA no está disponible en este momento.</value>
     </data>
-  <data name="admin.aira.emailBody.quickTipHeadline" xml:space="preserve">
-    <value>Texto seleccionado</value>
-  </data>
-  <data name="admin.aira.emailBody.title" xml:space="preserve">
-    <value>Generar con AIRA</value>
-  </data>
-  <data name="admin.aira.emailsubject.failedRequest" xml:space="preserve">
-    <value>Refinar texto con AIRA</value>
-  </data>
-  <data name="admin.aira.emailsubject.initialRefinementText" xml:space="preserve">
-    <value>Generate email subject</value>
-  </data>
-  <data name="admin.aira.emailsubject.promptPlaceholder" xml:space="preserve">
-    <value>How do you want to adjust the generated text?</value>
-  </data>
-  <data name="admin.aira.emailsubject.title" xml:space="preserve">
-    <value>Generate with AIRA</value>
-  </data>
-  <data name="admin.aira.emailsubject.wrongAiConfiguration" xml:space="preserve">
-    <value>None of the fields selected as the content source for the AIRA feature can be found. Contact your administrators to check the field configuration.</value>
-  </data>
   <data name="admin.aira.general.ai" xml:space="preserve">
     <value>AIRA</value>
-  </data>
-  <data name="admin.aira.general.clickToReplace" xml:space="preserve">
-    <value>Click to replace &apos;Subject&apos;</value>
-  </data>
-  <data name="admin.aira.general.copyAllToClipboardTooltip" xml:space="preserve">
-    <value>Copy to clipboard</value>
-  </data>
-  <data name="admin.aira.general.copyToClipboard" xml:space="preserve">
-    <value>Copy to clipboard</value>
-  </data>
-  <data name="admin.aira.general.disabledButtonOnOpenedAIRATooltip" xml:space="preserve">
-    <value>The AIRA panel is already open</value>
-  </data>
-  <data name="admin.aira.general.fetchSuggestions" xml:space="preserve">
-    <value>Fetch suggestions</value>
-  </data>
-  <data name="admin.aira.general.fieldReplaced" xml:space="preserve">
-    <value>&apos;Subject&apos; field replaced</value>
-  </data>
-  <data name="admin.aira.general.moreButtonLabel" xml:space="preserve">
-    <value>More</value>
-  </data>
-  <data name="admin.aira.general.sendButtonInputTooltip" xml:space="preserve">
-    <value>Send message</value>
-  </data>
-  <data name="admin.aira.general.sendButtonNoInputTooltip" xml:space="preserve">
-    <value>Send message</value>
-  </data>
-  <data name="admin.aira.general.spinnerText" xml:space="preserve">
-    <value>Generating...</value>
-  </data>
-  <data name="admin.aira.general.stopRequest" xml:space="preserve">
-    <value>Stop request</value>
-  </data>
-  <data name="admin.aira.general.stopRequestButtonTooltip" xml:space="preserve">
-    <value>Stop generating</value>
-  </data>
-  <data name="admin.aira.general.toneWarningText" xml:space="preserve">
-    <value>The tone of voice has not been defined yet. AIRA currently uses a neutral tone. You can add tone of voice guidelines in the AIRA application, under the Content generation category.</value>
-  </data>
-  <data name="admin.aira.general.toneWarningTextSubheadline" xml:space="preserve">
-    <value>Friendly warning</value>
-  </data>
-  <data name="admin.aira.refinements.custom" xml:space="preserve">
-    <value>Apply custom prompt</value>
-  </data>
-  <data name="admin.aira.refinements.exemplify" xml:space="preserve">
-    <value>Exemplify</value>
-  </data>
-  <data name="admin.aira.refinements.failedRequest" xml:space="preserve">
-    <value>Your request has failed!</value>
-  </data>
-  <data name="admin.aira.refinements.improveSpellingAndGrammar" xml:space="preserve">
-    <value>Improve spelling and grammar</value>
-  </data>
-  <data name="admin.aira.refinements.improveWriting" xml:space="preserve">
-    <value>Improve writing</value>
-  </data>
-  <data name="admin.aira.refinements.makeItShorter" xml:space="preserve">
-    <value>Make it shorter</value>
-  </data>
-  <data name="admin.aira.refinements.simplifyLanguage" xml:space="preserve">
-    <value>Simplify language</value>
-  </data>
-  <data name="admin.aira.sidePanel.closePromptConfirmLabel" xml:space="preserve">
-    <value>Discard</value>
-  </data>
-  <data name="admin.aira.sidePanel.closePromptHeadline" xml:space="preserve">
-    <value>Leaving the AIRA window</value>
-  </data>
-  <data name="admin.aira.sidePanel.closePromptMessage" xml:space="preserve">
-    <value>Are you sure you want to continue? Navigating away will discard all current configuration and generated content.</value>
-  </data>
-  <data name="admin.aira.sidePanel.closeTooltip" xml:space="preserve">
-    <value>Close</value>
-  </data>
-  <data name="admin.aira.sidePanel.maximizeTooltip" xml:space="preserve">
-    <value>Maximize</value>
-  </data>
-  <data name="admin.aira.sidePanel.minimizeTooltip" xml:space="preserve">
-    <value>Minimize</value>
-  </data>
-  <data name="admin.aira.status.outdated" xml:space="preserve">
-    <value>Your Xperience version is no longer compatible with the current AIRA service. Please update to the latest Xperience version to restore AIRA functionality.</value>
-  </data>
-  <data name="admin.aira.status.unavailable" xml:space="preserve">
-    <value>AIRA is not available for your project. If you are interested, contact your sales representative to obtain a license with access to AIRA.</value>
-  </data>
-  <data name="admin.aira.status.unknown" xml:space="preserve">
-    <value>AIRA is not available at the moment.</value>
   </data>
   <data name="admin.aira.textRefinement.failedRequest" xml:space="preserve">
     <value>Tu solicitud ha fallado.</value>
