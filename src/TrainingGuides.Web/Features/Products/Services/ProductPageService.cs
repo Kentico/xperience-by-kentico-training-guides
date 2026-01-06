@@ -1,4 +1,3 @@
-using Microsoft.IdentityModel.Tokens;
 using TrainingGuides.Web.Features.Products.Models;
 using TrainingGuides.Web.Features.Shared.Models;
 
@@ -32,7 +31,7 @@ public class ProductPageService : IProductPageService
             return new ProductPageViewModel();
         }
 
-        string url = callToActionLink.IsNullOrEmpty()
+        string url = string.IsNullOrWhiteSpace(callToActionLink)
             ? (await webPageUrlRetriever.Retrieve(productPage)).RelativePath
             : callToActionLink;
         return new ProductPageViewModel
@@ -47,7 +46,7 @@ public class ProductPageService : IProductPageService
             {
                 Name = productPage.ProductPageProduct.FirstOrDefault()?.ProductName ?? string.Empty,
                 LinkUrl = url,
-                CallToAction = callToActionText.IsNullOrEmpty() ? string.Empty : callToActionText,
+                CallToAction = callToActionText,
                 OpenInNewTab = openInNewTab
             },
             Features = getFeatures

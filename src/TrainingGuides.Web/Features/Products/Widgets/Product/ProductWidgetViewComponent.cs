@@ -2,7 +2,6 @@ using CMS.Helpers;
 using Kentico.PageBuilder.Web.Mvc;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ViewComponents;
-using Microsoft.IdentityModel.Tokens;
 using TrainingGuides.Web.Features.Products.Models;
 using TrainingGuides.Web.Features.Products.Services;
 using TrainingGuides.Web.Features.Products.Widgets.Product;
@@ -111,8 +110,12 @@ public class ProductWidgetViewComponent : ViewComponent
     {
         var productPage = await GetProductPage(properties);
 
-        if (!properties.PageAnchor.IsNullOrEmpty())
-            properties.PageAnchor = properties.PageAnchor!.StartsWith('#') ? properties.PageAnchor : $"#{properties.PageAnchor}";
+        if (!string.IsNullOrWhiteSpace(properties.PageAnchor))
+        {
+            properties.PageAnchor = properties.PageAnchor!.StartsWith('#')
+                ? properties.PageAnchor
+                : $"#{properties.PageAnchor}";
+        }
 
         return productPage != null
             ? await productPageService.GetProductPageViewModel(
