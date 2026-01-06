@@ -4,6 +4,5 @@
   <ActivityTypeDisplayName>File Download</ActivityTypeDisplayName>
   <ActivityTypeEnabled>True</ActivityTypeEnabled>
   <ActivityTypeIsCustom>True</ActivityTypeIsCustom>
-  <ActivityTypeManualCreationAllowed>False</ActivityTypeManualCreationAllowed>
   <ActivityTypeName>filedownload</ActivityTypeName>
 </om.activitytype>
