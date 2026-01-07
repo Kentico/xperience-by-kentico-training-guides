@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.contentitemcommondata>
+  <ColorPattern />
   <ContentItemCommonDataContentItemID>
     <CodeName>ResetPassword-bt12pytq</CodeName>
     <GUID>58013402-ea45-4554-ab22-4bb27243b0ce</GUID>

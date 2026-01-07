@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contenttype>
+  <ClassContentTypeType>Reusable</ClassContentTypeType>
+  <ClassDisplayName>DryCatFood</ClassDisplayName>
+  <ClassFormDefinition>
+    <form>
+      <field column="ContentItemDataID" columntype="integer" enabled="true" guid="8f92e728-dd91-4c25-b4d6-8a2788f661d9" isPK="true" />
+      <field column="ContentItemDataCommonDataID" columntype="integer" enabled="true" guid="759d6381-3f6a-4d8f-876a-6bca60979a73" refobjtype="cms.contentitemcommondata" reftype="Required" system="true" />
+      <field column="ContentItemDataGUID" columntype="guid" enabled="true" guid="c6df4483-2b6b-44f9-a248-7e6b33868c79" isunique="true" system="true" />
+      <schema guid="240eabd8-f0ff-47b8-b27b-b82a8b2801c4" name="240eabd8-f0ff-47b8-b27b-b82a8b2801c4">
+        <properties />
+      </schema>
+      <field allowempty="true" column="DryCatFoodVariants" columnprecision="0" columntype="contentitemreference" enabled="true" guid="88a1bd9a-7555-4a98-8fc5-2ee1afc830a9" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Variants</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <AllowedContentItemTypeIdentifiers>
+            <![CDATA[["de985d3b-25e6-4204-baef-4903811489e3"]]]>
+          </AllowedContentItemTypeIdentifiers>
+          <controlname>Kentico.Administration.ContentItemSelector</controlname>
+          <SelectionType>contentTypes</SelectionType>
+        </settings>
+      </field>
+    </form>
+  </ClassFormDefinition>
+  <ClassGUID>78c53faa-7e40-4920-91a4-f5096040ee54</ClassGUID>
+  <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
+  <ClassIconClass>xp-rectangle-v</ClassIconClass>
+  <ClassName>TrainingGuides.DryCatFood</ClassName>
+  <ClassShortName>TrainingGuidesDryCatFood</ClassShortName>
+  <ClassTableName>TrainingGuides_DryCatFood</ClassTableName>
+  <ClassType>Content</ClassType>
+  <ClassWebPageHasUrl>False</ClassWebPageHasUrl>
+</cms.contenttype>

@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.taxonomy>
+  <TaxonomyDescription>Color and pattern options for products</TaxonomyDescription>
+  <TaxonomyGUID>5b95dd83-c253-47bb-8013-c77f3a645bea</TaxonomyGUID>
+  <TaxonomyMetadata>
+    <![CDATA[{"Translations":{"b2e99971-c2dd-4a47-bb64-0d9a0d28d226":{"Title":null}}}]]>
+  </TaxonomyMetadata>
+  <TaxonomyName>ProductColor_Pattern</TaxonomyName>
+  <TaxonomyTitle>Product Color/Pattern</TaxonomyTitle>
+</cms.taxonomy>

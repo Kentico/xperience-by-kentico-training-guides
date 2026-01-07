@@ -111,6 +111,205 @@
           </TaxonomyGroup>
         </settings>
       </field>
+      <schema guid="240eabd8-f0ff-47b8-b27b-b82a8b2801c4" name="ProductSchema">
+        <properties>
+          <fieldcaption>Product schema</fieldcaption>
+        </properties>
+      </schema>
+      <field allowempty="true" column="ProductSchemaSKUNumber" columnprecision="0" columnsize="200" columntype="text" enabled="true" guid="59c44f7d-de11-48a2-89d7-2cb983468500" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Product SKU Number</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+          <kxp_schema_identifier>240eabd8-f0ff-47b8-b27b-b82a8b2801c4</kxp_schema_identifier>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.TextInput</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="ProductSchemaName" columnprecision="0" columnsize="200" columntype="text" enabled="true" guid="19411075-2f29-4e38-93cf-2c63b688c291" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Product name</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+          <kxp_schema_identifier>240eabd8-f0ff-47b8-b27b-b82a8b2801c4</kxp_schema_identifier>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.TextInput</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="ProductSchemaPriceSource" columnprecision="0" columnsize="200" columntype="text" enabled="true" guid="974b4e24-ef4e-4cc9-9162-f164860e2573" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Price source</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+          <kxp_schema_identifier>240eabd8-f0ff-47b8-b27b-b82a8b2801c4</kxp_schema_identifier>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.DropDownSelector</controlname>
+          <Options>
+<![CDATA[
+0;Use own price
+1;Override with lowest variant price (if available)
+2;Override with highest variant price (if available)
+]]>
+          </Options>
+          <OptionsValueSeparator>;</OptionsValueSeparator>
+        </settings>
+      </field>
+      <field allowempty="true" column="ProductSchemaPrice" columnprecision="2" columnsize="19" columntype="decimal" enabled="true" guid="037043a5-e7a1-4c85-9679-5606899c1880" visible="true">
+        <properties>
+          <explanationtext>Enter a decimal or whole number (e.g. 0.3)</explanationtext>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Product price</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+          <kxp_schema_identifier>240eabd8-f0ff-47b8-b27b-b82a8b2801c4</kxp_schema_identifier>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.DecimalNumberInput</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="ProductSchemaDescription" columnprecision="0" columntype="longtext" enabled="true" guid="2d9a414e-d306-4e28-af27-62ba0666ec92" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Product text</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+          <kxp_schema_identifier>240eabd8-f0ff-47b8-b27b-b82a8b2801c4</kxp_schema_identifier>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.RichTextEditor</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="ProductSchemaShipping" columnprecision="0" columnsize="200" columntype="text" enabled="true" guid="fe0cb63e-ce16-44c6-9bbd-520e33ddf862" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Product shipping</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+          <kxp_schema_identifier>240eabd8-f0ff-47b8-b27b-b82a8b2801c4</kxp_schema_identifier>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.DropDownSelector</controlname>
+          <Options>
+<![CDATA[
+0;No shipping required
+1;Shipping required
+]]>
+          </Options>
+          <OptionsValueSeparator>;</OptionsValueSeparator>
+        </settings>
+      </field>
+      <schema guid="d84feead-cb75-44c3-848b-e348f53ea064" name="AmountSchema">
+        <properties>
+          <fieldcaption>Amount schema</fieldcaption>
+        </properties>
+      </schema>
+      <field allowempty="true" column="AmountSchemaNumber" columnprecision="4" columnsize="19" columntype="decimal" enabled="true" guid="90e4ae11-09e9-4e58-8809-3763f1e7015a" visible="true">
+        <properties>
+          <explanationtext>Enter a decimal or whole number (e.g. 0.3)</explanationtext>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Amount</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+          <kxp_schema_identifier>d84feead-cb75-44c3-848b-e348f53ea064</kxp_schema_identifier>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.DecimalNumberInput</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="AmountSchemaUnit" columnprecision="0" columnsize="200" columntype="text" enabled="true" guid="7f74d2ca-6491-4c0c-a51e-a2b826f7cc82" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Product measurement unit</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+          <kxp_schema_identifier>d84feead-cb75-44c3-848b-e348f53ea064</kxp_schema_identifier>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.DropDownSelector</controlname>
+          <Options>
+<![CDATA[
+kg;kg
+g;g
+lb;lb
+oz;oz
+l;l
+ml;ml
+gal;gal
+floz;fl oz
+m;m
+cm;cm
+yd;yd
+ft;ft
+in;in
+]]>
+          </Options>
+          <OptionsValueSeparator>;</OptionsValueSeparator>
+        </settings>
+      </field>
+      <schema guid="1d2ef663-2e11-4008-9ee5-4b57b02021c1" name="ProductVariantSchema">
+        <properties>
+          <fieldcaption>Product variant schema</fieldcaption>
+        </properties>
+      </schema>
+      <field allowempty="true" column="ProductVariantSchemaPrice" columnprecision="2" columnsize="19" columntype="decimal" enabled="true" guid="44a7a7c4-1251-4565-be8e-fd2e51ccc313" visible="true">
+        <properties>
+          <explanationtext>Enter a decimal or whole number (e.g. 0.3)</explanationtext>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Product variant price</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+          <kxp_schema_identifier>1d2ef663-2e11-4008-9ee5-4b57b02021c1</kxp_schema_identifier>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.DecimalNumberInput</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="ProductVariantSchemaSKU" columnprecision="0" columnsize="200" columntype="text" enabled="true" guid="7f6d567c-d1ea-4bf5-8270-48d01822becb" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Variant SKU Number</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+          <kxp_schema_identifier>1d2ef663-2e11-4008-9ee5-4b57b02021c1</kxp_schema_identifier>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.TextInput</controlname>
+        </settings>
+      </field>
+      <schema guid="c0fd2ccf-efbe-4a41-b15f-48eca30539a6" name="ColorPatternSchema">
+        <properties>
+          <fieldcaption>Color/Pattern schema</fieldcaption>
+        </properties>
+      </schema>
+      <field allowempty="true" column="ColorPattern" columnprecision="0" columntype="taxonomy" enabled="true" guid="42147568-304a-4e0a-8c20-9da14ffd0288" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Color/Pattern</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+          <kxp_schema_identifier>c0fd2ccf-efbe-4a41-b15f-48eca30539a6</kxp_schema_identifier>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.TagSelector</controlname>
+          <TaxonomyGroup>
+            <![CDATA[["5b95dd83-c253-47bb-8013-c77f3a645bea"]]]>
+          </TaxonomyGroup>
+        </settings>
+      </field>
+      <schema guid="849b822b-e92a-4da3-8250-1251bd4fea37" name="MaterialSchema">
+        <properties>
+          <fieldcaption>Material schema</fieldcaption>
+        </properties>
+      </schema>
+      <field allowempty="true" column="MaterialSchemaMaterial" columnprecision="0" columntype="taxonomy" enabled="true" guid="913a15fa-2a7e-4341-8da3-f9ecbe12a420" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Material</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+          <kxp_schema_identifier>849b822b-e92a-4da3-8250-1251bd4fea37</kxp_schema_identifier>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.TagSelector</controlname>
+          <TaxonomyGroup>
+            <![CDATA[["0a8e5af2-717a-47c2-bef4-73ceff0f3b72"]]]>
+          </TaxonomyGroup>
+        </settings>
+      </field>
     </form>
   </ClassFormDefinition>
   <ClassGUID>a6581fb3-892a-45b4-981a-012ce4b50b43</ClassGUID>
