@@ -1,0 +1,149 @@
+﻿@using System.Globalization
+@using TrainingGuides.Web.Features.FinancialServices
+@using TrainingGuides.Web.Features.FinancialServices.Widgets.ServiceComparator
+@using TrainingGuides.Web.Features.Shared.OptionProviders.Heading;
+@using TrainingGuides.Web.Features.FinancialServices.Models;
+
+@model ServiceComparatorWidgetViewModel
+
+@if (Model is null || Model.IsMisconfigured)
+{
+    <tg-page-builder-content>
+        <section class="c-section default">
+            <div class="container">
+                <tg-configure-widget-instructions />
+            </div>
+        </section>
+    </tg-page-builder-content>
+}
+else {
+    <div class="container bg-card">
+        <section class="c-section @Model.HeadingMargin.ToString().ToLower()">
+        <div class="container">
+            <tg-heading class="text-center c-why_heading" headingType=@Model.HeadingType headingTypeDefault="@HeadingTypeOption.H2">
+                @Model.ComparatorHeading
+            </tg-heading>
+        </div>
+        </section>
+    
+        <div class="c-card lg py-0">
+            <div class="c-products-grid">
+                <div class="c-products-grid_inner">
+
+                    <div class="c-products-grid_scrollable">
+
+                        @if (!Model.ShowShortDescription)
+                        {
+                        <div class="c-products-grid_row no-hover">
+                            <div class="c-products-grid_col th"></div>
+                            @foreach (var item in Model.Services)
+                        {
+                                <div class="c-products-grid_col">
+                                    <h3 class="h4 c-products-grid_heading">@item.NameHtml</h3>
+                                    <div class="c-products-grid_bg"></div>
+                                </div>
+                        }
+                            <div class="c-products-grid_col gap"></div>
+                        </div>
+                        }
+                        @if (Model.ShowShortDescription)
+                        {
+                        <div class="c-products-grid_row shortDescription no-hover">
+                            <div class="c-products-grid_col th"></div>
+                            @foreach (var item in Model.Services)
+                            {
+                                <div class="c-products-grid_col">
+                                    <h3 class="h4 c-products-grid_heading">@item.NameHtml</h3>
+                                    <div class="c-products-grid_bg"></div>
+                                </div>
+                            }
+                            <div class="c-products-grid_col gap"></div>
+                        </div>
+                        <div class="c-products-grid_row no-hover">
+                            <div class="c-products-grid_col th"></div>
+                            @foreach (var item in Model.Services)
+                            {
+                                <div class="c-products-grid_col">
+                                    @item.ShortDescriptionHtml
+                                    <div class="c-products-grid_bg"></div>
+                                </div>
+                            }
+                            <div class="c-products-grid_col gap"></div>
+                        </div>
+                        }
+                        @foreach (var feature in Model.GroupedFeaturesHtmlDictionary)
+                        {
+                            <div class="c-products-grid_row">
+                                <div class="c-products-grid_col th">
+                                    @feature.Value
+                                </div>
+                                @foreach (var item in Model.Services)
+                            {
+                                    <div class="c-products-grid_col">
+                                        @{
+                                        var serviceFeature = @item.Features.FirstOrDefault(f => f.Key == feature.Key);
+                                        }
+                                        @if (serviceFeature != null)
+                                        {
+                                            if (serviceFeature.ValueType == ServiceFeatureValueType.Text)
+                                            {
+                                                @serviceFeature.ValueHtml
+                                            }
+                                            if (serviceFeature.ValueType == ServiceFeatureValueType.Number)
+                                            {
+                                                <span>@string.Format(CultureInfo.CurrentUICulture, "{0:0.00}", @serviceFeature.Price)</span>
+                                            }
+                                            if (serviceFeature.ValueType == ServiceFeatureValueType.Boolean)
+                                            {
+                                                if (serviceFeature.FeatureIncluded)
+                                                {
+                                                        <svg class="c-icon">
+                                                        <use xlink:href="@Model.CheckboxIconUrl"></use>
+                                                        </svg>
+                                                }
+                                                else
+                                                {
+                                                        <span>-</span>
+                                                }
+                                            }
+                                        }
+                                        else
+                                        {
+                                                <span>-</span>
+                                        }
+                                    </div>
+                            }
+                                <div class="c-products-grid_col gap"></div>
+                            </div>
+                    }
+
+                        <div class="c-products-grid_row no-hover">
+                            <div class="c-products-grid_col th"></div>
+                            @foreach (var item in Model.Services)
+                            {
+                                <div class="c-products-grid_col">
+                                    @if(!string.IsNullOrEmpty(item.Link.CallToAction))
+                                    {
+                                        <a
+                                            href="@Url.Content(item.Link.LinkUrl)"
+                                            class="btn tg-btn-primary text-uppercase"
+                                            title="@item.Link.LinkTitleText"
+                                            target="@(item.Link.OpenInNewTab ? "_blank": "")">
+                                            @item.Link.CallToAction
+                                        </a>
+                                    }
+                                </div>
+                            }
+
+                            <div class="c-products-grid_col gap"></div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    
+}

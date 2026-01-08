@@ -54,7 +54,7 @@ builder.Services
                 ArticlePage.CONTENT_TYPE_NAME,
                 DownloadsPage.CONTENT_TYPE_NAME,
                 EmptyPage.CONTENT_TYPE_NAME,
-                ProductPage.CONTENT_TYPE_NAME,
+                ServicePage.CONTENT_TYPE_NAME,
                 ProfilePage.CONTENT_TYPE_NAME
             }
         });
@@ -122,7 +122,7 @@ builder.Services.AddKenticoMjmlStarterKit(options =>
 {
     options.StyleSheetPath = "EmailBuilder.css";
     options.AllowedImageContentTypes = [Asset.CONTENT_TYPE_NAME];
-    options.AllowedProductContentTypes = [ProductPage.CONTENT_TYPE_NAME];
+    options.AllowedProductContentTypes = [ServicePage.CONTENT_TYPE_NAME];
 });
 
 builder.Services.Configure<CookieLevelOptions>(options =>

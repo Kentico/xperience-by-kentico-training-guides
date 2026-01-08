@@ -17,28 +17,28 @@ public class ProductEmailWidgetModelMapper : IComponentModelMapper<ProductWidget
 
     public async Task<ProductWidgetModel> Map(Guid webPageItemContentItemGuid, string languageName)
     {
-        var page = await contentItemRetrieverService.RetrieveWebPageByContentItemGuid<ProductPage>(
+        var page = await contentItemRetrieverService.RetrieveWebPageByContentItemGuid<ServicePage>(
             contentItemGuid: webPageItemContentItemGuid,
             depth: 2,
             languageName: languageName);
 
-        var product = page?.ProductPageProduct.FirstOrDefault();
+        var service = page?.ServicePageService.FirstOrDefault();
 
-        // If the product or page is null, return an empty model. Note the product will always be null if the page is null.
-        if (product is null)
+        // If the service or page is null, return an empty model. Note the service will always be null if the page is null.
+        if (service is null)
         {
             return new ProductWidgetModel();
         }
 
         string webPageItemUrl = page.GetUrl().AbsoluteUrl;
 
-        var image = product.ProductMedia.FirstOrDefault();
+        var image = service.ServiceMedia.FirstOrDefault();
         string imageUrl = image?.AssetFile?.Url ?? string.Empty;
 
         return new ProductWidgetModel
         {
-            Name = product.ProductName,
-            Description = product.ProductDescription,
+            Name = service.ServiceName,
+            Description = service.ServiceDescription,
             Url = webPageItemUrl,
             ImageUrl = imageUrl,
             ImageAltText = image?.AssetAltText ?? image?.AssetDescription ?? string.Empty,

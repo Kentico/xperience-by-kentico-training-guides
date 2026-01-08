@@ -31,7 +31,7 @@ public class SimpleCallToActionWidgetProperties : IWidgetProperties
             DownloadsPage.CONTENT_TYPE_NAME,
             EmptyPage.CONTENT_TYPE_NAME,
             LandingPage.CONTENT_TYPE_NAME,
-            ProductPage.CONTENT_TYPE_NAME,
+            ServicePage.CONTENT_TYPE_NAME,
             ProfilePage.CONTENT_TYPE_NAME
         ],
         Label = "Target page",

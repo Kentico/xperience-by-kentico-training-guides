@@ -21,7 +21,7 @@ public class ArticleListWidgetProperties : IWidgetProperties
             DownloadsPage.CONTENT_TYPE_NAME,
             EmptyPage.CONTENT_TYPE_NAME,
             LandingPage.CONTENT_TYPE_NAME,
-            ProductPage.CONTENT_TYPE_NAME
+            ServicePage.CONTENT_TYPE_NAME
         ],
         Label = "Select a parent page to pull articles from",
         AllowContentItemCreation = false,

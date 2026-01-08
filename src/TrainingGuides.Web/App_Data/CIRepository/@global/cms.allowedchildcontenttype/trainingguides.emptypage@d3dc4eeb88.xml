@@ -34,17 +34,17 @@
         <ObjectType>cms.contenttype</ObjectType>
       </AllowedChildContentTypeChildID>
     </Binding>
-    <Binding id="cms.contenttype_TrainingGuides.ProductPage">
-      <AllowedChildContentTypeChildID>
-        <CodeName>TrainingGuides.ProductPage</CodeName>
-        <GUID>50b2f01e-c30e-4631-aeb6-56ff2278cb35</GUID>
-        <ObjectType>cms.contenttype</ObjectType>
-      </AllowedChildContentTypeChildID>
-    </Binding>
     <Binding id="cms.contenttype_TrainingGuides.ProfilePage">
       <AllowedChildContentTypeChildID>
         <CodeName>TrainingGuides.ProfilePage</CodeName>
         <GUID>d1a0f27c-fb65-463d-8ebd-5bbbb00866f8</GUID>
+        <ObjectType>cms.contenttype</ObjectType>
+      </AllowedChildContentTypeChildID>
+    </Binding>
+    <Binding id="cms.contenttype_TrainingGuides.ServicePage">
+      <AllowedChildContentTypeChildID>
+        <CodeName>TrainingGuides.ServicePage</CodeName>
+        <GUID>50b2f01e-c30e-4631-aeb6-56ff2278cb35</GUID>
         <ObjectType>cms.contenttype</ObjectType>
       </AllowedChildContentTypeChildID>
     </Binding>

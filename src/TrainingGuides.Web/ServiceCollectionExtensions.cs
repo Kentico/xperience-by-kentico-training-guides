@@ -8,7 +8,7 @@ using TrainingGuides.Web.Features.Html.Services;
 using TrainingGuides.Web.Features.Membership.Profile;
 using TrainingGuides.Web.Features.Membership.Services;
 using TrainingGuides.Web.Features.Newsletters.NatureSpotlight;
-using TrainingGuides.Web.Features.Products.Services;
+using TrainingGuides.Web.Features.FinancialServices.Services;
 using TrainingGuides.Web.Features.SEO;
 using TrainingGuides.Web.Features.Shared.EmailBuilder;
 using TrainingGuides.Web.Features.Shared.EmailBuilder.Mappers;
@@ -30,7 +30,7 @@ public static class ServiceCollectionExtensions
         services.AddSingleton<IContentItemRetrieverService, ContentItemRetrieverService>();
         services.AddSingleton<IHttpRequestService, HttpRequestService>();
         services.AddSingleton<IArticlePageService, ArticlePageService>();
-        services.AddSingleton<IProductPageService, ProductPageService>();
+        services.AddSingleton<IServicePageService, ServicePageService>();
         services.AddSingleton<IComponentStyleEnumService, ComponentStyleEnumService>();
         services.AddSingleton<IEmailNotificationService, EmailNotificationService>();
         services.AddSingleton<IMemberContactService, MemberContactService>();
