@@ -1,4 +1,5 @@
-﻿using Kentico.Xperience.Admin.Base;
+﻿using CMS.DataEngine;
+using Kentico.Xperience.Admin.Base;
 using Kentico.Xperience.Admin.Base.Forms;
 using Kentico.Xperience.Admin.DigitalMarketing.UIPages;
 using TrainingGuides.Admin.Pages;
@@ -16,10 +17,10 @@ namespace TrainingGuides.Admin.Pages;
 
 internal class CookieLevelConsentMappingPage : InfoEditPage<CookieLevelConsentMappingInfo>
 {
-    private readonly ICookieLevelConsentMappingInfoProvider cookieLevelConsentMappingInfoProvider;
+    private readonly IInfoProvider<CookieLevelConsentMappingInfo> cookieLevelConsentMappingInfoProvider;
 
     public CookieLevelConsentMappingPage(IFormComponentMapper formComponentMapper, IFormDataBinder formDataBinder,
-    ICookieLevelConsentMappingInfoProvider generalSettingsInfoProvider) : base(formComponentMapper, formDataBinder)
+    IInfoProvider<CookieLevelConsentMappingInfo> generalSettingsInfoProvider) : base(formComponentMapper, formDataBinder)
     {
         cookieLevelConsentMappingInfoProvider = generalSettingsInfoProvider;
     }
