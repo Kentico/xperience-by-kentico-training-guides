@@ -18,5 +18,5 @@
   <KeyValidation>
     <![CDATA[^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$]]>
   </KeyValidation>
-  <KeyValue>5dc148b0-d030-4856-9384-1b67a851b090</KeyValue>
+  <KeyValue>3d67d467-da07-49fd-9c6a-9f0b80c71c65</KeyValue>
 </cms.settingskey>

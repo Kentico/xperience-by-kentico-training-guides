@@ -1,7 +1,8 @@
-﻿// Functionality related to cross-site tracking is currently disabled while we investigate an issue (#85 on GitHub)
-
-// using CMS.DataEngine;
+﻿// using CMS.DataEngine;
 // using TrainingGuides.DataProtectionCustomizations;
+
+// // Functionality related to cross-site tracking is currently disabled while we investigate an issue (#85 on GitHub)
+
 
 // namespace TrainingGuides.Web.Features.Shared.Helpers.Startup;
 
@@ -19,9 +20,9 @@
 //         string consentCodeName;
 //         try
 //         {
-//             //Do not resolve ICookieLevelConsentMappingInfoProvider or ICookieConsentService--
-//             //This code runs on startup before the app is built, so no ServiceProvider exists.
-//             var consentQuery = await CookieLevelConsentMappingInfo.Provider.Get()
+//             // Do not resolve IInfoProvider<CookieLevelConsentMappingInfo> or ICookieConsentService--
+//             // This code runs on startup before the app is built, so no ServiceProvider exists.
+//             var consentQuery = await Provider<CookieLevelConsentMappingInfo>.Instance.Get()
 //                 .GetEnumerableTypedResultAsync();
 
 //             var consent = consentQuery.FirstOrDefault();
