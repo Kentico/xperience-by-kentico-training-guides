@@ -12,32 +12,23 @@
 using System;
 using System.Collections.Generic;
 using CMS.ContentEngine;
-using CMS.Websites;
 
 namespace TrainingGuides
 {
 	/// <summary>
-	/// Represents a page of type <see cref="ProductPage"/>.
+	/// Defines a contract for content types with the <see cref="IColorPatternSchema"/> reusable schema assigned.
 	/// </summary>
-	[RegisterContentTypeMapping(CONTENT_TYPE_NAME)]
-	public partial class ProductPage : IWebPageFieldsSource
+	public interface IColorPatternSchema
 	{
 		/// <summary>
-		/// Code name of the content type.
+		/// Code name of the reusable field schema.
 		/// </summary>
-		public const string CONTENT_TYPE_NAME = "TrainingGuides.ProductPage";
+		public const string REUSABLE_FIELD_SCHEMA_NAME = "ColorPatternSchema";
 
 
 		/// <summary>
-		/// Represents system properties for a web page item.
+		/// ColorPattern.
 		/// </summary>
-		[SystemField]
-		public WebPageFields SystemFields { get; set; }
-
-
-		/// <summary>
-		/// ProductPageProducts.
-		/// </summary>
-		public IEnumerable<IProductSchema> ProductPageProducts { get; set; }
+		public IEnumerable<TagReference> ColorPattern { get; set; }
 	}
 }

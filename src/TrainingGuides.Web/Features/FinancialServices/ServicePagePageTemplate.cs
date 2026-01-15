@@ -6,7 +6,7 @@ using TrainingGuides.Web.Features.FinancialServices;
     identifier: ServicePagePageTemplate.IDENTIFIER,
     name: "Service page template",
     propertiesType: typeof(ServicePagePageTemplateProperties),
-    customViewName: "~/Features/Services/ServicePagePageTemplate.cshtml",
+    customViewName: "~/Features/FinancialServices/ServicePagePageTemplate.cshtml",
     ContentTypeNames = [ServicePage.CONTENT_TYPE_NAME],
     IconClass = "xp-box")]
 

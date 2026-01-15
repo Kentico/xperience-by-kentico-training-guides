@@ -17,15 +17,15 @@ using CMS.Websites;
 namespace TrainingGuides
 {
 	/// <summary>
-	/// Represents a page of type <see cref="ProductPage"/>.
+	/// Represents a page of type <see cref="ServicePage"/>.
 	/// </summary>
 	[RegisterContentTypeMapping(CONTENT_TYPE_NAME)]
-	public partial class ProductPage : IWebPageFieldsSource
+	public partial class ServicePage : IWebPageFieldsSource
 	{
 		/// <summary>
 		/// Code name of the content type.
 		/// </summary>
-		public const string CONTENT_TYPE_NAME = "TrainingGuides.ProductPage";
+		public const string CONTENT_TYPE_NAME = "TrainingGuides.ServicePage";
 
 
 		/// <summary>
@@ -36,8 +36,8 @@ namespace TrainingGuides
 
 
 		/// <summary>
-		/// ProductPageProducts.
+		/// ServicePageService.
 		/// </summary>
-		public IEnumerable<IProductSchema> ProductPageProducts { get; set; }
+		public IEnumerable<Service> ServicePageService { get; set; }
 	}
 }

@@ -12,32 +12,37 @@
 using System;
 using System.Collections.Generic;
 using CMS.ContentEngine;
-using CMS.Websites;
 
 namespace TrainingGuides
 {
 	/// <summary>
-	/// Represents a page of type <see cref="ProductPage"/>.
+	/// Represents a content item of type <see cref="ProductImage"/>.
 	/// </summary>
 	[RegisterContentTypeMapping(CONTENT_TYPE_NAME)]
-	public partial class ProductPage : IWebPageFieldsSource
+	public partial class ProductImage : IContentItemFieldsSource
 	{
 		/// <summary>
 		/// Code name of the content type.
 		/// </summary>
-		public const string CONTENT_TYPE_NAME = "TrainingGuides.ProductPage";
+		public const string CONTENT_TYPE_NAME = "TrainingGuides.ProductImage";
 
 
 		/// <summary>
-		/// Represents system properties for a web page item.
+		/// Represents system properties for a content item.
 		/// </summary>
 		[SystemField]
-		public WebPageFields SystemFields { get; set; }
+		public ContentItemFields SystemFields { get; set; }
 
 
 		/// <summary>
-		/// ProductPageProducts.
+		/// ProductImageAsset.
 		/// </summary>
-		public IEnumerable<IProductSchema> ProductPageProducts { get; set; }
+		public ContentItemAsset ProductImageAsset { get; set; }
+
+
+		/// <summary>
+		/// ProductImageAltText.
+		/// </summary>
+		public string ProductImageAltText { get; set; }
 	}
 }

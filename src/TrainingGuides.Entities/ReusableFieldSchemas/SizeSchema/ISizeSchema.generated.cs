@@ -11,33 +11,17 @@
 
 using System;
 using System.Collections.Generic;
-using CMS.ContentEngine;
-using CMS.Websites;
 
 namespace TrainingGuides
 {
 	/// <summary>
-	/// Represents a page of type <see cref="ProductPage"/>.
+	/// Defines a contract for content types with the <see cref="ISizeSchema"/> reusable schema assigned.
 	/// </summary>
-	[RegisterContentTypeMapping(CONTENT_TYPE_NAME)]
-	public partial class ProductPage : IWebPageFieldsSource
+	public interface ISizeSchema
 	{
 		/// <summary>
-		/// Code name of the content type.
+		/// Code name of the reusable field schema.
 		/// </summary>
-		public const string CONTENT_TYPE_NAME = "TrainingGuides.ProductPage";
-
-
-		/// <summary>
-		/// Represents system properties for a web page item.
-		/// </summary>
-		[SystemField]
-		public WebPageFields SystemFields { get; set; }
-
-
-		/// <summary>
-		/// ProductPageProducts.
-		/// </summary>
-		public IEnumerable<IProductSchema> ProductPageProducts { get; set; }
+		public const string REUSABLE_FIELD_SCHEMA_NAME = "SizeSchema";
 	}
 }

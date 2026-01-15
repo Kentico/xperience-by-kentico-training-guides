@@ -20,6 +20,7 @@ using TrainingGuides.Web.Features.DataProtection.Shared;
 using TrainingGuides.Web.Features.Membership;
 using TrainingGuides.Web.Features.Shared.Helpers;
 using TrainingGuides.Admin.Localization;
+using TrainingGuides.Admin;
 //using TrainingGuides.Web.Features.Shared.Helpers.Startup;
 
 // Functionality related to cross-site tracking is currently disabled while we investigate an issue (#85 on GitHub)
@@ -160,6 +161,7 @@ builder.Services.AddUnobtrusiveAjax();
 
 builder.Services.AddTrainingGuidesServices();
 builder.Services.AddTrainingGuidesOptions();
+builder.Services.AddTrainingGuidesAdminServices();
 
 builder.Services.AddControllersWithViews(options => options.SuppressImplicitRequiredAttributeForNonNullableReferenceTypes = true);
 
@@ -168,7 +170,7 @@ builder.Services.AddMvc()
     .AddDataAnnotationsLocalization(options =>
     {
         options.DataAnnotationLocalizerProvider = (type, factory) =>
-            factory.Create(typeof(SharedResources));
+            factory.Create(typeof(TrainingGuides.Web.SharedResources));
     });
 
 builder.Services.AddDistributedMemoryCache();

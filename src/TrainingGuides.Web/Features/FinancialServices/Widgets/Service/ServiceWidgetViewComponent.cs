@@ -50,7 +50,7 @@ public class FinancialServiceWidgetViewComponent : ViewComponent
     public async Task<ViewViewComponentResult> InvokeAsync(ServiceWidgetProperties properties)
     {
         var model = await GetServiceWidgetViewModel(properties);
-        return View("~/Features/Services/Widgets/Service/ServiceWidget.cshtml", model);
+        return View("~/Features/FinancialServices/Widgets/Service/ServiceWidget.cshtml", model);
     }
 
     private async Task<ServiceWidgetViewModel> GetServiceWidgetViewModel(ServiceWidgetProperties properties)
@@ -92,7 +92,7 @@ public class FinancialServiceWidgetViewComponent : ViewComponent
         {
             var guid = properties.SelectedServicePage?.Select(webPage => webPage.Identifier).FirstOrDefault();
 
-            servicePage = guid.HasValue
+            servicePage = guid.HasValue && guid != Guid.Empty
                 ? await contentItemRetrieverService.RetrieveWebPageByContentItemGuid<ServicePage>(
                     (Guid)guid,
                     4)

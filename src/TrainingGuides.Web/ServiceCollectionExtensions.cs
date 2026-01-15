@@ -16,6 +16,7 @@ using TrainingGuides.Web.Features.Shared.Services;
 using TrainingGuides.Web.Features.Shared.OptionProviders;
 using TrainingGuides.Web.OneTimeCode;
 using TrainingGuides.Web.Features.ContactImport;
+using TrainingGuides.Web.Commerce.Products.Services;
 
 namespace TrainingGuides.Web;
 
@@ -39,7 +40,9 @@ public static class ServiceCollectionExtensions
         services.AddSingleton<IEnumStringService, EnumStringService>();
         services.AddSingleton<IContactImportService, ContactishContactImportService>();
 
+
         services.AddScoped<IMembershipService, MembershipService>();
+        services.AddScoped<IProductService, ProductService>();
         services.AddScoped<IHeadTagStoreService, HeadTagStoreService>();
 
         services.AddScoped<IComponentModelMapper<ImageWidgetModel>, ImageEmailWidgetModelMapper>();

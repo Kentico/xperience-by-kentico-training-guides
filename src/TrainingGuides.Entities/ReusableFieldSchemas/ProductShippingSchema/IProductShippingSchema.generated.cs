@@ -11,33 +11,35 @@
 
 using System;
 using System.Collections.Generic;
-using CMS.ContentEngine;
-using CMS.Websites;
 
 namespace TrainingGuides
 {
 	/// <summary>
-	/// Represents a page of type <see cref="ProductPage"/>.
+	/// Defines a contract for content types with the <see cref="IProductShippingSchema"/> reusable schema assigned.
 	/// </summary>
-	[RegisterContentTypeMapping(CONTENT_TYPE_NAME)]
-	public partial class ProductPage : IWebPageFieldsSource
+	public interface IProductShippingSchema
 	{
 		/// <summary>
-		/// Code name of the content type.
+		/// Code name of the reusable field schema.
 		/// </summary>
-		public const string CONTENT_TYPE_NAME = "TrainingGuides.ProductPage";
+		public const string REUSABLE_FIELD_SCHEMA_NAME = "ProductShippingSchema";
 
 
 		/// <summary>
-		/// Represents system properties for a web page item.
+		/// ProductShippingSchemaShippingType.
 		/// </summary>
-		[SystemField]
-		public WebPageFields SystemFields { get; set; }
+		public string ProductShippingSchemaShippingType { get; set; }
 
 
 		/// <summary>
-		/// ProductPageProducts.
+		/// ProductShippingSchemaShippingWeight.
 		/// </summary>
-		public IEnumerable<IProductSchema> ProductPageProducts { get; set; }
+		public decimal ProductShippingSchemaShippingWeight { get; set; }
+
+
+		/// <summary>
+		/// ProductShippingSchemaWeightUnit.
+		/// </summary>
+		public string ProductShippingSchemaWeightUnit { get; set; }
 	}
 }

@@ -15,4 +15,6 @@ internal static class EventIds
     public static readonly EventId EnsureRecipientListError = new(1008, nameof(EnsureRecipientListError));
     public static readonly EventId ContactGroupNotFound = new(1009, nameof(ContactGroupNotFound));
     public static readonly EventId ContactGroupRebuildFailed = new(1010, nameof(ContactGroupRebuildFailed));
+    public static readonly EventId ProductVariantHasMultipleParents = new(1011, nameof(ProductVariantHasMultipleParents));
+    public static readonly EventId ProductStockMultipleRecords = new(1012, nameof(ProductStockMultipleRecords));
 }

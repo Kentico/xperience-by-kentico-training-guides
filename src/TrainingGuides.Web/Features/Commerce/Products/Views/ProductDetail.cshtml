@@ -1,0 +1,86 @@
+@* @model TrainingGuides.Web.Commerce.Products.Models.ProductViewModel
+
+@{
+    ViewData["Title"] = Model.ProductName;
+}
+
+<div class="product-detail">
+    <div class="row">
+        <div class="col-md-6">
+            @if (Model.ProductImageUrls.Any())
+            {
+                <div class="product-images">
+                    @foreach (var image in Model.ProductImageUrls)
+                    {
+                        <img src="@image.ProductImageUrl" alt="@image.ProductImageAltText" class="img-fluid mb-3" />
+                    }
+                </div>
+            }
+        </div>
+
+        <div class="col-md-6">
+            <h1>@Model.ProductName</h1>
+            
+            @if (!string.IsNullOrEmpty(Model.ProductDescription))
+            {
+                <p class="product-description">@Model.ProductDescription</p>
+            }
+
+            @if (!string.IsNullOrEmpty(Model.ProductParentDescription.ToString()))
+            {
+                <div class="product-parent-description">
+                    @Model.ProductParentDescription
+                </div>
+            }
+
+            @if (!string.IsNullOrEmpty(Model.ProductVariantDescription.ToString()))
+            {
+                <div class="product-variant-description">
+                    @Model.ProductVariantDescription
+                </div>
+            }
+
+            <div class="product-price my-3">
+                <h3>$@Model.ProductPrice.ToString("F2")</h3>
+            </div>
+
+            @if (!string.IsNullOrEmpty(Model.ProductSkuCode))
+            {
+                <p class="product-sku">
+                    <strong>SKU:</strong> @Model.ProductSkuCode
+                </p>
+            }
+
+            @if (Model.ProductVariants.Any())
+            {
+                <div class="product-variants my-4">
+                    <h4>Select Variant</h4>
+                    <div class="variant-list">
+                        @foreach (var variant in Model.ProductVariants)
+                        {
+                            var isSelected = variant.VariantCodeName == Model.ProductSelectedVariantCodeName;
+                            var cssClass = isSelected ? "btn btn-primary" : "btn btn-outline-primary";
+                            
+                            <a href="@Url.Action("ProductDetail", new { productSlug = Model.ProductSlug, variantSlug = variant.VariantCodeName })" 
+                               class="@cssClass me-2 mb-2">
+                                @variant.VariantName
+                            </a>
+                        }
+                    </div>
+                </div>
+            }
+
+            @if (!string.IsNullOrEmpty(Model.ProductOtherDetails.ToString()))
+            {
+                <div class="product-other-details mt-4">
+                    <h4>Additional Details</h4>
+                    @Model.ProductOtherDetails
+                </div>
+            }
+
+            <div class="product-actions mt-4">
+                <button class="btn btn-success btn-lg">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+</div> *@

@@ -66,7 +66,7 @@ public class ServiceComparatorWidgetViewComponent : ViewComponent
 
         model.GroupedFeaturesHtmlDictionary = model.GroupedFeaturesHtmlDictionary.DistinctBy(item => item.Key).ToList();
 
-        return View("~/Features/Services/Widgets/ServiceComparator/ServiceComparatorWidget.cshtml", model);
+        return View("~/Features/FinancialServices/Widgets/ServiceComparator/ServiceComparatorWidget.cshtml", model);
     }
 
     private async Task<ServicePageViewModel?> GetService(Guid guid, ServiceComparatorWidgetProperties properties)

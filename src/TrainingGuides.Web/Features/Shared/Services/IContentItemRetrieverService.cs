@@ -1,4 +1,5 @@
 ﻿using CMS.ContentEngine;
+using Kentico.Content.Web.Mvc;
 using TrainingGuides.Web.Features.Shared.OptionProviders.OrderBy;
 
 namespace TrainingGuides.Web.Features.Shared.Services;
@@ -118,6 +119,22 @@ public interface IContentItemRetrieverService
         IEnumerable<Guid> tagGuids,
         bool includeSecuredItems = true,
         string? languageName = null);
+
+
+    Task<IEnumerable<T>> RetrieveContentItemsBySchemas<T>(
+        IEnumerable<string> schemaNames,
+        Action<RetrieveContentOfReusableSchemasQueryParameters> additionalQueryConfiguration,
+        int depth = 1,
+        bool includeSecuredItems = true,
+        string? languageName = null);
+
+    Task<IEnumerable<T>> RetrieveParentItems<T>(
+        string referenceFieldName,
+        IEnumerable<int> referenceIds,
+        bool includeSecuredItems,
+        int depth = 1,
+        string? languageName = null)
+        where T : IContentItemFieldsSource, new();
 
     /// <summary>
     /// Retrieves a web page content item by path using ContentRetriever API
