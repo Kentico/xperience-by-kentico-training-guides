@@ -10,10 +10,48 @@ namespace TrainingGuides.Web.Commerce.Products.Services;
 
 public class ProductService(IContentItemRetrieverService contentItemRetrieverService,
     ILogger<ProductService> logger,
-    IInfoProvider<ProductAvailableStockInfo> productAvailableStockInfoProvider) : IProductService
+    IInfoProvider<ProductAvailableStockInfo> productAvailableStockInfoProvider,
+    IInfoProvider<TagInfo> tagInfoProvider) : IProductService
 {
     private const int LowStockThreshold = 20;
-    private void LogVariantMultipleParentsError(IProductVariantSchema variant, IProductSchema parent)
+
+    /// <inheritdoc/>
+    public IProductSchema? GetFirstVariant(IProductParentSchema product) =>
+        product.ProductParentSchemaVariants.FirstOrDefault() as IProductSchema;
+
+    /// <inheritdoc/>
+    public IProductSchema? GetVariantByCodeName(IProductParentSchema product, string variantCodeName)
+    {
+        var variant = product.ProductParentSchemaVariants
+            .FirstOrDefault(variant => variant.ProductVariantSchemaCodeName == variantCodeName);
+
+        return variant as IProductSchema;
+    }
+
+    /// <inheritdoc/>
+    public async Task<IProductSchema?> GetVariantParent(IProductSchema variant)
+    {
+        if (variant is not IProductVariantSchema || variant is not IContentItemFieldsSource variantItem)
+        {
+            return null;
+        }
+
+        var parents = await contentItemRetrieverService.RetrieveParentItemsOfSchema<IProductSchema>(
+                IProductSchema.REUSABLE_FIELD_SCHEMA_NAME,
+                nameof(IProductParentSchema.ProductParentSchemaVariants),
+                [variantItem.SystemFields.ContentItemID],
+                true,
+                depth: 4);
+
+        if (parents.Count() > 1)
+        {
+            LogVariantMultipleParentsError(variant, parents.First());
+        }
+
+        return parents.FirstOrDefault();
+    }
+
+    private void LogVariantMultipleParentsError(IProductSchema variant, IProductSchema parent)
     {
         var contentItem = parent as IContentItemFieldsSource;
         logger.LogError(EventIds.ProductVariantHasMultipleParents,
@@ -24,115 +62,156 @@ public class ProductService(IContentItemRetrieverService contentItemRetrieverSer
     }
 
     /// <inheritdoc/>
-    public IProductSchema? GetFirstVariant(IProductSchema product)
+    public async Task<ProductViewModel> GetViewModel(IProductSchema? product, IProductSchema? selectedVariant = null, bool accessDenied = false)
     {
-        if (product is IProductVariantSchema)
+        if (accessDenied)
         {
-            return null;
+            return await GetAccessDeniedViewModel(product);
         }
 
-        if (product is CatFood catFoodProduct)
+        if (product is IProductParentSchema parentProduct)
         {
-            return catFoodProduct.CatFoodVariants
-                .OrderBy(cfVariant => cfVariant.ProductPriceSchemaPrice)
-                .FirstOrDefault();
-        }
 
-        return null;
-    }
-
-    /// <inheritdoc/>
-    public IProductSchema? GetVariantByCodeName(IProductSchema product, string variantCodeName)
-    {
-        if (product is CatFood catFoodProduct)
-        {
-            return catFoodProduct
-                .CatFoodVariants
-                .FirstOrDefault(variant => variant.VariantSchemaCodeName == variantCodeName);
-        }
-        return null;
-    }
-
-    /// <inheritdoc/>
-    public async Task<IProductSchema?> GetVariantParent(IProductSchema variant)
-    {
-        if (variant is not IProductVariantSchema)
-        {
-            return null;
-        }
-        if (variant is CatFoodVariant catFoodVariant)
-        {
-            var parents = await contentItemRetrieverService.RetrieveParentItems<CatFood>(
-                nameof(CatFood.CatFoodVariants),
-                [catFoodVariant.SystemFields.ContentItemID],
-                true,
-                depth: 4);
-
-            if (parents.Count() > 1)
-            {
-                LogVariantMultipleParentsError(catFoodVariant, parents.First());
-            }
-
-            return parents.FirstOrDefault();
-        }
-        return null;
-
-    }
-
-    /// <inheritdoc/>
-    public async Task<ProductViewModel> GetViewModel(IProductSchema? product, IProductSchema? selectedVariant = null)
-    {
-        if (product is CatFood catFoodProduct)
-        {
-            var catFoodVariant = selectedVariant is CatFoodVariant cfVariant
-                && catFoodProduct.CatFoodVariants
+            var productVariant = selectedVariant is IContentItemFieldsSource ciVariant
+                && selectedVariant is IProductSchema pVariant
+                && parentProduct.ProductParentSchemaVariants
+                    .Cast<IContentItemFieldsSource>()
                     .Select(variant => variant.SystemFields.ContentItemID)
-                    .Contains(cfVariant.SystemFields.ContentItemID)
-                ? cfVariant
-                : GetFirstVariant(catFoodProduct) as CatFoodVariant;
+                    .Contains(ciVariant.SystemFields.ContentItemID)
+                ? pVariant
+                : GetFirstVariant(parentProduct);
 
-            return await GetCatFoodViewModel(catFoodProduct, catFoodVariant);
+            if (product is CatFood catFoodProduct)
+            {
+                var catFoodVariant = productVariant as CatFoodVariant;
+
+                return await GetCatFoodViewModel(catFoodProduct, catFoodVariant);
+            }
+            else if (product is DogCollar dogCollarProduct)
+            {
+                var dogCollarVariant = productVariant as DogCollarVariant;
+
+                return await GetDogCollarViewModel(dogCollarProduct, dogCollarVariant);
+            }
+            else
+            {
+                return await GetGenericParentProductViewModel(parentProduct, productVariant);
+            }
         }
-        return new ProductViewModel();
+        else
+        {
+            return new ProductViewModel();
+        }
     }
 
-    private async Task<ProductViewModel> GetCatFoodViewModel(CatFood catFoodProduct, CatFoodVariant? catFoodVariant)
+    private async Task<ProductViewModel> GetAccessDeniedViewModel(IProductSchema? product)
     {
         var model = new ProductViewModel
         {
-            ProductName = catFoodProduct.ProductSchemaName,
-            ProductDescription = catFoodProduct.ProductSchemaDescription,
-            ProductSkuCode = catFoodVariant?.ProductSkuSchemaSkuCode ?? string.Empty,
-            ProductPrice = catFoodVariant?.ProductPriceSchemaPrice
-                ?? catFoodProduct.CatFoodVariants.Select(v => v.ProductPriceSchemaPrice).FirstOrDefault(),
-            ProductImageUrls = GetImageViewModels(catFoodVariant?.ProductSchemaImages)
-                .Union(GetImageViewModels(catFoodProduct.ProductSchemaImages)),
-            ProductSelectedVariantCodeName = catFoodVariant?.VariantSchemaCodeName ?? string.Empty,
-            ProductVariants = catFoodProduct.CatFoodVariants
-                .Select(variant => new VariantViewModel
-                {
-                    VariantName = variant.ProductSchemaName,
-                    VariantCodeName = variant.VariantSchemaCodeName,
-                    VariantImage = GetImageViewModels(variant.ProductSchemaImages).FirstOrDefault()
-                        ?? new ProductImageViewModel()
-                }),
-            ProductParentDescription = new HtmlString(catFoodProduct.ProductSchemaDescription ?? string.Empty),
-            ProductVariantDescription = new HtmlString(catFoodVariant?.ProductSchemaDescription ?? string.Empty),
-            ProductOtherDetails = new HtmlString
-                (string.Join("<br/>", catFoodVariant?.CatFoodVariantFormulation
-                    .Select(formulation => formulation.PetFoodFormulationIngredients) ?? [])
-                ?? string.Empty),
-            ProductStockStatus = await GetProductStockStatus(catFoodVariant)
+            ProductName = product is not null
+                ? $"{product.ProductSchemaName} (requires authentication)"
+                : "Product requires authentication",
+            ProductSkuCode = string.Empty,
+            ProductPrice = 0m,
+            ProductImages = [],
+            ProductSelectedVariantCodeName = string.Empty,
+            ProductVariants = [],
+            ProductParentDescription = new HtmlString("Please sign in to view this product."),
+            ProductVariantDescription = new HtmlString(string.Empty),
+            ProductOtherDetails = new HtmlString(string.Empty),
+            ProductStockStatus = GetFriendlyEnumString(await GetProductStockStatus(null))
         };
 
         return model;
     }
 
+    private async Task<ProductViewModel> GetGenericParentProductViewModel(IProductParentSchema parentProduct, IProductSchema? productVariant)
+    {
+        var parentProductProduct = parentProduct as IProductSchema;
+
+        var model = new ProductViewModel
+        {
+            ProductName = parentProductProduct?.ProductSchemaName ?? string.Empty,
+            ProductSkuCode = (productVariant as IProductSkuSchema)?.ProductSkuSchemaSkuCode ?? string.Empty,
+            ProductPrice = ((productVariant as IProductPriceSchema)?.ProductPriceSchemaPrice
+                ?? parentProduct.ProductParentSchemaVariants
+                    .Cast<IProductPriceSchema>()
+                    .Select(v => v?.ProductPriceSchemaPrice)
+                    .FirstOrDefault())
+                ?? (parentProduct as IProductPriceSchema)?.ProductPriceSchemaPrice
+                ?? 0m,
+            ProductImages = GetImageViewModels(productVariant?.ProductSchemaImages)
+                .UnionBy(GetImageViewModels(parentProductProduct?.ProductSchemaImages), img => img.ProductImageUrl),
+            ProductSelectedVariantCodeName = (productVariant as IProductVariantSchema)?.ProductVariantSchemaCodeName ?? string.Empty,
+            ProductVariants = parentProduct.ProductParentSchemaVariants
+                .Cast<IProductSchema>()
+                .Select(variant => new VariantViewModel
+                {
+                    VariantName = variant.ProductSchemaName,
+                    VariantCodeName = (variant as IProductVariantSchema)?.ProductVariantSchemaCodeName ?? string.Empty,
+                    VariantImage = GetImageViewModels(variant.ProductSchemaImages).FirstOrDefault()
+                        ?? new ProductImageViewModel()
+                }),
+            ProductParentDescription = new HtmlString(parentProductProduct?.ProductSchemaDescription ?? string.Empty),
+            ProductVariantDescription = new HtmlString(productVariant?.ProductSchemaDescription ?? string.Empty),
+            ProductOtherDetails = new HtmlString(string.Empty),
+            ProductStockStatus = GetFriendlyEnumString(await GetProductStockStatus(productVariant as IProductSkuSchema))
+        };
+
+        return model;
+    }
+
+    private async Task<ProductViewModel> GetCatFoodViewModel(CatFood catFoodProduct, CatFoodVariant? catFoodVariant)
+    {
+        var model = await GetGenericParentProductViewModel(catFoodProduct, catFoodVariant);
+
+        model.ProductOtherDetails = new HtmlString
+                (("Ingredients:<br/>" + string.Join("<br/>", catFoodVariant?.CatFoodVariantFormulation
+                    .Select(formulation => formulation.PetFoodFormulationIngredients) ?? []))
+                ?? string.Empty);
+
+        return model;
+    }
+
+    private async Task<ProductViewModel> GetDogCollarViewModel(DogCollar dogCollarProduct, DogCollarVariant? dogCollarVariant)
+    {
+        var model = await GetGenericParentProductViewModel(dogCollarProduct, dogCollarVariant);
+
+        var tagIdentifiers = dogCollarProduct
+            .MaterialSchemaMaterial
+            .Union((dogCollarVariant?.ColorPattern ?? [])
+            .Union(dogCollarVariant?.SizeSchemaSize ?? []))
+            .Select(tag => tag.Identifier)
+            ?? [];
+
+        var tags = await tagInfoProvider.Get()
+            .WhereIn(nameof(TagInfo.TagGUID), tagIdentifiers)
+            .Columns(nameof(TagInfo.TagGUID), nameof(TagInfo.TagTitle))
+            .GetEnumerableTypedResultAsync();
+
+        string materials = GetAggregatedTags(tags, dogCollarProduct.MaterialSchemaMaterial);
+        string colors = GetAggregatedTags(tags, dogCollarVariant?.ColorPattern ?? []);
+        string sizes = GetAggregatedTags(tags, dogCollarVariant?.SizeSchemaSize ?? []);
+
+        model.ProductOtherDetails = new HtmlString
+                ($"<strong>Material:</strong> {materials} <br/>" +
+                 $"<strong>Color:</strong> {colors}<br/>" +
+                 $"<strong>Size (circumference):</strong> {sizes}");
+
+        return model;
+    }
+
+    private string GetAggregatedTags(IEnumerable<TagInfo> tags, IEnumerable<TagReference> tagIdentifiers) => string.Join(", ",
+            tags.Where(tag => tagIdentifiers
+                    .Select(tag => tag.Identifier)
+                    .Contains(tag.TagGUID))
+                .Select(tag => tag.TagTitle));
+
     private async Task<ProductStockEnum> GetProductStockStatus(IProductSkuSchema? skuProduct)
     {
-        if (skuProduct == null)
+        if (skuProduct is null)
         {
-            return ProductStockEnum.OutOfStock;
+            return ProductStockEnum.Unknown;
         }
 
         var contentItem = skuProduct as IContentItemFieldsSource;
@@ -150,7 +229,7 @@ public class ProductService(IContentItemRetrieverService contentItemRetrieverSer
         }
         else if (stockInfos.Count() == 0)
         {
-            return ProductStockEnum.OutOfStock;
+            return ProductStockEnum.Unknown;
         }
 
         decimal stockValue = stockInfos.First().ProductAvailableStockValue;
@@ -167,6 +246,16 @@ public class ProductService(IContentItemRetrieverService contentItemRetrieverSer
         return ProductStockEnum.InStock;
 
     }
+
+    private string GetFriendlyEnumString(ProductStockEnum stockEnum) =>
+        stockEnum switch
+        {
+            ProductStockEnum.OutOfStock => "Out of Stock - ✕",
+            ProductStockEnum.InStock => "In Stock - ✓",
+            ProductStockEnum.LowStock => "Low Stock - ⚠",
+            ProductStockEnum.PreOrder => "Pre-Order - ⏲",
+            ProductStockEnum.Unknown or _ => "Unknown - ?"
+        };
 
     private List<ProductImageViewModel> GetImageViewModels(IEnumerable<ProductImage>? images)
     {
@@ -185,9 +274,9 @@ public class ProductService(IContentItemRetrieverService contentItemRetrieverSer
     /// <inheritdoc/>
     public bool ProductHasVariants(IProductSchema product)
     {
-        if (product is CatFood catFoodProduct)
+        if (product is IProductParentSchema parentProduct)
         {
-            return catFoodProduct.CatFoodVariants.Any();
+            return parentProduct.ProductParentSchemaVariants.Any();
         }
 
         return false;
@@ -195,4 +284,24 @@ public class ProductService(IContentItemRetrieverService contentItemRetrieverSer
 
     /// <inheritdoc/>
     public bool ProductIsVariant(IProductSchema product) => product is IProductVariantSchema;
+
+    /// <inheritdoc/>
+    public async Task<ProductPage?> GetCurrentProductPage() =>
+        await contentItemRetrieverService.RetrieveCurrentPage<ProductPage>(
+            depth: 4,
+            includeSecuredItems: true);
+
+    /// <inheritdoc/>
+    public async Task<ProductPage?> GetProductPageByGuid(Guid contentItemGuid)
+    {
+        if (contentItemGuid == Guid.Empty)
+        {
+            return null;
+        }
+
+        return await contentItemRetrieverService.RetrieveWebPageByContentItemGuid<ProductPage>(
+            contentItemGuid,
+            depth: 4,
+            includeSecuredItems: true);
+    }
 }

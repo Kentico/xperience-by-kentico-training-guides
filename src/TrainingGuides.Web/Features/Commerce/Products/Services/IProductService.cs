@@ -30,7 +30,7 @@ public interface IProductService
     /// </summary>
     /// <param name="product">The product whose first variant to retrieve.</param>
     /// <returns>The first variant if the product has variants; otherwise, <c>null</c>.</returns>
-    IProductSchema? GetFirstVariant(IProductSchema product);
+    IProductSchema? GetFirstVariant(IProductParentSchema product);
 
     /// <summary>
     /// Retrieves a variant of the specified product by its code name.
@@ -38,13 +38,27 @@ public interface IProductService
     /// <param name="product">The product whose variant to retrieve.</param>
     /// <param name="variantSlug">The code name of the variant to retrieve.</param>
     /// <returns>The variant with the specified code name if found; otherwise, <c>null</c>.</returns>
-    IProductSchema? GetVariantByCodeName(IProductSchema product, string variantSlug);
+    IProductSchema? GetVariantByCodeName(IProductParentSchema product, string variantSlug);
 
     /// <summary>
     /// Creates a view model for the specified product with an optional selected variant.
     /// </summary>
     /// <param name="product">The product for which to create the view model.</param>
     /// <param name="selectedVariant">The optional selected variant. If not provided and the product has variants, the first variant will be used.</param>
+    /// <param name="accessDenied">Indicates whether access to the product is denied. Assumed false if no value is provided.</param>
     /// <returns>A <see cref="ProductViewModel"/> populated with product and variant information.</returns>
-    Task<ProductViewModel> GetViewModel(IProductSchema? product, IProductSchema? selectedVariant = null);
+    Task<ProductViewModel> GetViewModel(IProductSchema? product, IProductSchema? selectedVariant = null, bool accessDenied = false);
+
+    /// <summary>
+    /// Retrieves the current product page with all related product data.
+    /// </summary>
+    /// <returns>The current product page if found; otherwise, <c>null</c>.</returns>
+    Task<ProductPage?> GetCurrentProductPage();
+
+    /// <summary>
+    /// Retrieves a product page by its content item GUID.
+    /// </summary>
+    /// <param name="contentItemGuid">The GUID of the product page content item.</param>
+    /// <returns>The product page if found; otherwise, <c>null</c>.</returns>
+    Task<ProductPage?> GetProductPageByGuid(Guid contentItemGuid);
 }

@@ -11,6 +11,7 @@
 
 using System;
 using System.Collections.Generic;
+using CMS.ContentEngine;
 
 namespace TrainingGuides
 {
@@ -23,5 +24,11 @@ namespace TrainingGuides
 		/// Code name of the reusable field schema.
 		/// </summary>
 		public const string REUSABLE_FIELD_SCHEMA_NAME = "SizeSchema";
+
+
+		/// <summary>
+		/// SizeSchemaSize.
+		/// </summary>
+		public IEnumerable<TagReference> SizeSchemaSize { get; set; }
 	}
 }

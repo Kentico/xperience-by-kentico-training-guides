@@ -243,6 +243,7 @@
     top: 0;
     left: 0px;
     -webkit-appearance: none;
+    appearance: none;
     width: 300px;
     height: 41px;
     background: transparent;
@@ -253,6 +254,7 @@
 
 .cookie-preferences__range-slider::-webkit-slider-thumb {
     -webkit-appearance: none;
+    appearance: none;
 }
 
 .cookie-preferences__range-slider::-ms-track {

@@ -38,12 +38,6 @@ namespace TrainingGuides
 
 
 		/// <summary>
-		/// ProductSchemaSlug.
-		/// </summary>
-		public string ProductSchemaSlug { get; set; }
-
-
-		/// <summary>
 		/// ProductSchemaDescription.
 		/// </summary>
 		public string ProductSchemaDescription { get; set; }

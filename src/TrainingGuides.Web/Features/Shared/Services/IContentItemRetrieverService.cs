@@ -50,6 +50,23 @@ public interface IContentItemRetrieverService
         where T : IWebPageFieldsSource, new();
 
     /// <summary>
+    /// Retrieves child pages of a given web page using ContentRetriever API with additional query configuration
+    /// </summary>
+    /// <param name="path">Path of the parent page</param>
+    /// <param name="depth">The maximum level of recursively linked content items that should be included in the results. Default value is 1.</param>
+    /// <param name="includeSecuredItems">If true, secured items will be included in the results.</param>
+    /// <param name="additionalQueryConfiguration">An action to configure additional query parameters</param>
+    /// <param name="languageName">The language to query. If null, the language will be inferred from the URL of the current request.</param>
+    /// <returns>A collection of web pages that exist under the specified path in the content tree</returns>
+    Task<IEnumerable<T>> RetrieveWebPageChildrenByPath<T>(
+        string path,
+        int depth,
+        bool includeSecuredItems,
+        Action<RetrievePagesQueryParameters>? additionalQueryConfiguration,
+        string? languageName = null)
+        where T : IWebPageFieldsSource, new();
+
+    /// <summary>
     /// Retrieves child pages of a given web page that are linked to specific content items, specified by list of reference IDs.
     /// </summary>
     /// <param name="parentPageContentTypeName">Content type of the parent page</param>
@@ -128,14 +145,13 @@ public interface IContentItemRetrieverService
         bool includeSecuredItems = true,
         string? languageName = null);
 
-    Task<IEnumerable<T>> RetrieveParentItems<T>(
+    Task<IEnumerable<T>> RetrieveParentItemsOfSchema<T>(
+        string schemaName,
         string referenceFieldName,
         IEnumerable<int> referenceIds,
         bool includeSecuredItems,
         int depth = 1,
-        string? languageName = null)
-        where T : IContentItemFieldsSource, new();
-
+        string? languageName = null);
     /// <summary>
     /// Retrieves a web page content item by path using ContentRetriever API
     /// </summary>

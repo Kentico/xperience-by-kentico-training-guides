@@ -16,15 +16,15 @@ using CMS.ContentEngine;
 namespace TrainingGuides
 {
 	/// <summary>
-	/// Represents a content item of type <see cref="CatFood"/>.
+	/// Represents a content item of type <see cref="DogCollar"/>.
 	/// </summary>
 	[RegisterContentTypeMapping(CONTENT_TYPE_NAME)]
-	public partial class CatFood : IContentItemFieldsSource, IProductSchema, IProductParentSchema
+	public partial class DogCollar : IContentItemFieldsSource, IProductSchema, IMaterialSchema, IProductParentSchema
 	{
 		/// <summary>
 		/// Code name of the content type.
 		/// </summary>
-		public const string CONTENT_TYPE_NAME = "TrainingGuides.CatFood";
+		public const string CONTENT_TYPE_NAME = "TrainingGuides.DogCollar";
 
 
 		/// <summary>
@@ -32,12 +32,6 @@ namespace TrainingGuides
 		/// </summary>
 		[SystemField]
 		public ContentItemFields SystemFields { get; set; }
-
-
-		/// <summary>
-		/// CatFoodVariants.
-		/// </summary>
-		public IEnumerable<CatFoodVariant> CatFoodVariants { get; set; }
 
 
 		/// <summary>
@@ -56,6 +50,12 @@ namespace TrainingGuides
 		/// ProductSchemaDescription.
 		/// </summary>
 		public string ProductSchemaDescription { get; set; }
+
+
+		/// <summary>
+		/// MaterialSchemaMaterial.
+		/// </summary>
+		public IEnumerable<TagReference> MaterialSchemaMaterial { get; set; }
 
 
 		/// <summary>

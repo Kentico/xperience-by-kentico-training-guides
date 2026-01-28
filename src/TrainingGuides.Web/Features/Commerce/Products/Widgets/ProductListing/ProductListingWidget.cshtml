@@ -1,0 +1,103 @@
+@model TrainingGuides.Web.Features.Commerce.Products.Widgets.ProductListing.ProductListingWidgetViewModel?
+
+@if (Model == null || Model.IsMisconfigured)
+{
+    <tg-page-builder-content>
+        <div class="row justify-content-center">
+            <div class="col-xl-11">
+                <div class="row" data-gridify="3-columns">
+                    <h3>Product listing</h3>
+                    @if(Model?.Products?.Count == 0)
+                    {
+                        <tg-configure-widget-instructions message="No products found in the selected section. Double-check your page selection."/>
+                    }
+                    else
+                    {
+                        <tg-configure-widget-instructions/>
+                    }
+                </div>
+            </div>
+        </div>
+    </tg-page-builder-content>
+
+    return;
+}
+else
+{
+    <div class="row justify-content-center">
+        <div class="col-xl-11">
+            <div class="product-listing-widget">
+            <!-- Filter Controls -->
+            <div class="row mb-4">
+                <div class="col-12">
+                    <h3 class="mb-3">Filter Products</h3>
+                </div>
+                @foreach (var filter in Model.AvailableFilters)
+                {
+                    <div class="col-md-4 mb-3">
+                        <label for="@filter.ProductListingFilterName.ToLower()" class="form-label">@filter.ProductListingFilterDisplayName.Replace("_", " ")</label>
+                        <select id="@filter.ProductListingFilterName.ToLower()" class="form-select product-filter" multiple>
+                            <option value="">All</option>
+                            @foreach (var option in filter.ProductListingFilterOptions)
+                            {
+                                <option value="@option.FilterOptionValue">@option.FilterOptionDisplayName</option>
+                            }
+                        </select>
+                    </div>
+                }
+                <div class="col-md-4 mb-3 d-flex align-items-end">
+                    <button id="apply-filters" class="btn btn-secondary">Apply Filters</button>
+                </div>
+                <div class="col-md-4 mb-3 d-flex align-items-end">
+                    <button id="clear-filters" class="btn btn-secondary">Clear Filters</button>
+                </div>
+            </div>  
+
+
+                <!-- Product Grid -->
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 product-grid mt-3 mt-md-4">
+                    @foreach (var item in Model.Products)
+                    {
+                        bool showSignIn = !Model.IsAuthenticated && item.Product.ProductStockStatus == "Unavailable";
+                        <div class="col mt-4 product-card">
+                            <a href="@item.ProductPageUrl" class="text-decoration-none">
+                                <div class="c-card bg-1 u-border-01">
+                                    @if (item.Product.ProductImages.Any())
+                                    {
+                                        var firstImage = item.Product.ProductImages.First();
+                                        <div class="c-card_img">
+                                            <img src="@Url.Content(firstImage.ProductImageUrl)" alt="@firstImage.ProductImageAltText" class="img-fluid" />
+                                        </div>
+                                    }
+                                    <div class="p-2 c-card_body">
+                                        <h2 class="h4 mb-2">@item.Product.ProductName</h2>
+                                        <p class="mb-2 text-muted">@item.Product.ProductPrice.ToString("C")</p>
+                                        <p class="mb-0">
+                                            <span class="badge @(item.Product.ProductStockStatus == "In Stock" ? "bg-success" : item.Product.ProductStockStatus == "Low Stock" ? "bg-warning" : "bg-secondary")">
+                                                @item.Product.ProductStockStatus
+                                            </span>
+                                        </p>
+                                    </div>
+                                    <div class="p-2 c-card_footer">
+                                        <span class="c-link primary-upper text-uppercase">
+                                            @(showSignIn ? Model.SignInText : Model.CtaText)
+                                        </span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    }
+                </div>
+
+                <!-- No Results Message -->
+                <div class="row no-results-message" style="display: none;">
+                    <div class="col-12 text-center py-5">
+                        <p class="h5">No products found matching the selected filters.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/PageBuilder/Public/Widgets/ProductListingWidget/product-listing-widget.js"></script>
+}

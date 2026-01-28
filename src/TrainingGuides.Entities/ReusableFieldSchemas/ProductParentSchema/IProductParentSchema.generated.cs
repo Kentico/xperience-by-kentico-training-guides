@@ -15,19 +15,19 @@ using System.Collections.Generic;
 namespace TrainingGuides
 {
 	/// <summary>
-	/// Defines a contract for content types with the <see cref="IProductVariantSchema"/> reusable schema assigned.
+	/// Defines a contract for content types with the <see cref="IProductParentSchema"/> reusable schema assigned.
 	/// </summary>
-	public interface IProductVariantSchema
+	public interface IProductParentSchema
 	{
 		/// <summary>
 		/// Code name of the reusable field schema.
 		/// </summary>
-		public const string REUSABLE_FIELD_SCHEMA_NAME = "ProductVariantSchema";
+		public const string REUSABLE_FIELD_SCHEMA_NAME = "ProductParentSchema";
 
 
 		/// <summary>
-		/// ProductVariantSchemaCodeName.
+		/// ProductParentSchemaVariants.
 		/// </summary>
-		public string ProductVariantSchemaCodeName { get; set; }
+		public IEnumerable<IProductVariantSchema> ProductParentSchemaVariants { get; set; }
 	}
 }

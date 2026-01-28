@@ -16,15 +16,15 @@ using CMS.ContentEngine;
 namespace TrainingGuides
 {
 	/// <summary>
-	/// Represents a content item of type <see cref="CatFoodVariant"/>.
+	/// Represents a content item of type <see cref="DogCollarVariant"/>.
 	/// </summary>
 	[RegisterContentTypeMapping(CONTENT_TYPE_NAME)]
-	public partial class CatFoodVariant : IContentItemFieldsSource, IProductSchema, IAmountSchema, IProductSkuSchema, IProductShippingSchema, IProductPriceSchema, IProductVariantSchema
+	public partial class DogCollarVariant : IContentItemFieldsSource, IProductSchema, IColorPatternSchema, IProductSkuSchema, IProductShippingSchema, ISizeSchema, IProductPriceSchema, IProductVariantSchema
 	{
 		/// <summary>
 		/// Code name of the content type.
 		/// </summary>
-		public const string CONTENT_TYPE_NAME = "TrainingGuides.CatFoodVariant";
+		public const string CONTENT_TYPE_NAME = "TrainingGuides.DogCollarVariant";
 
 
 		/// <summary>
@@ -32,12 +32,6 @@ namespace TrainingGuides
 		/// </summary>
 		[SystemField]
 		public ContentItemFields SystemFields { get; set; }
-
-
-		/// <summary>
-		/// CatFoodVariantFormulation.
-		/// </summary>
-		public IEnumerable<PetFoodFormulation> CatFoodVariantFormulation { get; set; }
 
 
 		/// <summary>
@@ -59,15 +53,9 @@ namespace TrainingGuides
 
 
 		/// <summary>
-		/// AmountSchemaNumber.
+		/// ColorPattern.
 		/// </summary>
-		public decimal AmountSchemaNumber { get; set; }
-
-
-		/// <summary>
-		/// AmountSchemaUnit.
-		/// </summary>
-		public string AmountSchemaUnit { get; set; }
+		public IEnumerable<TagReference> ColorPattern { get; set; }
 
 
 		/// <summary>
@@ -92,6 +80,12 @@ namespace TrainingGuides
 		/// ProductShippingSchemaWeightUnit.
 		/// </summary>
 		public string ProductShippingSchemaWeightUnit { get; set; }
+
+
+		/// <summary>
+		/// SizeSchemaSize.
+		/// </summary>
+		public IEnumerable<TagReference> SizeSchemaSize { get; set; }
 
 
 		/// <summary>

@@ -68,7 +68,7 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
         return pages.FirstOrDefault();
     }
 
-    private async Task<IEnumerable<T>> RetrieveWebPageChildrenByPath<T>(
+    public async Task<IEnumerable<T>> RetrieveWebPageChildrenByPath<T>(
         string path,
         int depth = 1,
         bool includeSecuredItems = true,
@@ -222,15 +222,15 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
     }
 
 
-    public async Task<IEnumerable<T>> RetrieveParentItems<T>(
+    public async Task<IEnumerable<T>> RetrieveParentItemsOfSchema<T>(
+        string schemaName,
         string referenceFieldName,
         IEnumerable<int> referenceIds,
         bool includeSecuredItems,
         int depth = 1,
         string? languageName = null)
-        where T : IContentItemFieldsSource, new()
     {
-        var parameters = new RetrieveContentParameters
+        var parameters = new RetrieveContentOfReusableSchemasParameters
         {
             LinkedItemsMaxLevel = depth,
             LanguageName = languageName ?? preferredLanguageRetriever.Get(),
@@ -238,9 +238,10 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
             IncludeSecuredItems = includeSecuredItems
         };
 
-        return await contentRetriever.RetrieveContent<T>(
+        return await contentRetriever.RetrieveContentOfReusableSchemas<T>(
+            [schemaName],
             parameters,
-            query => query.Linking(referenceFieldName, referenceIds),
+            query => query.LinkingSchemaField(referenceFieldName, referenceIds),
             RetrievalCacheSettings.CacheDisabled);
     }
 
@@ -294,6 +295,7 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
 
         return pages.FirstOrDefault();
     }
+
 
     private async Task<IEnumerable<IWebPageFieldsSource>> RetrieveWebPages(
         Action<ContentQueryParameters> parameters,
