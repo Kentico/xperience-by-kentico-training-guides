@@ -2,9 +2,9 @@ namespace TrainingGuides.Web.Commerce.Products.Models;
 
 public enum ProductStockEnum
 {
-    OutOfStock = 0,
-    InStock = 1,
-    LowStock = 2,
-    PreOrder = 3,
-    Unknown = 4
+    Unknown = 0,
+    OutOfStock = 1,
+    PreOrder = 2,
+    LowStock = 3,
+    InStock = 4,
 }

@@ -1,4 +1,5 @@
 using TrainingGuides.Web.Commerce.Products.Models;
+using TrainingGuides.Web.Features.Commerce.Products.Widgets.ProductListing;
 
 namespace TrainingGuides.Web.Commerce.Products.Services;
 
@@ -61,4 +62,34 @@ public interface IProductService
     /// <param name="contentItemGuid">The GUID of the product page content item.</param>
     /// <returns>The product page if found; otherwise, <c>null</c>.</returns>
     Task<ProductPage?> GetProductPageByGuid(Guid contentItemGuid);
+
+    /// <summary>
+    /// Retrieves product pages by path with optional filtering by materials and colors.
+    /// </summary>
+    /// <param name="parentPagePath">The path of the parent page to search under.</param>
+    /// <param name="securedItemsDisplayMode">The display mode for secured items.</param>
+    /// <param name="appliedMaterialsFilter">Comma-separated material filter values.</param>
+    /// <param name="appliedColorsFilter">Comma-separated color filter values.</param>
+    /// <returns>A collection of product pages matching the criteria.</returns>
+    Task<IEnumerable<ProductPage>> RetrieveProductPagesByPath(
+        string parentPagePath,
+        string securedItemsDisplayMode,
+        string appliedMaterialsFilter,
+        string appliedColorsFilter);
+
+    /// <summary>
+    /// Creates view models for a collection of product pages.
+    /// </summary>
+    /// <param name="productPages">The product pages to create view models for.</param>
+    /// <param name="securedItemsDisplayMode">The display mode for secured items.</param>
+    /// <returns>A list of product listing item view models.</returns>
+    Task<List<ProductListingItemViewModel>> GetProductListingItemViewModels(
+        IEnumerable<ProductPage> productPages,
+        string securedItemsDisplayMode);
+
+    /// <summary>
+    /// Retrieves all available product listing filters.
+    /// </summary>
+    /// <returns>A collection of product listing filter view models.</returns>
+    Task<IEnumerable<ProductListingFilterViewModel>> GetProductListingFilters();
 }
