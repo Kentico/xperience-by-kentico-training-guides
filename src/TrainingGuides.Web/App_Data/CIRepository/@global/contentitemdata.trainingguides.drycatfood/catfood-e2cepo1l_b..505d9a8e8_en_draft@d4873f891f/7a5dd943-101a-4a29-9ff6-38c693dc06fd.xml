@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.drycatfood>
+  <ContentItemDataCommonDataID>
+    <GUID>b61ba785-0228-489c-afe0-290505d9a8e8</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>Catfood-e2cepo1l</CodeName>
+      <GUID>2f35c239-1575-4091-8459-953191b08331</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>7a5dd943-101a-4a29-9ff6-38c693dc06fd</ContentItemDataGUID>
+</contentitemdata.trainingguides.drycatfood>

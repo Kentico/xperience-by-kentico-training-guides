@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentitemcommondata>
+  <AmountSchemaNumber>15</AmountSchemaNumber>
+  <AmountSchemaUnit>lb</AmountSchemaUnit>
+  <ContentItemCommonDataContentItemID>
+    <CodeName>PurremoEssentialsChickenAndRice-15lb-7z9zywgi</CodeName>
+    <GUID>e005db0f-c2ae-4769-b494-cb8d26ac53c4</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </ContentItemCommonDataContentItemID>
+  <ContentItemCommonDataContentLanguageID>
+    <CodeName>en</CodeName>
+    <GUID>e81b5172-f240-4041-88b1-653089984e29</GUID>
+    <ObjectType>cms.contentlanguage</ObjectType>
+  </ContentItemCommonDataContentLanguageID>
+  <ContentItemCommonDataFirstPublishedWhen>2026-01-12 14:21:23Z</ContentItemCommonDataFirstPublishedWhen>
+  <ContentItemCommonDataGUID>80c38672-083f-41e7-848b-eb4e5f60311e</ContentItemCommonDataGUID>
+  <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
+  <ContentItemCommonDataLastPublishedWhen>2026-01-15 22:21:58Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
+  <ProductPriceSchemaPrice>39.99</ProductPriceSchemaPrice>
+  <ProductSchemaDescription>
+    <![CDATA[<p>This fifteen pound bag is perfect for those who like to stock up, and for multi-cat households</p>]]>
+  </ProductSchemaDescription>
+  <ProductSchemaImages>
+    <![CDATA[[{"Identifier":"386d712d-1c4e-485e-ad4d-77d86a82cff9"}]]]>
+  </ProductSchemaImages>
+  <ProductSchemaName>Chicken and Rice - 15lb</ProductSchemaName>
+  <ProductShippingSchemaShippingType>3</ProductShippingSchemaShippingType>
+  <ProductShippingSchemaShippingWeight>15</ProductShippingSchemaShippingWeight>
+  <ProductShippingSchemaWeightUnit>lb</ProductShippingSchemaWeightUnit>
+  <ProductSkuSchemaSkuCode>PE-CR-15</ProductSkuSchemaSkuCode>
+  <ProductVariantSchemaCodeName>pe-chicken-and-rice-15lb</ProductVariantSchemaCodeName>
+  <ContentItemReferences>
+    <cms.contentitemreference>
+      <ContentItemReferenceGroupGUID>4ff443bf-b147-4f35-b35d-03d61002f569</ContentItemReferenceGroupGUID>
+      <ContentItemReferenceGUID>f3bafbf9-0eb3-4c39-b384-af4922e45fa3</ContentItemReferenceGUID>
+      <ContentItemReferenceSourceCommonDataID>
+        <GUID>80c38672-083f-41e7-848b-eb4e5f60311e</GUID>
+        <ObjectType>cms.contentitemcommondata</ObjectType>
+      </ContentItemReferenceSourceCommonDataID>
+      <ContentItemReferenceTargetItemID>
+        <CodeName>PurremoEssentialsChickenAndRice-kvztpkqv</CodeName>
+        <GUID>3e52dcee-545e-4ac0-8f98-466d216efb64</GUID>
+        <ObjectType>cms.contentitem</ObjectType>
+      </ContentItemReferenceTargetItemID>
+    </cms.contentitemreference>
+    <cms.contentitemreference>
+      <ContentItemReferenceGroupGUID>84b06b06-1392-422d-82e5-639ed2fa6340</ContentItemReferenceGroupGUID>
+      <ContentItemReferenceGUID>710a005a-415b-45cb-9a47-f7f194d180ad</ContentItemReferenceGUID>
+      <ContentItemReferenceSourceCommonDataID>
+        <GUID>80c38672-083f-41e7-848b-eb4e5f60311e</GUID>
+        <ObjectType>cms.contentitemcommondata</ObjectType>
+      </ContentItemReferenceSourceCommonDataID>
+      <ContentItemReferenceTargetItemID>
+        <CodeName>CatFoodKibble2-ft7e33w6</CodeName>
+        <GUID>386d712d-1c4e-485e-ad4d-77d86a82cff9</GUID>
+        <ObjectType>cms.contentitem</ObjectType>
+      </ContentItemReferenceTargetItemID>
+    </cms.contentitemreference>
+  </ContentItemReferences>
+</cms.contentitemcommondata>

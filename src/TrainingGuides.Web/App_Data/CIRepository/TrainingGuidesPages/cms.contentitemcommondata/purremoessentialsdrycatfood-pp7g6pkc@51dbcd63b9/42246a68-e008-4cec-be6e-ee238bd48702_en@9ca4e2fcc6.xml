@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentitemcommondata>
+  <ContentItemCommonDataContentItemID>
+    <CodeName>PurremoEssentialsDryCatFood-pp7g6pkc</CodeName>
+    <GUID>a8a8b9cc-1ea1-48d1-b16a-6d493582c505</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </ContentItemCommonDataContentItemID>
+  <ContentItemCommonDataContentLanguageID>
+    <CodeName>en</CodeName>
+    <GUID>e81b5172-f240-4041-88b1-653089984e29</GUID>
+    <ObjectType>cms.contentlanguage</ObjectType>
+  </ContentItemCommonDataContentLanguageID>
+  <ContentItemCommonDataFirstPublishedWhen>2026-01-15 22:27:40Z</ContentItemCommonDataFirstPublishedWhen>
+  <ContentItemCommonDataGUID>42246a68-e008-4cec-be6e-ee238bd48702</ContentItemCommonDataGUID>
+  <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
+  <ContentItemCommonDataLastPublishedWhen>2026-01-21 13:39:22Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
+  <ContentItemCommonDataVisualBuilderTemplateConfiguration>
+    <![CDATA[{"identifier":"TrainingGuides.GeneralPageTemplate","properties":{"colorScheme":"TransparentDark","cornerStyle":"Round","columnLayout":"OneColumn"},"fieldIdentifiers":{"colorScheme":"5d4afc34-400b-4b40-9b85-544448aa881b","cornerStyle":"23e4205c-7ad8-41b4-873a-2b0ba247163d","columnLayout":"7b741f04-e2c2-4a9d-acb3-1cbb3748d4c0"}}]]>
+  </ContentItemCommonDataVisualBuilderTemplateConfiguration>
+  <ContentItemCommonDataVisualBuilderWidgets>
+    <![CDATA[{"editableAreas":[{"identifier":"areaMain","sections":[{"identifier":"d4af6693-d020-439d-a6ad-4a2013722309","type":"TrainingGuides.GeneralSection","properties":{"sectionAnchor":"","colorScheme":"TransparentDark","cornerStyle":"Round","columnLayout":"OneColumn"},"zones":[{"identifier":"ed8cab42-124f-4468-b11a-251768f8344c","name":"zoneMain","widgets":[{"identifier":"66e79350-81c1-44e8-8838-d7a5b6780884","type":"TrainingGuides.ProductWidget","variants":[{"identifier":"5a298346-af84-404b-ad09-6c5a88ff801b","properties":{"displayCurrentPage":true,"selectedProduct":[],"showVariantSelection":true,"showVariantDetails":true,"showCallToAction":false,"callToActionText":"View Product"},"fieldIdentifiers":{"displayCurrentPage":"2f5f6e2e-2331-4362-a19f-d7595d5a2e80","selectedProduct":"cd476caa-1c16-4d86-9fd9-f0fa1da53263","showVariantSelection":"5efd114a-3f58-4a68-86a9-fe4dd3710c4c","showCallToAction":"edae4729-7f9e-456c-8faa-f2b6861aaeb3","callToActionText":"aae2ce25-577f-46d4-ad78-fc5122d0b12a","showVariantDetails":"abba3110-d7b8-4e46-95d8-e46d4cef8679"}}]}]}],"fieldIdentifiers":{"sectionAnchor":"fffe87a3-394a-438c-ad56-9d9aa99c1db3","colorScheme":"ddfd6c90-a531-4988-a1a2-b8a27d8a9dbb","cornerStyle":"1ccfc018-2c17-49a0-a5a4-2c5ab8891fb4","columnLayout":"650cf2bd-b944-43c6-bada-0c7cfe1e2d53"}}]}]}]]>
+  </ContentItemCommonDataVisualBuilderWidgets>
+  <ContentItemReferences>
+    <cms.contentitemreference>
+      <ContentItemReferenceGroupGUID>006815af-b9a1-4191-b865-e729e078d4cf</ContentItemReferenceGroupGUID>
+      <ContentItemReferenceGUID>1b43c058-f063-4e82-b237-3ebbb037acdb</ContentItemReferenceGUID>
+      <ContentItemReferenceSourceCommonDataID>
+        <GUID>42246a68-e008-4cec-be6e-ee238bd48702</GUID>
+        <ObjectType>cms.contentitemcommondata</ObjectType>
+      </ContentItemReferenceSourceCommonDataID>
+      <ContentItemReferenceTargetItemID>
+        <CodeName>PurremoEssentialsDryCatFood-pdugg1s7</CodeName>
+        <GUID>8cf15606-a8b7-418d-b2d9-e04761973c9a</GUID>
+        <ObjectType>cms.contentitem</ObjectType>
+      </ContentItemReferenceTargetItemID>
+    </cms.contentitemreference>
+  </ContentItemReferences>
+</cms.contentitemcommondata>

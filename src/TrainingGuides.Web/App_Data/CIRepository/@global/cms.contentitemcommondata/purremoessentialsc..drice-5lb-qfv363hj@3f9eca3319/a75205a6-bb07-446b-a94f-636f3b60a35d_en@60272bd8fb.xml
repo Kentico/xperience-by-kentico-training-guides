@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentitemcommondata>
+  <AmountSchemaNumber>5</AmountSchemaNumber>
+  <AmountSchemaUnit>lb</AmountSchemaUnit>
+  <ContentItemCommonDataContentItemID>
+    <CodeName>PurremoEssentialsChickenAndRice-5lb-qfv363hj</CodeName>
+    <GUID>d486692a-d388-476d-afdc-d062f1d326c7</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </ContentItemCommonDataContentItemID>
+  <ContentItemCommonDataContentLanguageID>
+    <CodeName>en</CodeName>
+    <GUID>e81b5172-f240-4041-88b1-653089984e29</GUID>
+    <ObjectType>cms.contentlanguage</ObjectType>
+  </ContentItemCommonDataContentLanguageID>
+  <ContentItemCommonDataFirstPublishedWhen>2026-01-12 14:18:45Z</ContentItemCommonDataFirstPublishedWhen>
+  <ContentItemCommonDataGUID>a75205a6-bb07-446b-a94f-636f3b60a35d</ContentItemCommonDataGUID>
+  <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
+  <ContentItemCommonDataLastPublishedWhen>2026-01-16 16:56:54Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
+  <ProductPriceSchemaPrice>39.99</ProductPriceSchemaPrice>
+  <ProductSchemaDescription>
+    <![CDATA[<p>This five pound bag is perfect for households with one cat</p>]]>
+  </ProductSchemaDescription>
+  <ProductSchemaImages>
+    <![CDATA[[{"Identifier":"386d712d-1c4e-485e-ad4d-77d86a82cff9"}]]]>
+  </ProductSchemaImages>
+  <ProductSchemaName>Chicken and Rice - 5lb</ProductSchemaName>
+  <ProductShippingSchemaShippingType>3</ProductShippingSchemaShippingType>
+  <ProductShippingSchemaShippingWeight>15</ProductShippingSchemaShippingWeight>
+  <ProductShippingSchemaWeightUnit>lb</ProductShippingSchemaWeightUnit>
+  <ProductSkuSchemaSkuCode>PE-CR-5</ProductSkuSchemaSkuCode>
+  <ProductVariantSchemaCodeName>wf-venison-and-salmon-5lb</ProductVariantSchemaCodeName>
+  <ContentItemReferences>
+    <cms.contentitemreference>
+      <ContentItemReferenceGroupGUID>4ff443bf-b147-4f35-b35d-03d61002f569</ContentItemReferenceGroupGUID>
+      <ContentItemReferenceGUID>92e0507c-6a5f-4c53-9805-707d026b8770</ContentItemReferenceGUID>
+      <ContentItemReferenceSourceCommonDataID>
+        <GUID>a75205a6-bb07-446b-a94f-636f3b60a35d</GUID>
+        <ObjectType>cms.contentitemcommondata</ObjectType>
+      </ContentItemReferenceSourceCommonDataID>
+      <ContentItemReferenceTargetItemID>
+        <CodeName>PurremoEssentialsChickenAndRice-kvztpkqv</CodeName>
+        <GUID>3e52dcee-545e-4ac0-8f98-466d216efb64</GUID>
+        <ObjectType>cms.contentitem</ObjectType>
+      </ContentItemReferenceTargetItemID>
+    </cms.contentitemreference>
+    <cms.contentitemreference>
+      <ContentItemReferenceGroupGUID>84b06b06-1392-422d-82e5-639ed2fa6340</ContentItemReferenceGroupGUID>
+      <ContentItemReferenceGUID>fafbcf23-cf9a-404b-a578-0ad2074ac28b</ContentItemReferenceGUID>
+      <ContentItemReferenceSourceCommonDataID>
+        <GUID>a75205a6-bb07-446b-a94f-636f3b60a35d</GUID>
+        <ObjectType>cms.contentitemcommondata</ObjectType>
+      </ContentItemReferenceSourceCommonDataID>
+      <ContentItemReferenceTargetItemID>
+        <CodeName>CatFoodKibble2-ft7e33w6</CodeName>
+        <GUID>386d712d-1c4e-485e-ad4d-77d86a82cff9</GUID>
+        <ObjectType>cms.contentitem</ObjectType>
+      </ContentItemReferenceTargetItemID>
+    </cms.contentitemreference>
+  </ContentItemReferences>
+</cms.contentitemcommondata>

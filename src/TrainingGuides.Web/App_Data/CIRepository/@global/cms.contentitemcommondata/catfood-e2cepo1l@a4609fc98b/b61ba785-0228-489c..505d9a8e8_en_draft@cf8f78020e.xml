@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentitemcommondata>
+  <ContentItemCommonDataContentItemID>
+    <CodeName>Catfood-e2cepo1l</CodeName>
+    <GUID>2f35c239-1575-4091-8459-953191b08331</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </ContentItemCommonDataContentItemID>
+  <ContentItemCommonDataContentLanguageID>
+    <CodeName>en</CodeName>
+    <GUID>e81b5172-f240-4041-88b1-653089984e29</GUID>
+    <ObjectType>cms.contentlanguage</ObjectType>
+  </ContentItemCommonDataContentLanguageID>
+  <ContentItemCommonDataGUID>b61ba785-0228-489c-afe0-290505d9a8e8</ContentItemCommonDataGUID>
+  <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
+  <ContentItemCommonDataVersionStatus>0</ContentItemCommonDataVersionStatus>
+  <ProductSchemaDescription>
+    <![CDATA[<p>test</p>]]>
+  </ProductSchemaDescription>
+  <ProductSchemaName>dry cat food</ProductSchemaName>
+  <ProductSchemaPrice>100</ProductSchemaPrice>
+  <ProductSchemaPriceSource>0</ProductSchemaPriceSource>
+  <ProductSchemaShipping>0</ProductSchemaShipping>
+  <ProductSchemaSKUNumber>DCF-112</ProductSchemaSKUNumber>
+</cms.contentitemcommondata>

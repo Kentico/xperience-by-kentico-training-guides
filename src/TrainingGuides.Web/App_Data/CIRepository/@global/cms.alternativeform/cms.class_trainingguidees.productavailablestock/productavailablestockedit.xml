@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.alternativeform>
+  <FormClassID>
+    <CodeName>TrainingGuidees.ProductAvailableStock</CodeName>
+    <GUID>0ff64203-f228-4f0a-9f06-881ac3080416</GUID>
+    <ObjectType>cms.class</ObjectType>
+  </FormClassID>
+  <FormDefinition>
+    <form>
+      <field column="ProductAvailableStockID" guid="2e6659d5-a8f3-45ab-97e3-db2823b3c628" enabled="" />
+      <field column="ProductAvailableStockContentItemID" guid="903c94ad-c494-41ce-a001-0f5b5a720102" enabled="" />
+      <field column="ProductAvailableStockValue" enabled="true" guid="81978698-a984-43d4-b167-c225241b854d" visible="true">
+        <settings>
+          <controlname>Kentico.Administration.DecimalNumberInput</controlname>
+        </settings>
+        <properties>
+          <defaultvalue>0</defaultvalue>
+          <explanationtext>Enter a decimal or whole number (e.g. 0.3)</explanationtext>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Available stock value</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+      </field>
+      <field column="ProductAvailableStockProductName" columnprecision="0" columnsize="200" columntype="text" dummy="altform" guid="bda34c62-838f-4417-95d0-c4c08af9d48c" visible="true" order="3">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Product name</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.TextInput</controlname>
+        </settings>
+      </field>
+      <field column="ProductStockSKUCode" guid="fa144089-49e3-400b-92f0-db1100610f18" enabled="" order="4" />
+    </form>
+  </FormDefinition>
+  <FormDisplayName>Product available stock edit</FormDisplayName>
+  <FormGUID>15227735-bbc3-486b-9418-ea03e04330ad</FormGUID>
+  <FormIsCustom>True</FormIsCustom>
+  <FormName>ProductAvailableStockEdit</FormName>
+</cms.alternativeform>

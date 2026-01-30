@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.drycatfood>
+  <ContentItemDataCommonDataID>
+    <GUID>a27743c8-32ad-4c93-aab1-ab3b8b9cbc2a</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>Df4-ykxllbes</CodeName>
+      <GUID>50ca6817-45c9-485b-bb23-d1c462925625</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>b258e520-c591-40f4-a29e-c72c7a81e443</ContentItemDataGUID>
+</contentitemdata.trainingguides.drycatfood>

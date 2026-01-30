@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentitemcommondata>
+  <ColorPattern>
+    <![CDATA[[{"Identifier":"cd7f777f-d768-4823-b492-2e1cc121fb42"}]]]>
+  </ColorPattern>
+  <ContentItemCommonDataContentItemID>
+    <CodeName>CanisFamReflectorPro-Medium-Blue-vm45osq5</CodeName>
+    <GUID>c8f4e0c8-7d5b-4e99-8631-cd58b854158d</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </ContentItemCommonDataContentItemID>
+  <ContentItemCommonDataContentLanguageID>
+    <CodeName>en</CodeName>
+    <GUID>e81b5172-f240-4041-88b1-653089984e29</GUID>
+    <ObjectType>cms.contentlanguage</ObjectType>
+  </ContentItemCommonDataContentLanguageID>
+  <ContentItemCommonDataFirstPublishedWhen>2026-01-27 15:53:43Z</ContentItemCommonDataFirstPublishedWhen>
+  <ContentItemCommonDataGUID>83a930b0-422e-478a-9810-a0c44920309a</ContentItemCommonDataGUID>
+  <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
+  <ContentItemCommonDataLastPublishedWhen>2026-01-27 17:38:33Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
+  <ProductPriceSchemaPrice>14.99</ProductPriceSchemaPrice>
+  <ProductSchemaImages>
+    <![CDATA[[{"Identifier":"c02e17fe-4ad1-4144-9b45-d064d2174d74"}]]]>
+  </ProductSchemaImages>
+  <ProductSchemaName>Med - Blue</ProductSchemaName>
+  <ProductShippingSchemaShippingType>1</ProductShippingSchemaShippingType>
+  <ProductShippingSchemaShippingWeight>0.6</ProductShippingSchemaShippingWeight>
+  <ProductShippingSchemaWeightUnit>oz</ProductShippingSchemaWeightUnit>
+  <ProductSkuSchemaSkuCode>CF-RP-M-B</ProductSkuSchemaSkuCode>
+  <ProductVariantSchemaCodeName>canisfam-rp-m-b</ProductVariantSchemaCodeName>
+  <SizeSchemaSize>
+    <![CDATA[[{"Identifier":"ed02b6b9-3b6d-46dd-9ca7-26125ac1207b"}]]]>
+  </SizeSchemaSize>
+  <ContentItemReferences>
+    <cms.contentitemreference>
+      <ContentItemReferenceGroupGUID>84b06b06-1392-422d-82e5-639ed2fa6340</ContentItemReferenceGroupGUID>
+      <ContentItemReferenceGUID>7a6494ec-a43f-4c43-b3df-7ae38632ddab</ContentItemReferenceGUID>
+      <ContentItemReferenceSourceCommonDataID>
+        <GUID>83a930b0-422e-478a-9810-a0c44920309a</GUID>
+        <ObjectType>cms.contentitemcommondata</ObjectType>
+      </ContentItemReferenceSourceCommonDataID>
+      <ContentItemReferenceTargetItemID>
+        <CodeName>CanisFamReflectorProBlue-bhn812s0</CodeName>
+        <GUID>c02e17fe-4ad1-4144-9b45-d064d2174d74</GUID>
+        <ObjectType>cms.contentitem</ObjectType>
+      </ContentItemReferenceTargetItemID>
+    </cms.contentitemreference>
+  </ContentItemReferences>
+</cms.contentitemcommondata>

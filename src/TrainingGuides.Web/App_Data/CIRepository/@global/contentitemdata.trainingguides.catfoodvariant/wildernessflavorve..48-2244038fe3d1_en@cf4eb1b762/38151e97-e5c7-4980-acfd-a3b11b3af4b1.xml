@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.catfoodvariant>
+  <CatFoodVariantFormulation>
+    <![CDATA[[{"Identifier":"4bed4b80-8127-4da9-baed-18289ad3a3e9"}]]]>
+  </CatFoodVariantFormulation>
+  <ContentItemDataCommonDataID>
+    <GUID>2fbe180b-0966-43e8-b148-2244038fe3d1</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>WildernessFlavorVenisonAndSalmon-14lb-uzhdazs1</CodeName>
+      <GUID>c5aa9de8-c9a3-451f-b69e-a0ea71d6c361</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>38151e97-e5c7-4980-acfd-a3b11b3af4b1</ContentItemDataGUID>
+</contentitemdata.trainingguides.catfoodvariant>

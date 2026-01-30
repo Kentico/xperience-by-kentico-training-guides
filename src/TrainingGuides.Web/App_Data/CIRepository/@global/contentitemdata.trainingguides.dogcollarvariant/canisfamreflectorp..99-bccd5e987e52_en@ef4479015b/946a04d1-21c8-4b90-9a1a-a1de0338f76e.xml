@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.dogcollarvariant>
+  <ContentItemDataCommonDataID>
+    <GUID>83cc137d-f1e6-4e7d-8599-bccd5e987e52</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>CanisFamReflectorPro-Small-Orange-rrc4ex7x</CodeName>
+      <GUID>6f787710-8696-4abf-ad78-9848362624e6</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>946a04d1-21c8-4b90-9a1a-a1de0338f76e</ContentItemDataGUID>
+</contentitemdata.trainingguides.dogcollarvariant>

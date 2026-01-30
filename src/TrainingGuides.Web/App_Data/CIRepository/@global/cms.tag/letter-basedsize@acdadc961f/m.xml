@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.tag>
+  <TagGUID>2a092071-3c6b-4ef5-a404-27f4919219af</TagGUID>
+  <TagMetadata>
+    <![CDATA[{"Translations":{"b2e99971-c2dd-4a47-bb64-0d9a0d28d226":{"Title":null,"Description":null}}}]]>
+  </TagMetadata>
+  <TagName>M</TagName>
+  <TagOrder>1</TagOrder>
+  <TagParentID>
+    <CodeName>Letter-basedSize</CodeName>
+    <GUID>2ac80ef9-93fb-4a48-b26c-97a52edba5de</GUID>
+    <ObjectType>cms.tag</ObjectType>
+  </TagParentID>
+  <TagTaxonomyID>
+    <CodeName>ProductSize</CodeName>
+    <GUID>f1f5bddf-bf7e-4009-b8b6-186000c57e10</GUID>
+    <ObjectType>cms.taxonomy</ObjectType>
+  </TagTaxonomyID>
+  <TagTitle>M</TagTitle>
+</cms.tag>

@@ -34,6 +34,13 @@
         <ObjectType>cms.contenttype</ObjectType>
       </AllowedChildContentTypeChildID>
     </Binding>
+    <Binding id="cms.contenttype_TrainingGuides.ProductPage">
+      <AllowedChildContentTypeChildID>
+        <CodeName>TrainingGuides.ProductPage</CodeName>
+        <GUID>c7ae17c7-2562-4c6c-bd48-b8aec10bba58</GUID>
+        <ObjectType>cms.contenttype</ObjectType>
+      </AllowedChildContentTypeChildID>
+    </Binding>
     <Binding id="cms.contenttype_TrainingGuides.ProfilePage">
       <AllowedChildContentTypeChildID>
         <CodeName>TrainingGuides.ProfilePage</CodeName>
@@ -45,6 +52,13 @@
       <AllowedChildContentTypeChildID>
         <CodeName>TrainingGuides.ServicePage</CodeName>
         <GUID>50b2f01e-c30e-4631-aeb6-56ff2278cb35</GUID>
+        <ObjectType>cms.contenttype</ObjectType>
+      </AllowedChildContentTypeChildID>
+    </Binding>
+    <Binding id="cms.contenttype_TrainingGuides.StoreSection">
+      <AllowedChildContentTypeChildID>
+        <CodeName>TrainingGuides.StoreSection</CodeName>
+        <GUID>5ce8de4d-0304-496a-8b09-7271613dd135</GUID>
         <ObjectType>cms.contenttype</ObjectType>
       </AllowedChildContentTypeChildID>
     </Binding>

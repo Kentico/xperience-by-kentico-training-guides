@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contenttype>
+  <ClassContentTypeType>Reusable</ClassContentTypeType>
+  <ClassDisplayName>Cat food variant</ClassDisplayName>
+  <ClassFormDefinition>
+    <form>
+      <field column="ContentItemDataID" columntype="integer" enabled="true" guid="0ef9ccc9-5320-4fae-a113-c168ff378667" isPK="true" />
+      <field column="ContentItemDataCommonDataID" columntype="integer" enabled="true" guid="3e1c75a1-d62b-4f60-b170-4b1081bc3611" refobjtype="cms.contentitemcommondata" reftype="Required" system="true" />
+      <field column="ContentItemDataGUID" columntype="guid" enabled="true" guid="e708ccc7-d675-444b-b84a-f3464238b860" isunique="true" system="true" />
+      <field allowempty="true" column="CatFoodVariantFormulation" columnprecision="0" columntype="contentitemreference" enabled="true" guid="4ff443bf-b147-4f35-b35d-03d61002f569" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Formulation</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <AllowedContentItemTypeIdentifiers>
+            <![CDATA[["a69ed0b4-65d3-459e-847a-2b65e2f82a5a"]]]>
+          </AllowedContentItemTypeIdentifiers>
+          <controlname>Kentico.Administration.ContentItemSelector</controlname>
+          <SelectionType>contentTypes</SelectionType>
+        </settings>
+      </field>
+      <schema guid="718b3f6f-4d78-4bda-874f-8b54d5d44b7b" name="718b3f6f-4d78-4bda-874f-8b54d5d44b7b">
+        <properties />
+      </schema>
+      <schema guid="240eabd8-f0ff-47b8-b27b-b82a8b2801c4" name="240eabd8-f0ff-47b8-b27b-b82a8b2801c4">
+        <properties />
+      </schema>
+      <schema guid="d84feead-cb75-44c3-848b-e348f53ea064" name="d84feead-cb75-44c3-848b-e348f53ea064">
+        <properties />
+      </schema>
+      <schema guid="00b85aea-91a7-4605-b142-fa38a582dcf1" name="00b85aea-91a7-4605-b142-fa38a582dcf1">
+        <properties />
+      </schema>
+      <schema guid="09c6f590-53ee-48f5-9d0e-c572fdd78bc2" name="09c6f590-53ee-48f5-9d0e-c572fdd78bc2">
+        <properties />
+      </schema>
+      <schema guid="f2b4c8cb-b9db-41ca-95f4-2e818147cc7d" name="f2b4c8cb-b9db-41ca-95f4-2e818147cc7d">
+        <properties />
+      </schema>
+    </form>
+  </ClassFormDefinition>
+  <ClassGUID>de985d3b-25e6-4204-baef-4903811489e3</ClassGUID>
+  <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
+  <ClassIconClass>xp-rectangle-v</ClassIconClass>
+  <ClassName>TrainingGuides.CatFoodVariant</ClassName>
+  <ClassShortName>TrainingGuidesCatFoodVariant</ClassShortName>
+  <ClassTableName>TrainingGuides_DryCatFoodVariant</ClassTableName>
+  <ClassType>Content</ClassType>
+  <ClassWebPageHasUrl>False</ClassWebPageHasUrl>
+</cms.contenttype>

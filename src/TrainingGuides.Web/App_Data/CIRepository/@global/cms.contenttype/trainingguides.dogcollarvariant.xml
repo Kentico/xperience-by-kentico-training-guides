@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contenttype>
+  <ClassContentTypeType>Reusable</ClassContentTypeType>
+  <ClassDisplayName>Dog collar variant</ClassDisplayName>
+  <ClassFormDefinition>
+    <form>
+      <field column="ContentItemDataID" columntype="integer" enabled="true" guid="d299e442-7fa7-450d-93a5-4761db15b05c" isPK="true" />
+      <field column="ContentItemDataCommonDataID" columntype="integer" enabled="true" guid="84107c5a-af5d-449f-bd06-a3694a164269" refobjtype="cms.contentitemcommondata" reftype="Required" system="true" />
+      <field column="ContentItemDataGUID" columntype="guid" enabled="true" guid="21c678e6-b935-4cbd-b7a1-c085e5d33f5a" isunique="true" system="true" />
+      <schema guid="240eabd8-f0ff-47b8-b27b-b82a8b2801c4" name="240eabd8-f0ff-47b8-b27b-b82a8b2801c4">
+        <properties />
+      </schema>
+      <schema guid="718b3f6f-4d78-4bda-874f-8b54d5d44b7b" name="718b3f6f-4d78-4bda-874f-8b54d5d44b7b">
+        <properties />
+      </schema>
+      <schema guid="f2b4c8cb-b9db-41ca-95f4-2e818147cc7d" name="f2b4c8cb-b9db-41ca-95f4-2e818147cc7d">
+        <properties />
+      </schema>
+      <schema guid="c0fd2ccf-efbe-4a41-b15f-48eca30539a6" name="c0fd2ccf-efbe-4a41-b15f-48eca30539a6">
+        <properties />
+      </schema>
+      <schema guid="8e9bc255-0e70-4034-8c3a-eb349bfe417a" name="8e9bc255-0e70-4034-8c3a-eb349bfe417a">
+        <properties />
+      </schema>
+      <schema guid="00b85aea-91a7-4605-b142-fa38a582dcf1" name="00b85aea-91a7-4605-b142-fa38a582dcf1">
+        <properties />
+      </schema>
+      <schema guid="09c6f590-53ee-48f5-9d0e-c572fdd78bc2" name="09c6f590-53ee-48f5-9d0e-c572fdd78bc2">
+        <properties />
+      </schema>
+    </form>
+  </ClassFormDefinition>
+  <ClassGUID>ade8fcc8-e483-432a-ae37-2c2cc5bc640d</ClassGUID>
+  <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
+  <ClassIconClass>xp-circle</ClassIconClass>
+  <ClassName>TrainingGuides.DogCollarVariant</ClassName>
+  <ClassShortName>TrainingGuidesDogCollarVariant</ClassShortName>
+  <ClassTableName>TrainingGuides_DogCollarVariant</ClassTableName>
+  <ClassType>Content</ClassType>
+  <ClassWebPageHasUrl>False</ClassWebPageHasUrl>
+</cms.contenttype>

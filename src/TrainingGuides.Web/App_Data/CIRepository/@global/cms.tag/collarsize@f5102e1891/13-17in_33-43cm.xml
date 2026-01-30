@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.tag>
+  <TagDescription>Neck circumference of 13-17in (33-43cm)</TagDescription>
+  <TagGUID>966f4a8c-6d03-405a-9367-4f4f89b20cc2</TagGUID>
+  <TagMetadata>
+    <![CDATA[{"Translations":{"b2e99971-c2dd-4a47-bb64-0d9a0d28d226":{"Title":null,"Description":null}}}]]>
+  </TagMetadata>
+  <TagName>13-17in_33-43cm</TagName>
+  <TagOrder>4</TagOrder>
+  <TagParentID>
+    <CodeName>CollarSize</CodeName>
+    <GUID>76282563-82ab-4193-a907-b4c78b1297ae</GUID>
+    <ObjectType>cms.tag</ObjectType>
+  </TagParentID>
+  <TagTaxonomyID>
+    <CodeName>ProductSize</CodeName>
+    <GUID>f1f5bddf-bf7e-4009-b8b6-186000c57e10</GUID>
+    <ObjectType>cms.taxonomy</ObjectType>
+  </TagTaxonomyID>
+  <TagTitle>13-17in (33-43cm)</TagTitle>
+</cms.tag>

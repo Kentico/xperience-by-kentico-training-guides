@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.dogcollarvariant>
+  <ContentItemDataCommonDataID>
+    <GUID>83a930b0-422e-478a-9810-a0c44920309a</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>CanisFamReflectorPro-Medium-Blue-vm45osq5</CodeName>
+      <GUID>c8f4e0c8-7d5b-4e99-8631-cd58b854158d</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>6eafef7e-d625-4149-b8a0-19943354ae58</ContentItemDataGUID>
+</contentitemdata.trainingguides.dogcollarvariant>

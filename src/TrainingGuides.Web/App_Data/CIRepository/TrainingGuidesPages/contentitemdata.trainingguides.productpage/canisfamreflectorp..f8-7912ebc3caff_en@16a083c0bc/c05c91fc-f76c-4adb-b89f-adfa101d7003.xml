@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.productpage>
+  <ContentItemDataCommonDataID>
+    <GUID>3d024609-107f-4e64-aef8-7912ebc3caff</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>CanisFamReflectorProDogCollar-5j0caibp</CodeName>
+      <GUID>151753df-ef45-4c4c-92c3-31c490abde54</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>c05c91fc-f76c-4adb-b89f-adfa101d7003</ContentItemDataGUID>
+  <ProductPageProducts>
+    <![CDATA[[{"Identifier":"3b48c9d7-6b93-49b0-85b2-b0ab92ec4b7f"}]]]>
+  </ProductPageProducts>
+</contentitemdata.trainingguides.productpage>

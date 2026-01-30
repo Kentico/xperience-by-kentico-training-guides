@@ -48,5 +48,12 @@
         <ObjectType>cms.contenttype</ObjectType>
       </AllowedChildContentTypeChildID>
     </Binding>
+    <Binding id="cms.contenttype_TrainingGuides.StoreSection">
+      <AllowedChildContentTypeChildID>
+        <CodeName>TrainingGuides.StoreSection</CodeName>
+        <GUID>5ce8de4d-0304-496a-8b09-7271613dd135</GUID>
+        <ObjectType>cms.contenttype</ObjectType>
+      </AllowedChildContentTypeChildID>
+    </Binding>
   </Bindings>
 </cms.allowedchildcontenttype>
