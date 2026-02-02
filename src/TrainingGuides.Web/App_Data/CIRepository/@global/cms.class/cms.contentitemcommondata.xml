@@ -406,6 +406,20 @@ oz;Ounces (oz)
           </ValidationRuleConfiguration>
         </validationrulesdata>
       </field>
+      <field allowempty="true" column="ProductPriceSchemaDiscountCategory" columnprecision="0" columntype="taxonomy" enabled="true" guid="2f50ebc2-3b33-48a6-b0b2-4a486bf617f7" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Discount category</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+          <kxp_schema_identifier>00b85aea-91a7-4605-b142-fa38a582dcf1</kxp_schema_identifier>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.TagSelector</controlname>
+          <TaxonomyGroup>
+            <![CDATA[["d60e2b56-332d-4bd2-a030-981cde535dcc"]]]>
+          </TaxonomyGroup>
+        </settings>
+      </field>
       <schema guid="f2b4c8cb-b9db-41ca-95f4-2e818147cc7d" name="ProductVariantSchema">
         <properties>
           <fieldcaption>Product variant schema</fieldcaption>

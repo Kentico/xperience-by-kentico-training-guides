@@ -15,9 +15,12 @@
   <ContentItemCommonDataFirstPublishedWhen>2026-01-12 14:18:45Z</ContentItemCommonDataFirstPublishedWhen>
   <ContentItemCommonDataGUID>a75205a6-bb07-446b-a94f-636f3b60a35d</ContentItemCommonDataGUID>
   <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
-  <ContentItemCommonDataLastPublishedWhen>2026-01-16 16:56:54Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataLastPublishedWhen>2026-02-02 16:14:55Z</ContentItemCommonDataLastPublishedWhen>
   <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
-  <ProductPriceSchemaPrice>39.99</ProductPriceSchemaPrice>
+  <ProductPriceSchemaDiscountCategory>
+    <![CDATA[[{"Identifier":"cd20ccd9-1941-4063-b4e6-4a11415e3e36"}]]]>
+  </ProductPriceSchemaDiscountCategory>
+  <ProductPriceSchemaPrice>18.99</ProductPriceSchemaPrice>
   <ProductSchemaDescription>
     <![CDATA[<p>This five pound bag is perfect for households with one cat</p>]]>
   </ProductSchemaDescription>
@@ -33,7 +36,7 @@
   <ContentItemReferences>
     <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>4ff443bf-b147-4f35-b35d-03d61002f569</ContentItemReferenceGroupGUID>
-      <ContentItemReferenceGUID>92e0507c-6a5f-4c53-9805-707d026b8770</ContentItemReferenceGUID>
+      <ContentItemReferenceGUID>286cfcaf-a59d-4490-8edc-9df2c9df8867</ContentItemReferenceGUID>
       <ContentItemReferenceSourceCommonDataID>
         <GUID>a75205a6-bb07-446b-a94f-636f3b60a35d</GUID>
         <ObjectType>cms.contentitemcommondata</ObjectType>
@@ -46,7 +49,7 @@
     </cms.contentitemreference>
     <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>84b06b06-1392-422d-82e5-639ed2fa6340</ContentItemReferenceGroupGUID>
-      <ContentItemReferenceGUID>fafbcf23-cf9a-404b-a578-0ad2074ac28b</ContentItemReferenceGUID>
+      <ContentItemReferenceGUID>5b829c91-40a1-4d47-880a-c4e150eabdbf</ContentItemReferenceGUID>
       <ContentItemReferenceSourceCommonDataID>
         <GUID>a75205a6-bb07-446b-a94f-636f3b60a35d</GUID>
         <ObjectType>cms.contentitemcommondata</ObjectType>

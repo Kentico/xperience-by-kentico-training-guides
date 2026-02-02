@@ -101,6 +101,12 @@ namespace TrainingGuides
 
 
 		/// <summary>
+		/// ProductPriceSchemaDiscountCategory.
+		/// </summary>
+		public IEnumerable<TagReference> ProductPriceSchemaDiscountCategory { get; set; }
+
+
+		/// <summary>
 		/// ProductVariantSchemaCodeName.
 		/// </summary>
 		public string ProductVariantSchemaCodeName { get; set; }

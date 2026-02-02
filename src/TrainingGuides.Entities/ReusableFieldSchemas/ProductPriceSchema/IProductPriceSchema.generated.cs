@@ -11,6 +11,7 @@
 
 using System;
 using System.Collections.Generic;
+using CMS.ContentEngine;
 
 namespace TrainingGuides
 {
@@ -29,5 +30,11 @@ namespace TrainingGuides
 		/// ProductPriceSchemaPrice.
 		/// </summary>
 		public decimal ProductPriceSchemaPrice { get; set; }
+
+
+		/// <summary>
+		/// ProductPriceSchemaDiscountCategory.
+		/// </summary>
+		public IEnumerable<TagReference> ProductPriceSchemaDiscountCategory { get; set; }
 	}
 }

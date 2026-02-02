@@ -22,6 +22,7 @@
   <ContentItemCommonDataVisualBuilderWidgets>
     <![CDATA[{"editableAreas":[]}]]>
   </ContentItemCommonDataVisualBuilderWidgets>
+  <ProductPriceSchemaDiscountCategory />
   <ContentItemReferences>
     <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>b315e712-05da-445d-980c-87578e46cd4d</ContentItemReferenceGroupGUID>

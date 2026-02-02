@@ -17,6 +17,7 @@
   <ContentItemCommonDataVisualBuilderTemplateConfiguration>
     <![CDATA[{"identifier":"TrainingGuides.DownloadsPagePageTemplate","properties":null,"fieldIdentifiers":null}]]>
   </ContentItemCommonDataVisualBuilderTemplateConfiguration>
+  <ProductPriceSchemaDiscountCategory />
   <ContentItemReferences>
     <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>0a01b8e1-309a-4cfa-8e2d-588c7ade747b</ContentItemReferenceGroupGUID>

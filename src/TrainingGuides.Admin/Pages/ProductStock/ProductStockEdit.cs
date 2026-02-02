@@ -4,7 +4,13 @@ using TrainingGuides.Admin.ProductStock;
 using TrainingGuides.ProductStock;
 
 // Registers this as the main edit page within the ProductStockEditSection
-[assembly: UIPage(typeof(ProductStockEditSection), "general", typeof(ProductStockEdit), "General", TemplateNames.EDIT, UIPageOrder.First)]
+[assembly: UIPage(
+    typeof(ProductStockEditSection),
+    "general",
+    typeof(ProductStockEdit),
+    "General",
+    TemplateNames.EDIT,
+    UIPageOrder.First)]
 
 namespace TrainingGuides.Admin.ProductStock;
 

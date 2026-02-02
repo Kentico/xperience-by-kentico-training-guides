@@ -17,6 +17,8 @@ using TrainingGuides.Web.Features.Shared.OptionProviders;
 using TrainingGuides.Web.OneTimeCode;
 using TrainingGuides.Web.Features.ContactImport;
 using TrainingGuides.Web.Commerce.Products.Services;
+using TrainingGuides.Web.Features.Commerce.Products.Services;
+using CMS.Commerce;
 
 namespace TrainingGuides.Web;
 
@@ -52,7 +54,8 @@ public static class ServiceCollectionExtensions
         services.AddScoped<IEmailDataMapper, TrainingGuidesEmailDataMapper>();
 
         services.AddTransient<IContentItemRetrieverService, ContentItemRetrieverService>();
-
+        services.AddTransient(typeof(IProductDataRetriever<,>), typeof(TrainingGuidesProductDataRetriever<,>)
+);
         // Since the ArticleConverter is one-time code, meant to be deleted after its first use, we won't bother with an interface.
         services.AddTransient<ArticleConverter>();
 

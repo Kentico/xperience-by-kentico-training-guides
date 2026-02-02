@@ -18,4 +18,5 @@
   <ContentItemCommonDataVisualBuilderTemplateConfiguration>
     <![CDATA[{"identifier":"TrainingGuides.GeneralPageTemplate","properties":null,"fieldIdentifiers":null}]]>
   </ContentItemCommonDataVisualBuilderTemplateConfiguration>
+  <ProductPriceSchemaDiscountCategory />
 </cms.contentitemcommondata>

@@ -1,3 +1,4 @@
+using CMS.Commerce;
 using CMS.ContentEngine;
 using CMS.DataEngine;
 using Kentico.Content.Web.Mvc;
@@ -5,6 +6,7 @@ using Kentico.Content.Web.Mvc.Routing;
 using Microsoft.AspNetCore.Html;
 using TrainingGuides.ProductStock;
 using TrainingGuides.Web.Commerce.Products.Models;
+using TrainingGuides.Web.Features.Commerce.PriceCalculation.Models;
 using TrainingGuides.Web.Features.Commerce.Products.Widgets.ProductListing;
 using TrainingGuides.Web.Features.Membership.Services;
 using TrainingGuides.Web.Features.Shared.Logging;
@@ -18,7 +20,8 @@ public class ProductService(IContentItemRetrieverService contentItemRetrieverSer
     IInfoProvider<TagInfo> tagInfoProvider,
     ITaxonomyRetriever taxonomyRetriever,
     IPreferredLanguageRetriever preferredLanguageRetriever,
-    IMembershipService membershipService) : IProductService
+    IMembershipService membershipService,
+    IPriceCalculationService<PriceCalculationRequest, TrainingGuidesPriceCalculationResult> priceCalculationService) : IProductService
 {
     private const decimal LowStockThreshold = 20m;
     private const string MATERIAL_TAXONOMY = "ProductMaterial";
@@ -26,7 +29,9 @@ public class ProductService(IContentItemRetrieverService contentItemRetrieverSer
 
     /// <inheritdoc/>
     public IProductSchema? GetFirstVariant(IProductParentSchema product) =>
-        product.ProductParentSchemaVariants.FirstOrDefault() as IProductSchema;
+        product.ProductParentSchemaVariants
+            .OrderBy(variant => variant is IProductPriceSchema pricedVariant ? pricedVariant.ProductPriceSchemaPrice : 0m)
+            .FirstOrDefault() as IProductSchema;
 
     /// <inheritdoc/>
     public IProductSchema? GetVariantByCodeName(IProductParentSchema product, string variantCodeName)
@@ -149,8 +154,6 @@ public class ProductService(IContentItemRetrieverService contentItemRetrieverSer
             ProductSelectedVariantCodeName = string.Empty,
             ProductVariants = [],
             ProductParentDescription = new HtmlString("Please sign in to view this product."),
-            ProductVariantDescription = new HtmlString(string.Empty),
-            ProductOtherDetails = new HtmlString(string.Empty),
             ProductStockStatus = GetFriendlyEnumString(await GetProductStockStatus(null))
         };
 
@@ -168,19 +171,20 @@ public class ProductService(IContentItemRetrieverService contentItemRetrieverSer
 
         var model = new ProductViewModel
         {
-            ProductName = product?.ProductSchemaName ?? string.Empty,
+            ProductName = product.ProductSchemaName ?? string.Empty,
             ProductSkuCode = (productVariant as IProductSkuSchema)?.ProductSkuSchemaSkuCode
                 ?? (product as IProductSkuSchema)?.ProductSkuSchemaSkuCode
                 ?? string.Empty,
-            ProductPrice = ((productVariant as IProductPriceSchema)?.ProductPriceSchemaPrice
+            ProductRegularPrice = ((productVariant as IProductPriceSchema)?.ProductPriceSchemaPrice
                 ?? parentProduct?.ProductParentSchemaVariants
                     .Cast<IProductPriceSchema>()
                     .Select(v => v?.ProductPriceSchemaPrice)
                     .FirstOrDefault())
                 ?? (product as IProductPriceSchema)?.ProductPriceSchemaPrice
                 ?? 0m,
+            ProductPrice = await GetCatalogPrice(productVariant ?? product),
             ProductImages = GetImageViewModels(productVariant?.ProductSchemaImages)
-                .UnionBy(GetImageViewModels(product?.ProductSchemaImages), img => img.ProductImageUrl),
+                .UnionBy(GetImageViewModels(product.ProductSchemaImages), img => img.ProductImageUrl),
             ProductSelectedVariantCodeName = (productVariant as IProductVariantSchema)?.ProductVariantSchemaCodeName ?? string.Empty,
             ProductVariants = parentProduct?.ProductParentSchemaVariants
                 .Cast<IProductSchema>()
@@ -191,14 +195,14 @@ public class ProductService(IContentItemRetrieverService contentItemRetrieverSer
                     VariantImage = GetImageViewModels(variant.ProductSchemaImages).FirstOrDefault()
                         ?? new ProductImageViewModel()
                 }) ?? [],
-            ProductParentDescription = new HtmlString(product?.ProductSchemaDescription ?? string.Empty),
+            ProductParentDescription = new HtmlString(product.ProductSchemaDescription ?? string.Empty),
             ProductVariantDescription = new HtmlString(productVariant?.ProductSchemaDescription ?? string.Empty),
-            ProductOtherDetails = new HtmlString(string.Empty),
             ProductStockStatus = GetFriendlyEnumString(stockStatus)
         };
 
         return model;
     }
+
 
     private async Task<ProductViewModel> GetProductViewModelForListing(IProductSchema product, IProductSchema? productVariant, bool accessDenied)
     {
@@ -215,13 +219,14 @@ public class ProductService(IContentItemRetrieverService contentItemRetrieverSer
         {
             ProductName = product.ProductSchemaName ?? string.Empty,
             ProductSkuCode = string.Empty,
-            ProductPrice = ((productVariant as IProductPriceSchema)?.ProductPriceSchemaPrice
+            ProductRegularPrice = ((productVariant as IProductPriceSchema)?.ProductPriceSchemaPrice
                 ?? parentProduct?.ProductParentSchemaVariants
                     .Cast<IProductPriceSchema>()
                     .Select(v => v?.ProductPriceSchemaPrice)
                     .FirstOrDefault())
                 ?? (product as IProductPriceSchema)?.ProductPriceSchemaPrice
                 ?? 0m,
+            ProductPrice = await GetCatalogPrice(productVariant ?? product),
             ProductImages = GetImageViewModels([product.ProductSchemaImages.FirstOrDefault() ?? new()]),
             ProductSelectedVariantCodeName = string.Empty,
             ProductVariants = [],
@@ -558,7 +563,8 @@ public class ProductService(IContentItemRetrieverService contentItemRetrieverSer
             models.Add(new ProductListingItemViewModel
             {
                 Product = productViewModel,
-                ProductPageUrl = productPageUrl
+                ProductPageUrl = productPageUrl,
+                AccessDenied = accessDenied
             });
         }
 
@@ -677,5 +683,59 @@ public class ProductService(IContentItemRetrieverService contentItemRetrieverSer
                 FilterOptionValue = tag.Name
             }).ToList() ?? []
         };
+    }
+    private async Task<decimal> GetCatalogPrice(IProductSchema product)
+    {
+        if (product is IProductPriceSchema pricedProduct)
+        {
+            return await GetCatalogPrice((product as IContentItemFieldsSource)?.SystemFields.ContentItemID ?? 0)
+                ?? pricedProduct.ProductPriceSchemaPrice;
+        }
+        else if (product is IProductParentSchema parentProduct)
+        {
+            var firstVariant = GetFirstVariant(parentProduct);
+            if (firstVariant is IProductPriceSchema pricedVariant)
+            {
+                return await GetCatalogPrice((firstVariant as IContentItemFieldsSource)?.SystemFields.ContentItemID ?? 0)
+                    ?? pricedVariant.ProductPriceSchemaPrice;
+            }
+        }
+        else if (product is IProductVariantSchema)
+        {
+            var parent = await GetVariantParent(product);
+            if (parent is IProductPriceSchema pricedParent)
+            {
+                return await GetCatalogPrice((parent as IContentItemFieldsSource)?.SystemFields.ContentItemID ?? 0)
+                    ?? pricedParent.ProductPriceSchemaPrice;
+            }
+        }
+        return 0m;
+    }
+
+    public async Task<decimal?> GetCatalogPrice(int productId,
+        CancellationToken cancellationToken = default)
+    {
+        // Creates a minimal calculation request for catalog display
+        var calculationRequest = new PriceCalculationRequest
+        {
+            Items = [new PriceCalculationRequestItem
+            {
+                ProductIdentifier = new TrainingGuidesPriceIdentifier { Identifier = productId },
+                Quantity = 1,
+            }],
+            LanguageName = preferredLanguageRetriever.Get(),
+            // Use Catalog mode for product listing/detail pages
+            Mode = PriceCalculationMode.Catalog
+        };
+
+        // Calculates the prices based on the request
+        var calculationResult =
+            await priceCalculationService.Calculate(calculationRequest, cancellationToken);
+
+        // Access pricing for the product
+        var item = calculationResult?.Items.FirstOrDefault();
+
+        // Price after catalog promotion (if any was applied)
+        return item?.LineSubtotalAfterLineDiscount;
     }
 }

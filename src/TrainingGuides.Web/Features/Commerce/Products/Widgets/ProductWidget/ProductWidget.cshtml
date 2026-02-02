@@ -105,6 +105,12 @@ else
             }
             @if (Model.Product.ProductPrice > 0m)
             {
+                if (Model.Product.ProductPrice < Model.Product.ProductRegularPrice)
+                {
+                    <div class="c-product-widget__price mb-3">
+                    <span class="h5 text-primary fw-bold text-decoration-line-through">$@Model.Product.ProductRegularPrice.ToString("F2")</span>
+                </div>
+                }
                 <div class="c-product-widget__price mb-3">
                     <span class="h5 text-primary fw-bold">$@Model.Product.ProductPrice.ToString("F2")</span>
                 </div>

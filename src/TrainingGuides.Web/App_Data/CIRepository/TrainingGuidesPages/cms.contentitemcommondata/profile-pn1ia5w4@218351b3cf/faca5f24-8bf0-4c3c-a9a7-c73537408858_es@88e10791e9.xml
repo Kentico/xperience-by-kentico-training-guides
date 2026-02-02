@@ -22,4 +22,5 @@
   <ContentItemCommonDataVisualBuilderWidgets>
     <![CDATA[{"editableAreas":[]}]]>
   </ContentItemCommonDataVisualBuilderWidgets>
+  <ProductPriceSchemaDiscountCategory />
 </cms.contentitemcommondata>

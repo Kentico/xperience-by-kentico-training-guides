@@ -40,7 +40,6 @@ public class ProductListingWidgetViewComponent(
         {
             CtaText = properties.CtaText,
             SignInText = properties.SignInText,
-            IsAuthenticated = await membershipService.IsMemberAuthenticated(),
             AvailableFilters = await productService.GetProductListingFilters()
         };
 

@@ -58,7 +58,6 @@ else
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 product-grid mt-3 mt-md-4">
                     @foreach (var item in Model.Products)
                     {
-                        bool showSignIn = !Model.IsAuthenticated && item.Product.ProductStockStatus == "Unavailable";
                         <div class="col mt-4 product-card">
                             <a href="@item.ProductPageUrl" class="text-decoration-none">
                                 <div class="c-card bg-1 u-border-01">
@@ -71,7 +70,10 @@ else
                                     }
                                     <div class="p-2 c-card_body">
                                         <h2 class="h4 mb-2">@item.Product.ProductName</h2>
-                                        <p class="mb-2 text-muted">@item.Product.ProductPrice.ToString("C")</p>
+                                        @if (item.Product.ProductPrice > 0m)
+                                        {
+                                            <p class="mb-2 text-muted">@(item.Product.ProductPrice.ToString("C") + (item.Product.ProductPrice < item.Product.ProductRegularPrice ? " (On Sale)" : ""))</p>
+                                        }
                                         <p class="mb-0">
                                             <span class="badge @(item.Product.ProductStockStatus == "In Stock" ? "bg-success" : item.Product.ProductStockStatus == "Low Stock" ? "bg-warning" : "bg-secondary")">
                                                 @item.Product.ProductStockStatus
@@ -80,7 +82,7 @@ else
                                     </div>
                                     <div class="p-2 c-card_footer">
                                         <span class="c-link primary-upper text-uppercase">
-                                            @(showSignIn ? Model.SignInText : Model.CtaText)
+                                            @(item.AccessDenied ? Model.SignInText : Model.CtaText)
                                         </span>
                                     </div>
                                 </div>

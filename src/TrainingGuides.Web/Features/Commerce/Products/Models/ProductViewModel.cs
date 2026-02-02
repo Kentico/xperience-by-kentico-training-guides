@@ -6,6 +6,7 @@ public class ProductViewModel
 {
     public string ProductName { get; set; } = string.Empty;
     public string ProductSkuCode { get; set; } = string.Empty;
+    public decimal ProductRegularPrice { get; set; }
     public decimal ProductPrice { get; set; }
     public IEnumerable<ProductImageViewModel> ProductImages { get; set; } = Enumerable.Empty<ProductImageViewModel>();
     public string ProductSelectedVariantCodeName { get; set; } = string.Empty;
