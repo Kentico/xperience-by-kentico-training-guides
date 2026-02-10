@@ -108,7 +108,7 @@ public class ProductPageWrapperHandler() : Module(MODULE_NAME)
                     new DeleteWebPageParameters(productPage.SystemFields.WebPageItemID, e.ContentLanguageName)
                     {
                         Permanently = true,
-                    }).Wait();
+                    }).GetAwaiter().GetResult();
         }
     }
 
@@ -121,7 +121,7 @@ public class ProductPageWrapperHandler() : Module(MODULE_NAME)
 
         foreach (var productPage in productPages)
         {
-            if (!webPageManager.TryPublish(productPage.SystemFields.WebPageItemID, e.ContentLanguageName).Result)
+            if (!webPageManager.TryPublish(productPage.SystemFields.WebPageItemID, e.ContentLanguageName).GetAwaiter().GetResult())
             {
                 logger.LogError(EventIds.ProductWrapperPublishFailed,
                 "Publish failed for product page with ID {WebPageItemID} for product content item ID {ContentItemID} in language {LanguageName}.",
@@ -141,7 +141,7 @@ public class ProductPageWrapperHandler() : Module(MODULE_NAME)
 
         foreach (var productPage in productPages)
         {
-            if (!webPageManager.TryUnpublish(productPage.SystemFields.WebPageItemID, e.ContentLanguageName).Result)
+            if (!webPageManager.TryUnpublish(productPage.SystemFields.WebPageItemID, e.ContentLanguageName).GetAwaiter().GetResult())
             {
                 logger.LogError(EventIds.ProductWrapperUnpublishFailed,
                 "Unpublish failed for product page with ID {WebPageItemID} for product content item ID {ContentItemID} in language {LanguageName}.",
@@ -215,7 +215,7 @@ public class ProductPageWrapperHandler() : Module(MODULE_NAME)
         };
 
         createPageParameters.SetPageBuilderConfiguration(GetProductWidgetsConfiguration(), GetPageTemplateConfiguration());
-        int id = webPageManager.Create(createPageParameters).Result;
+        int id = webPageManager.Create(createPageParameters).GetAwaiter().GetResult();
 
         if (id <= 0)
         {
@@ -372,7 +372,7 @@ public class ProductPageWrapperHandler() : Module(MODULE_NAME)
 
         createLanguageVariantParameters.SetPageBuilderConfiguration(GetProductWidgetsConfiguration(), GetPageTemplateConfiguration());
 
-        if (!webPageManager.TryCreateLanguageVariant(createLanguageVariantParameters).Result)
+        if (!webPageManager.TryCreateLanguageVariant(createLanguageVariantParameters).GetAwaiter().GetResult())
         {
             logger.LogError(EventIds.ProductWrapperLanguageVariantCreateFailed,
                 "Page wrapper language variant creation failed for product content item with GUID {ContentItemGuid} in language {LanguageName}.",
@@ -400,7 +400,7 @@ public class ProductPageWrapperHandler() : Module(MODULE_NAME)
                 depth: 0,
                 languageName: null,
                 channelName: CHANNEL_NAME)
-            .Result;
+            .GetAwaiter().GetResult();
 
         if (!existingParentPages.Any())
         {
@@ -448,7 +448,7 @@ public class ProductPageWrapperHandler() : Module(MODULE_NAME)
 
         createParentPageParameters.SetPageBuilderConfiguration(GetParentWidgetsConfiguration(), GetPageTemplateConfiguration());
 
-        return webPageManager.Create(createParentPageParameters).Result;
+        return webPageManager.Create(createParentPageParameters).GetAwaiter().GetResult();
     }
 
     private void CreateParentPageLanguageVariant(string displayName, string languageName, Guid contentTypeGuid, int webPageItemID)
@@ -465,7 +465,7 @@ public class ProductPageWrapperHandler() : Module(MODULE_NAME)
 
         createLanguageVariantParameters.SetPageBuilderConfiguration(GetParentWidgetsConfiguration(), GetPageTemplateConfiguration());
 
-        if (!webPageManager.TryCreateLanguageVariant(createLanguageVariantParameters).Result)
+        if (!webPageManager.TryCreateLanguageVariant(createLanguageVariantParameters).GetAwaiter().GetResult())
         {
             logger.LogError(EventIds.ProductParentPageLanguageVariantCreateFailed,
                 "Parent page language variant creation failed for product content type with GUID {ContentTypeGuid} in language {LanguageName}.",
@@ -481,7 +481,7 @@ public class ProductPageWrapperHandler() : Module(MODULE_NAME)
                 languageName: languageName,
                 channelName: CHANNEL_NAME,
                 forPreview: true)
-            .Result?.SystemFields.WebPageItemID;
+            .GetAwaiter().GetResult()?.SystemFields.WebPageItemID;
 
     /// <summary>
     /// Retrieves all product pages that reference the specified product.
@@ -518,7 +518,7 @@ public class ProductPageWrapperHandler() : Module(MODULE_NAME)
                     depth: 0,
                     languageName: languageName,
                     channelName: CHANNEL_NAME)
-                .Result;
+                .GetAwaiter().GetResult();
 
     }
 
