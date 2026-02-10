@@ -12,6 +12,5 @@ public class ServiceComparatorWidgetViewModel : IWidgetViewModel
     public string HeadingType { get; set; } = string.Empty;
     public string HeadingMargin { get; set; } = string.Empty;
     public bool ShowShortDescription { get; set; }
-    public string CheckboxIconUrl { get; set; } = string.Empty;
     public bool IsMisconfigured => Services.Count == 0;
 }

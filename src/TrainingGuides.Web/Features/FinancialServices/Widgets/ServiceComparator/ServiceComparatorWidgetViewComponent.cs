@@ -21,20 +21,10 @@ using TrainingGuides.Web.Features.Shared.Services;
 
 namespace TrainingGuides.Web.Features.FinancialServices.Widgets.ServiceComparator;
 
-public class ServiceComparatorWidgetViewComponent : ViewComponent
+public class ServiceComparatorWidgetViewComponent(
+        IContentItemRetrieverService contentItemRetrieverService) : ViewComponent
 {
     public const string IDENTIFIER = "TrainingGuides.ServiceComparatorWidget";
-
-    private readonly IContentItemRetrieverService contentItemRetrieverService;
-    private readonly IHttpRequestService httpRequestService;
-
-    public ServiceComparatorWidgetViewComponent(
-        IContentItemRetrieverService contentItemRetrieverService,
-        IHttpRequestService httpRequestService)
-    {
-        this.contentItemRetrieverService = contentItemRetrieverService;
-        this.httpRequestService = httpRequestService;
-    }
 
     public async Task<ViewViewComponentResult> InvokeAsync(ServiceComparatorWidgetProperties properties)
     {
@@ -48,7 +38,6 @@ public class ServiceComparatorWidgetViewComponent : ViewComponent
             HeadingType = properties.HeadingType,
             HeadingMargin = properties.HeadingMargin,
             ShowShortDescription = properties.ShowShortDescription,
-            CheckboxIconUrl = $"{httpRequestService.GetBaseUrl()}/assets/img/icons.svg#check"
         };
 
         foreach (var guid in guids)

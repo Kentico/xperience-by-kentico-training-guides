@@ -11,9 +11,9 @@
   </ContentItemDataCommonDataID>
   <ContentItemDataGUID>52263b6e-975e-4b02-915b-2bda69ff153e</ContentItemDataGUID>
   <ServiceFeatureIncluded>False</ServiceFeatureIncluded>
-  <ServiceFeatureKey>lorems-per-ipsum</ServiceFeatureKey>
-  <ServiceFeatureLabel>Lorems per ipsum</ServiceFeatureLabel>
+  <ServiceFeatureKey>apy</ServiceFeatureKey>
+  <ServiceFeatureLabel>APY</ServiceFeatureLabel>
   <ServiceFeatureShowInComparator>1</ServiceFeatureShowInComparator>
-  <ServiceFeatureValue>100</ServiceFeatureValue>
+  <ServiceFeatureValue>4.625%</ServiceFeatureValue>
   <ServiceFeatureValueType>0</ServiceFeatureValueType>
 </contentitemdata.trainingguides.servicefeature>

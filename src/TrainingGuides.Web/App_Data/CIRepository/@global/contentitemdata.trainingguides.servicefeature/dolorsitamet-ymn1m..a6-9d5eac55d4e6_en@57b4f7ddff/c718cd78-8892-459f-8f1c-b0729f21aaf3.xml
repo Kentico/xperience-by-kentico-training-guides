@@ -11,8 +11,8 @@
   </ContentItemDataCommonDataID>
   <ContentItemDataGUID>c718cd78-8892-459f-8f1c-b0729f21aaf3</ContentItemDataGUID>
   <ServiceFeatureIncluded>True</ServiceFeatureIncluded>
-  <ServiceFeatureKey>dolor-sit-amet</ServiceFeatureKey>
-  <ServiceFeatureLabel>Dolor sit amet</ServiceFeatureLabel>
+  <ServiceFeatureKey>ftc-oversight</ServiceFeatureKey>
+  <ServiceFeatureLabel>FTC oversight</ServiceFeatureLabel>
   <ServiceFeatureShowInComparator>1</ServiceFeatureShowInComparator>
   <ServiceFeatureValue />
   <ServiceFeatureValueType>2</ServiceFeatureValueType>

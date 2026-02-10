@@ -45,19 +45,6 @@
       </ContentItemReferenceTargetItemID>
     </cms.contentitemreference>
     <cms.contentitemreference>
-      <ContentItemReferenceGroupGUID>6c3e4ad5-a5b1-4198-85bf-702c854066e7</ContentItemReferenceGroupGUID>
-      <ContentItemReferenceGUID>8f472634-6d15-4a6e-84ef-e29508cda6a7</ContentItemReferenceGUID>
-      <ContentItemReferenceSourceCommonDataID>
-        <GUID>b5b8ea6c-4e5e-45a1-a776-da9b92ce41ba</GUID>
-        <ObjectType>cms.contentitemcommondata</ObjectType>
-      </ContentItemReferenceSourceCommonDataID>
-      <ContentItemReferenceTargetItemID>
-        <CodeName>LoremIpsumBenefit3-uq2rgfn6</CodeName>
-        <GUID>1c1d377a-0e51-4b18-83cf-05836881f131</GUID>
-        <ObjectType>cms.contentitem</ObjectType>
-      </ContentItemReferenceTargetItemID>
-    </cms.contentitemreference>
-    <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>58c39cf1-b364-425a-a8fa-b25357856137</ContentItemReferenceGroupGUID>
       <ContentItemReferenceGUID>7e1ec3b5-8a83-4dfe-bd15-84c6cd442a7a</ContentItemReferenceGUID>
       <ContentItemReferenceSourceCommonDataID>
