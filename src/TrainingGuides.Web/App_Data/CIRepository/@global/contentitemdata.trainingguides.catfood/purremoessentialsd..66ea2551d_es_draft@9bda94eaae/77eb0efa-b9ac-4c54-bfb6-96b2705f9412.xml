@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.catfood>
+  <CatFoodVariants>
+    <![CDATA[[{"Identifier":"d486692a-d388-476d-afdc-d062f1d326c7"},{"Identifier":"e005db0f-c2ae-4769-b494-cb8d26ac53c4"},{"Identifier":"c3f056a5-2e9c-46ff-84b9-6f2b9790317c"}]]]>
+  </CatFoodVariants>
+  <ContentItemDataCommonDataID>
+    <GUID>6ac748f2-2732-4fc6-84ee-68c66ea2551d</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>PurremoEssentialsDryCatFood-pdugg1s7</CodeName>
+      <GUID>8cf15606-a8b7-418d-b2d9-e04761973c9a</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>77eb0efa-b9ac-4c54-bfb6-96b2705f9412</ContentItemDataGUID>
+</contentitemdata.trainingguides.catfood>

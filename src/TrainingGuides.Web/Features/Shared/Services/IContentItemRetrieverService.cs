@@ -67,6 +67,48 @@ public interface IContentItemRetrieverService
         where T : IWebPageFieldsSource, new();
 
     /// <summary>
+    /// Retrieves a web page content item by path without context using ContentRetriever API
+    /// </summary>
+    /// <typeparam name="T">Type of the web page to retrieve</typeparam>
+    /// <param name="pathToMatch">Path where the web page lives</param>
+    /// <param name="languageName">Name of the language</param>
+    /// <param name="channelName">Name of the channel</param>
+    /// <param name="forPreview">Indicates whether the retrieval is for preview (latest draft of items)</param>
+    /// <param name="includeSecuredItems">Indicates whether to include secured items</param>
+    /// <returns>The web page content item of the specified type</returns>
+    Task<T?> RetrieveWebPageByPathWithoutContext<T>(
+        string pathToMatch,
+        string languageName,
+        string channelName,
+        bool forPreview,
+        bool includeSecuredItems)
+        where T : IWebPageFieldsSource, new();
+
+    /// <summary>
+    /// Retrieves child pages of a given web page without context using ContentRetriever API
+    /// </summary>
+    /// <param name="contentTypeNames">Content types of the child pages to retrieve</param>
+    /// <param name="parentPagePath">Path of the parent page</param>
+    /// <param name="customContentTypeQueryParameters">A function to customize the <see cref="ContentTypesQueryParameters"/></param>
+    /// <param name="customContentQueryParameters">A function to customize the <see cref="ContentQueryParameters"/></param>
+    /// <param name="forPreview">Indicates whether the retrieval is for preview (latest draft of items)</param>
+    /// <param name="includeSecuredItems">Indicates whether to include secured items</param>
+    /// <param name="channelName">Name of the channel</param>
+    /// <param name="languageName">Name of the language. If null, all languages are retrieved.</param>
+    /// <param name="depth">The maximum level of recursively linked content items to include in the results. Default is 1</param>
+    /// <returns>A collection of web pages that exist under the specified path in the content tree</returns>
+    Task<IEnumerable<IWebPageFieldsSource>> RetrieveWebPageChildrenByPathWithoutContext(
+        IEnumerable<string> contentTypeNames,
+        string parentPagePath,
+        Func<ContentTypesQueryParameters, ContentTypesQueryParameters> customContentTypeQueryParameters,
+        Func<ContentQueryParameters, ContentQueryParameters> customContentQueryParameters,
+        bool forPreview,
+        bool includeSecuredItems,
+        string channelName,
+        string? languageName = null,
+        int depth = 1);
+
+    /// <summary>
     /// Retrieves child pages of a given web page that are linked to specific content items, specified by list of reference IDs.
     /// </summary>
     /// <param name="parentPageContentTypeName">Content type of the parent page</param>

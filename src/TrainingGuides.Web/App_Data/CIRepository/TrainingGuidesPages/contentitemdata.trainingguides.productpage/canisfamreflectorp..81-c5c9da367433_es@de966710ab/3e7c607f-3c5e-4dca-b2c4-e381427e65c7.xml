@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.productpage>
+  <ContentItemDataCommonDataID>
+    <GUID>0ef97059-93fc-45c1-a281-c5c9da367433</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>CanisFamReflectorProCollarDePerro-rt9f1a23</CodeName>
+      <GUID>8ceedaf7-a814-4b7d-9c38-350f73ae5ffa</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>3e7c607f-3c5e-4dca-b2c4-e381427e65c7</ContentItemDataGUID>
+  <ProductPageProducts>
+    <![CDATA[[{"Identifier":"3b48c9d7-6b93-49b0-85b2-b0ab92ec4b7f"}]]]>
+  </ProductPageProducts>
+</contentitemdata.trainingguides.productpage>

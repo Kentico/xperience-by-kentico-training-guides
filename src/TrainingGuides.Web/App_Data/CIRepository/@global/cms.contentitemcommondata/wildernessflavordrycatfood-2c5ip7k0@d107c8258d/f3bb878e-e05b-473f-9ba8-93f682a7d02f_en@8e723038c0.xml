@@ -13,7 +13,7 @@
   <ContentItemCommonDataFirstPublishedWhen>2026-01-12 18:06:15Z</ContentItemCommonDataFirstPublishedWhen>
   <ContentItemCommonDataGUID>f3bb878e-e05b-473f-9ba8-93f682a7d02f</ContentItemCommonDataGUID>
   <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
-  <ContentItemCommonDataLastPublishedWhen>2026-01-26 19:46:04Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataLastPublishedWhen>2026-02-09 19:55:28Z</ContentItemCommonDataLastPublishedWhen>
   <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
   <ProductParentSchemaVariants>
     <![CDATA[[{"Identifier":"17f1c88b-5002-4459-9d1e-31dd0e367499"},{"Identifier":"c5aa9de8-c9a3-451f-b69e-a0ea71d6c361"}]]]>
@@ -29,7 +29,20 @@
   <ContentItemReferences>
     <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>e79bcba5-39ea-415d-9202-0b712e101330</ContentItemReferenceGroupGUID>
-      <ContentItemReferenceGUID>a461c050-6732-41e7-b284-779df9f06fb4</ContentItemReferenceGUID>
+      <ContentItemReferenceGUID>5d170345-3287-4ea4-ba5c-24199b4afe16</ContentItemReferenceGUID>
+      <ContentItemReferenceSourceCommonDataID>
+        <GUID>f3bb878e-e05b-473f-9ba8-93f682a7d02f</GUID>
+        <ObjectType>cms.contentitemcommondata</ObjectType>
+      </ContentItemReferenceSourceCommonDataID>
+      <ContentItemReferenceTargetItemID>
+        <CodeName>WildernessFlavorVenisonAndSalmon-14lb-uzhdazs1</CodeName>
+        <GUID>c5aa9de8-c9a3-451f-b69e-a0ea71d6c361</GUID>
+        <ObjectType>cms.contentitem</ObjectType>
+      </ContentItemReferenceTargetItemID>
+    </cms.contentitemreference>
+    <cms.contentitemreference>
+      <ContentItemReferenceGroupGUID>e79bcba5-39ea-415d-9202-0b712e101330</ContentItemReferenceGroupGUID>
+      <ContentItemReferenceGUID>71197dc1-0fd4-4bc1-a52a-ff690cc3d8d9</ContentItemReferenceGUID>
       <ContentItemReferenceSourceCommonDataID>
         <GUID>f3bb878e-e05b-473f-9ba8-93f682a7d02f</GUID>
         <ObjectType>cms.contentitemcommondata</ObjectType>
@@ -41,8 +54,8 @@
       </ContentItemReferenceTargetItemID>
     </cms.contentitemreference>
     <cms.contentitemreference>
-      <ContentItemReferenceGroupGUID>e79bcba5-39ea-415d-9202-0b712e101330</ContentItemReferenceGroupGUID>
-      <ContentItemReferenceGUID>e4d469a8-6bc0-4077-8200-c1f09d13b9b4</ContentItemReferenceGUID>
+      <ContentItemReferenceGroupGUID>88a1bd9a-7555-4a98-8fc5-2ee1afc830a9</ContentItemReferenceGroupGUID>
+      <ContentItemReferenceGUID>770445d8-f79e-48d7-ad30-3821bacd1fec</ContentItemReferenceGUID>
       <ContentItemReferenceSourceCommonDataID>
         <GUID>f3bb878e-e05b-473f-9ba8-93f682a7d02f</GUID>
         <ObjectType>cms.contentitemcommondata</ObjectType>
@@ -55,20 +68,7 @@
     </cms.contentitemreference>
     <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>88a1bd9a-7555-4a98-8fc5-2ee1afc830a9</ContentItemReferenceGroupGUID>
-      <ContentItemReferenceGUID>7dd1ab31-de8e-4df3-b4e7-018e71ed46fb</ContentItemReferenceGUID>
-      <ContentItemReferenceSourceCommonDataID>
-        <GUID>f3bb878e-e05b-473f-9ba8-93f682a7d02f</GUID>
-        <ObjectType>cms.contentitemcommondata</ObjectType>
-      </ContentItemReferenceSourceCommonDataID>
-      <ContentItemReferenceTargetItemID>
-        <CodeName>WildernessFlavorVenisonAndSalmon-14lb-uzhdazs1</CodeName>
-        <GUID>c5aa9de8-c9a3-451f-b69e-a0ea71d6c361</GUID>
-        <ObjectType>cms.contentitem</ObjectType>
-      </ContentItemReferenceTargetItemID>
-    </cms.contentitemreference>
-    <cms.contentitemreference>
-      <ContentItemReferenceGroupGUID>88a1bd9a-7555-4a98-8fc5-2ee1afc830a9</ContentItemReferenceGroupGUID>
-      <ContentItemReferenceGUID>522fce4e-52ec-4307-bf5a-28cbc3fc422f</ContentItemReferenceGUID>
+      <ContentItemReferenceGUID>e1410b91-eca4-4e4c-a5ec-fff7e336fe9e</ContentItemReferenceGUID>
       <ContentItemReferenceSourceCommonDataID>
         <GUID>f3bb878e-e05b-473f-9ba8-93f682a7d02f</GUID>
         <ObjectType>cms.contentitemcommondata</ObjectType>
@@ -81,7 +81,7 @@
     </cms.contentitemreference>
     <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>84b06b06-1392-422d-82e5-639ed2fa6340</ContentItemReferenceGroupGUID>
-      <ContentItemReferenceGUID>a2af138e-d7df-4cc5-8d28-f6d0e20321e9</ContentItemReferenceGUID>
+      <ContentItemReferenceGUID>fe1d101c-c536-4e11-a125-fb10f870191b</ContentItemReferenceGUID>
       <ContentItemReferenceSourceCommonDataID>
         <GUID>f3bb878e-e05b-473f-9ba8-93f682a7d02f</GUID>
         <ObjectType>cms.contentitemcommondata</ObjectType>

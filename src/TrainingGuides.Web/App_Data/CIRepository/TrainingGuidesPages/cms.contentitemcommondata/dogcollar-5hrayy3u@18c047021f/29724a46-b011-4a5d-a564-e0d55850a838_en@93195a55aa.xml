@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentitemcommondata>
+  <ContentItemCommonDataContentItemID>
+    <CodeName>DogCollar-5hrayy3u</CodeName>
+    <GUID>aa2f2b1a-dd24-4e83-91f1-cda4beff09a1</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </ContentItemCommonDataContentItemID>
+  <ContentItemCommonDataContentLanguageID>
+    <CodeName>en</CodeName>
+    <GUID>e81b5172-f240-4041-88b1-653089984e29</GUID>
+    <ObjectType>cms.contentlanguage</ObjectType>
+  </ContentItemCommonDataContentLanguageID>
+  <ContentItemCommonDataFirstPublishedWhen>2026-02-10 13:25:08Z</ContentItemCommonDataFirstPublishedWhen>
+  <ContentItemCommonDataGUID>29724a46-b011-4a5d-a564-e0d55850a838</ContentItemCommonDataGUID>
+  <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
+  <ContentItemCommonDataLastPublishedWhen>2026-02-10 13:25:08Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
+  <ContentItemCommonDataVisualBuilderTemplateConfiguration>
+    <![CDATA[{"identifier":"TrainingGuides.GeneralPageTemplate","properties":{"colorScheme":"TransparentDark","cornerStyle":"Round","columnLayout":"OneColumn"},"fieldIdentifiers":{"colorScheme":"a0f78680-56de-4e83-94f3-21dc2a2987ec","cornerStyle":"2c3039c1-7aa5-4ce4-83d9-f17e0e837a28","columnLayout":"0e0d3fb6-4d62-42eb-93c6-fa2799fc1ca2"}}]]>
+  </ContentItemCommonDataVisualBuilderTemplateConfiguration>
+  <ContentItemCommonDataVisualBuilderWidgets>
+    <![CDATA[{"editableAreas":[{"identifier":"areaMain","sections":[{"identifier":"57fe70cf-57f6-464f-aeed-36e1183d137a","type":"TrainingGuides.GeneralSection","properties":{"sectionAnchor":"","colorScheme":"TransparentDark","cornerStyle":"Round","columnLayout":"OneColumn"},"zones":[{"identifier":"cab70709-a829-4da1-9683-d9cf9039f46c","name":"zoneMain","widgets":[{"identifier":"760c17f6-bf87-4f86-83af-fa7f4e4ef73c","type":"TrainingGuides.ProductListingWidget","variants":[{"identifier":"b66a8701-ca7f-483a-8ed2-d8f44bb069b8","properties":{"parentPageSelection":[],"ctaText":"View Product","signInText":"Sign in to view","securedItemsDisplayMode":"PromptForLogin"},"fieldIdentifiers":{"parentPageSelection":"2d00f96e-4d28-42a0-9275-f31cc34690cc","ctaText":"8b2ded92-3392-42db-aa3e-9e191397b604","signInText":"1d84e504-4125-4908-bd1d-e1405dfbab22","securedItemsDisplayMode":"d46976a9-e7ac-421a-8fac-fa0934727832"}}]}]}],"fieldIdentifiers":{"sectionAnchor":"eaa9f9c4-7d9a-454c-b083-fb9411995f58","colorScheme":"8c1d521f-0254-424e-aa7f-84d7ccecb56f","cornerStyle":"b7ed3a08-d8b5-449c-8887-0803ddc68b87","columnLayout":"4a50c345-fc86-4a3c-b5c4-09616a89d0a5"}}]}]}]]>
+  </ContentItemCommonDataVisualBuilderWidgets>
+</cms.contentitemcommondata>

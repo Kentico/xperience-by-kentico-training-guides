@@ -92,6 +92,75 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
     }
 
     /// <inheritdoc />
+    public async Task<T?> RetrieveWebPageByPathWithoutContext<T>(
+        string pathToMatch,
+        string languageName,
+        string channelName,
+        bool forPreview,
+        bool includeSecuredItems)
+        where T : IWebPageFieldsSource, new()
+    {
+        var builder = new ContentItemQueryBuilder();
+
+        builder.ForContentTypes(query =>
+            {
+                query.ForWebsite(channelName, PathMatch.Single(pathToMatch));
+            })
+            .InLanguage(languageName);
+
+        var queryExecutorOptions = new ContentQueryExecutionOptions
+        {
+            ForPreview = forPreview,
+            IncludeSecuredItems = includeSecuredItems,
+
+        };
+
+        var pages = await contentQueryExecutor.GetMappedResult<T>(builder, queryExecutorOptions);
+
+        return pages.FirstOrDefault();
+    }
+
+    /// <inheritdoc />
+    public async Task<IEnumerable<IWebPageFieldsSource>> RetrieveWebPageChildrenByPathWithoutContext(
+        IEnumerable<string> contentTypeNames,
+        string parentPagePath,
+        Func<ContentTypesQueryParameters, ContentTypesQueryParameters> customContentTypesQueryParameters,
+        Func<ContentQueryParameters, ContentQueryParameters> customContentQueryParameters,
+        bool forPreview,
+        bool includeSecuredItems,
+        string channelName,
+        string? languageName = null,
+        int depth = 1)
+    {
+        Action<ContentTypesQueryParameters> contentTypesQueryParameters =
+            config => customContentTypesQueryParameters(config
+                .ForWebsite(channelName, PathMatch.Children(parentPagePath))
+                .OfContentType(contentTypeNames.ToArray())
+                .WithLinkedItems(depth)
+                .WithContentTypeFields());
+
+        var builder = new ContentItemQueryBuilder()
+                            .ForContentTypes(contentTypesQueryParameters)
+                            .Parameters(param => customContentQueryParameters(param));
+
+        if (!string.IsNullOrEmpty(languageName))
+        {
+            builder.InLanguage(languageName);
+        }
+
+        var queryExecutorOptions = new ContentQueryExecutionOptions
+        {
+            ForPreview = forPreview,
+            IncludeSecuredItems = includeSecuredItems
+        };
+
+        var pages = await contentQueryExecutor.GetMappedWebPageResult<IWebPageFieldsSource>(builder, queryExecutorOptions);
+
+        return pages;
+    }
+
+
+    /// <inheritdoc />
     public async Task<IEnumerable<T>> RetrieveWebPageChildrenByPath<T>(
         string path,
         int depth = 1,

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.catfoodvariant>
+  <CatFoodVariantFormulation>
+    <![CDATA[[{"Identifier":"3e52dcee-545e-4ac0-8f98-466d216efb64"}]]]>
+  </CatFoodVariantFormulation>
+  <ContentItemDataCommonDataID>
+    <GUID>14fbdcea-1102-4c7c-b080-e0911409cf38</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>PurremoEssentialsChickenAndRice-5lb-qfv363hj</CodeName>
+      <GUID>d486692a-d388-476d-afdc-d062f1d326c7</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>f3c1a11f-d04f-49f4-887c-a032839c8164</ContentItemDataGUID>
+</contentitemdata.trainingguides.catfoodvariant>

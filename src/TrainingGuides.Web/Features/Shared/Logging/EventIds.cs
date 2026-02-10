@@ -17,4 +17,9 @@ internal static class EventIds
     public static readonly EventId ContactGroupRebuildFailed = new(1010, nameof(ContactGroupRebuildFailed));
     public static readonly EventId ProductVariantHasMultipleParents = new(1011, nameof(ProductVariantHasMultipleParents));
     public static readonly EventId ProductStockMultipleRecords = new(1012, nameof(ProductStockMultipleRecords));
+    public static readonly EventId ProductWrapperPublishFailed = new(1013, nameof(ProductWrapperPublishFailed));
+    public static readonly EventId ProductWrapperUnpublishFailed = new(1014, nameof(ProductWrapperUnpublishFailed));
+    public static readonly EventId ProductWrapperCreateFailed = new(1015, nameof(ProductWrapperCreateFailed));
+    public static readonly EventId ProductWrapperLanguageVariantCreateFailed = new(1016, nameof(ProductWrapperLanguageVariantCreateFailed));
+    public static readonly EventId ProductParentPageLanguageVariantCreateFailed = new(1017, nameof(ProductParentPageLanguageVariantCreateFailed));
 }

@@ -6,32 +6,31 @@
     <ObjectType>cms.contentitem</ObjectType>
   </ContentItemCommonDataContentItemID>
   <ContentItemCommonDataContentLanguageID>
-    <CodeName>en</CodeName>
-    <GUID>e81b5172-f240-4041-88b1-653089984e29</GUID>
+    <CodeName>es</CodeName>
+    <GUID>b2e99971-c2dd-4a47-bb64-0d9a0d28d226</GUID>
     <ObjectType>cms.contentlanguage</ObjectType>
   </ContentItemCommonDataContentLanguageID>
-  <ContentItemCommonDataFirstPublishedWhen>2026-01-12 14:21:49Z</ContentItemCommonDataFirstPublishedWhen>
-  <ContentItemCommonDataGUID>95e18fd5-b6f3-4c3d-932e-bc3692c211c6</ContentItemCommonDataGUID>
+  <ContentItemCommonDataFirstPublishedWhen>2026-02-09 14:13:28Z</ContentItemCommonDataFirstPublishedWhen>
+  <ContentItemCommonDataGUID>78dd7c47-651a-469a-8e3d-fac54d9bea2e</ContentItemCommonDataGUID>
   <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
-  <ContentItemCommonDataLastPublishedWhen>2026-02-09 20:04:20Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataLastPublishedWhen>2026-02-10 13:27:33Z</ContentItemCommonDataLastPublishedWhen>
   <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
   <ProductParentSchemaVariants>
     <![CDATA[[{"Identifier":"e005db0f-c2ae-4769-b494-cb8d26ac53c4"},{"Identifier":"d486692a-d388-476d-afdc-d062f1d326c7"},{"Identifier":"c3f056a5-2e9c-46ff-84b9-6f2b9790317c"}]]]>
   </ProductParentSchemaVariants>
-  <ProductPriceSchemaDiscountCategory />
   <ProductSchemaDescription>
-    <![CDATA[<p>The Purremo Essentials line provides the vital nutrients your cat needs</p>]]>
+    <![CDATA[<p>Li linea Purremo Essentials tiene todos los nutrientes que necesita tu gato.</p>]]>
   </ProductSchemaDescription>
   <ProductSchemaImages>
     <![CDATA[[{"Identifier":"b7671b94-ff85-449c-a6d1-8b4a5fe3da24"}]]]>
   </ProductSchemaImages>
-  <ProductSchemaName>Purremo Essentials dry cat food</ProductSchemaName>
+  <ProductSchemaName>Purremo Essentials Comida seca para gatos</ProductSchemaName>
   <ContentItemReferences>
     <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>e79bcba5-39ea-415d-9202-0b712e101330</ContentItemReferenceGroupGUID>
-      <ContentItemReferenceGUID>d45d120c-cf40-49d9-bd43-166dfb67c428</ContentItemReferenceGUID>
+      <ContentItemReferenceGUID>8248f17f-15e4-4ba8-8e4b-0a6a35cdf26b</ContentItemReferenceGUID>
       <ContentItemReferenceSourceCommonDataID>
-        <GUID>95e18fd5-b6f3-4c3d-932e-bc3692c211c6</GUID>
+        <GUID>78dd7c47-651a-469a-8e3d-fac54d9bea2e</GUID>
         <ObjectType>cms.contentitemcommondata</ObjectType>
       </ContentItemReferenceSourceCommonDataID>
       <ContentItemReferenceTargetItemID>
@@ -42,48 +41,22 @@
     </cms.contentitemreference>
     <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>e79bcba5-39ea-415d-9202-0b712e101330</ContentItemReferenceGroupGUID>
-      <ContentItemReferenceGUID>39d6a83b-9f64-46c5-9f75-988da3a94d72</ContentItemReferenceGUID>
+      <ContentItemReferenceGUID>49935dc3-d69e-4326-863a-3fbaccb3c56b</ContentItemReferenceGUID>
       <ContentItemReferenceSourceCommonDataID>
-        <GUID>95e18fd5-b6f3-4c3d-932e-bc3692c211c6</GUID>
+        <GUID>78dd7c47-651a-469a-8e3d-fac54d9bea2e</GUID>
         <ObjectType>cms.contentitemcommondata</ObjectType>
       </ContentItemReferenceSourceCommonDataID>
       <ContentItemReferenceTargetItemID>
-        <CodeName>PurremoEssentialsChickenAndRice-5lb-qfv363hj</CodeName>
-        <GUID>d486692a-d388-476d-afdc-d062f1d326c7</GUID>
+        <CodeName>PurremoEssentialsSalmonAndRice-5lb-r5740ema</CodeName>
+        <GUID>c3f056a5-2e9c-46ff-84b9-6f2b9790317c</GUID>
         <ObjectType>cms.contentitem</ObjectType>
       </ContentItemReferenceTargetItemID>
     </cms.contentitemreference>
     <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>e79bcba5-39ea-415d-9202-0b712e101330</ContentItemReferenceGroupGUID>
-      <ContentItemReferenceGUID>ef127804-95b8-4ff8-94ee-bcc4d2192d9f</ContentItemReferenceGUID>
+      <ContentItemReferenceGUID>efc012a9-6d34-4c61-bfa9-e3b9d1e861a9</ContentItemReferenceGUID>
       <ContentItemReferenceSourceCommonDataID>
-        <GUID>95e18fd5-b6f3-4c3d-932e-bc3692c211c6</GUID>
-        <ObjectType>cms.contentitemcommondata</ObjectType>
-      </ContentItemReferenceSourceCommonDataID>
-      <ContentItemReferenceTargetItemID>
-        <CodeName>PurremoEssentialsSalmonAndRice-5lb-r5740ema</CodeName>
-        <GUID>c3f056a5-2e9c-46ff-84b9-6f2b9790317c</GUID>
-        <ObjectType>cms.contentitem</ObjectType>
-      </ContentItemReferenceTargetItemID>
-    </cms.contentitemreference>
-    <cms.contentitemreference>
-      <ContentItemReferenceGroupGUID>88a1bd9a-7555-4a98-8fc5-2ee1afc830a9</ContentItemReferenceGroupGUID>
-      <ContentItemReferenceGUID>afbe0929-5920-42c7-9d11-76360739f918</ContentItemReferenceGUID>
-      <ContentItemReferenceSourceCommonDataID>
-        <GUID>95e18fd5-b6f3-4c3d-932e-bc3692c211c6</GUID>
-        <ObjectType>cms.contentitemcommondata</ObjectType>
-      </ContentItemReferenceSourceCommonDataID>
-      <ContentItemReferenceTargetItemID>
-        <CodeName>PurremoEssentialsSalmonAndRice-5lb-r5740ema</CodeName>
-        <GUID>c3f056a5-2e9c-46ff-84b9-6f2b9790317c</GUID>
-        <ObjectType>cms.contentitem</ObjectType>
-      </ContentItemReferenceTargetItemID>
-    </cms.contentitemreference>
-    <cms.contentitemreference>
-      <ContentItemReferenceGroupGUID>88a1bd9a-7555-4a98-8fc5-2ee1afc830a9</ContentItemReferenceGroupGUID>
-      <ContentItemReferenceGUID>e4201de8-cdd3-4291-8676-afe32364955d</ContentItemReferenceGUID>
-      <ContentItemReferenceSourceCommonDataID>
-        <GUID>95e18fd5-b6f3-4c3d-932e-bc3692c211c6</GUID>
+        <GUID>78dd7c47-651a-469a-8e3d-fac54d9bea2e</GUID>
         <ObjectType>cms.contentitemcommondata</ObjectType>
       </ContentItemReferenceSourceCommonDataID>
       <ContentItemReferenceTargetItemID>
@@ -94,22 +67,48 @@
     </cms.contentitemreference>
     <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>88a1bd9a-7555-4a98-8fc5-2ee1afc830a9</ContentItemReferenceGroupGUID>
-      <ContentItemReferenceGUID>ffacc769-0ff6-492a-afee-d08f1ab26d93</ContentItemReferenceGUID>
+      <ContentItemReferenceGUID>8eb06929-2112-48e8-82f7-40f19d868fcd</ContentItemReferenceGUID>
       <ContentItemReferenceSourceCommonDataID>
-        <GUID>95e18fd5-b6f3-4c3d-932e-bc3692c211c6</GUID>
+        <GUID>78dd7c47-651a-469a-8e3d-fac54d9bea2e</GUID>
         <ObjectType>cms.contentitemcommondata</ObjectType>
       </ContentItemReferenceSourceCommonDataID>
       <ContentItemReferenceTargetItemID>
         <CodeName>PurremoEssentialsChickenAndRice-15lb-7z9zywgi</CodeName>
         <GUID>e005db0f-c2ae-4769-b494-cb8d26ac53c4</GUID>
+        <ObjectType>cms.contentitem</ObjectType>
+      </ContentItemReferenceTargetItemID>
+    </cms.contentitemreference>
+    <cms.contentitemreference>
+      <ContentItemReferenceGroupGUID>88a1bd9a-7555-4a98-8fc5-2ee1afc830a9</ContentItemReferenceGroupGUID>
+      <ContentItemReferenceGUID>dea8cd1e-04cd-483a-b147-eb7f5f09fa36</ContentItemReferenceGUID>
+      <ContentItemReferenceSourceCommonDataID>
+        <GUID>78dd7c47-651a-469a-8e3d-fac54d9bea2e</GUID>
+        <ObjectType>cms.contentitemcommondata</ObjectType>
+      </ContentItemReferenceSourceCommonDataID>
+      <ContentItemReferenceTargetItemID>
+        <CodeName>PurremoEssentialsChickenAndRice-5lb-qfv363hj</CodeName>
+        <GUID>d486692a-d388-476d-afdc-d062f1d326c7</GUID>
+        <ObjectType>cms.contentitem</ObjectType>
+      </ContentItemReferenceTargetItemID>
+    </cms.contentitemreference>
+    <cms.contentitemreference>
+      <ContentItemReferenceGroupGUID>88a1bd9a-7555-4a98-8fc5-2ee1afc830a9</ContentItemReferenceGroupGUID>
+      <ContentItemReferenceGUID>21fb8f20-4a93-4406-8698-f46cf22e2852</ContentItemReferenceGUID>
+      <ContentItemReferenceSourceCommonDataID>
+        <GUID>78dd7c47-651a-469a-8e3d-fac54d9bea2e</GUID>
+        <ObjectType>cms.contentitemcommondata</ObjectType>
+      </ContentItemReferenceSourceCommonDataID>
+      <ContentItemReferenceTargetItemID>
+        <CodeName>PurremoEssentialsSalmonAndRice-5lb-r5740ema</CodeName>
+        <GUID>c3f056a5-2e9c-46ff-84b9-6f2b9790317c</GUID>
         <ObjectType>cms.contentitem</ObjectType>
       </ContentItemReferenceTargetItemID>
     </cms.contentitemreference>
     <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>84b06b06-1392-422d-82e5-639ed2fa6340</ContentItemReferenceGroupGUID>
-      <ContentItemReferenceGUID>0d14bb7a-0958-4a6e-ae84-c7e7d588b696</ContentItemReferenceGUID>
+      <ContentItemReferenceGUID>3677ed99-7809-48fd-b380-dab3023ec7ef</ContentItemReferenceGUID>
       <ContentItemReferenceSourceCommonDataID>
-        <GUID>95e18fd5-b6f3-4c3d-932e-bc3692c211c6</GUID>
+        <GUID>78dd7c47-651a-469a-8e3d-fac54d9bea2e</GUID>
         <ObjectType>cms.contentitemcommondata</ObjectType>
       </ContentItemReferenceSourceCommonDataID>
       <ContentItemReferenceTargetItemID>
