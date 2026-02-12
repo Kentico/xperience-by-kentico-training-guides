@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.userrole>
+  <Parent>
+    <CodeName>DigitalChannelManager</CodeName>
+    <GUID>93fb8806-31ba-4548-8a3b-24dbbeec6e3d</GUID>
+    <ObjectType>cms.role</ObjectType>
+  </Parent>
+  <Bindings>
+    <Binding id="cms.user_administrator">
+      <UserID>
+        <CodeName>administrator</CodeName>
+        <GUID>6415b8ce-8072-4bcd-8e48-9d7178b826b7</GUID>
+        <ObjectType>cms.user</ObjectType>
+      </UserID>
+    </Binding>
+  </Bindings>
+</cms.userrole>
