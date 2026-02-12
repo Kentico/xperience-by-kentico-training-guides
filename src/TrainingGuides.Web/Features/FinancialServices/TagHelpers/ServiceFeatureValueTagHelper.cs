@@ -1,4 +1,3 @@
-using System.Globalization;
 using Microsoft.AspNetCore.Html;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 
@@ -24,7 +23,7 @@ public class ServiceFeatureValueTagHelper : TagHelper
         string? formattedValue = Feature?.ValueType switch
         {
             ServiceFeatureValueType.Text => Feature.ValueHtml.Value,
-            ServiceFeatureValueType.Number => string.Format(CultureInfo.CurrentUICulture, "{0:0.00}", Feature.Price),
+            ServiceFeatureValueType.Number => "$" + Feature.Price.ToString("n2"),
             ServiceFeatureValueType.Boolean => Feature.FeatureIncluded ? "✔" : "-",
             _ => string.Empty
         };

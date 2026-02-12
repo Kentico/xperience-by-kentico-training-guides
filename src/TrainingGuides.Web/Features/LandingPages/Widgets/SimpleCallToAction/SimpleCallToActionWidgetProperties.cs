@@ -43,7 +43,7 @@ public class SimpleCallToActionWidgetProperties : IWidgetProperties
 
     [TextInputComponent(
         Label = "Absolute URL",
-        ExplanationText = "Add a hyperlink to an external site, or use the product's URL + anchor tag # for referencing an anchor on the page, for example, \"https://your-doma.in/contact-us#form\"",
+        ExplanationText = "Add a hyperlink to an external site, or use the URL + anchor tag # for referencing an anchor on the page, for example, \"https://your-doma.in/contact-us#form\"",
         Order = 40)]
     [VisibleIfEqualTo(nameof(TargetContent), nameof(TargetContentOption.AbsoluteUrl), StringComparison.OrdinalIgnoreCase)]
     public string TargetContentAbsoluteUrl { get; set; } = string.Empty;
