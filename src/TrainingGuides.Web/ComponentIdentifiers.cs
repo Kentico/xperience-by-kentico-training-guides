@@ -44,7 +44,7 @@ public static class ComponentIdentifiers
         public const string HTML_CODE = HtmlCodeWidgetViewComponent.IDENTIFIER;
         public const string ARTICLE_LIST = ArticleListWidgetViewComponent.IDENTIFIER;
         public const string SIMPLE_CALL_TO_ACTION = SimpleCallToActionWidgetViewComponent.IDENTIFIER;
-        public const string SERVICE = FinancialServiceWidgetViewComponent.IDENTIFIER;
+        public const string SERVICE = ServiceWidgetViewComponent.IDENTIFIER;
         public const string PRODUCT = ProductWidgetViewComponent.IDENTIFIER;
         public const string PRODUCT_LISTING = ProductListingWidgetViewComponent.IDENTIFIER;
         public const string VIDEO_EMBED = VideoEmbedWidgetViewComponent.IDENTIFIER;
