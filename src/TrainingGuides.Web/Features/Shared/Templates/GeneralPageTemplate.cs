@@ -9,6 +9,7 @@ using TrainingGuides.Web.Features.Shared;
     IconClass = "xp-square")]
 
 namespace TrainingGuides.Web.Features.Shared;
+
 public static class GeneralPageTemplate
 {
     public const string IDENTIFIER = "TrainingGuides.GeneralPageTemplate";

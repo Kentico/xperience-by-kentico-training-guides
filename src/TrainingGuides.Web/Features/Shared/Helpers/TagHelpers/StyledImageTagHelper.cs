@@ -6,17 +6,12 @@ using TrainingGuides.Web.Features.Shared.Services;
 namespace TrainingGuides.Web.Features.Shared.Helpers.TagHelpers;
 
 [HtmlTargetElement("tg-styled-image", TagStructure = TagStructure.WithoutEndTag)]
-public class StyledImageTagHelper : TagHelper
+public class StyledImageTagHelper(
+    IComponentStyleEnumService componentStyleEnumService) : TagHelper
 {
     public string CornerStyle { get; set; } = string.Empty;
 
     private const string IMG_TAG = "img";
-
-    private readonly IComponentStyleEnumService componentStyleEnumService;
-    public StyledImageTagHelper(IComponentStyleEnumService componentStyleEnumService) : base()
-    {
-        this.componentStyleEnumService = componentStyleEnumService;
-    }
 
     public override void Process(TagHelperContext context, TagHelperOutput output)
     {
@@ -35,6 +30,5 @@ public class StyledImageTagHelper : TagHelper
                 output.AddClass(cssClass, HtmlEncoder.Default);
             }
         }
-
     }
 }

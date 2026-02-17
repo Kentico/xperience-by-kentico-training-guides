@@ -12,19 +12,10 @@ using TrainingGuides.Web.Features.Shared.Services;
 
 namespace TrainingGuides.Web.Features.FinancialServices;
 
-public class ServicePageController : Controller
+public class ServicePageController(
+    IContentItemRetrieverService contentItemRetriever,
+    IServicePageService servicePageService) : Controller
 {
-    private readonly IContentItemRetrieverService contentItemRetriever;
-    private readonly IServicePageService servicePageService;
-
-    public ServicePageController(
-        IContentItemRetrieverService contentItemRetriever,
-        IServicePageService servicePageService)
-    {
-        this.contentItemRetriever = contentItemRetriever;
-        this.servicePageService = servicePageService;
-    }
-
     public async Task<IActionResult> Index()
     {
         var servicePage = await contentItemRetriever.RetrieveCurrentPage<ServicePage>(3);

@@ -13,8 +13,8 @@ using TrainingGuides.Web.Features.Shared.Services;
 // see CallToActionWidgetViewComponent in Features/LandingPages/Widgets/CallToAction/
 
 [assembly: RegisterWidget(
-    identifier: FinancialServiceWidgetViewComponent.IDENTIFIER,
-    viewComponentType: typeof(FinancialServiceWidgetViewComponent),
+    identifier: ServiceWidgetViewComponent.IDENTIFIER,
+    viewComponentType: typeof(ServiceWidgetViewComponent),
     name: "Service",
     propertiesType: typeof(ServiceWidgetProperties),
     Description = "Displays selected service.",
@@ -22,7 +22,10 @@ using TrainingGuides.Web.Features.Shared.Services;
 
 namespace TrainingGuides.Web.Features.FinancialServices.Widgets.Service;
 
-public class FinancialServiceWidgetViewComponent : ViewComponent
+public class ServiceWidgetViewComponent(IContentItemRetrieverService contentItemRetrieverService,
+        IComponentStyleEnumService componentStyleEnumService,
+        IServicePageService servicePageService,
+        IContentTypeService contentTypeService) : ViewComponent
 {
     public const string IDENTIFIER = "TrainingGuides.ServiceWidget";
     private const string BS_DROP_SHADOW_CLASS = "shadow";
@@ -30,26 +33,26 @@ public class FinancialServiceWidgetViewComponent : ViewComponent
     private const string BS_PADDING_CLASS_3 = "p-3";
     private const string BS_PADDING_CLASS_5 = "p-5";
 
-    private readonly IContentItemRetrieverService contentItemRetrieverService;
-    private readonly IComponentStyleEnumService componentStyleEnumService;
-    private readonly IServicePageService servicePageService;
-    private readonly IContentTypeService contentTypeService;
-
-    public FinancialServiceWidgetViewComponent(
-        IContentItemRetrieverService contentItemRetrieverService,
-        IComponentStyleEnumService componentStyleEnumService,
-        IServicePageService servicePageService,
-        IContentTypeService contentTypeService)
-    {
-        this.contentItemRetrieverService = contentItemRetrieverService;
-        this.componentStyleEnumService = componentStyleEnumService;
-        this.servicePageService = servicePageService;
-        this.contentTypeService = contentTypeService;
-    }
-
     public async Task<ViewViewComponentResult> InvokeAsync(ServiceWidgetProperties properties)
     {
         var model = await GetServiceWidgetViewModel(properties);
+
+        if (model.Service?.Price is decimal price)
+        {
+            model.Service?.Features.Add(
+                new ServiceFeatureViewModel
+                {
+                    Key = "price-from-service-content-item",
+                    Name = "Price",
+                    LabelHtml = new("Price"),
+                    Price = price,
+                    ValueHtml = new(string.Empty),
+                    FeatureIncluded = false,
+                    ValueType = ServiceFeatureValueType.Number,
+                    ShowInComparator = true,
+                });
+        }
+
         return View("~/Features/FinancialServices/Widgets/Service/ServiceWidget.cshtml", model);
     }
 

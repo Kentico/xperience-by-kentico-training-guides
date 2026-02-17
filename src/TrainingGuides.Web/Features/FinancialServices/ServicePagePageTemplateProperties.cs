@@ -10,7 +10,7 @@ namespace TrainingGuides.Web.Features.FinancialServices;
 public class ServicePagePageTemplateProperties : IPageTemplateProperties
 {
     [CheckBoxComponent(
-        Label = "Use page builder",
+        Label = "Use Page Builder",
         ExplanationText = "Check to configure an advanced page builder. Un-check to use the standard service layout.",
         Order = 10)]
     public bool UsePageBuilder { get; set; } = false;

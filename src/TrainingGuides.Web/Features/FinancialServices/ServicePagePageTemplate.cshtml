@@ -29,7 +29,13 @@
                     <p>@templateModel.ShortDescriptionHtml</p>
                 </div>
 
-                <tg-styled-image src="@templateModel.Media.FirstOrDefault()?.FilePath" alt="@templateModel.Media.FirstOrDefault()?.Description" corner-style="@Model.Properties.CornerStyle" class="col c-product-img object-fit-cover" />
+                @foreach (var asset in templateModel.Media)
+                {
+                    <tg-styled-image src="@asset.FilePath" 
+                        alt="@asset.Description" 
+                        corner-style="@Model.Properties.CornerStyle" 
+                        class="c-product-img object-fit-cover" />
+                }
             </div>
             <div class="row">
                 <div class="c-pricelist">                        

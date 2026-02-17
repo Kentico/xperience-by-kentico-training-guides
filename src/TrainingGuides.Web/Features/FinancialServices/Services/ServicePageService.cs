@@ -3,14 +3,8 @@ using TrainingGuides.Web.Features.Shared.Models;
 
 namespace TrainingGuides.Web.Features.FinancialServices.Services;
 
-public class ServicePageService : IServicePageService
+public class ServicePageService(IWebPageUrlRetriever webPageUrlRetriever) : IServicePageService
 {
-    private readonly IWebPageUrlRetriever webPageUrlRetriever;
-    public ServicePageService(IWebPageUrlRetriever webPageUrlRetriever)
-    {
-        this.webPageUrlRetriever = webPageUrlRetriever;
-    }
-
     /// <summary>
     /// Creates a new instance of <see cref="ServicePageViewModel"/>, setting the properties using ServicePage given as a parameter.
     /// </summary>

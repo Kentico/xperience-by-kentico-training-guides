@@ -1,17 +1,11 @@
 ﻿using TrainingGuides.Web.Features.Shared.OptionProviders;
 using TrainingGuides.Web.Features.Shared.OptionProviders.ColorScheme;
 using TrainingGuides.Web.Features.Shared.OptionProviders.CornerStyle;
+
 namespace TrainingGuides.Web.Features.Shared.Services;
 
-public class ComponentStyleEnumService : IComponentStyleEnumService
+public class ComponentStyleEnumService(IEnumStringService enumStringService) : IComponentStyleEnumService
 {
-    private readonly IEnumStringService enumStringService;
-
-    public ComponentStyleEnumService(IEnumStringService enumStringService)
-    {
-        this.enumStringService = enumStringService;
-    }
-
     public IEnumerable<string> GetColorSchemeClasses(ColorSchemeOption colorScheme) => colorScheme switch
     {
         ColorSchemeOption.Light1 => ["tg-bg-light-1", "tg-txt-dark"],
