@@ -58,7 +58,7 @@ builder.Services
                 ServicePage.CONTENT_TYPE_NAME,
                 ProfilePage.CONTENT_TYPE_NAME,
                 ProductPage.CONTENT_TYPE_NAME,
-                StoreSection.CONTENT_TYPE_NAME,
+                StoreSection.CONTENT_TYPE_NAME
             }
         });
         // Functionality related to cross-site tracking is currently disabled while we investigate an issue (#85 on GitHub)

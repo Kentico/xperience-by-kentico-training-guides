@@ -54,8 +54,7 @@ public static class ServiceCollectionExtensions
         services.AddScoped<IEmailDataMapper, TrainingGuidesEmailDataMapper>();
 
         services.AddTransient<IContentItemRetrieverService, ContentItemRetrieverService>();
-        services.AddTransient(typeof(IProductDataRetriever<,>), typeof(TrainingGuidesProductDataRetriever<,>)
-);
+        services.AddTransient(typeof(IProductDataRetriever<,>), typeof(TrainingGuidesProductDataRetriever<,>));
         // Since the ArticleConverter is one-time code, meant to be deleted after its first use, we won't bother with an interface.
         services.AddTransient<ArticleConverter>();
 

@@ -31,15 +31,15 @@ public class ProductPageWrapperHandler() : Module(MODULE_NAME)
     private const string CHANNEL_NAME = "TrainingGuidesPages";
     private const string WEB_CHANNEL_GUID = "FDBA40FE-1ECE-4821-9D57-EAA1D89E13B1";
 
-#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring as nullable.
-    private IWebPageManagerFactory webPageManagerFactory;
-    private IWebPageManager webPageManager;
-    private IContentItemRetrieverService contentItemRetrieverService;
-    private IInfoProvider<UserInfo> userInfoProvider;
-    private IInfoProvider<WebsiteChannelInfo> websiteChannelInfoProvider;
-    private ILogger<ProductPageWrapperHandler> logger;
-
-#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring as nullable.
+    // We are setting these to default! to avoid a compiler warning.
+    // We know these will be initialized in the OnInit method, instead of the typical constructor DI pattern.
+    // This is a known limitation of the Module base class and does not indicate actual null safety issues in this code.
+    private IWebPageManagerFactory webPageManagerFactory = default!;
+    private IWebPageManager webPageManager = default!;
+    private IContentItemRetrieverService contentItemRetrieverService = default!;
+    private IInfoProvider<UserInfo> userInfoProvider = default!;
+    private IInfoProvider<WebsiteChannelInfo> websiteChannelInfoProvider = default!;
+    private ILogger<ProductPageWrapperHandler> logger = default!;
 
     public const string MODULE_NAME = "Product page wrapper handlers";
 
@@ -64,7 +64,8 @@ public class ProductPageWrapperHandler() : Module(MODULE_NAME)
 
         webPageManager = webPageManagerFactory.Create(webChannel?.WebsiteChannelID ?? 0, user?.UserID ?? 0);
 
-        // Assigns custom handlers to events
+        // Suppress CS8622: Kentico's event system delegates have nullability attribute mismatches with our handler signatures.
+        // This is a known framework limitation and does not indicate actual null safety issues in this code.
 #pragma warning disable CS8622 // Nullability of reference types in type of parameter doesn't match the target delegate (possibly because of nullability attributes).
         ContentItemEvents.Create.After += ContentItem_Create_After;
         ContentItemEvents.CreateLanguageVariant.After += ContentItem_CreateLanguageVariant_After;

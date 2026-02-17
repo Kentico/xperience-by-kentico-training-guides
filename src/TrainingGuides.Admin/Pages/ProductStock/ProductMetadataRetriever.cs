@@ -18,7 +18,7 @@ public class ProductMetadataRetriever(IContentItemManagerFactory contentItemMana
         var defaultContentLanguage = await contentLanguageRetriever.GetDefaultContentLanguage();
 
         // Gets the current authenticated user for content manager context
-        var currentUser = await httpContextAccessor.HttpContext?.RequestServices?.GetRequiredService<IAuthenticatedUserAccessor>().Get();
+        var currentUser = await httpContextAccessor.HttpContext?.RequestServices?.GetRequiredService<IAuthenticatedUserAccessor>().Get()!;
 
         // Creates content manager with proper user context for security
         var contentItemManager = contentItemManagerFactory.Create(currentUser?.UserID ?? 0);

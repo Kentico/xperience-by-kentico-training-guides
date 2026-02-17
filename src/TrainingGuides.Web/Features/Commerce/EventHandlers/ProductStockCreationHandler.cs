@@ -14,7 +14,10 @@ namespace TrainingGuides.Web.Commerce.EventHandlers;
 public class ProductStockCreationHandler() : Module(MODULE_NAME)
 {
 
-    private IInfoProvider<ProductAvailableStockInfo> productStockInfoProvider;
+    // We are setting this to default! to avoid a compiler warning.
+    // We know it will be initialized in the OnInit method, instead of the typical constructor DI pattern.
+    // This is a known limitation of the Module base class and does not indicate actual null safety issues in this code.
+    private IInfoProvider<ProductAvailableStockInfo> productStockInfoProvider = default!;
 
     public const string MODULE_NAME = "Product stock creation handlers";
 
@@ -26,6 +29,8 @@ public class ProductStockCreationHandler() : Module(MODULE_NAME)
         productStockInfoProvider = parameters.Services.GetRequiredService<IInfoProvider<ProductAvailableStockInfo>>();
 
         // Assigns custom handlers to events
+        // Suppress CS8622: Kentico's event system delegates have nullability attribute mismatches with our handler signatures.
+        // This is a known framework limitation and does not indicate actual null safety issues in this code.
 #pragma warning disable CS8622 // Nullability of reference types in type of parameter doesn't match the target delegate (possibly because of nullability attributes).
         ContentItemEvents.Create.After += ContentItem_Create_After;
         ContentItemEvents.UpdateDraft.Before += ContentItem_UpdateDraft_Before;

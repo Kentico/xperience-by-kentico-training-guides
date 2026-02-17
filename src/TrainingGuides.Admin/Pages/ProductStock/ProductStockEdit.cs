@@ -38,8 +38,9 @@ public sealed class ProductStockEdit(IFormComponentMapper formComponentMapper,
         await base.ConfigurePage();
     }
 
-    // Retrieves and modifies form items before they are displayed to the user
-    // </summary>
+    /// <summary>
+    /// Retrieves and modifies form items before they are displayed to the user
+    /// </summary>
     protected override async Task<ICollection<IFormItem>> GetFormItems()
     {
         var formItems = await base.GetFormItems();
@@ -50,8 +51,11 @@ public sealed class ProductStockEdit(IFormComponentMapper formComponentMapper,
         return formItems;
     }
 
-    // Sets up the product name component to display the associated product's name
-    // This provides context to administrators about which product they're editing stock for
+    /// <summary>
+    /// Sets up the product name component to display the associated product's name
+    /// This provides context to administrators about which product they're editing stock for
+    /// </summary>
+    /// <param name="formItems">The collection of form items to modify</param>
     private async Task SetupProductNameComponent(ICollection<IFormItem> formItems)
     {
         // Gets the current product stock record being edited
@@ -65,6 +69,6 @@ public sealed class ProductStockEdit(IFormComponentMapper formComponentMapper,
             .FirstOrDefault(f => f.Name.Equals(PRODUCT_NAME_COMPONENT_NAME, StringComparison.OrdinalIgnoreCase));
 
         // Sets the product name (this is typically a read-only field for context)
-        productNameComponent?.SetObjectValue(productMetadata.DisplayName);
+        productNameComponent?.SetObjectValue(productMetadata.DisplayName ?? "Unknown Product");
     }
 }

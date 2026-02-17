@@ -111,8 +111,7 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
         var queryExecutorOptions = new ContentQueryExecutionOptions
         {
             ForPreview = forPreview,
-            IncludeSecuredItems = includeSecuredItems,
-
+            IncludeSecuredItems = includeSecuredItems
         };
 
         var pages = await contentQueryExecutor.GetMappedResult<T>(builder, queryExecutorOptions);
