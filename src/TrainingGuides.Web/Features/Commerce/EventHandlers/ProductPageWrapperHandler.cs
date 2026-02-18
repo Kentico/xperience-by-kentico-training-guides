@@ -26,10 +26,12 @@ namespace TrainingGuides.Web.Commerce.EventHandlers;
 
 public class ProductPageWrapperHandler() : Module(MODULE_NAME)
 {
+    public const string MODULE_NAME = "Product page wrapper handlers";
     private const string ADMIN = "administrator";
     private const string STORE_PATH = "/Store";
     private const string CHANNEL_NAME = "TrainingGuidesPages";
     private const string WEB_CHANNEL_GUID = "FDBA40FE-1ECE-4821-9D57-EAA1D89E13B1";
+
 
     // We are setting these to default! to avoid a compiler warning.
     // We know these will be initialized in the OnInit method, instead of the typical constructor DI pattern.
@@ -40,8 +42,6 @@ public class ProductPageWrapperHandler() : Module(MODULE_NAME)
     private IInfoProvider<UserInfo> userInfoProvider = default!;
     private IInfoProvider<WebsiteChannelInfo> websiteChannelInfoProvider = default!;
     private ILogger<ProductPageWrapperHandler> logger = default!;
-
-    public const string MODULE_NAME = "Product page wrapper handlers";
 
     // Contains initialization code that is executed when the application starts
     protected override void OnInit(ModuleInitParameters parameters)
