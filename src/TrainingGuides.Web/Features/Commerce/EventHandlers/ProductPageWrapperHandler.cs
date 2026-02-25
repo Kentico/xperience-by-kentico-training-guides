@@ -26,10 +26,19 @@ namespace TrainingGuides.Web.Commerce.EventHandlers;
 
 public class ProductPageWrapperHandler() : Module(MODULE_NAME)
 {
+    // Name for initializing the module
     public const string MODULE_NAME = "Product page wrapper handlers";
+
+    // Username of an admin user
     private const string ADMIN = "administrator";
+
+    // Path to the store section of the site
     private const string STORE_PATH = "/Store";
+
+    // Name of the website channel
     private const string CHANNEL_NAME = "TrainingGuidesPages";
+
+    // GUID of the website channel (Note this is the value of WebsiteChannelGUID, not ChannelGUID)
     private const string WEB_CHANNEL_GUID = "FDBA40FE-1ECE-4821-9D57-EAA1D89E13B1";
 
 
@@ -205,45 +214,6 @@ public class ProductPageWrapperHandler() : Module(MODULE_NAME)
     }
 
     /// <summary>
-    /// Creates a page wrapper for the specified product content item in the specified language, and returns the ID of the page. Ensures the parent page exists.
-    /// </summary>
-    /// <param name="displayName">The display name of the product content item, used for naming the page wrapper.</param>
-    /// <param name="languageName">The language for which to create the page wrapper.</param>
-    /// <param name="languageId">The ID of the language for which to create the page wrapper.</param>
-    /// <param name="contentTypeId">The content type ID of the product content item, used to find or create a parent page if necessary.</param>
-    /// <param name="contentItemGuid">The GUID of the product content item, used to link the page wrapper to the product.</param>
-    /// <returns>The ID of the created page.</returns>
-    /// </summary>
-    private int CreatePageWrapperForProduct(string displayName, string languageName, int languageId, int contentTypeId, Guid contentItemGuid)
-    {
-        var itemData = new ContentItemData(new Dictionary<string, object>
-        {
-            { nameof(ProductPage.ProductPageProducts), new List<ContentItemReference>()
-                { new() { Identifier = contentItemGuid } } },
-        });
-
-        var contentItemParameters = new ContentItemParameters(ProductPage.CONTENT_TYPE_NAME, itemData);
-
-        var createPageParameters = new CreateWebPageParameters(displayName, languageName, contentItemParameters)
-        {
-            ParentWebPageItemID = EnsureParentPageInLanguage(contentTypeId, languageName, languageId)
-        };
-
-        createPageParameters.SetPageBuilderConfiguration(GetProductWidgetsConfiguration(), GetPageTemplateConfiguration());
-        int id = webPageManager.Create(createPageParameters).GetAwaiter().GetResult();
-
-        if (id <= 0)
-        {
-            logger.LogError(EventIds.ProductWrapperCreateFailed,
-                "Page wrapper creation failed for product content item with GUID {ContentItemGuid} in language {LanguageName}.",
-                contentItemGuid,
-                languageName);
-        }
-
-        return id;
-    }
-
-    /// <summary>
     /// Creates Page Builder JSON for the product wrapper page, with a product widget configured to display the current product 
     /// </summary>
     /// <returns>JSON string representing the product page's Page Builder content</returns>
@@ -388,38 +358,6 @@ public class ProductPageWrapperHandler() : Module(MODULE_NAME)
         "{\"identifier\":\"TrainingGuides.GeneralPageTemplate\",\"properties\":null,\"fieldIdentifiers\":null}";
 
     /// <summary>
-    /// Creates a language variant of a product's page wrapper in the specified language
-    /// </summary>
-    /// <param name="displayName">The display name of the content item to apply to the page wrapper</param>
-    /// <param name="languageName">The language in which to create the variant</param>
-    /// <param name="contentItemGuid">The GUID of the content item to be referenced by the page wrapper</param>
-    /// <param name="existingPageId">The WebPageItemID of the existing page</param>
-    private void CreatePageWrapperLanguageVariantForProduct(string displayName, string languageName, Guid contentItemGuid, int existingPageId)
-    {
-        var itemData = new ContentItemData(new Dictionary<string, object>
-        {
-            { nameof(ProductPage.ProductPageProducts), new List<ContentItemReference>()
-                { new() { Identifier = contentItemGuid } } },
-        });
-
-        var createLanguageVariantParameters =
-            new CMS.Websites.CreateLanguageVariantParameters(existingPageId,
-                                                             languageName,
-                                                             displayName,
-                                                             itemData);
-
-        createLanguageVariantParameters.SetPageBuilderConfiguration(GetProductWidgetsConfiguration(), GetPageTemplateConfiguration());
-
-        if (!webPageManager.TryCreateLanguageVariant(createLanguageVariantParameters).GetAwaiter().GetResult())
-        {
-            logger.LogError(EventIds.ProductWrapperLanguageVariantCreateFailed,
-                "Page wrapper language variant creation failed for product content item with GUID {ContentItemGuid} in language {LanguageName}.",
-                contentItemGuid,
-                languageName);
-        }
-    }
-
-    /// <summary>
     /// Ensures a parent page exists for the specified product content type in the current language
     /// </summary>
     /// <param name="contentTypeId">The ID of the product content type</param>
@@ -438,6 +376,7 @@ public class ProductPageWrapperHandler() : Module(MODULE_NAME)
                 parentPagePath: STORE_PATH,
                 customContentTypeQueryParameters: query => query,
                 customContentQueryParameters: config => config
+                    // Filter store section pages that are assigned to the product's content type
                     .Where(where => where.WhereContains(nameof(StoreSection.StoreSectionContentTypes), contentTypeGuid.ToString()))
                     .TopN(1),
                 forPreview: true,
@@ -548,9 +487,80 @@ public class ProductPageWrapperHandler() : Module(MODULE_NAME)
             .GetAwaiter().GetResult()?.SystemFields.WebPageItemID;
 
     /// <summary>
+    /// Creates a page wrapper for the specified product content item in the specified language, and returns the ID of the page. Ensures the parent page exists.
+    /// </summary>
+    /// <param name="displayName">The display name of the product content item, used for naming the page wrapper.</param>
+    /// <param name="languageName">The language for which to create the page wrapper.</param>
+    /// <param name="languageId">The ID of the language for which to create the page wrapper.</param>
+    /// <param name="contentTypeId">The content type ID of the product content item, used to find or create a parent page if necessary.</param>
+    /// <param name="contentItemGuid">The GUID of the product content item, used to link the page wrapper to the product.</param>
+    /// <returns>The ID of the created page.</returns>
+    /// </summary>
+    private int CreatePageWrapperForProduct(string displayName, string languageName, int languageId, int contentTypeId, Guid contentItemGuid)
+    {
+        var itemData = new ContentItemData(new Dictionary<string, object>
+        {
+            { nameof(ProductPage.ProductPageProducts), new List<ContentItemReference>()
+                { new() { Identifier = contentItemGuid } } },
+        });
+
+        var contentItemParameters = new ContentItemParameters(ProductPage.CONTENT_TYPE_NAME, itemData);
+
+        var createPageParameters = new CreateWebPageParameters(displayName, languageName, contentItemParameters)
+        {
+            ParentWebPageItemID = EnsureParentPageInLanguage(contentTypeId, languageName, languageId)
+        };
+
+        createPageParameters.SetPageBuilderConfiguration(GetProductWidgetsConfiguration(), GetPageTemplateConfiguration());
+        int id = webPageManager.Create(createPageParameters).GetAwaiter().GetResult();
+
+        if (id <= 0)
+        {
+            logger.LogError(EventIds.ProductWrapperCreateFailed,
+                "Page wrapper creation failed for product content item with GUID {ContentItemGuid} in language {LanguageName}.",
+                contentItemGuid,
+                languageName);
+        }
+
+        return id;
+    }
+
+    /// <summary>
+    /// Creates a language variant of a product's page wrapper in the specified language
+    /// </summary>
+    /// <param name="displayName">The display name of the content item to apply to the page wrapper</param>
+    /// <param name="languageName">The language in which to create the variant</param>
+    /// <param name="contentItemGuid">The GUID of the content item to be referenced by the page wrapper</param>
+    /// <param name="existingPageId">The WebPageItemID of the existing page</param>
+    private void CreatePageWrapperLanguageVariantForProduct(string displayName, string languageName, Guid contentItemGuid, int existingPageId)
+    {
+        var itemData = new ContentItemData(new Dictionary<string, object>
+        {
+            { nameof(ProductPage.ProductPageProducts), new List<ContentItemReference>()
+                { new() { Identifier = contentItemGuid } } },
+        });
+
+        var createLanguageVariantParameters =
+            new CMS.Websites.CreateLanguageVariantParameters(existingPageId,
+                                                             languageName,
+                                                             displayName,
+                                                             itemData);
+
+        createLanguageVariantParameters.SetPageBuilderConfiguration(GetProductWidgetsConfiguration(), GetPageTemplateConfiguration());
+
+        if (!webPageManager.TryCreateLanguageVariant(createLanguageVariantParameters).GetAwaiter().GetResult())
+        {
+            logger.LogError(EventIds.ProductWrapperLanguageVariantCreateFailed,
+                "Page wrapper language variant creation failed for product content item with GUID {ContentItemGuid} in language {LanguageName}.",
+                contentItemGuid,
+                languageName);
+        }
+    }
+
+    /// <summary>
     /// Retrieves all product pages that reference the specified product.
     /// </summary>
-    /// <param name="guid">Guid of the product item being referenced</param>
+    /// <param name="guid">GUID of the product item being referenced</param>
     /// <param name="languageName">Language version to check</param>
     /// <param name="languageId">Language ID to check (must match the language name)</param>
     /// <returns>A collection of product pages that reference the specified product</returns>
@@ -583,7 +593,6 @@ public class ProductPageWrapperHandler() : Module(MODULE_NAME)
                     languageName: languageName,
                     channelName: CHANNEL_NAME)
                 .GetAwaiter().GetResult();
-
     }
 
     /// <summary>
@@ -593,7 +602,7 @@ public class ProductPageWrapperHandler() : Module(MODULE_NAME)
     /// <param name="languageName">Language name of variant to retrieve</param>
     /// <param name="languageId">Language ID of variant to retrieve (must match language name)</param>
     /// <param name="contentTypeId">ID of the reusable product item's content type</param>
-    /// <param name="contentItemGuid">Guid of the reusable content item</param>
+    /// <param name="contentItemGuid">GUID of the reusable content item</param>
     /// <returns>An enumerable collection of wrapper pages linking the specified product</returns>
     private IEnumerable<IWebPageFieldsSource> EnsureProductPageWrapperForLanguage(string displayName, string languageName, int languageId, int contentTypeId, Guid contentItemGuid)
     {

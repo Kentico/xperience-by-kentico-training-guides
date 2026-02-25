@@ -22,7 +22,7 @@ public interface IContentItemRetrieverService
     /// <summary>
     /// Retrieves Web page content item by ContentItemGuid using ContentRetriever API
     /// </summary>
-    /// <param name="contentItemGuid">The content item Guid of the Web page content item.</param>
+    /// <param name="contentItemGuid">The content item GUID of the Web page content item.</param>
     /// <param name="depth">The maximum level of recursively linked content items that should be included in the results. Default value is 1.</param>
     /// <param name="includeSecuredItems">If true, secured items will be included in the results.</param>
     /// <param name="languageName">The language to query. If null, the language will be inferred from the URL of the current request.</param>
@@ -67,7 +67,7 @@ public interface IContentItemRetrieverService
         where T : IWebPageFieldsSource, new();
 
     /// <summary>
-    /// Retrieves a web page content item by path without context using ContentRetriever API
+    /// Retrieves a web page content item by path without channel context using content item query API
     /// </summary>
     /// <typeparam name="T">Type of the web page to retrieve</typeparam>
     /// <param name="pathToMatch">Path where the web page lives</param>
@@ -85,12 +85,12 @@ public interface IContentItemRetrieverService
         where T : IWebPageFieldsSource, new();
 
     /// <summary>
-    /// Retrieves child pages of a given web page without context using ContentRetriever API
+    /// Retrieves child pages of a given web page without channel context using content item query API
     /// </summary>
     /// <param name="contentTypeNames">Content types of the child pages to retrieve</param>
     /// <param name="parentPagePath">Path of the parent page</param>
-    /// <param name="customContentTypeQueryParameters">A function to customize the <see cref="ContentTypesQueryParameters"/></param>
-    /// <param name="customContentQueryParameters">A function to customize the <see cref="ContentQueryParameters"/></param>
+    /// <param name="customContentTypeQueryParameters">Type-level filtering through <see cref="ContentTypesQueryParameters"/></param>
+    /// <param name="customContentQueryParameters">Query level filtering through <see cref="ContentQueryParameters"/></param>
     /// <param name="forPreview">Indicates whether the retrieval is for preview (latest draft of items)</param>
     /// <param name="includeSecuredItems">Indicates whether to include secured items</param>
     /// <param name="channelName">Name of the channel</param>
@@ -131,7 +131,7 @@ public interface IContentItemRetrieverService
     /// <summary>
     /// Retrieves reusable content item by Guid using ContentRetriever API
     /// </summary>
-    /// <param name="contentItemGuid">The Guid of the reusable content item.</param>
+    /// <param name="contentItemGuid">The GUID of the reusable content item.</param>
     /// <param name="depth">The maximum level of recursively linked content items that should be included in the results. Default value is 1.</param>
     /// <param name="includeSecuredItems">If true, secured items will be included in the results.</param>
     /// <param name="languageName">The language to query. If null, the language will be inferred from the URL of the current request.</param>
@@ -147,7 +147,7 @@ public interface IContentItemRetrieverService
     /// Retrieves reusable content items of specified type from specified smart folder.
     /// </summary>
     /// <param name="contentTypeName">Content type name of the content items the method should return</param>
-    /// <param name="smartFolderGuid">Guid of the smart folder to retrieve the content items from</param>
+    /// <param name="smartFolderGuid">GUID of the smart folder to retrieve the content items from</param>
     /// <param name="orderBy">Order the returned items ascending/descending</param>
     /// <param name="topN">Number of items to return</param>
     /// <param name="depth">The maximum level of recursively linked content items that should be included in the results. Default value is 1.</param>
@@ -224,7 +224,7 @@ public interface IContentItemRetrieverService
     /// <summary>
     /// Retrieves a web page item by Guid using the Content item query
     /// </summary>
-    /// <param name="pageContentItemGuid">The Guid of the web page item</param>
+    /// <param name="pageContentItemGuid">The GUID of the web page item</param>
     /// <param name="depth">The maximum level of recursively linked content items that should be included in the results. Default value is 2.</param>
     /// <param name="includeSecuredItems">If true, secured items will be included in the results.</param>
     /// <param name="languageName">The language to query. If null, the language will be inferred from the URL of the current request.</param>
