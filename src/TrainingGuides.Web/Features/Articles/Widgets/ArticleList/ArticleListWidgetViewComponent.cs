@@ -32,7 +32,7 @@ public class ArticleListWidgetViewComponent : ViewComponent
     {
         var model = new ArticleListWidgetViewModel();
 
-        if (!properties.ContentTreeSection.IsNullOrEmpty())
+        if (properties.ContentTreeSection.Any())
         {
             var articlePages = await RetrieveArticlePages(properties.ContentTreeSection.First());
 
