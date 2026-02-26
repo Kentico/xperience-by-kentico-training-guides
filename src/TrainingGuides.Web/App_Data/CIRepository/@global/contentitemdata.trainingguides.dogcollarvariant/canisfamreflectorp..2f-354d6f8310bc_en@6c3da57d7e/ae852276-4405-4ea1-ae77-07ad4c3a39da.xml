@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.dogcollarvariant>
+  <ContentItemDataCommonDataID>
+    <GUID>8aaaa035-c663-4448-9f2f-354d6f8310bc</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>CanisFamReflectorPro-Large-Pink-wut9km04</CodeName>
+      <GUID>0364b62c-15e8-41d3-8410-ca91cea66182</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>ae852276-4405-4ea1-ae77-07ad4c3a39da</ContentItemDataGUID>
+</contentitemdata.trainingguides.dogcollarvariant>

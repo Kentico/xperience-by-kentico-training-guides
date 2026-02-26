@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.storesection>
+  <ContentItemDataCommonDataID>
+    <GUID>73a24a7e-373b-4bf4-9a94-c92b71d68e26</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>CatFood-6jxzscti</CodeName>
+      <GUID>2e903e77-4cf5-4164-b383-28a0971e5f08</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>b28c1c77-3ba9-48dc-87a1-9d9aa278cbb3</ContentItemDataGUID>
+  <StoreSectionContentTypes>
+    <![CDATA[["78c53faa-7e40-4920-91a4-f5096040ee54"]]]>
+  </StoreSectionContentTypes>
+</contentitemdata.trainingguides.storesection>

@@ -10,6 +10,7 @@ using TrainingGuides.Web.Features.Downloads;
     IconClass = "xp-arrow-down-line")]
 
 namespace TrainingGuides.Web.Features.Downloads;
+
 public static class DownloadsPagePageTemplate
 {
     public const string IDENTIFIER = "TrainingGuides.DownloadsPagePageTemplate";

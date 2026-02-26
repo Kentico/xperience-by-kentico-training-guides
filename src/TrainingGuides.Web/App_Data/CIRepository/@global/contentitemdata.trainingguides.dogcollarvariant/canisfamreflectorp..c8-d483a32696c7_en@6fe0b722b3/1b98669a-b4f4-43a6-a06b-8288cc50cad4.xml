@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.dogcollarvariant>
+  <ContentItemDataCommonDataID>
+    <GUID>09030046-1621-4996-86c8-d483a32696c7</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>CanisFamReflectorProSmallGreen-ryx9c985</CodeName>
+      <GUID>26add3b2-952b-4f48-9c2c-bdb3c201239c</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>1b98669a-b4f4-43a6-a06b-8288cc50cad4</ContentItemDataGUID>
+</contentitemdata.trainingguides.dogcollarvariant>

@@ -2,7 +2,6 @@ using CMS.ContentEngine;
 using Kentico.PageBuilder.Web.Mvc;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ViewComponents;
-using Microsoft.IdentityModel.Tokens;
 using TrainingGuides.Web.Features.Articles.Services;
 using TrainingGuides.Web.Features.Articles.Widgets.ArticleList;
 using TrainingGuides.Web.Features.Shared.Services;
@@ -32,7 +31,7 @@ public class ArticleListWidgetViewComponent : ViewComponent
     {
         var model = new ArticleListWidgetViewModel();
 
-        if (!properties.ContentTreeSection.IsNullOrEmpty())
+        if (properties.ContentTreeSection.Any())
         {
             var articlePages = await RetrieveArticlePages(properties.ContentTreeSection.First());
 

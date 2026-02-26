@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contenttype>
+  <ClassContentTypeType>Website</ClassContentTypeType>
+  <ClassDisplayName>StoreSection</ClassDisplayName>
+  <ClassFormDefinition>
+    <form>
+      <field column="ContentItemDataID" columntype="integer" enabled="true" guid="c2a054bd-c1bd-4aa0-8fd8-584735080de0" isPK="true" />
+      <field column="ContentItemDataCommonDataID" columntype="integer" enabled="true" guid="c2a38e3b-9035-46e3-929c-512b0ebd647c" refobjtype="cms.contentitemcommondata" reftype="Required" system="true" />
+      <field column="ContentItemDataGUID" columntype="guid" enabled="true" guid="79c447bd-ef7a-4bef-b897-5502fa2a9b18" isunique="true" system="true" />
+      <field column="StoreSectionContentTypes" columnprecision="0" columntype="objectguids" enabled="true" guid="217bd5bc-510e-49a7-bd82-ca93bac91043" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Section content types</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.ObjectGuidSelector</controlname>
+          <MaximumItems>1</MaximumItems>
+          <ObjectType>cms.contenttype</ObjectType>
+        </settings>
+      </field>
+    </form>
+  </ClassFormDefinition>
+  <ClassGUID>5ce8de4d-0304-496a-8b09-7271613dd135</ClassGUID>
+  <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
+  <ClassIconClass>xp-building</ClassIconClass>
+  <ClassName>TrainingGuides.StoreSection</ClassName>
+  <ClassShortName>TrainingGuidesStoreSection</ClassShortName>
+  <ClassTableName>TrainingGuides_StoreSection</ClassTableName>
+  <ClassType>Content</ClassType>
+  <ClassWebPageHasUrl>True</ClassWebPageHasUrl>
+</cms.contenttype>

@@ -21,6 +21,7 @@ builder.Services.AddKentico(features =>
             DownloadsPage.CONTENT_TYPE_NAME,
             EmptyPage.CONTENT_TYPE_NAME,
             ProductPage.CONTENT_TYPE_NAME,
+            StoreSection.CONTENT_TYPE_NAME
         }
     });
     features.UseWebPageRouting();

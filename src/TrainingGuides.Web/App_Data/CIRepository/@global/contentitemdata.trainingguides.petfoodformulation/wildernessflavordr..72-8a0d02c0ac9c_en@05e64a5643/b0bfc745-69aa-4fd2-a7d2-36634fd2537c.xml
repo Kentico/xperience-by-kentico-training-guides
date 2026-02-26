@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.petfoodformulation>
+  <ContentItemDataCommonDataID>
+    <GUID>2ba09b90-d41a-4e87-9872-8a0d02c0ac9c</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>WildernessFlavorDryCatFood-VenisonAndSalmon-1z7zemhu</CodeName>
+      <GUID>4bed4b80-8127-4da9-baed-18289ad3a3e9</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>b0bfc745-69aa-4fd2-a7d2-36634fd2537c</ContentItemDataGUID>
+  <PetFoodFormulationIngredients>
+    <![CDATA[<p>Salmon, Rice, Corn Protein Meal, Poultry By-Product Meal, Wheat Flour, Dried Egg Product, Beef Fat Preserved With Mixed Tocopherols, Soy Protein Concentrate, Fish Meal, Natural Flavor, Dried Chicory Root, Phosphoric Acid, Potassium Chloride, Calcium Carbonate, Salt, Caramel Color, Choline Chloride, Vitamins [Vitamin E Supplement, Niacin (Vitamin B-3), Vitamin A Supplement, Calcium Pantothenate (Vitamin B-5), Thiamine Mononitrate (Vitamin B-1), Riboflavin Supplement (Vitamin B-2), Vitamin B-12 Supplement, Pyridoxine Hydrochloride (Vitamin B-6), Folic Acid (Vitamin B-9), Vitamin D-3 Supplement, Biotin (Vitamin B-7), Menadione Sodium Bisulfite Complex (Vitamin K)], Taurine, Minerals [Zinc Sulfate, Ferrous Sulfate, Manganese Sulfate, Copper Sulfate, Calcium Iodate, Sodium Selenite], L-Lysine Monohydrochloride, Dried Bacillus Coagulans Fermentation Product, V463025.</p>]]>
+  </PetFoodFormulationIngredients>
+  <PetFoodFormulationName>Venison and Salmon</PetFoodFormulationName>
+</contentitemdata.trainingguides.petfoodformulation>

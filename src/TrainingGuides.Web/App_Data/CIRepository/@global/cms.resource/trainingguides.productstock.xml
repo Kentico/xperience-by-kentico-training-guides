@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.resource>
+  <ResourceDisplayName>Product stock</ResourceDisplayName>
+  <ResourceGUID>b4890211-1259-4ea0-8ed9-d951942e9ec4</ResourceGUID>
+  <ResourceIsInDevelopment>False</ResourceIsInDevelopment>
+  <ResourceName>TrainingGuides.ProductStock</ResourceName>
+</cms.resource>

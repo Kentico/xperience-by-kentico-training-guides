@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contenttype>
+  <ClassContentTypeType>Reusable</ClassContentTypeType>
+  <ClassDisplayName>Pet food formulation</ClassDisplayName>
+  <ClassFormDefinition>
+    <form>
+      <field column="ContentItemDataID" columntype="integer" enabled="true" guid="2cede48a-86a4-4960-8841-f8df9d81a035" isPK="true" />
+      <field column="ContentItemDataCommonDataID" columntype="integer" enabled="true" guid="685dbaa0-ed45-4889-a30f-880369dbdacc" refobjtype="cms.contentitemcommondata" reftype="Required" system="true" />
+      <field column="ContentItemDataGUID" columntype="guid" enabled="true" guid="8e2d8055-1ba4-4ddf-a9ca-2589449541d6" isunique="true" system="true" />
+      <field column="PetFoodFormulationName" columnprecision="0" columnsize="200" columntype="text" enabled="true" guid="64b255ce-4eda-452a-b3f1-522674f323bf" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Name</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.TextInput</controlname>
+        </settings>
+      </field>
+      <field column="PetFoodFormulationIngredients" columnprecision="0" columntype="richtexthtml" enabled="true" guid="c1c9a83b-6a73-4c50-ae3e-5e9a5d64ef98" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Ingredients</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.RichTextEditor</controlname>
+        </settings>
+      </field>
+    </form>
+  </ClassFormDefinition>
+  <ClassGUID>a69ed0b4-65d3-459e-847a-2b65e2f82a5a</ClassGUID>
+  <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
+  <ClassIconClass>xp-list</ClassIconClass>
+  <ClassName>TrainingGuides.PetFoodFormulation</ClassName>
+  <ClassShortName>TrainingGuidesPetFoodFormulation</ClassShortName>
+  <ClassTableName>TrainingGuides_PetFoodFormulation</ClassTableName>
+  <ClassType>Content</ClassType>
+  <ClassWebPageHasUrl>False</ClassWebPageHasUrl>
+</cms.contenttype>

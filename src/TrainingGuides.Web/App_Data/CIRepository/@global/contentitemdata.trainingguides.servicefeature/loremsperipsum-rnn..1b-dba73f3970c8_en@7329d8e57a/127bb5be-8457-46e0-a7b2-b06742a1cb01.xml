@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.servicefeature>
+  <ContentItemDataCommonDataID>
+    <GUID>8edb249a-5406-46ec-9a1b-dba73f3970c8</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>LoremsPerIpsum-rnnrmvk8</CodeName>
+      <GUID>f89c8f04-17ec-47a9-97df-c559b108691f</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>127bb5be-8457-46e0-a7b2-b06742a1cb01</ContentItemDataGUID>
+  <ServiceFeatureIncluded>False</ServiceFeatureIncluded>
+  <ServiceFeatureKey>apy</ServiceFeatureKey>
+  <ServiceFeatureLabel>APY</ServiceFeatureLabel>
+  <ServiceFeatureShowInComparator>1</ServiceFeatureShowInComparator>
+  <ServiceFeatureValue>10%</ServiceFeatureValue>
+  <ServiceFeatureValueType>0</ServiceFeatureValueType>
+</contentitemdata.trainingguides.servicefeature>

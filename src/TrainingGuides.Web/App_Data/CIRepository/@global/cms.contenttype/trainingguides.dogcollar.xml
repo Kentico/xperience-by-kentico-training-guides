@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contenttype>
+  <ClassContentTypeType>Reusable</ClassContentTypeType>
+  <ClassDisplayName>Dog collar</ClassDisplayName>
+  <ClassFormDefinition>
+    <form>
+      <field column="ContentItemDataID" columntype="integer" enabled="true" guid="538bbf7f-1cc2-40d0-9f1c-b02be6d688aa" isPK="true" />
+      <field column="ContentItemDataCommonDataID" columntype="integer" enabled="true" guid="22ebc340-0f44-47c5-bb41-64f417178ded" refobjtype="cms.contentitemcommondata" reftype="Required" system="true" />
+      <field column="ContentItemDataGUID" columntype="guid" enabled="true" guid="f778379d-de57-401c-8a49-0036253231bc" isunique="true" system="true" />
+      <schema guid="240eabd8-f0ff-47b8-b27b-b82a8b2801c4" name="240eabd8-f0ff-47b8-b27b-b82a8b2801c4">
+        <properties />
+      </schema>
+      <schema guid="849b822b-e92a-4da3-8250-1251bd4fea37" name="849b822b-e92a-4da3-8250-1251bd4fea37">
+        <properties />
+      </schema>
+      <schema guid="f8e97d15-2d34-48a9-8f43-903477f81ae0" name="f8e97d15-2d34-48a9-8f43-903477f81ae0">
+        <properties />
+      </schema>
+    </form>
+  </ClassFormDefinition>
+  <ClassGUID>68473cf2-bf5b-48aa-b1d0-4bc1c4f6d638</ClassGUID>
+  <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
+  <ClassIconClass>xp-circle</ClassIconClass>
+  <ClassName>TrainingGuides.DogCollar</ClassName>
+  <ClassShortName>TrainingGuidesDogCollar</ClassShortName>
+  <ClassTableName>TrainingGuides_DogCollar</ClassTableName>
+  <ClassType>Content</ClassType>
+  <ClassWebPageHasUrl>False</ClassWebPageHasUrl>
+</cms.contenttype>

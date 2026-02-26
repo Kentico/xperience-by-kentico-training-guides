@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.catfoodvariant>
+  <CatFoodVariantFormulation>
+    <![CDATA[[{"Identifier":"b1091d81-bbbd-405e-91c7-c67b7706da20"}]]]>
+  </CatFoodVariantFormulation>
+  <ContentItemDataCommonDataID>
+    <GUID>2b221c50-e6b1-4b33-8fb1-d658d6831184</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>PurremoEssentialsSalmonAndRice-5lb-r5740ema</CodeName>
+      <GUID>c3f056a5-2e9c-46ff-84b9-6f2b9790317c</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>8ff4cb73-e3f0-465e-b735-03bfd4653288</ContentItemDataGUID>
+</contentitemdata.trainingguides.catfoodvariant>

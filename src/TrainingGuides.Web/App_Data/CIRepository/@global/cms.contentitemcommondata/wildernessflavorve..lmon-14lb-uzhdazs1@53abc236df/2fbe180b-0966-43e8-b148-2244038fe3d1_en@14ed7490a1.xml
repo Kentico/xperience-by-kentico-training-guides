@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentitemcommondata>
+  <AmountSchemaNumber>14</AmountSchemaNumber>
+  <AmountSchemaUnit>lb</AmountSchemaUnit>
+  <ContentItemCommonDataContentItemID>
+    <CodeName>WildernessFlavorVenisonAndSalmon-14lb-uzhdazs1</CodeName>
+    <GUID>c5aa9de8-c9a3-451f-b69e-a0ea71d6c361</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </ContentItemCommonDataContentItemID>
+  <ContentItemCommonDataContentLanguageID>
+    <CodeName>en</CodeName>
+    <GUID>e81b5172-f240-4041-88b1-653089984e29</GUID>
+    <ObjectType>cms.contentlanguage</ObjectType>
+  </ContentItemCommonDataContentLanguageID>
+  <ContentItemCommonDataFirstPublishedWhen>2026-01-12 15:43:41Z</ContentItemCommonDataFirstPublishedWhen>
+  <ContentItemCommonDataGUID>2fbe180b-0966-43e8-b148-2244038fe3d1</ContentItemCommonDataGUID>
+  <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
+  <ContentItemCommonDataLastPublishedWhen>2026-01-15 22:23:30Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
+  <ProductPriceSchemaDiscountCategory />
+  <ProductPriceSchemaPrice>39.99</ProductPriceSchemaPrice>
+  <ProductSchemaDescription>
+    <![CDATA[<p>This fourteen pound bag is perfect for those who like to stock up, and for homes with multiple cats.</p>]]>
+  </ProductSchemaDescription>
+  <ProductSchemaImages>
+    <![CDATA[[{"Identifier":"db34ce08-11cf-4d8b-bad7-97f537a71911"}]]]>
+  </ProductSchemaImages>
+  <ProductSchemaName>Venison and Salmon - 14lb</ProductSchemaName>
+  <ProductShippingSchemaShippingType>3</ProductShippingSchemaShippingType>
+  <ProductShippingSchemaShippingWeight>14</ProductShippingSchemaShippingWeight>
+  <ProductShippingSchemaWeightUnit>lb</ProductShippingSchemaWeightUnit>
+  <ProductSkuSchemaSkuCode>WF-VS-14</ProductSkuSchemaSkuCode>
+  <ProductVariantSchemaCodeName>wf-venison-and-salmon-14lb</ProductVariantSchemaCodeName>
+  <ContentItemReferences>
+    <cms.contentitemreference>
+      <ContentItemReferenceGroupGUID>4ff443bf-b147-4f35-b35d-03d61002f569</ContentItemReferenceGroupGUID>
+      <ContentItemReferenceGUID>ac83d2ad-259b-400b-b82a-dd37697fbfdd</ContentItemReferenceGUID>
+      <ContentItemReferenceSourceCommonDataID>
+        <GUID>2fbe180b-0966-43e8-b148-2244038fe3d1</GUID>
+        <ObjectType>cms.contentitemcommondata</ObjectType>
+      </ContentItemReferenceSourceCommonDataID>
+      <ContentItemReferenceTargetItemID>
+        <CodeName>WildernessFlavorDryCatFood-VenisonAndSalmon-1z7zemhu</CodeName>
+        <GUID>4bed4b80-8127-4da9-baed-18289ad3a3e9</GUID>
+        <ObjectType>cms.contentitem</ObjectType>
+      </ContentItemReferenceTargetItemID>
+    </cms.contentitemreference>
+    <cms.contentitemreference>
+      <ContentItemReferenceGroupGUID>84b06b06-1392-422d-82e5-639ed2fa6340</ContentItemReferenceGroupGUID>
+      <ContentItemReferenceGUID>c20d945d-2b46-4e66-8b4e-8256b6f85f79</ContentItemReferenceGUID>
+      <ContentItemReferenceSourceCommonDataID>
+        <GUID>2fbe180b-0966-43e8-b148-2244038fe3d1</GUID>
+        <ObjectType>cms.contentitemcommondata</ObjectType>
+      </ContentItemReferenceSourceCommonDataID>
+      <ContentItemReferenceTargetItemID>
+        <CodeName>CatFoodKibble1-65qpr0bu</CodeName>
+        <GUID>db34ce08-11cf-4d8b-bad7-97f537a71911</GUID>
+        <ObjectType>cms.contentitem</ObjectType>
+      </ContentItemReferenceTargetItemID>
+    </cms.contentitemreference>
+  </ContentItemReferences>
+</cms.contentitemcommondata>

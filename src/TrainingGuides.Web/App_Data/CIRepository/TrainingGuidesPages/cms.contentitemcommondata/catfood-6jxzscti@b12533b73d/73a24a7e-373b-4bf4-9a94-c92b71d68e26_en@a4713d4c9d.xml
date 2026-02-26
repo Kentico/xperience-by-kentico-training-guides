@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentitemcommondata>
+  <ContentItemCommonDataContentItemID>
+    <CodeName>CatFood-6jxzscti</CodeName>
+    <GUID>2e903e77-4cf5-4164-b383-28a0971e5f08</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </ContentItemCommonDataContentItemID>
+  <ContentItemCommonDataContentLanguageID>
+    <CodeName>en</CodeName>
+    <GUID>e81b5172-f240-4041-88b1-653089984e29</GUID>
+    <ObjectType>cms.contentlanguage</ObjectType>
+  </ContentItemCommonDataContentLanguageID>
+  <ContentItemCommonDataFirstPublishedWhen>2026-02-10 13:25:50Z</ContentItemCommonDataFirstPublishedWhen>
+  <ContentItemCommonDataGUID>73a24a7e-373b-4bf4-9a94-c92b71d68e26</ContentItemCommonDataGUID>
+  <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
+  <ContentItemCommonDataLastPublishedWhen>2026-02-26 20:58:11Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
+  <ContentItemCommonDataVisualBuilderTemplateConfiguration>
+    <![CDATA[{"identifier":"TrainingGuides.EmptyPagePageTemplate","properties":null,"fieldIdentifiers":{}}]]>
+  </ContentItemCommonDataVisualBuilderTemplateConfiguration>
+  <ContentItemCommonDataVisualBuilderWidgets>
+    <![CDATA[{"editableAreas":[{"identifier":"areaMain","sections":[{"identifier":"ab306088-bb01-4823-aa8b-fdaa6accbce5","type":"TrainingGuides.SingleColumnSection","properties":{"sectionAnchor":""},"zones":[{"identifier":"e87d8410-c111-46f5-9a8e-35b26d24cbf5","widgets":[{"identifier":"dc892180-e745-4190-9d66-cde3a6c7b735","type":"TrainingGuides.ProductListingWidget","variants":[{"identifier":"bed8fb30-9fe2-46ae-b33e-bd8d698df7b8","properties":{"parentPageSelection":[],"ctaText":"View Product","signInText":"Sign in to view","securedItemsDisplayMode":"PromptForLogin"},"fieldIdentifiers":{"parentPageSelection":"b0408340-601c-4d3b-812f-20837328f26d","ctaText":"934f52c1-b2f2-4dfe-9035-93f39784b289","signInText":"93ffd526-7bd7-4f01-a6ec-b697b8ffd54a","securedItemsDisplayMode":"ad66d481-9b53-44a3-a69b-9c364ddc235a"}}]}]}],"fieldIdentifiers":{"sectionAnchor":"83245bba-f1b0-441a-92a5-e6af6d696529"}}]}]}]]>
+  </ContentItemCommonDataVisualBuilderWidgets>
+</cms.contentitemcommondata>

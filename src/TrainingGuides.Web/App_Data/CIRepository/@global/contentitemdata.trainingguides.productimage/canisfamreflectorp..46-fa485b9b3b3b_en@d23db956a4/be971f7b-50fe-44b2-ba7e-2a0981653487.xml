@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.productimage>
+  <ContentItemDataCommonDataID>
+    <GUID>5c94bc75-c42d-4123-9a46-fa485b9b3b3b</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>CanisFamReflectorProBlue-bhn812s0</CodeName>
+      <GUID>c02e17fe-4ad1-4144-9b45-d064d2174d74</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>be971f7b-50fe-44b2-ba7e-2a0981653487</ContentItemDataGUID>
+  <ProductImageAltText>Image of CanisFam reflective dog collar in blue</ProductImageAltText>
+  <ProductImageAsset>
+    <![CDATA[{"Variants":{},"FocalPoint":{"X":512,"Y":512},"Identifier":"f14e5dfb-b253-49d4-bcf0-c92aee9eb562","Name":"CanisFamBlue.png","Extension":".png","Size":294629,"Width":1024,"Height":1024,"LastModified":"2026-01-27T15:52:04.5055414Z"}]]>
+  </ProductImageAsset>
+</contentitemdata.trainingguides.productimage>

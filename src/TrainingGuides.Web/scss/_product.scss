@@ -574,3 +574,85 @@
     }
 }
 
+// Product Widget Variant Selection Styles
+.c-product-widget__variant-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.5rem;
+    border: 2px solid #dee2e6;
+    border-radius: 0.25rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    background-color: #fff;
+    min-width: 80px;
+    
+    &:hover {
+        border-color: variables.$color-primary;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        text-decoration: none;
+    }
+    
+    &--selected {
+        border-color: variables.$color-primary;
+        background-color: rgba(variables.$color-primary, 0.05);
+        box-shadow: 0 2px 6px rgba(variables.$color-primary, 0.2);
+    }
+}
+
+.c-product-widget__variant-thumbnail {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 0.25rem;
+    margin-bottom: 0.25rem;
+}
+
+.c-product-widget__variant-name {
+    text-align: center;
+    color: #333;
+    word-break: break-word;
+}
+
+// Product Widget Image Gallery Styles
+.c-product-widget__gallery {
+    .c-product-widget__main-image {
+        position: relative;
+        
+        img {
+            transition: opacity 0.3s ease;
+        }
+    }
+    
+    .c-product-widget__thumbnails {
+        .c-product-widget__thumbnail {
+            width: 80px;
+            height: 80px;
+            padding: 0;
+            border: 2px solid #dee2e6;
+            border-radius: 0.25rem;
+            background: #fff;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            overflow: hidden;
+            
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+            
+            &:hover {
+                border-color: variables.$color-primary;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
+            
+            &.active {
+                border-color: variables.$color-primary;
+                border-width: 3px;
+                box-shadow: 0 2px 6px rgba(variables.$color-primary, 0.3);
+            }
+        }
+    }
+}
+

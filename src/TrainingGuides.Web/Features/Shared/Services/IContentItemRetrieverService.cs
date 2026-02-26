@@ -1,4 +1,5 @@
 ﻿using CMS.ContentEngine;
+using Kentico.Content.Web.Mvc;
 
 namespace TrainingGuides.Web.Features.Shared.Services;
 
@@ -33,11 +34,30 @@ public interface IContentItemRetrieverService
     /// </summary>
     /// <param name="path">Path of the parent page</param>
     /// <param name="depth">The maximum level of recursively linked content items that should be included in the results. Default value is 1.</param>
+    /// <param name="includeSecuredItems">If true, secured items will be included in the results.</param>
     /// <param name="languageName">The language to query. If null, the language will be inferred from the URL of the current request.</param>
     /// <returns>A collection of web pages that exist under the specified path in the content tree</returns>
     Task<IEnumerable<T>> RetrieveWebPageChildrenByPath<T>(
         string path,
         int depth = 1,
+        bool includeSecuredItems = true,
+        string? languageName = null)
+        where T : IWebPageFieldsSource, new();
+
+    /// <summary>
+    /// Retrieves child pages of a given web page using ContentRetriever API with additional query configuration
+    /// </summary>
+    /// <param name="path">Path of the parent page</param>
+    /// <param name="depth">The maximum level of recursively linked content items that should be included in the results. Default value is 1.</param>
+    /// <param name="includeSecuredItems">If true, secured items will be included in the results.</param>
+    /// <param name="additionalQueryConfiguration">An action to configure additional query parameters</param>
+    /// <param name="languageName">The language to query. If null, the language will be inferred from the URL of the current request.</param>
+    /// <returns>A collection of web pages that exist under the specified path in the content tree</returns>
+    Task<IEnumerable<T>> RetrieveWebPageChildrenByPath<T>(
+        string path,
+        int depth,
+        bool includeSecuredItems,
+        Action<RetrievePagesQueryParameters>? additionalQueryConfiguration,
         string? languageName = null)
         where T : IWebPageFieldsSource, new();
 
@@ -76,5 +96,41 @@ public interface IContentItemRetrieverService
     Task<IWebPageFieldsSource?> RetrieveWebPageByContentItemGuid(
         Guid pageContentItemGuid,
         int depth = 2,
+        string? languageName = null);
+
+    /// <summary>
+    /// Retrieves content items based on the provided list of schema names with additional query configuration.
+    /// </summary>
+    /// <typeparam name="T">The type of the content items to retrieve.</typeparam>
+    /// <param name="schemaNames">The list of schema names to filter the content items.</param>
+    /// <param name="additionalQueryConfiguration">An action to configure additional query parameters.</param>
+    /// <param name="depth">The maximum level of recursively linked content items that should be included in the results. Default value is 1.</param>
+    /// <param name="includeSecuredItems">If true, secured items will be included in the results.</param>
+    /// <param name="languageName">The language to query. If null, the language will be inferred from the URL of the current request.</param>
+    /// <returns>An enumerable collection of content items that match the specified schemas and query configuration.</returns>
+    Task<IEnumerable<T>> RetrieveContentItemsBySchemas<T>(
+        IEnumerable<string> schemaNames,
+        Action<RetrieveContentOfReusableSchemasQueryParameters> additionalQueryConfiguration,
+        int depth = 1,
+        bool includeSecuredItems = true,
+        string? languageName = null);
+
+    /// <summary>
+    /// Retrieves items that reference a given set of item IDs through the provided field, filtered by the given schema name, with additional query configuration.
+    /// </summary>
+    /// <typeparam name="T">The type of the content items to retrieve.</typeparam>
+    /// <param name="schemaName">The name of the schema to filter the parent items.</param>
+    /// <param name="referenceFieldName">The name of the field that holds the reference to the child items.</param>
+    /// <param name="referenceIds">The IDs of the referenced items to filter by.</param>
+    /// <param name="includeSecuredItems">If true, secured items will be included in the results.</param>
+    /// <param name="depth">The maximum level of recursively linked content items that should be included in the results. Default value is 1.</param>
+    /// <param name="languageName">The language to query. If null, the language will be inferred from the URL of the current request.</param>
+    /// <returns>An enumerable collection of content items that reference the specified items.</returns>
+    Task<IEnumerable<T>> RetrieveParentItemsOfSchema<T>(
+        string schemaName,
+        string referenceFieldName,
+        IEnumerable<int> referenceIds,
+        bool includeSecuredItems,
+        int depth = 1,
         string? languageName = null);
 }

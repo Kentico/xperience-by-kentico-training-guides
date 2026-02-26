@@ -1,0 +1,165 @@
+@using Microsoft.AspNetCore.Html
+@using TrainingGuides.Web.Features.Commerce.Products.Widgets.ProductWidget
+@using Kentico.PageBuilder.Web.Mvc
+
+@model ProductWidgetViewModel?
+
+@if (Model is null || Model.IsMisconfigured)
+{
+    if (Context.Kentico().PageBuilder().EditMode)
+    {
+        <tg-page-builder-content>
+            <div class="c-card md bg-1 u-border-02 text-center">
+                <tg-configure-widget-instructions/>
+            </div>
+        </tg-page-builder-content>
+    }
+}
+else
+{
+    <div class="c-product-widget">
+        @if (Model.Product!.ProductImages.Any())
+        {
+            <div class="c-product-widget__gallery mb-3">
+                <div class="c-product-widget__main-image mb-2">
+                    @foreach (var (image, index) in Model.Product.ProductImages.Select((img, idx) => (img, idx)))
+                    {
+                        <img src="@Url.Content(image.ProductImageUrl)" 
+                             alt="@image.ProductImageAltText" 
+                             class="img-fluid w-50 u-border-01 border border-dark c-product-widget__image @(index == 0 ? "active" : "")"
+                             data-image-index="@index"
+                             style="@(index == 0 ? "" : "display: none;")" />
+                    }
+                </div>
+                
+                @if (Model.Product.ProductImages.Count() > 1)
+                {
+                    <div class="c-product-widget__thumbnails d-flex gap-2 flex-wrap">
+                        @foreach (var (image, index) in Model.Product.ProductImages.Select((img, idx) => (img, idx)))
+                        {
+                            <button type="button" 
+                                    class="c-product-widget__thumbnail @(index == 0 ? "active" : "")"
+                                    data-image-index="@index"
+                                    onclick="selectProductImage(@index)">
+                                <img src="@Url.Content(image.ProductImageUrl)" 
+                                     alt="@image.ProductImageAltText" 
+                                     class="img-fluid" />
+                            </button>
+                        }
+                    </div>
+
+                    <script>
+                        function selectProductImage(index) {
+                            // Hide all images
+                            document.querySelectorAll('.c-product-widget__image').forEach(img => {
+                                img.style.display = 'none';
+                                img.classList.remove('active');
+                            });
+                            
+                            // Show selected image
+                            const selectedImage = document.querySelector(`.c-product-widget__image[data-image-index="${index}"]`);
+                            if (selectedImage) {
+                                selectedImage.style.display = 'block';
+                                selectedImage.classList.add('active');
+                            }
+                            
+                            // Update thumbnail active state
+                            document.querySelectorAll('.c-product-widget__thumbnail').forEach(thumb => {
+                                thumb.classList.remove('active');
+                            });
+                            const selectedThumb = document.querySelector(`.c-product-widget__thumbnail[data-image-index="${index}"]`);
+                            if (selectedThumb) {
+                                selectedThumb.classList.add('active');
+                            }
+                        }
+                    </script>
+                }
+            </div>
+        }
+
+        <div class="c-product-widget__details">
+            <h3 class="c-product-widget__name h4 mb-3">@($"{Model.Product.ProductName} ({Model.Product.ProductStockStatus})")</h3>
+            
+            @if (Model.Product.ProductParentDescription is not null && Model.Product.ProductParentDescription != HtmlString.Empty)
+            {
+                <div class="c-product-widget__description mb-3">@Model.Product.ProductParentDescription</div>
+            }
+
+            @if (Model.ShowVariantDetails)
+            {
+                @if (Model.Product.ProductVariantDescription is not null && Model.Product.ProductVariantDescription != HtmlString.Empty)
+                {
+                    <div class="c-product-widget__variant-description mb-3">
+                        <h4 class="h6 mb-2">Variant Details:</h4>
+                        @Model.Product.ProductVariantDescription
+                    </div>
+                }
+
+                @if (Model.Product.ProductOtherDetails is not null && Model.Product.ProductOtherDetails != HtmlString.Empty)
+                {
+                    <div class="c-product-widget__other-details mb-3">
+                        <h4 class="h6 mb-2">Additional Information:</h4>
+                        @Model.Product.ProductOtherDetails
+                    </div>
+                }
+            }
+            @if (Model.Product.ProductPrice > 0m)
+            {
+                if (Model.Product.ProductPrice < Model.Product.ProductRegularPrice)
+                {
+                    <div class="c-product-widget__price mb-3">
+                    <span class="h5 text-primary fw-bold text-decoration-line-through">$@Model.Product.ProductRegularPrice.ToString("n2")</span>
+                </div>
+                }
+                <div class="c-product-widget__price mb-3">
+                    <span class="h5 text-primary fw-bold">$@Model.Product.ProductPrice.ToString("n2")</span>
+                </div>
+            }
+
+            @if (Model.ShowVariantSelection && Model.Product.ProductVariants.Any())
+            {
+                <div class="c-product-widget__variants mb-4">
+                    <h4 class="h6 mb-2">Select Variant:</h4>
+                    <div class="d-flex flex-wrap gap-2">
+                        @foreach (var variant in Model.Product.ProductVariants)
+                        {
+                            var isSelected = variant.VariantCodeName == Model.Product.ProductSelectedVariantCodeName;
+                            var cssClass = isSelected 
+                                ? "c-product-widget__variant-item c-product-widget__variant-item--selected" 
+                                : "c-product-widget__variant-item";
+                            var currentUrl = Context.Request.Path;
+                            var variantUrl = $"{currentUrl}?variant={variant.VariantCodeName}";
+
+                            <a href="@variantUrl" class="@cssClass" title="@variant.VariantName">
+                                @if (variant.VariantImage != null && !string.IsNullOrWhiteSpace(variant.VariantImage.ProductImageUrl))
+                                {
+                                    <img src="@Url.Content(variant.VariantImage.ProductImageUrl)" 
+                                         alt="@variant.VariantImage.ProductImageAltText" 
+                                         class="c-product-widget__variant-thumbnail" />
+                                }
+                                <span class="c-product-widget__variant-name small">@variant.VariantName</span>
+                            </a>
+                        }
+                    </div>
+                </div>
+            }
+            else if (Model.Product.ProductVariants.Any())
+            {
+                <div class="c-product-widget__variants mb-3">
+                    <p class="small text-muted mb-2">
+                        Available in @Model.Product.ProductVariants.Count() variant@(Model.Product.ProductVariants.Count() > 1 ? "s" : "")
+                    </p>
+                </div>
+            }
+
+            @if (Model.ShowCallToAction && !string.IsNullOrWhiteSpace(Model.ProductPageUrl))
+            {
+                <div class="c-product-widget__cta">
+                    <a href="@Url.Content(Model.ProductPageUrl)" class="btn tg-btn-secondary text-uppercase">
+                        @Model.CallToActionText
+                    </a>
+                </div>
+            }
+        </div>
+    </div>
+}

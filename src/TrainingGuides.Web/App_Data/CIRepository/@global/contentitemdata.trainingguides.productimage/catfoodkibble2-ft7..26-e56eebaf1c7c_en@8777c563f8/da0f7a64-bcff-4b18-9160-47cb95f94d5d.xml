@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.productimage>
+  <ContentItemDataCommonDataID>
+    <GUID>1f4b19d8-6c77-4bea-ab26-e56eebaf1c7c</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>CatFoodKibble2-ft7e33w6</CodeName>
+      <GUID>386d712d-1c4e-485e-ad4d-77d86a82cff9</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>da0f7a64-bcff-4b18-9160-47cb95f94d5d</ContentItemDataGUID>
+  <ProductImageAltText>Image of dry cat food kibble with a round shape</ProductImageAltText>
+  <ProductImageAsset>
+    <![CDATA[{"Variants":{},"FocalPoint":{"X":682,"Y":512},"Identifier":"6acd1399-5fba-4bd1-a661-d25f4e9a634d","Name":"catfood2.jpg","Extension":".jpg","Size":313768,"Width":1365,"Height":1024,"LastModified":"2026-01-12T20:59:51.8274551Z"}]]>
+  </ProductImageAsset>
+</contentitemdata.trainingguides.productimage>

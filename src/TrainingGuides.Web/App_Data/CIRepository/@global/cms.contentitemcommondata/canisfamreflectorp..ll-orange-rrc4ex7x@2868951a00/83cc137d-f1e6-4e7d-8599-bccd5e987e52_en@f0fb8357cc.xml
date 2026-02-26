@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentitemcommondata>
+  <ColorPattern>
+    <![CDATA[[{"Identifier":"bb01d680-90dc-4528-b1a0-986f6aa41cb6"}]]]>
+  </ColorPattern>
+  <ContentItemCommonDataContentItemID>
+    <CodeName>CanisFamReflectorPro-Small-Orange-rrc4ex7x</CodeName>
+    <GUID>6f787710-8696-4abf-ad78-9848362624e6</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </ContentItemCommonDataContentItemID>
+  <ContentItemCommonDataContentLanguageID>
+    <CodeName>en</CodeName>
+    <GUID>e81b5172-f240-4041-88b1-653089984e29</GUID>
+    <ObjectType>cms.contentlanguage</ObjectType>
+  </ContentItemCommonDataContentLanguageID>
+  <ContentItemCommonDataFirstPublishedWhen>2026-01-27 15:47:24Z</ContentItemCommonDataFirstPublishedWhen>
+  <ContentItemCommonDataGUID>83cc137d-f1e6-4e7d-8599-bccd5e987e52</ContentItemCommonDataGUID>
+  <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
+  <ContentItemCommonDataLastPublishedWhen>2026-01-27 17:39:25Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
+  <ProductPriceSchemaDiscountCategory />
+  <ProductPriceSchemaPrice>14.99</ProductPriceSchemaPrice>
+  <ProductSchemaImages>
+    <![CDATA[[{"Identifier":"18defb25-3213-4693-a482-39b2be3aa89c"}]]]>
+  </ProductSchemaImages>
+  <ProductSchemaName>Small - Orange</ProductSchemaName>
+  <ProductShippingSchemaShippingType>1</ProductShippingSchemaShippingType>
+  <ProductShippingSchemaShippingWeight>0.5</ProductShippingSchemaShippingWeight>
+  <ProductShippingSchemaWeightUnit>oz</ProductShippingSchemaWeightUnit>
+  <ProductSkuSchemaSkuCode>CF-RP-S-O</ProductSkuSchemaSkuCode>
+  <ProductVariantSchemaCodeName>canisfam-rp-s-o</ProductVariantSchemaCodeName>
+  <SizeSchemaSize>
+    <![CDATA[[{"Identifier":"edf9e701-c4e6-4381-ac19-9e9518e9c011"}]]]>
+  </SizeSchemaSize>
+  <ContentItemReferences>
+    <cms.contentitemreference>
+      <ContentItemReferenceGroupGUID>84b06b06-1392-422d-82e5-639ed2fa6340</ContentItemReferenceGroupGUID>
+      <ContentItemReferenceGUID>417997eb-d70a-4775-8271-f1b3b7109868</ContentItemReferenceGUID>
+      <ContentItemReferenceSourceCommonDataID>
+        <GUID>83cc137d-f1e6-4e7d-8599-bccd5e987e52</GUID>
+        <ObjectType>cms.contentitemcommondata</ObjectType>
+      </ContentItemReferenceSourceCommonDataID>
+      <ContentItemReferenceTargetItemID>
+        <CodeName>CanisFamReflectorProOrange-srdvjfxn</CodeName>
+        <GUID>18defb25-3213-4693-a482-39b2be3aa89c</GUID>
+        <ObjectType>cms.contentitem</ObjectType>
+      </ContentItemReferenceTargetItemID>
+    </cms.contentitemreference>
+  </ContentItemReferences>
+</cms.contentitemcommondata>

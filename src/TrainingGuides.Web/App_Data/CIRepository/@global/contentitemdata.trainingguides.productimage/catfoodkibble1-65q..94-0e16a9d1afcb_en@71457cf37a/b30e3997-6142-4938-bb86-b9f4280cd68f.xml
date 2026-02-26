@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.productimage>
+  <ContentItemDataCommonDataID>
+    <GUID>b8b003cb-c3ed-401a-b394-0e16a9d1afcb</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>CatFoodKibble1-65qpr0bu</CodeName>
+      <GUID>db34ce08-11cf-4d8b-bad7-97f537a71911</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>b30e3997-6142-4938-bb86-b9f4280cd68f</ContentItemDataGUID>
+  <ProductImageAltText>Image of dry cat food kibble</ProductImageAltText>
+  <ProductImageAsset>
+    <![CDATA[{"Variants":{},"FocalPoint":{"X":682,"Y":512},"Identifier":"b18b87ed-1733-47f0-b0ae-a7b83c237d3d","Name":"catfood1.jpg","Extension":".jpg","Size":347021,"Width":1365,"Height":1024,"LastModified":"2026-01-12T20:29:24.4335491Z"}]]>
+  </ProductImageAsset>
+</contentitemdata.trainingguides.productimage>

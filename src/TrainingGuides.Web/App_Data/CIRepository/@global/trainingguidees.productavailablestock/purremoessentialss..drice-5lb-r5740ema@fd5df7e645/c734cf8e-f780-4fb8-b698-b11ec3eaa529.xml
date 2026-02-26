@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<trainingguidees.productavailablestock>
+  <ProductAvailableStockContentItemID>
+    <CodeName>PurremoEssentialsSalmonAndRice-5lb-r5740ema</CodeName>
+    <GUID>c3f056a5-2e9c-46ff-84b9-6f2b9790317c</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </ProductAvailableStockContentItemID>
+  <ProductAvailableStockGUID>c734cf8e-f780-4fb8-b698-b11ec3eaa529</ProductAvailableStockGUID>
+  <ProductAvailableStockSKUCode>PE-SR-5</ProductAvailableStockSKUCode>
+  <ProductAvailableStockValue>100</ProductAvailableStockValue>
+</trainingguidees.productavailablestock>

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.petfoodformulation>
+  <ContentItemDataCommonDataID>
+    <GUID>2321b952-2982-4cc1-a032-81dd62dc862d</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>PurremoEssentialsDryCatFood-SalmonAndRice-c2672mjk</CodeName>
+      <GUID>b1091d81-bbbd-405e-91c7-c67b7706da20</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>a7b080ec-d2d1-4f6f-9c7d-b9873e48b023</ContentItemDataGUID>
+  <PetFoodFormulationIngredients>
+    <![CDATA[<p>Salmon, Rice, Corn Protein Meal, Poultry By-Product Meal, Wheat Flour, Dried Egg Product, Beef Fat Preserved With Mixed Tocopherols, Soy Protein Concentrate, Fish Meal, Natural Flavor, Dried Chicory Root, Phosphoric Acid, Potassium Chloride, Calcium Carbonate, Salt, Caramel Color, Choline Chloride, Vitamins [Vitamin E Supplement, Niacin (Vitamin B-3), Vitamin A Supplement, Calcium Pantothenate (Vitamin B-5), Thiamine Mononitrate (Vitamin B-1), Riboflavin Supplement (Vitamin B-2), Vitamin B-12 Supplement, Pyridoxine Hydrochloride (Vitamin B-6), Folic Acid (Vitamin B-9), Vitamin D-3 Supplement, Biotin (Vitamin B-7), Menadione Sodium Bisulfite Complex (Vitamin K)], Taurine, Minerals [Zinc Sulfate, Ferrous Sulfate, Manganese Sulfate, Copper Sulfate, Calcium Iodate, Sodium Selenite], L-Lysine Monohydrochloride, Dried Bacillus Coagulans Fermentation Product, V463025.</p>]]>
+  </PetFoodFormulationIngredients>
+  <PetFoodFormulationName>Salmon and Rice</PetFoodFormulationName>
+</contentitemdata.trainingguides.petfoodformulation>

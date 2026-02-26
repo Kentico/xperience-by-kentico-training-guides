@@ -47,4 +47,7 @@ public class HttpRequestService : IHttpRequestService
 
         return string.Join("/", fixedPaths.Where(p => !string.IsNullOrWhiteSpace(p)));
     }
+
+    /// <inheritdoc/>
+    public string GetQueryStringValue(string parameter) => httpContextAccessor.HttpContext?.Request.Query[parameter].ToString() ?? string.Empty;
 }
