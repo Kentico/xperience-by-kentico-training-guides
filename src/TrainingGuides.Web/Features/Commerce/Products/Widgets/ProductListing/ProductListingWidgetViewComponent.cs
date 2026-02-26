@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ViewComponents;
 using TrainingGuides.Web.Commerce.Products.Services;
 using TrainingGuides.Web.Features.Commerce.Products.Widgets.ProductListing;
-using TrainingGuides.Web.Features.Membership.Services;
 using TrainingGuides.Web.Features.Shared.Services;
 
 [assembly:
@@ -22,7 +21,6 @@ namespace TrainingGuides.Web.Features.Commerce.Products.Widgets.ProductListing;
 public class ProductListingWidgetViewComponent(
         IContentItemRetrieverService contentItemRetrieverService,
         IProductService productService,
-        IMembershipService membershipService,
         IWebPageDataContextRetriever webPageDataContextRetriever,
         IHttpRequestService httpRequestService) : ViewComponent
 {

@@ -1,5 +1,4 @@
-﻿using CMS.Base.Internal;
-using Kentico.Content.Web.Mvc;
+﻿using Kentico.Content.Web.Mvc;
 using Kentico.PageBuilder.Web.Mvc;
 using Kentico.Web.Mvc;
 using Microsoft.AspNetCore.Mvc;
