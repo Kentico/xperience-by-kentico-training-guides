@@ -31,7 +31,7 @@ public class SimpleCallToActionWidgetProperties : IWidgetProperties
             DownloadsPage.CONTENT_TYPE_NAME,
             EmptyPage.CONTENT_TYPE_NAME,
             LandingPage.CONTENT_TYPE_NAME,
-            ProductPage.CONTENT_TYPE_NAME,
+            ServicePage.CONTENT_TYPE_NAME,
             ProfilePage.CONTENT_TYPE_NAME
         ],
         Label = "Target page",
@@ -43,7 +43,7 @@ public class SimpleCallToActionWidgetProperties : IWidgetProperties
 
     [TextInputComponent(
         Label = "Absolute URL",
-        ExplanationText = "Add a hyperlink to an external site, or use the product's URL + anchor tag # for referencing an anchor on the page, for example, \"https://your-doma.in/contact-us#form\"",
+        ExplanationText = "Add a hyperlink to an external site, or use the URL + anchor tag # for referencing an anchor on the page, for example, \"https://your-doma.in/contact-us#form\"",
         Order = 40)]
     [VisibleIfEqualTo(nameof(TargetContent), nameof(TargetContentOption.AbsoluteUrl), StringComparison.OrdinalIgnoreCase)]
     public string TargetContentAbsoluteUrl { get; set; } = string.Empty;

@@ -64,7 +64,6 @@ public class PageBuilderColumnsViewComponent : ViewComponent
 
     private int GetNumberOfColumns(ColumnLayoutOption columnLayoutOption) => columnLayoutOption switch
     {
-
         ColumnLayoutOption.TwoColumnEven or
         ColumnLayoutOption.TwoColumnLgSm or
         ColumnLayoutOption.TwoColumnSmLg

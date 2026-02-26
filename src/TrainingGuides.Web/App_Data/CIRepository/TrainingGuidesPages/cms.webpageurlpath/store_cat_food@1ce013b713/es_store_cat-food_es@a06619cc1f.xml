@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpageurlpath>
+  <WebPageUrlPath>es/Store/Cat-food</WebPageUrlPath>
+  <WebPageUrlPathContentLanguageID>
+    <CodeName>es</CodeName>
+    <GUID>b2e99971-c2dd-4a47-bb64-0d9a0d28d226</GUID>
+    <ObjectType>cms.contentlanguage</ObjectType>
+  </WebPageUrlPathContentLanguageID>
+  <WebPageUrlPathGUID>5d52066f-1165-4ab8-8913-cf3365ee4d96</WebPageUrlPathGUID>
+  <WebPageUrlPathHash>
+    <![CDATA[579E12FB20B20470B8160123F82D7370C3334B6E27073538F7E5D7FA47BE0C6A]]>
+  </WebPageUrlPathHash>
+  <WebPageUrlPathIsCanonical>True</WebPageUrlPathIsCanonical>
+  <WebPageUrlPathIsDraft>False</WebPageUrlPathIsDraft>
+  <WebPageUrlPathIsLatest>True</WebPageUrlPathIsLatest>
+  <WebPageUrlPathType>0</WebPageUrlPathType>
+  <WebPageUrlPathWebPageItemID>
+    <CodeName>CatFood-6jxzscti</CodeName>
+    <GUID>a8e37471-4a83-4c95-a25e-801248033364</GUID>
+    <ObjectType>cms.webpageitem</ObjectType>
+  </WebPageUrlPathWebPageItemID>
+  <WebPageUrlPathWebsiteChannelID>
+    <GUID>fdba40fe-1ece-4821-9d57-eaa1d89e13b1</GUID>
+    <ObjectType>cms.websitechannel</ObjectType>
+    <Parent>
+      <CodeName>TrainingGuidesPages</CodeName>
+      <GUID>5ba9c1e8-b61e-4570-b666-87a9b92bbe3b</GUID>
+      <ObjectType>cms.channel</ObjectType>
+    </Parent>
+  </WebPageUrlPathWebsiteChannelID>
+</cms.webpageurlpath>

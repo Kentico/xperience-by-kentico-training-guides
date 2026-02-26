@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentitemcommondata>
+  <ContentItemCommonDataContentItemID>
+    <CodeName>WildernessFlavorDryCatFood-2c5ip7k0</CodeName>
+    <GUID>fdcd6f21-98bc-4320-b022-b29519191278</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </ContentItemCommonDataContentItemID>
+  <ContentItemCommonDataContentLanguageID>
+    <CodeName>en</CodeName>
+    <GUID>e81b5172-f240-4041-88b1-653089984e29</GUID>
+    <ObjectType>cms.contentlanguage</ObjectType>
+  </ContentItemCommonDataContentLanguageID>
+  <ContentItemCommonDataFirstPublishedWhen>2026-01-12 18:06:15Z</ContentItemCommonDataFirstPublishedWhen>
+  <ContentItemCommonDataGUID>f3bb878e-e05b-473f-9ba8-93f682a7d02f</ContentItemCommonDataGUID>
+  <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
+  <ContentItemCommonDataLastPublishedWhen>2026-02-09 19:55:28Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
+  <ProductParentSchemaVariants>
+    <![CDATA[[{"Identifier":"17f1c88b-5002-4459-9d1e-31dd0e367499"},{"Identifier":"c5aa9de8-c9a3-451f-b69e-a0ea71d6c361"}]]]>
+  </ProductParentSchemaVariants>
+  <ProductPriceSchemaDiscountCategory />
+  <ProductSchemaDescription>
+    <![CDATA[<p>Bring out your cat's wild vitality with our high-protein formulations</p>]]>
+  </ProductSchemaDescription>
+  <ProductSchemaImages>
+    <![CDATA[[{"Identifier":"3ac8d6fb-6a86-4bc6-8bbf-225e7717d1b6"}]]]>
+  </ProductSchemaImages>
+  <ProductSchemaName>Wilderness Flavor</ProductSchemaName>
+  <ContentItemReferences>
+    <cms.contentitemreference>
+      <ContentItemReferenceGroupGUID>e79bcba5-39ea-415d-9202-0b712e101330</ContentItemReferenceGroupGUID>
+      <ContentItemReferenceGUID>5d170345-3287-4ea4-ba5c-24199b4afe16</ContentItemReferenceGUID>
+      <ContentItemReferenceSourceCommonDataID>
+        <GUID>f3bb878e-e05b-473f-9ba8-93f682a7d02f</GUID>
+        <ObjectType>cms.contentitemcommondata</ObjectType>
+      </ContentItemReferenceSourceCommonDataID>
+      <ContentItemReferenceTargetItemID>
+        <CodeName>WildernessFlavorVenisonAndSalmon-14lb-uzhdazs1</CodeName>
+        <GUID>c5aa9de8-c9a3-451f-b69e-a0ea71d6c361</GUID>
+        <ObjectType>cms.contentitem</ObjectType>
+      </ContentItemReferenceTargetItemID>
+    </cms.contentitemreference>
+    <cms.contentitemreference>
+      <ContentItemReferenceGroupGUID>e79bcba5-39ea-415d-9202-0b712e101330</ContentItemReferenceGroupGUID>
+      <ContentItemReferenceGUID>71197dc1-0fd4-4bc1-a52a-ff690cc3d8d9</ContentItemReferenceGUID>
+      <ContentItemReferenceSourceCommonDataID>
+        <GUID>f3bb878e-e05b-473f-9ba8-93f682a7d02f</GUID>
+        <ObjectType>cms.contentitemcommondata</ObjectType>
+      </ContentItemReferenceSourceCommonDataID>
+      <ContentItemReferenceTargetItemID>
+        <CodeName>WildernessFlavorVenisonAndSalmon-5lb-b2gbe6ym</CodeName>
+        <GUID>17f1c88b-5002-4459-9d1e-31dd0e367499</GUID>
+        <ObjectType>cms.contentitem</ObjectType>
+      </ContentItemReferenceTargetItemID>
+    </cms.contentitemreference>
+    <cms.contentitemreference>
+      <ContentItemReferenceGroupGUID>88a1bd9a-7555-4a98-8fc5-2ee1afc830a9</ContentItemReferenceGroupGUID>
+      <ContentItemReferenceGUID>770445d8-f79e-48d7-ad30-3821bacd1fec</ContentItemReferenceGUID>
+      <ContentItemReferenceSourceCommonDataID>
+        <GUID>f3bb878e-e05b-473f-9ba8-93f682a7d02f</GUID>
+        <ObjectType>cms.contentitemcommondata</ObjectType>
+      </ContentItemReferenceSourceCommonDataID>
+      <ContentItemReferenceTargetItemID>
+        <CodeName>WildernessFlavorVenisonAndSalmon-14lb-uzhdazs1</CodeName>
+        <GUID>c5aa9de8-c9a3-451f-b69e-a0ea71d6c361</GUID>
+        <ObjectType>cms.contentitem</ObjectType>
+      </ContentItemReferenceTargetItemID>
+    </cms.contentitemreference>
+    <cms.contentitemreference>
+      <ContentItemReferenceGroupGUID>88a1bd9a-7555-4a98-8fc5-2ee1afc830a9</ContentItemReferenceGroupGUID>
+      <ContentItemReferenceGUID>e1410b91-eca4-4e4c-a5ec-fff7e336fe9e</ContentItemReferenceGUID>
+      <ContentItemReferenceSourceCommonDataID>
+        <GUID>f3bb878e-e05b-473f-9ba8-93f682a7d02f</GUID>
+        <ObjectType>cms.contentitemcommondata</ObjectType>
+      </ContentItemReferenceSourceCommonDataID>
+      <ContentItemReferenceTargetItemID>
+        <CodeName>WildernessFlavorVenisonAndSalmon-5lb-b2gbe6ym</CodeName>
+        <GUID>17f1c88b-5002-4459-9d1e-31dd0e367499</GUID>
+        <ObjectType>cms.contentitem</ObjectType>
+      </ContentItemReferenceTargetItemID>
+    </cms.contentitemreference>
+    <cms.contentitemreference>
+      <ContentItemReferenceGroupGUID>84b06b06-1392-422d-82e5-639ed2fa6340</ContentItemReferenceGroupGUID>
+      <ContentItemReferenceGUID>fe1d101c-c536-4e11-a125-fb10f870191b</ContentItemReferenceGUID>
+      <ContentItemReferenceSourceCommonDataID>
+        <GUID>f3bb878e-e05b-473f-9ba8-93f682a7d02f</GUID>
+        <ObjectType>cms.contentitemcommondata</ObjectType>
+      </ContentItemReferenceSourceCommonDataID>
+      <ContentItemReferenceTargetItemID>
+        <CodeName>WildernessFlavorBrand-d5qwbaz8</CodeName>
+        <GUID>3ac8d6fb-6a86-4bc6-8bbf-225e7717d1b6</GUID>
+        <ObjectType>cms.contentitem</ObjectType>
+      </ContentItemReferenceTargetItemID>
+    </cms.contentitemreference>
+  </ContentItemReferences>
+</cms.contentitemcommondata>

@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.contentitemcommondata>
+  <ColorPattern />
   <ContentItemCommonDataContentItemID>
     <CodeName>MountainView-769jqeh9</CodeName>
     <GUID>0ea6c6a8-5664-4074-a553-6a1a2cc33bfb</GUID>
@@ -15,6 +16,7 @@
   <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
   <ContentItemCommonDataLastPublishedWhen>2025-01-08 16:22:27Z</ContentItemCommonDataLastPublishedWhen>
   <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
+  <ProductPriceSchemaDiscountCategory />
   <ContentItemReferences>
     <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>fe076972-664d-45a5-8a49-49b86163acfe</ContentItemReferenceGroupGUID>

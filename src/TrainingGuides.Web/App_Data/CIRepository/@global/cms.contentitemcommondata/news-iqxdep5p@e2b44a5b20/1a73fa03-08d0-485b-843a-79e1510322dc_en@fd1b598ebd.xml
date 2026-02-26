@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.contentitemcommondata>
+  <ColorPattern />
   <ContentItemCommonDataContentItemID>
     <CodeName>News-iqxdep5p</CodeName>
     <GUID>65e38d4a-5957-46cd-9267-3d612f8f9dc8</GUID>
@@ -14,6 +15,7 @@
   <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
   <ContentItemCommonDataLastPublishedWhen>2024-02-06 21:53:54Z</ContentItemCommonDataLastPublishedWhen>
   <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
+  <ProductPriceSchemaDiscountCategory />
   <ContentItemReferences>
     <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>51ebb9a1-0d3b-4b01-870d-b3fd70133d96</ContentItemReferenceGroupGUID>

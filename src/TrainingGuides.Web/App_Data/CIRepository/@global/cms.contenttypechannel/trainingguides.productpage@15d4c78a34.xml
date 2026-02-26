@@ -2,7 +2,7 @@
 <cms.contenttypechannel>
   <Parent>
     <CodeName>TrainingGuides.ProductPage</CodeName>
-    <GUID>50b2f01e-c30e-4631-aeb6-56ff2278cb35</GUID>
+    <GUID>c7ae17c7-2562-4c6c-bd48-b8aec10bba58</GUID>
     <ObjectType>cms.contenttype</ObjectType>
   </Parent>
   <Bindings>

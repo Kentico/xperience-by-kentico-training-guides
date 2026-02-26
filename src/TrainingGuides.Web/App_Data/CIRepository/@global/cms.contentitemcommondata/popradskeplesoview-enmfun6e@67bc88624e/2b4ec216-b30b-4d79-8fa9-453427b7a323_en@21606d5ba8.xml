@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.contentitemcommondata>
+  <ColorPattern />
   <ContentItemCommonDataContentItemID>
     <CodeName>PopradskePlesoView-enmfun6e</CodeName>
     <GUID>d1d6a114-7dfe-42d3-8da1-8cb52646a2a5</GUID>
@@ -15,6 +16,7 @@
   <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
   <ContentItemCommonDataLastPublishedWhen>2025-01-08 16:22:27Z</ContentItemCommonDataLastPublishedWhen>
   <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
+  <ProductPriceSchemaDiscountCategory />
   <ContentItemReferences>
     <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>fe076972-664d-45a5-8a49-49b86163acfe</ContentItemReferenceGroupGUID>

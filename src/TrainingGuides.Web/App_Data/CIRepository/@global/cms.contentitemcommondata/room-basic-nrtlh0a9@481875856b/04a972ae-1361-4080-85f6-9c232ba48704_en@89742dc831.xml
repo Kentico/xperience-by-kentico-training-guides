@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.contentitemcommondata>
+  <ColorPattern />
   <ContentItemCommonDataContentItemID>
     <CodeName>Room-basic-nrtlh0a9</CodeName>
     <GUID>2ac63284-61e8-4b68-a090-19f5bc1c15d8</GUID>
@@ -15,4 +16,5 @@
   <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
   <ContentItemCommonDataLastPublishedWhen>2025-01-09 18:32:13Z</ContentItemCommonDataLastPublishedWhen>
   <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
+  <ProductPriceSchemaDiscountCategory />
 </cms.contentitemcommondata>

@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpageurlpath>
+  <WebPageUrlPath>es/Store/Cat-food/Purremo-Essentials-dry-cat-food</WebPageUrlPath>
+  <WebPageUrlPathContentLanguageID>
+    <CodeName>es</CodeName>
+    <GUID>b2e99971-c2dd-4a47-bb64-0d9a0d28d226</GUID>
+    <ObjectType>cms.contentlanguage</ObjectType>
+  </WebPageUrlPathContentLanguageID>
+  <WebPageUrlPathGUID>737e449b-729f-477a-8b76-41947254bb21</WebPageUrlPathGUID>
+  <WebPageUrlPathHash>
+    <![CDATA[45636AED5D8CF75C61CD4E6436BB93626C50BEAD462C6234806227CA3461B4D3]]>
+  </WebPageUrlPathHash>
+  <WebPageUrlPathIsCanonical>True</WebPageUrlPathIsCanonical>
+  <WebPageUrlPathIsDraft>False</WebPageUrlPathIsDraft>
+  <WebPageUrlPathIsLatest>True</WebPageUrlPathIsLatest>
+  <WebPageUrlPathType>0</WebPageUrlPathType>
+  <WebPageUrlPathWebPageItemID>
+    <CodeName>PurremoEssentialsDryCatFood-5cbxqqvc</CodeName>
+    <GUID>3516d297-64eb-46fa-8ed5-961747fba1f3</GUID>
+    <ObjectType>cms.webpageitem</ObjectType>
+  </WebPageUrlPathWebPageItemID>
+  <WebPageUrlPathWebsiteChannelID>
+    <GUID>fdba40fe-1ece-4821-9d57-eaa1d89e13b1</GUID>
+    <ObjectType>cms.websitechannel</ObjectType>
+    <Parent>
+      <CodeName>TrainingGuidesPages</CodeName>
+      <GUID>5ba9c1e8-b61e-4570-b666-87a9b92bbe3b</GUID>
+      <ObjectType>cms.channel</ObjectType>
+    </Parent>
+  </WebPageUrlPathWebsiteChannelID>
+</cms.webpageurlpath>

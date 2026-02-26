@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.contentitemcommondata>
+  <ColorPattern />
   <ContentItemCommonDataContentItemID>
     <CodeName>Bar-6fmedczq</CodeName>
     <GUID>1d212a9f-7319-48e0-bbf7-961120c0a781</GUID>
@@ -15,6 +16,7 @@
   <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
   <ContentItemCommonDataLastPublishedWhen>2025-01-08 16:12:52Z</ContentItemCommonDataLastPublishedWhen>
   <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
+  <ProductPriceSchemaDiscountCategory />
   <ContentItemReferences>
     <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>fe076972-664d-45a5-8a49-49b86163acfe</ContentItemReferenceGroupGUID>

@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.contentitemcommondata>
+  <ColorPattern />
   <ContentItemCommonDataContentItemID>
     <CodeName>QueenBedEconomy-d7sy8wan</CodeName>
     <GUID>276151ef-c470-4d93-8fe7-54bb4d1ee44d</GUID>
@@ -15,6 +16,7 @@
   <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
   <ContentItemCommonDataLastPublishedWhen>2025-01-08 16:16:57Z</ContentItemCommonDataLastPublishedWhen>
   <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
+  <ProductPriceSchemaDiscountCategory />
   <ContentItemReferences>
     <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>fe076972-664d-45a5-8a49-49b86163acfe</ContentItemReferenceGroupGUID>

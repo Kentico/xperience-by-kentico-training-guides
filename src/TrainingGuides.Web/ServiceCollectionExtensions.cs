@@ -8,7 +8,7 @@ using TrainingGuides.Web.Features.Html.Services;
 using TrainingGuides.Web.Features.Membership.Profile;
 using TrainingGuides.Web.Features.Membership.Services;
 using TrainingGuides.Web.Features.Newsletters.NatureSpotlight;
-using TrainingGuides.Web.Features.Products.Services;
+using TrainingGuides.Web.Features.FinancialServices.Services;
 using TrainingGuides.Web.Features.SEO;
 using TrainingGuides.Web.Features.Shared.EmailBuilder;
 using TrainingGuides.Web.Features.Shared.EmailBuilder.Mappers;
@@ -16,6 +16,9 @@ using TrainingGuides.Web.Features.Shared.Services;
 using TrainingGuides.Web.Features.Shared.OptionProviders;
 using TrainingGuides.Web.OneTimeCode;
 using TrainingGuides.Web.Features.ContactImport;
+using TrainingGuides.Web.Commerce.Products.Services;
+using TrainingGuides.Web.Features.Commerce.Products.Services;
+using CMS.Commerce;
 
 namespace TrainingGuides.Web;
 
@@ -30,7 +33,7 @@ public static class ServiceCollectionExtensions
         services.AddSingleton<IContentItemRetrieverService, ContentItemRetrieverService>();
         services.AddSingleton<IHttpRequestService, HttpRequestService>();
         services.AddSingleton<IArticlePageService, ArticlePageService>();
-        services.AddSingleton<IProductPageService, ProductPageService>();
+        services.AddSingleton<IServicePageService, ServicePageService>();
         services.AddSingleton<IComponentStyleEnumService, ComponentStyleEnumService>();
         services.AddSingleton<IEmailNotificationService, EmailNotificationService>();
         services.AddSingleton<IMemberContactService, MemberContactService>();
@@ -39,7 +42,9 @@ public static class ServiceCollectionExtensions
         services.AddSingleton<IEnumStringService, EnumStringService>();
         services.AddSingleton<IContactImportService, ContactishContactImportService>();
 
+
         services.AddScoped<IMembershipService, MembershipService>();
+        services.AddScoped<IProductService, ProductService>();
         services.AddScoped<IHeadTagStoreService, HeadTagStoreService>();
 
         services.AddScoped<IComponentModelMapper<ImageWidgetModel>, ImageEmailWidgetModelMapper>();
@@ -49,7 +54,7 @@ public static class ServiceCollectionExtensions
         services.AddScoped<IEmailDataMapper, TrainingGuidesEmailDataMapper>();
 
         services.AddTransient<IContentItemRetrieverService, ContentItemRetrieverService>();
-
+        services.AddTransient(typeof(IProductDataRetriever<,>), typeof(TrainingGuidesProductDataRetriever<,>));
         // Since the ArticleConverter is one-time code, meant to be deleted after its first use, we won't bother with an interface.
         services.AddTransient<ArticleConverter>();
 

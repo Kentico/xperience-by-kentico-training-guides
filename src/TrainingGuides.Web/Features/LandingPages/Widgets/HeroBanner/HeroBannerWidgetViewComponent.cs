@@ -43,19 +43,19 @@ public class HeroBannerWidgetViewComponent : ViewComponent
     {
         var banner = new HeroBannerWidgetViewModel();
 
-        if (string.Equals(properties.Mode, "currentProductPage"))
+        if (string.Equals(properties.Mode, "currentServicePage"))
         {
-            var productPage = await contentItemRetrieverService.RetrieveCurrentPage<ProductPage>(3);
+            var productPage = await contentItemRetrieverService.RetrieveCurrentPage<ServicePage>(3);
 
-            int? productClassId = contentTypeService.GetContentTypeId(ProductPage.CONTENT_TYPE_NAME);
+            int? productClassId = contentTypeService.GetContentTypeId(ServicePage.CONTENT_TYPE_NAME);
 
             if (productPage is not null && productPage.SystemFields.ContentItemContentTypeID == productClassId)
             {
-                banner = GetProductPageBanner(productPage);
+                banner = GetServicePageBanner(productPage);
 
                 if (banner is not null)
                 {
-                    banner.CTALink = properties.ProductPageAnchor;
+                    banner.CTALink = properties.ServicePageAnchor;
                     banner.CTAText = properties.CTA;
                     banner.LinkTitle = properties.CTA;
                 }
@@ -63,23 +63,23 @@ public class HeroBannerWidgetViewComponent : ViewComponent
         }
         else if (string.Equals(properties.Mode, "productPage"))
         {
-            if (properties.ProductPage.FirstOrDefault() is not null)
+            if (properties.ServicePage.FirstOrDefault() is not null)
             {
-                var productPageGuid = properties.ProductPage?.Select(i => i.Identifier).FirstOrDefault();
+                var productPageGuid = properties.ServicePage?.Select(i => i.Identifier).FirstOrDefault();
                 var productPage = productPageGuid.HasValue
                     ? await contentItemRetrieverService
-                        .RetrieveWebPageByContentItemGuid<ProductPage>((Guid)productPageGuid, 3)
+                        .RetrieveWebPageByContentItemGuid<ServicePage>((Guid)productPageGuid, 3)
                     : null;
 
-                banner = GetProductPageBanner(productPage);
+                banner = GetServicePageBanner(productPage);
                 if (banner is not null)
                 {
                     string relativeUrl = productPage?.SystemFields.WebPageUrlPath is not null
                         ? $"~/{productPage.SystemFields.WebPageUrlPath}"
                         : string.Empty;
-                    banner.CTALink = relativeUrl + (string.IsNullOrWhiteSpace(properties.SelectedProductPageAnchor)
+                    banner.CTALink = relativeUrl + (string.IsNullOrWhiteSpace(properties.SelectedServicePageAnchor)
                                         ? string.Empty
-                                        : $"#{properties.SelectedProductPageAnchor}");
+                                        : $"#{properties.SelectedServicePageAnchor}");
                     banner.CTAText = properties.CTA;
                 }
             }
@@ -142,22 +142,22 @@ public class HeroBannerWidgetViewComponent : ViewComponent
         return View("~/Features/LandingPages/Widgets/HeroBanner/HeroBannerWidget.cshtml", banner);
     }
 
-    private HeroBannerWidgetViewModel? GetProductPageBanner(ProductPage? productPage) =>
+    private HeroBannerWidgetViewModel? GetServicePageBanner(ServicePage? productPage) =>
         productPage is null ? null : GetHeroBannerViewModel(productPage);
 
-    private static HeroBannerWidgetViewModel? GetHeroBannerViewModel(ProductPage productPage)
+    private static HeroBannerWidgetViewModel? GetHeroBannerViewModel(ServicePage productPage)
     {
-        var product = productPage.ProductPageProduct.FirstOrDefault();
+        var product = productPage.ServicePageService.FirstOrDefault();
 
         if (product is not null)
         {
-            var benefits = product.ProductBenefits.ToList();
-            var media = product.ProductMedia.FirstOrDefault();
+            var benefits = product.ServiceBenefits.ToList();
+            var media = product.ServiceMedia.FirstOrDefault();
 
             return new HeroBannerWidgetViewModel()
             {
-                Header = product.ProductName,
-                SubheaderHtml = new HtmlString(product.ProductShortDescription),
+                Header = product.ServiceName,
+                SubheaderHtml = new HtmlString(product.ServiceShortDescription),
                 Benefits = benefits.Select(BenefitViewModel.GetViewModel).ToList(),
                 Media = media is not null
                     ? AssetViewModel.GetViewModel(media)

@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.tag>
+  <TagGUID>a993a273-742b-4979-a90b-6a1a923c8c7d</TagGUID>
+  <TagMetadata>
+    <![CDATA[{"Translations":{"b2e99971-c2dd-4a47-bb64-0d9a0d28d226":{"Title":null,"Description":null}}}]]>
+  </TagMetadata>
+  <TagName>Small</TagName>
+  <TagOrder>5</TagOrder>
+  <TagParentID>
+    <CodeName>Word-basedSize</CodeName>
+    <GUID>2ac80ef9-93fb-4a48-b26c-97a52edba5de</GUID>
+    <ObjectType>cms.tag</ObjectType>
+  </TagParentID>
+  <TagTaxonomyID>
+    <CodeName>ProductSize</CodeName>
+    <GUID>f1f5bddf-bf7e-4009-b8b6-186000c57e10</GUID>
+    <ObjectType>cms.taxonomy</ObjectType>
+  </TagTaxonomyID>
+  <TagTitle>Small (S)</TagTitle>
+</cms.tag>

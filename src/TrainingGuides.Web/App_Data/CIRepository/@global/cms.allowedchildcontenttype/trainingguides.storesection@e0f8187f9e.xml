@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.allowedchildcontenttype>
+  <Parent>
+    <CodeName>TrainingGuides.StoreSection</CodeName>
+    <GUID>5ce8de4d-0304-496a-8b09-7271613dd135</GUID>
+    <ObjectType>cms.contenttype</ObjectType>
+  </Parent>
+  <Bindings>
+    <Binding id="cms.contenttype_TrainingGuides.LandingPage">
+      <AllowedChildContentTypeChildID>
+        <CodeName>TrainingGuides.LandingPage</CodeName>
+        <GUID>ada989ef-cc4d-460d-9f6b-8f64b0cd8303</GUID>
+        <ObjectType>cms.contenttype</ObjectType>
+      </AllowedChildContentTypeChildID>
+    </Binding>
+    <Binding id="cms.contenttype_TrainingGuides.ProductPage">
+      <AllowedChildContentTypeChildID>
+        <CodeName>TrainingGuides.ProductPage</CodeName>
+        <GUID>c7ae17c7-2562-4c6c-bd48-b8aec10bba58</GUID>
+        <ObjectType>cms.contenttype</ObjectType>
+      </AllowedChildContentTypeChildID>
+    </Binding>
+    <Binding id="cms.contenttype_TrainingGuides.StoreSection">
+      <AllowedChildContentTypeChildID>
+        <CodeName>TrainingGuides.StoreSection</CodeName>
+        <GUID>5ce8de4d-0304-496a-8b09-7271613dd135</GUID>
+        <ObjectType>cms.contenttype</ObjectType>
+      </AllowedChildContentTypeChildID>
+    </Binding>
+  </Bindings>
+</cms.allowedchildcontenttype>

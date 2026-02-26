@@ -16,6 +16,11 @@ public class ImageEmailWidgetModelMapper : IComponentModelMapper<ImageWidgetMode
 
     public async Task<ImageWidgetModel> Map(Guid itemGuid, string languageName)
     {
+        if (itemGuid == Guid.Empty)
+        {
+            return new ImageWidgetModel();
+        }
+
         var asset = await contentItemRetrieverService.RetrieveContentItemByGuid<Asset>(
                 itemGuid,
                 languageName: languageName);

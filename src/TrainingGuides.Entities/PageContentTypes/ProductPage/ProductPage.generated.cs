@@ -36,8 +36,8 @@ namespace TrainingGuides
 
 
 		/// <summary>
-		/// ProductPageProduct.
+		/// ProductPageProducts.
 		/// </summary>
-		public IEnumerable<Product> ProductPageProduct { get; set; }
+		public IEnumerable<IProductSchema> ProductPageProducts { get; set; }
 	}
 }

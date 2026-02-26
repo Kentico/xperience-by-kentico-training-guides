@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<trainingguidees.productavailablestock>
+  <ProductAvailableStockContentItemID>
+    <CodeName>WildernessFlavorVenisonAndSalmon-14lb-uzhdazs1</CodeName>
+    <GUID>c5aa9de8-c9a3-451f-b69e-a0ea71d6c361</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </ProductAvailableStockContentItemID>
+  <ProductAvailableStockGUID>f65274fe-b0a5-4f65-9736-6d131a46e7db</ProductAvailableStockGUID>
+  <ProductAvailableStockSKUCode>WF-VS-14</ProductAvailableStockSKUCode>
+  <ProductAvailableStockValue>100</ProductAvailableStockValue>
+</trainingguidees.productavailablestock>

@@ -20,6 +20,7 @@ using TrainingGuides.Web.Features.DataProtection.Shared;
 using TrainingGuides.Web.Features.Membership;
 using TrainingGuides.Web.Features.Shared.Helpers;
 using TrainingGuides.Admin.Localization;
+using TrainingGuides.Admin;
 //using TrainingGuides.Web.Features.Shared.Helpers.Startup;
 
 // Functionality related to cross-site tracking is currently disabled while we investigate an issue (#85 on GitHub)
@@ -54,8 +55,10 @@ builder.Services
                 ArticlePage.CONTENT_TYPE_NAME,
                 DownloadsPage.CONTENT_TYPE_NAME,
                 EmptyPage.CONTENT_TYPE_NAME,
+                ServicePage.CONTENT_TYPE_NAME,
+                ProfilePage.CONTENT_TYPE_NAME,
                 ProductPage.CONTENT_TYPE_NAME,
-                ProfilePage.CONTENT_TYPE_NAME
+                StoreSection.CONTENT_TYPE_NAME
             }
         });
         // Functionality related to cross-site tracking is currently disabled while we investigate an issue (#85 on GitHub)
@@ -122,7 +125,7 @@ builder.Services.AddKenticoMjmlStarterKit(options =>
 {
     options.StyleSheetPath = "EmailBuilder.css";
     options.AllowedImageContentTypes = [Asset.CONTENT_TYPE_NAME];
-    options.AllowedProductContentTypes = [ProductPage.CONTENT_TYPE_NAME];
+    options.AllowedProductContentTypes = [ServicePage.CONTENT_TYPE_NAME];
 });
 
 builder.Services.Configure<CookieLevelOptions>(options =>
@@ -160,6 +163,7 @@ builder.Services.AddUnobtrusiveAjax();
 
 builder.Services.AddTrainingGuidesServices();
 builder.Services.AddTrainingGuidesOptions();
+builder.Services.AddTrainingGuidesAdminServices();
 
 builder.Services.AddControllersWithViews(options => options.SuppressImplicitRequiredAttributeForNonNullableReferenceTypes = true);
 
@@ -168,7 +172,7 @@ builder.Services.AddMvc()
     .AddDataAnnotationsLocalization(options =>
     {
         options.DataAnnotationLocalizerProvider = (type, factory) =>
-            factory.Create(typeof(SharedResources));
+            factory.Create(typeof(TrainingGuides.Web.SharedResources));
     });
 
 builder.Services.AddDistributedMemoryCache();

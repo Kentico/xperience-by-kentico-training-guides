@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.productimage>
+  <ContentItemDataCommonDataID>
+    <GUID>d2710ca9-e48a-4fe4-8d8a-5c9e4024fe72</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>CanisFamReflectorProOrange-srdvjfxn</CodeName>
+      <GUID>18defb25-3213-4693-a482-39b2be3aa89c</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>2201e77b-79c7-4996-9914-9275a02deb20</ContentItemDataGUID>
+  <ProductImageAltText>Image of CanisFam reflective dog collar in orange</ProductImageAltText>
+  <ProductImageAsset>
+    <![CDATA[{"Variants":{},"FocalPoint":{"X":512,"Y":512},"Identifier":"f706dd1f-e58d-47ed-90c5-617ca0bb625c","Name":"CanisFamOrange.png","Extension":".png","Size":300494,"Width":1024,"Height":1024,"LastModified":"2026-01-27T15:45:45.3755199Z"}]]>
+  </ProductImageAsset>
+</contentitemdata.trainingguides.productimage>

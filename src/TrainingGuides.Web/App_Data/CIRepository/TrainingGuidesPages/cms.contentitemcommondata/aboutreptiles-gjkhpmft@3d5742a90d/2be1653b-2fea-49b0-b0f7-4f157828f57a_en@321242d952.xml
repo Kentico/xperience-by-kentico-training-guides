@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.contentitemcommondata>
+  <ColorPattern />
   <ContentItemCommonDataContentItemID>
     <CodeName>AboutReptiles-gjkhpmft</CodeName>
     <GUID>33b343ac-c61c-4800-b238-6e16ecd16085</GUID>
@@ -18,6 +19,7 @@
   <ContentItemCommonDataVisualBuilderTemplateConfiguration>
     <![CDATA[{"identifier":"TrainingGuides.ArticlePagePageTemplate","properties":null,"fieldIdentifiers":null}]]>
   </ContentItemCommonDataVisualBuilderTemplateConfiguration>
+  <ProductPriceSchemaDiscountCategory />
   <ContentItemReferences>
     <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>e121ff3d-c221-4f60-9acb-0063ed2739f1</ContentItemReferenceGroupGUID>

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentitem>
+  <ContentItemContentFolderID>
+    <CodeName>Root</CodeName>
+    <GUID>9d6509a4-a231-4837-8f1c-81a90705f988</GUID>
+    <ObjectType>cms.contentfolder</ObjectType>
+  </ContentItemContentFolderID>
+  <ContentItemContentTypeID>
+    <CodeName>TrainingGuides.PetFoodFormulation</CodeName>
+    <GUID>a69ed0b4-65d3-459e-847a-2b65e2f82a5a</GUID>
+    <ObjectType>cms.contenttype</ObjectType>
+  </ContentItemContentTypeID>
+  <ContentItemGUID>4bed4b80-8127-4da9-baed-18289ad3a3e9</ContentItemGUID>
+  <ContentItemIsReusable>True</ContentItemIsReusable>
+  <ContentItemIsSecured>False</ContentItemIsSecured>
+  <ContentItemName>
+    <![CDATA[WildernessFlavorDryCatFood-VenisonAndSalmon-1z7zemhu]]>
+  </ContentItemName>
+  <ContentItemWorkspaceID>
+    <CodeName>KenticoDefault</CodeName>
+    <GUID>43f674d6-540d-4f91-8c19-608b5bddb2f2</GUID>
+    <ObjectType>cms.workspace</ObjectType>
+  </ContentItemWorkspaceID>
+</cms.contentitem>

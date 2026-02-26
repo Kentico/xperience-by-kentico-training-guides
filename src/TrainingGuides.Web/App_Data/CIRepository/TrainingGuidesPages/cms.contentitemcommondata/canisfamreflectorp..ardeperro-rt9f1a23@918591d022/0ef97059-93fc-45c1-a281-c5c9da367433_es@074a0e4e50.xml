@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentitemcommondata>
+  <ContentItemCommonDataContentItemID>
+    <CodeName>CanisFamReflectorProCollarDePerro-rt9f1a23</CodeName>
+    <GUID>8ceedaf7-a814-4b7d-9c38-350f73ae5ffa</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </ContentItemCommonDataContentItemID>
+  <ContentItemCommonDataContentLanguageID>
+    <CodeName>es</CodeName>
+    <GUID>b2e99971-c2dd-4a47-bb64-0d9a0d28d226</GUID>
+    <ObjectType>cms.contentlanguage</ObjectType>
+  </ContentItemCommonDataContentLanguageID>
+  <ContentItemCommonDataFirstPublishedWhen>2026-02-10 13:22:44Z</ContentItemCommonDataFirstPublishedWhen>
+  <ContentItemCommonDataGUID>0ef97059-93fc-45c1-a281-c5c9da367433</ContentItemCommonDataGUID>
+  <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
+  <ContentItemCommonDataLastPublishedWhen>2026-02-10 13:22:44Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
+  <ContentItemCommonDataVisualBuilderTemplateConfiguration>
+    <![CDATA[{"identifier":"TrainingGuides.GeneralPageTemplate","properties":null,"fieldIdentifiers":null}]]>
+  </ContentItemCommonDataVisualBuilderTemplateConfiguration>
+  <ContentItemCommonDataVisualBuilderWidgets>
+    <![CDATA[{"editableAreas":[{"identifier":"areaMain","sections":[{"identifier":"be7739d1-5840-4cef-9969-0265606cbf39","type":"TrainingGuides.GeneralSection","properties":{"sectionAnchor":"","colorScheme":"TransparentDark","cornerStyle":"Round","columnLayout":"OneColumn"},"zones":[{"identifier":"9005b11c-5a9d-4926-9647-faf5915aac05","name":"zoneMain","widgets":[{"identifier":"de5de0e7-a00e-4b54-bae7-b2c03cc9abe4","type":"TrainingGuides.ProductWidget","variants":[{"identifier":"c533f272-2279-4272-9c0d-32930947f205","properties":{"displayCurrentPage":true,"selectedProduct":[],"showVariantSelection":true,"showVariantDetails":true,"showCallToAction":false,"callToActionText":"View Product"},"fieldIdentifiers":{}}]}]}],"fieldIdentifiers":null}]}]}]]>
+  </ContentItemCommonDataVisualBuilderWidgets>
+  <ContentItemReferences>
+    <cms.contentitemreference>
+      <ContentItemReferenceGroupGUID>006815af-b9a1-4191-b865-e729e078d4cf</ContentItemReferenceGroupGUID>
+      <ContentItemReferenceGUID>8b6361a5-ab64-42b5-83c9-c41b122b6cb7</ContentItemReferenceGUID>
+      <ContentItemReferenceSourceCommonDataID>
+        <GUID>0ef97059-93fc-45c1-a281-c5c9da367433</GUID>
+        <ObjectType>cms.contentitemcommondata</ObjectType>
+      </ContentItemReferenceSourceCommonDataID>
+      <ContentItemReferenceTargetItemID>
+        <CodeName>CanisFamReflectorPro-j2snbwy6</CodeName>
+        <GUID>3b48c9d7-6b93-49b0-85b2-b0ab92ec4b7f</GUID>
+        <ObjectType>cms.contentitem</ObjectType>
+      </ContentItemReferenceTargetItemID>
+    </cms.contentitemreference>
+  </ContentItemReferences>
+</cms.contentitemcommondata>

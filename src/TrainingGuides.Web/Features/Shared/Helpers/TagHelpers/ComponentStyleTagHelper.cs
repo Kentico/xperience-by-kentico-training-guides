@@ -6,19 +6,14 @@ using TrainingGuides.Web.Features.Shared.Services;
 namespace TrainingGuides.Web.Features.Shared.Helpers.TagHelpers;
 
 [HtmlTargetElement("tg-component-style")]
-public class ComponentStyleTagHelper : TagHelper
+public class ComponentStyleTagHelper(
+    IComponentStyleEnumService componentStyleEnumService) : TagHelper
 {
     public string ColorScheme { get; set; } = string.Empty;
     public string CornerStyle { get; set; } = string.Empty;
 
     private const string DIV_TAG = "div";
 
-    private readonly IComponentStyleEnumService componentStyleEnumService;
-
-    public ComponentStyleTagHelper(IComponentStyleEnumService componentStyleEnumService) : base()
-    {
-        this.componentStyleEnumService = componentStyleEnumService;
-    }
     public override void Process(TagHelperContext context, TagHelperOutput output)
     {
         output.TagName = DIV_TAG;

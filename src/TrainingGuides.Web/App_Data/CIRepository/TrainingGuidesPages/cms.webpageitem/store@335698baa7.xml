@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpageitem>
+  <WebPageItemContentItemID>
+    <CodeName>Store-wuq9sl1y</CodeName>
+    <GUID>c20077eb-3063-4670-984a-fb9432514f34</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </WebPageItemContentItemID>
+  <WebPageItemGUID>a1cca31c-ee40-48d2-a69e-fcbf4dc96596</WebPageItemGUID>
+  <WebPageItemName>Store-wuq9sl1y</WebPageItemName>
+  <WebPageItemOrder>3</WebPageItemOrder>
+  <WebPageItemTreePath>/Store</WebPageItemTreePath>
+  <WebPageItemWebsiteChannelID>
+    <GUID>fdba40fe-1ece-4821-9d57-eaa1d89e13b1</GUID>
+    <ObjectType>cms.websitechannel</ObjectType>
+    <Parent>
+      <CodeName>TrainingGuidesPages</CodeName>
+      <GUID>5ba9c1e8-b61e-4570-b666-87a9b92bbe3b</GUID>
+      <ObjectType>cms.channel</ObjectType>
+    </Parent>
+  </WebPageItemWebsiteChannelID>
+</cms.webpageitem>

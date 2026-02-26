@@ -6,7 +6,7 @@
     <ObjectType>cms.contentfolder</ObjectType>
   </ContentItemContentFolderID>
   <ContentItemContentTypeID>
-    <CodeName>TrainingGuides.ProductFeature</CodeName>
+    <CodeName>TrainingGuides.ServiceFeature</CodeName>
     <GUID>7521136f-4ed3-4b69-8b54-82255d7b4385</GUID>
     <ObjectType>cms.contenttype</ObjectType>
   </ContentItemContentTypeID>

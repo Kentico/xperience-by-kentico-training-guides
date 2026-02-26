@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.petfoodformulation>
+  <ContentItemDataCommonDataID>
+    <GUID>8dd595f1-1f2f-43c4-88b0-f4e39fd88523</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>PurremoEssentialsChickenAndRice-kvztpkqv</CodeName>
+      <GUID>3e52dcee-545e-4ac0-8f98-466d216efb64</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>a0b5712e-d8e3-4c4e-8f16-61355fa00259</ContentItemDataGUID>
+  <PetFoodFormulationIngredients>
+    <![CDATA[<p>Chicken, Rice, Corn Protein Meal, Poultry By-Product Meal, Wheat Flour, Dried Egg Product, Beef Fat Preserved With Mixed-Tocopherols, Soy Protein Concentrate, Natural Flavor, Fish Meal, Inulin, Potassium Chloride, Phosphoric Acid, Calcium Carbonate, Salt, Caramel Color, Choline Chloride, Vitamins [Vitamin E Supplement, Niacin (Vitamin B-3), Vitamin A Supplement, Calcium Pantothenate (Vitamin B-5), Thiamine Mononitrate (Vitamin B-1), Riboflavin Supplement (Vitamin B-2), Vitamin B-12 Supplement, Pyridoxine Hydrochloride (Vitamin B-6), Folic Acid (Vitamin B-9), Vitamin D-3 Supplement, Biotin (Vitamin B-7), Menadione Sodium Bisulfite Complex (Vitamin K)], Taurine, Minerals [Zinc Sulfate, Ferrous Sulfate, Manganese Sulfate, Copper Sulfate, Calcium Iodate, Sodium Selenite], L-Lysine Monohydrochloride, Dried Bacillus Coagulans Fermentation Product, M462325.</p>]]>
+  </PetFoodFormulationIngredients>
+  <PetFoodFormulationName>Chicken and Rice</PetFoodFormulationName>
+</contentitemdata.trainingguides.petfoodformulation>

@@ -13,26 +13,26 @@ public class HeroBannerWidgetProperties : IWidgetProperties
 {
     [RadioGroupComponent(
         Label = "Selected hero widget mode",
-        Options = "currentProductPage;Use the current product page\nproductPage;Select a product page\nheroContentItem;Select a hero content item from Content hub",
+        Options = "currentServicePage;Use the current product page\nproductPage;Select a product page\nheroContentItem;Select a hero content item from Content hub",
         Order = 10)]
-    public string Mode { get; set; } = "currentProductPage";
+    public string Mode { get; set; } = "currentServicePage";
 
     // The following three properties are visible based on the selected Mode.
     // The user can only one of them at a time which is why they have the same Order number.
-    [VisibleIfEqualTo(nameof(Mode), "currentProductPage", StringComparison.OrdinalIgnoreCase)]
+    [VisibleIfEqualTo(nameof(Mode), "currentServicePage", StringComparison.OrdinalIgnoreCase)]
     [TextInputComponent(
-        Label = "Product page anchor",
+        Label = "Service page anchor",
         Order = 20)]
-    public string ProductPageAnchor { get; set; } = string.Empty;
+    public string ServicePageAnchor { get; set; } = string.Empty;
 
     [VisibleIfEqualTo(nameof(Mode), "productPage", StringComparison.OrdinalIgnoreCase)]
     [ContentItemSelectorComponent(
-        TrainingGuides.ProductPage.CONTENT_TYPE_NAME,
+        TrainingGuides.ServicePage.CONTENT_TYPE_NAME,
         Label = "Selected product",
         MaximumItems = 1,
         ExplanationText = "The widget will display the default product's content.",
         Order = 20)]
-    public IEnumerable<ContentItemReference> ProductPage { get; set; } = [];
+    public IEnumerable<ContentItemReference> ServicePage { get; set; } = [];
 
     [VisibleIfEqualTo(nameof(Mode), "heroContentItem", StringComparison.OrdinalIgnoreCase)]
     [ContentItemSelectorComponent(
@@ -45,9 +45,9 @@ public class HeroBannerWidgetProperties : IWidgetProperties
 
     [VisibleIfEqualTo(nameof(Mode), "productPage", StringComparison.OrdinalIgnoreCase)]
     [TextInputComponent(
-        Label = "Product page anchor",
+        Label = "Service page anchor",
         Order = 30)]
-    public string SelectedProductPageAnchor { get; set; } = string.Empty;
+    public string SelectedServicePageAnchor { get; set; } = string.Empty;
 
     [TextInputComponent(
         Label = "CTA text",

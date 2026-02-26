@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.productpage>
+  <ContentItemDataCommonDataID>
+    <GUID>cbe2f8ff-838e-4ece-9c86-7255f60ebeb4</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>PurremoEssentialsDryCatFood-5cbxqqvc</CodeName>
+      <GUID>b716c599-565d-473a-80b9-24eaa786c3da</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>17371706-8982-4741-baad-f558e5ae0bd8</ContentItemDataGUID>
+  <ProductPageProducts>
+    <![CDATA[[{"Identifier":"8cf15606-a8b7-418d-b2d9-e04761973c9a"}]]]>
+  </ProductPageProducts>
+</contentitemdata.trainingguides.productpage>

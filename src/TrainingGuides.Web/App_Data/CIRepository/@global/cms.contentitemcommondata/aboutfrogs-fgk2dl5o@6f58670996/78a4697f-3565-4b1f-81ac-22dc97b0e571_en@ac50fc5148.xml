@@ -11,6 +11,7 @@
     <![CDATA[<p>Frogs are a diverse and largely carnivorous group of short-bodied, tailless amphibians composing the order Anura. They are known for their smooth, moist skin, bulging eyes, and powerful hind legs adapted for leaping. Frogs inhabit a wide range of ecosystems, from the tropics to subarctic regions, but the greatest concentration of species diversity is found in tropical rainforests. They play key roles in the ecosystem as both predators and prey, consuming insects, small mammals, and even other frogs, while simultaneously serving as a crucial food source for a variety of larger animals. Frogs are also notable for their vocalizations, which are often used to attract mates during the breeding season.</p>]]>
   </ArticleSchemaText>
   <ArticleSchemaTitle>About frogs</ArticleSchemaTitle>
+  <ColorPattern />
   <ContentItemCommonDataContentItemID>
     <CodeName>AboutFrogs-fgk2dl5o</CodeName>
     <GUID>ea6d110c-d9be-4a69-a193-4758bb0c9efa</GUID>
@@ -26,6 +27,7 @@
   <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
   <ContentItemCommonDataLastPublishedWhen>2024-08-21 18:35:26Z</ContentItemCommonDataLastPublishedWhen>
   <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
+  <ProductPriceSchemaDiscountCategory />
   <ContentItemReferences>
     <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>a66eef38-b296-4172-9f69-dda2e1840fec</ContentItemReferenceGroupGUID>

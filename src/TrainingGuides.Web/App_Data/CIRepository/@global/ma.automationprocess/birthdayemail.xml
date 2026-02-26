@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ma.automationprocess>
+  <WorkflowAllowedObjects>;om.contact;</WorkflowAllowedObjects>
+  <WorkflowAutomationType>0</WorkflowAutomationType>
+  <WorkflowDisplayName>Birthdayemail</WorkflowDisplayName>
+  <WorkflowEnabled>False</WorkflowEnabled>
+  <WorkflowGUID>d3b0d241-1a0b-4ddd-9a08-a77518502b16</WorkflowGUID>
+  <WorkflowName>Birthdayemail</WorkflowName>
+  <WorkflowRecurrenceType>3</WorkflowRecurrenceType>
+  <WorkflowType>3</WorkflowType>
+</ma.automationprocess>

@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.contentitemcommondata>
+  <ColorPattern />
   <ContentItemCommonDataContentItemID>
     <CodeName>Home-76v71kdp</CodeName>
     <GUID>9f511d9e-8620-4e25-afaa-9afed5b99084</GUID>
@@ -13,4 +14,5 @@
   <ContentItemCommonDataGUID>f059ada8-36ce-43db-894b-e4c4e9784419</ContentItemCommonDataGUID>
   <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
   <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
+  <ProductPriceSchemaDiscountCategory />
 </cms.contentitemcommondata>

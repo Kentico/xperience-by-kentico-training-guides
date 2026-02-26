@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.service>
+  <ContentItemDataCommonDataID>
+    <GUID>e08f1830-4a40-45d6-a31f-1026feb8d953</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>IpsumZ-24ypp4el</CodeName>
+      <GUID>85342550-f35f-4941-9ca9-21b0a0cf4918</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>63c7a735-44f2-416f-af76-81475f5d2845</ContentItemDataGUID>
+  <ServiceBenefits>
+    <![CDATA[[{"Identifier":"15b4e527-dc69-4af3-95b3-95d995ede802"}]]]>
+  </ServiceBenefits>
+  <ServiceDescription>
+    <![CDATA[<p>Give your restaurant the capital it needs to thrive with our restaurant loans.</p>]]>
+  </ServiceDescription>
+  <ServiceFeatures>
+    <![CDATA[[{"Identifier":"f89c8f04-17ec-47a9-97df-c559b108691f"},{"Identifier":"0267614c-b1ed-42d9-ac01-99b429441854"},{"Identifier":"73ac8418-6e3c-499f-96ff-87cc618ac27f"}]]]>
+  </ServiceFeatures>
+  <ServiceMedia>
+    <![CDATA[[{"Identifier":"5957bfb8-679d-44d7-9a11-6ce586926503"}]]]>
+  </ServiceMedia>
+  <ServiceName>Restaurant loan</ServiceName>
+  <ServicePrice>200000</ServicePrice>
+  <ServiceShortDescription>
+    <![CDATA[<p>Give your restaurant the capital it needs to thrive with our restaurant loans.</p>]]>
+  </ServiceShortDescription>
+</contentitemdata.trainingguides.service>

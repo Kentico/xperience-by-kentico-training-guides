@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentitem>
+  <ContentItemChannelID>
+    <CodeName>TrainingGuidesPages</CodeName>
+    <GUID>5ba9c1e8-b61e-4570-b666-87a9b92bbe3b</GUID>
+    <ObjectType>cms.channel</ObjectType>
+  </ContentItemChannelID>
+  <ContentItemContentTypeID>
+    <CodeName>TrainingGuides.StoreSection</CodeName>
+    <GUID>5ce8de4d-0304-496a-8b09-7271613dd135</GUID>
+    <ObjectType>cms.contenttype</ObjectType>
+  </ContentItemContentTypeID>
+  <ContentItemGUID>2e903e77-4cf5-4164-b383-28a0971e5f08</ContentItemGUID>
+  <ContentItemIsReusable>False</ContentItemIsReusable>
+  <ContentItemIsSecured>False</ContentItemIsSecured>
+  <ContentItemName>CatFood-6jxzscti</ContentItemName>
+</cms.contentitem>

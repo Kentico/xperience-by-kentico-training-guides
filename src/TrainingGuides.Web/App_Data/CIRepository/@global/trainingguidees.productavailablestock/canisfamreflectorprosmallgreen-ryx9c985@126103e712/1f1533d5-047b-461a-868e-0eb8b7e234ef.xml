@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<trainingguidees.productavailablestock>
+  <ProductAvailableStockContentItemID>
+    <CodeName>CanisFamReflectorProSmallGreen-ryx9c985</CodeName>
+    <GUID>26add3b2-952b-4f48-9c2c-bdb3c201239c</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </ProductAvailableStockContentItemID>
+  <ProductAvailableStockGUID>1f1533d5-047b-461a-868e-0eb8b7e234ef</ProductAvailableStockGUID>
+  <ProductAvailableStockSKUCode>CF-RP-S-G</ProductAvailableStockSKUCode>
+  <ProductAvailableStockValue>0</ProductAvailableStockValue>
+</trainingguidees.productavailablestock>

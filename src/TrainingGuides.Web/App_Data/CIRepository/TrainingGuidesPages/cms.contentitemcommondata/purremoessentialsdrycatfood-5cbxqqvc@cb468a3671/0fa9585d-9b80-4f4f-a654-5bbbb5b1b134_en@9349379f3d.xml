@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentitemcommondata>
+  <ContentItemCommonDataContentItemID>
+    <CodeName>PurremoEssentialsDryCatFood-5cbxqqvc</CodeName>
+    <GUID>b716c599-565d-473a-80b9-24eaa786c3da</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </ContentItemCommonDataContentItemID>
+  <ContentItemCommonDataContentLanguageID>
+    <CodeName>en</CodeName>
+    <GUID>e81b5172-f240-4041-88b1-653089984e29</GUID>
+    <ObjectType>cms.contentlanguage</ObjectType>
+  </ContentItemCommonDataContentLanguageID>
+  <ContentItemCommonDataFirstPublishedWhen>2026-02-09 20:04:26Z</ContentItemCommonDataFirstPublishedWhen>
+  <ContentItemCommonDataGUID>0fa9585d-9b80-4f4f-a654-5bbbb5b1b134</ContentItemCommonDataGUID>
+  <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
+  <ContentItemCommonDataLastPublishedWhen>2026-02-09 20:04:26Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
+  <ContentItemCommonDataVisualBuilderTemplateConfiguration>
+    <![CDATA[{"identifier":"TrainingGuides.GeneralPageTemplate","properties":null,"fieldIdentifiers":null}]]>
+  </ContentItemCommonDataVisualBuilderTemplateConfiguration>
+  <ContentItemCommonDataVisualBuilderWidgets>
+    <![CDATA[{"editableAreas":[{"identifier":"areaMain","sections":[{"identifier":"0986ee0e-d342-40ee-857a-18ff23a3d00d","type":"TrainingGuides.GeneralSection","properties":{"sectionAnchor":"","colorScheme":"TransparentDark","cornerStyle":"Round","columnLayout":"OneColumn"},"zones":[{"identifier":"31b62d87-43d2-4fe5-97c8-7c3eda43a4b2","name":"zoneMain","widgets":[{"identifier":"1c72b484-45c1-469c-8c10-066e3ae646a4","type":"TrainingGuides.ProductWidget","variants":[{"identifier":"90665600-1fd1-40c4-8a3b-62e2f6109db6","properties":{"displayCurrentPage":true,"selectedProduct":[],"showVariantSelection":true,"showVariantDetails":true,"showCallToAction":false,"callToActionText":"View Product"},"fieldIdentifiers":{}}]}]}],"fieldIdentifiers":null}]}]}]]>
+  </ContentItemCommonDataVisualBuilderWidgets>
+  <ContentItemReferences>
+    <cms.contentitemreference>
+      <ContentItemReferenceGroupGUID>006815af-b9a1-4191-b865-e729e078d4cf</ContentItemReferenceGroupGUID>
+      <ContentItemReferenceGUID>5944e61a-83af-47db-8a52-8042b727ce08</ContentItemReferenceGUID>
+      <ContentItemReferenceSourceCommonDataID>
+        <GUID>0fa9585d-9b80-4f4f-a654-5bbbb5b1b134</GUID>
+        <ObjectType>cms.contentitemcommondata</ObjectType>
+      </ContentItemReferenceSourceCommonDataID>
+      <ContentItemReferenceTargetItemID>
+        <CodeName>PurremoEssentialsDryCatFood-pdugg1s7</CodeName>
+        <GUID>8cf15606-a8b7-418d-b2d9-e04761973c9a</GUID>
+        <ObjectType>cms.contentitem</ObjectType>
+      </ContentItemReferenceTargetItemID>
+    </cms.contentitemreference>
+  </ContentItemReferences>
+</cms.contentitemcommondata>

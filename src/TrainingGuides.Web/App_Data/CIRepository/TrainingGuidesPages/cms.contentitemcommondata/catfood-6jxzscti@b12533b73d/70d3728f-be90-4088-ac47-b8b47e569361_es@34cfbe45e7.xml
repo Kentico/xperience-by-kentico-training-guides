@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentitemcommondata>
+  <ContentItemCommonDataContentItemID>
+    <CodeName>CatFood-6jxzscti</CodeName>
+    <GUID>2e903e77-4cf5-4164-b383-28a0971e5f08</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </ContentItemCommonDataContentItemID>
+  <ContentItemCommonDataContentLanguageID>
+    <CodeName>es</CodeName>
+    <GUID>b2e99971-c2dd-4a47-bb64-0d9a0d28d226</GUID>
+    <ObjectType>cms.contentlanguage</ObjectType>
+  </ContentItemCommonDataContentLanguageID>
+  <ContentItemCommonDataFirstPublishedWhen>2026-02-10 13:28:30Z</ContentItemCommonDataFirstPublishedWhen>
+  <ContentItemCommonDataGUID>70d3728f-be90-4088-ac47-b8b47e569361</ContentItemCommonDataGUID>
+  <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
+  <ContentItemCommonDataLastPublishedWhen>2026-02-10 13:28:30Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
+  <ContentItemCommonDataVisualBuilderTemplateConfiguration>
+    <![CDATA[{"identifier":"TrainingGuides.GeneralPageTemplate","properties":{"colorScheme":"TransparentDark","cornerStyle":"Round","columnLayout":"OneColumn"},"fieldIdentifiers":{"colorScheme":"3c497680-62e2-4ca6-8a99-326a06c341ff","cornerStyle":"03ef2c3e-1d4c-4ae0-a55c-18c77ad4378e","columnLayout":"15a777f6-eef5-4c44-95e6-f38333a7eca3"}}]]>
+  </ContentItemCommonDataVisualBuilderTemplateConfiguration>
+  <ContentItemCommonDataVisualBuilderWidgets>
+    <![CDATA[{"editableAreas":[{"identifier":"areaMain","sections":[{"identifier":"a0f177e2-ab14-4868-8a61-3519b51647ae","type":"TrainingGuides.GeneralSection","properties":{"sectionAnchor":"","colorScheme":"TransparentDark","cornerStyle":"Round","columnLayout":"OneColumn"},"zones":[{"identifier":"1f8abfcb-f62f-41e8-a11b-15d7f78b3244","name":"zoneMain","widgets":[{"identifier":"10f06197-26a5-4982-9b69-ff8441200899","type":"TrainingGuides.ProductListingWidget","variants":[{"identifier":"b567a654-c30c-4820-aa22-7c04ccd5a0b1","properties":{"parentPageSelection":[],"ctaText":"View Product","signInText":"Sign in to view","securedItemsDisplayMode":"PromptForLogin"},"fieldIdentifiers":{"parentPageSelection":"394a739e-b42e-416f-9c7a-f155cebc9e04","ctaText":"e389b8e6-4d82-4cff-b4b7-366514a77ec1","signInText":"c89b71c9-9fcb-4a21-b3eb-3b029a6cd921","securedItemsDisplayMode":"a90b441b-9196-4886-95de-f0c17ef0e98d"}}]}]}],"fieldIdentifiers":{"sectionAnchor":"ccc15b5c-61d6-4a17-a84e-82304dd41ff5","colorScheme":"c63141f2-5422-4adc-a761-ab72fae1b825","cornerStyle":"62690798-ff91-49ff-856d-05991e21b8a7","columnLayout":"37010e26-45e8-4863-bf90-bffc5452391e"}}]}]}]]>
+  </ContentItemCommonDataVisualBuilderWidgets>
+</cms.contentitemcommondata>

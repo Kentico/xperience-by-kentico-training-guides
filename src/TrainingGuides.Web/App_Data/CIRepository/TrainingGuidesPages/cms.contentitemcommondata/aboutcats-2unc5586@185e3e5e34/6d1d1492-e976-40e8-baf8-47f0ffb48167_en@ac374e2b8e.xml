@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.contentitemcommondata>
+  <ColorPattern />
   <ContentItemCommonDataContentItemID>
     <CodeName>AboutCats-2unc5586</CodeName>
     <GUID>7ebdb31f-a514-4be1-9939-e66c87d9d830</GUID>
@@ -18,6 +19,7 @@
   <ContentItemCommonDataVisualBuilderTemplateConfiguration>
     <![CDATA[{"identifier":"TrainingGuides.ArticlePagePageTemplate","properties":null,"fieldIdentifiers":null}]]>
   </ContentItemCommonDataVisualBuilderTemplateConfiguration>
+  <ProductPriceSchemaDiscountCategory />
   <ContentItemReferences>
     <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>e121ff3d-c221-4f60-9acb-0063ed2739f1</ContentItemReferenceGroupGUID>

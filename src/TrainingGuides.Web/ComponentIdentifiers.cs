@@ -12,13 +12,15 @@ using TrainingGuides.Web.Features.Membership.Widgets.LinkOrSignOut;
 using TrainingGuides.Web.Features.Membership.Widgets.Registration;
 using TrainingGuides.Web.Features.Membership.Widgets.ResetPassword;
 using TrainingGuides.Web.Features.Membership.Widgets.SignIn;
-using TrainingGuides.Web.Features.Products.Widgets.Product;
-using TrainingGuides.Web.Features.Products.Widgets.ProductComparator;
+using TrainingGuides.Web.Features.FinancialServices.Widgets.Service;
+using TrainingGuides.Web.Features.FinancialServices.Widgets.ServiceComparator;
 using TrainingGuides.Web.Features.Shared.EmailBuilder.Sections;
 using TrainingGuides.Web.Features.Shared.Sections.FormColumn;
 using TrainingGuides.Web.Features.Shared.Sections.General;
 using TrainingGuides.Web.Features.Shared.Sections.SingleColumn;
 using TrainingGuides.Web.Features.Videos.Widgets.VideoEmbed;
+using TrainingGuides.Web.Features.Commerce.Products.Widgets.ProductWidget;
+using TrainingGuides.Web.Features.Commerce.Products.Widgets.ProductListing;
 
 namespace TrainingGuides.Web;
 
@@ -38,11 +40,13 @@ public static class ComponentIdentifiers
         public const string COOKIE_PREFERENCES = CookiePreferencesWidgetViewComponent.IDENTIFIER;
         public const string CALL_TO_ACTION = CallToActionWidgetViewComponent.IDENTIFIER;
         public const string HERO_BANNER = HeroBannerWidgetViewComponent.IDENTIFIER;
-        public const string PRODUCT_COMPARATOR = ProductComparatorWidgetViewComponent.IDENTIFIER;
+        public const string SERVICE_COMPARATOR = ServiceComparatorWidgetViewComponent.IDENTIFIER;
         public const string HTML_CODE = HtmlCodeWidgetViewComponent.IDENTIFIER;
         public const string ARTICLE_LIST = ArticleListWidgetViewComponent.IDENTIFIER;
         public const string SIMPLE_CALL_TO_ACTION = SimpleCallToActionWidgetViewComponent.IDENTIFIER;
+        public const string SERVICE = ServiceWidgetViewComponent.IDENTIFIER;
         public const string PRODUCT = ProductWidgetViewComponent.IDENTIFIER;
+        public const string PRODUCT_LISTING = ProductListingWidgetViewComponent.IDENTIFIER;
         public const string VIDEO_EMBED = VideoEmbedWidgetViewComponent.IDENTIFIER;
         public const string GALLERY = GalleryWidgetViewComponent.IDENTIFIER;
         public const string SIGN_IN = SignInWidgetViewComponent.IDENTIFIER;

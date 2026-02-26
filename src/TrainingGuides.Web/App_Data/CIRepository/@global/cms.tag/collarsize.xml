@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.tag>
+  <TagGUID>76282563-82ab-4193-a907-b4c78b1297ae</TagGUID>
+  <TagMetadata>
+    <![CDATA[{"Translations":{"b2e99971-c2dd-4a47-bb64-0d9a0d28d226":{"Title":null,"Description":null}}}]]>
+  </TagMetadata>
+  <TagName>CollarSize</TagName>
+  <TagOrder>3</TagOrder>
+  <TagTaxonomyID>
+    <CodeName>ProductSize</CodeName>
+    <GUID>f1f5bddf-bf7e-4009-b8b6-186000c57e10</GUID>
+    <ObjectType>cms.taxonomy</ObjectType>
+  </TagTaxonomyID>
+  <TagTitle>Collar size</TagTitle>
+</cms.tag>

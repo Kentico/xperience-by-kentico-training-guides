@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.contentitemcommondata>
+  <ColorPattern />
   <ContentItemCommonDataContentItemID>
     <CodeName>LoremsPerIpsum-rnnrmvk8</CodeName>
     <GUID>f89c8f04-17ec-47a9-97df-c559b108691f</GUID>
@@ -13,6 +14,7 @@
   <ContentItemCommonDataFirstPublishedWhen>2024-02-06 21:40:45Z</ContentItemCommonDataFirstPublishedWhen>
   <ContentItemCommonDataGUID>8edb249a-5406-46ec-9a1b-dba73f3970c8</ContentItemCommonDataGUID>
   <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
-  <ContentItemCommonDataLastPublishedWhen>2024-02-06 22:16:59Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataLastPublishedWhen>2026-02-10 21:30:22Z</ContentItemCommonDataLastPublishedWhen>
   <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
+  <ProductPriceSchemaDiscountCategory />
 </cms.contentitemcommondata>

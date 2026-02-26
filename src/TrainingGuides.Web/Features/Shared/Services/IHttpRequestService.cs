@@ -34,7 +34,7 @@ public interface IHttpRequestService
     /// <summary>
     /// Retrieves URL of the specified page for a specific language
     /// </summary>
-    /// <param name="webpageGuid">Guid of the webpage to retrieve a URL of.</param>
+    /// <param name="webpageGuid">GUID of the webpage to retrieve a URL of.</param>
     /// <param name="language">Two-letter language code (e.g., "es" for Spanish, "en" for English)</param>
     /// <returns>Language specific URL of the current page (e.g. website.com/es/page)</returns>
     Task<string> GetPageRelativeUrl(Guid webpageGuid, string language);
