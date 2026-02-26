@@ -28,7 +28,7 @@
   <ClassIconClass>xp-box</ClassIconClass>
   <ClassName>TrainingGuides.ServicePage</ClassName>
   <ClassShortName>TrainingGuidesServicePage</ClassShortName>
-  <ClassTableName>TrainingGuides_ProductPage</ClassTableName>
+  <ClassTableName>TrainingGuides_ServicePage</ClassTableName>
   <ClassType>Content</ClassType>
   <ClassWebPageHasUrl>True</ClassWebPageHasUrl>
 </cms.contenttype>

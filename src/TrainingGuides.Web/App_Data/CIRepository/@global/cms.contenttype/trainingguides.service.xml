@@ -116,7 +116,7 @@
   <ClassIconClass>xp-gift</ClassIconClass>
   <ClassName>TrainingGuides.Service</ClassName>
   <ClassShortName>TrainingGuidesService</ClassShortName>
-  <ClassTableName>TrainingGuides_Product</ClassTableName>
+  <ClassTableName>TrainingGuides_Service</ClassTableName>
   <ClassType>Content</ClassType>
   <ClassWebPageHasUrl>False</ClassWebPageHasUrl>
 </cms.contenttype>

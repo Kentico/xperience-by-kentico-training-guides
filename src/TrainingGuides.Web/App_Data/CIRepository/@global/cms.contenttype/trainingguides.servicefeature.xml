@@ -112,7 +112,7 @@
   <ClassIconClass>xp-list-bullets</ClassIconClass>
   <ClassName>TrainingGuides.ServiceFeature</ClassName>
   <ClassShortName>TrainingGuidesServiceFeature</ClassShortName>
-  <ClassTableName>TrainingGuides_ProductFeature</ClassTableName>
+  <ClassTableName>TrainingGuides_ServiceFeature</ClassTableName>
   <ClassType>Content</ClassType>
   <ClassWebPageHasUrl>False</ClassWebPageHasUrl>
 </cms.contenttype>

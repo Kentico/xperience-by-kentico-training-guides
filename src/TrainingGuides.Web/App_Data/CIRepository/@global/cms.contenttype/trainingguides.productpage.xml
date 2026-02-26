@@ -36,7 +36,7 @@
   <ClassIconClass>xp-gift</ClassIconClass>
   <ClassName>TrainingGuides.ProductPage</ClassName>
   <ClassShortName>TrainingGuidesProductPage</ClassShortName>
-  <ClassTableName>TrainingGuides_ProductPage_1</ClassTableName>
+  <ClassTableName>TrainingGuides_ProductPage</ClassTableName>
   <ClassType>Content</ClassType>
   <ClassWebPageHasUrl>True</ClassWebPageHasUrl>
 </cms.contenttype>
