@@ -6,7 +6,7 @@
     <ObjectType>cms.channel</ObjectType>
   </ContentItemChannelID>
   <ContentItemContentTypeID>
-    <CodeName>TrainingGuides.ProductPage</CodeName>
+    <CodeName>TrainingGuides.ServicePage</CodeName>
     <GUID>50b2f01e-c30e-4631-aeb6-56ff2278cb35</GUID>
     <ObjectType>cms.contenttype</ObjectType>
   </ContentItemContentTypeID>

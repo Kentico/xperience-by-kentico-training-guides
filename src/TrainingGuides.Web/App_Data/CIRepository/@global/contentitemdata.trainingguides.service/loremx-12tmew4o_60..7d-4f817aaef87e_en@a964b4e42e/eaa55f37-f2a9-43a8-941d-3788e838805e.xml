@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<contentitemdata.trainingguides.product>
+<contentitemdata.trainingguides.service>
   <ContentItemDataCommonDataID>
     <GUID>602c8fdf-0c53-4db3-bd7d-4f817aaef87e</GUID>
     <ObjectType>cms.contentitemcommondata</ObjectType>
@@ -22,9 +22,9 @@
   <ProductMedia>
     <![CDATA[[{"Identifier":"b2bda33d-6094-4ea5-b56d-4d59fd202d72"}]]]>
   </ProductMedia>
-  <ProductName>Lorem X</ProductName>
   <ProductPrice>200</ProductPrice>
   <ProductShortDescription>
     <![CDATA[<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>]]>
   </ProductShortDescription>
-</contentitemdata.trainingguides.product>
+  <ServiceName>Lorem X</ServiceName>
+</contentitemdata.trainingguides.service>

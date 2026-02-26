@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<contentitemdata.trainingguides.productfeature>
+<contentitemdata.trainingguides.servicefeature>
   <ContentItemDataCommonDataID>
     <GUID>685d070c-ca03-47e7-80a5-86d05acd88ef</GUID>
     <ObjectType>cms.contentitemcommondata</ObjectType>
@@ -10,10 +10,10 @@
     </Parent>
   </ContentItemDataCommonDataID>
   <ContentItemDataGUID>66439c18-65d2-4809-9141-744b99bba3c5</ContentItemDataGUID>
-  <ProductFeatureIncluded>False</ProductFeatureIncluded>
-  <ProductFeatureKey>dolor-sit-amet</ProductFeatureKey>
-  <ProductFeatureLabel>Dolor sit amet</ProductFeatureLabel>
-  <ProductFeatureShowInComparator>1</ProductFeatureShowInComparator>
-  <ProductFeatureValue />
-  <ProductFeatureValueType>2</ProductFeatureValueType>
-</contentitemdata.trainingguides.productfeature>
+  <ServiceFeatureIncluded>False</ServiceFeatureIncluded>
+  <ServiceFeatureKey>dolor-sit-amet</ServiceFeatureKey>
+  <ServiceFeatureShowInComparator>1</ServiceFeatureShowInComparator>
+  <ServiceFeatureValue />
+  <ServiceFeatureValueType>2</ServiceFeatureValueType>
+  <ServiceFeatureLabel>Dolor sit amet</ServiceFeatureLabel>
+</contentitemdata.trainingguides.servicefeature>

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<contentitemdata.trainingguides.productfeature>
+<contentitemdata.trainingguides.servicefeature>
   <ContentItemDataCommonDataID>
     <GUID>18e2e93f-8379-43e8-a238-cb03b384c737</GUID>
     <ObjectType>cms.contentitemcommondata</ObjectType>
@@ -10,10 +10,10 @@
     </Parent>
   </ContentItemDataCommonDataID>
   <ContentItemDataGUID>52263b6e-975e-4b02-915b-2bda69ff153e</ContentItemDataGUID>
-  <ProductFeatureIncluded>False</ProductFeatureIncluded>
-  <ProductFeatureKey>lorems-per-ipsum</ProductFeatureKey>
-  <ProductFeatureLabel>Lorems per ipsum</ProductFeatureLabel>
-  <ProductFeatureShowInComparator>1</ProductFeatureShowInComparator>
-  <ProductFeatureValue>100</ProductFeatureValue>
-  <ProductFeatureValueType>0</ProductFeatureValueType>
-</contentitemdata.trainingguides.productfeature>
+  <ServiceFeatureIncluded>False</ServiceFeatureIncluded>
+  <ServiceFeatureKey>lorems-per-ipsum</ServiceFeatureKey>
+  <ServiceFeatureShowInComparator>1</ServiceFeatureShowInComparator>
+  <ServiceFeatureValue>100</ServiceFeatureValue>
+  <ServiceFeatureValueType>0</ServiceFeatureValueType>
+  <ServiceFeatureLabel>Lorems per ipsum</ServiceFeatureLabel>
+</contentitemdata.trainingguides.servicefeature>
