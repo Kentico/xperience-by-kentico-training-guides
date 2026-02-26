@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contenttype>
+  <ClassContentTypeType>Website</ClassContentTypeType>
+  <ClassDisplayName>Product page</ClassDisplayName>
+  <ClassFormDefinition>
+    <form>
+      <field column="ContentItemDataID" columntype="integer" enabled="true" guid="ba52a432-5f06-4355-a1e7-efaa5d02eda9" isPK="true" />
+      <field column="ContentItemDataCommonDataID" columntype="integer" enabled="true" guid="c6bfeca4-e974-498c-8cb8-ce3c7bb5746a" refobjtype="cms.contentitemcommondata" reftype="Required" system="true" />
+      <field column="ContentItemDataGUID" columntype="guid" enabled="true" guid="06231294-8bff-4c98-b9a9-5a90afe23112" isunique="true" system="true" />
+      <field allowempty="true" column="ProductPageProducts" columnprecision="0" columntype="contentitemreference" enabled="true" guid="006815af-b9a1-4191-b865-e729e078d4cf" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Product</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <AllowedSchemaIdentifiers>
+            <![CDATA[["240eabd8-f0ff-47b8-b27b-b82a8b2801c4"]]]>
+          </AllowedSchemaIdentifiers>
+          <controlname>Kentico.Administration.ContentItemSelector</controlname>
+          <MaximumItems>1</MaximumItems>
+          <MinimumItems>1</MinimumItems>
+          <SelectionType>reusableFieldSchemas</SelectionType>
+        </settings>
+        <validationrulesdata>
+          <ValidationRuleConfiguration>
+            <ValidationRuleIdentifier>Kentico.Administration.RequiredValue</ValidationRuleIdentifier>
+            <RuleValues />
+          </ValidationRuleConfiguration>
+        </validationrulesdata>
+      </field>
+    </form>
+  </ClassFormDefinition>
+  <ClassGUID>c7ae17c7-2562-4c6c-bd48-b8aec10bba58</ClassGUID>
+  <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
+  <ClassIconClass>xp-gift</ClassIconClass>
+  <ClassName>TrainingGuides.ProductPage</ClassName>
+  <ClassShortName>TrainingGuidesProductPage</ClassShortName>
+  <ClassTableName>TrainingGuides_ProductPage</ClassTableName>
+  <ClassType>Content</ClassType>
+  <ClassWebPageHasUrl>True</ClassWebPageHasUrl>
+</cms.contenttype>

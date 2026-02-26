@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.emptypage>
+  <ContentItemDataCommonDataID>
+    <GUID>2728b6c1-aed6-4ed9-bf88-9172c988ade4</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>Store-wuq9sl1y</CodeName>
+      <GUID>c20077eb-3063-4670-984a-fb9432514f34</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>84aefe93-9b44-4b12-8880-76dc48337478</ContentItemDataGUID>
+</contentitemdata.trainingguides.emptypage>

@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.contentitemcommondata>
+  <ColorPattern />
   <ContentItemCommonDataContentItemID>
     <CodeName>DolorSitAmet-4j0g8zk6</CodeName>
     <GUID>0267614c-b1ed-42d9-ac01-99b429441854</GUID>
@@ -10,9 +11,10 @@
     <GUID>e81b5172-f240-4041-88b1-653089984e29</GUID>
     <ObjectType>cms.contentlanguage</ObjectType>
   </ContentItemCommonDataContentLanguageID>
-  <ContentItemCommonDataFirstPublishedWhen>2024-02-07 03:45:11Z</ContentItemCommonDataFirstPublishedWhen>
+  <ContentItemCommonDataFirstPublishedWhen>2024-02-06 21:45:11Z</ContentItemCommonDataFirstPublishedWhen>
   <ContentItemCommonDataGUID>685d070c-ca03-47e7-80a5-86d05acd88ef</ContentItemCommonDataGUID>
   <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
-  <ContentItemCommonDataLastPublishedWhen>2024-02-07 04:15:16Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataLastPublishedWhen>2026-02-10 21:28:50Z</ContentItemCommonDataLastPublishedWhen>
   <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
+  <ProductPriceSchemaDiscountCategory />
 </cms.contentitemcommondata>

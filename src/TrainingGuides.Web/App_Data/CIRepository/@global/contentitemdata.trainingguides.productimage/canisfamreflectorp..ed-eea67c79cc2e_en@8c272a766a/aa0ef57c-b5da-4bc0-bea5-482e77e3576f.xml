@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.productimage>
+  <ContentItemDataCommonDataID>
+    <GUID>e592a24c-0c61-4342-a4ed-eea67c79cc2e</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>CanisFamReflectorProPink-6wtn0po1</CodeName>
+      <GUID>f4fd10b2-a59b-4eeb-8289-9957ff257358</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>aa0ef57c-b5da-4bc0-bea5-482e77e3576f</ContentItemDataGUID>
+  <ProductImageAltText>Image of CanisFam reflective dog collar in pink</ProductImageAltText>
+  <ProductImageAsset>
+    <![CDATA[{"Variants":{},"FocalPoint":{"X":512,"Y":512},"Identifier":"5cfdd1ef-cc6e-4e1a-b7d7-3e7b4fae6883","Name":"CanisFamPink.png","Extension":".png","Size":294606,"Width":1024,"Height":1024,"LastModified":"2026-01-27T15:56:21.1401528Z"}]]>
+  </ProductImageAsset>
+</contentitemdata.trainingguides.productimage>

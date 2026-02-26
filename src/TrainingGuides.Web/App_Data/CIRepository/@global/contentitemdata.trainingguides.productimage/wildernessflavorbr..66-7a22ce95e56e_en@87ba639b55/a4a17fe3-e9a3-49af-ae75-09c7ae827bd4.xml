@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.productimage>
+  <ContentItemDataCommonDataID>
+    <GUID>d48a30b0-643c-4352-aa66-7a22ce95e56e</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>WildernessFlavorBrand-d5qwbaz8</CodeName>
+      <GUID>3ac8d6fb-6a86-4bc6-8bbf-225e7717d1b6</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>a4a17fe3-e9a3-49af-ae75-09c7ae827bd4</ContentItemDataGUID>
+  <ProductImageAltText>Wilderness flavor brand image</ProductImageAltText>
+  <ProductImageAsset>
+    <![CDATA[{"Variants":{},"FocalPoint":{"X":512,"Y":512},"Identifier":"24bca4ae-9843-487e-8fbf-6f8f67cc7eff","Name":"WildernessFlavor brand.png","Extension":".png","Size":94589,"Width":1024,"Height":1024,"LastModified":"2026-01-16T17:27:47.2249541Z"}]]>
+  </ProductImageAsset>
+</contentitemdata.trainingguides.productimage>

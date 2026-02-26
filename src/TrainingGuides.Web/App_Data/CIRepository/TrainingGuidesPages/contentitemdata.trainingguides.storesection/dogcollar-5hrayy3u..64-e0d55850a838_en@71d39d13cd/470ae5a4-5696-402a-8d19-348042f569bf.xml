@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.storesection>
+  <ContentItemDataCommonDataID>
+    <GUID>29724a46-b011-4a5d-a564-e0d55850a838</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>DogCollar-5hrayy3u</CodeName>
+      <GUID>aa2f2b1a-dd24-4e83-91f1-cda4beff09a1</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>470ae5a4-5696-402a-8d19-348042f569bf</ContentItemDataGUID>
+  <StoreSectionContentTypes>
+    <![CDATA[["68473cf2-bf5b-48aa-b1d0-4bc1c4f6d638"]]]>
+  </StoreSectionContentTypes>
+</contentitemdata.trainingguides.storesection>

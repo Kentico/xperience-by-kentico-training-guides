@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.tag>
+  <TagDescription>Neck circumference of 12-15in (30-38cm)</TagDescription>
+  <TagGUID>ed02b6b9-3b6d-46dd-9ca7-26125ac1207b</TagGUID>
+  <TagMetadata>
+    <![CDATA[{"Translations":{"b2e99971-c2dd-4a47-bb64-0d9a0d28d226":{"Title":null,"Description":null}}}]]>
+  </TagMetadata>
+  <TagName>12-15in_30-38cm</TagName>
+  <TagOrder>3</TagOrder>
+  <TagParentID>
+    <CodeName>CollarSize</CodeName>
+    <GUID>76282563-82ab-4193-a907-b4c78b1297ae</GUID>
+    <ObjectType>cms.tag</ObjectType>
+  </TagParentID>
+  <TagTaxonomyID>
+    <CodeName>ProductSize</CodeName>
+    <GUID>f1f5bddf-bf7e-4009-b8b6-186000c57e10</GUID>
+    <ObjectType>cms.taxonomy</ObjectType>
+  </TagTaxonomyID>
+  <TagTitle>12-15in (30-38cm)</TagTitle>
+</cms.tag>

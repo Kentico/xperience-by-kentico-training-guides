@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.catfood>
+  <CatFoodVariants>
+    <![CDATA[[{"Identifier":"17f1c88b-5002-4459-9d1e-31dd0e367499"},{"Identifier":"c5aa9de8-c9a3-451f-b69e-a0ea71d6c361"}]]]>
+  </CatFoodVariants>
+  <ContentItemDataCommonDataID>
+    <GUID>f3bb878e-e05b-473f-9ba8-93f682a7d02f</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>WildernessFlavorDryCatFood-2c5ip7k0</CodeName>
+      <GUID>fdcd6f21-98bc-4320-b022-b29519191278</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>d35327c7-7b3b-4d27-9f82-db37ba89c096</ContentItemDataGUID>
+</contentitemdata.trainingguides.catfood>

@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.contentitemcommondata>
+  <ColorPattern />
   <ContentItemCommonDataContentItemID>
     <CodeName>LoremX-xts0c4n0</CodeName>
     <GUID>92cc0b01-99a4-4e10-87bf-c0358470aafb</GUID>
@@ -10,10 +11,10 @@
     <GUID>e81b5172-f240-4041-88b1-653089984e29</GUID>
     <ObjectType>cms.contentlanguage</ObjectType>
   </ContentItemCommonDataContentLanguageID>
-  <ContentItemCommonDataFirstPublishedWhen>2024-02-07 03:58:43Z</ContentItemCommonDataFirstPublishedWhen>
+  <ContentItemCommonDataFirstPublishedWhen>2024-02-06 21:58:43Z</ContentItemCommonDataFirstPublishedWhen>
   <ContentItemCommonDataGUID>66c10208-4161-48c6-8cd7-6359f27dcd89</ContentItemCommonDataGUID>
   <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
-  <ContentItemCommonDataLastPublishedWhen>2025-07-22 18:11:44Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataLastPublishedWhen>2026-02-13 15:25:34Z</ContentItemCommonDataLastPublishedWhen>
   <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
   <ContentItemCommonDataVisualBuilderTemplateConfiguration>
     <![CDATA[{"identifier":"TrainingGuides.EmptyPagePageTemplate","properties":null,"fieldIdentifiers":{}}]]>
@@ -21,10 +22,11 @@
   <ContentItemCommonDataVisualBuilderWidgets>
     <![CDATA[{"editableAreas":[{"identifier":"areaMain","sections":[{"identifier":"755378b4-a815-4df5-ae9c-393f681f72f9","type":"TrainingGuides.SingleColumnSection","properties":{"sectionAnchor":""},"zones":[{"identifier":"8c2aac6f-fb17-4b28-928b-37ccd227f592","widgets":[]}],"fieldIdentifiers":{"sectionAnchor":"d196f39e-bb30-43db-9f79-f3b022ddab11"}}]}]}]]>
   </ContentItemCommonDataVisualBuilderWidgets>
+  <ProductPriceSchemaDiscountCategory />
   <ContentItemReferences>
     <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>b315e712-05da-445d-980c-87578e46cd4d</ContentItemReferenceGroupGUID>
-      <ContentItemReferenceGUID>b3a40c55-a3a9-4022-a4c7-aff781abc4e3</ContentItemReferenceGUID>
+      <ContentItemReferenceGUID>af5be8a8-4667-4262-8de3-b72a77cfa3d7</ContentItemReferenceGUID>
       <ContentItemReferenceSourceCommonDataID>
         <GUID>66c10208-4161-48c6-8cd7-6359f27dcd89</GUID>
         <ObjectType>cms.contentitemcommondata</ObjectType>

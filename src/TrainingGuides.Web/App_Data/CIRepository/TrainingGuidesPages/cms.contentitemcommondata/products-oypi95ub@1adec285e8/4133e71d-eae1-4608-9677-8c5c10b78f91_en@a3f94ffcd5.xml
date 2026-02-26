@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.contentitemcommondata>
+  <ColorPattern />
   <ContentItemCommonDataContentItemID>
     <CodeName>Products-oypi95ub</CodeName>
     <GUID>196b3926-f820-4bd4-bed0-42e4db92ce40</GUID>
@@ -10,10 +11,10 @@
     <GUID>e81b5172-f240-4041-88b1-653089984e29</GUID>
     <ObjectType>cms.contentlanguage</ObjectType>
   </ContentItemCommonDataContentLanguageID>
-  <ContentItemCommonDataFirstPublishedWhen>2024-02-07 03:49:32Z</ContentItemCommonDataFirstPublishedWhen>
+  <ContentItemCommonDataFirstPublishedWhen>2024-02-06 21:49:32Z</ContentItemCommonDataFirstPublishedWhen>
   <ContentItemCommonDataGUID>4133e71d-eae1-4608-9677-8c5c10b78f91</ContentItemCommonDataGUID>
   <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
-  <ContentItemCommonDataLastPublishedWhen>2024-03-21 23:27:57Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataLastPublishedWhen>2026-02-13 16:27:44Z</ContentItemCommonDataLastPublishedWhen>
   <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
   <ContentItemCommonDataVisualBuilderTemplateConfiguration>
     <![CDATA[{"identifier":"TrainingGuides.EmptyPagePageTemplate","properties":null,"fieldIdentifiers":{}}]]>
@@ -21,4 +22,46 @@
   <ContentItemCommonDataVisualBuilderWidgets>
     <![CDATA[{"editableAreas":[{"identifier":"areaMain","sections":[{"identifier":"55c7b4b9-95bf-4e38-a2eb-a1f55b2fe99d","type":"TrainingGuides.SingleColumnSection","properties":{"sectionAnchor":null},"zones":[{"identifier":"bc808fbd-27e6-4e4c-91e1-794f52417963","widgets":[{"identifier":"9040dbde-e19f-4e53-9430-840bd4870cbf","type":"Kentico.Widget.RichText","variants":[{"identifier":"54190100-5ba4-47a9-9401-d9eaf94d2304","properties":{"content":"<p>Welcome to the store</p>"},"fieldIdentifiers":{"content":"2be6cb40-ccb7-4615-9251-9b5a063c7baa"}}]}]}],"fieldIdentifiers":{"sectionAnchor":"c750f1a7-d050-4bfe-9786-028b9369cc16"}}]}]}]]>
   </ContentItemCommonDataVisualBuilderWidgets>
+  <ProductPriceSchemaDiscountCategory />
+  <ContentItemReferences>
+    <cms.contentitemreference>
+      <ContentItemReferenceGroupGUID>b7e24607-bf43-4950-8f96-1d7218151744</ContentItemReferenceGroupGUID>
+      <ContentItemReferenceGUID>9927c48b-3550-4f06-b87b-adf81b5bbf1a</ContentItemReferenceGUID>
+      <ContentItemReferenceSourceCommonDataID>
+        <GUID>4133e71d-eae1-4608-9677-8c5c10b78f91</GUID>
+        <ObjectType>cms.contentitemcommondata</ObjectType>
+      </ContentItemReferenceSourceCommonDataID>
+      <ContentItemReferenceTargetItemID>
+        <CodeName>IpsumZ-dk8frf1d</CodeName>
+        <GUID>90f28e6e-7bdd-4f88-a1e8-0e2dbd243e9b</GUID>
+        <ObjectType>cms.contentitem</ObjectType>
+      </ContentItemReferenceTargetItemID>
+    </cms.contentitemreference>
+    <cms.contentitemreference>
+      <ContentItemReferenceGroupGUID>a1822005-2a0d-4086-ad67-a581977ba4ee</ContentItemReferenceGroupGUID>
+      <ContentItemReferenceGUID>a03e34de-e11b-4105-85a3-5bba9427341a</ContentItemReferenceGUID>
+      <ContentItemReferenceSourceCommonDataID>
+        <GUID>4133e71d-eae1-4608-9677-8c5c10b78f91</GUID>
+        <ObjectType>cms.contentitemcommondata</ObjectType>
+      </ContentItemReferenceSourceCommonDataID>
+      <ContentItemReferenceTargetItemID>
+        <CodeName>LoremX-xts0c4n0</CodeName>
+        <GUID>92cc0b01-99a4-4e10-87bf-c0358470aafb</GUID>
+        <ObjectType>cms.contentitem</ObjectType>
+      </ContentItemReferenceTargetItemID>
+    </cms.contentitemreference>
+    <cms.contentitemreference>
+      <ContentItemReferenceGroupGUID>3eaa7da5-3165-40e2-b746-cbf8c5a40eee</ContentItemReferenceGroupGUID>
+      <ContentItemReferenceGUID>b722df7e-4aa1-4a36-91d4-3749524c82cb</ContentItemReferenceGUID>
+      <ContentItemReferenceSourceCommonDataID>
+        <GUID>4133e71d-eae1-4608-9677-8c5c10b78f91</GUID>
+        <ObjectType>cms.contentitemcommondata</ObjectType>
+      </ContentItemReferenceSourceCommonDataID>
+      <ContentItemReferenceTargetItemID>
+        <CodeName>ContactUs-2zqcdint</CodeName>
+        <GUID>b6e644bb-f457-4140-aff4-2347e195940a</GUID>
+        <ObjectType>cms.contentitem</ObjectType>
+      </ContentItemReferenceTargetItemID>
+    </cms.contentitemreference>
+  </ContentItemReferences>
 </cms.contentitemcommondata>

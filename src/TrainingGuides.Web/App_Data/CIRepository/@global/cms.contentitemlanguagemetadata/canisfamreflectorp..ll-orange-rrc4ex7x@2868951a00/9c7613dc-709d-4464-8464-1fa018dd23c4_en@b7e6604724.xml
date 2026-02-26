@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentitemlanguagemetadata>
+  <ContentItemLanguageMetadataContentItemID>
+    <CodeName>CanisFamReflectorPro-Small-Orange-rrc4ex7x</CodeName>
+    <GUID>6f787710-8696-4abf-ad78-9848362624e6</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </ContentItemLanguageMetadataContentItemID>
+  <ContentItemLanguageMetadataContentLanguageID>
+    <CodeName>en</CodeName>
+    <GUID>e81b5172-f240-4041-88b1-653089984e29</GUID>
+    <ObjectType>cms.contentlanguage</ObjectType>
+  </ContentItemLanguageMetadataContentLanguageID>
+  <ContentItemLanguageMetadataCreatedByUserID>
+    <CodeName>administrator</CodeName>
+    <GUID>6415b8ce-8072-4bcd-8e48-9d7178b826b7</GUID>
+    <ObjectType>cms.user</ObjectType>
+  </ContentItemLanguageMetadataCreatedByUserID>
+  <ContentItemLanguageMetadataCreatedWhen>2026-01-27 15:47:07Z</ContentItemLanguageMetadataCreatedWhen>
+  <ContentItemLanguageMetadataDisplayName>CanisFam Reflector Pro - Small - Orange</ContentItemLanguageMetadataDisplayName>
+  <ContentItemLanguageMetadataGUID>9c7613dc-709d-4464-8464-1fa018dd23c4</ContentItemLanguageMetadataGUID>
+  <ContentItemLanguageMetadataHasImageAsset>False</ContentItemLanguageMetadataHasImageAsset>
+  <ContentItemLanguageMetadataLatestVersionStatus>2</ContentItemLanguageMetadataLatestVersionStatus>
+  <ContentItemLanguageMetadataModifiedByUserID>
+    <CodeName>administrator</CodeName>
+    <GUID>6415b8ce-8072-4bcd-8e48-9d7178b826b7</GUID>
+    <ObjectType>cms.user</ObjectType>
+  </ContentItemLanguageMetadataModifiedByUserID>
+  <ContentItemTags>
+    <cms.contentitemtag>
+      <ContentItemTagContentItemLanguageMetadataID>
+        <GUID>9c7613dc-709d-4464-8464-1fa018dd23c4</GUID>
+        <ObjectType>cms.contentitemlanguagemetadata</ObjectType>
+      </ContentItemTagContentItemLanguageMetadataID>
+      <ContentItemTagFieldGUID>42147568-304a-4e0a-8c20-9da14ffd0288</ContentItemTagFieldGUID>
+      <ContentItemTagGUID>0506fec8-6ae2-4229-b1bd-479c92a29199</ContentItemTagGUID>
+      <ContentItemTagTagGUID>bb01d680-90dc-4528-b1a0-986f6aa41cb6</ContentItemTagTagGUID>
+    </cms.contentitemtag>
+    <cms.contentitemtag>
+      <ContentItemTagContentItemLanguageMetadataID>
+        <GUID>9c7613dc-709d-4464-8464-1fa018dd23c4</GUID>
+        <ObjectType>cms.contentitemlanguagemetadata</ObjectType>
+      </ContentItemTagContentItemLanguageMetadataID>
+      <ContentItemTagFieldGUID>4f27d095-1635-4252-b6d9-e7bbd494c21b</ContentItemTagFieldGUID>
+      <ContentItemTagGUID>d53630e2-f20d-4f94-bf1d-889dd6e74b44</ContentItemTagGUID>
+      <ContentItemTagTagGUID>edf9e701-c4e6-4381-ac19-9e9518e9c011</ContentItemTagTagGUID>
+    </cms.contentitemtag>
+  </ContentItemTags>
+</cms.contentitemlanguagemetadata>

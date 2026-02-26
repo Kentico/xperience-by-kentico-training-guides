@@ -11,9 +11,9 @@
   </ContentItemDataCommonDataID>
   <ContentItemDataGUID>dfe8f22c-8f63-49d2-b7dc-08bbd0174d39</ContentItemDataGUID>
   <ServiceFeatureIncluded>False</ServiceFeatureIncluded>
-  <ServiceFeatureKey>yearly-maintenance-cost</ServiceFeatureKey>
-  <ProductFeaturePrice>50</ProductFeaturePrice>
+  <ServiceFeatureKey>application-fees</ServiceFeatureKey>
+  <ServiceFeatureLabel>Application fees</ServiceFeatureLabel>
+  <ServiceFeaturePrice>50</ServiceFeaturePrice>
   <ServiceFeatureShowInComparator>1</ServiceFeatureShowInComparator>
   <ServiceFeatureValueType>1</ServiceFeatureValueType>
-  <ServiceFeatureLabel>Yearly maintenance cost</ServiceFeatureLabel>
 </contentitemdata.trainingguides.servicefeature>

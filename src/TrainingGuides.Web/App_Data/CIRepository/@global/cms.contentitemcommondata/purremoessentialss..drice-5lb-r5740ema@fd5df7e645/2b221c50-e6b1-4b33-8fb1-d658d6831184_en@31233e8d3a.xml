@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentitemcommondata>
+  <AmountSchemaNumber>5</AmountSchemaNumber>
+  <AmountSchemaUnit>lb</AmountSchemaUnit>
+  <ContentItemCommonDataContentItemID>
+    <CodeName>PurremoEssentialsSalmonAndRice-5lb-r5740ema</CodeName>
+    <GUID>c3f056a5-2e9c-46ff-84b9-6f2b9790317c</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </ContentItemCommonDataContentItemID>
+  <ContentItemCommonDataContentLanguageID>
+    <CodeName>en</CodeName>
+    <GUID>e81b5172-f240-4041-88b1-653089984e29</GUID>
+    <ObjectType>cms.contentlanguage</ObjectType>
+  </ContentItemCommonDataContentLanguageID>
+  <ContentItemCommonDataFirstPublishedWhen>2026-01-12 15:08:45Z</ContentItemCommonDataFirstPublishedWhen>
+  <ContentItemCommonDataGUID>2b221c50-e6b1-4b33-8fb1-d658d6831184</ContentItemCommonDataGUID>
+  <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
+  <ContentItemCommonDataLastPublishedWhen>2026-01-16 15:46:35Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
+  <ProductPriceSchemaDiscountCategory />
+  <ProductPriceSchemaPrice>18.99</ProductPriceSchemaPrice>
+  <ProductSchemaDescription>
+    <![CDATA[<p>This five pound bag is perfect for single-cat households</p>]]>
+  </ProductSchemaDescription>
+  <ProductSchemaImages>
+    <![CDATA[[{"Identifier":"386d712d-1c4e-485e-ad4d-77d86a82cff9"}]]]>
+  </ProductSchemaImages>
+  <ProductSchemaName>Salmon and Rice - 5lb</ProductSchemaName>
+  <ProductShippingSchemaShippingType>3</ProductShippingSchemaShippingType>
+  <ProductShippingSchemaShippingWeight>5</ProductShippingSchemaShippingWeight>
+  <ProductShippingSchemaWeightUnit>lb</ProductShippingSchemaWeightUnit>
+  <ProductSkuSchemaSkuCode>PE-SR-5</ProductSkuSchemaSkuCode>
+  <ProductVariantSchemaCodeName>pe-salmon-and-rice-5lb</ProductVariantSchemaCodeName>
+  <ContentItemReferences>
+    <cms.contentitemreference>
+      <ContentItemReferenceGroupGUID>4ff443bf-b147-4f35-b35d-03d61002f569</ContentItemReferenceGroupGUID>
+      <ContentItemReferenceGUID>ac90dab8-7262-4c90-b03b-3d244cfd3399</ContentItemReferenceGUID>
+      <ContentItemReferenceSourceCommonDataID>
+        <GUID>2b221c50-e6b1-4b33-8fb1-d658d6831184</GUID>
+        <ObjectType>cms.contentitemcommondata</ObjectType>
+      </ContentItemReferenceSourceCommonDataID>
+      <ContentItemReferenceTargetItemID>
+        <CodeName>PurremoEssentialsDryCatFood-SalmonAndRice-c2672mjk</CodeName>
+        <GUID>b1091d81-bbbd-405e-91c7-c67b7706da20</GUID>
+        <ObjectType>cms.contentitem</ObjectType>
+      </ContentItemReferenceTargetItemID>
+    </cms.contentitemreference>
+    <cms.contentitemreference>
+      <ContentItemReferenceGroupGUID>84b06b06-1392-422d-82e5-639ed2fa6340</ContentItemReferenceGroupGUID>
+      <ContentItemReferenceGUID>b6f48c08-bf1d-4730-961b-ece0087366ee</ContentItemReferenceGUID>
+      <ContentItemReferenceSourceCommonDataID>
+        <GUID>2b221c50-e6b1-4b33-8fb1-d658d6831184</GUID>
+        <ObjectType>cms.contentitemcommondata</ObjectType>
+      </ContentItemReferenceSourceCommonDataID>
+      <ContentItemReferenceTargetItemID>
+        <CodeName>CatFoodKibble2-ft7e33w6</CodeName>
+        <GUID>386d712d-1c4e-485e-ad4d-77d86a82cff9</GUID>
+        <ObjectType>cms.contentitem</ObjectType>
+      </ContentItemReferenceTargetItemID>
+    </cms.contentitemreference>
+  </ContentItemReferences>
+</cms.contentitemcommondata>

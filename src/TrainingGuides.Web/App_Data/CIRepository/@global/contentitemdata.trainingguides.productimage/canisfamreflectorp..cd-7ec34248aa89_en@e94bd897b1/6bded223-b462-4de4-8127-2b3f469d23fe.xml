@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.productimage>
+  <ContentItemDataCommonDataID>
+    <GUID>d3839f1a-61ae-41ce-84cd-7ec34248aa89</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>CanisFamReflectorProImageGreen-3be8wu9m</CodeName>
+      <GUID>35103326-c434-405c-baba-18fb2ecbce84</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>6bded223-b462-4de4-8127-2b3f469d23fe</ContentItemDataGUID>
+  <ProductImageAltText>
+    <![CDATA[Image of CanisFam reflective dog collar in the green color]]>
+  </ProductImageAltText>
+  <ProductImageAsset>
+    <![CDATA[{"Variants":{},"FocalPoint":{"X":512,"Y":512},"Identifier":"13db5596-ff8e-4099-a1b6-6f411a317efd","Name":"CanisFamGreen.png","Extension":".png","Size":301587,"Width":1024,"Height":1024,"LastModified":"2026-01-27T15:28:22.5326607Z"}]]>
+  </ProductImageAsset>
+</contentitemdata.trainingguides.productimage>

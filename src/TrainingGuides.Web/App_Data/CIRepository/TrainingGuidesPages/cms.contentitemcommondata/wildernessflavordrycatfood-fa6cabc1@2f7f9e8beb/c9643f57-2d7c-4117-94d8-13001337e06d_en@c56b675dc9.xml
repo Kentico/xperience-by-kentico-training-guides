@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentitemcommondata>
+  <ContentItemCommonDataContentItemID>
+    <CodeName>WildernessFlavorDryCatFood-fa6cabc1</CodeName>
+    <GUID>f3cd0e72-3e8b-4af5-b681-845e29c293cb</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </ContentItemCommonDataContentItemID>
+  <ContentItemCommonDataContentLanguageID>
+    <CodeName>en</CodeName>
+    <GUID>e81b5172-f240-4041-88b1-653089984e29</GUID>
+    <ObjectType>cms.contentlanguage</ObjectType>
+  </ContentItemCommonDataContentLanguageID>
+  <ContentItemCommonDataFirstPublishedWhen>2026-02-09 19:55:32Z</ContentItemCommonDataFirstPublishedWhen>
+  <ContentItemCommonDataGUID>c9643f57-2d7c-4117-94d8-13001337e06d</ContentItemCommonDataGUID>
+  <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
+  <ContentItemCommonDataLastPublishedWhen>2026-02-26 20:58:29Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
+  <ContentItemCommonDataVisualBuilderTemplateConfiguration>
+    <![CDATA[{"identifier":"TrainingGuides.EmptyPagePageTemplate","properties":null,"fieldIdentifiers":{}}]]>
+  </ContentItemCommonDataVisualBuilderTemplateConfiguration>
+  <ContentItemCommonDataVisualBuilderWidgets>
+    <![CDATA[{"editableAreas":[{"identifier":"areaMain","sections":[{"identifier":"7f841896-acb2-41fe-9bdb-8303b852b606","type":"TrainingGuides.SingleColumnSection","properties":{"sectionAnchor":""},"zones":[{"identifier":"2783c2fa-851e-4118-af55-9867f9fa549a","widgets":[{"identifier":"8088a707-3eef-4393-bf7d-407aebb8b5ce","type":"TrainingGuides.ProductWidget","variants":[{"identifier":"7154f50f-9289-44e4-a173-a79d51bc828b","properties":{"displayCurrentPage":true,"selectedProduct":[],"showVariantSelection":true,"showVariantDetails":true,"showCallToAction":false,"callToActionText":"View Product"},"fieldIdentifiers":{"displayCurrentPage":"5f30e87b-ccd9-42cf-a2a1-f52aae8dc790","selectedProduct":"bc3592df-d67b-4448-9b41-6a02ccbc80f9","showVariantSelection":"1a175ab9-32c5-4c02-8b69-39c15ff5320a","showVariantDetails":"caedc9d8-7d88-4137-bec1-6be4bb9b515a","showCallToAction":"0bc2eca8-4e0c-46b8-b05e-b43a1b8988a1","callToActionText":"572bfdc2-2a38-4c81-94d2-c1115a05c6f5"}}]}]}],"fieldIdentifiers":{"sectionAnchor":"70f9062d-5ad6-419f-b219-96360c537b88"}}]}]}]]>
+  </ContentItemCommonDataVisualBuilderWidgets>
+  <ContentItemReferences>
+    <cms.contentitemreference>
+      <ContentItemReferenceGroupGUID>006815af-b9a1-4191-b865-e729e078d4cf</ContentItemReferenceGroupGUID>
+      <ContentItemReferenceGUID>d8310d75-ba58-4427-9106-ddfd23c7e3f3</ContentItemReferenceGUID>
+      <ContentItemReferenceSourceCommonDataID>
+        <GUID>c9643f57-2d7c-4117-94d8-13001337e06d</GUID>
+        <ObjectType>cms.contentitemcommondata</ObjectType>
+      </ContentItemReferenceSourceCommonDataID>
+      <ContentItemReferenceTargetItemID>
+        <CodeName>WildernessFlavorDryCatFood-2c5ip7k0</CodeName>
+        <GUID>fdcd6f21-98bc-4320-b022-b29519191278</GUID>
+        <ObjectType>cms.contentitem</ObjectType>
+      </ContentItemReferenceTargetItemID>
+    </cms.contentitemreference>
+  </ContentItemReferences>
+</cms.contentitemcommondata>

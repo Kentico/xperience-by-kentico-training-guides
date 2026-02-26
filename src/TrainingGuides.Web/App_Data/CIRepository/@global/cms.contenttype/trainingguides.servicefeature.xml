@@ -42,6 +42,7 @@
 2;Boolean
 ]]>
           </Options>
+          <OptionsValueSeparator>;</OptionsValueSeparator>
         </settings>
       </field>
       <field allowempty="true" column="ServiceFeatureValue" columnprecision="0" columntype="longtext" enabled="true" guid="d473f17c-c453-4088-baee-bedba09c3f79" visible="true">
@@ -101,6 +102,7 @@
 2;Don't show in comparator
 ]]>
           </Options>
+          <OptionsValueSeparator>;</OptionsValueSeparator>
         </settings>
       </field>
     </form>

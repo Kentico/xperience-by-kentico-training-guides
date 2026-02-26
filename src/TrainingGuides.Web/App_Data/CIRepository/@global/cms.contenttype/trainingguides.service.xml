@@ -45,6 +45,7 @@
             <![CDATA[["9ecde825-735e-4967-a995-cc97b55adb0f"]]]>
           </AllowedContentItemTypeIdentifiers>
           <controlname>Kentico.Administration.ContentItemSelector</controlname>
+          <SelectionType>contentTypes</SelectionType>
         </settings>
         <validationrulesdata>
           <ValidationRuleConfiguration>
@@ -77,6 +78,7 @@
             <![CDATA[["6eb7df2d-2da5-4343-8e67-a5aa61017e18"]]]>
           </AllowedContentItemTypeIdentifiers>
           <controlname>Kentico.Administration.ContentItemSelector</controlname>
+          <SelectionType>contentTypes</SelectionType>
         </settings>
       </field>
       <field allowempty="true" column="ServiceFeatures" columnprecision="0" columntype="contentitemreference" enabled="true" guid="1724a9f0-e380-4751-ba83-088c8973b61c" visible="true">
@@ -85,7 +87,7 @@
             <![CDATA[Add all service features. Explain available perks and features customers receive with the service. These features can propagate to different channels, for example, when referencing the service from widgets.]]>
           </explanationtext>
           <explanationtextashtml>False</explanationtextashtml>
-          <fieldcaption>Select default service features</fieldcaption>
+          <fieldcaption>Select default product features</fieldcaption>
           <fielddescriptionashtml>False</fielddescriptionashtml>
         </properties>
         <settings>
@@ -93,6 +95,7 @@
             <![CDATA[["7521136f-4ed3-4b69-8b54-82255d7b4385"]]]>
           </AllowedContentItemTypeIdentifiers>
           <controlname>Kentico.Administration.ContentItemSelector</controlname>
+          <SelectionType>contentTypes</SelectionType>
         </settings>
       </field>
       <field allowempty="true" column="ServicePrice" columnprecision="2" columnsize="20" columntype="decimal" enabled="true" guid="cd7202e4-775c-410e-b614-9ed3fa6d2295" visible="true">

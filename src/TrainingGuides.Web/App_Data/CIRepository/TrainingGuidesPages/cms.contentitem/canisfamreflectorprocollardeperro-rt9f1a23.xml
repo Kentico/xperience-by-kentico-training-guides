@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentitem>
+  <ContentItemChannelID>
+    <CodeName>TrainingGuidesPages</CodeName>
+    <GUID>5ba9c1e8-b61e-4570-b666-87a9b92bbe3b</GUID>
+    <ObjectType>cms.channel</ObjectType>
+  </ContentItemChannelID>
+  <ContentItemContentTypeID>
+    <CodeName>TrainingGuides.ProductPage</CodeName>
+    <GUID>c7ae17c7-2562-4c6c-bd48-b8aec10bba58</GUID>
+    <ObjectType>cms.contenttype</ObjectType>
+  </ContentItemContentTypeID>
+  <ContentItemGUID>8ceedaf7-a814-4b7d-9c38-350f73ae5ffa</ContentItemGUID>
+  <ContentItemIsReusable>False</ContentItemIsReusable>
+  <ContentItemIsSecured>False</ContentItemIsSecured>
+  <ContentItemName>CanisFamReflectorProCollarDePerro-rt9f1a23</ContentItemName>
+</cms.contentitem>

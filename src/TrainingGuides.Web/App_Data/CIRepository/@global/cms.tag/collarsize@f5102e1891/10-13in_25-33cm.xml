@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.tag>
+  <TagDescription>Neck circumference of 10-13in (25-33cm)</TagDescription>
+  <TagGUID>edf9e701-c4e6-4381-ac19-9e9518e9c011</TagGUID>
+  <TagMetadata>
+    <![CDATA[{"Translations":{"b2e99971-c2dd-4a47-bb64-0d9a0d28d226":{"Title":null,"Description":null}}}]]>
+  </TagMetadata>
+  <TagName>10-13in_25-33cm</TagName>
+  <TagOrder>2</TagOrder>
+  <TagParentID>
+    <CodeName>CollarSize</CodeName>
+    <GUID>76282563-82ab-4193-a907-b4c78b1297ae</GUID>
+    <ObjectType>cms.tag</ObjectType>
+  </TagParentID>
+  <TagTaxonomyID>
+    <CodeName>ProductSize</CodeName>
+    <GUID>f1f5bddf-bf7e-4009-b8b6-186000c57e10</GUID>
+    <ObjectType>cms.taxonomy</ObjectType>
+  </TagTaxonomyID>
+  <TagTitle>10-13in (25-33cm)</TagTitle>
+</cms.tag>

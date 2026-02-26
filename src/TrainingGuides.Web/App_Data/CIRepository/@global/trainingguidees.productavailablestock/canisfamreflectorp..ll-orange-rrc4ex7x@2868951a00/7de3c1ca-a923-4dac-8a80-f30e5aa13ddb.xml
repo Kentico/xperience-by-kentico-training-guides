@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<trainingguidees.productavailablestock>
+  <ProductAvailableStockContentItemID>
+    <CodeName>CanisFamReflectorPro-Small-Orange-rrc4ex7x</CodeName>
+    <GUID>6f787710-8696-4abf-ad78-9848362624e6</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </ProductAvailableStockContentItemID>
+  <ProductAvailableStockGUID>7de3c1ca-a923-4dac-8a80-f30e5aa13ddb</ProductAvailableStockGUID>
+  <ProductAvailableStockSKUCode>CF-RP-S-O</ProductAvailableStockSKUCode>
+  <ProductAvailableStockValue>0</ProductAvailableStockValue>
+</trainingguidees.productavailablestock>

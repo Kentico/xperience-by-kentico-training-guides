@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<commerce.promotion>
+  <PromotionActiveFromWhen>2026-02-02 16:09:39Z</PromotionActiveFromWhen>
+  <PromotionActiveToWhen>2046-02-01 05:00:00Z</PromotionActiveToWhen>
+  <PromotionCreatedByUserID>
+    <CodeName>administrator</CodeName>
+    <GUID>6415b8ce-8072-4bcd-8e48-9d7178b826b7</GUID>
+    <ObjectType>cms.user</ObjectType>
+  </PromotionCreatedByUserID>
+  <PromotionCreatedWhen>2026-02-02 16:09:32Z</PromotionCreatedWhen>
+  <PromotionDisplayName>Anniversary sale</PromotionDisplayName>
+  <PromotionGUID>1358b28a-8cfd-456c-9b8d-ca8843f8b4c9</PromotionGUID>
+  <PromotionModifiedByUserID>
+    <CodeName>administrator</CodeName>
+    <GUID>6415b8ce-8072-4bcd-8e48-9d7178b826b7</GUID>
+    <ObjectType>cms.user</ObjectType>
+  </PromotionModifiedByUserID>
+  <PromotionName>AnniversarySale</PromotionName>
+  <PromotionRuleConfiguration>
+    <![CDATA[{"DiscountCategories":[{"Identifier":"cd20ccd9-1941-4063-b4e6-4a11415e3e36"}],"DiscountValueType":"Percentage","DiscountValue":5}]]>
+  </PromotionRuleConfiguration>
+  <PromotionRuleIdentifier>DiscountCategoryBasedCatalogDiscount</PromotionRuleIdentifier>
+  <PromotionType>catalog</PromotionType>
+</commerce.promotion>

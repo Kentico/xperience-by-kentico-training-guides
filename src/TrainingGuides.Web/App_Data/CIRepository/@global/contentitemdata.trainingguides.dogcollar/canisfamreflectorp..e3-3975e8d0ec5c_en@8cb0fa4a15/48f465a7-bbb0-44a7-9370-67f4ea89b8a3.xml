@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.dogcollar>
+  <ContentItemDataCommonDataID>
+    <GUID>8fb6d4e1-8f79-463a-83e3-3975e8d0ec5c</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>CanisFamReflectorPro-j2snbwy6</CodeName>
+      <GUID>3b48c9d7-6b93-49b0-85b2-b0ab92ec4b7f</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>48f465a7-bbb0-44a7-9370-67f4ea89b8a3</ContentItemDataGUID>
+</contentitemdata.trainingguides.dogcollar>
