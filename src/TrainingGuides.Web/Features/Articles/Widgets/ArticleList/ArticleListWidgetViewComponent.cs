@@ -2,7 +2,6 @@ using CMS.ContentEngine;
 using Kentico.PageBuilder.Web.Mvc;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ViewComponents;
-using Microsoft.IdentityModel.Tokens;
 using TrainingGuides.Web.Features.Articles.Services;
 using TrainingGuides.Web.Features.Articles.Widgets.ArticleList;
 using TrainingGuides.Web.Features.Shared.Services;
