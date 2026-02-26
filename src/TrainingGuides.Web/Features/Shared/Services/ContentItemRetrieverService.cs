@@ -68,29 +68,6 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
         return pages.FirstOrDefault();
     }
 
-    public async Task<IEnumerable<T>> RetrieveWebPageChildrenByPath<T>(
-        string path,
-        int depth = 1,
-        bool includeSecuredItems = true,
-        Action<RetrievePagesQueryParameters>? additionalQueryConfiguration = null,
-        string? languageName = null)
-        where T : IWebPageFieldsSource, new()
-    {
-        var parameters = new RetrievePagesParameters
-        {
-            LinkedItemsMaxLevel = depth,
-            LanguageName = languageName ?? preferredLanguageRetriever.Get(),
-            IsForPreview = webSiteChannelContext.IsPreview,
-            PathMatch = PathMatch.Children(path),
-            IncludeSecuredItems = includeSecuredItems
-        };
-
-        return await contentRetriever.RetrievePages<T>(
-            parameters,
-            additionalQueryConfiguration: additionalQueryConfiguration,
-            cacheSettings: RetrievalCacheSettings.CacheDisabled);
-    }
-
     /// <inheritdoc />
     public async Task<T?> RetrieveWebPageByPathWithoutContext<T>(
         string pathToMatch,
@@ -158,6 +135,29 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
         return pages;
     }
 
+    /// <inheritdoc />
+    public async Task<IEnumerable<T>> RetrieveWebPageChildrenByPath<T>(
+        string path,
+        int depth = 1,
+        bool includeSecuredItems = true,
+        Action<RetrievePagesQueryParameters>? additionalQueryConfiguration = null,
+        string? languageName = null)
+        where T : IWebPageFieldsSource, new()
+    {
+        var parameters = new RetrievePagesParameters
+        {
+            LinkedItemsMaxLevel = depth,
+            LanguageName = languageName ?? preferredLanguageRetriever.Get(),
+            IsForPreview = webSiteChannelContext.IsPreview,
+            PathMatch = PathMatch.Children(path),
+            IncludeSecuredItems = includeSecuredItems
+        };
+
+        return await contentRetriever.RetrievePages<T>(
+            parameters,
+            additionalQueryConfiguration: additionalQueryConfiguration,
+            cacheSettings: RetrievalCacheSettings.CacheDisabled);
+    }
 
     /// <inheritdoc />
     public async Task<IEnumerable<T>> RetrieveWebPageChildrenByPath<T>(
@@ -289,7 +289,7 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
             configureModel: null);
     }
 
-
+    /// <inheritdoc />
     public async Task<IEnumerable<T>> RetrieveParentItemsOfSchema<T>(
         string schemaName,
         string referenceFieldName,

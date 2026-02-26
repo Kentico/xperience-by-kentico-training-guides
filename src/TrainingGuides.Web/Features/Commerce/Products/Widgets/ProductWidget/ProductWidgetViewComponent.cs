@@ -57,6 +57,8 @@ public class ProductWidgetViewComponent(IProductService productService,
             }
         }
 
+        bool isAuthenticated = await membershipService.IsMemberAuthenticated();
+
         bool pageSecured = productPage is IWebPageFieldsSource pageFieldsSource
             && pageFieldsSource.SystemFields.ContentItemIsSecured;
 
@@ -64,7 +66,7 @@ public class ProductWidgetViewComponent(IProductService productService,
             && itemFieldsSource.SystemFields.ContentItemIsSecured;
 
         bool accessDenied = (pageSecured || itemSecured)
-            && !await membershipService.IsMemberAuthenticated();
+            && !isAuthenticated;
 
         string language = preferredLanguageRetriever.Get();
 
