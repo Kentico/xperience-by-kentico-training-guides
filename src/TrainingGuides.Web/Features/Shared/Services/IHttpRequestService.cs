@@ -16,4 +16,11 @@ public interface IHttpRequestService
     /// <returns>Combined paths</returns>
     /// <remarks>Works with or without leading and trailing slashes</remarks>
     string CombineUrlPaths(params string[] paths);
+
+    /// <summary>
+    /// Retrieves the value of the specified query string parameter
+    /// </summary>
+    /// <param name="parameter">The name of the query string parameter to retrieve</param>
+    /// <returns>The value of the specified query string parameter</returns>
+    string GetQueryStringValue(string parameter);
 }

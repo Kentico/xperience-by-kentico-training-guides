@@ -65,6 +65,8 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
     public async Task<IEnumerable<T>> RetrieveWebPageChildrenByPath<T>(
         string path,
         int depth = 1,
+        bool includeSecuredItems = true,
+        Action<RetrievePagesQueryParameters>? additionalQueryConfiguration = null,
         string? languageName = null)
         where T : IWebPageFieldsSource, new()
     {
@@ -73,11 +75,29 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
             LinkedItemsMaxLevel = depth,
             LanguageName = languageName ?? preferredLanguageRetriever.Get(),
             IsForPreview = webSiteChannelContext.IsPreview,
-            PathMatch = PathMatch.Children(path)
+            PathMatch = PathMatch.Children(path),
+            IncludeSecuredItems = includeSecuredItems
         };
 
-        return await contentRetriever.RetrievePages<T>(parameters);
+        return await contentRetriever.RetrievePages<T>(
+            parameters,
+            additionalQueryConfiguration: additionalQueryConfiguration,
+            cacheSettings: RetrievalCacheSettings.CacheDisabled);
     }
+
+    /// <inheritdoc />
+    public async Task<IEnumerable<T>> RetrieveWebPageChildrenByPath<T>(
+        string path,
+        int depth = 1,
+        bool includeSecuredItems = true,
+        string? languageName = null)
+        where T : IWebPageFieldsSource, new()
+        => await RetrieveWebPageChildrenByPath<T>(
+            path,
+            depth,
+            includeSecuredItems,
+            null,
+            languageName);
 
     /// <inheritdoc />
     public async Task<T?> RetrieveContentItemByGuid<T>(
@@ -163,4 +183,51 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
         return pages.FirstOrDefault();
     }
 
+    /// <inheritdoc />
+    public async Task<IEnumerable<T>> RetrieveContentItemsBySchemas<T>(
+        IEnumerable<string> schemaNames,
+        Action<RetrieveContentOfReusableSchemasQueryParameters> additionalQueryConfiguration,
+        int depth = 1,
+        bool includeSecuredItems = true,
+        string? languageName = null)
+    {
+        var parameters = new RetrieveContentOfReusableSchemasParameters
+        {
+            LanguageName = languageName ?? preferredLanguageRetriever.Get(),
+            IsForPreview = webSiteChannelContext.IsPreview,
+            IncludeSecuredItems = includeSecuredItems,
+            LinkedItemsMaxLevel = depth
+        };
+
+        return await contentRetriever.RetrieveContentOfReusableSchemas<T>(
+            schemaNames,
+            parameters,
+            additionalQueryConfiguration,
+            RetrievalCacheSettings.CacheDisabled,
+            configureModel: null);
+    }
+
+    /// <inheritdoc />
+    public async Task<IEnumerable<T>> RetrieveParentItemsOfSchema<T>(
+        string schemaName,
+        string referenceFieldName,
+        IEnumerable<int> referenceIds,
+        bool includeSecuredItems,
+        int depth = 1,
+        string? languageName = null)
+    {
+        var parameters = new RetrieveContentOfReusableSchemasParameters
+        {
+            LinkedItemsMaxLevel = depth,
+            LanguageName = languageName ?? preferredLanguageRetriever.Get(),
+            IsForPreview = webSiteChannelContext.IsPreview,
+            IncludeSecuredItems = includeSecuredItems
+        };
+
+        return await contentRetriever.RetrieveContentOfReusableSchemas<T>(
+            [schemaName],
+            parameters,
+            query => query.LinkingSchemaField(referenceFieldName, referenceIds),
+            RetrievalCacheSettings.CacheDisabled);
+    }
 }
