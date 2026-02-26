@@ -34,6 +34,7 @@ public class ProductStockCreationHandler() : Module(MODULE_NAME)
 #pragma warning disable CS8622 // Nullability of reference types in type of parameter doesn't match the target delegate (possibly because of nullability attributes).
         ContentItemEvents.Create.After += ContentItem_Create_After;
         ContentItemEvents.UpdateDraft.Before += ContentItem_UpdateDraft_Before;
+        ContentItemEvents.Delete.Execute += ContentItem_Delete_Execute;
 #pragma warning restore CS8622 // Nullability of reference types in type of parameter doesn't match the target delegate (possibly because of nullability attributes).
     }
 
@@ -55,17 +56,28 @@ public class ProductStockCreationHandler() : Module(MODULE_NAME)
         EnsureStockRecord(e.ID, skuCode);
     }
 
+    private void ContentItem_Delete_Execute(object? sender, DeleteContentItemEventArgs e)
+    {
+        if (!IsStockKeepingItem(e.ContentTypeName))
+            return;
+        var existingProductStock = GetExistingStockRecords(e.ID);
+
+        foreach (var availableStock in existingProductStock)
+        {
+            availableStock.Delete();
+        }
+    }
+
     private void EnsureStockRecord(int contentItemId, string skuCode = "")
     {
-        var existingProductStock = productStockInfoProvider.Get()
-            .WhereEquals(nameof(ProductAvailableStockInfo.ProductAvailableStockContentItemID), contentItemId)
-            .GetEnumerableTypedResult();
+        var existingProductStock = GetExistingStockRecords(contentItemId);
 
         if (existingProductStock.Any())
         {
             foreach (var availableStock in existingProductStock)
             {
-                availableStock.ProductStockSKUCode = skuCode;
+                // Update the sku code in case it has changed
+                availableStock.ProductAvailableStockSKUCode = skuCode;
                 productStockInfoProvider.Set(availableStock);
             }
         }
@@ -75,7 +87,8 @@ public class ProductStockCreationHandler() : Module(MODULE_NAME)
             {
                 ProductAvailableStockContentItemID = contentItemId,
                 ProductAvailableStockValue = 0,
-                ProductStockSKUCode = skuCode
+                ProductAvailableStockSKUCode = skuCode,
+                ProductAvailableStockGUID = Guid.NewGuid()
             });
         }
     }
@@ -85,6 +98,11 @@ public class ProductStockCreationHandler() : Module(MODULE_NAME)
         var types = GetProductContentTypeNames();
         return types.Contains(contentTypeName);
     }
+
+    private IEnumerable<ProductAvailableStockInfo> GetExistingStockRecords(int contentItemId) =>
+        productStockInfoProvider.Get()
+            .WhereEquals(nameof(ProductAvailableStockInfo.ProductAvailableStockContentItemID), contentItemId)
+            .GetEnumerableTypedResult();
 
     private IEnumerable<string> GetProductContentTypeNames()
     {

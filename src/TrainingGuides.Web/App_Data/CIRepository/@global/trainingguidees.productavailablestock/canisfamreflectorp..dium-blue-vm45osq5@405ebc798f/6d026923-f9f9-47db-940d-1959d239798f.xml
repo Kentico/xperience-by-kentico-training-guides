@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<trainingguidees.productavailablestock>
+  <ProductAvailableStockContentItemID>
+    <CodeName>CanisFamReflectorPro-Medium-Blue-vm45osq5</CodeName>
+    <GUID>c8f4e0c8-7d5b-4e99-8631-cd58b854158d</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </ProductAvailableStockContentItemID>
+  <ProductAvailableStockGUID>6d026923-f9f9-47db-940d-1959d239798f</ProductAvailableStockGUID>
+  <ProductAvailableStockSKUCode>CF-RP-M-B</ProductAvailableStockSKUCode>
+  <ProductAvailableStockValue>25</ProductAvailableStockValue>
+</trainingguidees.productavailablestock>

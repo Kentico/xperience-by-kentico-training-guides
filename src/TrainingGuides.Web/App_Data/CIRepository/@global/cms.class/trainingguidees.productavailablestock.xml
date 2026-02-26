@@ -1,5 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.class>
+  <ClassCodeGenerationSettings>
+    <Data>
+      <GUIDColumn>ProductAvailableStockGuid</GUIDColumn>
+      <ObjectType>TrainingGuidees.ProductAvailableStock</ObjectType>
+      <UseGuidHashtable>False</UseGuidHashtable>
+      <UseIdHashtable>False</UseIdHashtable>
+      <UseNameHashtable>False</UseNameHashtable>
+    </Data>
+  </ClassCodeGenerationSettings>
   <ClassDisplayName>Product available stock</ClassDisplayName>
   <ClassFormDefinition>
     <form>
@@ -10,7 +19,8 @@
         </properties>
       </field>
       <field column="ProductAvailableStockValue" columnprecision="4" columnsize="19" columntype="decimal" enabled="true" guid="81978698-a984-43d4-b167-c225241b854d" />
-      <field column="ProductStockSKUCode" columnprecision="0" columnsize="200" columntype="text" enabled="true" guid="fa144089-49e3-400b-92f0-db1100610f18" />
+      <field column="ProductAvailableStockSKUCode" columnprecision="0" columnsize="200" columntype="text" enabled="true" guid="fa144089-49e3-400b-92f0-db1100610f18" />
+      <field column="ProductAvailableStockGUID" columnprecision="0" columntype="guid" enabled="true" guid="67f34b8e-1960-4b32-8165-755ec7c61c6a" />
     </form>
   </ClassFormDefinition>
   <ClassGUID>0ff64203-f228-4f0a-9f06-881ac3080416</ClassGUID>

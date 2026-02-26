@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<trainingguidees.productavailablestock>
+  <ProductAvailableStockContentItemID>
+    <CodeName>PurremoEssentialsChickenAndRice-15lb-7z9zywgi</CodeName>
+    <GUID>e005db0f-c2ae-4769-b494-cb8d26ac53c4</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </ProductAvailableStockContentItemID>
+  <ProductAvailableStockGUID>c11dad28-bc7f-407d-9f38-6068ee3f715b</ProductAvailableStockGUID>
+  <ProductAvailableStockSKUCode>PE-CR-15</ProductAvailableStockSKUCode>
+  <ProductAvailableStockValue>100</ProductAvailableStockValue>
+</trainingguidees.productavailablestock>

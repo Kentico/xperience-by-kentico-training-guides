@@ -1,5 +1,4 @@
 using CMS.ContentEngine;
-using CMS.ContentEngine.Internal;
 using Kentico.Xperience.Admin.Base.Authentication;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
@@ -9,13 +8,13 @@ namespace TrainingGuides.Admin.ProductStock;
 
 public class ProductMetadataRetriever(IContentItemManagerFactory contentItemManagerFactory,
     IHttpContextAccessor httpContextAccessor,
-    IContentLanguageRetriever contentLanguageRetriever) : IProductMetadataRetriever
+    IDefaultContentLanguageRetriever defaultContentLanguageRetriever) : IProductMetadataRetriever
 {
     /// <inheritdoc/>
     public async Task<ContentItemLanguageMetadata> GetProductMetadata(ProductAvailableStockInfo productStockInfo)
     {
         // Uses the default language to ensure consistent metadata retrieval
-        var defaultContentLanguage = await contentLanguageRetriever.GetDefaultContentLanguage();
+        var defaultContentLanguage = await defaultContentLanguageRetriever.Get();
 
         // Gets the current authenticated user for content manager context
         var currentUser = await httpContextAccessor.HttpContext?.RequestServices?.GetRequiredService<IAuthenticatedUserAccessor>().Get()!;

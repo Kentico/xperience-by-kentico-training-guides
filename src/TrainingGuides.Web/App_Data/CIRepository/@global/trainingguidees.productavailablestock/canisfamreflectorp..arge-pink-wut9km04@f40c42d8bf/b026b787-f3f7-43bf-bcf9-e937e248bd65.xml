@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<trainingguidees.productavailablestock>
+  <ProductAvailableStockContentItemID>
+    <CodeName>CanisFamReflectorPro-Large-Pink-wut9km04</CodeName>
+    <GUID>0364b62c-15e8-41d3-8410-ca91cea66182</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </ProductAvailableStockContentItemID>
+  <ProductAvailableStockGUID>b026b787-f3f7-43bf-bcf9-e937e248bd65</ProductAvailableStockGUID>
+  <ProductAvailableStockSKUCode>CF-RP-L-P</ProductAvailableStockSKUCode>
+  <ProductAvailableStockValue>2</ProductAvailableStockValue>
+</trainingguidees.productavailablestock>
