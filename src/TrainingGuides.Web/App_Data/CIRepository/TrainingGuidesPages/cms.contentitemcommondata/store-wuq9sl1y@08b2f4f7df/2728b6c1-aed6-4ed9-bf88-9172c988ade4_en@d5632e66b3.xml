@@ -13,19 +13,19 @@
   <ContentItemCommonDataFirstPublishedWhen>2026-01-20 20:22:49Z</ContentItemCommonDataFirstPublishedWhen>
   <ContentItemCommonDataGUID>2728b6c1-aed6-4ed9-bf88-9172c988ade4</ContentItemCommonDataGUID>
   <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
-  <ContentItemCommonDataLastPublishedWhen>2026-02-02 19:33:06Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataLastPublishedWhen>2026-02-28 00:43:05Z</ContentItemCommonDataLastPublishedWhen>
   <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
   <ContentItemCommonDataVisualBuilderTemplateConfiguration>
     <![CDATA[{"identifier":"TrainingGuides.GeneralPageTemplate","properties":{"colorScheme":"TransparentDark","cornerStyle":"Round","columnLayout":"OneColumn"},"fieldIdentifiers":{"colorScheme":"f20a9306-1c23-4742-8e3d-9fee00fa55e4","cornerStyle":"493d2fd2-75b5-4297-8678-2f1f2f7a0b62","columnLayout":"7dc16371-95be-41a4-b557-26c25982657a"}}]]>
   </ContentItemCommonDataVisualBuilderTemplateConfiguration>
   <ContentItemCommonDataVisualBuilderWidgets>
-    <![CDATA[{"editableAreas":[{"identifier":"areaMain","sections":[{"identifier":"9beecb2c-a088-4bf8-bf41-6718ce4e0e50","type":"TrainingGuides.GeneralSection","properties":{"sectionAnchor":"","colorScheme":"TransparentDark","cornerStyle":"Round","columnLayout":"OneColumn"},"zones":[{"identifier":"b7470ad4-c60c-4b54-b8e0-eaaacc404758","name":"zoneMain","widgets":[{"identifier":"ce12437f-b55a-469d-a33c-8d82ba5b8c0a","type":"TrainingGuides.ProductListingWidget","variants":[{"identifier":"f3073740-7645-4317-b420-0120d335baa0","properties":{"parentPageSelection":[{"identifier":"c20077eb-3063-4670-984a-fb9432514f34"}],"ctaText":"View Product","signInText":"Sign in to view","securedItemsDisplayMode":"PromptForLogin"},"fieldIdentifiers":{"parentPageSelection":"9cae9511-66e8-4b2a-89a8-00a79267269f","ctaText":"83305281-3a42-49b0-ad43-ee4433ddb8e7","signInText":"477b146a-b5ea-429b-b8d9-28524ef363b6","securedItemsDisplayMode":"3efa1065-61e4-446b-a561-b996cce5bd43"}}]}]}],"fieldIdentifiers":{"sectionAnchor":"ad94bb06-40ac-4ae2-a797-f3af25dccca4","colorScheme":"94c559bb-97f1-4401-80f5-11e743bdb3ee","cornerStyle":"0b00a194-4542-4cab-a234-4e333024f767","columnLayout":"5a0afd6a-b519-4538-8546-0efba0c17a18"}}]}]}]]>
+    <![CDATA[{"editableAreas":[{"identifier":"areaMain","sections":[{"identifier":"9beecb2c-a088-4bf8-bf41-6718ce4e0e50","type":"TrainingGuides.GeneralSection","properties":{"sectionAnchor":"","colorScheme":"TransparentDark","cornerStyle":"Round","columnLayout":"OneColumn"},"zones":[{"identifier":"b7470ad4-c60c-4b54-b8e0-eaaacc404758","name":"zoneMain","widgets":[{"identifier":"ce12437f-b55a-469d-a33c-8d82ba5b8c0a","type":"TrainingGuides.ProductListingWidget","variants":[{"identifier":"f3073740-7645-4317-b420-0120d335baa0","properties":{"parentPageSelection":[{"identifier":"c20077eb-3063-4670-984a-fb9432514f34"}],"ctaText":"View Product","signInText":"Sign in to view","securedItemsDisplayMode":"PromptForLogin","useAndFilterLogic":true},"fieldIdentifiers":{"parentPageSelection":"9cae9511-66e8-4b2a-89a8-00a79267269f","ctaText":"83305281-3a42-49b0-ad43-ee4433ddb8e7","signInText":"477b146a-b5ea-429b-b8d9-28524ef363b6","securedItemsDisplayMode":"3efa1065-61e4-446b-a561-b996cce5bd43","useAndFilterLogic":"b864a9fc-3a1a-4d3d-9649-516ea3358d8e"}}]}]}],"fieldIdentifiers":{"sectionAnchor":"ad94bb06-40ac-4ae2-a797-f3af25dccca4","colorScheme":"94c559bb-97f1-4401-80f5-11e743bdb3ee","cornerStyle":"0b00a194-4542-4cab-a234-4e333024f767","columnLayout":"5a0afd6a-b519-4538-8546-0efba0c17a18"}}]}]}]]>
   </ContentItemCommonDataVisualBuilderWidgets>
   <ProductPriceSchemaDiscountCategory />
   <ContentItemReferences>
     <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>9cae9511-66e8-4b2a-89a8-00a79267269f</ContentItemReferenceGroupGUID>
-      <ContentItemReferenceGUID>61e84d21-db26-4da6-bc0a-835c05e067e9</ContentItemReferenceGUID>
+      <ContentItemReferenceGUID>12024fbe-0b2f-4aa7-ad4a-b9d057b94681</ContentItemReferenceGUID>
       <ContentItemReferenceSourceCommonDataID>
         <GUID>2728b6c1-aed6-4ed9-bf88-9172c988ade4</GUID>
         <ObjectType>cms.contentitemcommondata</ObjectType>

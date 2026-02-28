@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.smartfolder>
+  <SmartFolderCreatedByUserID>
+    <CodeName>administrator</CodeName>
+    <GUID>6415b8ce-8072-4bcd-8e48-9d7178b826b7</GUID>
+    <ObjectType>cms.user</ObjectType>
+  </SmartFolderCreatedByUserID>
+  <SmartFolderCreatedWhen>2026-02-27 23:52:31Z</SmartFolderCreatedWhen>
+  <SmartFolderDisplayName>Dog collars</SmartFolderDisplayName>
+  <SmartFolderFilter>
+    <![CDATA[{"workflowStatuses":null,"contentItemIsSecured":null,"selectedLastModifiedTimeFrame":"absolute","lastModifiedAbsolute":null,"lastModifiedRelative":null,"classGUID":["ade8fcc8-e483-432a-ae37-2c2cc5bc640d","68473cf2-bf5b-48aa-b1d0-4bc1c4f6d638"],"tags":null,"lastPublishedAbsolute":null,"lastPublishedRelative":null,"selectedLastPublishedTimeFrame":"absolute"}]]>
+  </SmartFolderFilter>
+  <SmartFolderGUID>ead06dce-ab4b-4b64-bf2d-646d281e86ea</SmartFolderGUID>
+  <SmartFolderIsContentDeliveryEnabled>False</SmartFolderIsContentDeliveryEnabled>
+  <SmartFolderModifiedByUserID>
+    <CodeName>administrator</CodeName>
+    <GUID>6415b8ce-8072-4bcd-8e48-9d7178b826b7</GUID>
+    <ObjectType>cms.user</ObjectType>
+  </SmartFolderModifiedByUserID>
+  <SmartFolderName>Dog_collars-r43q9j2q</SmartFolderName>
+  <SmartFolderWorkspaceID>
+    <CodeName>KenticoDefault</CodeName>
+    <GUID>43f674d6-540d-4f91-8c19-608b5bddb2f2</GUID>
+    <ObjectType>cms.workspace</ObjectType>
+  </SmartFolderWorkspaceID>
+</cms.smartfolder>

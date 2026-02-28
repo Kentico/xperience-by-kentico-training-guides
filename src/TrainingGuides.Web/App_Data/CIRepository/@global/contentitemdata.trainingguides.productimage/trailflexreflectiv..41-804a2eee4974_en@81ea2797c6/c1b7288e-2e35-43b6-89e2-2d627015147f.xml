@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.productimage>
+  <ContentItemDataCommonDataID>
+    <GUID>a5ddf872-d83f-4bdd-a341-804a2eee4974</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>TrailFlexReflectiveDogCollarBlue-e1ni64cp</CodeName>
+      <GUID>204b3a65-6d68-4516-a517-885381c0bf13</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>c1b7288e-2e35-43b6-89e2-2d627015147f</ContentItemDataGUID>
+  <ProductImageAltText>TrailFlex Reflective Dog Collar Blue</ProductImageAltText>
+  <ProductImageAsset>
+    <![CDATA[{"Variants":{},"FocalPoint":{"X":768,"Y":512},"Identifier":"2622dd7b-1ddc-4bdd-bb29-da904abb6fd5","Name":"PawPeak-TrailFlex-Collar_blue.png","Extension":".png","Size":1118848,"Width":1536,"Height":1024,"LastModified":"2026-02-27T23:19:30.4048882Z"}]]>
+  </ProductImageAsset>
+</contentitemdata.trainingguides.productimage>

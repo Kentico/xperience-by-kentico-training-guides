@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.dogcollar>
+  <ContentItemDataCommonDataID>
+    <GUID>314f9a91-47ee-4fc6-b992-1d9726b9b1dc</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>TrailFlexReflectiveDogCollar-pal3kbik</CodeName>
+      <GUID>9ed7aeec-16ad-4d45-858f-42414aff2e04</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>d2f5c333-7471-4d37-ac05-1f602e6b93c1</ContentItemDataGUID>
+</contentitemdata.trainingguides.dogcollar>

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.catfood>
+  <ContentItemDataCommonDataID>
+    <GUID>879848cb-6f42-4320-83a6-c8f76e4e8dff</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>Whiskers-0lkfmi4j</CodeName>
+      <GUID>5dff7c5d-c3bd-49f7-a581-7fe8361462c5</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>41dbb268-aaa9-4d89-8c47-1b3367fcd7c7</ContentItemDataGUID>
+</contentitemdata.trainingguides.catfood>
