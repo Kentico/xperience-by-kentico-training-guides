@@ -68,14 +68,17 @@ public interface IProductService
     /// </summary>
     /// <param name="parentPagePath">The path of the parent page to search under.</param>
     /// <param name="securedItemsDisplayMode">The display mode for secured items.</param>
-    /// <param name="appliedMaterialsFilter">Comma-separated material filter values.</param>
-    /// <param name="appliedColorsFilter">Comma-separated color filter values.</param>
+    /// <param name="appliedMaterialsFilter">Comma-separated material filter values. Pass empty to skip filtering.</param>
+    /// <param name="appliedColorsFilter">Comma-separated color filter values. Pass empty to skip filtering.</param>
+    /// <param name="useAndLogic">When true, uses AND logic (products must match all filters). 
+    /// When false (default), uses OR logic (products matching any filter are returned).</param>
     /// <returns>A collection of product pages matching the criteria.</returns>
-    Task<IEnumerable<ProductPage>> RetrieveProductPagesByPath(
+    Task<IEnumerable<ProductPage>> RetrieveProductPages(
         string parentPagePath,
         string securedItemsDisplayMode,
-        string appliedMaterialsFilter,
-        string appliedColorsFilter);
+        string appliedMaterialsFilter = "",
+        string appliedColorsFilter = "",
+        bool useAndLogic = false);
 
     /// <summary>
     /// Creates view models for a collection of product pages.

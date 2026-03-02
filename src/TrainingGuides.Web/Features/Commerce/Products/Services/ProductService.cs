@@ -389,11 +389,75 @@ public class ProductService(IContentItemRetrieverService contentItemRetrieverSer
     }
 
     /// <inheritdoc/>
-    public async Task<IEnumerable<ProductPage>> RetrieveProductPagesByPath(
+    /// <remarks>
+    /// When <paramref name="useAndLogic"/> is true, applies LINQ post-filtering for AND logic.
+    /// Required because Material lives on parent, Color on variant - no single item has both.
+    /// 
+    /// Warning: AND post-filtering breaks traditional pagination (pages may have uneven/zero items).
+    /// This example retrieves all items for simplicity, but lazy loading/infinite scroll is
+    /// recommended for production scenarios with large catalogs.
+    /// </remarks>
+    public async Task<IEnumerable<ProductPage>> RetrieveProductPages(
         string parentPagePath,
         string securedItemsDisplayMode,
-        string appliedMaterialsFilter,
-        string appliedColorsFilter)
+        string appliedMaterialsFilter = "",
+        string appliedColorsFilter = "",
+        bool useAndLogic = false)
+    {
+        var materialFilters = ParseFilterValues(appliedMaterialsFilter);
+        var colorFilters = ParseFilterValues(appliedColorsFilter);
+
+        // Get all products matching ANY filter using the core method
+        var productPages = await RetrieveFilteredProductPages(
+            parentPagePath, securedItemsDisplayMode, materialFilters, colorFilters);
+
+        // If AND logic is requested and both filters are specified, apply LINQ post-filtering
+        if (useAndLogic && materialFilters is not null && colorFilters is not null)
+        {
+            var materialTaxonomy = await GetTaxonomyData(MATERIAL_TAXONOMY);
+            var colorTaxonomy = await GetTaxonomyData(COLOR_PATTERN_TAXONOMY);
+
+            var materialTagGuids = materialTaxonomy?.Tags
+                .Where(tag => materialFilters.Contains(tag.Name.ToLower()))
+                .Select(tag => tag.Identifier) ?? [];
+
+            var colorTagGuids = colorTaxonomy?.Tags
+                .Where(tag => colorFilters.Contains(tag.Name.ToLower()))
+                .Select(tag => tag.Identifier) ?? [];
+
+            // Filter to keep only products where parent has material AND variant has color
+            return productPages.Where(page =>
+            {
+                var product = page.ProductPageProducts.FirstOrDefault();
+                if (product is null)
+                {
+                    return false;
+                }
+
+                bool parentMatchesMaterial = product is IMaterialSchema materialProduct
+                    && materialProduct.MaterialSchemaMaterial.Any(tag => materialTagGuids.Contains(tag.Identifier));
+
+                bool variantMatchesColor = product is IProductParentSchema parentProduct
+                    && parentProduct.ProductParentSchemaVariants
+                        .OfType<IColorPatternSchema>()
+                        .Any(variant => variant.ColorPattern.Any(tag => colorTagGuids.Contains(tag.Identifier)));
+
+                return parentMatchesMaterial && variantMatchesColor;
+            });
+        }
+
+        // OR logic (default): return database results directly
+        return productPages;
+    }
+
+    /// <summary>
+    /// Core method that retrieves product pages with pre-parsed filter values.
+    /// </summary>
+    private async Task<IEnumerable<ProductPage>> RetrieveFilteredProductPages(
+        string parentPagePath,
+        string securedItemsDisplayMode,
+        IEnumerable<string>? materialFilters,
+        IEnumerable<string>? colorFilters)
     {
         if (string.IsNullOrEmpty(parentPagePath))
         {
@@ -402,9 +466,6 @@ public class ProductService(IContentItemRetrieverService contentItemRetrieverSer
 
         bool includeSecuredItems = securedItemsDisplayMode.Equals(SecuredOption.IncludeEverything.ToString())
                 || securedItemsDisplayMode.Equals(SecuredOption.PromptForLogin.ToString());
-
-        var materialFilters = ParseFilterValues(appliedMaterialsFilter);
-        var colorFilters = ParseFilterValues(appliedColorsFilter);
 
         if (materialFilters is not null || colorFilters is not null)
         {
@@ -518,7 +579,7 @@ public class ProductService(IContentItemRetrieverService contentItemRetrieverSer
     /// </summary>
     /// <param name="filterValues">A comma-separated string of filter values.</param>
     /// <returns>A collection of parsed filter values, or <c>null</c> if no valid filters are found.</returns>
-    private IEnumerable<string>? ParseFilterValues(string filterValues)
+    internal IEnumerable<string>? ParseFilterValues(string filterValues)
     {
         if (string.IsNullOrWhiteSpace(filterValues) || filterValues.Equals("all", StringComparison.OrdinalIgnoreCase))
         {

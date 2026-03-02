@@ -47,11 +47,12 @@ public class ProductListingWidgetViewComponent(
 
         if (!string.IsNullOrEmpty(parentPagePath))
         {
-            var productPages = await productService.RetrieveProductPagesByPath(
+            var productPages = await productService.RetrieveProductPages(
                 parentPagePath,
                 properties.SecuredItemsDisplayMode,
                 appliedMaterialsFilter,
-                appliedColorsFilter);
+                appliedColorsFilter,
+                useAndLogic: properties.UseAndFilterLogic);
 
             model.Products = await productService.GetProductListingItemViewModels(
                 productPages,

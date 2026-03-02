@@ -41,6 +41,12 @@ public class ProductListingWidgetProperties : IWidgetProperties
         DataProviderType = typeof(DropdownEnumOptionProvider<SecuredOption>),
         Order = 40)]
     public string SecuredItemsDisplayMode { get; set; } = SecuredOption.IncludeEverything.ToString();
+
+    [CheckBoxComponent(
+        Label = "Use AND logic for filters",
+        ExplanationText = "When checked, products must match ALL selected filters. When unchecked, products matching ANY filter are shown.",
+        Order = 50)]
+    public bool UseAndFilterLogic { get; set; } = false;
 }
 
 public enum SecuredOption
