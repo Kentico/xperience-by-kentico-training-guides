@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.contentitemlanguagemetadata>
   <ContentItemLanguageMetadataContentItemID>
-    <CodeName>TrailFlexReflectiveDogCollar-Black-ketnti4h</CodeName>
-    <GUID>4becbe2a-20cb-4c55-98e9-c1ea2a9ab67b</GUID>
+    <CodeName>TrailFlexReflective-Small-Black-91fubbqo</CodeName>
+    <GUID>084b9f80-7825-4003-a5ef-f77a9cea7ffa</GUID>
     <ObjectType>cms.contentitem</ObjectType>
   </ContentItemLanguageMetadataContentItemID>
   <ContentItemLanguageMetadataContentLanguageID>
@@ -15,9 +15,9 @@
     <GUID>6415b8ce-8072-4bcd-8e48-9d7178b826b7</GUID>
     <ObjectType>cms.user</ObjectType>
   </ContentItemLanguageMetadataCreatedByUserID>
-  <ContentItemLanguageMetadataCreatedWhen>2026-02-27 23:18:12Z</ContentItemLanguageMetadataCreatedWhen>
-  <ContentItemLanguageMetadataDisplayName>TrailFlex Reflective - Medium - Black</ContentItemLanguageMetadataDisplayName>
-  <ContentItemLanguageMetadataGUID>0bc4080d-e871-4f62-bc2e-ab39e2cf5431</ContentItemLanguageMetadataGUID>
+  <ContentItemLanguageMetadataCreatedWhen>2026-03-02 19:12:35Z</ContentItemLanguageMetadataCreatedWhen>
+  <ContentItemLanguageMetadataDisplayName>TrailFlex Reflective - Small - Black</ContentItemLanguageMetadataDisplayName>
+  <ContentItemLanguageMetadataGUID>a2d578a4-2bc2-45c2-b52c-3e3811adf8df</ContentItemLanguageMetadataGUID>
   <ContentItemLanguageMetadataHasImageAsset>False</ContentItemLanguageMetadataHasImageAsset>
   <ContentItemLanguageMetadataLatestVersionStatus>2</ContentItemLanguageMetadataLatestVersionStatus>
   <ContentItemLanguageMetadataModifiedByUserID>
@@ -28,21 +28,21 @@
   <ContentItemTags>
     <cms.contentitemtag>
       <ContentItemTagContentItemLanguageMetadataID>
-        <GUID>0bc4080d-e871-4f62-bc2e-ab39e2cf5431</GUID>
+        <GUID>a2d578a4-2bc2-45c2-b52c-3e3811adf8df</GUID>
         <ObjectType>cms.contentitemlanguagemetadata</ObjectType>
       </ContentItemTagContentItemLanguageMetadataID>
       <ContentItemTagFieldGUID>42147568-304a-4e0a-8c20-9da14ffd0288</ContentItemTagFieldGUID>
-      <ContentItemTagGUID>7552694b-9141-4956-8419-ce12cfee084b</ContentItemTagGUID>
+      <ContentItemTagGUID>180efbb8-7d88-40d8-bd60-f4ae707525db</ContentItemTagGUID>
       <ContentItemTagTagGUID>7644a5da-c3d5-49d4-9492-a6994789d403</ContentItemTagTagGUID>
     </cms.contentitemtag>
     <cms.contentitemtag>
       <ContentItemTagContentItemLanguageMetadataID>
-        <GUID>0bc4080d-e871-4f62-bc2e-ab39e2cf5431</GUID>
+        <GUID>a2d578a4-2bc2-45c2-b52c-3e3811adf8df</GUID>
         <ObjectType>cms.contentitemlanguagemetadata</ObjectType>
       </ContentItemTagContentItemLanguageMetadataID>
       <ContentItemTagFieldGUID>4f27d095-1635-4252-b6d9-e7bbd494c21b</ContentItemTagFieldGUID>
-      <ContentItemTagGUID>689fb9f7-cdc9-447e-8064-0a06bf40a7ed</ContentItemTagGUID>
-      <ContentItemTagTagGUID>966f4a8c-6d03-405a-9367-4f4f89b20cc2</ContentItemTagTagGUID>
+      <ContentItemTagGUID>bf94203f-0846-4612-99fb-1f233377a7b1</ContentItemTagGUID>
+      <ContentItemTagTagGUID>edf9e701-c4e6-4381-ac19-9e9518e9c011</ContentItemTagTagGUID>
     </cms.contentitemtag>
   </ContentItemTags>
 </cms.contentitemlanguagemetadata>
