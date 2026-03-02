@@ -122,25 +122,6 @@ public class ProductService(IContentItemRetrieverService contentItemRetrieverSer
         }
     }
 
-    // private async Task<ProductViewModel> GetStandAloneProductViewModel(IProductSchema product)
-    // {
-    //     var model = new ProductViewModel
-    //     {
-    //         ProductName = product.ProductSchemaName ?? string.Empty,
-    //         ProductSkuCode = (product as IProductSkuSchema)?.ProductSkuSchemaSkuCode ?? string.Empty,
-    //         ProductPrice = (product as IProductPriceSchema)?.ProductPriceSchemaPrice ?? 0m,
-    //         ProductImages = GetImageViewModels(product.ProductSchemaImages),
-    //         ProductSelectedVariantCodeName = string.Empty,
-    //         ProductVariants = [],
-    //         ProductParentDescription = new HtmlString(product.ProductSchemaDescription),
-    //         ProductVariantDescription = new HtmlString(string.Empty),
-    //         ProductOtherDetails = new HtmlString(string.Empty),
-    //         ProductStockStatus = GetFriendlyEnumString(await GetProductStockStatus(product as IProductSkuSchema))
-    //     };
-
-    //     return model;
-    // }
-
     private async Task<ProductViewModel> GetAccessDeniedViewModel(IProductSchema? product)
     {
         var model = new ProductViewModel
