@@ -14,7 +14,7 @@
   <ContentItemCommonDataFirstPublishedWhen>2024-03-27 20:40:19Z</ContentItemCommonDataFirstPublishedWhen>
   <ContentItemCommonDataGUID>57a343f3-b995-4ec0-ac87-772e194ae3a4</ContentItemCommonDataGUID>
   <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
-  <ContentItemCommonDataLastPublishedWhen>2026-02-12 16:50:57Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataLastPublishedWhen>2026-02-19 17:49:24Z</ContentItemCommonDataLastPublishedWhen>
   <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
   <ContentItemCommonDataVisualBuilderTemplateConfiguration>
     <![CDATA[{"identifier":"TrainingGuides.GeneralPageTemplate","properties":{"colorScheme":"Light2","cornerStyle":"Sharp","columnLayout":"OneColumn"},"fieldIdentifiers":{"colorScheme":"3a1e33e7-0af1-4e70-b0df-d726acfe406d","cornerStyle":"46230685-5bf3-4c73-b98e-39bf4b444c68","columnLayout":"97b039e0-5ad9-4b1e-b6f9-f11b26b357ad"}}]]>
@@ -26,7 +26,7 @@
   <ContentItemReferences>
     <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>d5bcea41-47f8-48df-ad0f-0043f004f789</ContentItemReferenceGroupGUID>
-      <ContentItemReferenceGUID>d9224a81-5f4a-4c6f-9a9a-61b6cc1a2400</ContentItemReferenceGUID>
+      <ContentItemReferenceGUID>c9bd0cf5-0700-48c5-a20c-aabe5b3cb4a9</ContentItemReferenceGUID>
       <ContentItemReferenceSourceCommonDataID>
         <GUID>57a343f3-b995-4ec0-ac87-772e194ae3a4</GUID>
         <ObjectType>cms.contentitemcommondata</ObjectType>
@@ -39,7 +39,7 @@
     </cms.contentitemreference>
     <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>14f37ced-953f-4b5d-9628-056fb0720ef8</ContentItemReferenceGroupGUID>
-      <ContentItemReferenceGUID>00261e9d-36a5-4ca9-9dc3-956b7a944543</ContentItemReferenceGUID>
+      <ContentItemReferenceGUID>c8025979-60b9-47b2-b355-03477a36c731</ContentItemReferenceGUID>
       <ContentItemReferenceSourceCommonDataID>
         <GUID>57a343f3-b995-4ec0-ac87-772e194ae3a4</GUID>
         <ObjectType>cms.contentitemcommondata</ObjectType>
@@ -52,7 +52,7 @@
     </cms.contentitemreference>
     <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>6753c525-89f0-4101-a4bb-5f24def7886e</ContentItemReferenceGroupGUID>
-      <ContentItemReferenceGUID>56b17650-c358-4808-8663-a2f04ec2248e</ContentItemReferenceGUID>
+      <ContentItemReferenceGUID>7bad37b7-5e46-44fa-97b7-19618570e66d</ContentItemReferenceGUID>
       <ContentItemReferenceSourceCommonDataID>
         <GUID>57a343f3-b995-4ec0-ac87-772e194ae3a4</GUID>
         <ObjectType>cms.contentitemcommondata</ObjectType>
@@ -65,7 +65,7 @@
     </cms.contentitemreference>
     <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>614d93d7-dc71-4e92-8db5-c72b5deaf9ce</ContentItemReferenceGroupGUID>
-      <ContentItemReferenceGUID>5a9f723d-0ef2-49c1-a6ea-68395d984411</ContentItemReferenceGUID>
+      <ContentItemReferenceGUID>5ce1cfe6-1d8f-4565-9a88-b21bfea4abef</ContentItemReferenceGUID>
       <ContentItemReferenceSourceCommonDataID>
         <GUID>57a343f3-b995-4ec0-ac87-772e194ae3a4</GUID>
         <ObjectType>cms.contentitemcommondata</ObjectType>

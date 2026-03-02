@@ -13,7 +13,7 @@ namespace TrainingGuides.ProductStock
     /// <summary>
     /// Data container class for <see cref="ProductAvailableStockInfo"/>.
     /// </summary>
-    public partial class ProductAvailableStockInfo : AbstractInfo<ProductAvailableStockInfo, IInfoProvider<ProductAvailableStockInfo>>, IInfoWithId
+    public partial class ProductAvailableStockInfo : AbstractInfo<ProductAvailableStockInfo, IInfoProvider<ProductAvailableStockInfo>>, IInfoWithId, IInfoWithGuid
     {
         /// <summary>
         /// Object type.
@@ -25,7 +25,7 @@ namespace TrainingGuides.ProductStock
         /// Type information.
         /// </summary>
 #warning "You will need to configure the type info."
-        public static readonly ObjectTypeInfo TYPEINFO = new ObjectTypeInfo(typeof(IInfoProvider<ProductAvailableStockInfo>), OBJECT_TYPE, "TrainingGuidees.ProductAvailableStock", "ProductAvailableStockID", null, null, null, null, null, null, null)
+        public static readonly ObjectTypeInfo TYPEINFO = new ObjectTypeInfo(typeof(IInfoProvider<ProductAvailableStockInfo>), OBJECT_TYPE, "TrainingGuidees.ProductAvailableStock", "ProductAvailableStockID", null, "ProductAvailableStockGuid", null, null, null, null, null)
         {
             TouchCacheDependencies = true,
         };
@@ -65,13 +65,24 @@ namespace TrainingGuides.ProductStock
 
 
         /// <summary>
-        /// Product stock SKU code.
+        /// Product available stock SKU code.
         /// </summary>
         [DatabaseField]
-        public virtual string ProductStockSKUCode
+        public virtual string ProductAvailableStockSKUCode
         {
-            get => ValidationHelper.GetString(GetValue(nameof(ProductStockSKUCode)), String.Empty);
-            set => SetValue(nameof(ProductStockSKUCode), value);
+            get => ValidationHelper.GetString(GetValue(nameof(ProductAvailableStockSKUCode)), String.Empty);
+            set => SetValue(nameof(ProductAvailableStockSKUCode), value);
+        }
+
+
+        /// <summary>
+        /// Product available stock GUID.
+        /// </summary>
+        [DatabaseField]
+        public virtual Guid ProductAvailableStockGUID
+        {
+            get => ValidationHelper.GetGuid(GetValue(nameof(ProductAvailableStockGUID)), Guid.Empty);
+            set => SetValue(nameof(ProductAvailableStockGUID), value);
         }
 
 

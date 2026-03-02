@@ -10,5 +10,9 @@ public partial class ProductAvailableStockInfo
         [
             new ObjectDependency(nameof(ProductAvailableStockID), "cms.contentitem", ObjectDependencyEnum.Required)
         ];
+
+        TYPEINFO.ContinuousIntegrationSettings.Enabled = true;
+        TYPEINFO.ParentIDColumn = nameof(ProductAvailableStockContentItemID);
+        TYPEINFO.ParentObjectType = "cms.contentitem";
     }
 }

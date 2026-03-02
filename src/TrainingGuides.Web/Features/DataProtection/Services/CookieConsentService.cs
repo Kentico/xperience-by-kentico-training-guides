@@ -16,13 +16,13 @@ public class CookieConsentService : ICookieConsentService
     private readonly ICurrentCookieLevelProvider cookieLevelProvider;
     private readonly IConsentAgreementService consentAgreementService;
     private readonly IInfoProvider<ConsentInfo> consentInfoProvider;
-    private readonly ICookieLevelConsentMappingInfoProvider cookieLevelConsentMappingInfoProvider;
+    private readonly IInfoProvider<CookieLevelConsentMappingInfo> cookieLevelConsentMappingInfoProvider;
     private readonly ICookieAccessor cookieAccessor;
 
     public CookieConsentService(ICurrentCookieLevelProvider cookieLevelProvider,
         IConsentAgreementService consentAgreementService,
         IInfoProvider<ConsentInfo> consentInfoProvider,
-        ICookieLevelConsentMappingInfoProvider cookieLevelConsentMappingInfoProvider,
+        IInfoProvider<CookieLevelConsentMappingInfo> cookieLevelConsentMappingInfoProvider,
         ICookieAccessor cookieAccessor)
     {
         this.cookieLevelProvider = cookieLevelProvider;

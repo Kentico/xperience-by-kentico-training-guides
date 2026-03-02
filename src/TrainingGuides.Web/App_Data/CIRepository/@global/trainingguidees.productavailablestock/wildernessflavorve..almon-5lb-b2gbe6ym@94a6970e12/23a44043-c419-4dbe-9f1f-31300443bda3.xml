@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<trainingguidees.productavailablestock>
+  <ProductAvailableStockContentItemID>
+    <CodeName>WildernessFlavorVenisonAndSalmon-5lb-b2gbe6ym</CodeName>
+    <GUID>17f1c88b-5002-4459-9d1e-31dd0e367499</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </ProductAvailableStockContentItemID>
+  <ProductAvailableStockGUID>23a44043-c419-4dbe-9f1f-31300443bda3</ProductAvailableStockGUID>
+  <ProductAvailableStockSKUCode>WF-VS-5</ProductAvailableStockSKUCode>
+  <ProductAvailableStockValue>99</ProductAvailableStockValue>
+</trainingguidees.productavailablestock>

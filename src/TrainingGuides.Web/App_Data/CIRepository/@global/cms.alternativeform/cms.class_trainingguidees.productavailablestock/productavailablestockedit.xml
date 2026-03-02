@@ -31,7 +31,8 @@
           <controlname>Kentico.Administration.TextInput</controlname>
         </settings>
       </field>
-      <field column="ProductStockSKUCode" guid="fa144089-49e3-400b-92f0-db1100610f18" enabled="" order="4" />
+      <field column="ProductAvailableStockSKUCode" guid="fa144089-49e3-400b-92f0-db1100610f18" enabled="" order="4" />
+      <field column="ProductAvailableStockGUID" guid="67f34b8e-1960-4b32-8165-755ec7c61c6a" enabled="" order="5" />
     </form>
   </FormDefinition>
   <FormDisplayName>Product available stock edit</FormDisplayName>

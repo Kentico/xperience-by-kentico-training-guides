@@ -6,5 +6,6 @@ namespace TrainingGuides.Admin;
 public static class ServiceCollectionExtensions
 {
     public static void AddTrainingGuidesAdminServices(this IServiceCollection services) =>
-        services.AddTransient<IProductMetadataRetriever, ProductMetadataRetriever>();
+        services.AddTransient<IProductMetadataRetriever, ProductMetadataRetriever>()
+                .AddTransient<IDefaultContentLanguageRetriever, DefaultContentLanguageRetriever>();
 }

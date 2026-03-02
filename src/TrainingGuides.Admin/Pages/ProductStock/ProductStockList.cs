@@ -1,6 +1,5 @@
 using CMS.Base;
 using CMS.Commerce;
-using CMS.ContentEngine.Internal;
 using CMS.DataEngine;
 using Kentico.Xperience.Admin.Base;
 using TrainingGuides.Admin.ProductStock;
@@ -12,7 +11,7 @@ using TrainingGuides.ProductStock;
 namespace TrainingGuides.Admin.ProductStock;
 
 // Product stock listing page that displays all stock records with product information
-public sealed class ProductStockList(IContentLanguageRetriever contentLanguageRetriever, IProductQuantityFormatter productQuantityFormatter) : ListingPage
+public sealed class ProductStockList(IDefaultContentLanguageRetriever defaultContentLanguageRetriever, IProductQuantityFormatter productQuantityFormatter) : ListingPage
 {
     // Specifies which object type this listing page manages
     protected override string ObjectType => ProductAvailableStockInfo.OBJECT_TYPE;
@@ -20,7 +19,7 @@ public sealed class ProductStockList(IContentLanguageRetriever contentLanguageRe
     public override async Task ConfigurePage()
     {
         // Gets the default language to ensure consistent data retrieval across multilingual content
-        var defaultContentLanguage = await contentLanguageRetriever.GetDefaultContentLanguage();
+        var defaultContentLanguage = await defaultContentLanguageRetriever.Get();
 
         // Adds edit action for each row in the listing
         PageConfiguration.AddEditRowAction<ProductStockEditSection>();
