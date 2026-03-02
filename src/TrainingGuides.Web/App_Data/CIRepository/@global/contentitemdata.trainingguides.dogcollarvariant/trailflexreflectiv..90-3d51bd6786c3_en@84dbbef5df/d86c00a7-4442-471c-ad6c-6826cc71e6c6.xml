@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.dogcollarvariant>
+  <ContentItemDataCommonDataID>
+    <GUID>03c337c9-e152-482f-b790-3d51bd6786c3</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>TrailFlexReflective-Medium-Blue-h9xijoz2</CodeName>
+      <GUID>28da4077-916d-4be5-beb8-d43b6938a1f7</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>d86c00a7-4442-471c-ad6c-6826cc71e6c6</ContentItemDataGUID>
+</contentitemdata.trainingguides.dogcollarvariant>

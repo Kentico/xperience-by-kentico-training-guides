@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.smartfolder>
+  <SmartFolderCreatedByUserID>
+    <CodeName>administrator</CodeName>
+    <GUID>6415b8ce-8072-4bcd-8e48-9d7178b826b7</GUID>
+    <ObjectType>cms.user</ObjectType>
+  </SmartFolderCreatedByUserID>
+  <SmartFolderCreatedWhen>2026-03-02 18:56:59Z</SmartFolderCreatedWhen>
+  <SmartFolderDisplayName>Cat food</SmartFolderDisplayName>
+  <SmartFolderFilter>
+    <![CDATA[{"workflowStatuses":null,"contentItemIsSecured":null,"selectedLastModifiedTimeFrame":"absolute","lastModifiedAbsolute":null,"lastModifiedRelative":null,"classGUID":["78c53faa-7e40-4920-91a4-f5096040ee54","de985d3b-25e6-4204-baef-4903811489e3"],"tags":null,"lastPublishedAbsolute":null,"lastPublishedRelative":null,"selectedLastPublishedTimeFrame":"absolute"}]]>
+  </SmartFolderFilter>
+  <SmartFolderGUID>820df413-92bf-4029-9739-96dc892a4377</SmartFolderGUID>
+  <SmartFolderIsContentDeliveryEnabled>False</SmartFolderIsContentDeliveryEnabled>
+  <SmartFolderModifiedByUserID>
+    <CodeName>administrator</CodeName>
+    <GUID>6415b8ce-8072-4bcd-8e48-9d7178b826b7</GUID>
+    <ObjectType>cms.user</ObjectType>
+  </SmartFolderModifiedByUserID>
+  <SmartFolderName>Cat_food-9dxy31s3</SmartFolderName>
+  <SmartFolderWorkspaceID>
+    <CodeName>KenticoDefault</CodeName>
+    <GUID>43f674d6-540d-4f91-8c19-608b5bddb2f2</GUID>
+    <ObjectType>cms.workspace</ObjectType>
+  </SmartFolderWorkspaceID>
+</cms.smartfolder>

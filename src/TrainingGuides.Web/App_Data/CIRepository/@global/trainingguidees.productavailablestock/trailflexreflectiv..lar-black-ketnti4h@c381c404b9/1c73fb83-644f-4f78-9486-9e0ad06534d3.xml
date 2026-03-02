@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<trainingguidees.productavailablestock>
+  <ProductAvailableStockContentItemID>
+    <CodeName>TrailFlexReflectiveDogCollar-Black-ketnti4h</CodeName>
+    <GUID>4becbe2a-20cb-4c55-98e9-c1ea2a9ab67b</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </ProductAvailableStockContentItemID>
+  <ProductAvailableStockGUID>1c73fb83-644f-4f78-9486-9e0ad06534d3</ProductAvailableStockGUID>
+  <ProductAvailableStockSKUCode>COL-DOG-NEO-001-L-BLK</ProductAvailableStockSKUCode>
+  <ProductAvailableStockValue>10</ProductAvailableStockValue>
+</trainingguidees.productavailablestock>
