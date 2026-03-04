@@ -23,22 +23,34 @@ However, keep in mind that the code in this repository is intended to be examine
 1. Open a command line in the **~/src/TrainingGuides.Web** folder and run the `dotnet tool restore` command to restore the *dbmanager* tool.
 1. Edit the following command to target your server and license key, then run it:
     ```
-    dotnet kentico-xperience-dbmanager -- -s "[YOUR SQL SERVER]" -a "TrainingGuides123*" -d "Xperience.TrainingGuides" --hash-string-salt "59642433-67b2-4230-9c5b-ad98d02b0c72" --license-file "[OPTIONAL: PATH TO TEXT A FILE CONTAINING YOUR LICENSE KEY]"
+    dotnet kentico-xperience-dbmanager -- -s "[YOUR SQL SERVER]" -a "[YOUR ADMIN PASSWORD]" -d "Xperience.TrainingGuides" --hash-string-salt "59642433-67b2-4230-9c5b-ad98d02b0c72" --license-file "[OPTIONAL: PATH TO TEXT A FILE CONTAINING YOUR LICENSE KEY]"
     ```
     This automatically updates your **appsettings.json** file, creating a connection string and setting the value of `CMSHashStringSalt`.
 
-1. Run a [*Continuous integration restore*](https://docs.xperience.io/xp/developers-and-admins/ci-cd/continuous-integration#ContinuousIntegration-Restorerepositoryfilestothedatabase) to populate the database with the necessary data
-1. Log in with the username **administrator** and the password **TrainingGuides123\***
+    When you run your project, you can sign into the administration with the username **administrator** and [YOUR ADMIN PASSWORD]
 1. If you didn't include your license key when you installed the database, add it to the instance now:
+    1. Run your project.
+    1. Sign into the administration.
     1. Access the **Settings** application.
     1. Paste your license key into the **License key** field under the **System → License** category and click **Save**.
     ![Screenshot of Settings application](/images/SettingsApp.png)
     ![Screenshot of license key settings](/images/SettingsLicense.png)
+    > [!TIP]
+    > You can obtain a license key from your agency, supervisor, or team lead.  
+    > Alternatively, you can create an account at the [Client Portal](https://client.kentico.com/), and generate a [temporary key](https://client.kentico.com/evaluation-keys) valid for 30 days.  
+    > Learn more about licensing in our [documentation](https://docs.kentico.com/developers-and-admins/installation/licenses).
 
-> [!TIP]
-> You can obtain a license key from your agency, supervisor, or team lead.  
-> Alternatively, you can create an account at the [Client Portal](https://client.kentico.com/), and generate a [temporary key](https://client.kentico.com/evaluation-keys) valid for 30 days.  
-> Learn more about licensing in our [documentation](https://docs.kentico.com/developers-and-admins/installation/licenses).
+1. Enable continuous integration either [through the administration interface](https://docs.kentico.com/documentation/developers-and-admins/ci-cd/continuous-integration#enable-continuous-integration) or by running the following SQL command:
+
+    ```
+    UPDATE CMS_SettingsKey SET KeyValue = N'True' WHERE KeyName = N'CMSEnableCI'
+    ```
+
+1. Run the [*Continuous integration restore*](https://docs.kentico.com/documentation/developers-and-admins/ci-cd/continuous-integration#restore-repository-files-to-the-database) from your project's folder to populate the database with the necessary data:
+
+    ```
+    dotnet run --kxp-ci-restore
+    ```
 
 ## Contributing
 
