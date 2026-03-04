@@ -349,6 +349,50 @@ public class ProductService(IContentItemRetrieverService contentItemRetrieverSer
     /// <inheritdoc/>
     public bool ProductIsVariant(IProductSchema product) => product is IProductVariantSchema;
 
+    /// <summary>
+    /// Extracts all specified taxonomy tags for a specific schema from a product and its variants.
+    /// Checks both the product itself and any variants that implement the schema.
+    /// </summary>
+    /// <typeparam name="TSchema">The schema interface to check for (e.g., IColorPatternSchema, IMaterialSchema)</typeparam>
+    /// <param name="product">The product to extract tags from</param>
+    /// <param name="tagSelector">Function to extract tags from a product object implementing TSchema</param>
+    /// <returns>All distinct tags found on the product and its variants</returns>
+    internal IEnumerable<TagReference> GetAllTagsForSchema<TSchema>(
+        IProductSchema product,
+        Func<TSchema, IEnumerable<TagReference>> tagSelector) where TSchema : class
+    {
+        var tags = new List<TagReference>();
+
+        // Check if product itself implements the schema
+        if (product is TSchema schemaProduct)
+            tags.AddRange(tagSelector(schemaProduct));
+
+        // Check variants if product has them
+        if (product is IProductParentSchema parent)
+        {
+            foreach (var variant in parent.ProductParentSchemaVariants.OfType<TSchema>())
+                tags.AddRange(tagSelector(variant));
+        }
+
+        return tags.DistinctBy(t => t.Identifier);
+    }
+
+    /// <summary>
+    /// Extracts all color tags from the product and its variants, if applicable.
+    /// </summary>
+    /// <param name="product">The product to extract color tags from</param>
+    /// <returns>All color tags found on the product and its variants</returns>
+    public IEnumerable<TagReference> GetAllColors(IProductSchema product) =>
+        GetAllTagsForSchema<IColorPatternSchema>(product, p => p.ColorPattern);
+
+    /// <summary>
+    /// Extracts all material tags from the product and its variants, if applicable.
+    /// </summary>
+    /// <param name="product">The product to extract material tags from</param>
+    /// <returns>All material tags found on the product and its variants</returns>
+    public IEnumerable<TagReference> GetAllMaterials(IProductSchema product) =>
+        GetAllTagsForSchema<IMaterialSchema>(product, p => p.MaterialSchemaMaterial);
+
     /// <inheritdoc/>
     public async Task<ProductPage?> GetCurrentProductPage() =>
         await contentItemRetrieverService.RetrieveCurrentPage<ProductPage>(
@@ -372,7 +416,8 @@ public class ProductService(IContentItemRetrieverService contentItemRetrieverSer
     /// <inheritdoc/>
     /// <remarks>
     /// When <paramref name="useAndLogic"/> is true, applies LINQ post-filtering for AND logic.
-    /// Required because Material lives on parent, Color on variant - no single item has both.
+    /// Uses flexible taxonomy extraction that works regardless of where attributes are stored
+    /// (parent only, variant only, or both).
     /// 
     /// Warning: AND post-filtering breaks traditional pagination (pages may have uneven/zero items).
     /// This example retrieves all items for simplicity, but lazy loading/infinite scroll is
@@ -406,7 +451,7 @@ public class ProductService(IContentItemRetrieverService contentItemRetrieverSer
                 .Where(tag => colorFilters.Contains(tag.Name.ToLower()))
                 .Select(tag => tag.Identifier) ?? [];
 
-            // Filter to keep only products where parent has material AND variant has color
+            // Filter to keep only products that have ALL required attributes (flexible logic)
             return productPages.Where(page =>
             {
                 var product = page.ProductPageProducts.FirstOrDefault();
@@ -415,15 +460,14 @@ public class ProductService(IContentItemRetrieverService contentItemRetrieverSer
                     return false;
                 }
 
-                bool parentMatchesMaterial = product is IMaterialSchema materialProduct
-                    && materialProduct.MaterialSchemaMaterial.Any(tag => materialTagGuids.Contains(tag.Identifier));
+                // Use flexible extraction methods that handle any taxonomy distribution
+                bool productMatchesMaterial = GetAllMaterials(product)
+                    .Any(tag => materialTagGuids.Contains(tag.Identifier));
 
-                bool variantMatchesColor = product is IProductParentSchema parentProduct
-                    && parentProduct.ProductParentSchemaVariants
-                        .OfType<IColorPatternSchema>()
-                        .Any(variant => variant.ColorPattern.Any(tag => colorTagGuids.Contains(tag.Identifier)));
+                bool productMatchesColor = GetAllColors(product)
+                    .Any(tag => colorTagGuids.Contains(tag.Identifier));
 
-                return parentMatchesMaterial && variantMatchesColor;
+                return productMatchesMaterial && productMatchesColor;
             });
         }
 

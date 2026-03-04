@@ -44,7 +44,7 @@ public class ProductListingWidgetProperties : IWidgetProperties
 
     [CheckBoxComponent(
         Label = "Use AND logic for filters",
-        ExplanationText = "When checked, products must match ALL selected filters. When unchecked, products matching ANY filter are shown.",
+        ExplanationText = "When checked, products must match one of the selected options in every filter category. When unchecked, products matching ANY filter are shown.",
         Order = 50)]
     public bool UseAndFilterLogic { get; set; } = false;
 }

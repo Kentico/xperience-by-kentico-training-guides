@@ -13,7 +13,7 @@
   <ContentItemCommonDataFirstPublishedWhen>2026-01-20 20:22:49Z</ContentItemCommonDataFirstPublishedWhen>
   <ContentItemCommonDataGUID>2728b6c1-aed6-4ed9-bf88-9172c988ade4</ContentItemCommonDataGUID>
   <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
-  <ContentItemCommonDataLastPublishedWhen>2026-03-02 18:01:12Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataLastPublishedWhen>2026-03-04 20:20:41Z</ContentItemCommonDataLastPublishedWhen>
   <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
   <ContentItemCommonDataVisualBuilderTemplateConfiguration>
     <![CDATA[{"identifier":"TrainingGuides.GeneralPageTemplate","properties":{"colorScheme":"TransparentDark","cornerStyle":"Round","columnLayout":"OneColumn"},"fieldIdentifiers":{"colorScheme":"f20a9306-1c23-4742-8e3d-9fee00fa55e4","cornerStyle":"493d2fd2-75b5-4297-8678-2f1f2f7a0b62","columnLayout":"7dc16371-95be-41a4-b557-26c25982657a"}}]]>
@@ -25,7 +25,7 @@
   <ContentItemReferences>
     <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>9cae9511-66e8-4b2a-89a8-00a79267269f</ContentItemReferenceGroupGUID>
-      <ContentItemReferenceGUID>34dfcd66-478f-4773-9a73-b02836497713</ContentItemReferenceGUID>
+      <ContentItemReferenceGUID>bcd6cf80-ee0c-4a2b-891a-47c6ce559066</ContentItemReferenceGUID>
       <ContentItemReferenceSourceCommonDataID>
         <GUID>2728b6c1-aed6-4ed9-bf88-9172c988ade4</GUID>
         <ObjectType>cms.contentitemcommondata</ObjectType>
