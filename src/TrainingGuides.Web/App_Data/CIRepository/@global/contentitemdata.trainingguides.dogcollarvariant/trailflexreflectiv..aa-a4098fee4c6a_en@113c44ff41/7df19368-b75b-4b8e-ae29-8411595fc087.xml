@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.dogcollarvariant>
+  <ContentItemDataCommonDataID>
+    <GUID>03d0eb2c-b284-4662-baaa-a4098fee4c6a</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>TrailFlexReflective-Small-Black-91fubbqo</CodeName>
+      <GUID>084b9f80-7825-4003-a5ef-f77a9cea7ffa</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>7df19368-b75b-4b8e-ae29-8411595fc087</ContentItemDataGUID>
+</contentitemdata.trainingguides.dogcollarvariant>

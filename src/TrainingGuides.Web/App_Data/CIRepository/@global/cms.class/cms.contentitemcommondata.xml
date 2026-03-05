@@ -233,6 +233,8 @@ in;in
         </properties>
         <settings>
           <controlname>Kentico.Administration.TagSelector</controlname>
+          <MaxSelectedTagsCount>1</MaxSelectedTagsCount>
+          <MinSelectedTagsCount>1</MinSelectedTagsCount>
           <TaxonomyGroup>
             <![CDATA[["5b95dd83-c253-47bb-8013-c77f3a645bea"]]]>
           </TaxonomyGroup>
@@ -378,6 +380,8 @@ oz;Ounces (oz)
         </properties>
         <settings>
           <controlname>Kentico.Administration.TagSelector</controlname>
+          <MaxSelectedTagsCount>1</MaxSelectedTagsCount>
+          <MinSelectedTagsCount>1</MinSelectedTagsCount>
           <TaxonomyGroup>
             <![CDATA[["f1f5bddf-bf7e-4009-b8b6-186000c57e10"]]]>
           </TaxonomyGroup>

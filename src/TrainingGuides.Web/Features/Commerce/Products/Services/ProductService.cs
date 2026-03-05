@@ -122,25 +122,6 @@ public class ProductService(IContentItemRetrieverService contentItemRetrieverSer
         }
     }
 
-    // private async Task<ProductViewModel> GetStandAloneProductViewModel(IProductSchema product)
-    // {
-    //     var model = new ProductViewModel
-    //     {
-    //         ProductName = product.ProductSchemaName ?? string.Empty,
-    //         ProductSkuCode = (product as IProductSkuSchema)?.ProductSkuSchemaSkuCode ?? string.Empty,
-    //         ProductPrice = (product as IProductPriceSchema)?.ProductPriceSchemaPrice ?? 0m,
-    //         ProductImages = GetImageViewModels(product.ProductSchemaImages),
-    //         ProductSelectedVariantCodeName = string.Empty,
-    //         ProductVariants = [],
-    //         ProductParentDescription = new HtmlString(product.ProductSchemaDescription),
-    //         ProductVariantDescription = new HtmlString(string.Empty),
-    //         ProductOtherDetails = new HtmlString(string.Empty),
-    //         ProductStockStatus = GetFriendlyEnumString(await GetProductStockStatus(product as IProductSkuSchema))
-    //     };
-
-    //     return model;
-    // }
-
     private async Task<ProductViewModel> GetAccessDeniedViewModel(IProductSchema? product)
     {
         var model = new ProductViewModel
@@ -368,6 +349,50 @@ public class ProductService(IContentItemRetrieverService contentItemRetrieverSer
     /// <inheritdoc/>
     public bool ProductIsVariant(IProductSchema product) => product is IProductVariantSchema;
 
+    /// <summary>
+    /// Extracts all specified taxonomy tags for a specific schema from a product and its variants.
+    /// Checks both the product itself and any variants that implement the schema.
+    /// </summary>
+    /// <typeparam name="TSchema">The schema interface to check for (e.g., IColorPatternSchema, IMaterialSchema)</typeparam>
+    /// <param name="product">The product to extract tags from</param>
+    /// <param name="tagSelector">Function to extract tags from a product object implementing TSchema</param>
+    /// <returns>All distinct tags found on the product and its variants</returns>
+    internal IEnumerable<TagReference> GetAllTagsForSchema<TSchema>(
+        IProductSchema product,
+        Func<TSchema, IEnumerable<TagReference>> tagSelector) where TSchema : class
+    {
+        var tags = new List<TagReference>();
+
+        // Check if product itself implements the schema
+        if (product is TSchema schemaProduct)
+            tags.AddRange(tagSelector(schemaProduct));
+
+        // Check variants if product has them
+        if (product is IProductParentSchema parent)
+        {
+            foreach (var variant in parent.ProductParentSchemaVariants.OfType<TSchema>())
+                tags.AddRange(tagSelector(variant));
+        }
+
+        return tags.DistinctBy(t => t.Identifier);
+    }
+
+    /// <summary>
+    /// Extracts all color tags from the product and its variants, if applicable.
+    /// </summary>
+    /// <param name="product">The product to extract color tags from</param>
+    /// <returns>All color tags found on the product and its variants</returns>
+    public IEnumerable<TagReference> GetAllColors(IProductSchema product) =>
+        GetAllTagsForSchema<IColorPatternSchema>(product, p => p.ColorPattern);
+
+    /// <summary>
+    /// Extracts all material tags from the product and its variants, if applicable.
+    /// </summary>
+    /// <param name="product">The product to extract material tags from</param>
+    /// <returns>All material tags found on the product and its variants</returns>
+    public IEnumerable<TagReference> GetAllMaterials(IProductSchema product) =>
+        GetAllTagsForSchema<IMaterialSchema>(product, p => p.MaterialSchemaMaterial);
+
     /// <inheritdoc/>
     public async Task<ProductPage?> GetCurrentProductPage() =>
         await contentItemRetrieverService.RetrieveCurrentPage<ProductPage>(
@@ -389,11 +414,75 @@ public class ProductService(IContentItemRetrieverService contentItemRetrieverSer
     }
 
     /// <inheritdoc/>
-    public async Task<IEnumerable<ProductPage>> RetrieveProductPagesByPath(
+    /// <remarks>
+    /// When <paramref name="useAndLogic"/> is true, applies LINQ post-filtering for AND logic.
+    /// Uses flexible taxonomy extraction that works regardless of where attributes are stored
+    /// (parent only, variant only, or both).
+    /// 
+    /// Warning: AND post-filtering breaks traditional pagination (pages may have uneven/zero items).
+    /// This example retrieves all items for simplicity, but lazy loading/infinite scroll is
+    /// recommended for production scenarios with large catalogs.
+    /// </remarks>
+    public async Task<IEnumerable<ProductPage>> RetrieveProductPages(
         string parentPagePath,
         string securedItemsDisplayMode,
-        string appliedMaterialsFilter,
-        string appliedColorsFilter)
+        string appliedMaterialsFilter = "",
+        string appliedColorsFilter = "",
+        bool useAndLogic = false)
+    {
+        var materialFilters = ParseFilterValues(appliedMaterialsFilter);
+        var colorFilters = ParseFilterValues(appliedColorsFilter);
+
+        // Get all products matching ANY filter using the core method
+        var productPages = await RetrieveFilteredProductPages(
+            parentPagePath, securedItemsDisplayMode, materialFilters, colorFilters);
+
+        // If AND logic is requested and both filters are specified, apply LINQ post-filtering
+        if (useAndLogic && materialFilters is not null && colorFilters is not null)
+        {
+            var materialTaxonomy = await GetTaxonomyData(MATERIAL_TAXONOMY);
+            var colorTaxonomy = await GetTaxonomyData(COLOR_PATTERN_TAXONOMY);
+
+            var materialTagGuids = materialTaxonomy?.Tags
+                .Where(tag => materialFilters.Contains(tag.Name.ToLower()))
+                .Select(tag => tag.Identifier) ?? [];
+
+            var colorTagGuids = colorTaxonomy?.Tags
+                .Where(tag => colorFilters.Contains(tag.Name.ToLower()))
+                .Select(tag => tag.Identifier) ?? [];
+
+            // Filter to keep only products that have ALL required attributes (flexible logic)
+            return productPages.Where(page =>
+            {
+                var product = page.ProductPageProducts.FirstOrDefault();
+                if (product is null)
+                {
+                    return false;
+                }
+
+                // Use flexible extraction methods that handle any taxonomy distribution
+                bool productMatchesMaterial = GetAllMaterials(product)
+                    .Any(tag => materialTagGuids.Contains(tag.Identifier));
+
+                bool productMatchesColor = GetAllColors(product)
+                    .Any(tag => colorTagGuids.Contains(tag.Identifier));
+
+                return productMatchesMaterial && productMatchesColor;
+            });
+        }
+
+        // OR logic (default): return database results directly
+        return productPages;
+    }
+
+    /// <summary>
+    /// Core method that retrieves product pages with pre-parsed filter values.
+    /// </summary>
+    private async Task<IEnumerable<ProductPage>> RetrieveFilteredProductPages(
+        string parentPagePath,
+        string securedItemsDisplayMode,
+        IEnumerable<string>? materialFilters,
+        IEnumerable<string>? colorFilters)
     {
         if (string.IsNullOrEmpty(parentPagePath))
         {
@@ -402,9 +491,6 @@ public class ProductService(IContentItemRetrieverService contentItemRetrieverSer
 
         bool includeSecuredItems = securedItemsDisplayMode.Equals(SecuredOption.IncludeEverything.ToString())
                 || securedItemsDisplayMode.Equals(SecuredOption.PromptForLogin.ToString());
-
-        var materialFilters = ParseFilterValues(appliedMaterialsFilter);
-        var colorFilters = ParseFilterValues(appliedColorsFilter);
 
         if (materialFilters is not null || colorFilters is not null)
         {
@@ -518,7 +604,7 @@ public class ProductService(IContentItemRetrieverService contentItemRetrieverSer
     /// </summary>
     /// <param name="filterValues">A comma-separated string of filter values.</param>
     /// <returns>A collection of parsed filter values, or <c>null</c> if no valid filters are found.</returns>
-    private IEnumerable<string>? ParseFilterValues(string filterValues)
+    internal IEnumerable<string>? ParseFilterValues(string filterValues)
     {
         if (string.IsNullOrWhiteSpace(filterValues) || filterValues.Equals("all", StringComparison.OrdinalIgnoreCase))
         {

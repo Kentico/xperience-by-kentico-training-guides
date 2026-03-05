@@ -2,10 +2,10 @@
 <cms.tag>
   <TagGUID>cd7f777f-d768-4823-b492-2e1cc121fb42</TagGUID>
   <TagMetadata>
-    <![CDATA[{"Translations":{"b2e99971-c2dd-4a47-bb64-0d9a0d28d226":{"Title":null,"Description":null}}}]]>
+    <![CDATA[{"Translations":{"b2e99971-c2dd-4a47-bb64-0d9a0d28d226":{"Title":"Azul","Description":null}}}]]>
   </TagMetadata>
   <TagName>Blue</TagName>
-  <TagOrder>4</TagOrder>
+  <TagOrder>5</TagOrder>
   <TagTaxonomyID>
     <CodeName>ProductColor_Pattern</CodeName>
     <GUID>5b95dd83-c253-47bb-8013-c77f3a645bea</GUID>

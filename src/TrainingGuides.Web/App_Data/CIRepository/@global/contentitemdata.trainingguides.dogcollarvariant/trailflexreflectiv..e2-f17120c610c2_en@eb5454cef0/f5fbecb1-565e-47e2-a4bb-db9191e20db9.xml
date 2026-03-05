@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.dogcollarvariant>
+  <ContentItemDataCommonDataID>
+    <GUID>5656d610-8d32-4618-abe2-f17120c610c2</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>TrailFlexReflectiveDogCollar-Black-ketnti4h</CodeName>
+      <GUID>4becbe2a-20cb-4c55-98e9-c1ea2a9ab67b</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>f5fbecb1-565e-47e2-a4bb-db9191e20db9</ContentItemDataGUID>
+</contentitemdata.trainingguides.dogcollarvariant>

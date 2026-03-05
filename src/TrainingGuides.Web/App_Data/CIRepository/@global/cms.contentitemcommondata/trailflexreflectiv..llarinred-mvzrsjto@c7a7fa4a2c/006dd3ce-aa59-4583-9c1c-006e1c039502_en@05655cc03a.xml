@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentitemcommondata>
+  <ColorPattern>
+    <![CDATA[[{"Identifier":"0d0163cf-509c-4f71-8946-57c033f353e4"}]]]>
+  </ColorPattern>
+  <ContentItemCommonDataContentItemID>
+    <CodeName>TrailFlexReflectiveDogCollarInRed-mvzrsjto</CodeName>
+    <GUID>db171fd7-bbdb-43e1-8c57-d91bab74c397</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </ContentItemCommonDataContentItemID>
+  <ContentItemCommonDataContentLanguageID>
+    <CodeName>en</CodeName>
+    <GUID>e81b5172-f240-4041-88b1-653089984e29</GUID>
+    <ObjectType>cms.contentlanguage</ObjectType>
+  </ContentItemCommonDataContentLanguageID>
+  <ContentItemCommonDataFirstPublishedWhen>2026-02-27 23:24:39Z</ContentItemCommonDataFirstPublishedWhen>
+  <ContentItemCommonDataGUID>006dd3ce-aa59-4583-9c1c-006e1c039502</ContentItemCommonDataGUID>
+  <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
+  <ContentItemCommonDataLastPublishedWhen>2026-03-02 18:59:17Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
+  <ProductPriceSchemaPrice>21.99</ProductPriceSchemaPrice>
+  <ProductSchemaImages>
+    <![CDATA[[{"Identifier":"166d83f6-7ba8-4216-8cd5-aca01e98804c"}]]]>
+  </ProductSchemaImages>
+  <ProductSchemaName>Red</ProductSchemaName>
+  <ProductSkuSchemaSkuCode>COL-DOG-NEO-001-S-RED</ProductSkuSchemaSkuCode>
+  <ProductVariantSchemaCodeName>TrailFlexDogCollarRed</ProductVariantSchemaCodeName>
+  <SizeSchemaSize>
+    <![CDATA[[{"Identifier":"05ad9435-f63e-40ca-9532-95a077c2d0d7"}]]]>
+  </SizeSchemaSize>
+  <ContentItemReferences>
+    <cms.contentitemreference>
+      <ContentItemReferenceGroupGUID>84b06b06-1392-422d-82e5-639ed2fa6340</ContentItemReferenceGroupGUID>
+      <ContentItemReferenceGUID>f10ef6e8-f78e-4935-9914-2277b6086566</ContentItemReferenceGUID>
+      <ContentItemReferenceSourceCommonDataID>
+        <GUID>006dd3ce-aa59-4583-9c1c-006e1c039502</GUID>
+        <ObjectType>cms.contentitemcommondata</ObjectType>
+      </ContentItemReferenceSourceCommonDataID>
+      <ContentItemReferenceTargetItemID>
+        <CodeName>PawPeak-TrailFlex-Collar_red-lb0ijaxm</CodeName>
+        <GUID>166d83f6-7ba8-4216-8cd5-aca01e98804c</GUID>
+        <ObjectType>cms.contentitem</ObjectType>
+      </ContentItemReferenceTargetItemID>
+    </cms.contentitemreference>
+  </ContentItemReferences>
+</cms.contentitemcommondata>
