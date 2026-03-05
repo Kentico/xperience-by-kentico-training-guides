@@ -40,12 +40,6 @@ However, keep in mind that the code in this repository is intended to be examine
     > Alternatively, you can create an account at the [Client Portal](https://client.kentico.com/), and generate a [temporary key](https://client.kentico.com/evaluation-keys) valid for 30 days.  
     > Learn more about licensing in our [documentation](https://docs.kentico.com/developers-and-admins/installation/licenses).
 
-1. Enable continuous integration either [through the administration interface](https://docs.kentico.com/documentation/developers-and-admins/ci-cd/continuous-integration#enable-continuous-integration) or by running the following SQL command:
-
-    ```
-    UPDATE CMS_SettingsKey SET KeyValue = N'True' WHERE KeyName = N'CMSEnableCI'
-    ```
-
 1. Run the [*Continuous integration restore*](https://docs.kentico.com/documentation/developers-and-admins/ci-cd/continuous-integration#restore-repository-files-to-the-database) from your project's folder to populate the database with the necessary data:
 
     ```
