@@ -27,33 +27,6 @@ else
     <div class="row justify-content-center">
         <div class="col-xl-11">
             <div class="product-listing-widget">
-            <!-- Filter Controls -->
-            <div class="row mb-4">
-                <div class="col-12">
-                    <h3 class="mb-3">Filter Products</h3>
-                </div>
-                @foreach (var filter in Model.AvailableFilters)
-                {
-                    <div class="col-md-4 mb-3">
-                        <label for="@filter.ProductListingFilterName.ToLower()" class="form-label">@filter.ProductListingFilterDisplayName.Replace("_", " ")</label>
-                        <select id="@filter.ProductListingFilterName.ToLower()" class="form-select product-filter" multiple>
-                            <option value="">All</option>
-                            @foreach (var option in filter.ProductListingFilterOptions)
-                            {
-                                <option value="@option.FilterOptionValue">@option.FilterOptionDisplayName</option>
-                            }
-                        </select>
-                    </div>
-                }
-                <div class="col-md-4 mb-3 d-flex align-items-end">
-                    <button id="apply-filters" class="btn btn-secondary">Apply Filters</button>
-                </div>
-                <div class="col-md-4 mb-3 d-flex align-items-end">
-                    <button id="clear-filters" class="btn btn-secondary">Clear Filters</button>
-                </div>
-            </div>  
-
-
                 <!-- Product Grid -->
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 product-grid mt-3 mt-md-4">
                     @foreach (var item in Model.Products)
@@ -100,6 +73,4 @@ else
             </div>
         </div>
     </div>
-
-    <script src="~/PageBuilder/Public/Widgets/ProductListingWidget/product-listing-widget.js"></script>
 }

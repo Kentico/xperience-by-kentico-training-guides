@@ -8,5 +8,4 @@ public class ProductListingWidgetViewModel : IWidgetViewModel
     public string CtaText { get; set; } = string.Empty;
     public string SignInText { get; set; } = string.Empty;
     public bool IsMisconfigured => Products == null;
-    public IEnumerable<ProductListingFilterViewModel> AvailableFilters { get; set; } = [];
 }

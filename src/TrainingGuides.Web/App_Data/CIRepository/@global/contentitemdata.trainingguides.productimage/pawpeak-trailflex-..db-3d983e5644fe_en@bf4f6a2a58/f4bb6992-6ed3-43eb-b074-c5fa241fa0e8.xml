@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.productimage>
+  <ContentItemDataCommonDataID>
+    <GUID>038e629b-89ea-4aec-a6db-3d983e5644fe</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>PawPeak-TrailFlex-Collar-3-6v2974yv</CodeName>
+      <GUID>b977a753-c24a-4799-98a3-1c4f566dc67b</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>f4bb6992-6ed3-43eb-b074-c5fa241fa0e8</ContentItemDataGUID>
+  <ProductImageAltText>PawPeak TrailFlex Collar on a puppy</ProductImageAltText>
+  <ProductImageAsset>
+    <![CDATA[{"Variants":{},"FocalPoint":{"X":512,"Y":512},"Identifier":"701291be-eebf-43e0-a100-284e969ec91c","Name":"PawPeak-TrailFlex-Collar-3.png","Extension":".png","Size":1762807,"Width":1024,"Height":1024,"LastModified":"2026-02-27T23:44:09.1459994Z"}]]>
+  </ProductImageAsset>
+</contentitemdata.trainingguides.productimage>

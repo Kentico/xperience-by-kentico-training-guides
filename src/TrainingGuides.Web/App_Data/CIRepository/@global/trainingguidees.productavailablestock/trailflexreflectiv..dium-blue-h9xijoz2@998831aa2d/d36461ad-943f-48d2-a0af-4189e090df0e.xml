@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<trainingguidees.productavailablestock>
+  <ProductAvailableStockContentItemID>
+    <CodeName>TrailFlexReflective-Medium-Blue-h9xijoz2</CodeName>
+    <GUID>28da4077-916d-4be5-beb8-d43b6938a1f7</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </ProductAvailableStockContentItemID>
+  <ProductAvailableStockGUID>d36461ad-943f-48d2-a0af-4189e090df0e</ProductAvailableStockGUID>
+  <ProductAvailableStockSKUCode>COL-DOG-NEO-001-M-BLU</ProductAvailableStockSKUCode>
+  <ProductAvailableStockValue>20</ProductAvailableStockValue>
+</trainingguidees.productavailablestock>

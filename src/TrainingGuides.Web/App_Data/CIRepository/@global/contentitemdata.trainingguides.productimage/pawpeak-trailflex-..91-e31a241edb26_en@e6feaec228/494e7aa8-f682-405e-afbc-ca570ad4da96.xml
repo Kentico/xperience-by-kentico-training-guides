@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.productimage>
+  <ContentItemDataCommonDataID>
+    <GUID>ab23fa8e-688e-4aca-a491-e31a241edb26</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>PawPeak-TrailFlex-Collar_red-lb0ijaxm</CodeName>
+      <GUID>166d83f6-7ba8-4216-8cd5-aca01e98804c</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>494e7aa8-f682-405e-afbc-ca570ad4da96</ContentItemDataGUID>
+  <ProductImageAltText>PawPeak TrailFlex Collar - red</ProductImageAltText>
+  <ProductImageAsset>
+    <![CDATA[{"Variants":{},"FocalPoint":{"X":768,"Y":512},"Identifier":"db8019d8-b53f-46da-b820-a08236012bf2","Name":"PawPeak-TrailFlex-Collar_red.png","Extension":".png","Size":1117901,"Width":1536,"Height":1024,"LastModified":"2026-02-27T23:10:43.6639356Z"}]]>
+  </ProductImageAsset>
+</contentitemdata.trainingguides.productimage>

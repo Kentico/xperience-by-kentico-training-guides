@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<trainingguidees.productavailablestock>
+  <ProductAvailableStockContentItemID>
+    <CodeName>TrailFlexReflective-Small-Black-91fubbqo</CodeName>
+    <GUID>084b9f80-7825-4003-a5ef-f77a9cea7ffa</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </ProductAvailableStockContentItemID>
+  <ProductAvailableStockGUID>45023b14-365b-4900-81ee-8266af84b216</ProductAvailableStockGUID>
+  <ProductAvailableStockSKUCode>COL-DOG-NEO-001-L-BLK</ProductAvailableStockSKUCode>
+  <ProductAvailableStockValue>0</ProductAvailableStockValue>
+</trainingguidees.productavailablestock>

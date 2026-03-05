@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<trainingguidees.productavailablestock>
+  <ProductAvailableStockContentItemID>
+    <CodeName>TrailFlexReflectiveDogCollarInRed-mvzrsjto</CodeName>
+    <GUID>db171fd7-bbdb-43e1-8c57-d91bab74c397</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </ProductAvailableStockContentItemID>
+  <ProductAvailableStockGUID>5f8badbe-1d68-4d4c-84e0-9feb59f4fde6</ProductAvailableStockGUID>
+  <ProductAvailableStockSKUCode>COL-DOG-NEO-001-S-RED</ProductAvailableStockSKUCode>
+  <ProductAvailableStockValue>5</ProductAvailableStockValue>
+</trainingguidees.productavailablestock>

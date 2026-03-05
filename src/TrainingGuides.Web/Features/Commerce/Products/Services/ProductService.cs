@@ -1,7 +1,11 @@
+// MEMBERSHIP IN COMMERCE:
+// This branch excludes membership implementation, which is essential for full commerce functionality.
+// Search for "IMembershipService" and "includeSecuredItems" to see where it plugs in.
+// See the "finished" branch for complete implementation.
+
 using CMS.Commerce;
 using CMS.ContentEngine;
 using CMS.DataEngine;
-using Kentico.Content.Web.Mvc;
 using Kentico.Content.Web.Mvc.Routing;
 using Microsoft.AspNetCore.Html;
 using TrainingGuides.ProductStock;
@@ -18,14 +22,11 @@ public class ProductService(IContentItemRetrieverService contentItemRetrieverSer
     ILogger<ProductService> logger,
     IInfoProvider<ProductAvailableStockInfo> productAvailableStockInfoProvider,
     IInfoProvider<TagInfo> tagInfoProvider,
-    ITaxonomyRetriever taxonomyRetriever,
     IPreferredLanguageRetriever preferredLanguageRetriever,
     // IMembershipService membershipService,
     IPriceCalculationService<PriceCalculationRequest, TrainingGuidesPriceCalculationResult> priceCalculationService) : IProductService
 {
     private const decimal LowStockThreshold = 20m;
-    private const string MATERIAL_TAXONOMY = "ProductMaterial";
-    private const string COLOR_PATTERN_TAXONOMY = "ProductColor_Pattern";
 
     /// <inheritdoc/>
     public IProductSchema? GetFirstVariant(IProductParentSchema product) =>
@@ -121,25 +122,6 @@ public class ProductService(IContentItemRetrieverService contentItemRetrieverSer
             return new ProductViewModel();
         }
     }
-
-    // private async Task<ProductViewModel> GetStandAloneProductViewModel(IProductSchema product)
-    // {
-    //     var model = new ProductViewModel
-    //     {
-    //         ProductName = product.ProductSchemaName ?? string.Empty,
-    //         ProductSkuCode = (product as IProductSkuSchema)?.ProductSkuSchemaSkuCode ?? string.Empty,
-    //         ProductPrice = (product as IProductPriceSchema)?.ProductPriceSchemaPrice ?? 0m,
-    //         ProductImages = GetImageViewModels(product.ProductSchemaImages),
-    //         ProductSelectedVariantCodeName = string.Empty,
-    //         ProductVariants = [],
-    //         ProductParentDescription = new HtmlString(product.ProductSchemaDescription),
-    //         ProductVariantDescription = new HtmlString(string.Empty),
-    //         ProductOtherDetails = new HtmlString(string.Empty),
-    //         ProductStockStatus = GetFriendlyEnumString(await GetProductStockStatus(product as IProductSkuSchema))
-    //     };
-
-    //     return model;
-    // }
 
     private async Task<ProductViewModel> GetAccessDeniedViewModel(IProductSchema? product)
     {
@@ -389,11 +371,9 @@ public class ProductService(IContentItemRetrieverService contentItemRetrieverSer
     }
 
     /// <inheritdoc/>
-    public async Task<IEnumerable<ProductPage>> RetrieveProductPagesByPath(
+    public async Task<IEnumerable<ProductPage>> RetrieveProductPages(
         string parentPagePath,
-        string securedItemsDisplayMode,
-        string appliedMaterialsFilter,
-        string appliedColorsFilter)
+        string securedItemsDisplayMode)
     {
         if (string.IsNullOrEmpty(parentPagePath))
         {
@@ -403,133 +383,10 @@ public class ProductService(IContentItemRetrieverService contentItemRetrieverSer
         bool includeSecuredItems = securedItemsDisplayMode.Equals(SecuredOption.IncludeEverything.ToString())
                 || securedItemsDisplayMode.Equals(SecuredOption.PromptForLogin.ToString());
 
-        var materialFilters = ParseFilterValues(appliedMaterialsFilter);
-        var colorFilters = ParseFilterValues(appliedColorsFilter);
-
-        if (materialFilters is not null || colorFilters is not null)
-        {
-            var filteredIds = await RetrieveFilteredProductIDs(includeSecuredItems, materialFilters, colorFilters);
-
-            var parentIds = await RetrieveFilteredProductParentIDs(includeSecuredItems, filteredIds);
-
-            var allProductIds = parentIds.Union(filteredIds);
-
-            if (!allProductIds.Any())
-            {
-                return [];
-            }
-
-            return await contentItemRetrieverService.RetrieveWebPageChildrenByPath<ProductPage>(
-                path: parentPagePath,
-                depth: 3,
-                 includeSecuredItems: includeSecuredItems,
-                additionalQueryConfiguration: query => query
-                    .Linking(nameof(ProductPage.ProductPageProducts), allProductIds));
-        }
-
         return await contentItemRetrieverService.RetrieveWebPageChildrenByPath<ProductPage>(
             path: parentPagePath,
             depth: 3);
         //  includeSecuredItems: includeSecuredItems);
-    }
-
-    private async Task<IEnumerable<int>> RetrieveFilteredProductIDs(bool includeSecuredItems,
-        IEnumerable<string>? materialFilters,
-        IEnumerable<string>? colorFilters)
-    {
-        var materialTaxonomy = await GetTaxonomyData(MATERIAL_TAXONOMY);
-        var colorTaxonomy = await GetTaxonomyData(COLOR_PATTERN_TAXONOMY);
-
-        Func<RetrieveContentOfReusableSchemasQueryParameters, RetrieveContentOfReusableSchemasQueryParameters> filterFunc = query =>
-        {
-            // Set up filter functions that do nothing for each taxonomy
-            Func<RetrieveContentOfReusableSchemasQueryParameters, RetrieveContentOfReusableSchemasQueryParameters> materialFilterFunc = q => q;
-            Func<RetrieveContentOfReusableSchemasQueryParameters, RetrieveContentOfReusableSchemasQueryParameters> colorFilterFunc = q => q;
-
-            if (materialFilters is not null)
-            {
-                materialFilterFunc = GetFuncForFilter(materialFilters, materialTaxonomy, nameof(IMaterialSchema.MaterialSchemaMaterial));
-            }
-
-            if (colorFilters is not null)
-            {
-                colorFilterFunc = GetFuncForFilter(colorFilters, colorTaxonomy, nameof(IColorPatternSchema.ColorPattern));
-            }
-
-            Func<RetrieveContentOfReusableSchemasQueryParameters, RetrieveContentOfReusableSchemasQueryParameters> columnsFilterFunc = q =>
-                q.Columns(nameof(ContentItemFields.ContentItemID));
-
-            return columnsFilterFunc(colorFilterFunc(materialFilterFunc(query)));
-        };
-
-        var items = await contentItemRetrieverService.RetrieveContentItemsBySchemas<IProductSchema>(
-            schemaNames: [IProductSchema.REUSABLE_FIELD_SCHEMA_NAME, IMaterialSchema.REUSABLE_FIELD_SCHEMA_NAME, IColorPatternSchema.REUSABLE_FIELD_SCHEMA_NAME],
-            additionalQueryConfiguration: query => filterFunc(query),
-            depth: 0,
-            includeSecuredItems: includeSecuredItems
-        );
-
-        return items.Select(item => (item as IContentItemFieldsSource)?.SystemFields.ContentItemID)
-            .Where(id => id is not null)
-            .Cast<int>();
-    }
-
-    /// <summary>
-    /// Retrieves parent IDs of products matching the specified filtered IDs.
-    /// </summary>
-    /// <param name="includeSecuredItems">Indicates whether to include secured items.</param>
-    /// <param name="filteredIds">The filtered product IDs.</param>
-    private async Task<IEnumerable<int>> RetrieveFilteredProductParentIDs(bool includeSecuredItems, IEnumerable<int> filteredIds)
-    {
-        if (!filteredIds.Any())
-        {
-            return [];
-        }
-
-        var parents = await contentItemRetrieverService.RetrieveContentItemsBySchemas<IContentItemFieldsSource>(
-                schemaNames: [IProductParentSchema.REUSABLE_FIELD_SCHEMA_NAME],
-                additionalQueryConfiguration: query => query
-                    .LinkingSchemaField(nameof(IProductParentSchema.ProductParentSchemaVariants), filteredIds)
-                    .Columns(nameof(ContentItemFields.ContentItemID)),
-                depth: 3,
-                includeSecuredItems: includeSecuredItems);
-
-        return parents.Select(parent => parent.SystemFields.ContentItemID);
-    }
-
-    /// <summary>
-    /// Generates a filter function for retrieving content items based on the specified filter values and taxonomy.
-    /// </summary>
-    /// <param name="filterValues"></param>
-    /// <param name="taxonomy"></param>
-    /// <param name="taxonomyColumnName"></param>
-    /// <returns></returns>
-    private Func<RetrieveContentOfReusableSchemasQueryParameters, RetrieveContentOfReusableSchemasQueryParameters> GetFuncForFilter(IEnumerable<string> filterValues, TaxonomyData? taxonomy, string taxonomyColumnName)
-    {
-        var tags = taxonomy?.Tags
-                    .Where(tag => filterValues.Contains(tag.Name.ToLower()))
-                    .Select(tag => tag.Identifier) ?? [];
-
-        return query => query.Where(where => where.WhereContainsTags(taxonomyColumnName, tags).Or());
-    }
-
-    /// <summary>
-    /// Parses filter values from a comma-separated string.
-    /// </summary>
-    /// <param name="filterValues">A comma-separated string of filter values.</param>
-    /// <returns>A collection of parsed filter values, or <c>null</c> if no valid filters are found.</returns>
-    private IEnumerable<string>? ParseFilterValues(string filterValues)
-    {
-        if (string.IsNullOrWhiteSpace(filterValues) || filterValues.Equals("all", StringComparison.OrdinalIgnoreCase))
-        {
-            return null;
-        }
-
-        var values = filterValues.Split(',', StringSplitOptions.RemoveEmptyEntries)
-            .Select(value => value.Trim().ToLower())
-            .Where(value => !value.Equals("all", StringComparison.OrdinalIgnoreCase));
-
-        return values.Any() ? values : null;
     }
 
     /// <inheritdoc/>
@@ -630,63 +487,6 @@ public class ProductService(IContentItemRetrieverService contentItemRetrieverSer
         return false;
     }
 
-    /// <summary>
-    /// Retrieves taxonomy data for a given taxonomy name.
-    /// </summary>
-    /// <param name="taxonomyName">The name of the taxonomy to retrieve.</param>
-    /// <returns>The <see cref="TaxonomyData"/> if found; otherwise, <c>null</c>.</returns>
-    /// <remarks>
-    /// Use extra caching in real-world scenarios.
-    /// </remarks>
-    private async Task<TaxonomyData?> GetTaxonomyData(string taxonomyName)
-    {
-        var taxonomy = await taxonomyRetriever.RetrieveTaxonomy(taxonomyName, preferredLanguageRetriever.Get());
-
-        if (taxonomy is null || taxonomy.Tags is null || !taxonomy.Tags.Any())
-        {
-            return null;
-        }
-
-        return taxonomy;
-    }
-
-    /// <inheritdoc/>
-    public async Task<IEnumerable<ProductListingFilterViewModel>> GetProductListingFilters()
-    {
-        var filters = new List<ProductListingFilterViewModel?>
-            {
-                await GetProductListingFilter("ProductMaterial"),
-                await GetProductListingFilter("ProductColor_Pattern")
-            };
-
-        return filters.Where(filter => filter is not null).Cast<ProductListingFilterViewModel>();
-    }
-
-    /// <summary>
-    /// Retrieves data for a product listing filter based on the specified taxonomy name.
-    /// </summary>
-    /// <param name="taxonomyName">The name of the taxonomy to retrieve.</param>
-    /// <returns>The <see cref="ProductListingFilterViewModel"/> if found; otherwise, <c>null</c>.</returns>
-    private async Task<ProductListingFilterViewModel?> GetProductListingFilter(string taxonomyName)
-    {
-        var taxonomy = await GetTaxonomyData(taxonomyName);
-
-        if (taxonomy is null)
-        {
-            return null;
-        }
-
-        return new ProductListingFilterViewModel
-        {
-            ProductListingFilterName = taxonomy.Taxonomy.Name,
-            ProductListingFilterDisplayName = taxonomy.Taxonomy.Title,
-            ProductListingFilterOptions = taxonomy.Tags.Select(tag => new ProductListingFilterOptionViewModel
-            {
-                FilterOptionDisplayName = tag.Title,
-                FilterOptionValue = tag.Name
-            }).ToList() ?? []
-        };
-    }
     private async Task<decimal> GetCatalogPrice(IProductSchema product)
     {
         if (product is IProductPriceSchema pricedProduct)

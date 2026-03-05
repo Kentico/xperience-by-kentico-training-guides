@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.productimage>
+  <ContentItemDataCommonDataID>
+    <GUID>5e66db93-420e-4401-8d27-7442492ac73a</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>TrailFlexReflectiveDogCollar-Black-s64c9605</CodeName>
+      <GUID>b3011e84-6e48-4012-9f8f-9f127e78ce87</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>8b13bb54-0fc8-4423-b23f-6c2d0ec3abc2</ContentItemDataGUID>
+  <ProductImageAltText>TrailFlex Reflective Dog Collar - black</ProductImageAltText>
+  <ProductImageAsset>
+    <![CDATA[{"Variants":{},"FocalPoint":{"X":768,"Y":512},"Identifier":"0838623a-0283-4d39-82fd-61d21498ac75","Name":"PawPeak-TrailFlex-Collar_black.png","Extension":".png","Size":1094807,"Width":1536,"Height":1024,"LastModified":"2026-03-05T06:22:34.8055477Z"}]]>
+  </ProductImageAsset>
+</contentitemdata.trainingguides.productimage>

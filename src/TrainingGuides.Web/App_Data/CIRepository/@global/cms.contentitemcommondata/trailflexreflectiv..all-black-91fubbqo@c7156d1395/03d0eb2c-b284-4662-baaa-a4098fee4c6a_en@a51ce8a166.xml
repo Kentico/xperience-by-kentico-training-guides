@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentitemcommondata>
+  <ColorPattern>
+    <![CDATA[[{"Identifier":"7644a5da-c3d5-49d4-9492-a6994789d403"}]]]>
+  </ColorPattern>
+  <ContentItemCommonDataContentItemID>
+    <CodeName>TrailFlexReflective-Small-Black-91fubbqo</CodeName>
+    <GUID>084b9f80-7825-4003-a5ef-f77a9cea7ffa</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </ContentItemCommonDataContentItemID>
+  <ContentItemCommonDataContentLanguageID>
+    <CodeName>en</CodeName>
+    <GUID>e81b5172-f240-4041-88b1-653089984e29</GUID>
+    <ObjectType>cms.contentlanguage</ObjectType>
+  </ContentItemCommonDataContentLanguageID>
+  <ContentItemCommonDataFirstPublishedWhen>2026-03-02 19:15:53Z</ContentItemCommonDataFirstPublishedWhen>
+  <ContentItemCommonDataGUID>03d0eb2c-b284-4662-baaa-a4098fee4c6a</ContentItemCommonDataGUID>
+  <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
+  <ContentItemCommonDataLastPublishedWhen>2026-03-02 19:15:53Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
+  <ProductPriceSchemaPrice>22.99</ProductPriceSchemaPrice>
+  <ProductSchemaDescription />
+  <ProductSchemaImages>
+    <![CDATA[[{"Identifier":"f5df607a-1542-4e76-8e00-d842568d2eec"}]]]>
+  </ProductSchemaImages>
+  <ProductSchemaName>Black</ProductSchemaName>
+  <ProductSkuSchemaSkuCode>COL-DOG-NEO-001-L-BLK</ProductSkuSchemaSkuCode>
+  <ProductVariantSchemaCodeName>TrailFlexDogCollarBlack</ProductVariantSchemaCodeName>
+  <SizeSchemaSize>
+    <![CDATA[[{"Identifier":"edf9e701-c4e6-4381-ac19-9e9518e9c011"}]]]>
+  </SizeSchemaSize>
+  <ContentItemReferences>
+    <cms.contentitemreference>
+      <ContentItemReferenceGroupGUID>84b06b06-1392-422d-82e5-639ed2fa6340</ContentItemReferenceGroupGUID>
+      <ContentItemReferenceGUID>70d9841d-b876-43bb-8129-fe1161344d59</ContentItemReferenceGUID>
+      <ContentItemReferenceSourceCommonDataID>
+        <GUID>03d0eb2c-b284-4662-baaa-a4098fee4c6a</GUID>
+        <ObjectType>cms.contentitemcommondata</ObjectType>
+      </ContentItemReferenceSourceCommonDataID>
+      <ContentItemReferenceTargetItemID>
+        <CodeName>TrailFlexReflectiveDogCollar-Black-n9qua1gb</CodeName>
+        <GUID>f5df607a-1542-4e76-8e00-d842568d2eec</GUID>
+        <ObjectType>cms.contentitem</ObjectType>
+      </ContentItemReferenceTargetItemID>
+    </cms.contentitemreference>
+  </ContentItemReferences>
+</cms.contentitemcommondata>

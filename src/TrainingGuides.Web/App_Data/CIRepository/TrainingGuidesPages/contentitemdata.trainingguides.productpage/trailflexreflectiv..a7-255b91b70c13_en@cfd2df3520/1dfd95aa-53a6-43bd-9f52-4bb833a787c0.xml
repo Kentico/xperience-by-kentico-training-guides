@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.productpage>
+  <ContentItemDataCommonDataID>
+    <GUID>1fe875f9-3859-45ef-97a7-255b91b70c13</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>TrailFlexReflectiveDogCollar-6c6y1vok</CodeName>
+      <GUID>fdc7f71f-0c87-4767-9a7f-0be601eae064</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>1dfd95aa-53a6-43bd-9f52-4bb833a787c0</ContentItemDataGUID>
+  <ProductPageProducts>
+    <![CDATA[[{"Identifier":"9ed7aeec-16ad-4d45-858f-42414aff2e04"}]]]>
+  </ProductPageProducts>
+</contentitemdata.trainingguides.productpage>

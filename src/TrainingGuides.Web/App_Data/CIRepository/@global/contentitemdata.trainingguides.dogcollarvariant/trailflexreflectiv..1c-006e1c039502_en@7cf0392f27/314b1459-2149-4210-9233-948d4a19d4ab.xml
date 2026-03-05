@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.dogcollarvariant>
+  <ContentItemDataCommonDataID>
+    <GUID>006dd3ce-aa59-4583-9c1c-006e1c039502</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>TrailFlexReflectiveDogCollarInRed-mvzrsjto</CodeName>
+      <GUID>db171fd7-bbdb-43e1-8c57-d91bab74c397</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>314b1459-2149-4210-9233-948d4a19d4ab</ContentItemDataGUID>
+</contentitemdata.trainingguides.dogcollarvariant>

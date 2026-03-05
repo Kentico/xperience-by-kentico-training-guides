@@ -64,18 +64,14 @@ public interface IProductService
     Task<ProductPage?> GetProductPageByGuid(Guid contentItemGuid);
 
     /// <summary>
-    /// Retrieves product pages by path with optional filtering by materials and colors.
+    /// Retrieves product pages by path.
     /// </summary>
     /// <param name="parentPagePath">The path of the parent page to search under.</param>
     /// <param name="securedItemsDisplayMode">The display mode for secured items.</param>
-    /// <param name="appliedMaterialsFilter">Comma-separated material filter values.</param>
-    /// <param name="appliedColorsFilter">Comma-separated color filter values.</param>
     /// <returns>A collection of product pages matching the criteria.</returns>
-    Task<IEnumerable<ProductPage>> RetrieveProductPagesByPath(
+    Task<IEnumerable<ProductPage>> RetrieveProductPages(
         string parentPagePath,
-        string securedItemsDisplayMode,
-        string appliedMaterialsFilter,
-        string appliedColorsFilter);
+        string securedItemsDisplayMode);
 
     /// <summary>
     /// Creates view models for a collection of product pages.
@@ -86,10 +82,4 @@ public interface IProductService
     Task<List<ProductListingItemViewModel>> GetProductListingItemViewModels(
         IEnumerable<ProductPage> productPages,
         string securedItemsDisplayMode);
-
-    /// <summary>
-    /// Retrieves all available product listing filters.
-    /// </summary>
-    /// <returns>A collection of product listing filter view models.</returns>
-    Task<IEnumerable<ProductListingFilterViewModel>> GetProductListingFilters();
 }
