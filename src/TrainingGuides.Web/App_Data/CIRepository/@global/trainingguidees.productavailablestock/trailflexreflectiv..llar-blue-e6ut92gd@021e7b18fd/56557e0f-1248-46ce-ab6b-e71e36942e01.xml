@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<trainingguidees.productavailablestock>
+  <ProductAvailableStockContentItemID>
+    <CodeName>TrailFlexReflectiveDogCollar-Blue-e6ut92gd</CodeName>
+    <GUID>48cd8588-c886-4e58-a298-0db211ae1dbb</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </ProductAvailableStockContentItemID>
+  <ProductAvailableStockGUID>56557e0f-1248-46ce-ab6b-e71e36942e01</ProductAvailableStockGUID>
+  <ProductAvailableStockSKUCode>COL-DOG-NEO-001-M-BLU</ProductAvailableStockSKUCode>
+  <ProductAvailableStockValue>55</ProductAvailableStockValue>
+</trainingguidees.productavailablestock>

@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentitemcommondata>
+  <ContentItemCommonDataContentItemID>
+    <CodeName>TrailFlexReflectiveDogCollar-6c6y1vok</CodeName>
+    <GUID>fdc7f71f-0c87-4767-9a7f-0be601eae064</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </ContentItemCommonDataContentItemID>
+  <ContentItemCommonDataContentLanguageID>
+    <CodeName>en</CodeName>
+    <GUID>e81b5172-f240-4041-88b1-653089984e29</GUID>
+    <ObjectType>cms.contentlanguage</ObjectType>
+  </ContentItemCommonDataContentLanguageID>
+  <ContentItemCommonDataFirstPublishedWhen>2026-02-27 23:24:42Z</ContentItemCommonDataFirstPublishedWhen>
+  <ContentItemCommonDataGUID>1fe875f9-3859-45ef-97a7-255b91b70c13</ContentItemCommonDataGUID>
+  <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
+  <ContentItemCommonDataLastPublishedWhen>2026-03-05 06:20:51Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
+  <ContentItemCommonDataVisualBuilderTemplateConfiguration>
+    <![CDATA[{"identifier":"TrainingGuides.EmptyPagePageTemplate","properties":null,"fieldIdentifiers":{}}]]>
+  </ContentItemCommonDataVisualBuilderTemplateConfiguration>
+  <ContentItemCommonDataVisualBuilderWidgets>
+    <![CDATA[{"editableAreas":[{"identifier":"areaMain","sections":[{"identifier":"c1afed21-0bb2-4bca-89cd-22ed8f03acf3","type":"TrainingGuides.SingleColumnSection","properties":{"sectionAnchor":""},"zones":[{"identifier":"7d4bfdac-74d0-44b0-bddd-190c9279c821","widgets":[{"identifier":"5dd994f5-d633-41b2-9db9-71f835d63941","type":"TrainingGuides.ProductWidget","variants":[{"identifier":"2c943f7d-496b-4b2a-84f8-d4e115c73bf6","properties":{"displayCurrentPage":true,"selectedProduct":[],"showVariantSelection":true,"showVariantDetails":true,"showCallToAction":false,"callToActionText":"View Product"},"fieldIdentifiers":{"displayCurrentPage":"ad1ac0ec-93f6-4d78-8806-789cb2820236","selectedProduct":"1bfbdb80-d51e-46c3-82ba-89bad87beeda","showVariantSelection":"be4f05a9-7e4b-4167-944c-f5087679e905","showVariantDetails":"baaff6de-bbd1-489a-91c7-53861e1f417f","showCallToAction":"d1447789-f613-4743-ab07-7d37dc2cc392","callToActionText":"b923c1d5-af6c-4f3a-baef-b349740dac4b"}}]}]}],"fieldIdentifiers":{"sectionAnchor":"a329d46c-7428-4736-b5f9-e1442cdeb582"}}]}]}]]>
+  </ContentItemCommonDataVisualBuilderWidgets>
+  <ContentItemReferences>
+    <cms.contentitemreference>
+      <ContentItemReferenceGroupGUID>006815af-b9a1-4191-b865-e729e078d4cf</ContentItemReferenceGroupGUID>
+      <ContentItemReferenceGUID>c372d375-44ac-46ea-b301-79e8c3295bde</ContentItemReferenceGUID>
+      <ContentItemReferenceSourceCommonDataID>
+        <GUID>1fe875f9-3859-45ef-97a7-255b91b70c13</GUID>
+        <ObjectType>cms.contentitemcommondata</ObjectType>
+      </ContentItemReferenceSourceCommonDataID>
+      <ContentItemReferenceTargetItemID>
+        <CodeName>TrailFlexReflectiveDogCollar-pal3kbik</CodeName>
+        <GUID>9ed7aeec-16ad-4d45-858f-42414aff2e04</GUID>
+        <ObjectType>cms.contentitem</ObjectType>
+      </ContentItemReferenceTargetItemID>
+    </cms.contentitemreference>
+  </ContentItemReferences>
+</cms.contentitemcommondata>
