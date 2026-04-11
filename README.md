@@ -3,7 +3,7 @@
 This repository is the starting point for the [Xperience by Kentico technical training guides](https://docs.kentico.com/guides/development). Use this branch to follow along with the training guides.
 
 > [!NOTE]  
-> This repository uses Xperience by Kentico version **31.0.1**.
+> This repository uses Xperience by Kentico version **31.3.3**.
 
 The [finished branch](https://github.com/Kentico/xperience-by-kentico-training-guides/tree/finished) contains the cumulative results of the training guides, as well as some sample widgets, and can be used for reference. As it contains several independent examples, it is not built comprehensively, and we recommend against using it as a boilerplate. We continuously add new features to this repository as we create new training guide materials. 
 
