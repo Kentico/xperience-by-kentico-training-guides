@@ -144,7 +144,7 @@ public class ArticleListWidgetViewComponent : ViewComponent
                     string signInUrl = await membershipService.GetSignInUrl(language);
 
                     var model = securedItemsDisplayMode.Equals(SecuredOption.PromptForLogin.ToString())
-                        ? articlePageService.GetArticlePageViewModelWithSecurity(articlePage, signInUrl, await membershipService.IsMemberAuthenticated())
+                        ? articlePageService.GetArticlePageViewModelWithSecurity(articlePage, signInUrl)
                         : articlePageService.GetArticlePageViewModel(articlePage);
 
                     models.Add(model);

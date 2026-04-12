@@ -1,4 +1,5 @@
 using CMS.Websites;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Html;
 using Microsoft.Extensions.Localization;
 using Moq;
@@ -13,6 +14,7 @@ public class ArticlePageServiceTests
 {
     private readonly Mock<IStringLocalizer<SharedResources>> stringLocalizerMock;
     private readonly Mock<IHttpRequestService> httpRequestServiceMock;
+    private readonly Mock<IHttpContextAccessor> httpContextAccessorMock;
     private readonly Mock<ArticlePageService> articlePageServiceMock;
 
     private const string ARTICLE_TITLE = "Title";
@@ -26,10 +28,12 @@ public class ArticlePageServiceTests
     {
         stringLocalizerMock = new Mock<IStringLocalizer<SharedResources>>();
         httpRequestServiceMock = new Mock<IHttpRequestService>();
+        httpContextAccessorMock = new Mock<IHttpContextAccessor>();
 
         articlePageServiceMock = new Mock<ArticlePageService>(
             stringLocalizerMock.Object,
-            httpRequestServiceMock.Object);
+            httpRequestServiceMock.Object,
+            httpContextAccessorMock.Object);
 
         // Mock the GetArticlePageRelativeUrl method to avoid IoC container issues
         articlePageServiceMock.Setup(x => x.GetArticlePageRelativeUrl(It.IsAny<ArticlePage>()))

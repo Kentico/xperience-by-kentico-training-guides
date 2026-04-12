@@ -45,6 +45,40 @@
           <fielddescriptionashtml>False</fielddescriptionashtml>
         </properties>
       </field>
+      <field column="GuidesRoleBadgeLabel" enabled="true" guid="b515f1a2-2d57-45d7-aa8d-1ccaf836fc3e" visible="true" order="4">
+        <settings>
+          <controlname>Kentico.Administration.TextInput</controlname>
+        </settings>
+        <properties>
+          <fieldcaption>Badge label</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+          <explanationtextashtml>False</explanationtextashtml>
+        </properties>
+      </field>
+      <field column="GuidesRoleBadgeColor" enabled="true" guid="414d9f31-6f7a-405a-a3b8-41a8ed56ed4d" visible="true" order="5">
+        <settings>
+          <controlname>Kentico.Administration.TextInput</controlname>
+        </settings>
+        <properties>
+          <fieldcaption>Badge color</fieldcaption>
+          <fielddescription>Use a hex color such as #8107c1.</fielddescription>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+          <explanationtextashtml>False</explanationtextashtml>
+        </properties>
+      </field>
+      <field column="GuidesRoleBenefitsSummary" enabled="true" guid="011c0c48-e060-4521-98d4-e04d4f97543e" visible="true" order="6">
+        <settings>
+          <controlname>Kentico.Administration.TextArea</controlname>
+          <CopyButtonVisible>False</CopyButtonVisible>
+          <MaxRowsNumber>5</MaxRowsNumber>
+          <MinRowsNumber>3</MinRowsNumber>
+        </settings>
+        <properties>
+          <fieldcaption>Benefits summary</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+          <explanationtextashtml>False</explanationtextashtml>
+        </properties>
+      </field>
     </form>
   </FormDefinition>
   <FormDisplayName>create</FormDisplayName>

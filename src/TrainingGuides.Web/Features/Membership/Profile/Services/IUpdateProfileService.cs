@@ -7,5 +7,5 @@ public interface IUpdateProfileService
     /// </summary>
     /// <param name="guidesMember">The member to base the view model on.</param>
     /// <returns>An <see cref="UpdateProfileViewModel"/> based on the values of the <see cref="GuidesMember"/>'s properties.</returns>
-    UpdateProfileViewModel GetViewModel(GuidesMember guidesMember);
+    UpdateProfileViewModel GetViewModel(GuidesMember guidesMember, IEnumerable<GuidesRole> roles);
 }

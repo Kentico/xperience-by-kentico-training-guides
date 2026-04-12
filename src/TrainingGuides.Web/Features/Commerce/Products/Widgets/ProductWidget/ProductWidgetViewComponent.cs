@@ -1,4 +1,5 @@
 using CMS.ContentEngine;
+using Kentico.Content.Web.Mvc;
 using Kentico.Content.Web.Mvc.Routing;
 using Kentico.PageBuilder.Web.Mvc;
 using Microsoft.AspNetCore.Mvc;
@@ -57,16 +58,11 @@ public class ProductWidgetViewComponent(IProductService productService,
             }
         }
 
-        bool isAuthenticated = await membershipService.IsMemberAuthenticated();
+        var user = HttpContext?.User;
+        bool pageHasAccess = productPage?.HasAccess(user) ?? true;
+        bool itemHasAccess = (product as IContentItemFieldsSource)?.HasAccess(user) ?? true;
 
-        bool pageSecured = productPage is IWebPageFieldsSource pageFieldsSource
-            && pageFieldsSource.SystemFields.ContentItemIsSecured;
-
-        bool itemSecured = product is IContentItemFieldsSource itemFieldsSource
-            && itemFieldsSource.SystemFields.ContentItemIsSecured;
-
-        bool accessDenied = (pageSecured || itemSecured)
-            && !isAuthenticated;
+        bool accessDenied = !pageHasAccess || !itemHasAccess;
 
         string language = preferredLanguageRetriever.Get();
 

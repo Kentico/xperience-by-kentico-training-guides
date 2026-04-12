@@ -91,9 +91,38 @@ public class AuthenticationController : Controller
         return Redirect(redirectUrl);
     }
 
+    [HttpGet(ApplicationConstants.EXPECTED_SIGN_IN_PATH)]
+    public async Task<IActionResult> SignIn([FromQuery(Name = ApplicationConstants.RETURN_URL_PARAMETER)] string returnUrl = "")
+    {
+        string language = string.IsNullOrWhiteSpace(returnUrl)
+            ? preferredLanguageRetriever.Get()
+            : GetLanguageFromReturnUrl(returnUrl);
+
+        string signInUrl = await membershipService.GetSignInUrl(language, false);
+
+        var query = string.IsNullOrWhiteSpace(returnUrl)
+            ? string.Empty
+            : QueryString.Create(ApplicationConstants.RETURN_URL_PARAMETER, returnUrl).ToString();
+
+        var redirectUrl = new UriBuilder(httpRequestService.GetBaseUrl())
+        {
+            Path = signInUrl.TrimStart('~'),
+            Query = query
+        };
+
+        return Redirect(redirectUrl.ToString());
+    }
+
     [HttpGet(ApplicationConstants.ACCESS_DENIED_ACTION_PATH)]
     public async Task<IActionResult> AccessDenied([FromQuery(Name = ApplicationConstants.RETURN_URL_PARAMETER)] string returnUrl)
     {
+        // If user is already authenticated, show access denied page
+        if (User?.Identity?.IsAuthenticated ?? false)
+        {
+            return View("~/Views/Shared/AccessDenied.cshtml");
+        }
+
+        // If not authenticated, redirect to sign-in
         string language = GetLanguageFromReturnUrl(returnUrl);
 
         string signInUrl = await membershipService.GetSignInUrl(language, true);

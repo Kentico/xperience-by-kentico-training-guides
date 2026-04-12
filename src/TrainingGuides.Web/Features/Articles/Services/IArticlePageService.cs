@@ -17,7 +17,7 @@ public interface IArticlePageService
     /// <remarks>
     /// If the articlePage is secured and the current visitor is not authenticated, the view model will prompt them to sign in.
     /// </remarks>
-    ArticlePageViewModel GetArticlePageViewModelWithSecurity(ArticlePage? articlePage, string signInUrl, bool isAuthenticated);
+    ArticlePageViewModel GetArticlePageViewModelWithSecurity(ArticlePage? articlePage, string signInUrl);
 
     /// <summary>
     /// Determines whether the reusable article item referenced by the article page is secured.

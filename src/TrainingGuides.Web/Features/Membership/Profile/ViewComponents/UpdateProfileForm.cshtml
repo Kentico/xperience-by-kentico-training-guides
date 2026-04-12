@@ -39,6 +39,23 @@
             <strong>@Model.Created</strong>
         </div>
     </div>
+    @if (Model.Roles.Any())
+    {
+        <div class="form-group">
+            <div class="editing-form-value-cell pt-3">
+                @foreach (var role in Model.Roles)
+                {
+                    <div class="mb-3">
+                        <span class="badge rounded-pill px-3 py-2" style="background-color: @role.BadgeColor; color: #ffffff;">@role.BadgeLabel</span>
+                        @if (!string.IsNullOrWhiteSpace(role.BenefitsSummary))
+                        {
+                            <div class="mt-2">@role.BenefitsSummary</div>
+                        }
+                    </div>
+                }
+            </div>
+        </div>
+    }
     <div class="form-group">
         <div class="editing-form-label-cell">
             <label asp-for="GivenName" class="control-label form-label mt-3"></label>

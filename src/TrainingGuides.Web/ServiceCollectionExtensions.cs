@@ -44,6 +44,7 @@ public static class ServiceCollectionExtensions
 
 
         services.AddScoped<IMembershipService, MembershipService>();
+        services.AddScoped<IGuidesRoleService, GuidesRoleService>();
         services.AddScoped<IProductService, ProductService>();
         services.AddScoped<IHeadTagStoreService, HeadTagStoreService>();
 

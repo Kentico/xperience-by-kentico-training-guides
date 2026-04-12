@@ -46,7 +46,10 @@ else
                                         <p class="mb-0 j-truncate_paragraph">@item.SummaryHtml</p>
                                     </div>
                                     <div class="c-card_footer">
-                                        <span class="c-link primary-upper text-uppercase">@(showSignIn ? Model.SignInText : Model.CtaText)</span>
+                                        @if(!string.IsNullOrEmpty(item.Url))
+                                        {
+                                            <span class="c-link primary-upper text-uppercase">@(showSignIn ? Model.SignInText : Model.CtaText)</span>
+                                        }
                                     </div>
                                 </div>
                             </div>

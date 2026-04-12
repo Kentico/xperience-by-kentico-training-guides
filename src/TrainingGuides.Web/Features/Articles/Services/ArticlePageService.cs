@@ -1,4 +1,5 @@
 using CMS.ContentEngine;
+using Kentico.Content.Web.Mvc;
 using Microsoft.AspNetCore.Html;
 using Microsoft.Extensions.Localization;
 using TrainingGuides.Web.Features.Shared.Helpers;
@@ -11,12 +12,15 @@ public class ArticlePageService : IArticlePageService
 {
     private readonly IStringLocalizer<SharedResources> stringLocalizer;
     private readonly IHttpRequestService httpRequestService;
+    private readonly IHttpContextAccessor httpContextAccessor;
     public ArticlePageService(
         IStringLocalizer<SharedResources> stringLocalizer,
-        IHttpRequestService httpRequestService)
+        IHttpRequestService httpRequestService,
+        IHttpContextAccessor httpContextAccessor)
     {
         this.stringLocalizer = stringLocalizer;
         this.httpRequestService = httpRequestService;
+        this.httpContextAccessor = httpContextAccessor;
     }
 
     ///  <inheritdoc/>
@@ -42,7 +46,7 @@ public class ArticlePageService : IArticlePageService
                 CreatedOn = articlePage.ArticlePagePublishDate,
                 TeaserImage = AssetViewModel.GetViewModel(articleSchemaTeaserImage),
                 Url = articleUrl,
-                IsSecured = articlePage.SystemFields.ContentItemIsSecured
+                IsSecured = !CurrentUserHasAccess(articlePage)
             };
         }
 
@@ -57,7 +61,7 @@ public class ArticlePageService : IArticlePageService
             CreatedOn = articlePage.ArticlePagePublishDate,
             TeaserImage = AssetViewModel.GetViewModel(articleTeaserImage),
             Url = articleUrl,
-            IsSecured = articlePage.SystemFields.ContentItemIsSecured
+            IsSecured = !CurrentUserHasAccess(articlePage)
         };
     }
 
@@ -65,7 +69,7 @@ public class ArticlePageService : IArticlePageService
         articlePage?.GetUrl().RelativePath ?? string.Empty;
 
     /// <inheritdoc/>
-    public ArticlePageViewModel GetArticlePageViewModelWithSecurity(ArticlePage? articlePage, string signInUrl, bool isAuthenticated)
+    public ArticlePageViewModel GetArticlePageViewModelWithSecurity(ArticlePage? articlePage, string signInUrl)
     {
         var originalViewModel = GetArticlePageViewModel(articlePage);
 
@@ -76,34 +80,52 @@ public class ArticlePageService : IArticlePageService
 
         bool reusableArticleSecured = IsReusableArticleSecured(articlePage);
 
-        if ((articlePage.SystemFields.ContentItemIsSecured
-            || reusableArticleSecured)
-            && !isAuthenticated)
+        if (!CurrentUserHasAccess(articlePage) || reusableArticleSecured)
         {
-            string relativePath = originalViewModel.Url.TrimStart('~');
+            var user = httpContextAccessor?.HttpContext?.User;
+            bool isAuthenticated = user?.Identity?.IsAuthenticated ?? false;
 
-            string baseUrl = httpRequestService.GetBaseUrl();
-
-            var signInUri = new UriBuilder(baseUrl)
+            // If not authenticated, show sign-in prompt
+            if (!isAuthenticated)
             {
-                Path = signInUrl.TrimStart('~'),
-                Query = QueryString.Create(ApplicationConstants.RETURN_URL_PARAMETER, relativePath).ToString()
-            };
+                string relativePath = originalViewModel.Url.TrimStart('~');
 
-            string messageWithLinkString = $"<a href=\"{signInUri}\">{stringLocalizer["Sign in"]}</a> {stringLocalizer["to view this content."]}";
+                string baseUrl = httpRequestService.GetBaseUrl();
 
-            var message = new HtmlString(stringLocalizer["Sign in to view this content."]);
-            var messageWithLink = new HtmlString(messageWithLinkString);
+                var signInUri = new UriBuilder(baseUrl)
+                {
+                    Path = signInUrl.TrimStart('~'),
+                    Query = QueryString.Create(ApplicationConstants.RETURN_URL_PARAMETER, relativePath).ToString()
+                };
 
+                string messageWithLinkString = $"<a href=\"{signInUri}\">{stringLocalizer["Sign in"]}</a> {stringLocalizer["to view this content."]}";
+
+                var message = new HtmlString(stringLocalizer["Sign in to view this content."]);
+                var messageWithLink = new HtmlString(messageWithLinkString);
+
+                return new ArticlePageViewModel
+                {
+                    Title = $"{stringLocalizer["(🔒 Locked)"]} {originalViewModel.Title}",
+                    SummaryHtml = message,
+                    TextHtml = messageWithLink,
+                    CreatedOn = articlePage.ArticlePagePublishDate,
+                    TeaserImage = originalViewModel.TeaserImage,
+                    Url = signInUri.ToString(),
+                    IsSecured = true
+                };
+            }
+
+            // If authenticated but no access, show access denied message
+            var accessDeniedMessage = new HtmlString(stringLocalizer["You do not have permission to access this content. Upgrade to our higher tier."]);
             return new ArticlePageViewModel
             {
                 Title = $"{stringLocalizer["(🔒 Locked)"]} {originalViewModel.Title}",
-                SummaryHtml = message,
-                TextHtml = messageWithLink,
+                SummaryHtml = accessDeniedMessage,
+                TextHtml = accessDeniedMessage,
                 CreatedOn = articlePage.ArticlePagePublishDate,
                 TeaserImage = originalViewModel.TeaserImage,
-                Url = signInUri.ToString(),
-                IsSecured = articlePage.SystemFields.ContentItemIsSecured
+                Url = string.Empty,
+                IsSecured = true
             };
         }
         return originalViewModel;
@@ -115,7 +137,12 @@ public class ArticlePageService : IArticlePageService
         var oldArticle = articlePage.ArticlePageContent.FirstOrDefault();
         var newArticle = (IContentItemFieldsSource?)articlePage.ArticlePageArticleContent.FirstOrDefault();
 
-        return (oldArticle?.SystemFields.ContentItemIsSecured ?? false)
-            || (newArticle?.SystemFields.ContentItemIsSecured ?? false);
+        bool articleAccessible = (oldArticle?.HasAccess(httpContextAccessor?.HttpContext?.User) ?? false)
+            || (newArticle?.HasAccess(httpContextAccessor?.HttpContext?.User) ?? false);
+
+        return !articleAccessible;
     }
+
+    private bool CurrentUserHasAccess(ArticlePage articlePage) => articlePage.HasAccess(httpContextAccessor?.HttpContext?.User);
+
 }

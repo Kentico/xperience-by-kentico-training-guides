@@ -9,14 +9,17 @@ namespace TrainingGuides.Web.Features.Membership.Profile;
 public class UpdateProfileViewComponent : ViewComponent
 {
     private readonly IMembershipService membershipService;
+    private readonly IGuidesRoleService guidesRoleService;
     private readonly IHttpContextAccessor httpContextAccessor;
     private readonly IUpdateProfileService updateProfileService;
 
     public UpdateProfileViewComponent(IMembershipService membershipService,
+        IGuidesRoleService guidesRoleService,
         IHttpContextAccessor httpContextAccessor,
         IUpdateProfileService updateProfileService)
     {
         this.membershipService = membershipService;
+        this.guidesRoleService = guidesRoleService;
         this.httpContextAccessor = httpContextAccessor;
         this.updateProfileService = updateProfileService;
 
@@ -33,7 +36,11 @@ public class UpdateProfileViewComponent : ViewComponent
             ? membershipService.DummyMember
             : await membershipService.GetCurrentMember() ?? membershipService.DummyMember;
 
-        var model = updateProfileService.GetViewModel(currentMember);
+        var roles = useDummyMember
+            ? []
+            : await guidesRoleService.GetRoles(currentMember);
+
+        var model = updateProfileService.GetViewModel(currentMember, roles);
 
         return View("~/Features/Membership/Profile/ViewComponents/UpdateProfile.cshtml", model);
     }

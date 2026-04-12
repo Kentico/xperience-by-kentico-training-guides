@@ -113,7 +113,35 @@ public class MembershipService : IMembershipService
             });
         }
 
-        return await userManager.CreateAsync(guidesMember, password);
+        var createResult = await userManager.CreateAsync(guidesMember, password);
+
+        if (!createResult.Succeeded)
+        {
+            return createResult;
+        }
+
+        var addToBasicRoleResult = await userManager.AddToRoleAsync(guidesMember, GuidesRoleNames.BASIC_MEMBER);
+
+        if (addToBasicRoleResult.Succeeded)
+        {
+            return createResult;
+        }
+
+        logger.LogWarning(
+            "Failed to assign role {RoleName} to newly created member {UserName}. Rolling back member creation.",
+            GuidesRoleNames.BASIC_MEMBER,
+            guidesMember.UserName);
+
+        var deleteMemberResult = await userManager.DeleteAsync(guidesMember);
+
+        if (!deleteMemberResult.Succeeded)
+        {
+            logger.LogError(
+                "Failed to roll back member {UserName} after role assignment failure. Member might require manual cleanup.",
+                guidesMember.UserName);
+        }
+
+        return addToBasicRoleResult;
     }
 
     private async Task<bool> UsernameEmailCollision(GuidesMember guidesMember)

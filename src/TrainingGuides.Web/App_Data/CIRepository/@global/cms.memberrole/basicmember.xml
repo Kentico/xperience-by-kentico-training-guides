@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.memberrole>
+  <GuidesRoleBadgeColor>#3D5DFF</GuidesRoleBadgeColor>
+  <GuidesRoleBadgeLabel>Basic</GuidesRoleBadgeLabel>
+  <GuidesRoleBenefitsSummary>Entry-level member access for signed-in users.</GuidesRoleBenefitsSummary>
+  <MemberRoleDescription>
+    <![CDATA[Core member features and standard members-only content.]]>
+  </MemberRoleDescription>
+  <MemberRoleDisplayName>Basic</MemberRoleDisplayName>
+  <MemberRoleGUID>e7e93c53-55aa-4c49-bcc9-07563e498c41</MemberRoleGUID>
+  <MemberRoleName>BasicMember</MemberRoleName>
+</cms.memberrole>

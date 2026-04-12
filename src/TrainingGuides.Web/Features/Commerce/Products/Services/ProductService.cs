@@ -8,7 +8,6 @@ using TrainingGuides.ProductStock;
 using TrainingGuides.Web.Commerce.Products.Models;
 using TrainingGuides.Web.Features.Commerce.PriceCalculation.Models;
 using TrainingGuides.Web.Features.Commerce.Products.Widgets.ProductListing;
-using TrainingGuides.Web.Features.Membership.Services;
 using TrainingGuides.Web.Features.Shared.Logging;
 using TrainingGuides.Web.Features.Shared.Services;
 
@@ -20,7 +19,7 @@ public class ProductService(IContentItemRetrieverService contentItemRetrieverSer
     IInfoProvider<TagInfo> tagInfoProvider,
     ITaxonomyRetriever taxonomyRetriever,
     IPreferredLanguageRetriever preferredLanguageRetriever,
-    IMembershipService membershipService,
+    IHttpContextAccessor httpContextAccessor,
     IPriceCalculationService<PriceCalculationRequest, TrainingGuidesPriceCalculationResult> priceCalculationService) : IProductService
 {
     private const decimal LowStockThreshold = 20m;
@@ -624,7 +623,7 @@ public class ProductService(IContentItemRetrieverService contentItemRetrieverSer
         string securedItemsDisplayMode)
     {
         var models = new List<ProductListingItemViewModel>();
-        bool isAuthenticated = await membershipService.IsMemberAuthenticated();
+        var user = httpContextAccessor.HttpContext?.User;
 
         foreach (var productPage in productPages)
         {
@@ -636,8 +635,8 @@ public class ProductService(IContentItemRetrieverService contentItemRetrieverSer
             var product = productPage.ProductPageProducts.First();
 
             bool accessDenied = securedItemsDisplayMode.Equals(SecuredOption.PromptForLogin.ToString())
-                && !isAuthenticated
-                && (IsProductSecured(product) || productPage.SystemFields.ContentItemIsSecured);
+                && (!productPage.HasAccess(user)
+                    || !((product as IContentItemFieldsSource)?.HasAccess(user) ?? true));
 
             var variant = ProductHasVariants(product)
                 ? GetFirstVariant((product as IProductParentSchema)!)
@@ -697,20 +696,6 @@ public class ProductService(IContentItemRetrieverService contentItemRetrieverSer
         }
 
         return ProductStockEnum.Unknown;
-    }
-
-    /// <summary>
-    /// Determines whether the specified product is secured.
-    /// </summary>
-    /// <param name="product">The product to check.</param>
-    /// <returns><c>true</c> if the product is secured; otherwise, <c>false</c>.</returns>
-    private bool IsProductSecured(IProductSchema product)
-    {
-        if (product is IContentItemFieldsSource contentItem)
-        {
-            return contentItem.SystemFields.ContentItemIsSecured;
-        }
-        return false;
     }
 
     /// <summary>
