@@ -11,6 +11,9 @@ using TrainingGuides.Web.Commerce.EventHandlers;
 
 namespace TrainingGuides.Web.Commerce.EventHandlers;
 
+// After we created this code sample, Xperience refresh 31.3.0 added a new way to implement and register content item event handlers,
+// with full support for async/await code and dependency injection.
+// See https://docs.kentico.com/documentation/developers-and-admins/customization/handle-global-events/reference-global-system-events#contentitemevents
 public class ProductStockCreationHandler() : Module(MODULE_NAME)
 {
 
