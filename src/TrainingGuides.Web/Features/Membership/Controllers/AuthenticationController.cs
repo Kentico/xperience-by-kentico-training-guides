@@ -80,9 +80,7 @@ public class AuthenticationController(
     [HttpGet(ApplicationConstants.EXPECTED_SIGN_IN_PATH)]
     public async Task<IActionResult> SignIn([FromQuery(Name = ApplicationConstants.RETURN_URL_PARAMETER)] string returnUrl = "")
     {
-        string language = string.IsNullOrWhiteSpace(returnUrl)
-            ? preferredLanguageRetriever.Get()
-            : GetLanguageFromReturnUrl(returnUrl);
+        string language = ResolveLanguageFromReturnUrlOrPreferred(returnUrl);
 
         string signInUrl = await membershipService.GetSignInUrl(language, false);
 
@@ -103,7 +101,7 @@ public class AuthenticationController(
     [HttpGet($"{{{ApplicationConstants.LANGUAGE_KEY}}}{ApplicationConstants.ACCESS_DENIED_ACTION_PATH}")]
     public IActionResult AccessDenied([FromQuery(Name = ApplicationConstants.RETURN_URL_PARAMETER)] string returnUrl)
     {
-        string language = GetLanguageFromReturnUrl(returnUrl);
+        string language = ResolveLanguageFromReturnUrlOrPreferred(returnUrl);
         string requestLanguage = RouteData.Values[ApplicationConstants.LANGUAGE_KEY]?.ToString() ?? string.Empty;
 
         if (!string.Equals(requestLanguage, language, StringComparison.OrdinalIgnoreCase))
@@ -124,9 +122,16 @@ public class AuthenticationController(
         Message = stringLocalizer["You do not have permission to access this content. If you believe you should have access, please contact support."]
     };
 
-    private string GetLanguageFromReturnUrl(string returnUrl)
+    private string ResolveLanguageFromReturnUrlOrPreferred(string returnUrl)
     {
-        // Cache this in real-world scenarios
+        if (string.IsNullOrWhiteSpace(returnUrl))
+        {
+            return preferredLanguageRetriever.Get();
+        }
+
+        // Cache this in real-world scenarios.
+        // Resolve from returnUrl first to preserve the target page locale during sign-in/access-denied redirects;
+        // otherwise fall back to preferred language from request/channel context.
         var languages = contentLanguageInfoProvider.Get()
             .Column(nameof(ContentLanguageInfo.ContentLanguageName))
             .GetListResult<string>();
