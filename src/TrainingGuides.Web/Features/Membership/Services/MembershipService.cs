@@ -1,4 +1,5 @@
 using CMS.ContactManagement;
+using CMS.ContentEngine;
 using CMS.Core;
 using CMS.Websites.Routing;
 using Kentico.Content.Web.Mvc;
@@ -250,6 +251,10 @@ public class MembershipService : IMembershipService
 
         return await userManager.UpdateAsync(guidesMember);
     }
+
+    /// <inheritdoc />
+    public bool CanCurrentUserAccessContentItem(IContentItemFieldsSource? contentItem) =>
+        contentItem?.HasAccess(contextAccessor.HttpContext?.User) ?? false;
 
     private void SynchronizeContact(GuidesMember member, bool createNewContactIfNoneFound = false)
     {

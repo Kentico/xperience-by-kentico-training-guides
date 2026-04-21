@@ -6,6 +6,7 @@ using Kentico.Content.Web.Mvc.Routing;
 using Microsoft.AspNetCore.Html;
 using TrainingGuides.ProductStock;
 using TrainingGuides.Web.Commerce.Products.Models;
+using TrainingGuides.Web.Features.Membership.Services;
 using TrainingGuides.Web.Features.Commerce.PriceCalculation.Models;
 using TrainingGuides.Web.Features.Commerce.Products.Widgets.ProductListing;
 using TrainingGuides.Web.Features.Shared.Logging;
@@ -19,7 +20,7 @@ public class ProductService(IContentItemRetrieverService contentItemRetrieverSer
     IInfoProvider<TagInfo> tagInfoProvider,
     ITaxonomyRetriever taxonomyRetriever,
     IPreferredLanguageRetriever preferredLanguageRetriever,
-    IHttpContextAccessor httpContextAccessor,
+    IMembershipService membershipService,
     IPriceCalculationService<PriceCalculationRequest, TrainingGuidesPriceCalculationResult> priceCalculationService) : IProductService
 {
     private const decimal LowStockThreshold = 20m;
@@ -79,7 +80,8 @@ public class ProductService(IContentItemRetrieverService contentItemRetrieverSer
     {
         if (accessDenied)
         {
-            return await GetAccessDeniedViewModel(product);
+            bool showSignInCta = !await membershipService.IsMemberAuthenticated();
+            return await GetAccessDeniedViewModel(product, showSignInCta);
         }
 
         if (product is IProductParentSchema parentProduct)
@@ -121,19 +123,25 @@ public class ProductService(IContentItemRetrieverService contentItemRetrieverSer
         }
     }
 
-    private async Task<ProductViewModel> GetAccessDeniedViewModel(IProductSchema? product)
+    private async Task<ProductViewModel> GetAccessDeniedViewModel(IProductSchema? product, bool showSignInCta)
     {
         var model = new ProductViewModel
         {
             ProductName = product is not null
-                ? $"{product.ProductSchemaName} (requires authentication)"
-                : "Product requires authentication",
+                ? showSignInCta
+                    ? $"{product.ProductSchemaName} (requires authentication)"
+                    : $"{product.ProductSchemaName} (access denied)"
+                : showSignInCta
+                    ? "Product requires authentication"
+                    : "Product access denied",
             ProductSkuCode = string.Empty,
             ProductPrice = 0m,
             ProductImages = [],
             ProductSelectedVariantCodeName = string.Empty,
             ProductVariants = [],
-            ProductParentDescription = new HtmlString("Please sign in to view this product."),
+            ProductParentDescription = new HtmlString(showSignInCta
+                ? "Please sign in to view this product."
+                : "You do not have permission to access this product."),
             ProductStockStatus = GetFriendlyEnumString(await GetProductStockStatus(null))
         };
 
@@ -184,11 +192,11 @@ public class ProductService(IContentItemRetrieverService contentItemRetrieverSer
     }
 
 
-    private async Task<ProductViewModel> GetProductViewModelForListing(IProductSchema product, IProductSchema? productVariant, bool accessDenied)
+    private async Task<ProductViewModel> GetProductViewModelForListing(IProductSchema product, IProductSchema? productVariant, bool accessDenied, bool showSignInCta)
     {
         if (accessDenied)
         {
-            return await GetAccessDeniedViewModel(product);
+            return await GetAccessDeniedViewModel(product, showSignInCta);
         }
 
         var parentProduct = product as IProductParentSchema;
@@ -623,7 +631,7 @@ public class ProductService(IContentItemRetrieverService contentItemRetrieverSer
         string securedItemsDisplayMode)
     {
         var models = new List<ProductListingItemViewModel>();
-        var user = httpContextAccessor.HttpContext?.User;
+        bool isAuthenticated = await membershipService.IsMemberAuthenticated();
 
         foreach (var productPage in productPages)
         {
@@ -634,22 +642,33 @@ public class ProductService(IContentItemRetrieverService contentItemRetrieverSer
 
             var product = productPage.ProductPageProducts.First();
 
+            bool productAccessible = product is not IContentItemFieldsSource productFields
+                || membershipService.CanCurrentUserAccessContentItem(productFields);
+
             bool accessDenied = securedItemsDisplayMode.Equals(SecuredOption.PromptForLogin.ToString())
-                && (!productPage.HasAccess(user)
-                    || !((product as IContentItemFieldsSource)?.HasAccess(user) ?? true));
+                && (!membershipService.CanCurrentUserAccessContentItem(productPage)
+                    || !productAccessible);
+
+            if (accessDenied)
+            {
+                continue;
+            }
+
+            bool showSignInCta = accessDenied && !isAuthenticated;
 
             var variant = ProductHasVariants(product)
                 ? GetFirstVariant((product as IProductParentSchema)!)
                 : null;
 
-            var productViewModel = await GetProductViewModelForListing(product, variant, accessDenied: accessDenied);
+            var productViewModel = await GetProductViewModelForListing(product, variant, accessDenied: accessDenied, showSignInCta: showSignInCta);
             string productPageUrl = productPage.GetUrl()?.RelativePath ?? string.Empty;
 
             models.Add(new ProductListingItemViewModel
             {
                 Product = productViewModel,
                 ProductPageUrl = productPageUrl,
-                AccessDenied = accessDenied
+                AccessDenied = accessDenied,
+                ShowSignInCta = showSignInCta
             });
         }
 

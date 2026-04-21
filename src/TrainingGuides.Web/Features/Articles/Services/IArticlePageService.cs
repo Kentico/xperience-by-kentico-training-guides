@@ -17,12 +17,12 @@ public interface IArticlePageService
     /// <remarks>
     /// If the articlePage is secured and the current visitor is not authenticated, the view model will prompt them to sign in.
     /// </remarks>
-    ArticlePageViewModel GetArticlePageViewModelWithSecurity(ArticlePage? articlePage, string signInUrl);
+    Task<ArticlePageViewModel> GetArticlePageViewModelWithSecurity(ArticlePage? articlePage);
 
     /// <summary>
-    /// Determines whether the reusable article item referenced by the article page is secured.
+    /// Determines whether the current user can access the article page and its referenced article content.
     /// </summary>
     /// <param name="articlePage">The article page.</param>
-    /// <returns>True if the reusable item that the page references is secured.</returns>
-    bool IsReusableArticleSecured(ArticlePage articlePage);
+    /// <returns>True if the current user can access the page and at least one referenced article item.</returns>
+    bool CanCurrentUserAccessArticlePage(ArticlePage articlePage);
 }

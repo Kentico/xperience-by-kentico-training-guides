@@ -1,13 +1,11 @@
 using CMS.ContentEngine;
 using CMS.DataEngine;
-using Kentico.Content.Web.Mvc.Routing;
 using Kentico.PageBuilder.Web.Mvc;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ViewComponents;
 using TrainingGuides.Web.Features.Shared.OptionProviders.OrderBy;
 using TrainingGuides.Web.Features.Articles.Services;
 using TrainingGuides.Web.Features.Articles.Widgets.ArticleList;
-using TrainingGuides.Web.Features.Membership.Services;
 using TrainingGuides.Web.Features.Shared.Services;
 
 // NOTE: For an example of localizing widget name and description,
@@ -19,26 +17,11 @@ using TrainingGuides.Web.Features.Shared.Services;
 
 namespace TrainingGuides.Web.Features.Articles.Widgets.ArticleList;
 
-public class ArticleListWidgetViewComponent : ViewComponent
+public class ArticleListWidgetViewComponent(
+    IContentItemRetrieverService contentItemRetrieverService,
+    IArticlePageService articlePageService) : ViewComponent
 {
     public const string IDENTIFIER = "TrainingGuides.ArticleListWidget";
-
-    private readonly IContentItemRetrieverService contentItemRetrieverService;
-    private readonly IArticlePageService articlePageService;
-    private readonly IMembershipService membershipService;
-    private readonly IPreferredLanguageRetriever preferredLanguageRetriever;
-
-    public ArticleListWidgetViewComponent(
-        IContentItemRetrieverService contentItemRetrieverService,
-        IArticlePageService articlePageService,
-        IMembershipService membershipService,
-        IPreferredLanguageRetriever preferredLanguageRetriever)
-    {
-        this.contentItemRetrieverService = contentItemRetrieverService;
-        this.articlePageService = articlePageService;
-        this.membershipService = membershipService;
-        this.preferredLanguageRetriever = preferredLanguageRetriever;
-    }
 
     public async Task<ViewViewComponentResult> InvokeAsync(ArticleListWidgetProperties properties)
     {
@@ -49,13 +32,12 @@ public class ArticleListWidgetViewComponent : ViewComponent
             var articlePages = await RetrieveArticlePages(properties.ContentTreeSection.First(), properties.Tags, properties.SecuredItems);
 
             model.Articles = (properties.OrderBy.Equals(OrderByOption.OldestFirst.ToString())
-                ? (await GetArticlePageViewModels(articlePages, properties.SecuredItems)).OrderBy(article => article.CreatedOn)
-                : (await GetArticlePageViewModels(articlePages, properties.SecuredItems)).OrderByDescending(article => article.CreatedOn))
+                ? (await GetArticlePageViewModels(articlePages, properties.SecuredItems, properties.CtaText, properties.SignInText))
+                    .OrderBy(article => article.CreatedOn)
+                : (await GetArticlePageViewModels(articlePages, properties.SecuredItems, properties.CtaText, properties.SignInText))
+                    .OrderByDescending(article => article.CreatedOn))
                 .Take(properties.TopN)
                 .ToList();
-            model.IsAuthenticated = await membershipService.IsMemberAuthenticated();
-            model.CtaText = properties.CtaText;
-            model.SignInText = properties.SignInText;
         }
 
         return View("~/Features/Articles/Widgets/ArticleList/ArticleListWidget.cshtml", model);
@@ -131,26 +113,36 @@ public class ArticleListWidgetViewComponent : ViewComponent
         return await query.GetScalarResultAsync<string>();
     }
 
-    private async Task<List<ArticlePageViewModel>> GetArticlePageViewModels(IEnumerable<ArticlePage?>? articlePages, string securedItemsDisplayMode)
+    private async Task<List<ArticlePageViewModel>> GetArticlePageViewModels(
+        IEnumerable<ArticlePage?>? articlePages,
+        string securedItemsDisplayMode,
+        string defaultCtaText,
+        string signInCtaText)
     {
         var models = new List<ArticlePageViewModel>();
+
         if (articlePages != null)
         {
             foreach (var articlePage in articlePages)
             {
                 if (articlePage != null)
                 {
-                    string language = preferredLanguageRetriever.Get();
-                    string signInUrl = await membershipService.GetSignInUrl(language);
-
                     var model = securedItemsDisplayMode.Equals(SecuredOption.PromptForLogin.ToString())
-                        ? articlePageService.GetArticlePageViewModelWithSecurity(articlePage, signInUrl)
+                        ? await articlePageService.GetArticlePageViewModelWithSecurity(articlePage)
                         : articlePageService.GetArticlePageViewModel(articlePage);
 
+                    if (securedItemsDisplayMode.Equals(SecuredOption.HideSecuredItems.ToString())
+                        && model.IsSecured)
+                    {
+                        continue;
+                    }
+                    // RequiresSignIn is populated by IArticlePageService based on user auth + item access.
+                    model.CTAText = model.RequiresSignIn ? signInCtaText : defaultCtaText;
                     models.Add(model);
                 }
             }
         }
+
         return models;
     }
 }

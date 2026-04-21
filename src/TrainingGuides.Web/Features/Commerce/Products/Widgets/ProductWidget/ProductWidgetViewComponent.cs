@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.ViewComponents;
 using TrainingGuides.Web.Commerce.Products.Services;
 using TrainingGuides.Web.Features.Commerce.Products.Widgets.ProductWidget;
 using TrainingGuides.Web.Features.Membership.Services;
+using TrainingGuides.Web.Features.Shared.Helpers;
 
 [assembly:
     RegisterWidget(
@@ -65,6 +66,10 @@ public class ProductWidgetViewComponent(IProductService productService,
         bool accessDenied = !pageHasAccess || !itemHasAccess;
 
         string language = preferredLanguageRetriever.Get();
+        bool isAuthenticated = await membershipService.IsMemberAuthenticated();
+
+        string deniedReturnPath = (productPage?.GetUrl()?.RelativePath ?? string.Empty).TrimStart('~');
+        string accessDeniedUrl = $"{ApplicationConstants.ACCESS_DENIED_ACTION_PATH}{QueryString.Create(ApplicationConstants.RETURN_URL_PARAMETER, deniedReturnPath)}";
 
         // Create view model
         var model = new ProductWidgetViewModel
@@ -73,13 +78,15 @@ public class ProductWidgetViewComponent(IProductService productService,
                 ? await productService.GetViewModel(product, selectedVariant, accessDenied)
                 : null,
             ProductPageUrl = accessDenied
-                ? await membershipService.GetSignInUrl(language, true)
+                ? isAuthenticated
+                    ? accessDeniedUrl
+                    : await membershipService.GetSignInUrl(language, true)
                 : productPage?.GetUrl()?.RelativePath ?? string.Empty,
             ShowVariantSelection = properties.ShowVariantSelection && !accessDenied,
             ShowVariantDetails = properties.ShowVariantDetails && !accessDenied,
             ShowCallToAction = properties.ShowCallToAction || accessDenied,
             CallToActionText = accessDenied
-                ? "Sign in"
+                ? isAuthenticated ? "Access denied" : "Sign in"
                 : properties.CallToActionText ?? "View Product"
         };
 

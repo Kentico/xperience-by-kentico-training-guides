@@ -80,7 +80,7 @@ else
                                     </div>
                                     <div class="p-2 c-card_footer">
                                         <span class="c-link primary-upper text-uppercase">
-                                            @(item.AccessDenied ? Model.SignInText : Model.CtaText)
+                                            @(item.AccessDenied && item.ShowSignInCta ? Model.SignInText : Model.CtaText)
                                         </span>
                                     </div>
                                 </div>

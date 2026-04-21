@@ -2,22 +2,11 @@ using Microsoft.AspNetCore.Identity;
 
 namespace TrainingGuides.Web.Features.Membership.Services;
 
-public class GuidesRoleService : IGuidesRoleService
+public class GuidesRoleService(
+    UserManager<GuidesMember> userManager,
+    RoleManager<GuidesRole> roleManager,
+    IHttpContextAccessor httpContextAccessor) : IGuidesRoleService
 {
-    private readonly UserManager<GuidesMember> userManager;
-    private readonly RoleManager<GuidesRole> roleManager;
-    private readonly IHttpContextAccessor httpContextAccessor;
-
-    public GuidesRoleService(
-        UserManager<GuidesMember> userManager,
-        RoleManager<GuidesRole> roleManager,
-        IHttpContextAccessor httpContextAccessor)
-    {
-        this.userManager = userManager;
-        this.roleManager = roleManager;
-        this.httpContextAccessor = httpContextAccessor;
-    }
-
     public async Task<IReadOnlyCollection<GuidesRole>> GetCurrentMemberRoles()
     {
         var httpContext = httpContextAccessor.HttpContext;

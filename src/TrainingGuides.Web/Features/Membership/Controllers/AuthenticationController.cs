@@ -12,28 +12,14 @@ using TrainingGuides.Web.Features.Shared.Services;
 
 namespace TrainingGuides.Web.Features.Membership.Controllers;
 
-public class AuthenticationController : Controller
+public class AuthenticationController(
+    IMembershipService membershipService,
+    IStringLocalizer<SharedResources> stringLocalizer,
+    IPreferredLanguageRetriever preferredLanguageRetriever,
+    IInfoProvider<ContentLanguageInfo> contentLanguageInfoProvider,
+    IHttpRequestService httpRequestService) : Controller
 {
-    private readonly IMembershipService membershipService;
-    private readonly IStringLocalizer<SharedResources> stringLocalizer;
-    private readonly IPreferredLanguageRetriever preferredLanguageRetriever;
-    private readonly IInfoProvider<ContentLanguageInfo> contentLanguageInfoProvider;
-    private readonly IHttpRequestService httpRequestService;
-
     private const string SIGN_IN_FAILED = "Your sign-in attempt was not successful. Please try again.";
-
-    public AuthenticationController(IMembershipService membershipService,
-        IStringLocalizer<SharedResources> stringLocalizer,
-        IPreferredLanguageRetriever preferredLanguageRetriever,
-        IInfoProvider<ContentLanguageInfo> contentLanguageInfoProvider,
-        IHttpRequestService httpRequestService)
-    {
-        this.membershipService = membershipService;
-        this.stringLocalizer = stringLocalizer;
-        this.preferredLanguageRetriever = preferredLanguageRetriever;
-        this.contentLanguageInfoProvider = contentLanguageInfoProvider;
-        this.httpRequestService = httpRequestService;
-    }
 
     private IActionResult RenderError(SignInWidgetViewModel model)
     {
@@ -100,7 +86,7 @@ public class AuthenticationController : Controller
 
         string signInUrl = await membershipService.GetSignInUrl(language, false);
 
-        var query = string.IsNullOrWhiteSpace(returnUrl)
+        string query = string.IsNullOrWhiteSpace(returnUrl)
             ? string.Empty
             : QueryString.Create(ApplicationConstants.RETURN_URL_PARAMETER, returnUrl).ToString();
 
@@ -114,28 +100,29 @@ public class AuthenticationController : Controller
     }
 
     [HttpGet(ApplicationConstants.ACCESS_DENIED_ACTION_PATH)]
-    public async Task<IActionResult> AccessDenied([FromQuery(Name = ApplicationConstants.RETURN_URL_PARAMETER)] string returnUrl)
+    [HttpGet($"{{{ApplicationConstants.LANGUAGE_KEY}}}{ApplicationConstants.ACCESS_DENIED_ACTION_PATH}")]
+    public IActionResult AccessDenied([FromQuery(Name = ApplicationConstants.RETURN_URL_PARAMETER)] string returnUrl)
     {
-        // If user is already authenticated, show access denied page
-        if (User?.Identity?.IsAuthenticated ?? false)
+        string language = GetLanguageFromReturnUrl(returnUrl);
+        string requestLanguage = RouteData.Values[ApplicationConstants.LANGUAGE_KEY]?.ToString() ?? string.Empty;
+
+        if (!string.Equals(requestLanguage, language, StringComparison.OrdinalIgnoreCase))
         {
-            return View("~/Views/Shared/AccessDenied.cshtml");
+            string localizedPath = $"/{language}{ApplicationConstants.ACCESS_DENIED_ACTION_PATH}";
+            string queryString = QueryString.Create(ApplicationConstants.RETURN_URL_PARAMETER, returnUrl).ToString();
+
+            return Redirect($"{localizedPath}{queryString}");
         }
 
-        // If not authenticated, redirect to sign-in
-        string language = GetLanguageFromReturnUrl(returnUrl);
-
-        string signInUrl = await membershipService.GetSignInUrl(language, true);
-
-        var query = QueryString.Create(ApplicationConstants.RETURN_URL_PARAMETER, returnUrl);
-
-        var redirectUrl = new UriBuilder(signInUrl)
-        {
-            Query = query.ToString()
-        };
-
-        return Redirect(redirectUrl.ToString());
+        return View("~/Features/Membership/ViewComponents/Authentication/AccessDenied.cshtml", GetAccessDeniedViewModel());
     }
+
+    private ViewComponents.Authentication.AccessDeniedViewModel GetAccessDeniedViewModel() => new()
+    {
+        Title = stringLocalizer["Access Denied"],
+        Heading = $"🔒 {stringLocalizer["Access Denied"]}",
+        Message = stringLocalizer["You do not have permission to access this content. If you believe you should have access, please contact support."]
+    };
 
     private string GetLanguageFromReturnUrl(string returnUrl)
     {

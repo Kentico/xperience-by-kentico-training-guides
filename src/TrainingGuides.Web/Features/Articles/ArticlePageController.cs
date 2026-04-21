@@ -30,7 +30,7 @@ public class ArticlePageController : Controller
         var articlePage = await contentItemRetrieverService.RetrieveCurrentPage<ArticlePage>(2);
 
         if (articlePage is not null
-            && articlePageService.IsReusableArticleSecured(articlePage))
+            && !articlePageService.CanCurrentUserAccessArticlePage(articlePage))
         {
             return Forbid();
         }

@@ -2,11 +2,11 @@ using CMS.Commerce;
 using CMS.ContentEngine;
 using CMS.DataEngine;
 using Kentico.Content.Web.Mvc.Routing;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Moq;
 using TrainingGuides.ProductStock;
 using TrainingGuides.Web.Commerce.Products.Services;
+using TrainingGuides.Web.Features.Membership.Services;
 using TrainingGuides.Web.Features.Commerce.PriceCalculation.Models;
 using TrainingGuides.Web.Features.Shared.Services;
 using Xunit;
@@ -26,7 +26,7 @@ public class ProductServiceTests
         var tagInfoProviderMock = new Mock<IInfoProvider<TagInfo>>();
         var taxonomyRetrieverMock = new Mock<ITaxonomyRetriever>();
         var preferredLanguageRetrieverMock = new Mock<IPreferredLanguageRetriever>();
-        var httpContextAccessorMock = new Mock<IHttpContextAccessor>();
+        var membershipServiceMock = new Mock<IMembershipService>();
         var priceCalculationServiceMock = new Mock<IPriceCalculationService<PriceCalculationRequest, TrainingGuidesPriceCalculationResult>>();
 
         productService = new ProductService(
@@ -36,7 +36,7 @@ public class ProductServiceTests
             tagInfoProviderMock.Object,
             taxonomyRetrieverMock.Object,
             preferredLanguageRetrieverMock.Object,
-                httpContextAccessorMock.Object,
+            membershipServiceMock.Object,
             priceCalculationServiceMock.Object);
     }
 
