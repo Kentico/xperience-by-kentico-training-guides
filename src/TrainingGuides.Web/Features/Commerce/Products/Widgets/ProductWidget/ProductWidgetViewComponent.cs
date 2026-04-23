@@ -55,7 +55,7 @@ public class ProductWidgetViewComponent(
             }
         }
 
-        bool accessDenied = !productService.CanCurrentUserAccessProductPage(productPage, product, selectedVariant);
+        bool accessDenied = !productService.CanCurrentUserAccessProductPage(productPage);
         string productPageRelativePath = productPage?.GetUrl()?.RelativePath ?? string.Empty;
 
         var productModel = product is not null

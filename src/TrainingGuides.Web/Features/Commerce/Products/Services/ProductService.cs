@@ -380,26 +380,23 @@ public class ProductService(IContentItemRetrieverService contentItemRetrieverSer
     public bool ProductIsVariant(IProductSchema product) => product is IProductVariantSchema;
 
     /// <inheritdoc/>
-    public bool CanCurrentUserAccessProductPage(ProductPage? productPage, IProductSchema? product, IProductSchema? selectedVariant = null)
+    public bool CanCurrentUserAccessProductPage(ProductPage? productPage)
     {
-        if (productPage is not null && !membershipService.CanCurrentUserAccessContentItem(productPage))
+        bool pageAccessible = productPage is not null
+            && membershipService.CanCurrentUserAccessContentItem(productPage);
+
+        if (!pageAccessible)
         {
             return false;
         }
 
-        if (product is IContentItemFieldsSource productFields
-            && !membershipService.CanCurrentUserAccessContentItem(productFields))
-        {
-            return false;
-        }
+        var page = productPage!;
 
-        if (selectedVariant is IContentItemFieldsSource variantFields
-            && !membershipService.CanCurrentUserAccessContentItem(variantFields))
-        {
-            return false;
-        }
+        bool productAccessible = page.ProductPageProducts
+            .OfType<IContentItemFieldsSource>()
+            .Any(product => membershipService.CanCurrentUserAccessContentItem(product));
 
-        return true;
+        return pageAccessible && productAccessible;
     }
 
     /// <summary>
@@ -689,7 +686,7 @@ public class ProductService(IContentItemRetrieverService contentItemRetrieverSer
             var product = productPage.ProductPageProducts.First();
 
             bool accessDenied = securedItemsDisplayMode.Equals(SecuredOption.PromptForLogin.ToString())
-                && !CanCurrentUserAccessProductPage(productPage, product);
+                && !CanCurrentUserAccessProductPage(productPage);
 
             bool showSignInCta = accessDenied && !isAuthenticated;
 

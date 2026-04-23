@@ -56,13 +56,11 @@ public interface IProductService
         string productPageRelativePath = "");
 
     /// <summary>
-    /// Checks whether the current user can access both the product page and the selected product content.
+    /// Checks whether the current user can access the product page and at least one linked product content item.
     /// </summary>
     /// <param name="productPage">The product page to evaluate.</param>
-    /// <param name="product">The linked product item to evaluate.</param>
-    /// <param name="selectedVariant">Optional selected variant to evaluate.</param>
     /// <returns><c>true</c> when access is allowed for all provided content items; otherwise, <c>false</c>.</returns>
-    bool CanCurrentUserAccessProductPage(ProductPage? productPage, IProductSchema? product, IProductSchema? selectedVariant = null);
+    bool CanCurrentUserAccessProductPage(ProductPage? productPage);
 
     /// <summary>
     /// Retrieves the current product page with all related product data.

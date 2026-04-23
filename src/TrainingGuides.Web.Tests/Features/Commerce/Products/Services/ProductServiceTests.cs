@@ -2,6 +2,7 @@ using CMS.Commerce;
 using CMS.ContentEngine;
 using CMS.DataEngine;
 using Kentico.Content.Web.Mvc.Routing;
+using Microsoft.Extensions.Localization;
 using Microsoft.Extensions.Logging;
 using Moq;
 using TrainingGuides.ProductStock;
@@ -29,6 +30,7 @@ public class ProductServiceTests
         var tagInfoProviderMock = new Mock<IInfoProvider<TagInfo>>();
         var taxonomyRetrieverMock = new Mock<ITaxonomyRetriever>();
         preferredLanguageRetrieverMock = new Mock<IPreferredLanguageRetriever>();
+        var stringLocalizerMock = new Mock<IStringLocalizer<SharedResources>>();
         membershipServiceMock = new Mock<IMembershipService>();
         var priceCalculationServiceMock = new Mock<IPriceCalculationService<PriceCalculationRequest, TrainingGuidesPriceCalculationResult>>();
 
@@ -39,6 +41,7 @@ public class ProductServiceTests
             tagInfoProviderMock.Object,
             taxonomyRetrieverMock.Object,
             preferredLanguageRetrieverMock.Object,
+            stringLocalizerMock.Object,
             membershipServiceMock.Object,
             priceCalculationServiceMock.Object);
     }
@@ -300,26 +303,59 @@ public class ProductServiceTests
     }
 
     [Fact]
-    public void CanCurrentUserAccessProductPage_WhenVariantDenied_ReturnsFalse()
+    public void CanCurrentUserAccessProductPage_WhenAllLinkedProductsInaccessible_ReturnsFalse()
     {
         // Arrange
-        var productPage = new ProductPage();
-
         var productMock = new Mock<IProductSchema>();
         var productFields = productMock.As<IContentItemFieldsSource>().Object;
 
-        var selectedVariantMock = new Mock<IProductSchema>();
-        var selectedVariantFields = selectedVariantMock.As<IContentItemFieldsSource>().Object;
+        var productPage = new ProductPage
+        {
+            ProductPageProducts = [productMock.Object]
+        };
 
         membershipServiceMock
             .Setup(x => x.CanCurrentUserAccessContentItem(It.IsAny<IContentItemFieldsSource?>()))
-            .Returns<IContentItemFieldsSource?>(item => !ReferenceEquals(item, selectedVariantFields));
+            .Returns<IContentItemFieldsSource?>(item => !ReferenceEquals(item, productFields));
 
         // Act
-        bool result = productService.CanCurrentUserAccessProductPage(
-            productPage,
-            productMock.Object,
-            selectedVariantMock.Object);
+        bool result = productService.CanCurrentUserAccessProductPage(productPage);
+
+        // Assert
+        Assert.False(result);
+    }
+
+    [Fact]
+    public void CanCurrentUserAccessProductPage_WhenAnyLinkedProductAccessible_ReturnsTrue()
+    {
+        // Arrange
+        var inaccessibleProductMock = new Mock<IProductSchema>();
+
+        var accessibleProductMock = new Mock<IProductSchema>();
+        var accessibleFields = accessibleProductMock.As<IContentItemFieldsSource>().Object;
+
+        var productPage = new ProductPage
+        {
+            ProductPageProducts = [inaccessibleProductMock.Object, accessibleProductMock.Object]
+        };
+
+        membershipServiceMock
+            .Setup(x => x.CanCurrentUserAccessContentItem(It.IsAny<IContentItemFieldsSource?>()))
+            .Returns<IContentItemFieldsSource?>(item =>
+                ReferenceEquals(item, productPage) || ReferenceEquals(item, accessibleFields));
+
+        // Act
+        bool result = productService.CanCurrentUserAccessProductPage(productPage);
+
+        // Assert
+        Assert.True(result);
+    }
+
+    [Fact]
+    public void CanCurrentUserAccessProductPage_WhenPageMissing_ReturnsFalse()
+    {
+        // Act
+        bool result = productService.CanCurrentUserAccessProductPage(null);
 
         // Assert
         Assert.False(result);
