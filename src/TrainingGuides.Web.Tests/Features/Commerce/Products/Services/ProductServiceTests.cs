@@ -8,6 +8,7 @@ using TrainingGuides.ProductStock;
 using TrainingGuides.Web.Commerce.Products.Services;
 using TrainingGuides.Web.Features.Membership.Services;
 using TrainingGuides.Web.Features.Commerce.PriceCalculation.Models;
+using TrainingGuides.Web.Features.Shared.Helpers;
 using TrainingGuides.Web.Features.Shared.Services;
 using Xunit;
 
@@ -16,6 +17,8 @@ namespace TrainingGuides.Web.Tests.Features.Commerce.Products.Services;
 public class ProductServiceTests
 {
     private readonly ProductService productService;
+    private readonly Mock<IPreferredLanguageRetriever> preferredLanguageRetrieverMock;
+    private readonly Mock<IMembershipService> membershipServiceMock;
 
     public ProductServiceTests()
     {
@@ -25,8 +28,8 @@ public class ProductServiceTests
         var productAvailableStockInfoProviderMock = new Mock<IInfoProvider<ProductAvailableStockInfo>>();
         var tagInfoProviderMock = new Mock<IInfoProvider<TagInfo>>();
         var taxonomyRetrieverMock = new Mock<ITaxonomyRetriever>();
-        var preferredLanguageRetrieverMock = new Mock<IPreferredLanguageRetriever>();
-        var membershipServiceMock = new Mock<IMembershipService>();
+        preferredLanguageRetrieverMock = new Mock<IPreferredLanguageRetriever>();
+        membershipServiceMock = new Mock<IMembershipService>();
         var priceCalculationServiceMock = new Mock<IPriceCalculationService<PriceCalculationRequest, TrainingGuidesPriceCalculationResult>>();
 
         productService = new ProductService(
@@ -244,6 +247,82 @@ public class ProductServiceTests
         // Assert
         Assert.Single(result);
         Assert.Contains(tag1, result);
+    }
+
+    #endregion
+
+    #region Security Handling Tests
+
+    [Fact]
+    public async Task GetViewModel_AccessDeniedAndUnauthenticated_SetsRequiresSignInAndSignInUrl()
+    {
+        // Arrange
+        var productMock = new Mock<IProductSchema>();
+        productMock.SetupGet(x => x.ProductSchemaName).Returns("Secured product");
+
+        preferredLanguageRetrieverMock.Setup(x => x.Get()).Returns("en");
+        membershipServiceMock.Setup(x => x.IsMemberAuthenticated()).ReturnsAsync(false);
+        membershipServiceMock.Setup(x => x.GetSignInUrl("en", false)).ReturnsAsync("/Membership/Sign_in");
+
+        // Act
+        var result = await productService.GetViewModel(
+            productMock.Object,
+            accessDenied: true,
+            productPageRelativePath: "/products/item");
+
+        // Assert
+        Assert.True(result.IsSecured);
+        Assert.True(result.RequiresSignIn);
+        Assert.StartsWith("/Membership/Sign_in", result.ProductActionUrl, StringComparison.OrdinalIgnoreCase);
+        Assert.Contains("returnUrl=%2Fproducts%2Fitem", result.ProductActionUrl, StringComparison.OrdinalIgnoreCase);
+    }
+
+    [Fact]
+    public async Task GetViewModel_AccessDeniedAndAuthenticated_SetsAccessDeniedUrl()
+    {
+        // Arrange
+        var productMock = new Mock<IProductSchema>();
+        productMock.SetupGet(x => x.ProductSchemaName).Returns("Secured product");
+
+        membershipServiceMock.Setup(x => x.IsMemberAuthenticated()).ReturnsAsync(true);
+
+        // Act
+        var result = await productService.GetViewModel(
+            productMock.Object,
+            accessDenied: true,
+            productPageRelativePath: "/products/item");
+
+        // Assert
+        Assert.True(result.IsSecured);
+        Assert.False(result.RequiresSignIn);
+        Assert.StartsWith(ApplicationConstants.ACCESS_DENIED_ACTION_PATH, result.ProductActionUrl, StringComparison.OrdinalIgnoreCase);
+        Assert.Contains("returnUrl=%2Fproducts%2Fitem", result.ProductActionUrl, StringComparison.OrdinalIgnoreCase);
+    }
+
+    [Fact]
+    public void CanCurrentUserAccessProductPage_WhenVariantDenied_ReturnsFalse()
+    {
+        // Arrange
+        var productPage = new ProductPage();
+
+        var productMock = new Mock<IProductSchema>();
+        var productFields = productMock.As<IContentItemFieldsSource>().Object;
+
+        var selectedVariantMock = new Mock<IProductSchema>();
+        var selectedVariantFields = selectedVariantMock.As<IContentItemFieldsSource>().Object;
+
+        membershipServiceMock
+            .Setup(x => x.CanCurrentUserAccessContentItem(It.IsAny<IContentItemFieldsSource?>()))
+            .Returns<IContentItemFieldsSource?>(item => !ReferenceEquals(item, selectedVariantFields));
+
+        // Act
+        bool result = productService.CanCurrentUserAccessProductPage(
+            productPage,
+            productMock.Object,
+            selectedVariantMock.Object);
+
+        // Assert
+        Assert.False(result);
     }
 
     #endregion

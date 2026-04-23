@@ -9,8 +9,10 @@ using TrainingGuides.Web.Commerce.Products.Models;
 using TrainingGuides.Web.Features.Membership.Services;
 using TrainingGuides.Web.Features.Commerce.PriceCalculation.Models;
 using TrainingGuides.Web.Features.Commerce.Products.Widgets.ProductListing;
+using TrainingGuides.Web.Features.Shared.Helpers;
 using TrainingGuides.Web.Features.Shared.Logging;
 using TrainingGuides.Web.Features.Shared.Services;
+using Microsoft.Extensions.Localization;
 
 namespace TrainingGuides.Web.Commerce.Products.Services;
 
@@ -20,6 +22,7 @@ public class ProductService(IContentItemRetrieverService contentItemRetrieverSer
     IInfoProvider<TagInfo> tagInfoProvider,
     ITaxonomyRetriever taxonomyRetriever,
     IPreferredLanguageRetriever preferredLanguageRetriever,
+    IStringLocalizer<SharedResources> stringLocalizer,
     IMembershipService membershipService,
     IPriceCalculationService<PriceCalculationRequest, TrainingGuidesPriceCalculationResult> priceCalculationService) : IProductService
 {
@@ -76,12 +79,16 @@ public class ProductService(IContentItemRetrieverService contentItemRetrieverSer
     }
 
     /// <inheritdoc/>
-    public async Task<ProductViewModel> GetViewModel(IProductSchema? product, IProductSchema? selectedVariant = null, bool accessDenied = false)
+    public async Task<ProductViewModel> GetViewModel(
+        IProductSchema? product,
+        IProductSchema? selectedVariant = null,
+        bool accessDenied = false,
+        string productPageRelativePath = "")
     {
         if (accessDenied)
         {
             bool showSignInCta = !await membershipService.IsMemberAuthenticated();
-            return await GetAccessDeniedViewModel(product, showSignInCta);
+            return await GetAccessDeniedViewModel(product, showSignInCta, productPageRelativePath);
         }
 
         if (product is IProductParentSchema parentProduct)
@@ -100,22 +107,22 @@ public class ProductService(IContentItemRetrieverService contentItemRetrieverSer
             {
                 var catFoodVariant = productVariant as CatFoodVariant;
 
-                return await GetCatFoodViewModel(catFoodProduct, catFoodVariant);
+                return await GetCatFoodViewModel(catFoodProduct, catFoodVariant, productPageRelativePath);
             }
             else if (product is DogCollar dogCollarProduct)
             {
                 var dogCollarVariant = productVariant as DogCollarVariant;
 
-                return await GetDogCollarViewModel(dogCollarProduct, dogCollarVariant);
+                return await GetDogCollarViewModel(dogCollarProduct, dogCollarVariant, productPageRelativePath);
             }
             else
             {
-                return await GetGenericProductViewModel(product, productVariant);
+                return await GetGenericProductViewModel(product, productVariant, productPageRelativePath);
             }
         }
         else if (product is not null)
         {
-            return await GetGenericProductViewModel(product, null);
+            return await GetGenericProductViewModel(product, null, productPageRelativePath);
         }
         else
         {
@@ -123,32 +130,37 @@ public class ProductService(IContentItemRetrieverService contentItemRetrieverSer
         }
     }
 
-    private async Task<ProductViewModel> GetAccessDeniedViewModel(IProductSchema? product, bool showSignInCta)
+    private async Task<ProductViewModel> GetAccessDeniedViewModel(IProductSchema? product, bool showSignInCta, string productPageRelativePath)
     {
+        string actionUrl = await GetSecurityActionUrl(productPageRelativePath, showSignInCta);
+
         var model = new ProductViewModel
         {
             ProductName = product is not null
                 ? showSignInCta
-                    ? $"{product.ProductSchemaName} (requires authentication)"
-                    : $"{product.ProductSchemaName} (access denied)"
+                    ? $"{product.ProductSchemaName} ({stringLocalizer["requires authentication"]})"
+                    : $"{product.ProductSchemaName} ({stringLocalizer["requires higher tier"]})"
                 : showSignInCta
-                    ? "Product requires authentication"
-                    : "Product access denied",
+                    ? stringLocalizer["Product requires authentication"]
+                    : stringLocalizer["Product requires higher tier"],
             ProductSkuCode = string.Empty,
             ProductPrice = 0m,
             ProductImages = [],
             ProductSelectedVariantCodeName = string.Empty,
             ProductVariants = [],
             ProductParentDescription = new HtmlString(showSignInCta
-                ? "Please sign in to view this product."
-                : "You do not have permission to access this product."),
-            ProductStockStatus = GetFriendlyEnumString(await GetProductStockStatus(null))
+                ? stringLocalizer["Please sign in to view this product."]
+                : stringLocalizer["You do not have permission to access this product. Upgrade to our higher tier."]),
+            ProductStockStatus = GetFriendlyEnumString(await GetProductStockStatus(null)),
+            IsSecured = true,
+            RequiresSignIn = showSignInCta,
+            ProductActionUrl = actionUrl
         };
 
         return model;
     }
 
-    private async Task<ProductViewModel> GetGenericProductViewModel(IProductSchema product, IProductSchema? productVariant)
+    private async Task<ProductViewModel> GetGenericProductViewModel(IProductSchema product, IProductSchema? productVariant, string productPageRelativePath)
     {
         var parentProduct = product as IProductParentSchema;
 
@@ -185,18 +197,26 @@ public class ProductService(IContentItemRetrieverService contentItemRetrieverSer
                 }) ?? [],
             ProductParentDescription = new HtmlString(product.ProductSchemaDescription ?? string.Empty),
             ProductVariantDescription = new HtmlString(productVariant?.ProductSchemaDescription ?? string.Empty),
-            ProductStockStatus = GetFriendlyEnumString(stockStatus)
+            ProductStockStatus = GetFriendlyEnumString(stockStatus),
+            IsSecured = false,
+            RequiresSignIn = false,
+            ProductActionUrl = productPageRelativePath
         };
 
         return model;
     }
 
 
-    private async Task<ProductViewModel> GetProductViewModelForListing(IProductSchema product, IProductSchema? productVariant, bool accessDenied, bool showSignInCta)
+    private async Task<ProductViewModel> GetProductViewModelForListing(
+        IProductSchema product,
+        IProductSchema? productVariant,
+        bool accessDenied,
+        bool showSignInCta,
+        string productPageRelativePath)
     {
         if (accessDenied)
         {
-            return await GetAccessDeniedViewModel(product, showSignInCta);
+            return await GetAccessDeniedViewModel(product, showSignInCta, productPageRelativePath);
         }
 
         var parentProduct = product as IProductParentSchema;
@@ -221,15 +241,18 @@ public class ProductService(IContentItemRetrieverService contentItemRetrieverSer
             ProductParentDescription = new HtmlString(string.Empty),
             ProductVariantDescription = new HtmlString(string.Empty),
             ProductOtherDetails = new HtmlString(string.Empty),
-            ProductStockStatus = GetFriendlyEnumString(stockStatus)
+            ProductStockStatus = GetFriendlyEnumString(stockStatus),
+            IsSecured = false,
+            RequiresSignIn = false,
+            ProductActionUrl = productPageRelativePath
         };
 
         return model;
     }
 
-    private async Task<ProductViewModel> GetCatFoodViewModel(CatFood catFoodProduct, CatFoodVariant? catFoodVariant)
+    private async Task<ProductViewModel> GetCatFoodViewModel(CatFood catFoodProduct, CatFoodVariant? catFoodVariant, string productPageRelativePath)
     {
-        var model = await GetGenericProductViewModel(catFoodProduct, catFoodVariant);
+        var model = await GetGenericProductViewModel(catFoodProduct, catFoodVariant, productPageRelativePath);
 
         model.ProductOtherDetails = new HtmlString
                 (("Ingredients:<br/>" + string.Join("<br/>", catFoodVariant?.CatFoodVariantFormulation
@@ -239,9 +262,9 @@ public class ProductService(IContentItemRetrieverService contentItemRetrieverSer
         return model;
     }
 
-    private async Task<ProductViewModel> GetDogCollarViewModel(DogCollar dogCollarProduct, DogCollarVariant? dogCollarVariant)
+    private async Task<ProductViewModel> GetDogCollarViewModel(DogCollar dogCollarProduct, DogCollarVariant? dogCollarVariant, string productPageRelativePath)
     {
-        var model = await GetGenericProductViewModel(dogCollarProduct, dogCollarVariant);
+        var model = await GetGenericProductViewModel(dogCollarProduct, dogCollarVariant, productPageRelativePath);
 
         var tagIdentifiers = dogCollarProduct
             .MaterialSchemaMaterial
@@ -355,6 +378,29 @@ public class ProductService(IContentItemRetrieverService contentItemRetrieverSer
 
     /// <inheritdoc/>
     public bool ProductIsVariant(IProductSchema product) => product is IProductVariantSchema;
+
+    /// <inheritdoc/>
+    public bool CanCurrentUserAccessProductPage(ProductPage? productPage, IProductSchema? product, IProductSchema? selectedVariant = null)
+    {
+        if (productPage is not null && !membershipService.CanCurrentUserAccessContentItem(productPage))
+        {
+            return false;
+        }
+
+        if (product is IContentItemFieldsSource productFields
+            && !membershipService.CanCurrentUserAccessContentItem(productFields))
+        {
+            return false;
+        }
+
+        if (selectedVariant is IContentItemFieldsSource variantFields
+            && !membershipService.CanCurrentUserAccessContentItem(variantFields))
+        {
+            return false;
+        }
+
+        return true;
+    }
 
     /// <summary>
     /// Extracts all specified taxonomy tags for a specific schema from a product and its variants.
@@ -642,17 +688,8 @@ public class ProductService(IContentItemRetrieverService contentItemRetrieverSer
 
             var product = productPage.ProductPageProducts.First();
 
-            bool productAccessible = product is not IContentItemFieldsSource productFields
-                || membershipService.CanCurrentUserAccessContentItem(productFields);
-
             bool accessDenied = securedItemsDisplayMode.Equals(SecuredOption.PromptForLogin.ToString())
-                && (!membershipService.CanCurrentUserAccessContentItem(productPage)
-                    || !productAccessible);
-
-            if (accessDenied)
-            {
-                continue;
-            }
+                && !CanCurrentUserAccessProductPage(productPage, product);
 
             bool showSignInCta = accessDenied && !isAuthenticated;
 
@@ -660,15 +697,21 @@ public class ProductService(IContentItemRetrieverService contentItemRetrieverSer
                 ? GetFirstVariant((product as IProductParentSchema)!)
                 : null;
 
-            var productViewModel = await GetProductViewModelForListing(product, variant, accessDenied: accessDenied, showSignInCta: showSignInCta);
-            string productPageUrl = productPage.GetUrl()?.RelativePath ?? string.Empty;
+            string productPageRelativePath = productPage.GetUrl()?.RelativePath ?? string.Empty;
+
+            var productViewModel = await GetProductViewModelForListing(
+                product,
+                variant,
+                accessDenied: accessDenied,
+                showSignInCta: showSignInCta,
+                productPageRelativePath: productPageRelativePath);
 
             models.Add(new ProductListingItemViewModel
             {
                 Product = productViewModel,
-                ProductPageUrl = productPageUrl,
-                AccessDenied = accessDenied,
-                ShowSignInCta = showSignInCta
+                ProductPageUrl = productViewModel.ProductActionUrl,
+                AccessDenied = productViewModel.IsSecured,
+                ShowSignInCta = productViewModel.RequiresSignIn
             });
         }
 
@@ -827,5 +870,19 @@ public class ProductService(IContentItemRetrieverService contentItemRetrieverSer
 
         // Price after catalog promotion (if any was applied)
         return item?.LineSubtotalAfterLineDiscount;
+    }
+
+    private async Task<string> GetSecurityActionUrl(string productPageRelativePath, bool showSignInCta)
+    {
+        string returnPath = productPageRelativePath.TrimStart('~');
+
+        if (showSignInCta)
+        {
+            string language = preferredLanguageRetriever.Get();
+            string signInUrl = await membershipService.GetSignInUrl(language);
+            return $"{signInUrl}{QueryString.Create(ApplicationConstants.RETURN_URL_PARAMETER, returnPath)}";
+        }
+
+        return $"{ApplicationConstants.ACCESS_DENIED_ACTION_PATH}{QueryString.Create(ApplicationConstants.RETURN_URL_PARAMETER, returnPath)}";
     }
 }

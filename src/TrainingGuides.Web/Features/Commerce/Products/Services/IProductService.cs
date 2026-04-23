@@ -47,8 +47,22 @@ public interface IProductService
     /// <param name="product">The product for which to create the view model.</param>
     /// <param name="selectedVariant">The optional selected variant. If not provided and the product has variants, the first variant will be used.</param>
     /// <param name="accessDenied">Indicates whether access to the product is denied. Assumed false if no value is provided.</param>
+    /// <param name="productPageRelativePath">Relative path of the product page used for security return URLs.</param>
     /// <returns>A <see cref="ProductViewModel"/> populated with product and variant information.</returns>
-    Task<ProductViewModel> GetViewModel(IProductSchema? product, IProductSchema? selectedVariant = null, bool accessDenied = false);
+    Task<ProductViewModel> GetViewModel(
+        IProductSchema? product,
+        IProductSchema? selectedVariant = null,
+        bool accessDenied = false,
+        string productPageRelativePath = "");
+
+    /// <summary>
+    /// Checks whether the current user can access both the product page and the selected product content.
+    /// </summary>
+    /// <param name="productPage">The product page to evaluate.</param>
+    /// <param name="product">The linked product item to evaluate.</param>
+    /// <param name="selectedVariant">Optional selected variant to evaluate.</param>
+    /// <returns><c>true</c> when access is allowed for all provided content items; otherwise, <c>false</c>.</returns>
+    bool CanCurrentUserAccessProductPage(ProductPage? productPage, IProductSchema? product, IProductSchema? selectedVariant = null);
 
     /// <summary>
     /// Retrieves the current product page with all related product data.

@@ -1,13 +1,9 @@
-using CMS.ContentEngine;
-using Kentico.Content.Web.Mvc;
-using Kentico.Content.Web.Mvc.Routing;
 using Kentico.PageBuilder.Web.Mvc;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ViewComponents;
+using Microsoft.Extensions.Localization;
 using TrainingGuides.Web.Commerce.Products.Services;
 using TrainingGuides.Web.Features.Commerce.Products.Widgets.ProductWidget;
-using TrainingGuides.Web.Features.Membership.Services;
-using TrainingGuides.Web.Features.Shared.Helpers;
 
 [assembly:
     RegisterWidget(
@@ -20,9 +16,9 @@ using TrainingGuides.Web.Features.Shared.Helpers;
 
 namespace TrainingGuides.Web.Features.Commerce.Products.Widgets.ProductWidget;
 
-public class ProductWidgetViewComponent(IProductService productService,
-        IMembershipService membershipService,
-        IPreferredLanguageRetriever preferredLanguageRetriever) : ViewComponent
+public class ProductWidgetViewComponent(
+    IProductService productService,
+    IStringLocalizer<SharedResources> stringLocalizer) : ViewComponent
 {
     public const string IDENTIFIER = "TrainingGuides.ProductWidget";
 
@@ -59,35 +55,27 @@ public class ProductWidgetViewComponent(IProductService productService,
             }
         }
 
-        var user = HttpContext?.User;
-        bool pageHasAccess = productPage?.HasAccess(user) ?? true;
-        bool itemHasAccess = (product as IContentItemFieldsSource)?.HasAccess(user) ?? true;
+        bool accessDenied = !productService.CanCurrentUserAccessProductPage(productPage, product, selectedVariant);
+        string productPageRelativePath = productPage?.GetUrl()?.RelativePath ?? string.Empty;
 
-        bool accessDenied = !pageHasAccess || !itemHasAccess;
+        var productModel = product is not null
+            ? await productService.GetViewModel(product, selectedVariant, accessDenied, productPageRelativePath)
+            : null;
 
-        string language = preferredLanguageRetriever.Get();
-        bool isAuthenticated = await membershipService.IsMemberAuthenticated();
-
-        string deniedReturnPath = (productPage?.GetUrl()?.RelativePath ?? string.Empty).TrimStart('~');
-        string accessDeniedUrl = $"{ApplicationConstants.ACCESS_DENIED_ACTION_PATH}{QueryString.Create(ApplicationConstants.RETURN_URL_PARAMETER, deniedReturnPath)}";
+        bool productIsSecured = productModel?.IsSecured ?? false;
+        bool requiresSignIn = productModel?.RequiresSignIn ?? false;
 
         // Create view model
         var model = new ProductWidgetViewModel
         {
-            Product = product is not null
-                ? await productService.GetViewModel(product, selectedVariant, accessDenied)
-                : null,
-            ProductPageUrl = accessDenied
-                ? isAuthenticated
-                    ? accessDeniedUrl
-                    : await membershipService.GetSignInUrl(language, true)
-                : productPage?.GetUrl()?.RelativePath ?? string.Empty,
-            ShowVariantSelection = properties.ShowVariantSelection && !accessDenied,
-            ShowVariantDetails = properties.ShowVariantDetails && !accessDenied,
-            ShowCallToAction = properties.ShowCallToAction || accessDenied,
-            CallToActionText = accessDenied
-                ? isAuthenticated ? "Access denied" : "Sign in"
-                : properties.CallToActionText ?? "View Product"
+            Product = productModel,
+            ProductPageUrl = productModel?.ProductActionUrl ?? string.Empty,
+            ShowVariantSelection = properties.ShowVariantSelection && !productIsSecured,
+            ShowVariantDetails = properties.ShowVariantDetails && !productIsSecured,
+            ShowCallToAction = (properties.ShowCallToAction && !productIsSecured) || requiresSignIn,
+            CallToActionText = productIsSecured
+                ? (requiresSignIn ? stringLocalizer["Sign in"] : stringLocalizer["Read more"])
+                : properties.CallToActionText ?? stringLocalizer["View Product"]
         };
 
         return View("~/Features/Commerce/Products/Widgets/ProductWidget/ProductWidget.cshtml", model);
