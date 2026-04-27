@@ -14,7 +14,16 @@ using TrainingGuides.Web.Features.Shared.Services;
 
 namespace TrainingGuides.Web.Features.Membership.Services;
 
-public class MembershipService : IMembershipService
+public class MembershipService(
+    UserManager<GuidesMember> userManager,
+    SignInManager<GuidesMember> signInManager,
+    IHttpContextAccessor contextAccessor,
+    ILogger<MembershipService> logger,
+    IMemberContactService memberContactService,
+    IWebPageUrlRetriever webPageUrlRetriever,
+    IWebsiteChannelContext websiteChannelContext,
+    IHttpRequestService httpRequestService,
+    IStringLocalizer<SharedResources> stringLocalizer) : IMembershipService
 {
     /// <inheritdoc/>
     public GuidesMember DummyMember => new()
@@ -29,38 +38,6 @@ public class MembershipService : IMembershipService
         Created = DateTime.Now,
         Id = 0
     };
-
-    private readonly UserManager<GuidesMember> userManager;
-    private readonly SignInManager<GuidesMember> signInManager;
-    private readonly IHttpContextAccessor contextAccessor;
-    private readonly ILogger<MembershipService> logger;
-    private readonly IMemberContactService memberContactService;
-    private readonly IWebPageUrlRetriever webPageUrlRetriever;
-    private readonly IWebsiteChannelContext websiteChannelContext;
-    private readonly IHttpRequestService httpRequestService;
-    private readonly IStringLocalizer<SharedResources> stringLocalizer;
-
-    public MembershipService(
-        UserManager<GuidesMember> userManager,
-        SignInManager<GuidesMember> signInManager,
-        IHttpContextAccessor contextAccessor,
-        ILogger<MembershipService> logger,
-        IMemberContactService memberContactService,
-        IWebPageUrlRetriever webPageUrlRetriever,
-        IWebsiteChannelContext websiteChannelContext,
-        IHttpRequestService httpRequestService,
-        IStringLocalizer<SharedResources> stringLocalizer)
-    {
-        this.userManager = userManager;
-        this.signInManager = signInManager;
-        this.contextAccessor = contextAccessor;
-        this.logger = logger;
-        this.memberContactService = memberContactService;
-        this.webPageUrlRetriever = webPageUrlRetriever;
-        this.websiteChannelContext = websiteChannelContext;
-        this.httpRequestService = httpRequestService;
-        this.stringLocalizer = stringLocalizer;
-    }
 
     /// <inheritdoc />
     public async Task<GuidesMember?> GetCurrentMember()

@@ -17,35 +17,18 @@ using TrainingGuides.Web.Features.Shared.Services;
 
 namespace TrainingGuides.Web.Features.Membership.Controllers;
 
-public class RegistrationController : Controller
-{
-    private readonly IMembershipService membershipService;
-    private readonly ILogger<RegistrationController> logger;
-    private readonly IStringLocalizer<SharedResources> stringLocalizer;
-    private readonly IEmailService emailService;
-    private readonly SystemEmailOptions systemEmailOptions;
-    private readonly IHttpRequestService httpRequestService;
-    private readonly IPreferredLanguageRetriever preferredLanguageRetriever;
-
-    private const string REGISTRATION_FORM_VIEW_PATH = "~/Features/Membership/Widgets/Registration/RegistrationForm.cshtml";
-
-    public RegistrationController(
+public class RegistrationController(
     IMembershipService membershipService,
     ILogger<RegistrationController> logger,
     IStringLocalizer<SharedResources> stringLocalizer,
     IEmailService emailService,
-    IOptions<SystemEmailOptions> systemEmailOptions,
+    IOptions<SystemEmailOptions> systemEmailOptionsOptions,
     IHttpRequestService httpRequestService,
-    IPreferredLanguageRetriever preferredLanguageRetriever)
-    {
-        this.membershipService = membershipService;
-        this.logger = logger;
-        this.stringLocalizer = stringLocalizer;
-        this.emailService = emailService;
-        this.systemEmailOptions = systemEmailOptions.Value;
-        this.httpRequestService = httpRequestService;
-        this.preferredLanguageRetriever = preferredLanguageRetriever;
-    }
+    IPreferredLanguageRetriever preferredLanguageRetriever) : Controller
+{
+    private readonly SystemEmailOptions systemEmailOptions = systemEmailOptionsOptions.Value;
+
+    private const string REGISTRATION_FORM_VIEW_PATH = "~/Features/Membership/Widgets/Registration/RegistrationForm.cshtml";
 
     [HttpPost($"{{{ApplicationConstants.LANGUAGE_KEY}}}{ApplicationConstants.REGISTER_ACTION_PATH}")]
     [ValidateAntiForgeryToken]
