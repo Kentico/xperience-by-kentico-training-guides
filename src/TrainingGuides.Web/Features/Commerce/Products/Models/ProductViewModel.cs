@@ -15,7 +15,7 @@ public class ProductViewModel
     public HtmlString ProductVariantDescription { get; set; } = new HtmlString(string.Empty);
     public HtmlString ProductOtherDetails { get; set; } = new HtmlString(string.Empty);
     public string ProductStockStatus { get; set; } = string.Empty;
-    public bool IsSecured { get; set; }
+    public bool Restricted { get; set; }
     public bool RequiresSignIn { get; set; }
     public string ProductActionUrl { get; set; } = string.Empty;
 }

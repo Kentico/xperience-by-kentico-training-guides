@@ -11,19 +11,10 @@ using TrainingGuides.Web.Features.Shared.Services;
 
 namespace TrainingGuides.Web.Features.Articles;
 
-public class ArticlePageController : Controller
+public class ArticlePageController(
+    IContentItemRetrieverService contentItemRetrieverService,
+    IArticlePageService articlePageService) : Controller
 {
-
-    private readonly IContentItemRetrieverService contentItemRetrieverService;
-    private readonly IArticlePageService articlePageService;
-
-    public ArticlePageController(
-        IContentItemRetrieverService contentItemRetrieverService,
-        IArticlePageService articlePageService)
-    {
-        this.contentItemRetrieverService = contentItemRetrieverService;
-        this.articlePageService = articlePageService;
-    }
 
     public async Task<IActionResult> Index()
     {

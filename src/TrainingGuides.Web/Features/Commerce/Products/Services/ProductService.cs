@@ -152,7 +152,7 @@ public class ProductService(IContentItemRetrieverService contentItemRetrieverSer
                 ? stringLocalizer["Please sign in to view this product."]
                 : stringLocalizer["You do not have permission to access this product. Upgrade to our higher tier."]),
             ProductStockStatus = GetFriendlyEnumString(await GetProductStockStatus(null)),
-            IsSecured = true,
+            Restricted = true,
             RequiresSignIn = showSignInCta,
             ProductActionUrl = actionUrl
         };
@@ -198,7 +198,7 @@ public class ProductService(IContentItemRetrieverService contentItemRetrieverSer
             ProductParentDescription = new HtmlString(product.ProductSchemaDescription ?? string.Empty),
             ProductVariantDescription = new HtmlString(productVariant?.ProductSchemaDescription ?? string.Empty),
             ProductStockStatus = GetFriendlyEnumString(stockStatus),
-            IsSecured = false,
+            Restricted = false,
             RequiresSignIn = false,
             ProductActionUrl = productPageRelativePath
         };
@@ -242,7 +242,7 @@ public class ProductService(IContentItemRetrieverService contentItemRetrieverSer
             ProductVariantDescription = new HtmlString(string.Empty),
             ProductOtherDetails = new HtmlString(string.Empty),
             ProductStockStatus = GetFriendlyEnumString(stockStatus),
-            IsSecured = false,
+            Restricted = false,
             RequiresSignIn = false,
             ProductActionUrl = productPageRelativePath
         };
@@ -707,7 +707,7 @@ public class ProductService(IContentItemRetrieverService contentItemRetrieverSer
             {
                 Product = productViewModel,
                 ProductPageUrl = productViewModel.ProductActionUrl,
-                AccessDenied = productViewModel.IsSecured,
+                AccessDenied = productViewModel.Restricted,
                 ShowSignInCta = productViewModel.RequiresSignIn
             });
         }

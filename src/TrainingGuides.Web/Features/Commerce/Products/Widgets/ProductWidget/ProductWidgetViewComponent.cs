@@ -62,7 +62,7 @@ public class ProductWidgetViewComponent(
             ? await productService.GetViewModel(product, selectedVariant, accessDenied, productPageRelativePath)
             : null;
 
-        bool productIsSecured = productModel?.IsSecured ?? false;
+        bool productIsSecured = productModel?.Restricted ?? false;
         bool requiresSignIn = productModel?.RequiresSignIn ?? false;
 
         // Create view model

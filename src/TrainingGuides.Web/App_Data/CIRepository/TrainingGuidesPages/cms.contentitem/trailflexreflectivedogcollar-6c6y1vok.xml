@@ -14,4 +14,19 @@
   <ContentItemIsReusable>False</ContentItemIsReusable>
   <ContentItemIsSecured>True</ContentItemIsSecured>
   <ContentItemName>TrailFlexReflectiveDogCollar-6c6y1vok</ContentItemName>
+  <ContentItemMemberRoles>
+    <cms.contentitemmemberrole>
+      <ContentItemMemberRoleContentItemID>
+        <CodeName>TrailFlexReflectiveDogCollar-6c6y1vok</CodeName>
+        <GUID>fdc7f71f-0c87-4767-9a7f-0be601eae064</GUID>
+        <ObjectType>cms.contentitem</ObjectType>
+      </ContentItemMemberRoleContentItemID>
+      <ContentItemMemberRoleGUID>6d7b6a31-8c4e-4048-8a3d-c2ec2ffff95a</ContentItemMemberRoleGUID>
+      <ContentItemMemberRoleMemberRoleID>
+        <CodeName>BasicMember</CodeName>
+        <GUID>e7e93c53-55aa-4c49-bcc9-07563e498c41</GUID>
+        <ObjectType>cms.memberrole</ObjectType>
+      </ContentItemMemberRoleMemberRoleID>
+    </cms.contentitemmemberrole>
+  </ContentItemMemberRoles>
 </cms.contentitem>

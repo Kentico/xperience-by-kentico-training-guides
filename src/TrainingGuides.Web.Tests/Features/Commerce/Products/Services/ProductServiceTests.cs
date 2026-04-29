@@ -274,7 +274,7 @@ public class ProductServiceTests
             productPageRelativePath: "/products/item");
 
         // Assert
-        Assert.True(result.IsSecured);
+        Assert.True(result.Restricted);
         Assert.True(result.RequiresSignIn);
         Assert.StartsWith("/Membership/Sign_in", result.ProductActionUrl, StringComparison.OrdinalIgnoreCase);
         Assert.Contains("returnUrl=%2Fproducts%2Fitem", result.ProductActionUrl, StringComparison.OrdinalIgnoreCase);
@@ -296,7 +296,7 @@ public class ProductServiceTests
             productPageRelativePath: "/products/item");
 
         // Assert
-        Assert.True(result.IsSecured);
+        Assert.True(result.Restricted);
         Assert.False(result.RequiresSignIn);
         Assert.StartsWith(ApplicationConstants.ACCESS_DENIED_ACTION_PATH, result.ProductActionUrl, StringComparison.OrdinalIgnoreCase);
         Assert.Contains("returnUrl=%2Fproducts%2Fitem", result.ProductActionUrl, StringComparison.OrdinalIgnoreCase);

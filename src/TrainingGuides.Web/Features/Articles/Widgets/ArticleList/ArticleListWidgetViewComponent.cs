@@ -102,7 +102,7 @@ public class ArticleListWidgetViewComponent(
                         : articlePageService.GetArticlePageViewModel(articlePage);
 
                     if (securedItemsDisplayMode.Equals(SecuredOption.HideSecuredItems.ToString())
-                        && model.IsSecured)
+                        && model.Restricted)
                     {
                         continue;
                     }

@@ -39,7 +39,7 @@ public class ArticlePageService(
                 CreatedOn = articlePage.ArticlePagePublishDate,
                 TeaserImage = AssetViewModel.GetViewModel(articleSchemaTeaserImage),
                 Url = articleUrl,
-                IsSecured = !CanCurrentUserAccessArticlePage(articlePage),
+                Restricted = !CanCurrentUserAccessArticlePage(articlePage),
                 RequiresSignIn = false
             };
         }
@@ -55,7 +55,7 @@ public class ArticlePageService(
             CreatedOn = articlePage.ArticlePagePublishDate,
             TeaserImage = AssetViewModel.GetViewModel(articleTeaserImage),
             Url = articleUrl,
-            IsSecured = !CanCurrentUserAccessArticlePage(articlePage),
+            Restricted = !CanCurrentUserAccessArticlePage(articlePage),
             RequiresSignIn = false
         };
     }
@@ -110,7 +110,7 @@ public class ArticlePageService(
                 CreatedOn = articlePage.ArticlePagePublishDate,
                 TeaserImage = originalViewModel.TeaserImage,
                 Url = signInUri.ToString(),
-                IsSecured = true,
+                Restricted = true,
                 RequiresSignIn = true
             };
         }
@@ -129,7 +129,7 @@ public class ArticlePageService(
                 CreatedOn = articlePage.ArticlePagePublishDate,
                 TeaserImage = originalViewModel.TeaserImage,
                 Url = accessDeniedUrl,
-                IsSecured = true,
+                Restricted = true,
                 RequiresSignIn = false
             };
         }
