@@ -8,6 +8,7 @@
     <ObjectType>cms.user</ObjectType>
   </PromotionCreatedByUserID>
   <PromotionCreatedWhen>2026-02-02 16:09:32Z</PromotionCreatedWhen>
+  <PromotionCustomerEligibility>all</PromotionCustomerEligibility>
   <PromotionDisplayName>Anniversary sale</PromotionDisplayName>
   <PromotionGUID>1358b28a-8cfd-456c-9b8d-ca8843f8b4c9</PromotionGUID>
   <PromotionModifiedByUserID>

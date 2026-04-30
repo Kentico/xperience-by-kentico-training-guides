@@ -4,17 +4,15 @@
     <CodeName>CMS.AI</CodeName>
     <ObjectType>cms.settingscategory</ObjectType>
   </KeyCategoryID>
-  <KeyDisplayName>
-    <![CDATA[{$base.settings.settingskey.airacontentgeneration$}]]>
-  </KeyDisplayName>
+  <KeyDisplayName>{$base.settings.settingskey.airaagents$}</KeyDisplayName>
   <KeyExplanationText />
-  <KeyGUID>f4a2d8e3-b1c7-4e5f-9a6d-2c8e4a1b3f7e</KeyGUID>
+  <KeyGUID>eac5cb17-53ac-4bea-a612-70e45a012b8d</KeyGUID>
   <KeyIsCustom>False</KeyIsCustom>
   <KeyIsHidden>True</KeyIsHidden>
-  <KeyName>CMSAiraContentGeneration</KeyName>
-  <KeyOrder>3</KeyOrder>
+  <KeyName>CMSAiraAgents</KeyName>
+  <KeyOrder>4</KeyOrder>
   <KeyType>longtext</KeyType>
   <KeyValue>
-    <![CDATA[{"ToneOfVoiceGuidelines":""}]]>
+    <![CDATA[{"CustomerJourneyOptimizationAgent":{"IsEnabled":false,"CustomInstructions":""}}]]>
   </KeyValue>
 </cms.settingskey>
