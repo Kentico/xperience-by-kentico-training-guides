@@ -1,9 +1,11 @@
 using CMS.Websites;
+using Kentico.Content.Web.Mvc.Routing;
 using Microsoft.AspNetCore.Html;
 using Microsoft.Extensions.Localization;
 using Moq;
 using TrainingGuides.Web.Features.Articles;
 using TrainingGuides.Web.Features.Articles.Services;
+using TrainingGuides.Web.Features.Membership.Services;
 using TrainingGuides.Web.Features.Shared.Services;
 using Xunit;
 
@@ -13,6 +15,8 @@ public class ArticlePageServiceTests
 {
     private readonly Mock<IStringLocalizer<SharedResources>> stringLocalizerMock;
     private readonly Mock<IHttpRequestService> httpRequestServiceMock;
+    private readonly Mock<IMembershipService> membershipServiceMock;
+    private readonly Mock<IPreferredLanguageRetriever> preferredLanguageRetrieverMock;
     private readonly Mock<ArticlePageService> articlePageServiceMock;
 
     private const string ARTICLE_TITLE = "Title";
@@ -26,10 +30,14 @@ public class ArticlePageServiceTests
     {
         stringLocalizerMock = new Mock<IStringLocalizer<SharedResources>>();
         httpRequestServiceMock = new Mock<IHttpRequestService>();
+        membershipServiceMock = new Mock<IMembershipService>();
+        preferredLanguageRetrieverMock = new Mock<IPreferredLanguageRetriever>();
 
         articlePageServiceMock = new Mock<ArticlePageService>(
             stringLocalizerMock.Object,
-            httpRequestServiceMock.Object);
+            httpRequestServiceMock.Object,
+            membershipServiceMock.Object,
+            preferredLanguageRetrieverMock.Object);
 
         // Mock the GetArticlePageRelativeUrl method to avoid IoC container issues
         articlePageServiceMock.Setup(x => x.GetArticlePageRelativeUrl(It.IsAny<ArticlePage>()))

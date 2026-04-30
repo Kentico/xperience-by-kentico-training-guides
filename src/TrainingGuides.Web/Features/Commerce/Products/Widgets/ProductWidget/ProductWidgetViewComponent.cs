@@ -1,11 +1,9 @@
-using CMS.ContentEngine;
-using Kentico.Content.Web.Mvc.Routing;
 using Kentico.PageBuilder.Web.Mvc;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ViewComponents;
+using Microsoft.Extensions.Localization;
 using TrainingGuides.Web.Commerce.Products.Services;
 using TrainingGuides.Web.Features.Commerce.Products.Widgets.ProductWidget;
-using TrainingGuides.Web.Features.Membership.Services;
 
 [assembly:
     RegisterWidget(
@@ -18,9 +16,9 @@ using TrainingGuides.Web.Features.Membership.Services;
 
 namespace TrainingGuides.Web.Features.Commerce.Products.Widgets.ProductWidget;
 
-public class ProductWidgetViewComponent(IProductService productService,
-        IMembershipService membershipService,
-        IPreferredLanguageRetriever preferredLanguageRetriever) : ViewComponent
+public class ProductWidgetViewComponent(
+    IProductService productService,
+    IStringLocalizer<SharedResources> stringLocalizer) : ViewComponent
 {
     public const string IDENTIFIER = "TrainingGuides.ProductWidget";
 
@@ -57,34 +55,27 @@ public class ProductWidgetViewComponent(IProductService productService,
             }
         }
 
-        bool isAuthenticated = await membershipService.IsMemberAuthenticated();
+        bool accessDenied = !productService.CanCurrentUserAccessProductPage(productPage);
+        string productPageRelativePath = productPage?.GetUrl()?.RelativePath ?? string.Empty;
 
-        bool pageSecured = productPage is IWebPageFieldsSource pageFieldsSource
-            && pageFieldsSource.SystemFields.ContentItemIsSecured;
+        var productModel = product is not null
+            ? await productService.GetViewModel(product, selectedVariant, accessDenied, productPageRelativePath)
+            : null;
 
-        bool itemSecured = product is IContentItemFieldsSource itemFieldsSource
-            && itemFieldsSource.SystemFields.ContentItemIsSecured;
-
-        bool accessDenied = (pageSecured || itemSecured)
-            && !isAuthenticated;
-
-        string language = preferredLanguageRetriever.Get();
+        bool productIsSecured = productModel?.Restricted ?? false;
+        bool requiresSignIn = productModel?.RequiresSignIn ?? false;
 
         // Create view model
         var model = new ProductWidgetViewModel
         {
-            Product = product is not null
-                ? await productService.GetViewModel(product, selectedVariant, accessDenied)
-                : null,
-            ProductPageUrl = accessDenied
-                ? await membershipService.GetSignInUrl(language, true)
-                : productPage?.GetUrl()?.RelativePath ?? string.Empty,
-            ShowVariantSelection = properties.ShowVariantSelection && !accessDenied,
-            ShowVariantDetails = properties.ShowVariantDetails && !accessDenied,
-            ShowCallToAction = properties.ShowCallToAction || accessDenied,
-            CallToActionText = accessDenied
-                ? "Sign in"
-                : properties.CallToActionText ?? "View Product"
+            Product = productModel,
+            ProductPageUrl = productModel?.ProductActionUrl ?? string.Empty,
+            ShowVariantSelection = properties.ShowVariantSelection && !productIsSecured,
+            ShowVariantDetails = properties.ShowVariantDetails && !productIsSecured,
+            ShowCallToAction = (properties.ShowCallToAction && !productIsSecured) || requiresSignIn,
+            CallToActionText = productIsSecured
+                ? (requiresSignIn ? stringLocalizer["Sign in"] : stringLocalizer["Read more"])
+                : properties.CallToActionText ?? stringLocalizer["View Product"]
         };
 
         return View("~/Features/Commerce/Products/Widgets/ProductWidget/ProductWidget.cshtml", model);

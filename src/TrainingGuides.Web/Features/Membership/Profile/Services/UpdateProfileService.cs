@@ -21,8 +21,19 @@ public class UpdateProfileService : IUpdateProfileService
     }
 
     /// <inheritdoc/>
-    public UpdateProfileViewModel GetViewModel(GuidesMember guidesMember) =>
-        new()
+    public UpdateProfileViewModel GetViewModel(GuidesMember guidesMember, IEnumerable<GuidesRole> roles)
+    {
+        var roleViewModels = roles
+            .Select(role => new GuidesRoleViewModel
+            {
+                Name = role.Name ?? string.Empty,
+                BadgeLabel = string.IsNullOrWhiteSpace(role.BadgeLabel) ? role.DisplayName : role.BadgeLabel,
+                BadgeColor = string.IsNullOrWhiteSpace(role.BadgeColor) ? "#8107c1" : role.BadgeColor,
+                BenefitsSummary = role.BenefitsSummary
+            })
+            .ToArray();
+
+        return new()
         {
             GivenName = guidesMember?.GivenName ?? string.Empty,
             FamilyName = guidesMember?.FamilyName ?? string.Empty,
@@ -32,8 +43,10 @@ public class UpdateProfileService : IUpdateProfileService
             EmailAddress = guidesMember?.Email ?? string.Empty,
             FullName = guidesMember?.FullName ?? string.Empty,
             Created = guidesMember?.Created ?? DateTime.MinValue,
+            Roles = roleViewModels,
             ActionUrl = httpRequestService.GetAbsoluteUrlForPath(ApplicationConstants.UPDATE_PROFILE_ACTION_PATH, true),
             SubmitButtonText = stringLocalizer["Submit"],
             Title = stringLocalizer["Update profile"]
         };
+    }
 }

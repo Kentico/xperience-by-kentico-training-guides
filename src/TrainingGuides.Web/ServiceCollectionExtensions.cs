@@ -32,7 +32,6 @@ public static class ServiceCollectionExtensions
         services.AddSingleton<ICookieConsentService, CookieConsentService>();
         services.AddSingleton<IContentItemRetrieverService, ContentItemRetrieverService>();
         services.AddSingleton<IHttpRequestService, HttpRequestService>();
-        services.AddSingleton<IArticlePageService, ArticlePageService>();
         services.AddSingleton<IServicePageService, ServicePageService>();
         services.AddSingleton<IComponentStyleEnumService, ComponentStyleEnumService>();
         services.AddSingleton<IEmailNotificationService, EmailNotificationService>();
@@ -43,10 +42,11 @@ public static class ServiceCollectionExtensions
         services.AddSingleton<IContactImportService, ContactishContactImportService>();
 
 
+        services.AddScoped<IArticlePageService, ArticlePageService>();
         services.AddScoped<IMembershipService, MembershipService>();
+        services.AddScoped<IGuidesRoleService, GuidesRoleService>();
         services.AddScoped<IProductService, ProductService>();
         services.AddScoped<IHeadTagStoreService, HeadTagStoreService>();
-
         services.AddScoped<IComponentModelMapper<ImageWidgetModel>, ImageEmailWidgetModelMapper>();
         services.AddScoped<IComponentModelMapper<ProductWidgetModel>, ProductEmailWidgetModelMapper>();
         services.AddScoped<IComponentModelMapper<ArticleEmailWidgetModel>, ArticleEmailWidgetModelMapper>();

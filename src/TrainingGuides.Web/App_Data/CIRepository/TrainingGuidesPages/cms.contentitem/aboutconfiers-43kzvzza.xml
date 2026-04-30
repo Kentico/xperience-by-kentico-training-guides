@@ -14,4 +14,19 @@
   <ContentItemIsReusable>False</ContentItemIsReusable>
   <ContentItemIsSecured>True</ContentItemIsSecured>
   <ContentItemName>AboutConfiers-43kzvzza</ContentItemName>
+  <ContentItemMemberRoles>
+    <cms.contentitemmemberrole>
+      <ContentItemMemberRoleContentItemID>
+        <CodeName>AboutConfiers-43kzvzza</CodeName>
+        <GUID>c155bcf9-1300-47ea-a76e-4070f2b4ae72</GUID>
+        <ObjectType>cms.contentitem</ObjectType>
+      </ContentItemMemberRoleContentItemID>
+      <ContentItemMemberRoleGUID>fe819991-7255-4342-952b-92d02aa600c6</ContentItemMemberRoleGUID>
+      <ContentItemMemberRoleMemberRoleID>
+        <CodeName>BasicMember</CodeName>
+        <GUID>e7e93c53-55aa-4c49-bcc9-07563e498c41</GUID>
+        <ObjectType>cms.memberrole</ObjectType>
+      </ContentItemMemberRoleMemberRoleID>
+    </cms.contentitemmemberrole>
+  </ContentItemMemberRoles>
 </cms.contentitem>

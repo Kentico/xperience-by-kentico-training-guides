@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.memberrole>
+  <GuidesRoleBadgeColor>#FDB600</GuidesRoleBadgeColor>
+  <GuidesRoleBadgeLabel>Insider</GuidesRoleBadgeLabel>
+  <GuidesRoleBenefitsSummary>Top-tier access for premium/inner-circle members.</GuidesRoleBenefitsSummary>
+  <MemberRoleDescription>
+    <![CDATA[Full member access, including Insider-only pages and experiences.]]>
+  </MemberRoleDescription>
+  <MemberRoleDisplayName>Insider</MemberRoleDisplayName>
+  <MemberRoleGUID>2c2eb51b-180c-48a4-9553-37a239464d5a</MemberRoleGUID>
+  <MemberRoleName>InsiderMember</MemberRoleName>
+</cms.memberrole>

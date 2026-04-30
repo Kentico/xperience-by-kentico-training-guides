@@ -14,4 +14,19 @@
   <ContentItemIsReusable>False</ContentItemIsReusable>
   <ContentItemIsSecured>True</ContentItemIsSecured>
   <ContentItemName>WidgetSamples-qyagaxb2</ContentItemName>
+  <ContentItemMemberRoles>
+    <cms.contentitemmemberrole>
+      <ContentItemMemberRoleContentItemID>
+        <CodeName>WidgetSamples-qyagaxb2</CodeName>
+        <GUID>d3e7f041-c1d9-4225-bb91-72813912b8af</GUID>
+        <ObjectType>cms.contentitem</ObjectType>
+      </ContentItemMemberRoleContentItemID>
+      <ContentItemMemberRoleGUID>2fd0ec62-0737-49b1-8d58-89854a8dc20b</ContentItemMemberRoleGUID>
+      <ContentItemMemberRoleMemberRoleID>
+        <CodeName>BasicMember</CodeName>
+        <GUID>e7e93c53-55aa-4c49-bcc9-07563e498c41</GUID>
+        <ObjectType>cms.memberrole</ObjectType>
+      </ContentItemMemberRoleMemberRoleID>
+    </cms.contentitemmemberrole>
+  </ContentItemMemberRoles>
 </cms.contentitem>

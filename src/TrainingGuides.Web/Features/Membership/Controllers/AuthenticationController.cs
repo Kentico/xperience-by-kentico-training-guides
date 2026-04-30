@@ -12,28 +12,14 @@ using TrainingGuides.Web.Features.Shared.Services;
 
 namespace TrainingGuides.Web.Features.Membership.Controllers;
 
-public class AuthenticationController : Controller
+public class AuthenticationController(
+    IMembershipService membershipService,
+    IStringLocalizer<SharedResources> stringLocalizer,
+    IPreferredLanguageRetriever preferredLanguageRetriever,
+    IInfoProvider<ContentLanguageInfo> contentLanguageInfoProvider,
+    IHttpRequestService httpRequestService) : Controller
 {
-    private readonly IMembershipService membershipService;
-    private readonly IStringLocalizer<SharedResources> stringLocalizer;
-    private readonly IPreferredLanguageRetriever preferredLanguageRetriever;
-    private readonly IInfoProvider<ContentLanguageInfo> contentLanguageInfoProvider;
-    private readonly IHttpRequestService httpRequestService;
-
     private const string SIGN_IN_FAILED = "Your sign-in attempt was not successful. Please try again.";
-
-    public AuthenticationController(IMembershipService membershipService,
-        IStringLocalizer<SharedResources> stringLocalizer,
-        IPreferredLanguageRetriever preferredLanguageRetriever,
-        IInfoProvider<ContentLanguageInfo> contentLanguageInfoProvider,
-        IHttpRequestService httpRequestService)
-    {
-        this.membershipService = membershipService;
-        this.stringLocalizer = stringLocalizer;
-        this.preferredLanguageRetriever = preferredLanguageRetriever;
-        this.contentLanguageInfoProvider = contentLanguageInfoProvider;
-        this.httpRequestService = httpRequestService;
-    }
 
     private IActionResult RenderError(SignInWidgetViewModel model)
     {
@@ -91,26 +77,61 @@ public class AuthenticationController : Controller
         return Redirect(redirectUrl);
     }
 
-    [HttpGet(ApplicationConstants.ACCESS_DENIED_ACTION_PATH)]
-    public async Task<IActionResult> AccessDenied([FromQuery(Name = ApplicationConstants.RETURN_URL_PARAMETER)] string returnUrl)
+    [HttpGet(ApplicationConstants.EXPECTED_SIGN_IN_PATH)]
+    public async Task<IActionResult> SignIn([FromQuery(Name = ApplicationConstants.RETURN_URL_PARAMETER)] string returnUrl = "")
     {
-        string language = GetLanguageFromReturnUrl(returnUrl);
+        string language = ResolveLanguageFromReturnUrlOrPreferred(returnUrl);
 
-        string signInUrl = await membershipService.GetSignInUrl(language, true);
+        string signInUrl = await membershipService.GetSignInUrl(language, false);
 
-        var query = QueryString.Create(ApplicationConstants.RETURN_URL_PARAMETER, returnUrl);
+        string query = string.IsNullOrWhiteSpace(returnUrl)
+            ? string.Empty
+            : QueryString.Create(ApplicationConstants.RETURN_URL_PARAMETER, returnUrl).ToString();
 
-        var redirectUrl = new UriBuilder(signInUrl)
+        var redirectUrl = new UriBuilder(httpRequestService.GetBaseUrl())
         {
-            Query = query.ToString()
+            Path = signInUrl.TrimStart('~'),
+            Query = query
         };
 
         return Redirect(redirectUrl.ToString());
     }
 
-    private string GetLanguageFromReturnUrl(string returnUrl)
+    [HttpGet(ApplicationConstants.ACCESS_DENIED_ACTION_PATH)]
+    [HttpGet($"{{{ApplicationConstants.LANGUAGE_KEY}}}{ApplicationConstants.ACCESS_DENIED_ACTION_PATH}")]
+    public IActionResult AccessDenied([FromQuery(Name = ApplicationConstants.RETURN_URL_PARAMETER)] string returnUrl)
     {
-        // Cache this in real-world scenarios
+        string language = ResolveLanguageFromReturnUrlOrPreferred(returnUrl);
+        string requestLanguage = RouteData.Values[ApplicationConstants.LANGUAGE_KEY]?.ToString() ?? string.Empty;
+
+        if (!string.Equals(requestLanguage, language, StringComparison.OrdinalIgnoreCase))
+        {
+            string localizedPath = $"/{language}{ApplicationConstants.ACCESS_DENIED_ACTION_PATH}";
+            string queryString = QueryString.Create(ApplicationConstants.RETURN_URL_PARAMETER, returnUrl).ToString();
+
+            return Redirect($"{localizedPath}{queryString}");
+        }
+
+        return View("~/Features/Membership/ViewComponents/Authentication/AccessDenied.cshtml", GetAccessDeniedViewModel());
+    }
+
+    private ViewComponents.Authentication.AccessDeniedViewModel GetAccessDeniedViewModel() => new()
+    {
+        Title = stringLocalizer["Access Denied"],
+        Heading = $"🔒 {stringLocalizer["Access Denied"]}",
+        Message = stringLocalizer["You do not have permission to access this content. If you believe you should have access, please contact support."]
+    };
+
+    private string ResolveLanguageFromReturnUrlOrPreferred(string returnUrl)
+    {
+        if (string.IsNullOrWhiteSpace(returnUrl))
+        {
+            return preferredLanguageRetriever.Get();
+        }
+
+        // Cache this in real-world scenarios.
+        // Resolve from returnUrl first to preserve the target page locale during sign-in/access-denied redirects;
+        // otherwise fall back to preferred language from request/channel context.
         var languages = contentLanguageInfoProvider.Get()
             .Column(nameof(ContentLanguageInfo.ContentLanguageName))
             .GetListResult<string>();

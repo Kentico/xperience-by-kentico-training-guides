@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.memberrole>
+  <GuidesRoleBadgeColor>#D90074</GuidesRoleBadgeColor>
+  <GuidesRoleBadgeLabel>Enthusiast</GuidesRoleBadgeLabel>
+  <GuidesRoleBenefitsSummary>Mid-tier access for highly engaged members.</GuidesRoleBenefitsSummary>
+  <MemberRoleDescription>
+    <![CDATA[Expanded members-only content and enhanced feature access.]]>
+  </MemberRoleDescription>
+  <MemberRoleDisplayName>Enthusiast</MemberRoleDisplayName>
+  <MemberRoleGUID>9c6d1fac-5c16-4224-be70-32436f5736e8</MemberRoleGUID>
+  <MemberRoleName>EnthusiastMember</MemberRoleName>
+</cms.memberrole>

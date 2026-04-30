@@ -3,7 +3,6 @@ using Kentico.PageBuilder.Web.Mvc.PageTemplates;
 using Microsoft.AspNetCore.Mvc;
 using TrainingGuides;
 using TrainingGuides.Web.Features.Articles.Services;
-using TrainingGuides.Web.Features.Membership.Services;
 using TrainingGuides.Web.Features.Shared.Services;
 
 [assembly: RegisterWebPageRoute(
@@ -12,30 +11,17 @@ using TrainingGuides.Web.Features.Shared.Services;
 
 namespace TrainingGuides.Web.Features.Articles;
 
-public class ArticlePageController : Controller
+public class ArticlePageController(
+    IContentItemRetrieverService contentItemRetrieverService,
+    IArticlePageService articlePageService) : Controller
 {
-
-    private readonly IContentItemRetrieverService contentItemRetrieverService;
-    private readonly IArticlePageService articlePageService;
-    private readonly IMembershipService membershipService;
-
-    public ArticlePageController(
-        IContentItemRetrieverService contentItemRetrieverService,
-        IArticlePageService articlePageService,
-        IMembershipService membershipService)
-    {
-        this.contentItemRetrieverService = contentItemRetrieverService;
-        this.articlePageService = articlePageService;
-        this.membershipService = membershipService;
-    }
 
     public async Task<IActionResult> Index()
     {
         var articlePage = await contentItemRetrieverService.RetrieveCurrentPage<ArticlePage>(2);
 
         if (articlePage is not null
-            && articlePageService.IsReusableArticleSecured(articlePage)
-            && !await membershipService.IsMemberAuthenticated())
+            && !articlePageService.CanCurrentUserAccessArticlePage(articlePage))
         {
             return Forbid();
         }

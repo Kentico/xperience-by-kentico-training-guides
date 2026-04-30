@@ -136,19 +136,21 @@ builder.Services.Configure<CookieLevelOptions>(options =>
 });
 
 builder.Services
-    .AddIdentity<GuidesMember, NoOpApplicationRole>(options =>
+    .AddIdentity<GuidesMember, GuidesRole>(options =>
     {
         options.SignIn.RequireConfirmedEmail = true;
         options.User.RequireUniqueEmail = true;
     })
     .AddUserStore<ApplicationUserStore<GuidesMember>>()
-    .AddRoleStore<NoOpApplicationRoleStore>()
+    .AddRoleStore<ApplicationRoleStore<GuidesRole>>()
     .AddUserManager<UserManager<GuidesMember>>()
+    .AddRoleManager<RoleManager<GuidesRole>>()
     .AddSignInManager<SignInManager<GuidesMember>>()
     .AddDefaultTokenProviders();
 
 builder.Services.ConfigureApplicationCookie(options =>
 {
+    options.LoginPath = new PathString(ApplicationConstants.EXPECTED_SIGN_IN_PATH);
     options.AccessDeniedPath = new PathString(ApplicationConstants.ACCESS_DENIED_ACTION_PATH);
     options.ReturnUrlParameter = ApplicationConstants.RETURN_URL_PARAMETER;
     options.Cookie.IsEssential = true;

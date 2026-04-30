@@ -1,0 +1,19 @@
+@model TrainingGuides.Web.Features.Membership.ViewComponents.Authentication.AccessDeniedViewModel
+
+@{
+    ViewBag.Title = Model.Title;
+    Layout = "~/Views/Shared/_UtilityPageLayout.cshtml";
+}
+
+@section title {
+    <title>@Model.Title</title>
+}
+
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6 text-center">
+            <h1 class="display-4">@Model.Heading</h1>
+            <p class="lead mt-4">@Model.Message</p>
+        </div>
+    </div>
+</div>

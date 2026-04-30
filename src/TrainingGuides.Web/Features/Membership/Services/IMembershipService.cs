@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Identity;
+using CMS.ContentEngine;
 using TrainingGuides.Web.Features.Membership.Profile;
 
 namespace TrainingGuides.Web.Features.Membership.Services;
@@ -124,5 +125,12 @@ public interface IMembershipService
     /// <param name="updateProfileViewModel">ViewModel with updated fields.</param>
     /// <returns></returns>
     Task<IdentityResult> UpdateMemberProfile(GuidesMember member, UpdateProfileViewModel updateProfileViewModel);
+
+    /// <summary>
+    /// Checks whether the current user can access the provided content item.
+    /// </summary>
+    /// <param name="contentItem">The content item to evaluate.</param>
+    /// <returns>True when access is allowed for the current user; otherwise false.</returns>
+    bool CanCurrentUserAccessContentItem(IContentItemFieldsSource? contentItem);
 
 }

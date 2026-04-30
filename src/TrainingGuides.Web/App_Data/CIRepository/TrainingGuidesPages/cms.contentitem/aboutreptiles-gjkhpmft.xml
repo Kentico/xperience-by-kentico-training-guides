@@ -12,6 +12,34 @@
   </ContentItemContentTypeID>
   <ContentItemGUID>33b343ac-c61c-4800-b238-6e16ecd16085</ContentItemGUID>
   <ContentItemIsReusable>False</ContentItemIsReusable>
-  <ContentItemIsSecured>False</ContentItemIsSecured>
+  <ContentItemIsSecured>True</ContentItemIsSecured>
   <ContentItemName>AboutReptiles-gjkhpmft</ContentItemName>
+  <ContentItemMemberRoles>
+    <cms.contentitemmemberrole>
+      <ContentItemMemberRoleContentItemID>
+        <CodeName>AboutReptiles-gjkhpmft</CodeName>
+        <GUID>33b343ac-c61c-4800-b238-6e16ecd16085</GUID>
+        <ObjectType>cms.contentitem</ObjectType>
+      </ContentItemMemberRoleContentItemID>
+      <ContentItemMemberRoleGUID>a94c25cc-d04e-4bf5-b844-2382f6ab4e81</ContentItemMemberRoleGUID>
+      <ContentItemMemberRoleMemberRoleID>
+        <CodeName>EnthusiastMember</CodeName>
+        <GUID>9c6d1fac-5c16-4224-be70-32436f5736e8</GUID>
+        <ObjectType>cms.memberrole</ObjectType>
+      </ContentItemMemberRoleMemberRoleID>
+    </cms.contentitemmemberrole>
+    <cms.contentitemmemberrole>
+      <ContentItemMemberRoleContentItemID>
+        <CodeName>AboutReptiles-gjkhpmft</CodeName>
+        <GUID>33b343ac-c61c-4800-b238-6e16ecd16085</GUID>
+        <ObjectType>cms.contentitem</ObjectType>
+      </ContentItemMemberRoleContentItemID>
+      <ContentItemMemberRoleGUID>12e7450a-9473-44ce-bd7f-73746b64e88a</ContentItemMemberRoleGUID>
+      <ContentItemMemberRoleMemberRoleID>
+        <CodeName>BasicMember</CodeName>
+        <GUID>e7e93c53-55aa-4c49-bcc9-07563e498c41</GUID>
+        <ObjectType>cms.memberrole</ObjectType>
+      </ContentItemMemberRoleMemberRoleID>
+    </cms.contentitemmemberrole>
+  </ContentItemMemberRoles>
 </cms.contentitem>

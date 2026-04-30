@@ -35,4 +35,6 @@ public class UpdateProfileViewModel : GuidesMemberProfileViewModel
     public string ActionUrl { get; set; } = string.Empty;
 
     public string SuccessMessage { get; set; } = string.Empty;
+
+    public IReadOnlyCollection<GuidesRoleViewModel> Roles { get; set; } = [];
 }

@@ -1,4 +1,5 @@
 using CMS.ContactManagement;
+using CMS.ContentEngine;
 using CMS.Core;
 using CMS.Websites.Routing;
 using Kentico.Content.Web.Mvc;
@@ -13,7 +14,16 @@ using TrainingGuides.Web.Features.Shared.Services;
 
 namespace TrainingGuides.Web.Features.Membership.Services;
 
-public class MembershipService : IMembershipService
+public class MembershipService(
+    UserManager<GuidesMember> userManager,
+    SignInManager<GuidesMember> signInManager,
+    IHttpContextAccessor contextAccessor,
+    ILogger<MembershipService> logger,
+    IMemberContactService memberContactService,
+    IWebPageUrlRetriever webPageUrlRetriever,
+    IWebsiteChannelContext websiteChannelContext,
+    IHttpRequestService httpRequestService,
+    IStringLocalizer<SharedResources> stringLocalizer) : IMembershipService
 {
     /// <inheritdoc/>
     public GuidesMember DummyMember => new()
@@ -28,38 +38,6 @@ public class MembershipService : IMembershipService
         Created = DateTime.Now,
         Id = 0
     };
-
-    private readonly UserManager<GuidesMember> userManager;
-    private readonly SignInManager<GuidesMember> signInManager;
-    private readonly IHttpContextAccessor contextAccessor;
-    private readonly ILogger<MembershipService> logger;
-    private readonly IMemberContactService memberContactService;
-    private readonly IWebPageUrlRetriever webPageUrlRetriever;
-    private readonly IWebsiteChannelContext websiteChannelContext;
-    private readonly IHttpRequestService httpRequestService;
-    private readonly IStringLocalizer<SharedResources> stringLocalizer;
-
-    public MembershipService(
-        UserManager<GuidesMember> userManager,
-        SignInManager<GuidesMember> signInManager,
-        IHttpContextAccessor contextAccessor,
-        ILogger<MembershipService> logger,
-        IMemberContactService memberContactService,
-        IWebPageUrlRetriever webPageUrlRetriever,
-        IWebsiteChannelContext websiteChannelContext,
-        IHttpRequestService httpRequestService,
-        IStringLocalizer<SharedResources> stringLocalizer)
-    {
-        this.userManager = userManager;
-        this.signInManager = signInManager;
-        this.contextAccessor = contextAccessor;
-        this.logger = logger;
-        this.memberContactService = memberContactService;
-        this.webPageUrlRetriever = webPageUrlRetriever;
-        this.websiteChannelContext = websiteChannelContext;
-        this.httpRequestService = httpRequestService;
-        this.stringLocalizer = stringLocalizer;
-    }
 
     /// <inheritdoc />
     public async Task<GuidesMember?> GetCurrentMember()
@@ -113,7 +91,35 @@ public class MembershipService : IMembershipService
             });
         }
 
-        return await userManager.CreateAsync(guidesMember, password);
+        var createResult = await userManager.CreateAsync(guidesMember, password);
+
+        if (!createResult.Succeeded)
+        {
+            return createResult;
+        }
+
+        var addToBasicRoleResult = await userManager.AddToRoleAsync(guidesMember, GuidesRoleNames.BASIC_MEMBER);
+
+        if (addToBasicRoleResult.Succeeded)
+        {
+            return createResult;
+        }
+
+        logger.LogWarning(
+            "Failed to assign role {RoleName} to newly created member {UserName}. Rolling back member creation.",
+            GuidesRoleNames.BASIC_MEMBER,
+            guidesMember.UserName);
+
+        var deleteMemberResult = await userManager.DeleteAsync(guidesMember);
+
+        if (!deleteMemberResult.Succeeded)
+        {
+            logger.LogError(
+                "Failed to roll back member {UserName} after role assignment failure. Member might require manual cleanup.",
+                guidesMember.UserName);
+        }
+
+        return addToBasicRoleResult;
     }
 
     private async Task<bool> UsernameEmailCollision(GuidesMember guidesMember)
@@ -222,6 +228,10 @@ public class MembershipService : IMembershipService
 
         return await userManager.UpdateAsync(guidesMember);
     }
+
+    /// <inheritdoc />
+    public bool CanCurrentUserAccessContentItem(IContentItemFieldsSource? contentItem) =>
+        contentItem?.HasAccess(contextAccessor.HttpContext?.User) ?? false;
 
     private void SynchronizeContact(GuidesMember member, bool createNewContactIfNoneFound = false)
     {

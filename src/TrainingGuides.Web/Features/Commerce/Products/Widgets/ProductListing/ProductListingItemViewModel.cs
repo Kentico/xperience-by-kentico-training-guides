@@ -10,4 +10,5 @@ public class ProductListingItemViewModel
     public ProductViewModel Product { get; set; } = new();
     public string ProductPageUrl { get; set; } = string.Empty;
     public bool AccessDenied { get; set; }
+    public bool ShowSignInCta { get; set; }
 }

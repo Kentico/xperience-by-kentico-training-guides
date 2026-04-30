@@ -27,9 +27,8 @@ else
     <div class="row justify-content-center">
         <div class="col-xl-11">
             <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 c-blog-grid mt-3 mt-md-4">
-                @foreach (var item in Model.Articles!)
+                @foreach (TrainingGuides.Web.Features.Articles.ArticlePageViewModel item in Model.Articles!)
                 {
-                    bool showSignIn = item.IsSecured && !Model.IsAuthenticated;
                     <div class="col mt-4">
                         <a class="c-card-anchor" href="@item.Url">
                             <div class="c-post-thumbnail default">
@@ -46,7 +45,10 @@ else
                                         <p class="mb-0 j-truncate_paragraph">@item.SummaryHtml</p>
                                     </div>
                                     <div class="c-card_footer">
-                                        <span class="c-link primary-upper text-uppercase">@(showSignIn ? Model.SignInText : Model.CtaText)</span>
+                                        @if(!string.IsNullOrEmpty(item.Url))
+                                        {
+                                            <span class="c-link primary-upper text-uppercase">@item.CTAText</span>
+                                        }
                                     </div>
                                 </div>
                             </div>

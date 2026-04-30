@@ -12,6 +12,21 @@
   </ContentItemContentTypeID>
   <ContentItemGUID>df4f4ee0-00c3-4d1f-a8aa-02c8af7c5ad3</ContentItemGUID>
   <ContentItemIsReusable>False</ContentItemIsReusable>
-  <ContentItemIsSecured>False</ContentItemIsSecured>
+  <ContentItemIsSecured>True</ContentItemIsSecured>
   <ContentItemName>AboutFrogs-l30ila6d</ContentItemName>
+  <ContentItemMemberRoles>
+    <cms.contentitemmemberrole>
+      <ContentItemMemberRoleContentItemID>
+        <CodeName>AboutFrogs-l30ila6d</CodeName>
+        <GUID>df4f4ee0-00c3-4d1f-a8aa-02c8af7c5ad3</GUID>
+        <ObjectType>cms.contentitem</ObjectType>
+      </ContentItemMemberRoleContentItemID>
+      <ContentItemMemberRoleGUID>5e25366e-d1e9-412b-a0bb-11ad646a19dc</ContentItemMemberRoleGUID>
+      <ContentItemMemberRoleMemberRoleID>
+        <CodeName>EnthusiastMember</CodeName>
+        <GUID>9c6d1fac-5c16-4224-be70-32436f5736e8</GUID>
+        <ObjectType>cms.memberrole</ObjectType>
+      </ContentItemMemberRoleMemberRoleID>
+    </cms.contentitemmemberrole>
+  </ContentItemMemberRoles>
 </cms.contentitem>

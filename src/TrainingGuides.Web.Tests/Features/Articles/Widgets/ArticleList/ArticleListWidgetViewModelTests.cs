@@ -17,7 +17,7 @@ public class ArticleListWidgetViewModelTests
     public void WhenInitialized_ArticlesIsEmptyList() => Assert.Empty(emptyWidgetViewModel.Articles);
 
     [Fact]
-    public void WhenInitialized_CtaTextIsEmpty() => Assert.Equal(string.Empty, emptyWidgetViewModel.CtaText);
+    public void WhenInitialized_IsMisconfiguredReturnsTrue() => Assert.True(emptyWidgetViewModel.IsMisconfigured);
 
     [Fact]
     public void IsMisconfigured_When_ArticlesEmpty_ReturnsTrue() => Assert.True(emptyWidgetViewModel.IsMisconfigured);
