@@ -219,9 +219,6 @@
   <data name="admin.aira.status.unknown" xml:space="preserve">
     <value>AIRA no está disponible en este momento.</value>
   </data>
-  <data name="admin.aira.general.ai" xml:space="preserve">
-    <value>AIRA</value>
-  </data>
   <data name="admin.aira.textGeneration.completed" xml:space="preserve">
     <value>Contenido generado correctamente.</value>
   </data>
