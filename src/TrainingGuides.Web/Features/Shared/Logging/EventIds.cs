@@ -22,4 +22,5 @@ internal static class EventIds
     public static readonly EventId ProductWrapperCreateFailed = new(1015, nameof(ProductWrapperCreateFailed));
     public static readonly EventId ProductWrapperLanguageVariantCreateFailed = new(1016, nameof(ProductWrapperLanguageVariantCreateFailed));
     public static readonly EventId ProductParentPageLanguageVariantCreateFailed = new(1017, nameof(ProductParentPageLanguageVariantCreateFailed));
+    public static readonly EventId ProductWrapperDraftCreateFailed = new(1018, nameof(ProductWrapperDraftCreateFailed));
 }
