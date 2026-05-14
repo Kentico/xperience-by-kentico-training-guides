@@ -51,6 +51,7 @@ public sealed class ProductStockList(IDefaultContentLanguageRetriever defaultCon
                         new WhereCondition($"[CMS_ContentItemCommonData].[ContentItemCommonDataContentItemID] = [{ProductAvailableStockInfo.TYPEINFO.ClassStructureInfo.TableName}].[{nameof(ProductAvailableStockInfo.ProductAvailableStockContentItemID)}]")
                             // Filters by default language for consistency
                             .And(new WhereCondition().WhereEquals("ContentItemCommonDataContentLanguageID", defaultContentLanguage.ContentLanguageID))
+                            .And(new WhereCondition().WhereEquals("ContentItemCommonDataIsLatest", 1))
                     )
             )
         );
