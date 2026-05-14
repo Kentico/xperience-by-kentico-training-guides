@@ -16,14 +16,14 @@
   <ContentItemCommonDataFirstPublishedWhen>2026-02-27 23:24:39Z</ContentItemCommonDataFirstPublishedWhen>
   <ContentItemCommonDataGUID>006dd3ce-aa59-4583-9c1c-006e1c039502</ContentItemCommonDataGUID>
   <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
-  <ContentItemCommonDataLastPublishedWhen>2026-03-02 18:59:17Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataLastPublishedWhen>2026-05-14 15:50:47Z</ContentItemCommonDataLastPublishedWhen>
   <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
   <ProductPriceSchemaPrice>21.99</ProductPriceSchemaPrice>
   <ProductSchemaImages>
     <![CDATA[[{"Identifier":"166d83f6-7ba8-4216-8cd5-aca01e98804c"}]]]>
   </ProductSchemaImages>
   <ProductSchemaName>Red</ProductSchemaName>
-  <ProductSkuSchemaSkuCode>COL-DOG-NEO-001-S-RED</ProductSkuSchemaSkuCode>
+  <ProductSkuSchemaSkuCode>COL-DOG-NEO-001-XL-RED</ProductSkuSchemaSkuCode>
   <ProductVariantSchemaCodeName>TrailFlexDogCollarRed</ProductVariantSchemaCodeName>
   <SizeSchemaSize>
     <![CDATA[[{"Identifier":"05ad9435-f63e-40ca-9532-95a077c2d0d7"}]]]>
@@ -31,7 +31,7 @@
   <ContentItemReferences>
     <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>84b06b06-1392-422d-82e5-639ed2fa6340</ContentItemReferenceGroupGUID>
-      <ContentItemReferenceGUID>f10ef6e8-f78e-4935-9914-2277b6086566</ContentItemReferenceGUID>
+      <ContentItemReferenceGUID>337ee3c2-b0ff-4141-9e69-434c7b868dac</ContentItemReferenceGUID>
       <ContentItemReferenceSourceCommonDataID>
         <GUID>006dd3ce-aa59-4583-9c1c-006e1c039502</GUID>
         <ObjectType>cms.contentitemcommondata</ObjectType>
