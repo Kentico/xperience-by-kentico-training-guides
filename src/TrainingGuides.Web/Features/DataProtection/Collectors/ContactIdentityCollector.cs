@@ -1,26 +1,21 @@
-﻿using CMS.ContactManagement;
+﻿using CMS.Commerce;
+using CMS.ContactManagement;
 using CMS.DataEngine;
 using CMS.DataProtection;
+using CMS.Membership;
 
 namespace TrainingGuides.Web.Features.DataProtection.Collectors;
 
-public class ContactIdentityCollector : IIdentityCollector
+public class IdentityCollector(IInfoProvider<ContactInfo> contactInfoProvider, IInfoProvider<MemberInfo> memberInfoProvider, IInfoProvider<CustomerInfo> customerInfoProvider) : IIdentityCollector
 {
-    private const string EMAIL_KEY = "email";
-
-    private readonly IInfoProvider<ContactInfo> contactInfoProvider;
-
-    public ContactIdentityCollector(IInfoProvider<ContactInfo> contactInfoProvider)
-    {
-        this.contactInfoProvider = contactInfoProvider;
-    }
-
     public void Collect(IDictionary<string, object> dataSubjectFilter, List<BaseInfo> identities)
     {
-        string? email = dataSubjectFilter.ContainsKey(EMAIL_KEY)
-            ? dataSubjectFilter[EMAIL_KEY] as string
-            : string.Empty;
-
+        // Does nothing if the identifier input value is not available or empty
+        if (!dataSubjectFilter.TryGetValue(PersonalDataConstants.DATA_SUBJECT_IDENTIFIER_KEY, out object? value))
+        {
+            return;
+        }
+        string? email = value as string;
         if (string.IsNullOrWhiteSpace(email))
         {
             return;
@@ -31,11 +26,27 @@ public class ContactIdentityCollector : IIdentityCollector
             .WhereEquals(nameof(ContactInfo.ContactEmail), email)
             .ToList();
 
+        // If no contact exists with the provided email, create a new one.
+        // This will allow us to retrieve form submissions that contain the email even if they are not currently tied to a contact.
         if (contacts.Count() == 0)
         {
             contacts.Add(new ContactInfo() { ContactEmail = email });
         }
 
         identities.AddRange(contacts);
+
+        var members = memberInfoProvider
+            .Get()
+            .WhereEquals(nameof(MemberInfo.MemberEmail), email)
+            .ToList();
+
+        identities.AddRange(members);
+
+        var customers = customerInfoProvider
+            .Get()
+            .WhereEquals(nameof(CustomerInfo.CustomerEmail), email)
+            .ToList();
+
+        identities.AddRange(customers);
     }
 }
