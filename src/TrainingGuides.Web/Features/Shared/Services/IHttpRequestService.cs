@@ -52,7 +52,7 @@ public interface IHttpRequestService
     /// <param name="path">the relative path.</param>
     /// <param name="alwaysIncludeLanguage">Determines whether to always include the language in the URL, even if it is the default language.</param>
     /// <param name="queryString">Query string to add to the URL.</param>
-    /// <returns></returns>
+    /// <returns>The full URL for the specified relative path.</returns>
     string GetAbsoluteUrlForPath(string path, bool alwaysIncludeLanguage, QueryString? queryString = null);
 
     /// <summary>

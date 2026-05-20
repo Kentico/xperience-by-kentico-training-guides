@@ -69,7 +69,6 @@ internal class ProductPageWrapperService
     /// <param name="contentTypeId">The content type ID of the product content item, used to find or create a parent page if necessary.</param>
     /// <param name="contentItemGuid">The GUID of the product content item, used to link the page wrapper to the product.</param>
     /// <returns>The ID of the created page.</returns>
-    /// </summary>
     internal async Task<int> CreatePageWrapperForProduct(string displayName, string languageName, int languageId, int contentTypeId, Guid contentItemGuid)
     {
         var itemData = new ContentItemData(new Dictionary<string, object>

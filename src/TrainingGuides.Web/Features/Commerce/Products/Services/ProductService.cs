@@ -636,10 +636,10 @@ public class ProductService(IContentItemRetrieverService contentItemRetrieverSer
     /// <summary>
     /// Generates a filter function for retrieving content items based on the specified filter values and taxonomy.
     /// </summary>
-    /// <param name="filterValues"></param>
-    /// <param name="taxonomy"></param>
-    /// <param name="taxonomyColumnName"></param>
-    /// <returns></returns>
+    /// <param name="filterValues">The filter values to apply.</param>
+    /// <param name="taxonomy">The taxonomy data to use for filtering.</param>
+    /// <param name="taxonomyColumnName">The name of the taxonomy column to filter on.</param>
+    /// <returns>A filter function for retrieving content items based on the specified filter values and taxonomy.</returns>
     private Func<RetrieveContentOfReusableSchemasQueryParameters, RetrieveContentOfReusableSchemasQueryParameters> GetFuncForFilter(IEnumerable<string> filterValues, TaxonomyData? taxonomy, string taxonomyColumnName)
     {
         var tags = taxonomy?.Tags
