@@ -19,7 +19,7 @@ internal class ProductStockCreationService(IInfoProvider<ProductAvailableStockIn
         {
             foreach (var availableStock in existingProductStock)
             {
-                // Update the sku code in case it has changed
+                // Update the SKU code in case it has changed
                 availableStock.ProductAvailableStockSKUCode = skuCode;
                 await productStockInfoProvider.SetAsync(availableStock, cancellationToken);
             }

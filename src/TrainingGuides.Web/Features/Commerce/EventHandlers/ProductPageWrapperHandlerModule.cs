@@ -6,13 +6,13 @@ using CMS.DataEngine;
 
 using TrainingGuides.Web.Commerce.EventHandlers;
 
-[assembly: RegisterModule(typeof(ProductPageWrapperModule))]
+[assembly: RegisterModule(typeof(ProductPageWrapperHandlerModule))]
 
 namespace TrainingGuides.Web.Commerce.EventHandlers;
 
-public class ProductPageWrapperModule : Module
+public class ProductPageWrapperHandlerModule : Module
 {
-    public ProductPageWrapperModule() : base(nameof(ProductPageWrapperModule)) { }
+    public ProductPageWrapperHandlerModule() : base(nameof(ProductPageWrapperHandlerModule)) { }
 
     protected override void OnPreInit(ModulePreInitParameters parameters)
     {

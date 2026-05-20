@@ -8,13 +8,13 @@ using TrainingGuides.Web.Commerce.EventHandlers;
 
 
 // Registers the custom module into the system
-[assembly: RegisterModule(typeof(ProductStockModule))]
+[assembly: RegisterModule(typeof(ProductStockCreationHandlerModule))]
 
 namespace TrainingGuides.Web.Commerce.EventHandlers;
 
-public class ProductStockModule : Module
+public class ProductStockCreationHandlerModule : Module
 {
-    public ProductStockModule() : base(nameof(ProductStockModule)) { }
+    public ProductStockCreationHandlerModule() : base(nameof(ProductStockCreationHandlerModule)) { }
 
     protected override void OnPreInit(ModulePreInitParameters parameters)
     {

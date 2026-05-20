@@ -121,9 +121,9 @@ internal class ProductPageWrapperService
 
         if (allLanguageProductPages.Any())
         {
-            var uniquePageIDs = allLanguageProductPages.Select(page => page.SystemFields.WebPageItemID).Distinct();
+            var uniquePageIds = allLanguageProductPages.Select(page => page.SystemFields.WebPageItemID).Distinct();
 
-            foreach (int pageId in uniquePageIDs)
+            foreach (int pageId in uniquePageIds)
             {
                 // We should still make sure the parent exists in the current language, but we don't need its ID to create a new page
                 _ = await EnsureParentPageInLanguage(contentTypeId, languageName, languageId);
@@ -171,7 +171,6 @@ internal class ProductPageWrapperService
                     productPage.SystemFields.WebPageItemID,
                     contentItemId,
                     languageName);
-
             }
         }
     }
@@ -203,7 +202,6 @@ internal class ProductPageWrapperService
     /// <param name="languageName">Language name of the variant to unpublish</param>
     /// <param name="languageId">Language ID of the variant to unpublish (must match language name)</param>
     /// <param name="contentItemId">ID of the product content item</param>
-    /// <returns></returns>
     internal async Task UnpublishProductPageWrappers(Guid contentItemGuid, string languageName, int languageId, int contentItemId)
     {
         var productPages = await GetProductPagesForProduct(contentItemGuid, languageName, languageId);

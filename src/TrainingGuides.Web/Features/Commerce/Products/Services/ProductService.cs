@@ -544,9 +544,9 @@ public class ProductService(IContentItemRetrieverService contentItemRetrieverSer
 
         if (materialFilters is not null || colorFilters is not null)
         {
-            var filteredIds = await RetrieveFilteredProductIDs(includeSecuredItems, materialFilters, colorFilters);
+            var filteredIds = await RetrieveFilteredProductIds(includeSecuredItems, materialFilters, colorFilters);
 
-            var parentIds = await RetrieveFilteredProductParentIDs(includeSecuredItems, filteredIds);
+            var parentIds = await RetrieveFilteredProductParentIds(includeSecuredItems, filteredIds);
 
             var allProductIds = parentIds.Union(filteredIds);
 
@@ -569,7 +569,7 @@ public class ProductService(IContentItemRetrieverService contentItemRetrieverSer
             includeSecuredItems: includeSecuredItems);
     }
 
-    private async Task<IEnumerable<int>> RetrieveFilteredProductIDs(bool includeSecuredItems,
+    private async Task<IEnumerable<int>> RetrieveFilteredProductIds(bool includeSecuredItems,
         IEnumerable<string>? materialFilters,
         IEnumerable<string>? colorFilters)
     {
@@ -611,11 +611,11 @@ public class ProductService(IContentItemRetrieverService contentItemRetrieverSer
     }
 
     /// <summary>
-    /// Retrieves parent IDs of products matching the specified filtered IDs.
+    /// Retrieves parent Ids of products matching the specified filtered Ids.
     /// </summary>
     /// <param name="includeSecuredItems">Indicates whether to include secured items.</param>
-    /// <param name="filteredIds">The filtered product IDs.</param>
-    private async Task<IEnumerable<int>> RetrieveFilteredProductParentIDs(bool includeSecuredItems, IEnumerable<int> filteredIds)
+    /// <param name="filteredIds">The filtered product Ids.</param>
+    private async Task<IEnumerable<int>> RetrieveFilteredProductParentIds(bool includeSecuredItems, IEnumerable<int> filteredIds)
     {
         if (!filteredIds.Any())
         {
