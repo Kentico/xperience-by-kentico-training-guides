@@ -10,28 +10,32 @@ namespace TrainingGuides.Web.Features.EmailNotifications;
 
 public class EmailNotificationHandlerModule : Module
 {
-
-    private IEmailNotificationService? emailNotificationService;
-
-    public EmailNotificationHandlerModule() : base("EmailNotificationHandler")
+    public EmailNotificationHandlerModule() : base(nameof(EmailNotificationHandlerModule))
     { }
 
-    protected override void OnInit(ModuleInitParameters parameters)
+    protected override void OnPreInit(ModulePreInitParameters parameters)
     {
-        base.OnInit();
+        base.OnPreInit(parameters);
 
-        emailNotificationService = parameters.Services.GetRequiredService<IEmailNotificationService>();
-
-        UserInfo.TYPEINFO.Events.Insert.After += User_InsertAfter;
+        parameters.Services.AddInfoObjectEventHandler<InfoObjectAfterInsertEvent<UserInfo>, UserAfterInsertHandler>();
     }
+}
 
-    private void User_InsertAfter(object? sender, ObjectEventArgs e)
+internal class UserAfterInsertHandler(IEmailNotificationService emailNotificationService)
+    : IInfoObjectEventHandler<InfoObjectAfterInsertEvent<UserInfo>>
+{
+    public void Handle(InfoObjectAfterInsertEvent<UserInfo> infoObjectEvent) =>
+        SendNotificationAsync(infoObjectEvent.InfoObject, CancellationToken.None)
+            .ConfigureAwait(false)
+            .GetAwaiter()
+            .GetResult();
+
+    public Task HandleAsync(InfoObjectAfterInsertEvent<UserInfo> infoObjectEvent, CancellationToken cancellationToken) =>
+        SendNotificationAsync(infoObjectEvent.InfoObject, cancellationToken);
+
+    private async Task SendNotificationAsync(UserInfo user, CancellationToken cancellationToken)
     {
-        if (e.Object is not UserInfo user)
-        {
-            return;
-        }
-
-        emailNotificationService?.SendEmailAsync($"New user created ({user.Email})", $"New user inserted with ID {user.UserID}, email {user.Email}, guid {user.UserGUID}");
+        cancellationToken.ThrowIfCancellationRequested();
+        await emailNotificationService.SendEmailAsync($"New user created ({user.Email})", $"New user inserted with ID {user.UserID}, email {user.Email}, guid {user.UserGUID}");
     }
 }
