@@ -46,7 +46,7 @@ public class MemberManagementController : Controller
     /// Updates a user profile.
     /// </summary>
     /// <param name="model">View model with profile fields to update.</param>
-    /// <returns></returns>
+    /// <returns>Model with errors or success message</returns>
     [HttpPost($"{{{ApplicationConstants.LANGUAGE_KEY}}}{ApplicationConstants.UPDATE_PROFILE_ACTION_PATH}")]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> UpdateProfile(UpdateProfileViewModel model)
@@ -86,7 +86,6 @@ public class MemberManagementController : Controller
     /// Generates and sends password reset email.
     /// </summary>
     /// <param name="model">ResetPasswordViewModel containing information about the member </param>
-    /// <returns></returns>
     [HttpPost($"{{{ApplicationConstants.LANGUAGE_KEY}}}{ApplicationConstants.REQUEST_RESET_PASSWORD_ACTION_PATH}")]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> RequestPasswordReset(ResetPasswordWidgetViewModel model)
@@ -131,7 +130,6 @@ public class MemberManagementController : Controller
     /// </summary>
     /// <param name="email">Email address of the member to reset</param>
     /// <param name="token">Token generated for the provided member</param>
-    /// <returns></returns>
     [HttpGet($"{{{ApplicationConstants.LANGUAGE_KEY}}}{ApplicationConstants.PASSWORD_RESET_ACTION_PATH}/{{email}}/{{token}}")]
     public async Task<IActionResult> ResetPassword(string email, string token)
     {

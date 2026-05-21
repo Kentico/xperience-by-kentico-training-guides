@@ -123,7 +123,6 @@ public interface IMembershipService
     /// </summary>
     /// <param name="member">Member to update.</param>
     /// <param name="updateProfileViewModel">ViewModel with updated fields.</param>
-    /// <returns></returns>
     Task<IdentityResult> UpdateMemberProfile(GuidesMember member, UpdateProfileViewModel updateProfileViewModel);
 
     /// <summary>

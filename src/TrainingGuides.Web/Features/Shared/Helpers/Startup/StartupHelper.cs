@@ -14,7 +14,7 @@
 //     /// <remarks>
 //     /// Used in Program.cs to prevent <see cref="DataClassNotFoundException"/> when running CI restore for the first time.
 //     /// </remarks>
-//     /// <returns></returns>
+//     /// <returns>The codename of the currently mapped Marketing consent, or an empty string if it is not found.</returns>
 //     public static async Task<string> GetMarketingConsentCodeName()
 //     {
 //         string consentCodeName;

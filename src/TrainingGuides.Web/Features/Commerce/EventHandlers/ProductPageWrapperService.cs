@@ -1,4 +1,3 @@
-using CMS;
 using CMS.ContentEngine;
 using CMS.Core;
 using CMS.DataEngine;
@@ -10,7 +9,6 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 
 using TrainingGuides.ProductStock;
-using TrainingGuides.Web.Commerce.EventHandlers;
 using TrainingGuides.Web.Features.Commerce.Products.Widgets.ProductListing;
 using TrainingGuides.Web.Features.Commerce.Products.Widgets.ProductWidget;
 using TrainingGuides.Web.Features.Shared.Logging;
@@ -20,18 +18,11 @@ using TrainingGuides.Web.Features.Shared.OptionProviders.CornerStyle;
 using TrainingGuides.Web.Features.Shared.Sections.General;
 using TrainingGuides.Web.Features.Shared.Services;
 
-[assembly: RegisterModule(typeof(ProductPageWrapperHandler))]
-
 namespace TrainingGuides.Web.Commerce.EventHandlers;
 
-// After we created this code sample, Xperience refresh 31.3.0 added a new way to implement and register content item event handlers,
-// with full support for async/await code and dependency injection.
-// See https://docs.kentico.com/documentation/developers-and-admins/customization/handle-global-events/reference-global-system-events#contentitemevents
-public class ProductPageWrapperHandler() : Module(MODULE_NAME)
+// Shared service containing the page wrapper orchestration logic, injected into each handler
+internal class ProductPageWrapperService
 {
-    // Name for initializing the module
-    public const string MODULE_NAME = "Product page wrapper handlers";
-
     // Username of an admin user
     private const string ADMIN = "administrator";
 
@@ -44,27 +35,19 @@ public class ProductPageWrapperHandler() : Module(MODULE_NAME)
     // GUID of the website channel (Note this is the value of WebsiteChannelGUID, not ChannelGUID)
     private const string WEB_CHANNEL_GUID = "FDBA40FE-1ECE-4821-9D57-EAA1D89E13B1";
 
+    private readonly IWebPageManager webPageManager;
+    private readonly IContentItemRetrieverService contentItemRetrieverService;
+    private readonly ILogger<ProductPageWrapperService> logger;
 
-    // We are setting these to default! to avoid a compiler warning.
-    // We know these will be initialized in the OnInit method, instead of the typical constructor DI pattern.
-    // This is a known limitation of the Module base class and does not indicate actual null safety issues in this code.
-    private IWebPageManagerFactory webPageManagerFactory = default!;
-    private IWebPageManager webPageManager = default!;
-    private IContentItemRetrieverService contentItemRetrieverService = default!;
-    private IInfoProvider<UserInfo> userInfoProvider = default!;
-    private IInfoProvider<WebsiteChannelInfo> websiteChannelInfoProvider = default!;
-    private ILogger<ProductPageWrapperHandler> logger = default!;
-
-    // Contains initialization code that is executed when the application starts
-    protected override void OnInit(ModuleInitParameters parameters)
+    public ProductPageWrapperService(
+        IWebPageManagerFactory webPageManagerFactory,
+        IContentItemRetrieverService contentItemRetrieverService,
+        IInfoProvider<UserInfo> userInfoProvider,
+        IInfoProvider<WebsiteChannelInfo> websiteChannelInfoProvider,
+        ILogger<ProductPageWrapperService> logger)
     {
-        base.OnInit();
-
-        webPageManagerFactory = parameters.Services.GetRequiredService<IWebPageManagerFactory>();
-        contentItemRetrieverService = parameters.Services.GetRequiredService<IContentItemRetrieverService>();
-        userInfoProvider = parameters.Services.GetRequiredService<IInfoProvider<UserInfo>>();
-        websiteChannelInfoProvider = parameters.Services.GetRequiredService<IInfoProvider<WebsiteChannelInfo>>();
-        logger = parameters.Services.GetRequiredService<ILogger<ProductPageWrapperHandler>>();
+        this.contentItemRetrieverService = contentItemRetrieverService;
+        this.logger = logger;
 
         var user = userInfoProvider.Get()
             .WhereEquals(nameof(UserInfo.UserName), ADMIN)
@@ -75,100 +58,173 @@ public class ProductPageWrapperHandler() : Module(MODULE_NAME)
             .FirstOrDefault();
 
         webPageManager = webPageManagerFactory.Create(webChannel?.WebsiteChannelID ?? 0, user?.UserID ?? 0);
-
-        // Suppress CS8622: Kentico's event system delegates have nullability attribute mismatches with our handler signatures.
-        // This is a known framework limitation and does not indicate actual null safety issues in this code.
-#pragma warning disable CS8622 // Nullability of reference types in type of parameter doesn't match the target delegate (possibly because of nullability attributes).
-        ContentItemEvents.Create.After += ContentItem_Create_After;
-        ContentItemEvents.CreateLanguageVariant.After += ContentItem_CreateLanguageVariant_After;
-        ContentItemEvents.Delete.Execute += ContentItem_Delete_Execute;
-        ContentItemEvents.Publish.Execute += ContentItem_Publish_Execute;
-        ContentItemEvents.Unpublish.Execute += ContentItem_Unpublish_Execute;
-#pragma warning restore CS8622 // Nullability of reference types in type of parameter doesn't match the target delegate (possibly because of nullability attributes).
     }
 
-    // Handler for content item creation
-    private void ContentItem_Create_After(object sender, CreateContentItemEventArgs e)
+    /// <summary>
+    /// Creates a page wrapper for the specified product content item in the specified language, and returns the ID of the page. Ensures the parent page exists.
+    /// </summary>
+    /// <param name="displayName">The display name of the product content item, used for naming the page wrapper.</param>
+    /// <param name="languageName">The language for which to create the page wrapper.</param>
+    /// <param name="languageId">The ID of the language for which to create the page wrapper.</param>
+    /// <param name="contentTypeId">The content type ID of the product content item, used to find or create a parent page if necessary.</param>
+    /// <param name="contentItemGuid">The GUID of the product content item, used to link the page wrapper to the product.</param>
+    /// <returns>The ID of the created page.</returns>
+    internal async Task<int> CreatePageWrapperForProduct(string displayName, string languageName, int languageId, int contentTypeId, Guid contentItemGuid)
     {
-        if (e.ID is null || !IsApplicableType(e.ContentTypeName))
-            return;
-
-        // Create a web page wrapper for the newly created product
-        if (e.GUID is not null)
+        var itemData = new ContentItemData(new Dictionary<string, object>
         {
-            _ = CreatePageWrapperForProduct(e.DisplayName, e.ContentLanguageName, e.ContentLanguageID, e.ContentTypeID, (Guid)e.GUID);
+            { nameof(ProductPage.ProductPageProducts), new List<ContentItemReference>()
+                { new() { Identifier = contentItemGuid } } },
+        });
+
+        var contentItemParameters = new ContentItemParameters(ProductPage.CONTENT_TYPE_NAME, itemData);
+
+        var createPageParameters = new CreateWebPageParameters(displayName, languageName, contentItemParameters)
+        {
+            ParentWebPageItemID = await EnsureParentPageInLanguage(contentTypeId, languageName, languageId)
+        };
+
+        createPageParameters.SetPageBuilderConfiguration(GetProductWidgetsConfiguration(), GetPageTemplateConfiguration());
+        int id = await webPageManager.Create(createPageParameters);
+
+        if (id <= 0)
+        {
+            logger.LogError(EventIds.ProductWrapperCreateFailed,
+                "Page wrapper creation failed for product content item with GUID {ContentItemGuid} in language {LanguageName}.",
+                contentItemGuid,
+                languageName);
         }
+
+        return id;
     }
 
-    // Handler for content item language variant creation
-    private void ContentItem_CreateLanguageVariant_After(object sender, CreateContentItemLanguageVariantEventArgs e)
+    /// <summary>
+    /// Ensures that a product page exists for the specified product and language. If it doesn't exist, it will be created. If a page exists in another language, a language variant will be created for the current language.
+    /// </summary>
+    /// <param name="displayName">Display name for new variant if creation required</param>
+    /// <param name="languageName">Language name of variant to retrieve</param>
+    /// <param name="languageId">Language ID of variant to retrieve (must match language name)</param>
+    /// <param name="contentTypeId">ID of the reusable product item's content type</param>
+    /// <param name="contentItemGuid">GUID of the reusable content item</param>
+    /// <returns>An enumerable collection of wrapper pages linking the specified product</returns>
+    internal async Task<IEnumerable<IWebPageFieldsSource>> EnsureProductPageWrapperForLanguage(string displayName, string languageName, int languageId, int contentTypeId, Guid contentItemGuid)
     {
-        if (!IsApplicableType(e.ContentTypeName))
-            return;
+        var langSpecificProductPages = await GetProductPagesForProduct(contentItemGuid, languageName, languageId);
 
-        _ = EnsureProductPageWrapperForLanguage(e.DisplayName, e.ContentLanguageName, e.ContentLanguageID, e.ContentTypeID, e.Guid);
-    }
-
-    // Handler for content item deletion
-    private void ContentItem_Delete_Execute(object sender, DeleteContentItemEventArgs e)
-    {
-        if (!IsApplicableType(e.ContentTypeName))
-            return;
-
-        // If there is no existing page in the language being deleted, we don't need to create a new one, so we will not use the ensure method.
-        var productPages = GetProductPagesForProduct(e.Guid, e.ContentLanguageName, e.ContentLanguageID);
-
-        foreach (var productPage in productPages)
+        if (langSpecificProductPages.Any())
         {
-            webPageManager.Delete(
-                    new DeleteWebPageParameters(productPage.SystemFields.WebPageItemID, e.ContentLanguageName)
-                    {
-                        Permanently = true,
-                    }).GetAwaiter().GetResult();
+            return langSpecificProductPages;
         }
-    }
 
-    // Handler for content item publishing
-    private void ContentItem_Publish_Execute(object sender, PublishContentItemEventArgs e)
-    {
-        if (!IsApplicableType(e.ContentTypeName))
-            return;
+        var allLanguageProductPages = await GetProductPagesForProduct(contentItemGuid, null, null);
 
-        var productPages = EnsureProductPageWrapperForLanguage(e.DisplayName, e.ContentLanguageName, e.ContentLanguageID, e.ContentTypeID, e.Guid);
-
-        foreach (var productPage in productPages)
+        if (allLanguageProductPages.Any())
         {
-            if (!webPageManager.TryPublish(productPage.SystemFields.WebPageItemID, e.ContentLanguageName).GetAwaiter().GetResult())
+            var uniquePageIds = allLanguageProductPages.Select(page => page.SystemFields.WebPageItemID).Distinct();
+
+            foreach (int pageId in uniquePageIds)
             {
+                // We should still make sure the parent exists in the current language, but we don't need its ID to create a new page
+                _ = await EnsureParentPageInLanguage(contentTypeId, languageName, languageId);
+
+                await CreatePageWrapperLanguageVariantForProduct(displayName, languageName, contentItemGuid, pageId);
+            }
+
+            return await GetProductPagesForProduct(contentItemGuid, languageName, languageId);
+        }
+
+        _ = await CreatePageWrapperForProduct(displayName, languageName, languageId, contentTypeId, contentItemGuid);
+
+        return await GetProductPagesForProduct(contentItemGuid, languageName, languageId);
+    }
+
+    /// <summary>
+    /// Publishes all page wrappers for a given product content item in a specific language.
+    /// </summary>
+    /// <param name="displayName">Display name of the product content item</param>
+    /// <param name="languageName">Language name of the variant to publish</param>
+    /// <param name="languageId">Language ID of the variant to publish (must match language name)</param>
+    /// <param name="contentTypeId">Content type ID of the product content item</param>
+    /// <param name="contentItemGuid">GUID of the product content item</param>
+    /// <param name="contentItemId">ID of the product content item</param>
+    internal async Task PublishProductPageWrappers(string displayName, string languageName, int languageId, int contentTypeId, Guid contentItemGuid, int contentItemId)
+    {
+        var productPages = await EnsureProductPageWrapperForLanguage(displayName, languageName, languageId, contentTypeId, contentItemGuid);
+
+        foreach (var productPage in productPages)
+        {
+            bool published = productPage.SystemFields.ContentItemCommonDataVersionStatus is VersionStatus.Published;
+            bool unpublished = productPage.SystemFields.ContentItemCommonDataVersionStatus is VersionStatus.Unpublished;
+
+            // If the page is unpublished, try to create a draft.
+            bool draftCreated = unpublished && await webPageManager.TryCreateDraft(productPage.SystemFields.WebPageItemID, languageName);
+
+            // Try to publish the associated page wrapper IF it is NOT already published.
+            if (!published && !await webPageManager.TryPublish(productPage.SystemFields.WebPageItemID, languageName))
+            {
+                string errorMessage = "Publish failed for product page with ID {WebPageItemID} for product content item ID {ContentItemID} in language {LanguageName}."
+                    + ((unpublished && !draftCreated) ? " Draft creation failed for the unpublished page." : string.Empty);
+
                 logger.LogError(EventIds.ProductWrapperPublishFailed,
-                "Publish failed for product page with ID {WebPageItemID} for product content item ID {ContentItemID} in language {LanguageName}.",
-                productPage.SystemFields.WebPageItemID,
-                e.ID,
-                e.ContentLanguageName);
+                    errorMessage,
+                    productPage.SystemFields.WebPageItemID,
+                    contentItemId,
+                    languageName);
             }
         }
     }
 
-    // Handler for content item unpublishing
-    private void ContentItem_Unpublish_Execute(object sender, UnpublishContentItemEventArgs e)
+    /// <summary>
+    /// Deletes all page wrappers for a given product content item in a specific language.
+    /// </summary>
+    /// <param name="guid">GUID of the reusable content item</param>
+    /// <param name="languageName">Language name of the variant to delete</param>
+    /// <param name="languageId">Language ID of the variant to delete (must match language name)</param>
+    internal async Task DeleteProductPageWrappers(Guid guid, string? languageName, int? languageId)
     {
-        if (!IsApplicableType(e.ContentTypeName))
-            return;
-
-        var productPages = GetProductPagesForProduct(e.Guid, e.ContentLanguageName, e.ContentLanguageID);
+        var productPages = await GetProductPagesForProduct(guid, languageName, languageId);
 
         foreach (var productPage in productPages)
         {
-            if (!webPageManager.TryUnpublish(productPage.SystemFields.WebPageItemID, e.ContentLanguageName).GetAwaiter().GetResult())
+            await webPageManager.Delete(
+                new DeleteWebPageParameters(productPage.SystemFields.WebPageItemID, languageName)
+                {
+                    Permanently = true,
+                });
+        }
+    }
+
+    /// <summary>
+    /// Unpublishes all page wrappers for a given product content item in a specific language.
+    /// </summary>
+    /// <param name="contentItemGuid">GUID of the product content item</param>
+    /// <param name="languageName">Language name of the variant to unpublish</param>
+    /// <param name="languageId">Language ID of the variant to unpublish (must match language name)</param>
+    /// <param name="contentItemId">ID of the product content item</param>
+    internal async Task UnpublishProductPageWrappers(Guid contentItemGuid, string languageName, int languageId, int contentItemId)
+    {
+        var productPages = await GetProductPagesForProduct(contentItemGuid, languageName, languageId);
+
+        foreach (var productPage in productPages)
+        {
+            if (!await webPageManager.TryUnpublish(productPage.SystemFields.WebPageItemID, languageName))
             {
                 logger.LogError(EventIds.ProductWrapperUnpublishFailed,
-                "Unpublish failed for product page with ID {WebPageItemID} for product content item ID {ContentItemID} in language {LanguageName}.",
-                productPage.SystemFields.WebPageItemID,
-                e.ID,
-                e.ContentLanguageName);
+                    "Unpublish failed for product page with ID {WebPageItemID} for product content item ID {ContentItemID} in language {LanguageName}.",
+                    productPage.SystemFields.WebPageItemID,
+                    contentItemId,
+                    languageName);
             }
         }
     }
+
+    /// <summary>
+    /// Checks if the specified content type is one that should have a product page wrapper.
+    /// </summary>
+    /// <param name="contentTypeName">The name of the content type to check.</param>
+    /// <returns>True if the content type should have a product page wrapper; otherwise, false.</returns>
+    internal bool IsApplicableType(string contentTypeName) =>
+        GetApplicableTypeNames().Contains(contentTypeName);
 
     /// <summary>
     /// Retrieves the content type names of all product types that should have a page wrapper.
@@ -203,17 +259,6 @@ public class ProductPageWrapperHandler() : Module(MODULE_NAME)
         })
         // Filter out the classes with no CONTENT_TYPE_NAME constant
         .Where(name => name is not null)!;
-    }
-
-    /// <summary>
-    /// Determines whether the specified content type name is applicable for page wrapper creation.
-    /// </summary>
-    /// <param name="contentTypeName">Name of the content type to evaluate</param>
-    /// <returns>True if a page wrapper should be created for the specified content type</returns>
-    private bool IsApplicableType(string contentTypeName)
-    {
-        var types = GetApplicableTypeNames();
-        return types.Contains(contentTypeName);
     }
 
     /// <summary>
@@ -361,19 +406,54 @@ public class ProductPageWrapperHandler() : Module(MODULE_NAME)
         "{\"identifier\":\"TrainingGuides.GeneralPageTemplate\",\"properties\":null,\"fieldIdentifiers\":null}";
 
     /// <summary>
+    /// Retrieves all product pages that reference the specified product.
+    /// </summary>
+    /// <param name="guid">GUID of the product item being referenced</param>
+    /// <param name="languageName">Language version to check</param>
+    /// <param name="languageId">Language ID to check (must match the language name)</param>
+    /// <returns>A collection of product pages that reference the specified product</returns>
+    private async Task<IEnumerable<IWebPageFieldsSource>> GetProductPagesForProduct(Guid guid, string? languageName, int? languageId)
+    {
+        Func<ContentQueryParameters, ContentQueryParameters> whereFilter = config => config
+            // Normally we would use the .Linking(...) method in the customContentTypeQueryParameters function.
+            // However, during the delete event, the linking data is already removed,
+            // so we must manually check for the GUID in ProductPageProducts.
+            .Where(where => where.WhereContains(nameof(ProductPage.ProductPageProducts), guid.ToString()));
+
+        var customContentQueryParameters = languageId is int intLanguageId
+            ? (config => whereFilter(config
+                // Filter by language ID to ensure we only get pages in the specific language, without falling back to other languages
+                .Where(where => where.WhereEquals(
+                    nameof(ProductPage.SystemFields.ContentItemCommonDataContentLanguageID), intLanguageId))))
+            : whereFilter;
+
+        return await contentItemRetrieverService
+            .RetrieveWebPageChildrenByPathWithoutContext(
+                contentTypeNames: [ProductPage.CONTENT_TYPE_NAME],
+                parentPagePath: STORE_PATH,
+                customContentTypeQueryParameters: query => query,
+                customContentQueryParameters: customContentQueryParameters,
+                forPreview: true,
+                includeSecuredItems: true,
+                depth: 0,
+                languageName: languageName,
+                channelName: CHANNEL_NAME);
+    }
+
+    /// <summary>
     /// Ensures a parent page exists for the specified product content type in the current language
     /// </summary>
     /// <param name="contentTypeId">The ID of the product content type</param>
     /// <param name="languageName">The language in which to ensure the parent page exists</param>
     /// <param name="languageId">The ID of the language</param>
     /// <returns>The WebPageItemID of the parent page</returns>
-    private int EnsureParentPageInLanguage(int contentTypeId, string languageName, int languageId)
+    private async Task<int> EnsureParentPageInLanguage(int contentTypeId, string languageName, int languageId)
     {
         var contentType = DataClassInfoProvider.GetDataClassInfo(contentTypeId);
         var contentTypeGuid = contentType?.ClassGUID ?? Guid.Empty;
 
         // Get any language version of the parent page
-        var existingParentPages = contentItemRetrieverService
+        var existingParentPages = await contentItemRetrieverService
             .RetrieveWebPageChildrenByPathWithoutContext(
                 contentTypeNames: [StoreSection.CONTENT_TYPE_NAME],
                 parentPagePath: STORE_PATH,
@@ -386,13 +466,12 @@ public class ProductPageWrapperHandler() : Module(MODULE_NAME)
                 includeSecuredItems: true,
                 depth: 0,
                 languageName: null,
-                channelName: CHANNEL_NAME)
-            .GetAwaiter().GetResult();
+                channelName: CHANNEL_NAME);
 
         if (!existingParentPages.Any())
         {
             // If there is no parent page for the product type, create one and return its ID
-            return CreateParentPage(
+            return await CreateParentPage(
                 displayName: contentType?.ClassDisplayName ?? "Store section",
                 languageName: languageName,
                 contentTypeGuid: contentTypeGuid
@@ -405,7 +484,7 @@ public class ProductPageWrapperHandler() : Module(MODULE_NAME)
                 .Where(page => page.SystemFields.ContentItemCommonDataContentLanguageID == languageId)
                 .Any())
             {
-                CreateParentPageLanguageVariant(
+                await CreateParentPageLanguageVariant(
                     displayName: contentType?.ClassDisplayName ?? "Store section",
                     languageName: languageName,
                     contentTypeGuid: contentTypeGuid,
@@ -424,7 +503,7 @@ public class ProductPageWrapperHandler() : Module(MODULE_NAME)
     /// <param name="languageName">The language in which to create the parent page</param>
     /// <param name="contentTypeGuid">The GUID of the product content type</param>
     /// <returns>The WebPageItemID of the created parent page</returns>
-    private int CreateParentPage(string displayName, string languageName, Guid contentTypeGuid)
+    private async Task<int> CreateParentPage(string displayName, string languageName, Guid contentTypeGuid)
     {
         var parentData = new ContentItemData(new Dictionary<string, object>
         {
@@ -437,12 +516,12 @@ public class ProductPageWrapperHandler() : Module(MODULE_NAME)
             languageName,
             parentContentItemParameters)
         {
-            ParentWebPageItemID = GetStorePageId(languageName) ?? 0
+            ParentWebPageItemID = await GetStorePageId(languageName) ?? 0
         };
 
         createParentPageParameters.SetPageBuilderConfiguration(GetParentWidgetsConfiguration(), GetPageTemplateConfiguration());
 
-        return webPageManager.Create(createParentPageParameters).GetAwaiter().GetResult();
+        return await webPageManager.Create(createParentPageParameters);
     }
 
     /// <summary>
@@ -452,7 +531,7 @@ public class ProductPageWrapperHandler() : Module(MODULE_NAME)
     /// <param name="languageName">The language in which to create the language variant</param>
     /// <param name="contentTypeGuid">The GUID of the product content type</param>
     /// <param name="webPageItemID">The WebPageItemID of the parent page</param>
-    private void CreateParentPageLanguageVariant(string displayName, string languageName, Guid contentTypeGuid, int webPageItemID)
+    private async Task CreateParentPageLanguageVariant(string displayName, string languageName, Guid contentTypeGuid, int webPageItemID)
     {
         var parentData = new ContentItemData(new Dictionary<string, object>
         {
@@ -466,7 +545,7 @@ public class ProductPageWrapperHandler() : Module(MODULE_NAME)
 
         createLanguageVariantParameters.SetPageBuilderConfiguration(GetParentWidgetsConfiguration(), GetPageTemplateConfiguration());
 
-        if (!webPageManager.TryCreateLanguageVariant(createLanguageVariantParameters).GetAwaiter().GetResult())
+        if (!await webPageManager.TryCreateLanguageVariant(createLanguageVariantParameters))
         {
             logger.LogError(EventIds.ProductParentPageLanguageVariantCreateFailed,
                 "Parent page language variant creation failed for product content type with GUID {ContentTypeGuid} in language {LanguageName}.",
@@ -480,52 +559,16 @@ public class ProductPageWrapperHandler() : Module(MODULE_NAME)
     /// </summary>
     /// <param name="languageName">The language to query</param>
     /// <returns>The WebPageItemID of the store's main page, or null if not found</returns>
-    private int? GetStorePageId(string languageName) =>
-        contentItemRetrieverService.RetrieveWebPageByPathWithoutContext<EmptyPage>(
-                pathToMatch: STORE_PATH,
-                includeSecuredItems: true,
-                languageName: languageName,
-                channelName: CHANNEL_NAME,
-                forPreview: true)
-            .GetAwaiter().GetResult()?.SystemFields.WebPageItemID;
-
-    /// <summary>
-    /// Creates a page wrapper for the specified product content item in the specified language, and returns the ID of the page. Ensures the parent page exists.
-    /// </summary>
-    /// <param name="displayName">The display name of the product content item, used for naming the page wrapper.</param>
-    /// <param name="languageName">The language for which to create the page wrapper.</param>
-    /// <param name="languageId">The ID of the language for which to create the page wrapper.</param>
-    /// <param name="contentTypeId">The content type ID of the product content item, used to find or create a parent page if necessary.</param>
-    /// <param name="contentItemGuid">The GUID of the product content item, used to link the page wrapper to the product.</param>
-    /// <returns>The ID of the created page.</returns>
-    /// </summary>
-    private int CreatePageWrapperForProduct(string displayName, string languageName, int languageId, int contentTypeId, Guid contentItemGuid)
+    private async Task<int?> GetStorePageId(string languageName)
     {
-        var itemData = new ContentItemData(new Dictionary<string, object>
-        {
-            { nameof(ProductPage.ProductPageProducts), new List<ContentItemReference>()
-                { new() { Identifier = contentItemGuid } } },
-        });
+        var page = await contentItemRetrieverService.RetrieveWebPageByPathWithoutContext<EmptyPage>(
+            pathToMatch: STORE_PATH,
+            includeSecuredItems: true,
+            languageName: languageName,
+            channelName: CHANNEL_NAME,
+            forPreview: true);
 
-        var contentItemParameters = new ContentItemParameters(ProductPage.CONTENT_TYPE_NAME, itemData);
-
-        var createPageParameters = new CreateWebPageParameters(displayName, languageName, contentItemParameters)
-        {
-            ParentWebPageItemID = EnsureParentPageInLanguage(contentTypeId, languageName, languageId)
-        };
-
-        createPageParameters.SetPageBuilderConfiguration(GetProductWidgetsConfiguration(), GetPageTemplateConfiguration());
-        int id = webPageManager.Create(createPageParameters).GetAwaiter().GetResult();
-
-        if (id <= 0)
-        {
-            logger.LogError(EventIds.ProductWrapperCreateFailed,
-                "Page wrapper creation failed for product content item with GUID {ContentItemGuid} in language {LanguageName}.",
-                contentItemGuid,
-                languageName);
-        }
-
-        return id;
+        return page?.SystemFields.WebPageItemID;
     }
 
     /// <summary>
@@ -535,7 +578,7 @@ public class ProductPageWrapperHandler() : Module(MODULE_NAME)
     /// <param name="languageName">The language in which to create the variant</param>
     /// <param name="contentItemGuid">The GUID of the content item to be referenced by the page wrapper</param>
     /// <param name="existingPageId">The WebPageItemID of the existing page</param>
-    private void CreatePageWrapperLanguageVariantForProduct(string displayName, string languageName, Guid contentItemGuid, int existingPageId)
+    private async Task CreatePageWrapperLanguageVariantForProduct(string displayName, string languageName, Guid contentItemGuid, int existingPageId)
     {
         var itemData = new ContentItemData(new Dictionary<string, object>
         {
@@ -551,90 +594,12 @@ public class ProductPageWrapperHandler() : Module(MODULE_NAME)
 
         createLanguageVariantParameters.SetPageBuilderConfiguration(GetProductWidgetsConfiguration(), GetPageTemplateConfiguration());
 
-        if (!webPageManager.TryCreateLanguageVariant(createLanguageVariantParameters).GetAwaiter().GetResult())
+        if (!await webPageManager.TryCreateLanguageVariant(createLanguageVariantParameters))
         {
             logger.LogError(EventIds.ProductWrapperLanguageVariantCreateFailed,
                 "Page wrapper language variant creation failed for product content item with GUID {ContentItemGuid} in language {LanguageName}.",
                 contentItemGuid,
                 languageName);
         }
-    }
-
-    /// <summary>
-    /// Retrieves all product pages that reference the specified product.
-    /// </summary>
-    /// <param name="guid">GUID of the product item being referenced</param>
-    /// <param name="languageName">Language version to check</param>
-    /// <param name="languageId">Language ID to check (must match the language name)</param>
-    /// <returns>A collection of product pages that reference the specified product</returns>
-    private IEnumerable<IWebPageFieldsSource> GetProductPagesForProduct(Guid guid, string? languageName, int? languageId)
-    {
-        Func<ContentQueryParameters, ContentQueryParameters> customContentQueryParameters;
-
-        Func<ContentQueryParameters, ContentQueryParameters> whereFilter = config => config
-            // Normally we would use the .Linking(...) method in the customContentTypeQueryParameters function.
-            // However, during the delete event, the linking data is already removed,
-            // so we must manually check for the GUID in ProductPageProducts.
-            .Where(where => where.WhereContains(nameof(ProductPage.ProductPageProducts), guid.ToString()));
-
-        customContentQueryParameters = languageId is int intLanguageId
-            ? (config => whereFilter(config
-                // Filter by language ID to ensure we only get pages in the specific language, without falling back to other languages
-                .Where(where => where.WhereEquals(
-                    nameof(ProductPage.SystemFields.ContentItemCommonDataContentLanguageID), intLanguageId))))
-            : whereFilter;
-
-        return contentItemRetrieverService
-                .RetrieveWebPageChildrenByPathWithoutContext(
-                    contentTypeNames: [ProductPage.CONTENT_TYPE_NAME],
-                    parentPagePath: STORE_PATH,
-                    customContentTypeQueryParameters: query => query,
-                    customContentQueryParameters: customContentQueryParameters,
-                    forPreview: true,
-                    includeSecuredItems: true,
-                    depth: 0,
-                    languageName: languageName,
-                    channelName: CHANNEL_NAME)
-                .GetAwaiter().GetResult();
-    }
-
-    /// <summary>
-    /// Ensures that a product page exists for the specified product and language. If it doesn't exist, it will be created. If a page exists in another language, a language variant will be created for the current language.
-    /// </summary>
-    /// <param name="displayName">Display name for new variant if creation required</param>
-    /// <param name="languageName">Language name of variant to retrieve</param>
-    /// <param name="languageId">Language ID of variant to retrieve (must match language name)</param>
-    /// <param name="contentTypeId">ID of the reusable product item's content type</param>
-    /// <param name="contentItemGuid">GUID of the reusable content item</param>
-    /// <returns>An enumerable collection of wrapper pages linking the specified product</returns>
-    private IEnumerable<IWebPageFieldsSource> EnsureProductPageWrapperForLanguage(string displayName, string languageName, int languageId, int contentTypeId, Guid contentItemGuid)
-    {
-        var langSpecificProductPages = GetProductPagesForProduct(contentItemGuid, languageName, languageId);
-
-        if (langSpecificProductPages.Any())
-        {
-            return langSpecificProductPages;
-        }
-
-        var allLanguageProductPages = GetProductPagesForProduct(contentItemGuid, null, null);
-
-        if (allLanguageProductPages.Any())
-        {
-            var uniquePageIDs = allLanguageProductPages.Select(page => page.SystemFields.WebPageItemID).Distinct();
-
-            foreach (int pageId in uniquePageIDs)
-            {
-                // We should still make sure the parent exists in the current language, but we don't need its ID to create a new page
-                _ = EnsureParentPageInLanguage(contentTypeId, languageName, languageId);
-
-                CreatePageWrapperLanguageVariantForProduct(displayName, languageName, contentItemGuid, pageId);
-            }
-
-            return GetProductPagesForProduct(contentItemGuid, languageName, languageId);
-        }
-
-        _ = CreatePageWrapperForProduct(displayName, languageName, languageId, contentTypeId, contentItemGuid);
-
-        return GetProductPagesForProduct(contentItemGuid, languageName, languageId);
     }
 }
