@@ -24,11 +24,10 @@ public class EmailNotificationHandlerModule : Module
 internal class UserAfterInsertHandler(IEmailNotificationService emailNotificationService)
     : IInfoObjectEventHandler<InfoObjectAfterInsertEvent<UserInfo>>
 {
+    // Fire-and-forget is acceptable for After handlers, because the save operation has already completed.
+    // Avoid this pattern in Before handlers, where execution must wait for completion.
     public void Handle(InfoObjectAfterInsertEvent<UserInfo> infoObjectEvent) =>
-        SendNotificationAsync(infoObjectEvent.InfoObject, CancellationToken.None)
-            .ConfigureAwait(false)
-            .GetAwaiter()
-            .GetResult();
+        _ = SendNotificationAsync(infoObjectEvent.InfoObject, CancellationToken.None);
 
     public Task HandleAsync(InfoObjectAfterInsertEvent<UserInfo> infoObjectEvent, CancellationToken cancellationToken) =>
         SendNotificationAsync(infoObjectEvent.InfoObject, cancellationToken);
