@@ -149,7 +149,6 @@ public class DataCollectorCore
     private readonly List<CollectedColumn> customerAddressInfoColumns =
     [
         new CollectedColumn("CustomerAddressGUID", "GUID"),
-
         new CollectedColumn("CustomerAddressFirstName", "First name"),
         new CollectedColumn("CustomerAddressLastName", "Last name"),
         new CollectedColumn("CustomerAddressCompany", "Company"),
@@ -241,7 +240,7 @@ public class DataCollectorCore
 
         string before = personalDataWriter.GetResult();
 
-        if (contacts.Any(c => c.ContactID > 0))
+        if (contacts.Any())
         {
             var contactIDs = contacts.Select(c => c.ContactID).ToList();
             var contactEmails = contacts.Select(c => c.ContactEmail).ToList();
@@ -266,8 +265,6 @@ public class DataCollectorCore
         }
         if (members.Any())
         {
-            var memberIds = members.Select(m => m.MemberID).ToList();
-
             personalDataWriter.WriteStartSection("MembershipData", "Membership data");
             WriteMembers(members);
             WriteMemberRoles(members);

@@ -10,41 +10,41 @@ public class TrainingGuidesDataErasureDialogModel : IDataErasureDialogModel
     /// Indicates whether corresponding contacts should be deleted.
     /// </summary>
     [CheckBoxComponent(Label = "Delete contact", Order = 0)]
-    public bool DeleteContacts { get; set; }
+    public bool DeleteContacts { get; set; } = false;
 
 
     /// <summary>
     /// Indicates whether all activities of corresponding contacts should be deleted.
     /// </summary>
     [CheckBoxComponent(Label = "Delete activities", Order = 1)]
-    public bool DeleteActivities { get; set; }
+    public bool DeleteActivities { get; set; } = false;
 
 
     /// <summary>
     /// Indicates whether form submission activities of corresponding contacts should be deleted.
     /// </summary>
     [CheckBoxComponent(Label = "Delete submitted form activities", Order = 2)]
-    public bool DeleteSubmittedFormsActivities { get; set; }
+    public bool DeleteSubmittedFormsActivities { get; set; } = false;
 
 
     /// <summary>
     /// Indicates whether submitted forms of corresponding contacts should be deleted.
     /// </summary>
     [CheckBoxComponent(Label = "Delete submitted form data", Order = 3)]
-    public bool DeleteSubmittedFormsData { get; set; }
+    public bool DeleteSubmittedFormsData { get; set; } = false;
 
 
     /// <summary>
     /// Indicates whether corresponding members should be deleted.
     /// </summary>
     [CheckBoxComponent(Label = "Delete member", Order = 4)]
-    public bool DeleteMembers { get; set; }
+    public bool DeleteMembers { get; set; } = false;
 
     /// <summary>
     /// Indicates whether corresponding customers, addresses, and orders should be deleted.
     /// </summary>
     [CheckBoxComponent(Label = "Delete customer and order data", Order = 5)]
-    public bool DeleteCustomerAndOrderData { get; set; }
+    public bool DeleteCustomerAndOrderData { get; set; } = false;
 
 
     /// <inheritdoc/>

@@ -13,7 +13,7 @@ using TrainingGuides.Admin.Extenders;
 
 namespace TrainingGuides.Web.Features.DataProtection.Erasers;
 
-public class ContactDataEraser : IPersonalDataEraser
+public class DataEraser : IPersonalDataEraser
 {
     private const string DELETE_FORM_ACTIVITIES = nameof(TrainingGuidesDataErasureDialogModel.DeleteSubmittedFormsActivities);
     private const string DELETE_FORM_DATA = nameof(TrainingGuidesDataErasureDialogModel.DeleteSubmittedFormsData);
@@ -34,7 +34,7 @@ public class ContactDataEraser : IPersonalDataEraser
     private readonly IInfoProvider<OrderAddressInfo> orderAddressInfoProvider;
     private readonly IInfoProvider<CustomerAddressInfo> customerAddressInfoProvider;
 
-    public ContactDataEraser(IFormCollectionService formCollectionService,
+    public DataEraser(IFormCollectionService formCollectionService,
         IInfoProvider<ContactInfo> contactInfoProvider,
         IInfoProvider<ActivityInfo> activityInfoProvider,
         IInfoProvider<ConsentAgreementInfo> consentAgreementInfoProvider,
