@@ -4,20 +4,13 @@ using TrainingGuides.Web.Features.DataProtection.Writers;
 
 namespace TrainingGuides.Web.Features.DataProtection.Collectors;
 
-public class ContactDataCollector : IPersonalDataCollector
+public class DataCollector(IServiceProvider serviceProvider) : IPersonalDataCollector
 {
-    private readonly IServiceProvider serviceProvider;
-
-    public ContactDataCollector(IServiceProvider serviceProvider)
-    {
-        this.serviceProvider = serviceProvider;
-    }
-
     public PersonalDataCollectorResult Collect(IEnumerable<BaseInfo> identities, string outputFormat)
     {
         using var personalDataWriter = CreateWriter(outputFormat);
 
-        var dataCollector = ActivatorUtilities.CreateInstance<ContactDataCollectorCore>(serviceProvider, personalDataWriter);
+        var dataCollector = ActivatorUtilities.CreateInstance<DataCollectorCore>(serviceProvider, personalDataWriter);
 
         return new PersonalDataCollectorResult
         {
