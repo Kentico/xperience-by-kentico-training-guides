@@ -47,6 +47,13 @@ public class IdentityCollector(IInfoProvider<ContactInfo> contactInfoProvider, I
             .WhereEquals(nameof(CustomerInfo.CustomerEmail), email)
             .ToList();
 
+        // If no customer exists with the provided email, create a new one.
+        // This will allow us to retrieve third-party customer and order addresses that contain the email even if they are associated with a different customer.
+        if (customers.Count() == 0)
+        {
+            customers.Add(new CustomerInfo() { CustomerEmail = email });
+        }
+
         identities.AddRange(customers);
     }
 }
