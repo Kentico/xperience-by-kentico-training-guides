@@ -46,9 +46,13 @@ public class ArticleListWidgetViewComponent(
     {
         bool includeSecuredItems = securedItemsDisplayMode.Equals(SecuredOption.IncludeEverything.ToString())
             || securedItemsDisplayMode.Equals(SecuredOption.PromptForLogin.ToString());
+
         var selectedPageGuid = parentPageSelection.Identifier;
 
-        var selectedPage = await contentItemRetrieverService.RetrieveWebPageByContentItemGuid(selectedPageGuid);
+        var selectedPage = selectedPageGuid != Guid.Empty
+            ? await contentItemRetrieverService.RetrieveWebPageByContentItemGuid(selectedPageGuid)
+            : null;
+
         string selectedPagePath = selectedPage?.SystemFields.WebPageItemTreePath ?? string.Empty;
 
         if (string.IsNullOrEmpty(selectedPagePath))
