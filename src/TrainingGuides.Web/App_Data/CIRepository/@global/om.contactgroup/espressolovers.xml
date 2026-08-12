@@ -7,5 +7,6 @@
   <ContactGroupEnabled>True</ContactGroupEnabled>
   <ContactGroupGUID>4891d165-32b8-4575-97fe-a06dd12dfb15</ContactGroupGUID>
   <ContactGroupIsRecipientList>False</ContactGroupIsRecipientList>
+  <ContactGroupIsSegment>False</ContactGroupIsSegment>
   <ContactGroupName>EspressoLovers</ContactGroupName>
 </om.contactgroup>

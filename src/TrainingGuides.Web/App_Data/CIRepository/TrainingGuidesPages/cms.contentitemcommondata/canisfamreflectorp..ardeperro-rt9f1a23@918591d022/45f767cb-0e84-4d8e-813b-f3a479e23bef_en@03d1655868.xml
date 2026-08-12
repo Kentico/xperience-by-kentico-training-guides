@@ -16,10 +16,63 @@
   <ContentItemCommonDataLastPublishedWhen>2026-02-10 13:24:16Z</ContentItemCommonDataLastPublishedWhen>
   <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
   <ContentItemCommonDataVisualBuilderTemplateConfiguration>
-    <![CDATA[{"identifier":"TrainingGuides.GeneralPageTemplate","properties":null,"fieldIdentifiers":null}]]>
+<![CDATA[
+{
+  "identifier": "TrainingGuides.GeneralPageTemplate",
+  "properties": null,
+  "fieldIdentifiers": null
+}
+]]>
   </ContentItemCommonDataVisualBuilderTemplateConfiguration>
   <ContentItemCommonDataVisualBuilderWidgets>
-    <![CDATA[{"editableAreas":[{"identifier":"areaMain","sections":[{"identifier":"23c1b99b-a449-466a-ad68-56755acada0d","type":"TrainingGuides.GeneralSection","properties":{"sectionAnchor":"","colorScheme":"TransparentDark","cornerStyle":"Round","columnLayout":"OneColumn"},"zones":[{"identifier":"ab583463-83a4-4a0d-9fcb-84e2efa00dae","name":"zoneMain","widgets":[{"identifier":"b3de68fa-4242-4eb9-8b67-7a829e1c500f","type":"TrainingGuides.ProductWidget","variants":[{"identifier":"5ccb3ff4-f730-4ced-8f82-4a02c1333a27","properties":{"displayCurrentPage":true,"selectedProduct":[],"showVariantSelection":true,"showVariantDetails":true,"showCallToAction":false,"callToActionText":"View Product"},"fieldIdentifiers":{}}]}]}],"fieldIdentifiers":null}]}]}]]>
+<![CDATA[
+{
+  "editableAreas": [
+    {
+      "identifier": "areaMain",
+      "sections": [
+        {
+          "identifier": "23c1b99b-a449-466a-ad68-56755acada0d",
+          "type": "TrainingGuides.GeneralSection",
+          "properties": {
+            "sectionAnchor": "",
+            "colorScheme": "TransparentDark",
+            "cornerStyle": "Round",
+            "columnLayout": "OneColumn"
+          },
+          "zones": [
+            {
+              "identifier": "ab583463-83a4-4a0d-9fcb-84e2efa00dae",
+              "name": "zoneMain",
+              "widgets": [
+                {
+                  "identifier": "b3de68fa-4242-4eb9-8b67-7a829e1c500f",
+                  "type": "TrainingGuides.ProductWidget",
+                  "variants": [
+                    {
+                      "identifier": "5ccb3ff4-f730-4ced-8f82-4a02c1333a27",
+                      "properties": {
+                        "displayCurrentPage": true,
+                        "selectedProduct": [],
+                        "showVariantSelection": true,
+                        "showVariantDetails": true,
+                        "showCallToAction": false,
+                        "callToActionText": "View Product"
+                      },
+                      "fieldIdentifiers": {}
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "fieldIdentifiers": null
+        }
+      ]
+    }
+  ]
+}
+]]>
   </ContentItemCommonDataVisualBuilderWidgets>
   <ContentItemReferences>
     <cms.contentitemreference>

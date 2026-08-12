@@ -84,5 +84,5 @@
   <ClassShortName>TrainingGuidesArticle</ClassShortName>
   <ClassTableName>TrainingGuides_Article</ClassTableName>
   <ClassType>Content</ClassType>
-  <ClassWebPageHasUrl>True</ClassWebPageHasUrl>
+  <ClassWebPageHasUrl>False</ClassWebPageHasUrl>
 </cms.contenttype>
