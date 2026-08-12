@@ -16,7 +16,13 @@
   <ContentItemCommonDataLastPublishedWhen>2024-02-12 16:23:37Z</ContentItemCommonDataLastPublishedWhen>
   <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
   <ContentItemCommonDataVisualBuilderTemplateConfiguration>
-    <![CDATA[{"identifier":"TrainingGuides.ArticlePagePageTemplate","properties":null,"fieldIdentifiers":null}]]>
+<![CDATA[
+{
+  "identifier": "TrainingGuides.ArticlePagePageTemplate",
+  "properties": null,
+  "fieldIdentifiers": null
+}
+]]>
   </ContentItemCommonDataVisualBuilderTemplateConfiguration>
   <ContentItemReferences>
     <cms.contentitemreference>

@@ -14,6 +14,12 @@
   <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
   <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
   <ContentItemCommonDataVisualBuilderTemplateConfiguration>
-    <![CDATA[{"identifier":"TrainingGuides.EmptyPagePageTemplate","properties":null,"fieldIdentifiers":null}]]>
+<![CDATA[
+{
+  "identifier": "TrainingGuides.EmptyPagePageTemplate",
+  "properties": null,
+  "fieldIdentifiers": null
+}
+]]>
   </ContentItemCommonDataVisualBuilderTemplateConfiguration>
 </cms.contentitemcommondata>

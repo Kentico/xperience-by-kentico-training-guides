@@ -17,10 +17,42 @@
   <ContentItemCommonDataLastPublishedWhen>2026-02-13 15:25:34Z</ContentItemCommonDataLastPublishedWhen>
   <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
   <ContentItemCommonDataVisualBuilderTemplateConfiguration>
-    <![CDATA[{"identifier":"TrainingGuides.EmptyPagePageTemplate","properties":null,"fieldIdentifiers":{}}]]>
+<![CDATA[
+{
+  "identifier": "TrainingGuides.EmptyPagePageTemplate",
+  "properties": null,
+  "fieldIdentifiers": {}
+}
+]]>
   </ContentItemCommonDataVisualBuilderTemplateConfiguration>
   <ContentItemCommonDataVisualBuilderWidgets>
-    <![CDATA[{"editableAreas":[{"identifier":"areaMain","sections":[{"identifier":"755378b4-a815-4df5-ae9c-393f681f72f9","type":"TrainingGuides.SingleColumnSection","properties":{"sectionAnchor":""},"zones":[{"identifier":"8c2aac6f-fb17-4b28-928b-37ccd227f592","widgets":[]}],"fieldIdentifiers":{"sectionAnchor":"d196f39e-bb30-43db-9f79-f3b022ddab11"}}]}]}]]>
+<![CDATA[
+{
+  "editableAreas": [
+    {
+      "identifier": "areaMain",
+      "sections": [
+        {
+          "identifier": "755378b4-a815-4df5-ae9c-393f681f72f9",
+          "type": "TrainingGuides.SingleColumnSection",
+          "properties": {
+            "sectionAnchor": ""
+          },
+          "zones": [
+            {
+              "identifier": "8c2aac6f-fb17-4b28-928b-37ccd227f592",
+              "widgets": []
+            }
+          ],
+          "fieldIdentifiers": {
+            "sectionAnchor": "d196f39e-bb30-43db-9f79-f3b022ddab11"
+          }
+        }
+      ]
+    }
+  ]
+}
+]]>
   </ContentItemCommonDataVisualBuilderWidgets>
   <ProductPriceSchemaDiscountCategory />
   <ContentItemReferences>

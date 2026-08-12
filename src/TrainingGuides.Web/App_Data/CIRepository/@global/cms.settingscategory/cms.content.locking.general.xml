@@ -1,15 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.settingscategory>
   <CategoryDisplayName>
-    <![CDATA[{$base.settings.settingscategory.content.versioning$}]]>
+    <![CDATA[{$base.settings.settingscategory.content.locking.general$}]]>
   </CategoryDisplayName>
   <CategoryIconPath />
   <CategoryIsCustom>False</CategoryIsCustom>
-  <CategoryIsGroup>False</CategoryIsGroup>
-  <CategoryName>CMS.Content.Versioning</CategoryName>
-  <CategoryOrder>6</CategoryOrder>
+  <CategoryIsGroup>True</CategoryIsGroup>
+  <CategoryName>CMS.Content.Locking.General</CategoryName>
+  <CategoryOrder>1</CategoryOrder>
   <CategoryParentID>
-    <CodeName>CMS.Content</CodeName>
+    <CodeName>CMS.Content.Locking</CodeName>
     <ObjectType>cms.settingscategory</ObjectType>
   </CategoryParentID>
   <CategoryResourceID>

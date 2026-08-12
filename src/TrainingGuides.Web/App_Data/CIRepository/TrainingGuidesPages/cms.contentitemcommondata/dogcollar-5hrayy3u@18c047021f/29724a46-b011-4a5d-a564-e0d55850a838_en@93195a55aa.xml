@@ -16,9 +16,63 @@
   <ContentItemCommonDataLastPublishedWhen>2026-02-26 20:58:05Z</ContentItemCommonDataLastPublishedWhen>
   <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
   <ContentItemCommonDataVisualBuilderTemplateConfiguration>
-    <![CDATA[{"identifier":"TrainingGuides.EmptyPagePageTemplate","properties":null,"fieldIdentifiers":{}}]]>
+<![CDATA[
+{
+  "identifier": "TrainingGuides.EmptyPagePageTemplate",
+  "properties": null,
+  "fieldIdentifiers": {}
+}
+]]>
   </ContentItemCommonDataVisualBuilderTemplateConfiguration>
   <ContentItemCommonDataVisualBuilderWidgets>
-    <![CDATA[{"editableAreas":[{"identifier":"areaMain","sections":[{"identifier":"57fe70cf-57f6-464f-aeed-36e1183d137a","type":"TrainingGuides.SingleColumnSection","properties":{"sectionAnchor":""},"zones":[{"identifier":"cab70709-a829-4da1-9683-d9cf9039f46c","widgets":[{"identifier":"760c17f6-bf87-4f86-83af-fa7f4e4ef73c","type":"TrainingGuides.ProductListingWidget","variants":[{"identifier":"b66a8701-ca7f-483a-8ed2-d8f44bb069b8","properties":{"parentPageSelection":[],"ctaText":"View Product","signInText":"Sign in to view","securedItemsDisplayMode":"PromptForLogin"},"fieldIdentifiers":{"parentPageSelection":"2d00f96e-4d28-42a0-9275-f31cc34690cc","ctaText":"8b2ded92-3392-42db-aa3e-9e191397b604","signInText":"1d84e504-4125-4908-bd1d-e1405dfbab22","securedItemsDisplayMode":"d46976a9-e7ac-421a-8fac-fa0934727832"}}]}]}],"fieldIdentifiers":{"sectionAnchor":"eaa9f9c4-7d9a-454c-b083-fb9411995f58"}}]}]}]]>
+<![CDATA[
+{
+  "editableAreas": [
+    {
+      "identifier": "areaMain",
+      "sections": [
+        {
+          "identifier": "57fe70cf-57f6-464f-aeed-36e1183d137a",
+          "type": "TrainingGuides.SingleColumnSection",
+          "properties": {
+            "sectionAnchor": ""
+          },
+          "zones": [
+            {
+              "identifier": "cab70709-a829-4da1-9683-d9cf9039f46c",
+              "widgets": [
+                {
+                  "identifier": "760c17f6-bf87-4f86-83af-fa7f4e4ef73c",
+                  "type": "TrainingGuides.ProductListingWidget",
+                  "variants": [
+                    {
+                      "identifier": "b66a8701-ca7f-483a-8ed2-d8f44bb069b8",
+                      "properties": {
+                        "parentPageSelection": [],
+                        "ctaText": "View Product",
+                        "signInText": "Sign in to view",
+                        "securedItemsDisplayMode": "PromptForLogin"
+                      },
+                      "fieldIdentifiers": {
+                        "parentPageSelection": "2d00f96e-4d28-42a0-9275-f31cc34690cc",
+                        "ctaText": "8b2ded92-3392-42db-aa3e-9e191397b604",
+                        "signInText": "1d84e504-4125-4908-bd1d-e1405dfbab22",
+                        "securedItemsDisplayMode": "d46976a9-e7ac-421a-8fac-fa0934727832"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "fieldIdentifiers": {
+            "sectionAnchor": "eaa9f9c4-7d9a-454c-b083-fb9411995f58"
+          }
+        }
+      ]
+    }
+  ]
+}
+]]>
   </ContentItemCommonDataVisualBuilderWidgets>
 </cms.contentitemcommondata>
