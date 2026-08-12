@@ -39,5 +39,5 @@
   <ClassShortName>TrainingGuidesDownloads</ClassShortName>
   <ClassTableName>TrainingGuides_Downloads</ClassTableName>
   <ClassType>Content</ClassType>
-  <ClassWebPageHasUrl>True</ClassWebPageHasUrl>
+  <ClassWebPageHasUrl>False</ClassWebPageHasUrl>
 </cms.contenttype>

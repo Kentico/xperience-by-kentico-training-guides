@@ -16,10 +16,20 @@
   <ContentItemCommonDataLastPublishedWhen>2024-02-13 02:21:23Z</ContentItemCommonDataLastPublishedWhen>
   <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
   <ContentItemCommonDataVisualBuilderTemplateConfiguration>
-    <![CDATA[{"identifier":"TrainingGuides.ArticlePagePageTemplate","properties":null,"fieldIdentifiers":{}}]]>
+<![CDATA[
+{
+  "identifier": "TrainingGuides.ArticlePagePageTemplate",
+  "properties": null,
+  "fieldIdentifiers": {}
+}
+]]>
   </ContentItemCommonDataVisualBuilderTemplateConfiguration>
   <ContentItemCommonDataVisualBuilderWidgets>
-    <![CDATA[{"editableAreas":[]}]]>
+<![CDATA[
+{
+  "editableAreas": []
+}
+]]>
   </ContentItemCommonDataVisualBuilderWidgets>
   <ContentItemReferences>
     <cms.contentitemreference>

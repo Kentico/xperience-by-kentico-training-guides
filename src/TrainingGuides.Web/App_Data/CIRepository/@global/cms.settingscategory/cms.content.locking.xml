@@ -1,13 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.settingscategory>
-  <CategoryDisplayName>
-    <![CDATA[{$base.settings.settingscategory.content.versioning$}]]>
-  </CategoryDisplayName>
+  <CategoryDisplayName>{$base.settings.settingscategory.content.locking$}</CategoryDisplayName>
   <CategoryIconPath />
   <CategoryIsCustom>False</CategoryIsCustom>
   <CategoryIsGroup>False</CategoryIsGroup>
-  <CategoryName>CMS.Content.Versioning</CategoryName>
-  <CategoryOrder>6</CategoryOrder>
+  <CategoryName>CMS.Content.Locking</CategoryName>
+  <CategoryOrder>5</CategoryOrder>
   <CategoryParentID>
     <CodeName>CMS.Content</CodeName>
     <ObjectType>cms.settingscategory</ObjectType>

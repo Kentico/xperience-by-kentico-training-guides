@@ -26,5 +26,5 @@
   <ClassShortName>TrainingGuidesLandingContent</ClassShortName>
   <ClassTableName>TrainingGuides_Home</ClassTableName>
   <ClassType>Content</ClassType>
-  <ClassWebPageHasUrl>True</ClassWebPageHasUrl>
+  <ClassWebPageHasUrl>False</ClassWebPageHasUrl>
 </cms.contenttype>
