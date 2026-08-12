@@ -17,7 +17,13 @@
   <ContentItemCommonDataLastPublishedWhen>2024-02-13 02:21:38Z</ContentItemCommonDataLastPublishedWhen>
   <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
   <ContentItemCommonDataVisualBuilderTemplateConfiguration>
-    <![CDATA[{"identifier":"TrainingGuides.ArticlePagePageTemplate","properties":null,"fieldIdentifiers":null}]]>
+<![CDATA[
+{
+  "identifier": "TrainingGuides.ArticlePagePageTemplate",
+  "properties": null,
+  "fieldIdentifiers": null
+}
+]]>
   </ContentItemCommonDataVisualBuilderTemplateConfiguration>
   <ProductPriceSchemaDiscountCategory />
   <ContentItemReferences>
