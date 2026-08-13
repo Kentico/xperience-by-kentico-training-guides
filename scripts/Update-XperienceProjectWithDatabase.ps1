@@ -16,6 +16,9 @@ SETUP INSTRUCTIONS FOR NEW DEVELOPERS:
    ✓ .NET SDK installed (check with: dotnet --version)
    ✓ Xperience by Kentico refresh 31.6.0 or newer (for the CI state CLI commands)
    ✓ SQL Server with your project database
+   ✓ A working database connection for the project, through the 'CMSConnectionString'
+     connection string in appsettings.json, user secrets, or an environment variable.
+     Every step of this script starts the application, which cannot run without it.
    ✓ PowerShell 5.1 or later
    ✓ Project structure: ProjectRoot/src/ and ProjectRoot/scripts/
 
@@ -26,14 +29,17 @@ SETUP INSTRUCTIONS FOR NEW DEVELOPERS:
 
 3. HOW TO RUN:
    > cd C:\YourProject\scripts
-   > .\Update-XperienceProjectWithDatabase.ps1
+   > .\Update-XperienceProjectWithDatabase.ps1 -Version 31.7.3
+
+   The -Version parameter is required. To find the latest available version, run:
+   > dotnet list .\src\YourProject.Web\YourProject.Web.csproj package --outdated
 
    Add the -SkipConfirmation switch to run unattended (e.g. in a pipeline):
-   > .\Update-XperienceProjectWithDatabase.ps1 -SkipConfirmation
+   > .\Update-XperienceProjectWithDatabase.ps1 -Version 31.7.3 -SkipConfirmation
 
 4. WHAT IT DOES:
    • Temporarily disables CI mode via the .NET CLI (if it is enabled)
-   • Updates all Xperience NuGet packages to their latest versions
+   • Updates all Xperience NuGet packages to the specified version
    • Runs Xperience update process to sync database schema
    • Re-enables CI mode
    • Provides detailed progress feedback
@@ -45,10 +51,21 @@ SETUP INSTRUCTIONS FOR NEW DEVELOPERS:
 5. TROUBLESHOOTING:
    • If project not found: Verify folder structure and project file name
    • If update fails: Check .NET SDK is installed and project builds
+   • If a command reports "Cannot access the database specified by the 'CMSConnectionString'
+     connection string": set the connection string in the appsettings.json file of your project
    • If CI commands are not recognized: Verify your project uses refresh 31.6.0 or newer
+   • If your project uses Central Package Management and duplicate 'PackageVersion' entries
+     appear (warning NU1506): the package IDs in Directory.Packages.props do not use the
+     casing published on NuGet. Correct the casing, for example 'kentico.xperience.webapp'
+     to 'Kentico.Xperience.WebApp'.
    • If a CI command reports "The database version ... does not match the project version ...":
      the packages were updated while CI mode was still enabled. Roll the package versions back,
      let the script disable CI mode first, or disable it in the administration before updating.
+   • If the build fails with "Detected package downgrade" (error NU1605) after the package step:
+     an Xperience package used in your solution is missing from the package list in the
+     configuration section, so it stayed on the old version. Note that CI mode is disabled at
+     this point and cannot be re-enabled until the versions match again. To recover, revert the
+     package version changes, add the missing package to the list, and run the script again.
 
 ===============================================================================
 #>
@@ -58,16 +75,18 @@ SETUP INSTRUCTIONS FOR NEW DEVELOPERS:
     Updates Xperience by Kentico NuGet packages and synchronizes the local database schema.
 
 .DESCRIPTION
-    This script automates the process of updating Xperience by Kentico NuGet packages to their latest versions
-    and then updates the local database schema to match the updated packages. It performs the following steps:
+    This script automates the process of updating Xperience by Kentico NuGet packages to a specified
+    version and then updates the local database schema to match. It performs the following steps:
     
     1. Temporarily disables CI mode using the '--kxp-ci-disable' CLI command
-    2. Updates all specified Xperience by Kentico NuGet packages to their latest versions
+    2. Updates all specified Xperience by Kentico NuGet packages to the version given by 'Version'
     3. Runs the Xperience update process to synchronize database schema
     4. Re-enables CI mode using the '--kxp-ci-enable' CLI command
 
 .NOTES
     - This script must be run from the scripts folder
+    - Requires a working database connection for the project ('CMSConnectionString'), because every
+      step starts the application through 'dotnet run'
     - Requires Xperience by Kentico refresh 31.6.0 or newer, which introduced the
       '--kxp-ci-disable' and '--kxp-ci-enable' CLI commands
     - CI mode is disabled before the NuGet packages are updated. The CI state commands run through
@@ -77,17 +96,27 @@ SETUP INSTRUCTIONS FOR NEW DEVELOPERS:
     - The Xperience project must be in the ../src folder relative to this script
     - Requires dotnet CLI to be installed and available in PATH
 
+.PARAMETER Version
+    Version to update the Xperience by Kentico packages to, for example '31.7.3'.
+
+    The version is required so that every run is reproducible, and because
+    projects that use Central Package Management pin their versions in a 'Directory.Packages.props'
+    file, which 'dotnet add package' does not raise on its own. Passing an explicit version works
+    for both project layouts.
+
+    To find the latest available version, run 'dotnet list <project> package --outdated'.
+
 .PARAMETER SkipConfirmation
     Skips the database backup prompt of the update command, so that the script can run unattended.
     Without it, the update command waits for a keypress and fails if console input is redirected.
 
 .EXAMPLE
-    PS C:\dev\YourProject\scripts> .\Update-XperienceProjectWithDatabase.ps1
+    PS C:\dev\YourProject\scripts> .\Update-XperienceProjectWithDatabase.ps1 -Version 31.7.3
     
-    Runs the update process for the Xperience by Kentico project.
+    Updates the Xperience by Kentico packages to version 31.7.3 and synchronizes the database.
 
 .EXAMPLE
-    PS C:\dev\YourProject\scripts> .\Update-XperienceProjectWithDatabase.ps1 -SkipConfirmation
+    PS C:\dev\YourProject\scripts> .\Update-XperienceProjectWithDatabase.ps1 -Version 31.7.3 -SkipConfirmation
 
     Runs the update process without prompting for confirmation of the database backup.
 
@@ -97,6 +126,11 @@ SETUP INSTRUCTIONS FOR NEW DEVELOPERS:
     - Launch profiles match your project's launchSettings.json
 #>
 param (
+    # Version to update the Xperience by Kentico packages to, for example '31.7.3'
+    [Parameter(Mandatory = $true)]
+    [ValidatePattern('^\d+(\.\d+){1,3}(-[A-Za-z0-9.]+)?$')]
+    [string] $Version,
+
     # Skips the database backup prompt of the update command, so that the script can run unattended
     [switch] $SkipConfirmation
 )
@@ -126,6 +160,7 @@ $SCRIPT_CONFIG_DEV_LAUNCH_PROFILE = "YourProject.Web"     # Launch profile for d
 $SCRIPT_CONFIG_XPERIENCE_PACKAGES = @(
     "kentico.xperience.admin",           # Administration interface
     "kentico.xperience.azurestorage",    # Azure Blob Storage integration
+    "kentico.xperience.core",            # Core API, often referenced directly by class library projects
     "kentico.xperience.imageprocessing", # Image processing capabilities
     "kentico.xperience.mjml",            # MJML email template support
     "kentico.xperience.webapp"           # Core web application functionality
@@ -178,6 +213,25 @@ function Write-Notification {
 function Write-Error {
     param([string]$Message)
     Write-Host $Message -ForegroundColor Red
+}
+
+<#
+.DESCRIPTION
+    Displays the output of a failed command, so that its cause is visible.
+
+    The CLI commands report problems such as an unreachable database or a package version that no
+    longer matches the database version through their output, not through the exit code, so the
+    output has to be shown for the failure to be actionable.
+#>
+function Write-CommandOutput {
+    param([object[]]$Output)
+
+    if (-not $Output) {
+        return
+    }
+
+    Write-Error "Output of the failed command:"
+    $Output | ForEach-Object { Write-Host "  $_" -ForegroundColor DarkGray }
 }
 #endregion
 
@@ -245,16 +299,19 @@ function Invoke-CIStateCommand {
 
     Write-Host "Executing: $command" -ForegroundColor Yellow
 
-    $output = Invoke-Expression $command
+    # '2>&1' keeps the error output, which holds the reason when the command fails to start
+    $output = Invoke-Expression "$command 2>&1"
 
     if ($LASTEXITCODE -ne 0) {
+        Write-CommandOutput $output
         throw "Command '$Option' failed with exit code $LASTEXITCODE"
     }
 
     # 'dotnet run' also prints build output, so pick out the line that holds the JSON result
-    $json = $output | Where-Object { $_.Trim().StartsWith('{') } | Select-Object -Last 1
+    $json = $output | Where-Object { "$_".Trim().StartsWith('{') } | Select-Object -Last 1
 
     if ([string]::IsNullOrWhiteSpace($json)) {
+        Write-CommandOutput $output
         throw "Command '$Option' did not return a JSON result."
     }
 
@@ -319,7 +376,7 @@ function Restore-CIState {
     The process follows these steps:
     1. Determine the appropriate launch profile and build configuration
     2. Disable CI mode, noting whether it was enabled beforehand
-    3. Update the Xperience by Kentico NuGet packages
+    3. Update the Xperience by Kentico NuGet packages to the specified version
     4. Run the Xperience update command to bring the database up to the new package version
     5. Re-enable CI mode if it was enabled before the update, including when the update fails
 
@@ -364,30 +421,43 @@ $isUsingCI = $result.changed
 #region NuGet Package Updates
 <#
 .DESCRIPTION
-    Updates all Xperience by Kentico NuGet packages to their latest stable versions.
-    
+    Sets all Xperience by Kentico NuGet packages to the version given by the 'Version' parameter.
+
+    An explicit version is used rather than the latest available one, because it keeps runs
+    reproducible and because it works for projects that use Central Package Management, where the
+    versions are pinned in a 'Directory.Packages.props' file that 'dotnet add package' does not
+    raise on its own.
+
     The package list can be customized by modifying the $xperiencePackages array below.
     Add or remove packages as needed for your specific project requirements.
     
     Common Xperience by Kentico packages:
     - kentico.xperience.admin: Administration interface
     - kentico.xperience.webapp: Core web application functionality
+    - kentico.xperience.core: Core API, often referenced directly by class library projects
     - kentico.xperience.imageprocessing: Image processing capabilities
     - kentico.xperience.azurestorage: Azure Blob Storage integration
     - kentico.xperience.mjml: MJML email template support
+
+    IMPORTANT: the list must cover every Xperience package referenced anywhere in your solution,
+    not just in the project this script targets. Under Central Package Management all versions
+    live in a single shared 'Directory.Packages.props' file, so a package left out of the list
+    keeps its old version while the rest move forward, which breaks the build with a package
+    downgrade error (NU1605). Run 'dotnet list <solution> package' to see the full set.
 #>
-Write-Status "Checking for latest Xperience by Kentico NuGet packages..."
+Write-Status "Updating Xperience by Kentico NuGet packages to version $Version..."
 
 # Use the configured package list
 $xperiencePackages = $SCRIPT_CONFIG_XPERIENCE_PACKAGES
 
-# Update each package to the latest stable version
 foreach ($pkg in $xperiencePackages) {
     Write-Status "Updating NuGet package: $pkg"
-    $updateCmd = "dotnet add `"$projectFile`" package $pkg"
+
+    $updateCmd = "dotnet add `"$projectFile`" package $pkg --version $Version"
+
     try {
         Invoke-ExpressionWithException $updateCmd
-        Write-Notification "Updated $pkg to latest version."
+        Write-Notification "Updated $pkg to $Version."
     }
     catch {
         Write-Error "Failed to update NuGet package ${pkg}: $($_.Exception.Message)"
