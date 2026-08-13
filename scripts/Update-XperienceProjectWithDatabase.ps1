@@ -14,32 +14,34 @@ SETUP INSTRUCTIONS FOR NEW DEVELOPERS:
 
 1. PREREQUISITES:
    ✓ .NET SDK installed (check with: dotnet --version)
+   ✓ Xperience by Kentico refresh 31.6.0 or newer (for the CI state CLI commands)
    ✓ SQL Server with your project database
    ✓ PowerShell 5.1 or later
    ✓ Project structure: ProjectRoot/src/ and ProjectRoot/Utilities/
 
 2. CONFIGURATION REQUIRED:
-   ✓ Update the connection string in Get-ConnectionString function (line ~55)
-   ✓ Update launch profile names if different (line ~207)
-   ✓ Update project file name if different (line ~118)
-   ✓ Verify package list matches your project needs (line ~135)
+   ✓ Update launch profile names if different (line ~180)
+   ✓ Update project file name if different (line ~90)
+   ✓ Verify package list matches your project needs (line ~100)
 
 3. HOW TO RUN:
    > cd C:\YourProject\Utilities
    > .\Update-XperienceProjectWithDatabase.ps1
 
+   Add the -SkipConfirmation switch to run unattended (e.g. in a pipeline):
+   > .\Update-XperienceProjectWithDatabase.ps1 -SkipConfirmation
+
 4. WHAT IT DOES:
    • Updates all Xperience NuGet packages to latest prerelease versions
-   • Temporarily disables CI mode in database
+   • Temporarily disables CI mode via the .NET CLI (if it is enabled)
    • Runs Xperience update process to sync database schema
    • Re-enables CI mode
    • Provides detailed progress feedback
 
 5. TROUBLESHOOTING:
-   • If connection fails: Check your database connection string
    • If project not found: Verify folder structure and project file name
    • If update fails: Check .NET SDK is installed and project builds
-   • If CI mode errors: Verify you have admin rights to the database
+   • If CI commands are not recognized: Verify your project uses refresh 31.6.0 or newer
 
 ===============================================================================
 #>
@@ -53,30 +55,40 @@ SETUP INSTRUCTIONS FOR NEW DEVELOPERS:
     and then updates the local database schema to match the updated packages. It performs the following steps:
     
     1. Updates all specified Xperience by Kentico NuGet packages to their latest prerelease versions
-    2. Temporarily disables CI mode in the database
+    2. Temporarily disables CI mode using the '--kxp-ci-disable' CLI command
     3. Runs the Xperience update process to synchronize database schema
-    4. Re-enables CI mode in the database
+    4. Re-enables CI mode using the '--kxp-ci-enable' CLI command
 
 .NOTES
     - This script must be run from the Utilities folder
-    - Requires a valid SQL Server connection to the project's database
+    - Requires Xperience by Kentico refresh 31.6.0 or newer, which introduced the
+      '--kxp-ci-disable' and '--kxp-ci-enable' CLI commands
     - The Xperience project must be in the ../src folder relative to this script
     - Requires dotnet CLI to be installed and available in PATH
 
-.PARAMETER None
-    This script does not accept parameters. Configuration is done by modifying variables within the script.
+.PARAMETER SkipConfirmation
+    Skips the database backup prompt of the update command, so that the script can run unattended.
+    Without it, the update command waits for a keypress and fails if console input is redirected.
 
 .EXAMPLE
     PS C:\dev\YourProject\Utilities> .\Update-XperienceProjectWithDatabase.ps1
     
     Runs the update process for the Xperience by Kentico project.
 
+.EXAMPLE
+    PS C:\dev\YourProject\Utilities> .\Update-XperienceProjectWithDatabase.ps1 -SkipConfirmation
+
+    Runs the update process without prompting for confirmation of the database backup.
+
 .CONFIGURATION
     Before running, ensure the following are configured correctly:
-    - Database connection string in Get-ConnectionString function
     - Package list in $xperiencePackages array
     - Launch profiles match your project's launchSettings.json
 #>
+param (
+    # Skips the database backup prompt of the update command, so that the script can run unattended
+    [switch] $SkipConfirmation
+)
 
 #region Configuration - UPDATE THESE VALUES FOR YOUR PROJECT
 <#
@@ -88,26 +100,17 @@ All TODOs from throughout the script have been consolidated here.
 ===============================================================================
 #>
 
-# 1. DATABASE CONNECTION STRING
-# Update this connection string to match your database configuration
-$SCRIPT_CONFIG_CONNECTION_STRING = "Server=your_server_name;Database=your_database_name;Integrated Security=true;TrustServerCertificate=true"
-<# WARNING: Do not directly copy-paste the connection string from your .NET project’s `appsettings.json` file. The format should be one of the following common formats:
-   - Local SQL Server: "Server=.;Database=YourDbName;Integrated Security=true;TrustServerCertificate=true"
-   - SQL Server with credentials: "Server=ServerName;Database=YourDbName;User Id=username;Password=password;TrustServerCertificate=true"
-   - SQL Express: "Server=.\SQLEXPRESS;Database=YourDbName;Integrated Security=true;TrustServerCertificate=true"
-#>
-
-# 2. PROJECT CONFIGURATION
+# 1. PROJECT CONFIGURATION
 # Update these paths to match your project structure
 $SCRIPT_CONFIG_PROJECT_FOLDER = "YourProjectFolder"           # Folder containing your .csproj file (relative to the script parent directory, including the parent directory name)
 $SCRIPT_CONFIG_PROJECT_FILE = "YourProject.csproj"   # Name of your .csproj file
 
-# 3. LAUNCH PROFILES
+# 2. LAUNCH PROFILES
 # Update these profile names to match your project's launchSettings.json
 $SCRIPT_CONFIG_CI_LAUNCH_PROFILE = "YourProject.WebCI"    # Launch profile for CI environment
 $SCRIPT_CONFIG_DEV_LAUNCH_PROFILE = "YourProject.Web"     # Launch profile for development environment
 
-# 4. NUGET PACKAGES
+# 3. NUGET PACKAGES
 # Update this list based on your project's specific package requirements
 $SCRIPT_CONFIG_XPERIENCE_PACKAGES = @(
     "kentico.xperience.admin",           # Administration interface
@@ -137,15 +140,6 @@ function Invoke-ExpressionWithException {
     if ($LASTEXITCODE -ne 0) {
         throw "Command failed with exit code $LASTEXITCODE"
     }
-}
-
-<#
-.DESCRIPTION
-    Returns the database connection string for the project.
-    IMPORTANT: Update this connection string to match your database configuration.
-#>
-function Get-ConnectionString {
-    return $SCRIPT_CONFIG_CONNECTION_STRING
 }
 
 <#
@@ -235,41 +229,67 @@ foreach ($pkg in $xperiencePackages) {
 }
 #endregion
 
-#region Database Configuration Functions
+#region Continuous Integration Functions
 <#
 .DESCRIPTION
-    Sets the CMSEnableCI settings key in the database to enable or disable CI mode.
-    
+    Runs one of the continuous integration state commands of the .NET CLI and returns its result.
+
     CI mode affects how Xperience handles continuous integration scenarios.
     It's temporarily disabled during updates to prevent conflicts.
-    
-.PARAMETER Connection
-    Active SQL connection to the database
-    
-.PARAMETER Value
-    Should be 'True' to enable CI mode or 'False' to disable it
+
+    Requires Xperience by Kentico refresh 31.6.0 or newer.
+
+.PARAMETER Option
+    The CLI option to run: '--kxp-ci-disable' or '--kxp-ci-enable'
+
+.PARAMETER ProjectFile
+    Path to the .csproj file of the Xperience project
+
+.PARAMETER LaunchProfile
+    Launch profile to run the command with
+
+.PARAMETER Configuration
+    Build configuration to run the command with
 #>
-function Write-CMSEnableCI {
+function Invoke-CIStateCommand {
     param(
-        [System.Data.SqlClient.SqlConnection] $Connection,
-        [string] $Value
+        [string] $Option,
+        [string] $ProjectFile,
+        [string] $LaunchProfile,
+        [string] $Configuration
     )
 
-    $updateQuery = "UPDATE CMS_SettingsKey SET KeyValue = N'$Value' WHERE KeyName = N'CMSEnableCI'"
-    $updateCommand = New-Object System.Data.SqlClient.SqlCommand($updateQuery, $Connection)
+    # The '--format json' option makes the command print its result as a single line of JSON
+    $command = "dotnet run " + `
+        "--project `"$ProjectFile`" " + `
+        "--launch-profile $LaunchProfile " + `
+        "-c $Configuration " + `
+        "-- $Option --format json"
 
-    try {
-        $result = $updateCommand.ExecuteNonQuery()
-        if ($result -eq 0) {
-            throw "CMS_SettingsKey update did not affect any rows."
-        }
-        elseif ($result -eq 1) {
-            Write-Notification "CMSEnableCI set to $Value"
-        }
+    Write-Host "Executing: $command" -ForegroundColor Yellow
+
+    $output = Invoke-Expression $command
+
+    if ($LASTEXITCODE -ne 0) {
+        throw "Command '$Option' failed with exit code $LASTEXITCODE"
     }
-    catch {
-        Write-Error "Can't update Settings Key CMSEnableCI: $_.Exception.Message"
+
+    # 'dotnet run' also prints build output, so pick out the line that holds the JSON result
+    $json = $output | Where-Object { $_.Trim().StartsWith('{') } | Select-Object -Last 1
+
+    if ([string]::IsNullOrWhiteSpace($json)) {
+        throw "Command '$Option' did not return a JSON result."
     }
+
+    $result = $json | ConvertFrom-Json
+
+    if (-not $result.success) {
+        throw "Command '$Option' did not succeed: $($result.message)"
+    }
+
+    Write-Notification $result.message
+
+    return $result
 }
 #endregion
 
@@ -280,11 +300,9 @@ function Write-CMSEnableCI {
     
     The process follows these steps:
     1. Determine the appropriate launch profile and build configuration
-    2. Connect to the database
-    3. Disable CI mode to prevent conflicts during update
-    4. Run the Xperience update command
-    5. Re-enable CI mode
-    6. Clean up database connection
+    2. Disable CI mode to prevent conflicts during update, noting whether it was enabled beforehand
+    3. Run the Xperience update command
+    4. Re-enable CI mode if it was enabled before the update, including when the update fails
     
     Environment Configuration:
     - If ASPNETCORE_ENVIRONMENT = "CI": Uses "YourProject.WebCI" profile with Release configuration
@@ -308,42 +326,42 @@ Write-Status "Using launch profile: $launchProfile with configuration: $configur
 Write-Status "Begin Xperience Update"
 Write-Host "`n"
 
-# Establish database connection
+# Step 1: Disable CI mode to prevent conflicts during update
+Write-Status "Disabling CI mode for update process..."
+$result = Invoke-CIStateCommand '--kxp-ci-disable' $projectFile $launchProfile $configuration
+
+# The 'changed' value is false when CI mode was already disabled, in which case it must stay disabled after the update
+$isUsingCI = $result.changed
+
+# Step 2: Execute the Xperience update command
+Write-Status "Running Xperience update process..."
+$command = "dotnet run " + `
+    "--project `"$projectFile`" " + `
+    "--launch-profile $launchProfile " + `
+    "-c $configuration " + `
+    "-- --kxp-update"
+
+# Without the '--skip-confirmation' option, the update command waits for a keypress to confirm the database backup prompt
+if ($SkipConfirmation) {
+    $command += " --skip-confirmation"
+}
+
 try {
-    $connection = New-Object system.data.SqlClient.SQLConnection(Get-ConnectionString)
-    $connection.Open()
-    Write-Notification "Database connection established"
+    Invoke-ExpressionWithException $command
 }
 catch {
-    Write-Error "Failed to connect to database: $($_.Exception.Message)"
+    # Leave CI mode in the state it was in before the update
+    if ($isUsingCI) {
+        Write-Status "Re-enabling CI mode after the failed update..."
+        Invoke-CIStateCommand '--kxp-ci-enable' $projectFile $launchProfile $configuration | Out-Null
+    }
     throw
 }
 
-try {
-    # Step 1: Disable CI mode to prevent conflicts during update
-    Write-Status "Disabling CI mode for update process..."
-    Write-CMSEnableCI $connection 'False'
-
-    # Step 2: Execute the Xperience update command
-    Write-Status "Running Xperience update process..."
-    $command = "dotnet run " + `
-        "--project `"$projectFile`" " + `
-        "--launch-profile $launchProfile " + `
-        "-c $configuration " + `
-        "--kxp-update"
-
-    Invoke-ExpressionWithException $command
-
-    # Step 3: Re-enable CI mode
+# Step 3: Re-enable CI mode if it was enabled before the update
+if ($isUsingCI) {
     Write-Status "Re-enabling CI mode..."
-    Write-CMSEnableCI $connection 'True'
-}
-finally {
-    # Always close the database connection
-    if ($connection.State -eq 'Open') {
-        $connection.Close()
-        Write-Notification "Database connection closed"
-    }
+    Invoke-CIStateCommand '--kxp-ci-enable' $projectFile $launchProfile $configuration | Out-Null
 }
 
 Write-Host "`n"

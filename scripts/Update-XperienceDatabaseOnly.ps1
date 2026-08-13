@@ -1,12 +1,17 @@
 <#
 .Synopsis
     Updates Xperience by Kentico to the version specified by the installed NuGet packages.
+.Description
+    Requires Xperience by Kentico refresh 31.6.0 or newer, which introduced the
+    '--kxp-ci-disable' and '--kxp-ci-enable' CLI commands.
 #>
+param (
+	# Skips the database backup prompt of the update command, so that the script can run unattended
+	[switch] $SkipConfirmation
+)
 
 $originalLocation = Get-Location
 Set-Location -Path $PSScriptRoot
-
-. .\Get-ConnectionString.ps1
 
 function Handle-Error {
 	param(
@@ -18,93 +23,75 @@ function Handle-Error {
     exit 1
 }
 
-#Query that executes a command without returning a dataset.
-function Execute-SQL-Command {
+<#
+.DESCRIPTION
+   Runs one of the continuous integration state commands of the .NET CLI and returns its result.
+   Returns $null if the command fails.
+#>
+function Invoke-CI-State-Command {
     param(
-        [string] $ConnectionString,
-        [string] $CommandText
+        [string] $Option
     )
-    $connection = New-Object system.data.SqlClient.SQLConnection($ConnectionString)
-    
-    $connection.Open()
-    $command = new-object system.data.sqlclient.sqlcommand($CommandText,$connection)
-    $transaction = $connection.BeginTransaction()
-    $command.Transaction = $transaction
 
-    try {
-        $rowsAffected = $command.ExecuteNonQuery()
-        Write-Host 'Command: '$CommandText
-        Write-Host 'Rows affected: '$rowsAffected
-        $transaction.Commit()
+    #The '--format json' option makes the command print its result as a single line of JSON
+    $output = dotnet run --no-build -- $Option --format json
+
+    if ($LASTEXITCODE -ne 0) {
+        return $null
     }
-    catch {
-        Write-Error $_.Exception.Message
-        return $FALSE
-    }    
 
-    $connection.Close()
+    #'dotnet run' also prints build output, so pick out the line that holds the JSON result
+    $json = $output | Where-Object { $_.Trim().StartsWith('{') } | Select-Object -Last 1
 
-    return $TRUE
-}
+    if ([string]::IsNullOrWhiteSpace($json)) {
+        return $null
+    }
 
-#Query that retrieves a data set
-function Execute-SQL-Data-Query {
-    param(
-        [string] $ConnectionString,
-        [string] $CommandText
-    )
-    $connection = New-Object System.Data.SqlClient.SQLConnection($ConnectionString)
-    
-    $connection.Open()
-
-    $command = New-Object System.Data.SqlClient.SqlCommand($CommandText,$connection)
-    $dataAdapter = New-Object System.Data.SqlClient.SqlDataAdapter($command)
-    $dataset = new-object System.Data.Dataset
-    $dataAdapter.Fill($dataset)
-
-    $connection.Close()
-
-    return $dataset
+    return $json | ConvertFrom-Json
 }
 
 Set-Location -Path ..\src\TrainingGuides.Web
 
-$appPath = Get-Location
+Write-Host 'Disabling continuous integration'
 
-$connectionString = Get-ConnectionString -Path $appPath -OriginalLocation $originalLocation
+$result = Invoke-CI-State-Command '--kxp-ci-disable'
 
-$resultDataSet = Execute-SQL-Data-Query -ConnectionString $connectionString -CommandText "SELECT KeyValue FROM CMS_SettingsKey WHERE KeyName = N'CMSEnableCI'"
-
-$isUsingCD = $resultDataSet.Tables[0].Rows[0][0]
-
-$readyToUpdate = $True
-
-#Since the settings key value is a string and could theoretically be something other than true or false, compare the value rather than treating it as a boolean expression on its own
-if($isUsingCD -eq 'True'){
-    Write-Host 'Disabling continuous integration'
-    $commandResult = Execute-SQL-Command -ConnectionString $connectionString -CommandText "UPDATE CMS_SettingsKey SET KeyValue = N'False' WHERE KeyName = N'CMSEnableCI'"
-    $readyToUpdate = $commandResult
-}
-
-if($readyToUpdate){
-    Write-Host 'Starting Xperience update'
-
-    dotnet run --no-build --kxp-update
-
-    if ($LASTEXITCODE -ne 0) {
-        Handle-Error "Update failed."
-    }
-}
-else{
+if ($null -eq $result -or -not $result.success) {
     Handle-Error 'Unable to disable continuous integration to perform the update.'
 }
 
-if($isUsingCD -eq 'True'){
+Write-Host $result.message
+
+#The 'changed' value is false when continuous integration was already disabled, in which case it must stay disabled after the update
+$isUsingCI = $result.changed
+
+Write-Host 'Starting Xperience update'
+
+#Without the '--skip-confirmation' option, the update command waits for a keypress to confirm the database backup prompt
+if($SkipConfirmation){
+    dotnet run --no-build -- --kxp-update --skip-confirmation
+}
+else{
+    dotnet run --no-build --kxp-update
+}
+
+if ($LASTEXITCODE -ne 0) {
+    #Leave continuous integration in the state it was in before the update
+    if($isUsingCI){
+        Write-Host 'Re-enabling continuous integration after the failed update'
+
+        Invoke-CI-State-Command '--kxp-ci-enable' | Out-Null
+    }
+
+    Handle-Error "Update failed."
+}
+
+if($isUsingCI){
     Write-Host 'Re-enabling continuous integration'
 
-    $commandResult = Execute-SQL-Command -ConnectionString $connectionString -CommandText "UPDATE CMS_SettingsKey SET KeyValue = N'True' WHERE KeyName = N'CMSEnableCI'"    
-    
-    if(-not $commandResult){
+    $result = Invoke-CI-State-Command '--kxp-ci-enable'
+
+    if ($null -eq $result -or -not $result.success) {
         Handle-Error 'Unable to re-enable continuous integration.'
     }
 
