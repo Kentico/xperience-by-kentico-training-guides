@@ -17,7 +17,7 @@ SETUP INSTRUCTIONS FOR NEW DEVELOPERS:
    ✓ Xperience by Kentico refresh 31.6.0 or newer (for the CI state CLI commands)
    ✓ SQL Server with your project database
    ✓ PowerShell 5.1 or later
-   ✓ Project structure: ProjectRoot/src/ and ProjectRoot/Utilities/
+   ✓ Project structure: ProjectRoot/src/ and ProjectRoot/scripts/
 
 2. CONFIGURATION REQUIRED:
    ✓ Update launch profile names if different (line ~180)
@@ -25,23 +25,30 @@ SETUP INSTRUCTIONS FOR NEW DEVELOPERS:
    ✓ Verify package list matches your project needs (line ~100)
 
 3. HOW TO RUN:
-   > cd C:\YourProject\Utilities
+   > cd C:\YourProject\scripts
    > .\Update-XperienceProjectWithDatabase.ps1
 
    Add the -SkipConfirmation switch to run unattended (e.g. in a pipeline):
    > .\Update-XperienceProjectWithDatabase.ps1 -SkipConfirmation
 
 4. WHAT IT DOES:
-   • Updates all Xperience NuGet packages to latest prerelease versions
    • Temporarily disables CI mode via the .NET CLI (if it is enabled)
+   • Updates all Xperience NuGet packages to their latest versions
    • Runs Xperience update process to sync database schema
    • Re-enables CI mode
    • Provides detailed progress feedback
+
+   Note the order: CI mode is disabled BEFORE the packages are updated. The CI state
+   commands start the application, and the application refuses to start once the package
+   version and the database version differ.
 
 5. TROUBLESHOOTING:
    • If project not found: Verify folder structure and project file name
    • If update fails: Check .NET SDK is installed and project builds
    • If CI commands are not recognized: Verify your project uses refresh 31.6.0 or newer
+   • If a CI command reports "The database version ... does not match the project version ...":
+     the packages were updated while CI mode was still enabled. Roll the package versions back,
+     let the script disable CI mode first, or disable it in the administration before updating.
 
 ===============================================================================
 #>
@@ -54,15 +61,19 @@ SETUP INSTRUCTIONS FOR NEW DEVELOPERS:
     This script automates the process of updating Xperience by Kentico NuGet packages to their latest versions
     and then updates the local database schema to match the updated packages. It performs the following steps:
     
-    1. Updates all specified Xperience by Kentico NuGet packages to their latest prerelease versions
-    2. Temporarily disables CI mode using the '--kxp-ci-disable' CLI command
+    1. Temporarily disables CI mode using the '--kxp-ci-disable' CLI command
+    2. Updates all specified Xperience by Kentico NuGet packages to their latest versions
     3. Runs the Xperience update process to synchronize database schema
     4. Re-enables CI mode using the '--kxp-ci-enable' CLI command
 
 .NOTES
-    - This script must be run from the Utilities folder
+    - This script must be run from the scripts folder
     - Requires Xperience by Kentico refresh 31.6.0 or newer, which introduced the
       '--kxp-ci-disable' and '--kxp-ci-enable' CLI commands
+    - CI mode is disabled before the NuGet packages are updated. The CI state commands run through
+      'dotnet run', which starts the application, and the application refuses to start when the
+      package version and the database version differ. Once the packages are updated, the CI state
+      can no longer be changed through the CLI or the administration until the database is updated.
     - The Xperience project must be in the ../src folder relative to this script
     - Requires dotnet CLI to be installed and available in PATH
 
@@ -71,12 +82,12 @@ SETUP INSTRUCTIONS FOR NEW DEVELOPERS:
     Without it, the update command waits for a keypress and fails if console input is redirected.
 
 .EXAMPLE
-    PS C:\dev\YourProject\Utilities> .\Update-XperienceProjectWithDatabase.ps1
+    PS C:\dev\YourProject\scripts> .\Update-XperienceProjectWithDatabase.ps1
     
     Runs the update process for the Xperience by Kentico project.
 
 .EXAMPLE
-    PS C:\dev\YourProject\Utilities> .\Update-XperienceProjectWithDatabase.ps1 -SkipConfirmation
+    PS C:\dev\YourProject\scripts> .\Update-XperienceProjectWithDatabase.ps1 -SkipConfirmation
 
     Runs the update process without prompting for confirmation of the database backup.
 
@@ -102,8 +113,8 @@ All TODOs from throughout the script have been consolidated here.
 
 # 1. PROJECT CONFIGURATION
 # Update these paths to match your project structure
-$SCRIPT_CONFIG_PROJECT_FOLDER = "YourProjectFolder"           # Folder containing your .csproj file (relative to the script parent directory, including the parent directory name)
-$SCRIPT_CONFIG_PROJECT_FILE = "YourProject.csproj"   # Name of your .csproj file
+$SCRIPT_CONFIG_PROJECT_FOLDER = "src/YourProject.Web"           # Folder containing your .csproj file (relative to the script parent directory, including the parent directory name)
+$SCRIPT_CONFIG_PROJECT_FILE = "YourProject.Web.csproj"   # Name of your .csproj file
 
 # 2. LAUNCH PROFILES
 # Update these profile names to match your project's launchSettings.json
@@ -195,40 +206,6 @@ if (!(Test-Path $projectFile)) {
 Write-Notification "Project file validated: $projectFile"
 #endregion
 
-#region NuGet Package Updates
-<#
-.DESCRIPTION
-    Updates all Xperience by Kentico NuGet packages to their latest prerelease versions.
-    
-    The package list can be customized by modifying the $xperiencePackages array below.
-    Add or remove packages as needed for your specific project requirements.
-    
-    Common Xperience by Kentico packages:
-    - kentico.xperience.admin: Administration interface
-    - kentico.xperience.webapp: Core web application functionality
-    - kentico.xperience.imageprocessing: Image processing capabilities
-    - kentico.xperience.azurestorage: Azure Blob Storage integration
-    - kentico.xperience.mjml: MJML email template support
-#>
-Write-Status "Checking for latest Xperience by Kentico NuGet packages..."
-
-# Use the configured package list
-$xperiencePackages = $SCRIPT_CONFIG_XPERIENCE_PACKAGES
-
-# Update each package to the latest prerelease version
-foreach ($pkg in $xperiencePackages) {
-    Write-Status "Updating NuGet package: $pkg"
-    $updateCmd = "dotnet add `"$projectFile`" package $pkg --prerelease"
-    try {
-        Invoke-ExpressionWithException $updateCmd
-        Write-Notification "Updated $pkg to latest version."
-    }
-    catch {
-        Write-Error "Failed to update NuGet package ${pkg}: $($_.Exception.Message)"
-    }
-}
-#endregion
-
 #region Continuous Integration Functions
 <#
 .DESCRIPTION
@@ -291,6 +268,47 @@ function Invoke-CIStateCommand {
 
     return $result
 }
+
+<#
+.DESCRIPTION
+    Re-enables CI mode if it was enabled before the update, without masking an earlier failure.
+
+    Once the NuGet packages are updated, the CI state commands only work again after the database
+    has been updated to match. If the update itself failed, re-enabling CI mode is therefore
+    expected to fail too, so this reports the problem instead of throwing over the original error.
+
+.PARAMETER WasEnabled
+    Whether CI mode was enabled before the update started
+
+.PARAMETER ProjectFile
+    Path to the .csproj file of the Xperience project
+
+.PARAMETER LaunchProfile
+    Launch profile to run the command with
+
+.PARAMETER Configuration
+    Build configuration to run the command with
+#>
+function Restore-CIState {
+    param(
+        [bool] $WasEnabled,
+        [string] $ProjectFile,
+        [string] $LaunchProfile,
+        [string] $Configuration
+    )
+
+    if (-not $WasEnabled) {
+        return
+    }
+
+    try {
+        Invoke-CIStateCommand '--kxp-ci-enable' $ProjectFile $LaunchProfile $Configuration | Out-Null
+    }
+    catch {
+        Write-Error "Could not re-enable CI mode: $($_.Exception.Message)"
+        Write-Error "Re-enable it manually once the database version matches the package version again."
+    }
+}
 #endregion
 
 #region Main Update Process
@@ -300,9 +318,16 @@ function Invoke-CIStateCommand {
     
     The process follows these steps:
     1. Determine the appropriate launch profile and build configuration
-    2. Disable CI mode to prevent conflicts during update, noting whether it was enabled beforehand
-    3. Run the Xperience update command
-    4. Re-enable CI mode if it was enabled before the update, including when the update fails
+    2. Disable CI mode, noting whether it was enabled beforehand
+    3. Update the Xperience by Kentico NuGet packages
+    4. Run the Xperience update command to bring the database up to the new package version
+    5. Re-enable CI mode if it was enabled before the update, including when the update fails
+
+    Why CI mode is disabled before the packages are updated:
+    The CI state commands run through 'dotnet run', which starts the application, and the
+    application refuses to start when the package version and the database version differ.
+    Updating the packages first would therefore make '--kxp-ci-disable' fail with
+    "The database version ... does not match the project version ...".
     
     Environment Configuration:
     - If ASPNETCORE_ENVIRONMENT = "CI": Uses "YourProject.WebCI" profile with Release configuration
@@ -326,14 +351,51 @@ Write-Status "Using launch profile: $launchProfile with configuration: $configur
 Write-Status "Begin Xperience Update"
 Write-Host "`n"
 
-# Step 1: Disable CI mode to prevent conflicts during update
+# Step 1: Disable CI mode before anything changes the package version.
+# The CI state commands start the application, which refuses to start once the package version and
+# the database version differ, so this must happen before the NuGet packages are updated.
 Write-Status "Disabling CI mode for update process..."
 $result = Invoke-CIStateCommand '--kxp-ci-disable' $projectFile $launchProfile $configuration
 
 # The 'changed' value is false when CI mode was already disabled, in which case it must stay disabled after the update
 $isUsingCI = $result.changed
 
-# Step 2: Execute the Xperience update command
+# Step 2: Update the Xperience by Kentico NuGet packages
+#region NuGet Package Updates
+<#
+.DESCRIPTION
+    Updates all Xperience by Kentico NuGet packages to their latest stable versions.
+    
+    The package list can be customized by modifying the $xperiencePackages array below.
+    Add or remove packages as needed for your specific project requirements.
+    
+    Common Xperience by Kentico packages:
+    - kentico.xperience.admin: Administration interface
+    - kentico.xperience.webapp: Core web application functionality
+    - kentico.xperience.imageprocessing: Image processing capabilities
+    - kentico.xperience.azurestorage: Azure Blob Storage integration
+    - kentico.xperience.mjml: MJML email template support
+#>
+Write-Status "Checking for latest Xperience by Kentico NuGet packages..."
+
+# Use the configured package list
+$xperiencePackages = $SCRIPT_CONFIG_XPERIENCE_PACKAGES
+
+# Update each package to the latest stable version
+foreach ($pkg in $xperiencePackages) {
+    Write-Status "Updating NuGet package: $pkg"
+    $updateCmd = "dotnet add `"$projectFile`" package $pkg"
+    try {
+        Invoke-ExpressionWithException $updateCmd
+        Write-Notification "Updated $pkg to latest version."
+    }
+    catch {
+        Write-Error "Failed to update NuGet package ${pkg}: $($_.Exception.Message)"
+    }
+}
+#endregion
+
+# Step 3: Execute the Xperience update command
 Write-Status "Running Xperience update process..."
 $command = "dotnet run " + `
     "--project `"$projectFile`" " + `
@@ -353,12 +415,12 @@ catch {
     # Leave CI mode in the state it was in before the update
     if ($isUsingCI) {
         Write-Status "Re-enabling CI mode after the failed update..."
-        Invoke-CIStateCommand '--kxp-ci-enable' $projectFile $launchProfile $configuration | Out-Null
+        Restore-CIState $isUsingCI $projectFile $launchProfile $configuration
     }
     throw
 }
 
-# Step 3: Re-enable CI mode if it was enabled before the update
+# Step 4: Re-enable CI mode if it was enabled before the update
 if ($isUsingCI) {
     Write-Status "Re-enabling CI mode..."
     Invoke-CIStateCommand '--kxp-ci-enable' $projectFile $launchProfile $configuration | Out-Null
