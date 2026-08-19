@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.contentitemcommondata>
-  <ColorPattern />
   <ContentItemCommonDataContentItemID>
     <CodeName>IpsumZ-dk8frf1d</CodeName>
     <GUID>90f28e6e-7bdd-4f88-a1e8-0e2dbd243e9b</GUID>
@@ -42,7 +41,6 @@
 }
 ]]>
   </ContentItemCommonDataVisualBuilderWidgets>
-  <ProductPriceSchemaDiscountCategory />
   <ContentItemReferences>
     <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>b315e712-05da-445d-980c-87578e46cd4d</ContentItemReferenceGroupGUID>

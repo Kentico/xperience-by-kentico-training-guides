@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.contentitemcommondata>
-  <ColorPattern />
   <ContentItemCommonDataContentItemID>
     <CodeName>Register-wfb2l0pn</CodeName>
     <GUID>67f3dec8-3741-4570-9adb-399a61f47569</GUID>
@@ -163,7 +162,6 @@
 }
 ]]>
   </ContentItemCommonDataVisualBuilderWidgets>
-  <ProductPriceSchemaDiscountCategory />
   <ContentItemReferences>
     <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>3ac28b30-e714-45ec-a8c7-e35778dd8469</ContentItemReferenceGroupGUID>

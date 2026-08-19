@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentitemcommondata>
+  <ColorPattern>
+    <![CDATA[[{"Identifier":"bb01d680-90dc-4528-b1a0-986f6aa41cb6"}]]]>
+  </ColorPattern>
+  <ContentItemCommonDataContentItemID>
+    <CodeName>Pokus2-ngqrszw0</CodeName>
+    <GUID>444b1674-585f-4bda-85e3-c8d0bc0f8c1a</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </ContentItemCommonDataContentItemID>
+  <ContentItemCommonDataContentLanguageID>
+    <CodeName>en</CodeName>
+    <GUID>e81b5172-f240-4041-88b1-653089984e29</GUID>
+    <ObjectType>cms.contentlanguage</ObjectType>
+  </ContentItemCommonDataContentLanguageID>
+  <ContentItemCommonDataGUID>e61005dc-c4a3-4fa3-b440-0940de55c9c2</ContentItemCommonDataGUID>
+  <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
+  <ContentItemCommonDataVersionStatus>0</ContentItemCommonDataVersionStatus>
+  <ProductPriceSchemaPrice>22.99</ProductPriceSchemaPrice>
+  <ProductSchemaImages>
+    <![CDATA[[{"Identifier":"18defb25-3213-4693-a482-39b2be3aa89c"}]]]>
+  </ProductSchemaImages>
+  <ProductSchemaName>pokus 2</ProductSchemaName>
+  <ProductVariantSchemaCodeName>pokus2</ProductVariantSchemaCodeName>
+  <ContentItemReferences>
+    <cms.contentitemreference>
+      <ContentItemReferenceGroupGUID>84b06b06-1392-422d-82e5-639ed2fa6340</ContentItemReferenceGroupGUID>
+      <ContentItemReferenceGUID>7dc4632d-6b99-4e9f-a8ed-b9955c239240</ContentItemReferenceGUID>
+      <ContentItemReferenceSourceCommonDataID>
+        <GUID>e61005dc-c4a3-4fa3-b440-0940de55c9c2</GUID>
+        <ObjectType>cms.contentitemcommondata</ObjectType>
+      </ContentItemReferenceSourceCommonDataID>
+      <ContentItemReferenceTargetItemID>
+        <CodeName>CanisFamReflectorProOrange-srdvjfxn</CodeName>
+        <GUID>18defb25-3213-4693-a482-39b2be3aa89c</GUID>
+        <ObjectType>cms.contentitem</ObjectType>
+      </ContentItemReferenceTargetItemID>
+    </cms.contentitemreference>
+  </ContentItemReferences>
+</cms.contentitemcommondata>

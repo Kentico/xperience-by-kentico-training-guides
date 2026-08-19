@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.dogcollarvariant>
+  <ContentItemDataCommonDataID>
+    <GUID>e61005dc-c4a3-4fa3-b440-0940de55c9c2</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>Pokus2-ngqrszw0</CodeName>
+      <GUID>444b1674-585f-4bda-85e3-c8d0bc0f8c1a</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>9ac1f75d-2718-4eae-9c96-f170b600a83b</ContentItemDataGUID>
+</contentitemdata.trainingguides.dogcollarvariant>

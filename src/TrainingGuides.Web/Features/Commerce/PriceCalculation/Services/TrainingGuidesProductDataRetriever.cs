@@ -19,9 +19,9 @@ public class TrainingGuidesProductDataRetriever<TProductIdentifier, TProductData
             [IProductPriceSchema.REUSABLE_FIELD_SCHEMA_NAME],
             query => query.Where(where => where
                 .WhereIn(nameof(ContentItemFields.ContentItemID), productIdentifiers.Select(x => x.Identifier))),
-            2,
-            true,
-            languageName);
+            depth: 2,
+            includeSecuredItems: true,
+            languageName: languageName);
 
         var resultDictionary = new Dictionary<TProductIdentifier, TProductData>();
 

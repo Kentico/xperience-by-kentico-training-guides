@@ -602,7 +602,8 @@ public class ProductService(IContentItemRetrieverService contentItemRetrieverSer
             schemaNames: [IProductSchema.REUSABLE_FIELD_SCHEMA_NAME, IMaterialSchema.REUSABLE_FIELD_SCHEMA_NAME, IColorPatternSchema.REUSABLE_FIELD_SCHEMA_NAME],
             additionalQueryConfiguration: query => filterFunc(query),
             depth: 0,
-            includeSecuredItems: includeSecuredItems
+            includeSecuredItems: includeSecuredItems,
+            includeContentTypeFields: false
         );
 
         return items.Select(item => (item as IContentItemFieldsSource)?.SystemFields.ContentItemID)
@@ -628,7 +629,8 @@ public class ProductService(IContentItemRetrieverService contentItemRetrieverSer
                     .LinkingSchemaField(nameof(IProductParentSchema.ProductParentSchemaVariants), filteredIds)
                     .Columns(nameof(ContentItemFields.ContentItemID)),
                 depth: 3,
-                includeSecuredItems: includeSecuredItems);
+                includeSecuredItems: includeSecuredItems,
+                includeContentTypeFields: false);
 
         return parents.Select(parent => parent.SystemFields.ContentItemID);
     }

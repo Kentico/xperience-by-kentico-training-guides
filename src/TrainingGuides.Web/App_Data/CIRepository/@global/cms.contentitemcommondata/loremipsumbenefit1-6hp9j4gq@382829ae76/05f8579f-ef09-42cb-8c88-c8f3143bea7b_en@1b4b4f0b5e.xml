@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.contentitemcommondata>
-  <ColorPattern />
   <ContentItemCommonDataContentItemID>
     <CodeName>LoremIpsumBenefit1-6hp9j4gq</CodeName>
     <GUID>e3994c1f-b91e-43d0-82ee-fca635fd8792</GUID>
@@ -16,7 +15,6 @@
   <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
   <ContentItemCommonDataLastPublishedWhen>2026-02-10 21:34:48Z</ContentItemCommonDataLastPublishedWhen>
   <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
-  <ProductPriceSchemaDiscountCategory />
   <ContentItemReferences>
     <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>24f7d9b0-28cf-4b05-90bf-3180a0165514</ContentItemReferenceGroupGUID>

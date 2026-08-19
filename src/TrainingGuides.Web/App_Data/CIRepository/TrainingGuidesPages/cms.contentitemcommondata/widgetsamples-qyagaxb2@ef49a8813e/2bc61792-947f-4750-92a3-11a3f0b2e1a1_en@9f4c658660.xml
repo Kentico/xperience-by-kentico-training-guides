@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.contentitemcommondata>
-  <ColorPattern />
   <ContentItemCommonDataContentItemID>
     <CodeName>WidgetSamples-qyagaxb2</CodeName>
     <GUID>d3e7f041-c1d9-4225-bb91-72813912b8af</GUID>
@@ -318,7 +317,6 @@
 }
 ]]>
   </ContentItemCommonDataVisualBuilderWidgets>
-  <ProductPriceSchemaDiscountCategory />
   <ContentItemReferences>
     <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>d8d852f2-1c7a-4a6d-bb7d-61c507347d9b</ContentItemReferenceGroupGUID>

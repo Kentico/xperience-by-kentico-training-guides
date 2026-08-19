@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.contentitemcommondata>
-  <ColorPattern />
   <ContentItemCommonDataContentItemID>
     <CodeName>PolicyDownloads-jazqmswu</CodeName>
     <GUID>fb460446-31a7-4303-956f-26e16ed4d239</GUID>
@@ -23,7 +22,6 @@
 }
 ]]>
   </ContentItemCommonDataVisualBuilderTemplateConfiguration>
-  <ProductPriceSchemaDiscountCategory />
   <ContentItemReferences>
     <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>0a01b8e1-309a-4cfa-8e2d-588c7ade747b</ContentItemReferenceGroupGUID>

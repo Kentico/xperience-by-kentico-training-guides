@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.contentitemcommondata>
-  <ColorPattern />
   <ContentItemCommonDataContentItemID>
     <CodeName>Coqui-nsgdqpdd</CodeName>
     <GUID>fdd08a49-48fb-4ccc-a946-84d3d0a8e564</GUID>
@@ -16,5 +15,4 @@
   <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
   <ContentItemCommonDataLastPublishedWhen>2025-06-17 15:00:34Z</ContentItemCommonDataLastPublishedWhen>
   <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
-  <ProductPriceSchemaDiscountCategory />
 </cms.contentitemcommondata>

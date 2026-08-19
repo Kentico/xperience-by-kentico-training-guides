@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.contentitemcommondata>
-  <ColorPattern />
   <ContentItemCommonDataContentItemID>
     <CodeName>ThankYouForSubscribing-hmvecmgv</CodeName>
     <GUID>4b063746-02f8-4e1d-8bd3-bcf1b68a4698</GUID>
@@ -168,7 +167,6 @@
 }
 ]]>
   </ContentItemCommonDataVisualBuilderWidgets>
-  <ProductPriceSchemaDiscountCategory />
   <ContentItemReferences>
     <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>d81d8983-6d33-475d-a831-7924331d1826</ContentItemReferenceGroupGUID>

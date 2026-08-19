@@ -170,6 +170,8 @@ public interface IContentItemRetrieverService
     /// <param name="taxonomyColumnName">The name of the column that holds the taxonomy value</param>
     /// <param name="tagGuids">Guids of tags to filter the output by</param>
     /// <param name="includeSecuredItems">If true, secured items will be included in the results.</param>
+    /// <param name="includeContentTypeFields">Set to false when the query targets a reusable field schema and the caller does not use any content type fields. Only content item metadata and reusable field schema fields are returned, which skips mapping data the caller does not use.
+    /// Do not combine false with a taxonomy filter such as WhereContainsTags unless the taxonomy column is null, rather than an empty string, on content types that do not use the schema. Without content type fields the query is flat, so the filter also evaluates those rows and SQL Server fails to parse the empty string as JSON.</param>
     /// <param name="languageName">The language to query. If null, the language will be inferred from the URL of the current request.</param>
     /// <returns>An enumerable collection of content items that match the specified schema and tags</returns>
     Task<IEnumerable<IContentItemFieldsSource>> RetrieveContentItemsBySchemaAndTags(
@@ -177,6 +179,7 @@ public interface IContentItemRetrieverService
         string taxonomyColumnName,
         IEnumerable<Guid> tagGuids,
         bool includeSecuredItems = true,
+        bool includeContentTypeFields = true,
         string? languageName = null);
 
     /// <summary>
@@ -187,6 +190,8 @@ public interface IContentItemRetrieverService
     /// <param name="additionalQueryConfiguration">An action to configure additional query parameters.</param>
     /// <param name="depth">The maximum level of recursively linked content items that should be included in the results. Default value is 1.</param>
     /// <param name="includeSecuredItems">If true, secured items will be included in the results.</param>
+    /// <param name="includeContentTypeFields">Set to false when the query targets a reusable field schema and the caller does not use any content type fields. Only content item metadata and reusable field schema fields are returned, which skips mapping data the caller does not use.
+    /// Do not combine false with a taxonomy filter such as WhereContainsTags unless the taxonomy column is null, rather than an empty string, on content types that do not use the schema. Without content type fields the query is flat, so the filter also evaluates those rows and SQL Server fails to parse the empty string as JSON.</param>
     /// <param name="languageName">The language to query. If null, the language will be inferred from the URL of the current request.</param>
     /// <returns>An enumerable collection of content items that match the specified schemas and query configuration.</returns>
     Task<IEnumerable<T>> RetrieveContentItemsBySchemas<T>(
@@ -194,6 +199,7 @@ public interface IContentItemRetrieverService
         Action<RetrieveContentOfReusableSchemasQueryParameters> additionalQueryConfiguration,
         int depth = 1,
         bool includeSecuredItems = true,
+        bool includeContentTypeFields = true,
         string? languageName = null);
 
     /// <summary>
@@ -205,6 +211,8 @@ public interface IContentItemRetrieverService
     /// <param name="referenceIds">The IDs of the referenced items to filter by.</param>
     /// <param name="includeSecuredItems">If true, secured items will be included in the results.</param>
     /// <param name="depth">The maximum level of recursively linked content items that should be included in the results. Default value is 1.</param>
+    /// <param name="includeContentTypeFields">Set to false when the query targets a reusable field schema and the caller does not use any content type fields. Only content item metadata and reusable field schema fields are returned, which skips mapping data the caller does not use.
+    /// Do not combine false with a taxonomy filter such as WhereContainsTags unless the taxonomy column is null, rather than an empty string, on content types that do not use the schema. Without content type fields the query is flat, so the filter also evaluates those rows and SQL Server fails to parse the empty string as JSON.</param>
     /// <param name="languageName">The language to query. If null, the language will be inferred from the URL of the current request.</param>
     /// <returns>An enumerable collection of content items that reference the specified items.</returns>
     Task<IEnumerable<T>> RetrieveParentItemsOfSchema<T>(
@@ -213,6 +221,7 @@ public interface IContentItemRetrieverService
         IEnumerable<int> referenceIds,
         bool includeSecuredItems,
         int depth = 1,
+        bool includeContentTypeFields = true,
         string? languageName = null);
 
     /// <summary>

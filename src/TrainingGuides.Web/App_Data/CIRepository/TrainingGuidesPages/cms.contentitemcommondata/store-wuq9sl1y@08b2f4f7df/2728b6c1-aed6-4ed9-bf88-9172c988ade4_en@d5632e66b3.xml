@@ -96,7 +96,6 @@
 }
 ]]>
   </ContentItemCommonDataVisualBuilderWidgets>
-  <ProductPriceSchemaDiscountCategory />
   <ContentItemReferences>
     <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>9cae9511-66e8-4b2a-89a8-00a79267269f</ContentItemReferenceGroupGUID>
