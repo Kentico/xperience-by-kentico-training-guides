@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<om.contactgroup>
+  <ContactGroupDisplayName>group 1</ContactGroupDisplayName>
+  <ContactGroupEnabled>True</ContactGroupEnabled>
+  <ContactGroupGUID>2d6e400d-497f-43c3-9d26-814f00a7ff1a</ContactGroupGUID>
+  <ContactGroupIsRecipientList>False</ContactGroupIsRecipientList>
+  <ContactGroupIsSegment>False</ContactGroupIsSegment>
+  <ContactGroupName>Group1</ContactGroupName>
+</om.contactgroup>

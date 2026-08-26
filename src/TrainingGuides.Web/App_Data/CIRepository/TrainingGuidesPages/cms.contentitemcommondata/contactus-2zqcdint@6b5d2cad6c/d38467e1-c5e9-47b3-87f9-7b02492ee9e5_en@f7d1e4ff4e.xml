@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.contentitemcommondata>
-  <ColorPattern />
   <ContentItemCommonDataContentItemID>
     <CodeName>ContactUs-2zqcdint</CodeName>
     <GUID>b6e644bb-f457-4140-aff4-2347e195940a</GUID>
@@ -93,5 +92,4 @@
 }
 ]]>
   </ContentItemCommonDataVisualBuilderWidgets>
-  <ProductPriceSchemaDiscountCategory />
 </cms.contentitemcommondata>

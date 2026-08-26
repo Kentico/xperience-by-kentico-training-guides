@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.contentitemcommondata>
-  <ColorPattern />
   <ContentItemCommonDataContentItemID>
     <CodeName>Products-oypi95ub</CodeName>
     <GUID>196b3926-f820-4bd4-bed0-42e4db92ce40</GUID>
@@ -235,7 +234,6 @@
 }
 ]]>
   </ContentItemCommonDataVisualBuilderWidgets>
-  <ProductPriceSchemaDiscountCategory />
   <ContentItemReferences>
     <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>b7e24607-bf43-4950-8f96-1d7218151744</ContentItemReferenceGroupGUID>

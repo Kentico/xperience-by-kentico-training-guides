@@ -75,7 +75,8 @@ public class ArticleListWidgetViewComponent(
                 await contentItemRetrieverService.RetrieveContentItemsBySchemaAndTags(
                     IArticleSchema.REUSABLE_FIELD_SCHEMA_NAME,
                     nameof(IArticleSchema.ArticleSchemaCategory),
-                    tagGuids)
+                    tagGuids,
+                    includeContentTypeFields: false)
                 ).Select(article => article.SystemFields.ContentItemID);
 
             return await contentItemRetrieverService.RetrieveWebPageChildrenByPathAndReference<ArticlePage>(

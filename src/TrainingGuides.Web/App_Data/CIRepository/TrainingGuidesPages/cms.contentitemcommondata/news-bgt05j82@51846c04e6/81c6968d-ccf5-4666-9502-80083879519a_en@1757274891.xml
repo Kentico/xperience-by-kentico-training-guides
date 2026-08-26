@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.contentitemcommondata>
-  <ColorPattern />
   <ContentItemCommonDataContentItemID>
     <CodeName>News-bgt05j82</CodeName>
     <GUID>ee6e8983-b6e7-4d00-98e5-25576586763d</GUID>
@@ -13,7 +12,7 @@
   </ContentItemCommonDataContentLanguageID>
   <ContentItemCommonDataGUID>81c6968d-ccf5-4666-9502-80083879519a</ContentItemCommonDataGUID>
   <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
-  <ContentItemCommonDataLastPublishedWhen>2025-07-24 19:57:47Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataLastPublishedWhen>2026-08-19 13:51:05Z</ContentItemCommonDataLastPublishedWhen>
   <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
   <ContentItemCommonDataVisualBuilderTemplateConfiguration>
 <![CDATA[
@@ -53,8 +52,15 @@
                             "identifier": "ee6e8983-b6e7-4d00-98e5-25576586763d"
                           }
                         ],
-                        "tags": [],
-                        "topN": 10,
+                        "tags": [
+                          {
+                            "identifier": "04ab8b7e-f25b-4d3e-9e78-bf319a5f9140"
+                          },
+                          {
+                            "identifier": "34ebdcf5-20d6-4ecc-90e6-fc150dd5b36f"
+                          }
+                        ],
+                        "topN": 6,
                         "ctaText": "Read more",
                         "signInText": "Sign in",
                         "orderBy": "NewestFirst",
@@ -85,11 +91,10 @@
 }
 ]]>
   </ContentItemCommonDataVisualBuilderWidgets>
-  <ProductPriceSchemaDiscountCategory />
   <ContentItemReferences>
     <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>e121ff3d-c221-4f60-9acb-0063ed2739f1</ContentItemReferenceGroupGUID>
-      <ContentItemReferenceGUID>a020fddf-42fd-4593-a8fe-6c5a8baddcea</ContentItemReferenceGUID>
+      <ContentItemReferenceGUID>101e5adb-9737-421e-a64a-1b347bd956f6</ContentItemReferenceGUID>
       <ContentItemReferenceSourceCommonDataID>
         <GUID>81c6968d-ccf5-4666-9502-80083879519a</GUID>
         <ObjectType>cms.contentitemcommondata</ObjectType>
@@ -102,7 +107,7 @@
     </cms.contentitemreference>
     <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>959091a7-9c78-4874-a280-2956537cbc3a</ContentItemReferenceGroupGUID>
-      <ContentItemReferenceGUID>105f112c-1d2d-4142-a804-ea48fe57efc3</ContentItemReferenceGUID>
+      <ContentItemReferenceGUID>b060e715-33d2-4e20-967b-83b1dac2a6da</ContentItemReferenceGUID>
       <ContentItemReferenceSourceCommonDataID>
         <GUID>81c6968d-ccf5-4666-9502-80083879519a</GUID>
         <ObjectType>cms.contentitemcommondata</ObjectType>

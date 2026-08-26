@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.contentitemcommondata>
-  <ColorPattern />
   <ContentItemCommonDataContentItemID>
     <CodeName>Goodbye-tzw1394f</CodeName>
     <GUID>7c395855-e197-4df1-b182-1ede048bf6a8</GUID>
@@ -168,7 +167,6 @@
 }
 ]]>
   </ContentItemCommonDataVisualBuilderWidgets>
-  <ProductPriceSchemaDiscountCategory />
   <ContentItemReferences>
     <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>7b9fa4eb-5a0a-4cba-af6d-8b366895583a</ContentItemReferenceGroupGUID>

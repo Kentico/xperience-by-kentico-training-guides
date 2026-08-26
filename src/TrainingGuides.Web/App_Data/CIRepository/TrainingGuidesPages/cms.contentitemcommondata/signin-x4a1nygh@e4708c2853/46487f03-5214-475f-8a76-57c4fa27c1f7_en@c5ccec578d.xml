@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.contentitemcommondata>
-  <ColorPattern />
   <ContentItemCommonDataContentItemID>
     <CodeName>SignIn-x4a1nygh</CodeName>
     <GUID>4f88daba-f579-43fb-acdd-d80c43d7317a</GUID>
@@ -178,7 +177,6 @@
 }
 ]]>
   </ContentItemCommonDataVisualBuilderWidgets>
-  <ProductPriceSchemaDiscountCategory />
   <ContentItemReferences>
     <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>c117d47a-e3e0-4543-89dc-323160c5d2f5</ContentItemReferenceGroupGUID>

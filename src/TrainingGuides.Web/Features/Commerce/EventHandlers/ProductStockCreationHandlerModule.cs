@@ -36,7 +36,8 @@ internal class ProductStockAfterCreateHandler(ProductStockCreationService servic
         if (data.ID is null || !service.IsStockKeepingItem(data.ContentTypeName))
             return;
 
-        data.ContentItemData.TryGetValue(nameof(IProductSkuSchema.ProductSkuSchemaSkuCode), out string skuCode);
+        // The SKU code is optional, so this returns false and leaves skuCode null when the field is empty
+        data.ContentItemData.TryGetValue(nameof(IProductSkuSchema.ProductSkuSchemaSkuCode), out string? skuCode);
         await service.EnsureStockRecord(data.ID.Value, skuCode, cancellationToken);
     }
 }
@@ -50,7 +51,8 @@ internal class ProductStockBeforeUpdateDraftHandler(ProductStockCreationService 
         if (!service.IsStockKeepingItem(data.ContentTypeName))
             return;
 
-        data.ContentItemData.TryGetValue(nameof(IProductSkuSchema.ProductSkuSchemaSkuCode), out string skuCode);
+        // The SKU code is optional, so this returns false and leaves skuCode null when the field is empty
+        data.ContentItemData.TryGetValue(nameof(IProductSkuSchema.ProductSkuSchemaSkuCode), out string? skuCode);
         await service.EnsureStockRecord(data.ID, skuCode, cancellationToken);
     }
 }

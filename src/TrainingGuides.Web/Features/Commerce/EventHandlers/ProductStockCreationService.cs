@@ -11,8 +11,11 @@ internal class ProductStockCreationService(IInfoProvider<ProductAvailableStockIn
     internal bool IsStockKeepingItem(string contentTypeName) =>
         stockKeepingTypeNames.Contains(contentTypeName);
 
-    internal async Task EnsureStockRecord(int contentItemId, string skuCode, CancellationToken cancellationToken)
+    internal async Task EnsureStockRecord(int contentItemId, string? skuCode, CancellationToken cancellationToken)
     {
+        // The SKU code is optional, but the database column does not allow nulls, so store an empty string instead
+        string stockSkuCode = skuCode ?? string.Empty;
+
         var existingProductStock = await GetExistingStockRecords(contentItemId, cancellationToken);
 
         if (existingProductStock.Any())
@@ -20,7 +23,7 @@ internal class ProductStockCreationService(IInfoProvider<ProductAvailableStockIn
             foreach (var availableStock in existingProductStock)
             {
                 // Update the SKU code in case it has changed
-                availableStock.ProductAvailableStockSKUCode = skuCode;
+                availableStock.ProductAvailableStockSKUCode = stockSkuCode;
                 await productStockInfoProvider.SetAsync(availableStock, cancellationToken);
             }
         }
@@ -30,7 +33,7 @@ internal class ProductStockCreationService(IInfoProvider<ProductAvailableStockIn
             {
                 ProductAvailableStockContentItemID = contentItemId,
                 ProductAvailableStockValue = 0,
-                ProductAvailableStockSKUCode = skuCode,
+                ProductAvailableStockSKUCode = stockSkuCode,
                 ProductAvailableStockGUID = Guid.NewGuid()
             }, cancellationToken);
         }

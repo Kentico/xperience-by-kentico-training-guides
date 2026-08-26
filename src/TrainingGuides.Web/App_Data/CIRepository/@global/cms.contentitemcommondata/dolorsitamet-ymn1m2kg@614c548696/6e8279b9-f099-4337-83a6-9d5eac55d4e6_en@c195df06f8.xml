@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.contentitemcommondata>
-  <ColorPattern />
   <ContentItemCommonDataContentItemID>
     <CodeName>DolorSitAmet-ymn1m2kg</CodeName>
     <GUID>024469dc-5467-48a6-b09f-9b202ee2f510</GUID>
@@ -16,5 +15,4 @@
   <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
   <ContentItemCommonDataLastPublishedWhen>2026-02-10 21:29:18Z</ContentItemCommonDataLastPublishedWhen>
   <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
-  <ProductPriceSchemaDiscountCategory />
 </cms.contentitemcommondata>

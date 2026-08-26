@@ -248,13 +248,15 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
         string taxonomyColumnName,
         IEnumerable<Guid> tagGuids,
         bool includeSecuredItems = true,
+        bool includeContentTypeFields = true,
         string? languageName = null)
     {
         var parameters = new RetrieveContentOfReusableSchemasParameters
         {
             LanguageName = languageName ?? preferredLanguageRetriever.Get(),
             IsForPreview = webSiteChannelContext.IsPreview,
-            IncludeSecuredItems = includeSecuredItems
+            IncludeSecuredItems = includeSecuredItems,
+            IncludeContentTypeFields = includeContentTypeFields
         };
 
         return await contentRetriever.RetrieveContentOfReusableSchemas<IContentItemFieldsSource>(
@@ -271,6 +273,7 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
         Action<RetrieveContentOfReusableSchemasQueryParameters> additionalQueryConfiguration,
         int depth = 1,
         bool includeSecuredItems = true,
+        bool includeContentTypeFields = true,
         string? languageName = null)
     {
         var parameters = new RetrieveContentOfReusableSchemasParameters
@@ -278,6 +281,7 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
             LanguageName = languageName ?? preferredLanguageRetriever.Get(),
             IsForPreview = webSiteChannelContext.IsPreview,
             IncludeSecuredItems = includeSecuredItems,
+            IncludeContentTypeFields = includeContentTypeFields,
             LinkedItemsMaxLevel = depth
         };
 
@@ -296,6 +300,7 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
         IEnumerable<int> referenceIds,
         bool includeSecuredItems,
         int depth = 1,
+        bool includeContentTypeFields = true,
         string? languageName = null)
     {
         var parameters = new RetrieveContentOfReusableSchemasParameters
@@ -303,7 +308,8 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
             LinkedItemsMaxLevel = depth,
             LanguageName = languageName ?? preferredLanguageRetriever.Get(),
             IsForPreview = webSiteChannelContext.IsPreview,
-            IncludeSecuredItems = includeSecuredItems
+            IncludeSecuredItems = includeSecuredItems,
+            IncludeContentTypeFields = includeContentTypeFields
         };
 
         return await contentRetriever.RetrieveContentOfReusableSchemas<T>(

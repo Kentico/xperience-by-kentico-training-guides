@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.contentitemcommondata>
-  <ColorPattern />
   <ContentItemCommonDataContentItemID>
     <CodeName>Membership-0ia66os8</CodeName>
     <GUID>af7304be-f23d-427a-bf6d-0261b04d15f6</GUID>
@@ -274,7 +273,6 @@
 }
 ]]>
   </ContentItemCommonDataVisualBuilderWidgets>
-  <ProductPriceSchemaDiscountCategory />
   <ContentItemReferences>
     <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>cf115d79-0aeb-4cd3-8e84-1b289efa0385</ContentItemReferenceGroupGUID>

@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.contentitemcommondata>
-  <ColorPattern />
   <ContentItemCommonDataContentItemID>
     <CodeName>AboutFrogs-l30ila6d</CodeName>
     <GUID>df4f4ee0-00c3-4d1f-a8aa-02c8af7c5ad3</GUID>
@@ -25,7 +24,6 @@
 }
 ]]>
   </ContentItemCommonDataVisualBuilderTemplateConfiguration>
-  <ProductPriceSchemaDiscountCategory />
   <ContentItemReferences>
     <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>b660d800-8f44-4311-af7d-f5073bda6ab3</ContentItemReferenceGroupGUID>
