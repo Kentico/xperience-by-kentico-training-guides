@@ -13,8 +13,8 @@ However, keep in mind that the code in this repository is intended to be examine
 ## Installation requirements
 
 - Installation of this repository requires the [.NET CLI](https://learn.microsoft.com/en-us/dotnet/core/tools/)
-- This repository targets the .NET 8 SDK.
-  - If you are using a different .NET version, you can update the target framework in your solution. Note that the files in this repository use [C# 12 features and syntax](https://learn.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-12), some of which are not supported in lower versions.
+- This repository targets the .NET 10 SDK.
+  - If you are using a different .NET version, you can update the target framework in your solution. The code samples in this repository rely on [C# 12 features and syntax](https://learn.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-12), so they may require adjustments when used with older framework and language versions.
 
 ## Getting started
 
