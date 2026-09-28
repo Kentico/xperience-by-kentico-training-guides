@@ -15,4 +15,10 @@ public class PromotedItemResult
     /// nothing at all, which the widget treats as a valid authoring state.
     /// </summary>
     public bool SelectionFailed { get; set; }
+
+    /// <summary>
+    /// The page the selection resolved to, when the selection was a page, so the link rules do
+    /// not have to retrieve it again. Null whenever the selection was not a page.
+    /// </summary>
+    public IWebPageFieldsSource? Page { get; set; }
 }

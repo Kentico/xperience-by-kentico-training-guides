@@ -1,6 +1,7 @@
 using Kentico.PageBuilder.Web.Mvc;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ViewComponents;
+using TrainingGuides.Web.Features.ContentPromotion.Services;
 using TrainingGuides.Web.Features.ContentPromotion.Widgets.ContentPromotion;
 
 [assembly:
@@ -14,14 +15,26 @@ using TrainingGuides.Web.Features.ContentPromotion.Widgets.ContentPromotion;
 
 namespace TrainingGuides.Web.Features.ContentPromotion.Widgets.ContentPromotion;
 
-public class ContentPromotionWidgetViewComponent : ViewComponent
+public class ContentPromotionWidgetViewComponent(
+    IContentPromotionService contentPromotionService) : ViewComponent
 {
     public const string IDENTIFIER = "TrainingGuides.ContentPromotionWidget";
 
-    public ViewViewComponentResult Invoke(ContentPromotionWidgetProperties properties)
+    public async Task<ViewViewComponentResult> InvokeAsync(ContentPromotionWidgetProperties properties)
     {
-        var model = new ContentPromotionWidgetViewModel();
+        var promotedItem = await contentPromotionService.ResolvePromotedItem(properties);
+
+        var model = new ContentPromotionWidgetViewModel
+        {
+            SelectionFailed = promotedItem.SelectionFailed,
+            DisplayValues = contentPromotionService.ResolveDisplayValues(
+                properties,
+                promotedItem.Item,
+                await contentPromotionService.ResolveOverrideImage(properties)),
+            Link = await contentPromotionService.ResolveLink(properties, promotedItem.Page)
+        };
 
         return View("~/Features/ContentPromotion/Widgets/ContentPromotion/ContentPromotionWidget.cshtml", model);
     }
+
 }

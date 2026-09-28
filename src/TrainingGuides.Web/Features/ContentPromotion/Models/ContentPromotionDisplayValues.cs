@@ -14,4 +14,14 @@ public class ContentPromotionDisplayValues
     public string CallToActionText { get; set; } = string.Empty;
 
     public AssetViewModel? Image { get; set; }
+
+    /// <summary>
+    /// True when at least one element survives to be rendered. Everything hidden, or nothing
+    /// resolved and nothing typed in, leaves the card with nothing to show.
+    /// </summary>
+    public bool HasContent =>
+        !string.IsNullOrWhiteSpace(Title)
+        || !string.IsNullOrWhiteSpace(Description)
+        || !string.IsNullOrWhiteSpace(CallToActionText)
+        || !string.IsNullOrWhiteSpace(Image?.FilePath);
 }

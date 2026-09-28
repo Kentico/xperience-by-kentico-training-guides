@@ -84,10 +84,11 @@ is the thing under test.
 | T2 override resolution | Done — 18 tests |
 | T3 family detection | Done — 8 tests |
 | T4 link resolution | Done — 8 tests |
-| T5-T9 | Not started |
+| T5 misconfiguration | Done — 6 tests |
+| T6-T9 | Not started |
 | T10 integration tests | Not started, added during T3 |
 
-Full web suite at the T4 stop point: **139 passing, 0 failing.**
+Full web suite at the T5 stop point: **145 passing, 0 failing.**
 
 ## Ticket map
 
@@ -258,6 +259,32 @@ public still sees a valid card. Conflating the two would blank a working card fo
 
 **Manual check:** edit mode shows the right notice for each of the three states. Edit-mode
 rendering is not covered by these tests.
+
+**What T5 actually landed, beyond the four criteria:**
+
+- The view component was wired up (`InvokeAsync` calling `ResolvePromotedItem`,
+  `ResolveOverrideImage`, `ResolveDisplayValues`, `ResolveLink`), `IContentPromotionService`
+  was registered in `ServiceCollectionExtensions`, and a minimal card was added to the Razor
+  view. Without this the three states cannot be seen in edit mode at all, so the manual check
+  would have been impossible. This is the T2/T3/T4 glue no ticket owned.
+- `PromotedItemResult.Page` carries the page that page-mode retrieval already loaded, so
+  `ResolveLink` does not query for the same page a second time.
+- **Two extra tests, found at review.** `SelectionFailed` was set only when retrieval returned
+  null, so two other broken selections — an unsupported content type, and a page whose linked
+  content item is missing — reported `NothingAuthored` instead of `ItemCouldNotBeLoaded`.
+  `ResolvePromotedItem` now reports a failed selection whenever retrieval returned something
+  but no item could be projected from it. Spec §8 row 2 covers these cases.
+- `AssetViewModel.GetViewModel` returns an *empty* model rather than null for a missing asset,
+  which read as "there is an image" downstream and would have rendered `<img src="">`. The
+  service now normalizes that to null.
+
+**Handed to T7 (styling):** the card markup added here emits `c-content-promotion`,
+`c-content-promotion__image`, `__title` and `__description`, and **no `_content-promotion.scss`
+exists yet** — those classes are currently dead. T7 also needs to replace the bare `<img>` with
+`tg-styled-image` and move CSS-class computation into the view component, per spec §9.2.
+
+**Handed to T8 (localization):** the three edit-mode notice strings in the Razor view are
+hard-coded English.
 
 ---
 

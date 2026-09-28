@@ -1,16 +1,68 @@
 @using Kentico.PageBuilder.Web.Mvc
+@using TrainingGuides.Web.Features.ContentPromotion.Models
 @using TrainingGuides.Web.Features.ContentPromotion.Widgets.ContentPromotion
 
 @model ContentPromotionWidgetViewModel?
 
+@{
+    bool editMode = Context.Kentico().PageBuilder().EditMode;
+    var reason = Model?.MisconfigurationReason ?? MisconfigurationReason.NothingAuthored;
+}
+
 @if (Model is null || Model.IsMisconfigured)
 {
-    if (Context.Kentico().PageBuilder().EditMode)
+    @* The public sees nothing at all - only the editor is told what is wrong. *@
+    if (editMode)
     {
         <tg-page-builder-content>
             <div class="c-card md bg-1 u-border-02 text-center">
-                <tg-configure-widget-instructions/>
+                @if (reason == MisconfigurationReason.ItemCouldNotBeLoaded)
+                {
+                    <tg-configure-widget-instructions message="The selected item could not be loaded. It may be unpublished, deleted, or missing a translation in this language."/>
+                }
+                else
+                {
+                    <tg-configure-widget-instructions message="This promotion has nothing to show yet. Select an item, or type in a title and description."/>
+                }
             </div>
         </tg-page-builder-content>
     }
+}
+else
+{
+    <div class="c-content-promotion c-card md bg-1 u-border-02">
+        @if (Model.DisplayValues.Image is not null)
+        {
+            <img src="@Url.Content(Model.DisplayValues.Image.FilePath)"
+                 alt="@Model.DisplayValues.Image.AltText"
+                 class="c-content-promotion__image img-fluid" />
+        }
+
+        @if (!string.IsNullOrWhiteSpace(Model.DisplayValues.Title))
+        {
+            <h3 class="c-content-promotion__title h4">@Model.DisplayValues.Title</h3>
+        }
+
+        @if (!string.IsNullOrWhiteSpace(Model.DisplayValues.Description))
+        {
+            <p class="c-content-promotion__description">@Model.DisplayValues.Description</p>
+        }
+
+        @if (Model.Link is not null && !string.IsNullOrWhiteSpace(Model.DisplayValues.CallToActionText))
+        {
+            <a href="@Url.Content(Model.Link.LinkUrl)"
+               class="btn tg-btn-secondary text-uppercase"
+               target="@(Model.Link.OpenInNewTab ? "_blank" : "")">
+                @Model.DisplayValues.CallToActionText
+            </a>
+        }
+
+        @* A card with no destination still renders for the public - the editor gets the warning. *@
+        @if (editMode && reason == MisconfigurationReason.NoDestination)
+        {
+            <tg-page-builder-content>
+                <tg-configure-widget-instructions message="This promotion has no destination. Choose a link target page or type in a link URL."/>
+            </tg-page-builder-content>
+        }
+    </div>
 }

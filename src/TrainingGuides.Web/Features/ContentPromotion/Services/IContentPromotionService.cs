@@ -15,6 +15,12 @@ public interface IContentPromotionService
         AssetViewModel? overrideImage = null);
 
     /// <summary>
+    /// Resolves the widget's image override into a view model, or null when none is selected or
+    /// the selected asset has no file.
+    /// </summary>
+    Task<AssetViewModel?> ResolveOverrideImage(ContentPromotionWidgetProperties properties);
+
+    /// <summary>
     /// Resolves the widget's selection into a normalized item and its content family.
     /// </summary>
     Task<PromotedItemResult> ResolvePromotedItem(ContentPromotionWidgetProperties properties);

@@ -39,7 +39,7 @@ public class ContentPromotionService(
             return new PromotedItemResult { SelectionFailed = true };
         }
 
-        return item switch
+        var result = item switch
         {
             ArticlePage articlePage => FromArticle(articlePage.ArticlePageArticleContent?.FirstOrDefault()),
             ProductPage productPage => FromProduct(productPage.ProductPageProducts?.FirstOrDefault()),
@@ -49,6 +49,43 @@ public class ContentPromotionService(
             IProductSchema product => FromProduct(product),
             _ => new PromotedItemResult()
         };
+
+        // Retrieval succeeded but nothing usable came back - an unsupported content type, or a
+        // page whose linked content item is missing. The editor did select something, so this
+        // is a broken selection rather than an empty one.
+        result.SelectionFailed = result.Item is null;
+
+        // Kept so the link rules can reuse the page that was already retrieved, instead of
+        // querying for the same page a second time.
+        result.Page = item as IWebPageFieldsSource;
+
+        return result;
+    }
+
+    /// <summary>
+    /// Turns the widget's image override into a view model. Kept out of the resolution rules
+    /// because it needs content retrieval, and kept out of the view component so that "an empty
+    /// asset means no image" is decided in one place.
+    /// </summary>
+    public async Task<AssetViewModel?> ResolveOverrideImage(ContentPromotionWidgetProperties properties)
+    {
+        var imageGuid = properties.Image.Select(image => image.Identifier).FirstOrDefault();
+
+        return imageGuid == Guid.Empty
+            ? null
+            : GetImage(await contentItemRetrieverService.RetrieveContentItemByGuid<Asset>(imageGuid));
+    }
+
+    /// <summary>
+    /// <see cref="AssetViewModel.GetViewModel"/> returns an empty model rather than null for a
+    /// missing asset, which would read as "there is an image" everywhere downstream - the card
+    /// would then render an <c>img</c> with no source.
+    /// </summary>
+    private static AssetViewModel? GetImage(Asset? asset)
+    {
+        var image = AssetViewModel.GetViewModel(asset);
+
+        return string.IsNullOrWhiteSpace(image.FilePath) ? null : image;
     }
 
     private static PromotedItemResult FromArticle(IArticleSchema? article) => article is null
@@ -60,7 +97,7 @@ public class ContentPromotionService(
             {
                 Title = article.ArticleSchemaTitle,
                 Description = article.ArticleSchemaSummary,
-                Image = AssetViewModel.GetViewModel(article.ArticleSchemaTeaser?.FirstOrDefault())
+                Image = GetImage(article.ArticleSchemaTeaser?.FirstOrDefault())
             }
         };
 
@@ -129,7 +166,7 @@ public class ContentPromotionService(
             {
                 Title = service.ServiceName,
                 Description = service.ServiceShortDescription,
-                Image = AssetViewModel.GetViewModel(service.ServiceMedia?.FirstOrDefault())
+                Image = GetImage(service.ServiceMedia?.FirstOrDefault())
             }
         };
 

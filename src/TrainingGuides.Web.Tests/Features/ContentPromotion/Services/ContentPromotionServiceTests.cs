@@ -653,4 +653,44 @@ public class ContentPromotionServiceTests
 
         Assert.True(result?.OpenInNewTab);
     }
+
+    [Fact]
+    public async Task ResolvePromotedItem_PageLoadsButItsContentItemIsMissing_ReportsSelectionFailed()
+    {
+        contentItemRetrieverServiceMock
+            .Setup(x => x.RetrieveWebPageByContentItemGuid(
+                selectedGuid, It.IsAny<int>(), It.IsAny<bool>(), It.IsAny<string?>()))
+            .ReturnsAsync(new ArticlePage { ArticlePageArticleContent = [] });
+
+        var properties = new ContentPromotionWidgetProperties
+        {
+            ContentSource = ContentPromotionSource.PAGE,
+            SelectedPage = [new ContentItemReference { Identifier = selectedGuid }]
+        };
+
+        var result = await contentPromotionService.ResolvePromotedItem(properties);
+
+        Assert.True(result.SelectionFailed);
+        Assert.Null(result.Item);
+    }
+
+    [Fact]
+    public async Task ResolvePromotedItem_SelectionIsAnUnsupportedType_ReportsSelectionFailed()
+    {
+        contentItemRetrieverServiceMock
+            .Setup(x => x.RetrieveWebPageByContentItemGuid(
+                selectedGuid, It.IsAny<int>(), It.IsAny<bool>(), It.IsAny<string?>()))
+            .ReturnsAsync(new DownloadsPage());
+
+        var properties = new ContentPromotionWidgetProperties
+        {
+            ContentSource = ContentPromotionSource.PAGE,
+            SelectedPage = [new ContentItemReference { Identifier = selectedGuid }]
+        };
+
+        var result = await contentPromotionService.ResolvePromotedItem(properties);
+
+        Assert.True(result.SelectionFailed);
+        Assert.Equal(ContentFamily.None, result.Family);
+    }
 }
