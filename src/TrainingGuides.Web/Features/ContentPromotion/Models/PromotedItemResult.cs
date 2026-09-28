@@ -1,0 +1,18 @@
+namespace TrainingGuides.Web.Features.ContentPromotion.Models;
+
+/// <summary>
+/// The outcome of resolving the widget's selection: the normalized item and its family.
+/// </summary>
+public class PromotedItemResult
+{
+    public PromotedItemSource? Item { get; set; }
+
+    public ContentFamily Family { get; set; } = ContentFamily.None;
+
+    /// <summary>
+    /// True when the editor selected something that could not be loaded - unpublished,
+    /// deleted, or not available in the current language. Distinct from having selected
+    /// nothing at all, which the widget treats as a valid authoring state.
+    /// </summary>
+    public bool SelectionFailed { get; set; }
+}

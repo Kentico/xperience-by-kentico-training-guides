@@ -1,4 +1,4 @@
-﻿using CMS.ContentEngine;
+using CMS.ContentEngine;
 using Kentico.Content.Web.Mvc;
 using TrainingGuides.Web.Features.Shared.OptionProviders.OrderBy;
 
@@ -264,4 +264,19 @@ public interface IContentItemRetrieverService
         int depth = 2,
         bool includeSecuredItems = true,
         string? languageName = null);
+
+    /// <summary>
+    /// Retrieves a reusable content item by Guid without knowing its content type.
+    /// </summary>
+    /// <param name="contentItemGuid">The GUID of the content item</param>
+    /// <param name="depth">The maximum level of recursively linked content items that should be included in the results.</param>
+    /// <param name="includeSecuredItems">If true, secured items will be included in the results.</param>
+    /// <param name="languageName">The language to query. If null, the language will be inferred from the URL of the current request.</param>
+    /// <returns><see cref="IContentItemFieldsSource"/> object for the item, or null if it does not exist</returns>
+    Task<IContentItemFieldsSource?> RetrieveContentItemByGuid(
+        Guid contentItemGuid,
+        int depth = 1,
+        bool includeSecuredItems = true,
+        string? languageName = null);
+
 }

@@ -1,0 +1,16 @@
+@using Kentico.PageBuilder.Web.Mvc
+@using TrainingGuides.Web.Features.ContentPromotion.Widgets.ContentPromotion
+
+@model ContentPromotionWidgetViewModel?
+
+@if (Model is null || Model.IsMisconfigured)
+{
+    if (Context.Kentico().PageBuilder().EditMode)
+    {
+        <tg-page-builder-content>
+            <div class="c-card md bg-1 u-border-02 text-center">
+                <tg-configure-widget-instructions/>
+            </div>
+        </tg-page-builder-content>
+    }
+}

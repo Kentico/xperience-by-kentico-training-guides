@@ -1,4 +1,4 @@
-﻿using CMS.ContentEngine;
+using CMS.ContentEngine;
 using CMS.DataEngine;
 using CMS.Websites.Routing;
 using Kentico.Content.Web.Mvc;
@@ -210,6 +210,31 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
 
         return items.FirstOrDefault();
     }
+
+    /// <inheritdoc />
+    public async Task<IContentItemFieldsSource?> RetrieveContentItemByGuid(
+        Guid contentItemGuid,
+        int depth = 1,
+        bool includeSecuredItems = true,
+        string? languageName = null)
+    {
+        var builder = new ContentItemQueryBuilder()
+            .ForContentTypes(query => query.WithLinkedItems(depth))
+            .Parameters(parameters => parameters.Where(where =>
+                where.WhereEquals(nameof(ContentItemFields.ContentItemGUID), contentItemGuid)))
+            .InLanguage(languageName ?? preferredLanguageRetriever.Get());
+
+        var queryExecutorOptions = new ContentQueryExecutionOptions
+        {
+            ForPreview = webSiteChannelContext.IsPreview,
+            IncludeSecuredItems = includeSecuredItems
+        };
+
+        var items = await contentQueryExecutor.GetMappedResult<IContentItemFieldsSource>(builder, queryExecutorOptions);
+
+        return items.FirstOrDefault();
+    }
+
 
     /// <inheritdoc />
     public async Task<IEnumerable<T>> RetrieveReusableContentItemsFromSmartFolder<T>(
