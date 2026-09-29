@@ -368,3 +368,6 @@ src/TrainingGuides.Web/License/
 
 # AI assistant local state (agent config itself is committed; per-user state is not)
 .claude/settings.local.json
+
+# Playwright MCP working folder (screenshots, snapshots, console logs)
+.playwright-mcp/
