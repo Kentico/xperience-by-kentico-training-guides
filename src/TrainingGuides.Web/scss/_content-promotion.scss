@@ -1,0 +1,200 @@
+@use 'variables';
+
+/* Content promotion widget.
+
+   The card carries a single anchor, stretched over the whole surface with Bootstrap's
+   .stretched-link, so the card needs a positioned ancestor for that overlay to attach to.
+   Nothing else inside the card is interactive. */
+.c-content-promotion {
+    position: relative;
+    overflow: hidden;
+    gap: 1rem;
+}
+
+.c-content-promotion__media {
+    margin: 0;
+    overflow: hidden;
+}
+
+.c-content-promotion__image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.c-content-promotion__content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    /* The stretched link's overlay sits above the card, so keep the text above it too and only
+       the anchor's own overlay collects the clicks. */
+    position: relative;
+    z-index: 2;
+}
+
+.c-content-promotion__content.align-left {
+    text-align: left;
+    align-items: flex-start;
+}
+
+.c-content-promotion__content.align-center {
+    text-align: center;
+    align-items: center;
+}
+
+.c-content-promotion__content.align-right {
+    text-align: right;
+    align-items: flex-end;
+}
+
+.c-content-promotion__title {
+    margin: 0;
+}
+
+.c-content-promotion__description {
+    margin: 0;
+}
+
+.c-content-promotion__extras {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+}
+
+.c-content-promotion__categories {
+    margin: 0;
+}
+
+.c-content-promotion__category {
+    padding: 0.125rem 0.625rem;
+    border: 1px solid currentcolor;
+    border-radius: 1rem;
+}
+
+.c-content-promotion__benefits {
+    margin: 0;
+    padding-left: 1.125rem;
+}
+
+.c-content-promotion__price {
+    font-weight: 600;
+    font-size: 1.125rem;
+}
+
+.c-content-promotion__stock {
+    opacity: 0.8;
+}
+
+.c-content-promotion__cta {
+    margin-top: 0.5rem;
+    align-self: inherit;
+}
+
+/* Column layout - how the card splits between image and text. A card has two regions, so the
+   three-column options land on the even split (see GetColumnLayoutClass). Single column below
+   the medium breakpoint in every case: a split card is unreadable at phone widths. */
+.c-content-promotion--stacked {
+    display: flex;
+    flex-direction: column;
+}
+
+.c-content-promotion--split-even,
+.c-content-promotion--split-lg-sm,
+.c-content-promotion--split-sm-lg {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+}
+
+@media (min-width: 768px) {
+    .c-content-promotion--split-even {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .c-content-promotion--split-lg-sm {
+        grid-template-columns: 2fr 1fr;
+    }
+
+    .c-content-promotion--split-sm-lg {
+        grid-template-columns: 1fr 2fr;
+    }
+}
+
+/* Image overlay - the image becomes the card background and the text sits on top of it. Paints
+   its own background, so no color scheme is applied (see PaintsOwnBackground). The scrim is a
+   flat-color ::before, following the overlays in _article.scss and _section.scss. */
+.c-content-promotion--image-overlay {
+    display: block;
+    min-height: 20rem;
+    color: variables.$color-light;
+}
+
+.c-content-promotion--image-overlay .c-content-promotion__media {
+    position: absolute;
+    inset: 0;
+    margin: 0;
+}
+
+.c-content-promotion--image-overlay::before {
+    content: "";
+    display: block;
+    position: absolute;
+    inset: 0;
+    background: variables.$color-dark;
+    opacity: 0.45;
+    z-index: 1;
+}
+
+.c-content-promotion--image-overlay .c-content-promotion__content {
+    position: relative;
+    z-index: 2;
+    justify-content: flex-end;
+    min-height: inherit;
+}
+
+/* Gradient - the only gradient in this project. Runs between the two brand colors, which keeps
+   it recognizable rather than decorative. Paints its own background, so no color scheme. */
+.c-content-promotion--gradient {
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(135deg, variables.$color-primary 0%, variables.$color-secondary 100%);
+    color: variables.$color-light;
+}
+
+.c-content-promotion--gradient .c-content-promotion__category {
+    border-color: variables.$color-light;
+}
+
+/* Spotlight - one prominent promotion, centered and given room. */
+.c-content-promotion--spotlight {
+    text-align: center;
+}
+
+.c-content-promotion--spotlight .c-content-promotion__content {
+    align-items: center;
+    text-align: center;
+    max-width: 44rem;
+    margin: 0 auto;
+}
+
+.c-content-promotion--spotlight .c-content-promotion__title {
+    font-size: 2rem;
+}
+
+@media (min-width: 768px) {
+    .c-content-promotion--spotlight {
+        padding: 3rem 2rem;
+    }
+}
+
+/* Portrait - the image is locked to a portrait ratio so a row of these cards lines up. */
+.c-content-promotion--portrait .c-content-promotion__media {
+    aspect-ratio: 3/4;
+}
+
+.c-content-promotion--portrait .c-content-promotion__image {
+    height: 100%;
+}

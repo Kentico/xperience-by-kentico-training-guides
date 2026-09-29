@@ -35,78 +35,92 @@
 }
 else
 {
-    <div class="c-content-promotion c-card md bg-1 u-border-02">
+    <div class="@Model.CardCssClasses">
         @if (Model.DisplayValues.Image is not null)
         {
-            <img src="@Url.Content(Model.DisplayValues.Image.FilePath)"
-                 alt="@Model.DisplayValues.Image.AltText"
-                 class="c-content-promotion__image img-fluid" />
-        }
-
-        @if (!string.IsNullOrWhiteSpace(Model.DisplayValues.Title))
-        {
-            <h3 class="c-content-promotion__title h4">@Model.DisplayValues.Title</h3>
-        }
-
-        @if (!string.IsNullOrWhiteSpace(Model.DisplayValues.Description))
-        {
-            <p class="c-content-promotion__description">@Model.DisplayValues.Description</p>
-        }
-
-        @* Read-only facts only one content family has. Absent for every other family, and for
-           an item of the right family that happens to have none of them. *@
-        @if (Model.Extras.HasContent)
-        {
-            <div class="c-content-promotion__extras">
-                @if (Model.Extras.Categories.Any())
-                {
-                    <ul class="c-content-promotion__categories list-unstyled d-flex flex-wrap gap-2">
-                        @foreach (string category in Model.Extras.Categories)
-                        {
-                            <li class="c-content-promotion__category">@category</li>
-                        }
-                    </ul>
-                }
-
-                @if (Model.Extras.Benefits.Any())
-                {
-                    <ul class="c-content-promotion__benefits">
-                        @foreach (string benefit in Model.Extras.Benefits)
-                        {
-                            <li class="c-content-promotion__benefit">@benefit</li>
-                        }
-                    </ul>
-                }
-
-                @if (Model.Extras.Price.HasValue)
-                {
-                    <span class="c-content-promotion__price">$@Model.Extras.Price.Value.ToString("n2")</span>
-                }
-
-                @if (Model.Extras.StockStatus.HasValue)
-                {
-                    <span class="c-content-promotion__stock">
-                        @(Model.Extras.StockStatus.Value switch
-                        {
-                            ProductStockEnum.OutOfStock => "Out of stock",
-                            ProductStockEnum.LowStock => "Low stock",
-                            ProductStockEnum.PreOrder => "Pre-order",
-                            ProductStockEnum.InStock => "In stock",
-                            _ => string.Empty
-                        })
-                    </span>
-                }
+            <div class="c-content-promotion__media">
+                <tg-styled-image
+                    corner-style="@Model.CornerStyle"
+                    class="@Model.ImageCssClasses"
+                    src="@Url.Content(Model.DisplayValues.Image.FilePath)"
+                    alt="@Model.DisplayValues.Image.AltText">
+                </tg-styled-image>
             </div>
         }
 
-        @if (Model.Link is not null && !string.IsNullOrWhiteSpace(Model.DisplayValues.CallToActionText))
-        {
-            <a href="@Url.Content(Model.Link.LinkUrl)"
-               class="btn tg-btn-secondary text-uppercase"
-               target="@(Model.Link.OpenInNewTab ? "_blank" : "")">
-                @Model.DisplayValues.CallToActionText
-            </a>
-        }
+        <div class="@Model.ContentCssClasses">
+            @if (!string.IsNullOrWhiteSpace(Model.DisplayValues.Title))
+            {
+                <h3 class="c-content-promotion__title h4">@Model.DisplayValues.Title</h3>
+            }
+
+            @if (!string.IsNullOrWhiteSpace(Model.DisplayValues.Description))
+            {
+                <p class="c-content-promotion__description">@Model.DisplayValues.Description</p>
+            }
+
+            @* Read-only facts only one content family has. Absent for every other family, and for
+               an item of the right family that happens to have none of them. Never interactive -
+               the card carries a single anchor stretched across it, and a second clickable element
+               inside that anchor's hit area would be unreachable. *@
+            @if (Model.Extras.HasContent)
+            {
+                <div class="c-content-promotion__extras">
+                    @if (Model.Extras.Categories.Any())
+                    {
+                        <ul class="c-content-promotion__categories list-unstyled d-flex flex-wrap gap-2">
+                            @foreach (string category in Model.Extras.Categories)
+                            {
+                                <li class="c-content-promotion__category">@category</li>
+                            }
+                        </ul>
+                    }
+
+                    @if (Model.Extras.Benefits.Any())
+                    {
+                        <ul class="c-content-promotion__benefits">
+                            @foreach (string benefit in Model.Extras.Benefits)
+                            {
+                                <li class="c-content-promotion__benefit">@benefit</li>
+                            }
+                        </ul>
+                    }
+
+                    @if (Model.Extras.Price.HasValue)
+                    {
+                        <span class="c-content-promotion__price">$@Model.Extras.Price.Value.ToString("n2")</span>
+                    }
+
+                    @if (Model.Extras.StockStatus.HasValue)
+                    {
+                        <span class="c-content-promotion__stock">
+                            @(Model.Extras.StockStatus.Value switch
+                            {
+                                ProductStockEnum.OutOfStock => "Out of stock",
+                                ProductStockEnum.LowStock => "Low stock",
+                                ProductStockEnum.PreOrder => "Pre-order",
+                                ProductStockEnum.InStock => "In stock",
+                                _ => string.Empty
+                            })
+                        </span>
+                    }
+                </div>
+            }
+
+            @* The card's only interactive element. "stretched-link" expands its hit area over the
+               whole card, so the visible button and the clickable surface are one anchor with one
+               accessible name and one place to hang click tracking. *@
+            @if (Model.Link is not null && !string.IsNullOrWhiteSpace(Model.DisplayValues.CallToActionText))
+            {
+                <a href="@Url.Content(Model.Link.LinkUrl)"
+                   class="c-content-promotion__cta stretched-link js-content-promotion-link @Model.CallToActionCssClasses"
+                   data-tracking-value="@Model.TrackingValue"
+                   target="@(Model.Link.OpenInNewTab ? "_blank" : null)"
+                   rel="@(Model.Link.OpenInNewTab ? "noopener noreferrer" : null)">
+                    @Model.DisplayValues.CallToActionText
+                </a>
+            }
+        </div>
 
         @* A card with no destination still renders for the public - the editor gets the warning. *@
         @if (editMode && reason == MisconfigurationReason.NoDestination)

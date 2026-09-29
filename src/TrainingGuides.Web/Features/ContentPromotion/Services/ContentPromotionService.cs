@@ -84,6 +84,12 @@ public class ContentPromotionService(
     /// </summary>
     public async Task<AssetViewModel?> ResolveOverrideImage(ContentPromotionWidgetProperties properties)
     {
+        // A hidden image element throws the result away, so do not pay for the query at all.
+        if (properties.HideElements.Contains(ContentPromotionElement.IMAGE))
+        {
+            return null;
+        }
+
         var imageGuid = properties.Image.Select(image => image.Identifier).FirstOrDefault();
 
         return imageGuid == Guid.Empty

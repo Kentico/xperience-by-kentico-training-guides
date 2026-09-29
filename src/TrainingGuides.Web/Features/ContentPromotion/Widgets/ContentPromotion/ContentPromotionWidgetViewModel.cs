@@ -23,6 +23,37 @@ public class ContentPromotionWidgetViewModel : IWidgetViewModel
     public PromotionExtrasViewModel Extras { get; set; } = new();
 
     /// <summary>
+    /// Every class on the card's outer element - base, design, color scheme, corner style and
+    /// column layout, already resolved. Computed in the view component so the view stays dumb.
+    /// </summary>
+    public string CardCssClasses { get; set; } = string.Empty;
+
+    /// <summary>
+    /// Classes on the text column, carrying the text alignment.
+    /// </summary>
+    public string ContentCssClasses { get; set; } = string.Empty;
+
+    /// <summary>
+    /// Classes on the card image.
+    /// </summary>
+    public string ImageCssClasses { get; set; } = string.Empty;
+
+    /// <summary>
+    /// Classes on the call to action anchor, carrying the chosen link style.
+    /// </summary>
+    public string CallToActionCssClasses { get; set; } = string.Empty;
+
+    /// <summary>
+    /// The raw corner style value, passed through for the <c>tg-styled-image</c> tag helper.
+    /// </summary>
+    public string CornerStyle { get; set; } = string.Empty;
+
+    /// <summary>
+    /// The value logged as the click activity, or empty when the editor set none.
+    /// </summary>
+    public string TrackingValue { get; set; } = string.Empty;
+
+    /// <summary>
     /// True when the editor selected a page that loaded but holds nothing promotable.
     /// </summary>
     public bool SelectionUnsupported { get; set; }
