@@ -20,6 +20,8 @@ public class ContentPromotionWidgetProperties : IWidgetProperties
             ServicePage.CONTENT_TYPE_NAME
         ],
         Label = "Selected page",
+        // Keep in step with ContentPromotionContentTypes.PAGES, which retrieval uses. An attribute
+        // argument must be a compile-time constant, so the array cannot be shared directly.
         MaximumItems = 1,
         Order = 20)]
     [VisibleIfEqualTo(nameof(ContentSource), ContentPromotionSource.PAGE, StringComparison.OrdinalIgnoreCase)]
@@ -60,6 +62,13 @@ public class ContentPromotionWidgetProperties : IWidgetProperties
         MaximumItems = 1,
         Order = 60)]
     public IEnumerable<ContentItemReference> Image { get; set; } = [];
+
+    [CheckBoxComponent(
+        Label = "Show type-specific extras",
+        ExplanationText = "Shows article categories, service benefits, or product price and stock. Nothing is shown when the selected item has none of them.",
+        Order = 70)]
+    [VisibleIfNotEqualTo(nameof(ContentSource), ContentPromotionSource.MANUAL, StringComparison.OrdinalIgnoreCase)]
+    public bool ShowExtras { get; set; }
 
     [TextInputComponent(
         Label = "Call to action text",

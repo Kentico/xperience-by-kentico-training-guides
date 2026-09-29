@@ -1,4 +1,5 @@
 @using Kentico.PageBuilder.Web.Mvc
+@using TrainingGuides.Web.Commerce.Products.Models
 @using TrainingGuides.Web.Features.ContentPromotion.Models
 @using TrainingGuides.Web.Features.ContentPromotion.Widgets.ContentPromotion
 
@@ -46,6 +47,52 @@ else
         @if (!string.IsNullOrWhiteSpace(Model.DisplayValues.Description))
         {
             <p class="c-content-promotion__description">@Model.DisplayValues.Description</p>
+        }
+
+        @* Read-only facts only one content family has. Absent for every other family, and for
+           an item of the right family that happens to have none of them. *@
+        @if (Model.Extras.HasContent)
+        {
+            <div class="c-content-promotion__extras">
+                @if (Model.Extras.Categories.Any())
+                {
+                    <ul class="c-content-promotion__categories list-unstyled d-flex flex-wrap gap-2">
+                        @foreach (string category in Model.Extras.Categories)
+                        {
+                            <li class="c-content-promotion__category">@category</li>
+                        }
+                    </ul>
+                }
+
+                @if (Model.Extras.Benefits.Any())
+                {
+                    <ul class="c-content-promotion__benefits">
+                        @foreach (string benefit in Model.Extras.Benefits)
+                        {
+                            <li class="c-content-promotion__benefit">@benefit</li>
+                        }
+                    </ul>
+                }
+
+                @if (Model.Extras.Price.HasValue)
+                {
+                    <span class="c-content-promotion__price">$@Model.Extras.Price.Value.ToString("n2")</span>
+                }
+
+                @if (Model.Extras.StockStatus.HasValue)
+                {
+                    <span class="c-content-promotion__stock">
+                        @(Model.Extras.StockStatus.Value switch
+                        {
+                            ProductStockEnum.OutOfStock => "Out of stock",
+                            ProductStockEnum.LowStock => "Low stock",
+                            ProductStockEnum.PreOrder => "Pre-order",
+                            ProductStockEnum.InStock => "In stock",
+                            _ => string.Empty
+                        })
+                    </span>
+                }
+            </div>
         }
 
         @if (Model.Link is not null && !string.IsNullOrWhiteSpace(Model.DisplayValues.CallToActionText))

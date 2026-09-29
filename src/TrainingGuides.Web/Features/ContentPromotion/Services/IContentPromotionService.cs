@@ -26,6 +26,14 @@ public interface IContentPromotionService
     Task<PromotedItemResult> ResolvePromotedItem(ContentPromotionWidgetProperties properties);
 
     /// <summary>
+    /// Builds the read-only block of facts specific to the promoted item's content family.
+    /// Returns an empty block when extras are switched off or the family has nothing to show.
+    /// </summary>
+    Task<PromotionExtrasViewModel> ResolveExtras(
+        ContentPromotionWidgetProperties properties,
+        PromotedItemResult promotedItem);
+
+    /// <summary>
     /// Builds the card's destination. Returns null when the widget has no destination at all,
     /// so the caller never has to interpret an empty URL string.
     /// </summary>

@@ -1,3 +1,7 @@
+using CMS.ContentEngine;
+using Kentico.Content.Web.Mvc.Routing;
+using TrainingGuides.Web.Commerce.Products.Models;
+using TrainingGuides.Web.Commerce.Products.Services;
 using TrainingGuides.Web.Features.ContentPromotion.Models;
 using TrainingGuides.Web.Features.ContentPromotion.Widgets.ContentPromotion;
 using TrainingGuides.Web.Features.Shared.Models;
@@ -7,7 +11,10 @@ namespace TrainingGuides.Web.Features.ContentPromotion.Services;
 
 public class ContentPromotionService(
     IContentItemRetrieverService contentItemRetrieverService,
-    IWebPageUrlRetriever webPageUrlRetriever)
+    IWebPageUrlRetriever webPageUrlRetriever,
+    ITaxonomyRetriever taxonomyRetriever,
+    IPreferredLanguageRetriever preferredLanguageRetriever,
+    IProductService productService)
     : IContentPromotionService
 {
     private const int LINKED_ITEMS_DEPTH = 3;
@@ -30,9 +37,13 @@ public class ContentPromotionService(
             return new PromotedItemResult();
         }
 
+        // Both calls name the content types the matching selector offered. That is what lets the
+        // query return content type-specific fields at all - see IContentItemRetrieverService.
         object? item = fromContentHub
-            ? await contentItemRetrieverService.RetrieveContentItemByGuid(selectedGuid, LINKED_ITEMS_DEPTH)
-            : await contentItemRetrieverService.RetrieveWebPageByContentItemGuid(selectedGuid, LINKED_ITEMS_DEPTH);
+            ? await contentItemRetrieverService.RetrieveContentItemByGuid(
+                selectedGuid, ContentPromotionContentTypes.CONTENT_ITEMS, LINKED_ITEMS_DEPTH)
+            : await contentItemRetrieverService.RetrieveWebPageByContentItemGuid(
+                selectedGuid, ContentPromotionContentTypes.PAGES, LINKED_ITEMS_DEPTH);
 
         if (item is null)
         {
@@ -93,6 +104,7 @@ public class ContentPromotionService(
         : new PromotedItemResult
         {
             Family = ContentFamily.Article,
+            PromotedContent = article,
             Item = new PromotedItemSource
             {
                 Title = article.ArticleSchemaTitle,
@@ -106,6 +118,7 @@ public class ContentPromotionService(
         : new PromotedItemResult
         {
             Family = ContentFamily.Product,
+            PromotedContent = product,
             Item = new PromotedItemSource
             {
                 Title = product.ProductSchemaName,
@@ -146,6 +159,75 @@ public class ContentPromotionService(
             : await contentItemRetrieverService.RetrieveWebPageByContentItemGuid(targetGuid, LINKED_ITEMS_DEPTH);
     }
 
+    public async Task<PromotionExtrasViewModel> ResolveExtras(
+        ContentPromotionWidgetProperties properties,
+        PromotedItemResult promotedItem)
+    {
+        if (!properties.ShowExtras)
+        {
+            return new PromotionExtrasViewModel();
+        }
+
+        return promotedItem.PromotedContent switch
+        {
+            IArticleSchema article => await ArticleExtras(article),
+            Service service => ServiceExtras(service),
+            IProductPriceSchema variant => await ProductExtras(variant),
+            _ => new PromotionExtrasViewModel()
+        };
+    }
+
+    private async Task<PromotionExtrasViewModel> ArticleExtras(IArticleSchema article)
+    {
+        var categoryGuids = (article.ArticleSchemaCategory ?? [])
+            .Select(category => category.Identifier)
+            .ToList();
+
+        if (categoryGuids.Count == 0)
+        {
+            return new PromotionExtrasViewModel();
+        }
+
+        var tags = await taxonomyRetriever.RetrieveTags(categoryGuids, preferredLanguageRetriever.Get());
+
+        return new PromotionExtrasViewModel
+        {
+            Categories = tags.Select(tag => tag.Title).ToList()
+        };
+    }
+
+    private static PromotionExtrasViewModel ServiceExtras(Service service) => new()
+    {
+        Benefits = (service.ServiceBenefits ?? [])
+            .Select(benefit => benefit.BenefitDescription)
+            .Where(description => !string.IsNullOrWhiteSpace(description))
+            .ToList()
+    };
+
+    /// <summary>
+    /// Price lives on <see cref="IProductPriceSchema"/>, which only variants implement, and stock
+    /// is keyed by the variant's content item ID. A parent product or a product page therefore
+    /// has neither, and shows no product extras at all - see spec section 7.2.
+    /// </summary>
+    /// <remarks>
+    /// The price shown is the catalog price, not the raw <c>ProductPriceSchemaPrice</c> the spec
+    /// names, so that a discounted variant does not advertise two different prices on one page -
+    /// the product widget and listing both render the catalog price. It falls back to the schema
+    /// price whenever no discount applies.
+    /// </remarks>
+    private async Task<PromotionExtrasViewModel> ProductExtras(IProductPriceSchema variant)
+    {
+        var stockStatus = await productService.GetProductStockStatus(variant as IProductSkuSchema);
+
+        return new PromotionExtrasViewModel
+        {
+            Price = variant is IProductSchema product
+                ? await productService.GetCatalogPrice(product)
+                : variant.ProductPriceSchemaPrice,
+            StockStatus = stockStatus == ProductStockEnum.Unknown ? null : stockStatus
+        };
+    }
+
     public ContentPromotionDisplayValues ResolveDisplayValues(
         ContentPromotionWidgetProperties properties,
         PromotedItemSource? item,
@@ -162,6 +244,7 @@ public class ContentPromotionService(
         : new PromotedItemResult
         {
             Family = ContentFamily.Service,
+            PromotedContent = service,
             Item = new PromotedItemSource
             {
                 Title = service.ServiceName,

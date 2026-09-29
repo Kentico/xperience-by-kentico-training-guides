@@ -31,7 +31,8 @@ public class ContentPromotionWidgetViewComponent(
                 properties,
                 promotedItem.Item,
                 await contentPromotionService.ResolveOverrideImage(properties)),
-            Link = await contentPromotionService.ResolveLink(properties, promotedItem.Page)
+            Link = await contentPromotionService.ResolveLink(properties, promotedItem.Page),
+            Extras = await contentPromotionService.ResolveExtras(properties, promotedItem)
         };
 
         return View("~/Features/ContentPromotion/Widgets/ContentPromotion/ContentPromotionWidget.cshtml", model);

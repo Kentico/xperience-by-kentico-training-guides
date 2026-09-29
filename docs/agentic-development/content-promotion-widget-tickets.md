@@ -85,10 +85,11 @@ is the thing under test.
 | T3 family detection | Done — 8 tests |
 | T4 link resolution | Done — 8 tests |
 | T5 misconfiguration | Done — 6 tests |
-| T6-T9 | Not started |
+| T6 type-specific extras | Done — 11 tests |
+| T7-T9 | Not started |
 | T10 integration tests | Not started, added during T3 |
 
-Full web suite at the T5 stop point: **145 passing, 0 failing.**
+Full web suite at the T6 stop point: **156 passing, 0 failing.**
 
 ## Ticket map
 
@@ -328,6 +329,118 @@ This is the sub-slice most likely to surprise; re-read spec §7.2 first.
 **Unverified (spec §13.3):** the current `IProductService` surface for reading stock by
 content item ID. Verify before implementing.
 
+### What T6 actually landed
+
+**Seam, as worked:** one public entry point, `ResolveExtras(properties, PromotedItemResult)`, which
+pattern-matches the promoted item and delegates to a private builder per family. The ticket said
+"a method per family"; a public method per family would have pushed the family dispatch into the
+view component, where it does not belong. The acceptance criteria are all expressible through the
+single entry point, so nothing was lost.
+
+**Both open questions are settled:**
+
+- **§13.2, tag display names.** `ITaxonomyRetriever.RetrieveTags(IEnumerable<Guid>, string language)`
+  returns `IEnumerable<Tag>`; `Tag.Title` is the display name. The language comes from
+  `IPreferredLanguageRetriever`, as everywhere else in this project. Confirmed against the Kentico
+  Docs MCP (*Taxonomies*, *Reference — Admin UI form components*).
+- **§13.3, stock.** `IProductService` had **no** public stock member —
+  `ProductService.GetProductStockStatus(IProductSkuSchema?)` was private. It is now public and on
+  the interface. It already returns `ProductStockEnum.Unknown` when no stock record exists and
+  `OutOfStock` at zero, which is exactly the three-way distinction criteria 4-6 need, so no new
+  stock logic was written.
+
+**Beyond the acceptance criteria:**
+
+- `PromotedItemResult` gained `PromotedContent` — the unwrapped content item the card's values were
+  projected from. `PromotedItemSource` is normalized across families and deliberately carries none
+  of the type-specific fields, so the extras had nothing to read without it.
+- `ShowExtras` added to the widget properties at Order 70, hidden in manual mode via
+  `VisibleIfNotEqualTo` (spec §7).
+- `PromotionExtrasViewModel.StockStatus` is `ProductStockEnum?` and is **null** for `Unknown`, so
+  "no stock record" and "out of stock" cannot be confused by the view. Zero stock arrives as
+  `OutOfStock` and renders, per spec §7.1.
+- The view component and Razor view were wired up, as in T5 — extras that no page renders cannot be
+  checked by eye.
+
+**Handed to T7 (styling):** the extras markup emits `c-content-promotion__extras`, `__categories`,
+`__category`, `__benefits`, `__benefit`, `__price` and `__stock`. All dead until
+`_content-promotion.scss` exists.
+
+**Handed to T8 (localization):** the four stock labels in the Razor view are hard-coded English, as
+are the `ShowExtras` label and explanation text.
+
+**Not covered by tests, verify by hand:** that the extras block actually renders for an article with
+categories, a service with benefits, and a `CatFoodVariant`; and that the `ShowExtras` checkbox
+disappears when the source is set to Manual.
+
+### Found at review, fixed in T6
+
+**Two retrieval bugs that broke the widget outright — the exact gap T10 exists to close.**
+`ContentItemQueryBuilder.ForContentTypes` returns content item metadata and reusable field schema
+data only; content type-specific fields need `WithContentTypeFields()` (confirmed in the Docs MCP,
+*Reference — Content item query*). Neither `RetrieveContentItemByGuid` (added by T3) nor the shared
+`RetrieveWebPages` helper called it, so:
+
+- **Page mode was broken for all three page types.** `ArticlePageArticleContent`,
+  `ProductPageProducts` and `ServicePageService` are content type-specific, so every one came back
+  empty, `FromArticle(null)` returned an empty result, and `SelectionFailed` flipped to true — a
+  correctly configured page reported "The selected item could not be loaded."
+- **Content hub mode was broken for `Service`**, whose fields (`ServiceName`, `ServiceBenefits`)
+  are content type-specific rather than schema fields. Articles and products survived because
+  their fields come from reusable schemas, which `ForContentTypes` does include.
+
+Both are fixed by adding `WithContentTypeFields()` — but **not on its own**. The first attempt added
+only that call and threw at runtime:
+
+```text
+System.InvalidOperationException: Cannot generate query without limiting content types.
+   at CMS.ContentEngine.DynamicContentQuery.GetExecutingQuery(DataQuerySettings settings)
+```
+
+`WithContentTypeFields` is only legal on a subquery limited to specific content types: a query
+spanning every content type cannot name the columns it would have to select. `ForWebsite(channel)`
+does **not** count as limiting them — it restricts the channel, not the types. So both queries now
+also call `OfContentType(...)`, naming exactly the types the matching selector offered.
+
+This changed two signatures on `IContentItemRetrieverService`:
+
+- `RetrieveContentItemByGuid` (non-generic, added by T3, this widget its only caller) now takes the
+  content type names. Its doc comment no longer says "without knowing its content type" — the caller
+  must know the candidates, even if not which one.
+- A second `RetrieveWebPageByContentItemGuid` overload takes content type names. The existing
+  overload is **unchanged**, so `ArticleList`, `ProductListing`, `SimpleCallToAction` and
+  `LinkOrSignOut` are untouched — they read only the URL and do not need the extra columns. The
+  widget's own link-target lookup keeps using the untouched overload for the same reason.
+
+The type lists live in `ContentPromotionContentTypes` so retrieval cannot drift from the selector.
+The selector attributes still repeat them inline, with a pointer comment, because an attribute
+argument must be a compile-time constant and a `string[]` is not one.
+
+**No test covers any of this.** They are content queries reachable only through a database, which is
+precisely T10's remit — and the `InvalidOperationException` above is what that gap costs: a green
+suite of 157 tests, a clean build, and a widget that threw on the first real selection. T10 must
+cover `RetrieveWebPageByContentItemGuid` as well as `RetrieveContentItemByGuid`; its "At minimum
+this must cover" list is now short by one, and should assert that content type-specific fields are
+actually populated rather than only that an item comes back.
+
+**Deliberate spec deviation.** Spec §7.2 says price comes from `IProductPriceSchema.ProductPriceSchemaPrice`.
+The card now renders `IProductService.GetCatalogPrice` instead, which applies catalog discounts and
+falls back to the schema price when none apply. The raw value would have shown a discounted variant
+at one price on the promotion card and another in the Product widget on the same page.
+`GetCatalogPrice` was private, like `GetProductStockStatus`; both are now on `IProductService`.
+
+### Found at review, left for the tickets that own them
+
+| Finding | Owner |
+| --- | --- |
+| `PromotedItemSource.CallToActionText` is never populated by any family, so a card with no typed CTA text renders no anchor at all and no warning | T2/T5 — needs a spec answer on the fallback label |
+| `FromProduct` does not inherit `ProductSchemaImages`, though article and service both inherit an image | T2 |
+| `HideElements` still has no admin form component, so every hide branch is unreachable from the UI | T2, explicitly deferred there (§13.1) |
+| `ContentSource` is compared case-sensitively in the service but `OrdinalIgnoreCase` in the visibility conditions | T3 |
+| In page mode with an unresolvable page, the link falls through to a stale stored `LinkUrl` | T4 |
+| `target="_blank"` without `rel="noopener noreferrer"` | T7 markup |
+| `ResolveOverrideImage` always queries, even when the image element is hidden | T7 |
+
 ---
 
 ## T7 — Styling, card designs and SCSS
@@ -434,8 +547,8 @@ Contact management; repeat with consent withheld and confirm nothing is logged.
 | Question | Blocks | Spec ref |
 | --- | --- | --- |
 | Admin form component for a checkbox-list multi-select | T2 implementation (not its tests) | §5, §13.1 |
-| Tag display-name resolution from `TagReference` | T6a implementation | §13.2 |
-| `IProductService` stock-by-content-item-ID surface | T6c implementation | §13.3 |
+| ~~Tag display-name resolution from `TagReference`~~ | ~~T6a~~ — settled, see T6 | §13.2 |
+| ~~`IProductService` stock-by-content-item-ID surface~~ | ~~T6c~~ — settled, see T6 | §13.3 |
 | Custom activity type creation + `ICustomActivityLogger` contract | T9 implementation | §13.4 |
 | Whether `VisibleIfEmpty` exists, for the either-or link rule | T4 implementation | §6.1, §13.5 |
 

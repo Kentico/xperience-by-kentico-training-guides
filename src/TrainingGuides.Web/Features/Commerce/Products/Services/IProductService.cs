@@ -103,6 +103,20 @@ public interface IProductService
         string securedItemsDisplayMode);
 
     /// <summary>
+    /// Determines the price a customer is actually offered, with any catalog discount applied.
+    /// </summary>
+    /// <param name="product">The product whose price to read.</param>
+    /// <returns>The discounted price, or the product's own list price when no discount applies.</returns>
+    Task<decimal> GetCatalogPrice(IProductSchema product);
+
+    /// <summary>
+    /// Determines the stock state of a product SKU.
+    /// </summary>
+    /// <param name="skuProduct">The SKU whose stock to read. Parent products and pages do not carry one.</param>
+    /// <returns>The stock state, or <see cref="ProductStockEnum.Unknown"/> when no stock record exists.</returns>
+    Task<ProductStockEnum> GetProductStockStatus(IProductSkuSchema? skuProduct);
+
+    /// <summary>
     /// Retrieves all available product listing filters.
     /// </summary>
     /// <returns>A collection of product listing filter view models.</returns>

@@ -1,6 +1,9 @@
 using CMS.ContentEngine;
 using CMS.Websites;
+using Kentico.Content.Web.Mvc.Routing;
 using Moq;
+using TrainingGuides.Web.Commerce.Products.Models;
+using TrainingGuides.Web.Commerce.Products.Services;
 using TrainingGuides.Web.Features.ContentPromotion.Models;
 using TrainingGuides.Web.Features.ContentPromotion.Services;
 using TrainingGuides.Web.Features.ContentPromotion.Widgets.ContentPromotion;
@@ -26,19 +29,57 @@ public class ContentPromotionServiceTests
     private const string PAGE_RELATIVE_URL = "/pet-insurance";
     private const string ITEM_IMAGE_ALT = "Dog and cat sitting together";
 
+    private const string CATEGORY_NAME = "Insurance";
+    private const string OTHER_CATEGORY_NAME = "Pets";
+    private const string LANGUAGE = "en";
+    private const string FIRST_BENEFIT = "Vet visits covered from day one.";
+    private const string SECOND_BENEFIT = "No excess on routine check-ups.";
+    private const decimal VARIANT_PRICE = 24.99m;
+    private const decimal DISCOUNTED_PRICE = 19.99m;
+
     private static readonly Guid targetGuid = new("22222222-2222-2222-2222-222222222222");
     private static readonly Guid selectedGuid = new("11111111-1111-1111-1111-111111111111");
+    private static readonly Guid categoryGuid = new("33333333-3333-3333-3333-333333333333");
+    private static readonly Guid otherCategoryGuid = new("44444444-4444-4444-4444-444444444444");
 
     private readonly Mock<IContentItemRetrieverService> contentItemRetrieverServiceMock = new();
     private readonly Mock<IWebPageUrlRetriever> webPageUrlRetrieverMock = new();
+    private readonly Mock<ITaxonomyRetriever> taxonomyRetrieverMock = new();
+    private readonly Mock<IPreferredLanguageRetriever> preferredLanguageRetrieverMock = new();
+    private readonly Mock<IProductService> productServiceMock = new();
     private readonly ContentPromotionService contentPromotionService;
 
     public ContentPromotionServiceTests()
     {
+        preferredLanguageRetrieverMock
+            .Setup(x => x.Get())
+            .Returns(LANGUAGE);
+
+        taxonomyRetrieverMock
+            .Setup(x => x.RetrieveTags(It.IsAny<IEnumerable<Guid>>(), It.IsAny<string>()))
+            .ReturnsAsync([]);
+
+        productServiceMock
+            .Setup(x => x.GetProductStockStatus(It.IsAny<IProductSkuSchema?>()))
+            .ReturnsAsync(ProductStockEnum.Unknown);
+
+        productServiceMock
+            .Setup(x => x.GetCatalogPrice(It.IsAny<IProductSchema>()))
+            .ReturnsAsync(VARIANT_PRICE);
+
         contentPromotionService = new ContentPromotionService(
             contentItemRetrieverServiceMock.Object,
-            webPageUrlRetrieverMock.Object);
+            webPageUrlRetrieverMock.Object,
+            taxonomyRetrieverMock.Object,
+            preferredLanguageRetrieverMock.Object,
+            productServiceMock.Object);
     }
+
+    private static Tag TagWith(Guid identifier, string title) => new()
+    {
+        Identifier = identifier,
+        Title = title
+    };
 
     [Fact]
     public void ResolveDisplayValues_TitleOverriddenAndItemHasTitle_UsesOverride()
@@ -334,7 +375,7 @@ public class ContentPromotionServiceTests
         };
         contentItemRetrieverServiceMock
             .Setup(x => x.RetrieveWebPageByContentItemGuid(
-                selectedGuid, It.IsAny<int>(), It.IsAny<bool>(), It.IsAny<string?>()))
+                selectedGuid, It.IsAny<IEnumerable<string>>(), It.IsAny<int>(), It.IsAny<bool>(), It.IsAny<string?>()))
             .ReturnsAsync(articlePage);
 
         var properties = new ContentPromotionWidgetProperties
@@ -360,7 +401,7 @@ public class ContentPromotionServiceTests
         };
         contentItemRetrieverServiceMock
             .Setup(x => x.RetrieveContentItemByGuid(
-                selectedGuid, It.IsAny<int>(), It.IsAny<bool>(), It.IsAny<string?>()))
+                selectedGuid, It.IsAny<IEnumerable<string>>(), It.IsAny<int>(), It.IsAny<bool>(), It.IsAny<string?>()))
             .ReturnsAsync(article);
 
         var properties = new ContentPromotionWidgetProperties
@@ -392,7 +433,7 @@ public class ContentPromotionServiceTests
         };
         contentItemRetrieverServiceMock
             .Setup(x => x.RetrieveWebPageByContentItemGuid(
-                selectedGuid, It.IsAny<int>(), It.IsAny<bool>(), It.IsAny<string?>()))
+                selectedGuid, It.IsAny<IEnumerable<string>>(), It.IsAny<int>(), It.IsAny<bool>(), It.IsAny<string?>()))
             .ReturnsAsync(productPage);
 
         var properties = new ContentPromotionWidgetProperties
@@ -418,7 +459,7 @@ public class ContentPromotionServiceTests
         };
         contentItemRetrieverServiceMock
             .Setup(x => x.RetrieveContentItemByGuid(
-                selectedGuid, It.IsAny<int>(), It.IsAny<bool>(), It.IsAny<string?>()))
+                selectedGuid, It.IsAny<IEnumerable<string>>(), It.IsAny<int>(), It.IsAny<bool>(), It.IsAny<string?>()))
             .ReturnsAsync(variant);
 
         var properties = new ContentPromotionWidgetProperties
@@ -449,7 +490,7 @@ public class ContentPromotionServiceTests
         };
         contentItemRetrieverServiceMock
             .Setup(x => x.RetrieveWebPageByContentItemGuid(
-                selectedGuid, It.IsAny<int>(), It.IsAny<bool>(), It.IsAny<string?>()))
+                selectedGuid, It.IsAny<IEnumerable<string>>(), It.IsAny<int>(), It.IsAny<bool>(), It.IsAny<string?>()))
             .ReturnsAsync(servicePage);
 
         var properties = new ContentPromotionWidgetProperties
@@ -500,7 +541,7 @@ public class ContentPromotionServiceTests
     {
         contentItemRetrieverServiceMock
             .Setup(x => x.RetrieveWebPageByContentItemGuid(
-                selectedGuid, It.IsAny<int>(), It.IsAny<bool>(), It.IsAny<string?>()))
+                selectedGuid, It.IsAny<IEnumerable<string>>(), It.IsAny<int>(), It.IsAny<bool>(), It.IsAny<string?>()))
             .ReturnsAsync((IWebPageFieldsSource?)null);
 
         var properties = new ContentPromotionWidgetProperties
@@ -659,7 +700,7 @@ public class ContentPromotionServiceTests
     {
         contentItemRetrieverServiceMock
             .Setup(x => x.RetrieveWebPageByContentItemGuid(
-                selectedGuid, It.IsAny<int>(), It.IsAny<bool>(), It.IsAny<string?>()))
+                selectedGuid, It.IsAny<IEnumerable<string>>(), It.IsAny<int>(), It.IsAny<bool>(), It.IsAny<string?>()))
             .ReturnsAsync(new ArticlePage { ArticlePageArticleContent = [] });
 
         var properties = new ContentPromotionWidgetProperties
@@ -679,7 +720,7 @@ public class ContentPromotionServiceTests
     {
         contentItemRetrieverServiceMock
             .Setup(x => x.RetrieveWebPageByContentItemGuid(
-                selectedGuid, It.IsAny<int>(), It.IsAny<bool>(), It.IsAny<string?>()))
+                selectedGuid, It.IsAny<IEnumerable<string>>(), It.IsAny<int>(), It.IsAny<bool>(), It.IsAny<string?>()))
             .ReturnsAsync(new DownloadsPage());
 
         var properties = new ContentPromotionWidgetProperties
@@ -692,5 +733,243 @@ public class ContentPromotionServiceTests
 
         Assert.True(result.SelectionFailed);
         Assert.Equal(ContentFamily.None, result.Family);
+    }
+
+    [Fact]
+    public async Task ResolveExtras_ArticleHasCategories_ReturnsEveryCategoryName()
+    {
+        var article = new GeneralArticle
+        {
+            ArticleSchemaCategory =
+            [
+                new TagReference { Identifier = categoryGuid },
+                new TagReference { Identifier = otherCategoryGuid }
+            ]
+        };
+
+        taxonomyRetrieverMock
+            .Setup(x => x.RetrieveTags(It.IsAny<IEnumerable<Guid>>(), LANGUAGE))
+            .ReturnsAsync([
+                TagWith(categoryGuid, CATEGORY_NAME),
+                TagWith(otherCategoryGuid, OTHER_CATEGORY_NAME)
+            ]);
+
+        var properties = new ContentPromotionWidgetProperties { ShowExtras = true };
+        var promotedItem = new PromotedItemResult
+        {
+            Family = ContentFamily.Article,
+            PromotedContent = article
+        };
+
+        var result = await contentPromotionService.ResolveExtras(properties, promotedItem);
+
+        Assert.Equal([CATEGORY_NAME, OTHER_CATEGORY_NAME], result.Categories);
+    }
+
+    [Fact]
+    public async Task ResolveExtras_ArticleHasNoCategories_ReturnsEmptyExtras()
+    {
+        var properties = new ContentPromotionWidgetProperties { ShowExtras = true };
+        var promotedItem = new PromotedItemResult
+        {
+            Family = ContentFamily.Article,
+            PromotedContent = new GeneralArticle { ArticleSchemaCategory = [] }
+        };
+
+        var result = await contentPromotionService.ResolveExtras(properties, promotedItem);
+
+        Assert.False(result.HasContent);
+    }
+
+    [Fact]
+    public async Task ResolveExtras_ExtrasSwitchedOff_ReturnsEmptyExtrasEvenThoughTheArticleHasCategories()
+    {
+        var article = new GeneralArticle
+        {
+            ArticleSchemaCategory = [new TagReference { Identifier = categoryGuid }]
+        };
+
+        taxonomyRetrieverMock
+            .Setup(x => x.RetrieveTags(It.IsAny<IEnumerable<Guid>>(), LANGUAGE))
+            .ReturnsAsync([TagWith(categoryGuid, CATEGORY_NAME)]);
+
+        var properties = new ContentPromotionWidgetProperties { ShowExtras = false };
+        var promotedItem = new PromotedItemResult
+        {
+            Family = ContentFamily.Article,
+            PromotedContent = article
+        };
+
+        var result = await contentPromotionService.ResolveExtras(properties, promotedItem);
+
+        Assert.False(result.HasContent);
+    }
+
+    [Fact]
+    public async Task ResolveExtras_ServiceHasBenefits_ReturnsEveryBenefitDescription()
+    {
+        var service = new Service
+        {
+            ServiceBenefits =
+            [
+                new Benefit { BenefitDescription = FIRST_BENEFIT },
+                new Benefit { BenefitDescription = SECOND_BENEFIT }
+            ]
+        };
+
+        var properties = new ContentPromotionWidgetProperties { ShowExtras = true };
+        var promotedItem = new PromotedItemResult
+        {
+            Family = ContentFamily.Service,
+            PromotedContent = service
+        };
+
+        var result = await contentPromotionService.ResolveExtras(properties, promotedItem);
+
+        Assert.Equal([FIRST_BENEFIT, SECOND_BENEFIT], result.Benefits);
+    }
+
+    [Fact]
+    public async Task ResolveExtras_ServiceHasNoBenefits_ReturnsEmptyExtras()
+    {
+        var properties = new ContentPromotionWidgetProperties { ShowExtras = true };
+        var promotedItem = new PromotedItemResult
+        {
+            Family = ContentFamily.Service,
+            PromotedContent = new Service { ServiceBenefits = [] }
+        };
+
+        var result = await contentPromotionService.ResolveExtras(properties, promotedItem);
+
+        Assert.False(result.HasContent);
+    }
+
+    [Fact]
+    public async Task ResolveExtras_SelectedItemIsAVariant_ReturnsItsPrice()
+    {
+        var properties = new ContentPromotionWidgetProperties { ShowExtras = true };
+        var promotedItem = new PromotedItemResult
+        {
+            Family = ContentFamily.Product,
+            PromotedContent = new CatFoodVariant { ProductPriceSchemaPrice = VARIANT_PRICE }
+        };
+
+        var result = await contentPromotionService.ResolveExtras(properties, promotedItem);
+
+        Assert.Equal(VARIANT_PRICE, result.Price);
+    }
+
+    [Fact]
+    public async Task ResolveExtras_VariantHasACatalogDiscount_ReturnsTheDiscountedPrice()
+    {
+        productServiceMock
+            .Setup(x => x.GetCatalogPrice(It.IsAny<IProductSchema>()))
+            .ReturnsAsync(DISCOUNTED_PRICE);
+
+        var properties = new ContentPromotionWidgetProperties { ShowExtras = true };
+        var promotedItem = new PromotedItemResult
+        {
+            Family = ContentFamily.Product,
+            PromotedContent = new CatFoodVariant { ProductPriceSchemaPrice = VARIANT_PRICE }
+        };
+
+        var result = await contentPromotionService.ResolveExtras(properties, promotedItem);
+
+        Assert.Equal(DISCOUNTED_PRICE, result.Price);
+    }
+
+    [Fact]
+    public async Task ResolveExtras_SelectedItemIsAParentProduct_ReturnsEmptyExtras()
+    {
+        var properties = new ContentPromotionWidgetProperties { ShowExtras = true };
+        var promotedItem = new PromotedItemResult
+        {
+            Family = ContentFamily.Product,
+            PromotedContent = new CatFood()
+        };
+
+        var result = await contentPromotionService.ResolveExtras(properties, promotedItem);
+
+        Assert.False(result.HasContent);
+    }
+
+    [Fact]
+    public async Task ResolveExtras_SelectionIsAProductPage_ReturnsEmptyExtras()
+    {
+        contentItemRetrieverServiceMock
+            .Setup(x => x.RetrieveWebPageByContentItemGuid(
+                selectedGuid, It.IsAny<IEnumerable<string>>(), It.IsAny<int>(), It.IsAny<bool>(), It.IsAny<string?>()))
+            .ReturnsAsync(new ProductPage { ProductPageProducts = [new CatFood()] });
+
+        var properties = new ContentPromotionWidgetProperties
+        {
+            ContentSource = ContentPromotionSource.PAGE,
+            SelectedPage = [new ContentItemReference { Identifier = selectedGuid }],
+            ShowExtras = true
+        };
+
+        var promotedItem = await contentPromotionService.ResolvePromotedItem(properties);
+
+        var result = await contentPromotionService.ResolveExtras(properties, promotedItem);
+
+        Assert.False(result.HasContent);
+    }
+
+    [Fact]
+    public async Task ResolveExtras_VariantIsInStock_ReturnsTheInStockState()
+    {
+        productServiceMock
+            .Setup(x => x.GetProductStockStatus(It.IsAny<IProductSkuSchema?>()))
+            .ReturnsAsync(ProductStockEnum.InStock);
+
+        var properties = new ContentPromotionWidgetProperties { ShowExtras = true };
+        var promotedItem = new PromotedItemResult
+        {
+            Family = ContentFamily.Product,
+            PromotedContent = new CatFoodVariant { ProductPriceSchemaPrice = VARIANT_PRICE }
+        };
+
+        var result = await contentPromotionService.ResolveExtras(properties, promotedItem);
+
+        Assert.Equal(ProductStockEnum.InStock, result.StockStatus);
+    }
+
+    [Fact]
+    public async Task ResolveExtras_VariantHasZeroStock_ReturnsTheOutOfStockStateRatherThanOmittingIt()
+    {
+        productServiceMock
+            .Setup(x => x.GetProductStockStatus(It.IsAny<IProductSkuSchema?>()))
+            .ReturnsAsync(ProductStockEnum.OutOfStock);
+
+        var properties = new ContentPromotionWidgetProperties { ShowExtras = true };
+        var promotedItem = new PromotedItemResult
+        {
+            Family = ContentFamily.Product,
+            PromotedContent = new CatFoodVariant { ProductPriceSchemaPrice = VARIANT_PRICE }
+        };
+
+        var result = await contentPromotionService.ResolveExtras(properties, promotedItem);
+
+        Assert.Equal(ProductStockEnum.OutOfStock, result.StockStatus);
+    }
+
+    [Fact]
+    public async Task ResolveExtras_VariantHasNoStockRecord_OmitsTheStockState()
+    {
+        productServiceMock
+            .Setup(x => x.GetProductStockStatus(It.IsAny<IProductSkuSchema?>()))
+            .ReturnsAsync(ProductStockEnum.Unknown);
+
+        var properties = new ContentPromotionWidgetProperties { ShowExtras = true };
+        var promotedItem = new PromotedItemResult
+        {
+            Family = ContentFamily.Product,
+            PromotedContent = new CatFoodVariant { ProductPriceSchemaPrice = VARIANT_PRICE }
+        };
+
+        var result = await contentPromotionService.ResolveExtras(properties, promotedItem);
+
+        Assert.Null(result.StockStatus);
+        Assert.Equal(VARIANT_PRICE, result.Price);
     }
 }

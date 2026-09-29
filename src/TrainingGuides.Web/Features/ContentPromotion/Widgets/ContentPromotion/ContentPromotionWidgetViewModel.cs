@@ -16,6 +16,13 @@ public class ContentPromotionWidgetViewModel : IWidgetViewModel
     public LinkViewModel? Link { get; set; }
 
     /// <summary>
+    /// The read-only facts specific to the promoted item's content family. Always present,
+    /// and empty whenever there is nothing to show - extras never affect whether the card
+    /// itself is considered configured.
+    /// </summary>
+    public PromotionExtrasViewModel Extras { get; set; } = new();
+
+    /// <summary>
     /// True when the editor selected an item that could not be loaded. Distinct from having
     /// selected nothing, which is a valid authoring state in manual mode.
     /// </summary>

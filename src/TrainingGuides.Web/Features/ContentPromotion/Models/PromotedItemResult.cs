@@ -17,6 +17,13 @@ public class PromotedItemResult
     public bool SelectionFailed { get; set; }
 
     /// <summary>
+    /// The content item the card's values were projected from - the unwrapped item in page
+    /// mode, the selected item itself in content hub mode. Kept alongside the normalized
+    /// projection so the type-specific extras can read fields no other family has.
+    /// </summary>
+    public object? PromotedContent { get; set; }
+
+    /// <summary>
     /// The page the selection resolved to, when the selection was a page, so the link rules do
     /// not have to retrieve it again. Null whenever the selection was not a page.
     /// </summary>

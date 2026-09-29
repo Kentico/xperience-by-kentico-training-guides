@@ -214,12 +214,21 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
     /// <inheritdoc />
     public async Task<IContentItemFieldsSource?> RetrieveContentItemByGuid(
         Guid contentItemGuid,
+        IEnumerable<string> contentTypeNames,
         int depth = 1,
         bool includeSecuredItems = true,
         string? languageName = null)
     {
+        // ForContentTypes returns only content item metadata and reusable field schema data.
+        // WithContentTypeFields adds the content type-specific fields - without it, every such
+        // field on the mapped item is null - but it is only legal on a query that has been
+        // limited to specific content types, otherwise the query cannot name its columns and
+        // Xperience throws "Cannot generate query without limiting content types".
         var builder = new ContentItemQueryBuilder()
-            .ForContentTypes(query => query.WithLinkedItems(depth))
+            .ForContentTypes(query => query
+                .OfContentType([.. contentTypeNames])
+                .WithContentTypeFields()
+                .WithLinkedItems(depth))
             .Parameters(parameters => parameters.Where(where =>
                 where.WhereEquals(nameof(ContentItemFields.ContentItemGUID), contentItemGuid)))
             .InLanguage(languageName ?? preferredLanguageRetriever.Get());
@@ -395,17 +404,49 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
         return pages.FirstOrDefault();
     }
 
+    /// <inheritdoc />
+    public async Task<IWebPageFieldsSource?> RetrieveWebPageByContentItemGuid(
+        Guid pageContentItemGuid,
+        IEnumerable<string> contentTypeNames,
+        int depth = 2,
+        bool includeSecuredItems = true,
+        string? languageName = null)
+    {
+        var pages = await RetrieveWebPages(parameters =>
+            {
+                parameters.Where(where => where.WhereEquals(nameof(ContentItemFields.ContentItemGUID), pageContentItemGuid));
+            },
+            depth,
+            includeSecuredItems,
+            languageName ?? preferredLanguageRetriever.Get(),
+            contentTypeNames);
+
+        return pages.FirstOrDefault();
+    }
+
 
     private async Task<IEnumerable<IWebPageFieldsSource>> RetrieveWebPages(
         Action<ContentQueryParameters> parameters,
         int depth,
         bool includeSecuredItems = true,
-        string? languageName = null)
+        string? languageName = null,
+        IEnumerable<string>? contentTypeNames = null)
     {
         var builder = new ContentItemQueryBuilder()
-            .ForContentTypes(query => query
-            .WithLinkedItems(depth, options => options.IncludeWebPageData(true))
-            .ForWebsite(webSiteChannelContext.WebsiteChannelName))
+            .ForContentTypes(query =>
+            {
+                // Callers that only need a page's URL leave the content types open. Callers that
+                // read content type-specific fields, such as a page's linked content item, must
+                // name their types - see the note on RetrieveContentItemByGuid.
+                if (contentTypeNames is not null)
+                {
+                    query.OfContentType([.. contentTypeNames]).WithContentTypeFields();
+                }
+
+                query
+                    .WithLinkedItems(depth, options => options.IncludeWebPageData(true))
+                    .ForWebsite(webSiteChannelContext.WebsiteChannelName);
+            })
         .Parameters(parameters)
         .InLanguage(languageName ?? preferredLanguageRetriever.Get());
 

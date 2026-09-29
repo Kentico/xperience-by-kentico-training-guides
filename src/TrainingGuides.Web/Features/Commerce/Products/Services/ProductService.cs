@@ -296,7 +296,7 @@ public class ProductService(IContentItemRetrieverService contentItemRetrieverSer
                     .Contains(tag.TagGUID))
                 .Select(tag => tag.TagTitle));
 
-    private async Task<ProductStockEnum> GetProductStockStatus(IProductSkuSchema? skuProduct)
+    public async Task<ProductStockEnum> GetProductStockStatus(IProductSkuSchema? skuProduct)
     {
         if (skuProduct is null)
         {
@@ -816,7 +816,7 @@ public class ProductService(IContentItemRetrieverService contentItemRetrieverSer
             }).ToList() ?? []
         };
     }
-    private async Task<decimal> GetCatalogPrice(IProductSchema product)
+    public async Task<decimal> GetCatalogPrice(IProductSchema product)
     {
         if (product is IProductPriceSchema pricedProduct)
         {
