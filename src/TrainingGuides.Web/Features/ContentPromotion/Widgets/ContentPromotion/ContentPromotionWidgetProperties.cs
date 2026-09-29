@@ -13,13 +13,26 @@ public class ContentPromotionWidgetProperties : IWidgetProperties
         Order = 10)]
     public string ContentSource { get; set; } = ContentPromotionSource.PAGE;
 
+    // WORKAROUND, and the reason EmptyPage and StoreSection appear in a list of promotable
+    // content: the combined content selector appears to render only those branches of the content
+    // tree whose pages are all of an allowed content type. A ProductPage sits at
+    // /Store/Dog-collar/<product>, under an EmptyPage and a StoreSection, so with only the three
+    // promotable types listed the editor cannot expand /Store at all and no product page is
+    // reachable. ServicePage has the same problem under /Products. Listing the containers makes
+    // the tree walkable, at the cost of letting an editor select a page the widget cannot promote
+    // - ResolvePromotedItem reports those explicitly rather than claiming they failed to load.
+    // Remove both container types once the selector can be scoped to selectable types while
+    // leaving the tree navigable. See the T6 notes in the ticket breakdown.
     [ContentItemSelectorComponent(
         [
             ArticlePage.CONTENT_TYPE_NAME,
             ProductPage.CONTENT_TYPE_NAME,
-            ServicePage.CONTENT_TYPE_NAME
+            ServicePage.CONTENT_TYPE_NAME,
+            EmptyPage.CONTENT_TYPE_NAME,
+            StoreSection.CONTENT_TYPE_NAME
         ],
         Label = "Selected page",
+        ExplanationText = "Pick an article, product or service page. Section pages are listed only so you can navigate to them.",
         // Keep in step with ContentPromotionContentTypes.PAGES, which retrieval uses. An attribute
         // argument must be a compile-time constant, so the array cannot be shared directly.
         MaximumItems = 1,

@@ -85,11 +85,11 @@ is the thing under test.
 | T3 family detection | Done — 8 tests |
 | T4 link resolution | Done — 8 tests |
 | T5 misconfiguration | Done — 6 tests |
-| T6 type-specific extras | Done — 11 tests |
+| T6 type-specific extras | Done — 16 tests |
 | T7-T9 | Not started |
 | T10 integration tests | Not started, added during T3 |
 
-Full web suite at the T6 stop point: **156 passing, 0 failing.**
+Full web suite at the T6 stop point: **161 passing, 0 failing.**
 
 ## Ticket map
 
@@ -428,6 +428,65 @@ The card now renders `IProductService.GetCatalogPrice` instead, which applies ca
 falls back to the schema price when none apply. The raw value would have shown a discounted variant
 at one price on the promotion card and another in the Product widget on the same page.
 `GetCatalogPrice` was private, like `GetProductStockStatus`; both are now on `IProductService`.
+
+### Page selector reachability — WORKAROUND IN PLACE, report to Kentico
+
+**Symptom.** With the page selector scoped to the three promotable page types
+(`ArticlePage`, `ProductPage`, `ServicePage`), a `ProductPage` cannot be selected at all. The
+editor cannot expand `/Store` in the selector's content tree, so nothing underneath it is
+reachable.
+
+**The tree.** Promotable pages in this project do not all sit in branches made only of promotable
+types:
+
+| Path | Content type | Promotable |
+| --- | --- | --- |
+| `/News` → `/News/About-cats` | `ArticlePage` → `ArticlePage` | yes → yes |
+| `/Products` → `/Products/Lorem-x` | `EmptyPage` → `ServicePage` | **no** → yes |
+| `/Store` → `/Store/Dog-collar` → `/Store/Dog-collar/Trail-flex-reflective-dog-collar` | `EmptyPage` → `StoreSection` → `ProductPage` | **no** → **no** → yes |
+
+Articles work because their whole chain from the channel root is `ArticlePage`. Products and
+services do not.
+
+**Hypothesis (unconfirmed).** The combined content selector (`ContentItemSelectorComponent`) renders
+only those branches of the tree whose pages are all of an allowed content type, so an allowed page
+is unreachable when any ancestor is disallowed. The docs for the component describe its
+configuration properties but say nothing about how it treats ancestors, so this is inference from
+observed behaviour, not a documented rule.
+
+**Supporting evidence.** `SimpleCallToActionWidgetProperties` — the canonical example in Kentico's
+own Page Builder guide — lists `DownloadsPage`, `EmptyPage`, `LandingPage` and `ProfilePage`
+alongside the types it renders. Those look like container types added for exactly this reason. That
+widget still cannot reach the store branch, because `StoreSection` is missing from its list.
+
+**Not confirmed by the obvious experiment.** `ProductWidget` scopes its selector to `ProductPage`
+alone, which would be the clean test — but that widget throws when placed on a page that is not a
+product page, so its selector could not be exercised.
+
+**Still worth testing:** whether `ServicePage` selection is broken the same way under `/Products`.
+The hypothesis predicts it is.
+
+**What we did (workaround).** `EmptyPage` and `StoreSection` were added to the page selector's
+allow-list purely to make the tree walkable. They are tracked separately from the promotable types
+in `ContentPromotionContentTypes` (`PROMOTABLE_PAGES`, `CONTAINER_PAGES`, `PAGES`), and
+`ResolvePromotedItem` recognises a container selection explicitly:
+`PromotedItemResult.SelectionUnsupported` and `MisconfigurationReason.UnsupportedPageType` give the
+editor "That page has nothing to promote" instead of the misleading "could not be loaded" they
+would otherwise get.
+
+**Why that is only a workaround.** It makes unpromotable pages *selectable* in order to make
+promotable pages *reachable*. Those are different questions and the component conflates them. The
+editor is offered choices the widget must then reject at render time, which is precisely the kind
+of invalid state the rest of this widget is designed to prevent.
+
+**What would fix it properly.** A way to keep the tree navigable while scoping what is
+*selectable* — for example a separate "navigable content types" configuration, or having the
+selector render ancestors of allowed types as expandable-but-unselectable nodes automatically. The
+page selector (`WebPageSelectorComponent`) has `ItemModifierType` for disabling individual items,
+which is the shape of the thing; the combined content selector has no equivalent.
+
+**Remove this workaround** — both container types, the `SelectionUnsupported` flag, the
+`UnsupportedPageType` reason and its notice — once the platform can express that distinction.
 
 ### Found at review, left for the tickets that own them
 

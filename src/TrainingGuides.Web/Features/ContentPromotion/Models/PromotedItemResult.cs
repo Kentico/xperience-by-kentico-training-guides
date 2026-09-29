@@ -17,6 +17,13 @@ public class PromotedItemResult
     public bool SelectionFailed { get; set; }
 
     /// <summary>
+    /// True when the editor selected a page that loaded perfectly well but carries nothing this
+    /// widget can promote - a section or container page. Distinct from a failed load: nothing is
+    /// broken, the choice simply does not make sense.
+    /// </summary>
+    public bool SelectionUnsupported { get; set; }
+
+    /// <summary>
     /// The content item the card's values were projected from - the unwrapped item in page
     /// mode, the selected item itself in content hub mode. Kept alongside the normalized
     /// projection so the type-specific extras can read fields no other family has.

@@ -8,12 +8,31 @@ namespace TrainingGuides.Web.Features.ContentPromotion.Models;
 /// </summary>
 public static class ContentPromotionContentTypes
 {
-    public static readonly string[] PAGES =
+    /// <summary>
+    /// The page types the widget can actually promote.
+    /// </summary>
+    public static readonly string[] PROMOTABLE_PAGES =
     [
         ArticlePage.CONTENT_TYPE_NAME,
         ProductPage.CONTENT_TYPE_NAME,
         ServicePage.CONTENT_TYPE_NAME
     ];
+
+    /// <summary>
+    /// Page types that exist in the selector only so the content tree can be walked. They hold no
+    /// promotable content of their own - see <see cref="CONTAINER_PAGES"/> for why they are here.
+    /// </summary>
+    public static readonly string[] CONTAINER_PAGES =
+    [
+        EmptyPage.CONTENT_TYPE_NAME,
+        StoreSection.CONTENT_TYPE_NAME
+    ];
+
+    /// <summary>
+    /// Everything the page selector offers: the promotable types plus the containers standing
+    /// between them and the channel root.
+    /// </summary>
+    public static readonly string[] PAGES = [.. PROMOTABLE_PAGES, .. CONTAINER_PAGES];
 
     public static readonly string[] CONTENT_ITEMS =
     [

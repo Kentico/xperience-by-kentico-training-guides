@@ -27,6 +27,7 @@ public class ContentPromotionWidgetViewComponent(
         var model = new ContentPromotionWidgetViewModel
         {
             SelectionFailed = promotedItem.SelectionFailed,
+            SelectionUnsupported = promotedItem.SelectionUnsupported,
             DisplayValues = contentPromotionService.ResolveDisplayValues(
                 properties,
                 promotedItem.Item,
