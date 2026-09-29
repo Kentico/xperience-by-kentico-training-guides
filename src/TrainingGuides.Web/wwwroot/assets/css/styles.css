@@ -195,7 +195,7 @@
   padding: 0.9375rem 2rem !important;
   text-transform: uppercase !important;
 }
-.btn.tg-bg-light-2:hover {
+.btn.tg-bg-light-2, .btn.tg-bg-light-2:hover {
   background-color: #efe6f9 !important;
   color: white !important;
   border: none !important;
