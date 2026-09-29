@@ -11,15 +11,25 @@
     gap: 1rem;
 }
 
+/* The media box carries its own proportions. Without them the box auto-sizes to the source
+   image, object-fit: cover has nothing to crop against, and a tall photo drives the card far
+   past the space the section gives it. Same shape as .c-card.home .c-card_img in _card.scss:
+   a sized box plus an image that covers it. */
 .c-content-promotion__media {
     margin: 0;
     overflow: hidden;
+    aspect-ratio: 16/9;
+    /* The ceiling that makes "the image cannot take over the card" true for every design,
+       layout and viewport - a tall ratio like the portrait 3/4 would otherwise produce a
+       1600px image on a full-width card. object-fit: cover crops against it. */
+    max-height: 36rem;
 }
 
 .c-content-promotion__image {
     display: block;
     width: 100%;
     height: 100%;
+    max-width: 100%;
     object-fit: cover;
 }
 
@@ -111,6 +121,12 @@
 }
 
 @media (min-width: 768px) {
+    .c-content-promotion--split-even .c-content-promotion__media,
+    .c-content-promotion--split-lg-sm .c-content-promotion__media,
+    .c-content-promotion--split-sm-lg .c-content-promotion__media {
+        aspect-ratio: 4/3;
+    }
+
     .c-content-promotion--split-even {
         grid-template-columns: 1fr 1fr;
     }
@@ -127,6 +143,8 @@
 /* Image overlay - the image becomes the card background and the text sits on top of it. Paints
    its own background, so no color scheme is applied (see PaintsOwnBackground). The scrim is a
    flat-color ::before, following the overlays in _article.scss and _section.scss. */
+/* Unlike gradient, this design overrides the column layout deliberately: the image is the card
+   background, so there is no image column to sit beside the text. */
 .c-content-promotion--image-overlay {
     display: flex;
     flex-direction: column;
@@ -139,6 +157,7 @@
     position: absolute;
     inset: 0;
     margin: 0;
+    aspect-ratio: auto;
 }
 
 .c-content-promotion--image-overlay::before {
@@ -157,9 +176,9 @@
 
 /* Gradient - the only gradient in this project. Runs between the two brand colors, which keeps
    it recognizable rather than decorative. Paints its own background, so no color scheme. */
+/* No display here on purpose: the column layout class owns that, and setting it again would
+   silently drop every split layout back to a single column. */
 .c-content-promotion--gradient {
-    display: flex;
-    flex-direction: column;
     background: linear-gradient(135deg, variables.$color-primary 0%, variables.$color-secondary 100%);
     color: variables.$color-light;
 }
