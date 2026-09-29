@@ -86,7 +86,7 @@ is the thing under test.
 | T4 link resolution | Done — 8 tests |
 | T5 misconfiguration | Done — 6 tests |
 | T6 type-specific extras | Done — 16 tests |
-| T7 styling | Done - 3 tests |
+| T7 styling | Done - 3 tests; responsive and visual fixes applied after shipping, see T7 |
 | T8 localization | Done |
 | T9 click activity | Done - 4 tests |
 | T10 integration tests | Not started, added during T3 |
@@ -542,6 +542,118 @@ Budget for it accordingly.
 **Manual checks:** all five designs at desktop and mobile widths; colour scheme dropdown
 appears and disappears as the design changes; compiled CSS in `wwwroot/assets/css` was
 regenerated from the SCSS and never hand-edited.
+
+### Applied after T7 shipped — responsive and visual fixes
+
+Reported symptom: *"the image doesn't behave responsively, both on the live site and in the Page
+Builder administration interface."* The manual checks above are what let this through — "all five
+designs at desktop and mobile widths" was done by eye, and every defect below is invisible to the
+eye but obvious in a measurement.
+
+**How these were verified.** Not by eye. A Playwright script rendered the widget's real markup
+against the shipped `styles.min.css` and read computed geometry back across viewport and container
+widths. Every number below is measured, not estimated. Two harnesses were used: a synthetic one
+covering all design × column-layout combinations, and the live preview URL of a real widget
+instance. The synthetic harness was necessary because **the widget was not placed on any page** —
+Page Builder content lives in the database, not in `App_Data/CIRepository`, so scanning all 63
+published paths found zero instances to inspect.
+
+#### Root cause shared by the two responsiveness defects
+
+The card's width comes from the widget zone it sits in. It queried the viewport instead. Those are
+almost never the same number: a three-column section on a wide screen hands each card a few hundred
+pixels, and the Page Builder canvas is narrower than the window around it.
+
+| # | Defect | Evidence | Fix |
+| --- | --- | --- | --- |
+| 1 | All three split layouts gated on `@media (min-width: 768px)`. The rule's own comment promised "single column below the medium breakpoint"; it never fired. | At a **1400px viewport**, a card in a 260px container still split two ways: an **80×60px** media box beside a 116px text column. | New `.c-content-promotion-wrapper` element carrying `container-type: inline-size`; split and spotlight rules moved to `@container (min-width: 34rem)`. No viewport queries remain in the partial. |
+| 2 | `__media` declared both `aspect-ratio: 16/9` and `max-height: 36rem`. Below ~1024px of card width the ratio won; above it the clamp won. | Width sweep 320 → 1920: ratio held **1.78** to a 1360px viewport, then jumped to **2.08** at 1400 (where Bootstrap's `.container` steps to 1320px) and froze. The photo visibly re-cropped and stopped growing. | `max-height` removed; wide cards take a deliberate step to `21/9` via `@container (min-width: 60rem)`. |
+
+After: the ratio is always exactly what is declared, one designed step, and the image tops out at
+**1200×514 in a 647px card** instead of 1200×576 in a 709px card.
+
+#### A regression introduced, then caught by re-measuring
+
+Removing `max-height` stripped the ceiling that commit `df084d19` added to stop the image taking
+over the card — 3/4 on a full-width card is a ~1600px image. The first attempt capped portrait
+inside `@container (min-width: 45rem)`. Re-running the container sweep showed that was the wrong
+instrument: at a **560px container, portrait stacked came out 683px tall where it had been 576px**.
+A threshold cannot fix something whose trigger has nothing to do with a breakpoint.
+
+Final form is an unconditional `max-width: 27rem; margin-inline: auto` on the portrait media, which
+lands the ceiling at the same 36rem of height the old `max-height` enforced while keeping the box
+exactly 3:4 at every width. Verified: portrait media never exceeds 576px tall at any container
+width tested (260 / 360 / 560 / 760 / 1140px).
+
+**The lesson worth keeping:** the regression was introduced *by the fix for the previous defect*,
+and was caught only because the verification harness was re-run rather than trusted from the first
+pass.
+
+#### Visual fixes requested after review
+
+| Request | What was actually wrong | Fix |
+| --- | --- | --- |
+| "The button is just text — make it a real pill." | The live card's CTA was already a correct pill (the `Medium` default). Rendering **all eight `LinkStyleOption` values** found the real culprits: the three "Plain link" options resolve to `.tg-bg-none`, and `button-mixin` sets `background-color: none` — not a color, so the declaration is dropped; and "Button, light 1" paints the pill white, invisible on the light cards it is paired with. Both kept the pill's padding and radius with nothing drawn around them. | `border: 1px solid currentcolor` on `.c-content-promotion__cta.tg-bg-none, .tg-bg-light-1`. Filled styles untouched. |
+| "Portrait centres the image but the text is left-aligned." | The capped media is centred; the content column was not, so copy started at the card's padding edge, left of the image it sits under. | `width: 100%; max-width: 27rem; margin-inline: auto` on the content, scoped to `--portrait.--stacked`. Measured on a 760px card: media box 176 → 608, content box **176 → 608**, for all three text alignments. Split layouts deliberately untouched — image and text are in separate grid columns there. |
+| "Spotlight looks too much like Standard — add a shadow." | Confirmed. | Two-layer `box-shadow` reusing the shape already used for the sticky header in `_header.scss` (broad soft cast + tight contact shadow), tinted from `$color-dark` rather than introducing a second elevation language. Follows the card's `border-radius`, so all three corner styles render correctly. |
+
+#### Pre-existing bugs surfaced while measuring
+
+Neither was introduced by this work; both were found because a computed value was read back rather
+than glanced at.
+
+- **Spotlight padding never applied.** `.c-card.md` is specificity 0,2,0 and
+  `.c-content-promotion--spotlight` is 0,1,0, so the card's own padding always won. Confirmed
+  against the **pre-change stylesheet from `HEAD`**: 24px at a 1200px viewport, never the declared
+  `3rem 2rem`. Since "given room" is half of what makes spotlight distinct, this was fixed with
+  `.c-content-promotion--spotlight.c-card` — qualified with `.c-card` rather than `.c-card.md` so it
+  survives the widget emitting a different size class. Now measures `48px 32px`.
+- **"Button, light 2" was shapeless site-wide.** `scss/_button.scss` pairs a base selector with
+  `:hover` for every variant except `tg-bg-light-2`, which had only the `:hover` half — so the
+  button-mixin never applied at rest. It rendered as a bare Bootstrap button (114×38, 6px radius)
+  until hovered.
+
+#### Files touched
+
+| File | Note |
+| --- | --- |
+| `Features/ContentPromotion/Widgets/ContentPromotion/ContentPromotionWidget.cshtml` | Wrapper element only. The one markup change; it needs an app restart to take effect (no Razor runtime compilation in this project). |
+| `scss/_content-promotion.scss` | All widget styling changes. |
+| `scss/_button.scss` | **The only change outside the widget.** Compiles to `.btn.tg-bg-light-2`, so it reaches buttons and CTA links set to "Button, light 2" and nothing else — the standalone `.tg-bg-light-2` background utility is untouched, so no card backgrounds or section colour schemes change. |
+| `wwwroot/assets/css/styles*.css`, `*.map` | Regenerated, never hand-edited. |
+
+**Tests:** no new automated tests — spec §2 still settles that styling is verified by eye, and T7's
+three class-computation tests are unaffected. Full suite after the changes: **168 web + 1 admin
+passing, 0 failing.**
+
+#### Not verified
+
+The claim that the Page Builder canvas renders in an iframe, and therefore resolves media queries
+against canvas width rather than window width — making the same card crop differently in the admin
+than on the live site — **is inference, not measurement.** No admin credentials were available, and
+an out-of-origin iframe harness was blocked by `X-Frame-Options: SAMEORIGIN`. It follows from the
+defect mechanism and matches the reported symptom, but it was never observed in the running admin
+UI. Treat it as a hypothesis.
+
+#### Still open
+
+**The image is not responsive in the responsive-images sense.** The `<img>` emitted by
+`tg-styled-image` has no `srcset`, no `sizes` and no `loading`. The live card downloads the full
+**1920×1371, 350 KB** original and paints it into a 216px-wide box at a 320px viewport. Xperience's
+`getContentAsset` endpoint accepts `width` / `maxSideSize`, so a `srcset` is feasible — but the tag
+helper is shared with `ServiceWidget` and `ServicePagePageTemplate`, so it is a separate change with
+a wider blast radius than anything above.
+
+#### Tooling note for anyone repeating this
+
+`AGENTS.md` lists build, test, CI and codegen commands but **no way to compile SCSS**, and the
+`design-conventions` skill states the pipeline is driven by the Live Sass Compile VS Code extension
+— which an agent cannot invoke, while the same skill requires regenerated CSS to be committed.
+
+Compiling with plain `sass` **silently drops autoprefixer output** (8 × `-o-object-fit`, among
+others) across the whole stylesheet. This was caught on diff review, reverted, and recompiled
+through `sass` + `postcss`/`autoprefixer`, confirming the prefix count matched the previously
+committed output. A documented headless command would remove the trap.
 
 ---
 
