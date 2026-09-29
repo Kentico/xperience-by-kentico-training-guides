@@ -18,7 +18,7 @@ public class ContentPromotionWidgetProperties : IWidgetProperties
         Order = 10)]
     public string ContentSource { get; set; } = ContentPromotionSource.PAGE;
 
-    // WORKAROUND, and the reason EmptyPage and StoreSection appear in a list of promotable
+    // WORKAROUND  assumption, and the reason EmptyPage and StoreSection appear in a list of promotable
     // content: the combined content selector appears to render only those branches of the content
     // tree whose pages are all of an allowed content type. A ProductPage sits at
     // /Store/Dog-collar/<product>, under an EmptyPage and a StoreSection, so with only the three
