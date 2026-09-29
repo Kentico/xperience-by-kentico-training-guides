@@ -86,10 +86,12 @@ is the thing under test.
 | T4 link resolution | Done — 8 tests |
 | T5 misconfiguration | Done — 6 tests |
 | T6 type-specific extras | Done — 16 tests |
-| T7-T9 | Not started |
+| T7 styling | Done - 3 tests |
+| T8 localization | Done |
+| T9 click activity | Done - 4 tests |
 | T10 integration tests | Not started, added during T3 |
 
-Full web suite at the T6 stop point: **161 passing, 0 failing.**
+Full web suite at the T9 stop point: **168 passing, 0 failing.**
 
 ## Ticket map
 

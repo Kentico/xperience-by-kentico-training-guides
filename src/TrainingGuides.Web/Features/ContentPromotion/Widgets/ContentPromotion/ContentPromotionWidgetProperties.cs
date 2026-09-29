@@ -84,7 +84,7 @@ public class ContentPromotionWidgetProperties : IWidgetProperties
     [CheckBoxComponent(
         Label = "{$TrainingGuides.ContentPromotionWidget.ShowExtras.Label$}",
         ExplanationText = "{$TrainingGuides.ContentPromotionWidget.ShowExtras.ExplanationText$}",
-        Order = 70)]
+        Order = 80)]
     [VisibleIfNotEqualTo(nameof(ContentSource), ContentPromotionSource.MANUAL, StringComparison.OrdinalIgnoreCase)]
     public bool ShowExtras { get; set; }
 

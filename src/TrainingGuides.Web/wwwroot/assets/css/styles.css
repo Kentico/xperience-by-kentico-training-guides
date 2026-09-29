@@ -370,9 +370,10 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  /* The stretched link's overlay sits above the card, so keep the text above it too and only
-     the anchor's own overlay collects the clicks. */
-  position: relative;
+  /* Above the stretched link's overlay so the text stays selectable, but deliberately NOT
+     position: relative - that would make this the overlay's containing block and shrink the
+     clickable surface to the text column. Every design makes this a flex or grid item, which
+     is enough for z-index on its own. */
   z-index: 2;
 }
 
@@ -467,7 +468,9 @@
    its own background, so no color scheme is applied (see PaintsOwnBackground). The scrim is a
    flat-color ::before, following the overlays in _article.scss and _section.scss. */
 .c-content-promotion--image-overlay {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   min-height: 20rem;
   color: white;
 }
@@ -489,10 +492,7 @@
 }
 
 .c-content-promotion--image-overlay .c-content-promotion__content {
-  position: relative;
-  z-index: 2;
   justify-content: flex-end;
-  min-height: inherit;
 }
 
 /* Gradient - the only gradient in this project. Runs between the two brand colors, which keeps
@@ -509,13 +509,7 @@
 }
 
 /* Spotlight - one prominent promotion, centered and given room. */
-.c-content-promotion--spotlight {
-  text-align: center;
-}
-
 .c-content-promotion--spotlight .c-content-promotion__content {
-  align-items: center;
-  text-align: center;
   max-width: 44rem;
   margin: 0 auto;
 }
