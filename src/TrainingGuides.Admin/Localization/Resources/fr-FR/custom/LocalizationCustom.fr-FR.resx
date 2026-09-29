@@ -312,4 +312,106 @@
   <data name="TrainingGuides.Page.SeoSettingsEdit.Form.RobotsField.Explanation" xml:space="preserve">
     <value>Saisissez le contenu du fichier Robots.txt</value>
   </data>
+  <data name="TrainingGuides.ContentPromotionWidget.Name" xml:space="preserve">
+    <value>Promotion de contenu</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.Description" xml:space="preserve">
+    <value>Met en avant un article, un produit ou un service sous forme de carte ; chaque valeur affichée peut être remplacée pour chaque instance du widget.</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.ContentSource.Label" xml:space="preserve">
+    <value>Source du contenu</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.ContentSource.Options.Page" xml:space="preserve">
+    <value>Page</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.ContentSource.Options.ContentItem" xml:space="preserve">
+    <value>Élément du hub de contenu</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.ContentSource.Options.Manual" xml:space="preserve">
+    <value>Contenu manuel</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.SelectedPage.Label" xml:space="preserve">
+    <value>Page sélectionnée</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.SelectedPage.ExplanationText" xml:space="preserve">
+    <value>Choisissez une page d'article, de produit ou de service. Les pages de section ne sont listées que pour vous permettre d'y naviguer.</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.SelectedContentItem.Label" xml:space="preserve">
+    <value>Élément de contenu sélectionné</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.Title.Label" xml:space="preserve">
+    <value>Titre</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.Title.ExplanationText" xml:space="preserve">
+    <value>Laissez vide pour utiliser le titre de l'élément de contenu sélectionné.</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.Description.Label" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.Description.ExplanationText" xml:space="preserve">
+    <value>Laissez vide pour utiliser la description de l'élément de contenu sélectionné.</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.Image.Label" xml:space="preserve">
+    <value>Image</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.Image.ExplanationText" xml:space="preserve">
+    <value>Laissez vide pour utiliser l'image de l'élément de contenu sélectionné. Le texte alternatif provient de la ressource sélectionnée.</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.ShowExtras.Label" xml:space="preserve">
+    <value>Afficher les extras propres au type</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.ShowExtras.ExplanationText" xml:space="preserve">
+    <value>Affiche les catégories de l'article, les avantages du service ou le prix et le stock du produit. Rien n'est affiché si l'élément sélectionné n'en a aucun.</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.CallToActionText.Label" xml:space="preserve">
+    <value>Texte de l'appel à l'action</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.CallToActionText.ExplanationText" xml:space="preserve">
+    <value>Laissez vide pour utiliser l'appel à l'action de l'élément de contenu sélectionné.</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.LinkTargetPage.Label" xml:space="preserve">
+    <value>Cible du lien</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.LinkTargetPage.ExplanationText" xml:space="preserve">
+    <value>La page vers laquelle pointe la carte. Les éléments du hub de contenu peuvent ne pas avoir de page propre.</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.LinkUrl.Label" xml:space="preserve">
+    <value>URL du lien</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.LinkUrl.ExplanationText" xml:space="preserve">
+    <value>Utilisée uniquement lorsqu'aucune page cible n'est sélectionnée.</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.OpenInNewTab.Label" xml:space="preserve">
+    <value>Ouvrir dans un nouvel onglet</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.TrackingValue.Label" xml:space="preserve">
+    <value>Valeur de suivi</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.TrackingValue.ExplanationText" xml:space="preserve">
+    <value>Enregistrée comme valeur de l'activité « Clic sur une promotion de contenu » lorsqu'un visiteur clique sur la carte. Laissez vide pour ne rien suivre.</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.ShowAdvanced.Label" xml:space="preserve">
+    <value>Ajuster le design</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.CardDesign.Label" xml:space="preserve">
+    <value>Design de la carte</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.ColorScheme.Label" xml:space="preserve">
+    <value>Palette de couleurs</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.ColumnLayout.Label" xml:space="preserve">
+    <value>Disposition en colonnes</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.ColumnLayout.ExplanationText" xml:space="preserve">
+    <value>Comment la carte se répartit entre l'image et le texte. Une carte comporte deux zones : les options à trois colonnes s'affichent donc comme deux colonnes égales.</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.TextAlignment.Label" xml:space="preserve">
+    <value>Alignement du texte</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.CornerStyle.Label" xml:space="preserve">
+    <value>Style des angles</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.CallToActionStyle.Label" xml:space="preserve">
+    <value>Style de l'appel à l'action</value>
+  </data>
 </root>

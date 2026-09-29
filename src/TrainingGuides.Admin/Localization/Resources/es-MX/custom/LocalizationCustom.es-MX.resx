@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -311,5 +311,107 @@
   </data>
   <data name="TrainingGuides.Page.SeoSettingsEdit.Form.RobotsField.Explanation" xml:space="preserve">
     <value>Ingrese el contenido del archivo Robots.txt</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.Name" xml:space="preserve">
+    <value>Promoción de contenido</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.Description" xml:space="preserve">
+    <value>Promociona un artículo, producto o servicio en forma de tarjeta; cada valor mostrado se puede sobrescribir en cada instancia del widget.</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.ContentSource.Label" xml:space="preserve">
+    <value>Origen del contenido</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.ContentSource.Options.Page" xml:space="preserve">
+    <value>Página</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.ContentSource.Options.ContentItem" xml:space="preserve">
+    <value>Elemento del centro de contenido</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.ContentSource.Options.Manual" xml:space="preserve">
+    <value>Contenido manual</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.SelectedPage.Label" xml:space="preserve">
+    <value>Página seleccionada</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.SelectedPage.ExplanationText" xml:space="preserve">
+    <value>Elija una página de artículo, producto o servicio. Las páginas de sección aparecen solo para que pueda navegar hasta ellas.</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.SelectedContentItem.Label" xml:space="preserve">
+    <value>Elemento de contenido seleccionado</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.Title.Label" xml:space="preserve">
+    <value>Título</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.Title.ExplanationText" xml:space="preserve">
+    <value>Déjelo vacío para usar el título del elemento de contenido seleccionado.</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.Description.Label" xml:space="preserve">
+    <value>Descripción</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.Description.ExplanationText" xml:space="preserve">
+    <value>Déjelo vacío para usar la descripción del elemento de contenido seleccionado.</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.Image.Label" xml:space="preserve">
+    <value>Imagen</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.Image.ExplanationText" xml:space="preserve">
+    <value>Déjelo vacío para usar la imagen del elemento de contenido seleccionado. El texto alternativo procede del recurso seleccionado.</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.ShowExtras.Label" xml:space="preserve">
+    <value>Mostrar extras propios del tipo</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.ShowExtras.ExplanationText" xml:space="preserve">
+    <value>Muestra las categorías del artículo, las ventajas del servicio o el precio y las existencias del producto. No se muestra nada si el elemento seleccionado no tiene ninguno.</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.CallToActionText.Label" xml:space="preserve">
+    <value>Texto de la llamada a la acción</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.CallToActionText.ExplanationText" xml:space="preserve">
+    <value>Déjelo vacío para usar la llamada a la acción del elemento de contenido seleccionado.</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.LinkTargetPage.Label" xml:space="preserve">
+    <value>Destino del enlace</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.LinkTargetPage.ExplanationText" xml:space="preserve">
+    <value>La página a la que enlaza la tarjeta. Los elementos del centro de contenido pueden no tener una página propia.</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.LinkUrl.Label" xml:space="preserve">
+    <value>URL del enlace</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.LinkUrl.ExplanationText" xml:space="preserve">
+    <value>Se usa solo cuando no hay ninguna página de destino seleccionada.</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.OpenInNewTab.Label" xml:space="preserve">
+    <value>Abrir en una pestaña nueva</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.TrackingValue.Label" xml:space="preserve">
+    <value>Valor de seguimiento</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.TrackingValue.ExplanationText" xml:space="preserve">
+    <value>Se registra como el valor de la actividad "Clic en promoción de contenido" cuando un visitante hace clic en la tarjeta. Déjelo vacío para no registrar nada.</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.ShowAdvanced.Label" xml:space="preserve">
+    <value>Ajustar el diseño</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.CardDesign.Label" xml:space="preserve">
+    <value>Diseño de la tarjeta</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.ColorScheme.Label" xml:space="preserve">
+    <value>Combinación de colores</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.ColumnLayout.Label" xml:space="preserve">
+    <value>Distribución en columnas</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.ColumnLayout.ExplanationText" xml:space="preserve">
+    <value>Cómo se reparte la tarjeta entre la imagen y el texto. Una tarjeta tiene dos zonas, por lo que las opciones de tres columnas se muestran igual que dos columnas iguales.</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.TextAlignment.Label" xml:space="preserve">
+    <value>Alineación del texto</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.CornerStyle.Label" xml:space="preserve">
+    <value>Estilo de las esquinas</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.CallToActionStyle.Label" xml:space="preserve">
+    <value>Estilo de la llamada a la acción</value>
   </data>
 </root>

@@ -13,9 +13,9 @@ using TrainingGuides.Web.Features.Shared.Services;
     RegisterWidget(
         identifier: ContentPromotionWidgetViewComponent.IDENTIFIER,
         viewComponentType: typeof(ContentPromotionWidgetViewComponent),
-        name: "Content promotion",
+        name: "{$TrainingGuides.ContentPromotionWidget.Name$}",
         propertiesType: typeof(ContentPromotionWidgetProperties),
-        Description = "Promotes a single article, product or service as a card, with every displayed value overridable per widget instance.",
+        Description = "{$TrainingGuides.ContentPromotionWidget.Description$}",
         IconClass = "icon-megaphone")]
 
 namespace TrainingGuides.Web.Features.ContentPromotion.Widgets.ContentPromotion;

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -201,4 +201,106 @@
   <data name="TrainingGuides.Page.SeoSettingsEdit.Form.RobotsField.Explanation" xml:space="preserve">
     <value>Enter the content of the Robots.txt file</value>
   </data>  
+  <data name="TrainingGuides.ContentPromotionWidget.Name" xml:space="preserve">
+    <value>Content promotion</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.Description" xml:space="preserve">
+    <value>Promotes a single article, product or service as a card, with every displayed value overridable per widget instance.</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.ContentSource.Label" xml:space="preserve">
+    <value>Content source</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.ContentSource.Options.Page" xml:space="preserve">
+    <value>Page</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.ContentSource.Options.ContentItem" xml:space="preserve">
+    <value>Content hub item</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.ContentSource.Options.Manual" xml:space="preserve">
+    <value>Manual content</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.SelectedPage.Label" xml:space="preserve">
+    <value>Selected page</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.SelectedPage.ExplanationText" xml:space="preserve">
+    <value>Pick an article, product or service page. Section pages are listed only so you can navigate to them.</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.SelectedContentItem.Label" xml:space="preserve">
+    <value>Selected content item</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.Title.Label" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.Title.ExplanationText" xml:space="preserve">
+    <value>Leave empty to use the title of the selected content item.</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.Description.Label" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.Description.ExplanationText" xml:space="preserve">
+    <value>Leave empty to use the description of the selected content item.</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.Image.Label" xml:space="preserve">
+    <value>Image</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.Image.ExplanationText" xml:space="preserve">
+    <value>Leave empty to use the image of the selected content item. Alt text comes from the selected asset.</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.ShowExtras.Label" xml:space="preserve">
+    <value>Show type-specific extras</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.ShowExtras.ExplanationText" xml:space="preserve">
+    <value>Shows article categories, service benefits, or product price and stock. Nothing is shown when the selected item has none of them.</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.CallToActionText.Label" xml:space="preserve">
+    <value>Call to action text</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.CallToActionText.ExplanationText" xml:space="preserve">
+    <value>Leave empty to use the call to action of the selected content item.</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.LinkTargetPage.Label" xml:space="preserve">
+    <value>Link target</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.LinkTargetPage.ExplanationText" xml:space="preserve">
+    <value>The page the card links to. Content hub items may have no page of their own.</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.LinkUrl.Label" xml:space="preserve">
+    <value>Link URL</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.LinkUrl.ExplanationText" xml:space="preserve">
+    <value>Used only when no link target page is selected.</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.OpenInNewTab.Label" xml:space="preserve">
+    <value>Open in new tab</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.TrackingValue.Label" xml:space="preserve">
+    <value>Tracking value</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.TrackingValue.ExplanationText" xml:space="preserve">
+    <value>Logged as the value of the "Content promotion click" activity when a visitor clicks the card. Leave empty to track nothing.</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.ShowAdvanced.Label" xml:space="preserve">
+    <value>Adjust design</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.CardDesign.Label" xml:space="preserve">
+    <value>Card design</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.ColorScheme.Label" xml:space="preserve">
+    <value>Color scheme</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.ColumnLayout.Label" xml:space="preserve">
+    <value>Column layout</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.ColumnLayout.ExplanationText" xml:space="preserve">
+    <value>How the card splits between image and text. A card has two regions, so the three-column options lay out the same as two even columns.</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.TextAlignment.Label" xml:space="preserve">
+    <value>Text alignment</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.CornerStyle.Label" xml:space="preserve">
+    <value>Corner style</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.CallToActionStyle.Label" xml:space="preserve">
+    <value>Call to action style</value>
+  </data>
 </root>

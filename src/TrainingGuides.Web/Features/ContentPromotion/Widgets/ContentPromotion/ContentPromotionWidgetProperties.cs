@@ -13,8 +13,8 @@ namespace TrainingGuides.Web.Features.ContentPromotion.Widgets.ContentPromotion;
 public class ContentPromotionWidgetProperties : IWidgetProperties
 {
     [RadioGroupComponent(
-        Label = "Content source",
-        Options = "page;Page\ncontentItem;Content hub item\nmanual;Manual content",
+        Label = "{$TrainingGuides.ContentPromotionWidget.ContentSource.Label$}",
+        Options = "page;{$TrainingGuides.ContentPromotionWidget.ContentSource.Options.Page$}\ncontentItem;{$TrainingGuides.ContentPromotionWidget.ContentSource.Options.ContentItem$}\nmanual;{$TrainingGuides.ContentPromotionWidget.ContentSource.Options.Manual$}",
         Order = 10)]
     public string ContentSource { get; set; } = ContentPromotionSource.PAGE;
 
@@ -36,8 +36,8 @@ public class ContentPromotionWidgetProperties : IWidgetProperties
             EmptyPage.CONTENT_TYPE_NAME,
             StoreSection.CONTENT_TYPE_NAME
         ],
-        Label = "Selected page",
-        ExplanationText = "Pick an article, product or service page. Section pages are listed only so you can navigate to them.",
+        Label = "{$TrainingGuides.ContentPromotionWidget.SelectedPage.Label$}",
+        ExplanationText = "{$TrainingGuides.ContentPromotionWidget.SelectedPage.ExplanationText$}",
         // Keep in step with ContentPromotionContentTypes.PAGES, which retrieval uses. An attribute
         // argument must be a compile-time constant, so the array cannot be shared directly.
         MaximumItems = 1,
@@ -55,42 +55,42 @@ public class ContentPromotionWidgetProperties : IWidgetProperties
             CatFoodVariant.CONTENT_TYPE_NAME,
             DogCollarVariant.CONTENT_TYPE_NAME
         ],
-        Label = "Selected content item",
+        Label = "{$TrainingGuides.ContentPromotionWidget.SelectedContentItem.Label$}",
         MaximumItems = 1,
         Order = 30)]
     [VisibleIfEqualTo(nameof(ContentSource), ContentPromotionSource.CONTENT_ITEM, StringComparison.OrdinalIgnoreCase)]
     public IEnumerable<ContentItemReference> SelectedContentItem { get; set; } = [];
 
     [TextInputComponent(
-        Label = "Title",
-        ExplanationText = "Leave empty to use the title of the selected content item.",
+        Label = "{$TrainingGuides.ContentPromotionWidget.Title.Label$}",
+        ExplanationText = "{$TrainingGuides.ContentPromotionWidget.Title.ExplanationText$}",
         Order = 40)]
     public string Title { get; set; } = string.Empty;
 
     [TextAreaComponent(
-        Label = "Description",
-        ExplanationText = "Leave empty to use the description of the selected content item.",
+        Label = "{$TrainingGuides.ContentPromotionWidget.Description.Label$}",
+        ExplanationText = "{$TrainingGuides.ContentPromotionWidget.Description.ExplanationText$}",
         Order = 50)]
     public string Description { get; set; } = string.Empty;
 
     [ContentItemSelectorComponent(
         Asset.CONTENT_TYPE_NAME,
-        Label = "Image",
-        ExplanationText = "Leave empty to use the image of the selected content item. Alt text comes from the selected asset.",
+        Label = "{$TrainingGuides.ContentPromotionWidget.Image.Label$}",
+        ExplanationText = "{$TrainingGuides.ContentPromotionWidget.Image.ExplanationText$}",
         MaximumItems = 1,
         Order = 60)]
     public IEnumerable<ContentItemReference> Image { get; set; } = [];
 
     [CheckBoxComponent(
-        Label = "Show type-specific extras",
-        ExplanationText = "Shows article categories, service benefits, or product price and stock. Nothing is shown when the selected item has none of them.",
+        Label = "{$TrainingGuides.ContentPromotionWidget.ShowExtras.Label$}",
+        ExplanationText = "{$TrainingGuides.ContentPromotionWidget.ShowExtras.ExplanationText$}",
         Order = 70)]
     [VisibleIfNotEqualTo(nameof(ContentSource), ContentPromotionSource.MANUAL, StringComparison.OrdinalIgnoreCase)]
     public bool ShowExtras { get; set; }
 
     [TextInputComponent(
-        Label = "Call to action text",
-        ExplanationText = "Leave empty to use the call to action of the selected content item.",
+        Label = "{$TrainingGuides.ContentPromotionWidget.CallToActionText.Label$}",
+        ExplanationText = "{$TrainingGuides.ContentPromotionWidget.CallToActionText.ExplanationText$}",
         Order = 90)]
     public string CallToActionText { get; set; } = string.Empty;
 
@@ -100,29 +100,29 @@ public class ContentPromotionWidgetProperties : IWidgetProperties
             ProductPage.CONTENT_TYPE_NAME,
             ServicePage.CONTENT_TYPE_NAME
         ],
-        Label = "Link target",
-        ExplanationText = "The page the card links to. Content hub items may have no page of their own.",
+        Label = "{$TrainingGuides.ContentPromotionWidget.LinkTargetPage.Label$}",
+        ExplanationText = "{$TrainingGuides.ContentPromotionWidget.LinkTargetPage.ExplanationText$}",
         MaximumItems = 1,
         Order = 100)]
     [VisibleIfNotEqualTo(nameof(ContentSource), ContentPromotionSource.PAGE, StringComparison.OrdinalIgnoreCase)]
     public IEnumerable<ContentItemReference> LinkTargetPage { get; set; } = [];
 
     [TextInputComponent(
-        Label = "Link URL",
-        ExplanationText = "Used only when no link target page is selected.",
+        Label = "{$TrainingGuides.ContentPromotionWidget.LinkUrl.Label$}",
+        ExplanationText = "{$TrainingGuides.ContentPromotionWidget.LinkUrl.ExplanationText$}",
         Order = 110)]
     [VisibleIfNotEqualTo(nameof(ContentSource), ContentPromotionSource.PAGE, StringComparison.OrdinalIgnoreCase)]
     [VisibleIfEmpty(nameof(LinkTargetPage))]
     public string LinkUrl { get; set; } = string.Empty;
 
     [CheckBoxComponent(
-        Label = "Open in new tab",
+        Label = "{$TrainingGuides.ContentPromotionWidget.OpenInNewTab.Label$}",
         Order = 120)]
     public bool OpenInNewTab { get; set; }
 
     [TextInputComponent(
-        Label = "Tracking value",
-        ExplanationText = "Logged as the value of the \"Content promotion click\" activity when a visitor clicks the card. Leave empty to track nothing.",
+        Label = "{$TrainingGuides.ContentPromotionWidget.TrackingValue.Label$}",
+        ExplanationText = "{$TrainingGuides.ContentPromotionWidget.TrackingValue.ExplanationText$}",
         Order = 130)]
     public string TrackingValue { get; set; } = string.Empty;
 
@@ -134,13 +134,13 @@ public class ContentPromotionWidgetProperties : IWidgetProperties
     // Advanced styling. Everything below hides behind the one toggle, so the form stays short
     // for the editors who only want a card.
     [CheckBoxComponent(
-        Label = "Adjust design",
+        Label = "{$TrainingGuides.ContentPromotionWidget.ShowAdvanced.Label$}",
         Order = 140)]
     public bool ShowAdvanced { get; set; }
 
     [VisibleIfTrue(nameof(ShowAdvanced))]
     [DropDownComponent(
-        Label = "Card design",
+        Label = "{$TrainingGuides.ContentPromotionWidget.CardDesign.Label$}",
         DataProviderType = typeof(DropdownEnumOptionProvider<CardDesignOption>),
         Order = 150)]
     public string CardDesign { get; set; } = nameof(CardDesignOption.Standard);
@@ -151,36 +151,36 @@ public class ContentPromotionWidgetProperties : IWidgetProperties
     [VisibleIfNotEqualTo(nameof(CardDesign), nameof(CardDesignOption.ImageOverlay), StringComparison.OrdinalIgnoreCase)]
     [VisibleIfNotEqualTo(nameof(CardDesign), nameof(CardDesignOption.Gradient), StringComparison.OrdinalIgnoreCase)]
     [DropDownComponent(
-        Label = "Color scheme",
+        Label = "{$TrainingGuides.ContentPromotionWidget.ColorScheme.Label$}",
         DataProviderType = typeof(DropdownEnumOptionProvider<ColorSchemeOption>),
         Order = 160)]
     public string ColorScheme { get; set; } = nameof(ColorSchemeOption.Light1);
 
     [VisibleIfTrue(nameof(ShowAdvanced))]
     [DropDownComponent(
-        Label = "Column layout",
-        ExplanationText = "How the card splits between image and text. A card has two regions, so the three-column options lay out the same as two even columns.",
+        Label = "{$TrainingGuides.ContentPromotionWidget.ColumnLayout.Label$}",
+        ExplanationText = "{$TrainingGuides.ContentPromotionWidget.ColumnLayout.ExplanationText$}",
         DataProviderType = typeof(DropdownEnumOptionProvider<ColumnLayoutOption>),
         Order = 170)]
     public string ColumnLayout { get; set; } = nameof(ColumnLayoutOption.OneColumn);
 
     [VisibleIfTrue(nameof(ShowAdvanced))]
     [DropDownComponent(
-        Label = "Text alignment",
+        Label = "{$TrainingGuides.ContentPromotionWidget.TextAlignment.Label$}",
         DataProviderType = typeof(DropdownEnumOptionProvider<TextAlignmentOption>),
         Order = 180)]
     public string TextAlignment { get; set; } = nameof(TextAlignmentOption.Left);
 
     [VisibleIfTrue(nameof(ShowAdvanced))]
     [DropDownComponent(
-        Label = "Corner style",
+        Label = "{$TrainingGuides.ContentPromotionWidget.CornerStyle.Label$}",
         DataProviderType = typeof(DropdownEnumOptionProvider<CornerStyleOption>),
         Order = 190)]
     public string CornerStyle { get; set; } = nameof(CornerStyleOption.Sharp);
 
     [VisibleIfTrue(nameof(ShowAdvanced))]
     [DropDownComponent(
-        Label = "Call to action style",
+        Label = "{$TrainingGuides.ContentPromotionWidget.CallToActionStyle.Label$}",
         DataProviderType = typeof(DropdownEnumOptionProvider<LinkStyleOption>),
         Order = 200)]
     public string CallToActionStyle { get; set; } = nameof(LinkStyleOption.Medium);
