@@ -11,6 +11,15 @@
     gap: 1rem;
 }
 
+/* The card's width comes from the widget zone it sits in, which is almost never the viewport -
+   a three-column section on a wide screen hands each card only a few hundred pixels, and the
+   Page Builder canvas is narrower than the window it is shown in. Every breakpoint below
+   therefore queries this wrapper rather than the viewport, so the card reacts to the space it
+   was actually given and looks the same in the administration interface as on the live site. */
+.c-content-promotion-wrapper {
+    container-type: inline-size;
+}
+
 /* The media box carries its own proportions. Without them the box auto-sizes to the source
    image, object-fit: cover has nothing to crop against, and a tall photo drives the card far
    past the space the section gives it. Same shape as .c-card.home .c-card_img in _card.scss:
@@ -19,10 +28,17 @@
     margin: 0;
     overflow: hidden;
     aspect-ratio: 16/9;
-    /* The ceiling that makes "the image cannot take over the card" true for every design,
-       layout and viewport - a tall ratio like the portrait 3/4 would otherwise produce a
-       1600px image on a full-width card. object-fit: cover crops against it. */
-    max-height: 36rem;
+}
+
+/* A wide card gets a wider crop rather than a taller image - 16/9 on a 1200px card is 675px of
+   photo before the title even starts. Stepping the ratio, rather than capping the height, keeps
+   the box at a ratio the design actually declares: a max-height silently wins over aspect-ratio
+   once the card passes the width where the two disagree, so the same photo was cropped one way
+   below that width and another way above it, with a visible jump in between. */
+@container (min-width: 60rem) {
+    .c-content-promotion__media {
+        aspect-ratio: 21/9;
+    }
 }
 
 .c-content-promotion__image {
@@ -104,9 +120,23 @@
     align-self: inherit;
 }
 
+/* Two call to action styles leave the pill with no visible edge: the "Plain link" options resolve
+   to .tg-bg-none, whose button-mixin sets background-color: none - not a color, so the declaration
+   is dropped - and "Button, light 1" paints the pill white, which is invisible on the light card
+   backgrounds it is most often paired with. Either way the anchor keeps the pill's padding and
+   radius with nothing drawn around it, and on a card whose whole surface is already clickable that
+   reads as a stray line of text rather than as the one thing to press. Outlining it restores the
+   edge the background would otherwise have given. !important only because the mixin sets border
+   with it. */
+.c-content-promotion__cta.tg-bg-none,
+.c-content-promotion__cta.tg-bg-light-1 {
+    border: 1px solid currentcolor !important;
+}
+
 /* Column layout - how the card splits between image and text. A card has two regions, so the
-   three-column options land on the even split (see GetColumnLayoutClass). Single column below
-   the medium breakpoint in every case: a split card is unreadable at phone widths. */
+   three-column options land on the even split (see GetColumnLayoutClass). Single column until
+   the card itself is wide enough in every case: a split card is unreadable in a narrow column,
+   whatever the viewport happens to be. */
 .c-content-promotion--stacked {
     display: flex;
     flex-direction: column;
@@ -120,7 +150,7 @@
     align-items: center;
 }
 
-@media (min-width: 768px) {
+@container (min-width: 34rem) {
     .c-content-promotion--split-even .c-content-promotion__media,
     .c-content-promotion--split-lg-sm .c-content-promotion__media,
     .c-content-promotion--split-sm-lg .c-content-promotion__media {
@@ -187,7 +217,17 @@
     border-color: variables.$color-light;
 }
 
-/* Spotlight - one prominent promotion, centered and given room. */
+/* Spotlight - one prominent promotion, centered and given room. Extra room alone reads as a
+   slightly roomier standard card, so the design also lifts off the page: the two-layer shadow is
+   the one already used for the sticky header in _header.scss - a broad soft cast plus a tight
+   contact shadow - tinted from $color-dark rather than introducing a second elevation language.
+   The card's own border-radius carries the shadow, so every corner style stays correct. */
+.c-content-promotion--spotlight {
+    box-shadow:
+        0 8px 32px rgba(variables.$color-dark, 0.18),
+        0 0 8px rgba(variables.$color-dark, 0.04);
+}
+
 .c-content-promotion--spotlight .c-content-promotion__content {
     max-width: 44rem;
     margin: 0 auto;
@@ -197,8 +237,12 @@
     font-size: 2rem;
 }
 
-@media (min-width: 768px) {
-    .c-content-promotion--spotlight {
+/* Qualified with .c-card so this outranks .c-card.md, which the view component always puts on the
+   card and which would otherwise win on specificity (0,2,0 against 0,1,0) and hold the padding at
+   1.5rem - the reason spotlight has never actually had the room this rule asks for. Matching .c-card
+   rather than .c-card.md keeps that true if the size class the widget emits ever changes. */
+@container (min-width: 34rem) {
+    .c-content-promotion--spotlight.c-card {
         padding: 3rem 2rem;
     }
 }
@@ -206,6 +250,27 @@
 /* Portrait - the image is locked to a portrait ratio so a row of these cards lines up. */
 .c-content-promotion--portrait .c-content-promotion__media {
     aspect-ratio: 3/4;
+}
+
+/* Portrait is the one design whose height grows faster than the card does, so it is the one that
+   still needs a ceiling - 3/4 on a full-width card is a 1600px image. Capping the width rather
+   than the height keeps the box exactly 3:4 at every size, which is the whole point of a design
+   named for its proportions; the image simply stops growing and centers once the card outgrows
+   it. 27rem lands the ceiling at the same 36rem of height the old max-height enforced, and the
+   cap is unconditional because the card width it bites at has nothing to do with any breakpoint. */
+.c-content-promotion--portrait .c-content-promotion__media {
+    max-width: 27rem;
+    margin-inline: auto;
+}
+
+/* The capped media is centered, so the text has to be capped and centered with it - otherwise
+   the copy starts at the card's padding edge, left of the image it sits under. Stacked only: a
+   split card puts image and text in separate columns on purpose, and there is nothing to line
+   the text up with. */
+.c-content-promotion--portrait.c-content-promotion--stacked .c-content-promotion__content {
+    width: 100%;
+    max-width: 27rem;
+    margin-inline: auto;
 }
 
 .c-content-promotion--portrait .c-content-promotion__image {
