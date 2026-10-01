@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Html;
 using TrainingGuides.Web.Features.ContentPromotion.Models;
 using TrainingGuides.Web.Features.ContentPromotion.Widgets.ContentPromotion;
 using TrainingGuides.Web.Features.Shared.Models;
@@ -9,6 +10,7 @@ public class ContentPromotionWidgetViewModelTests
 {
     private const string TITLE = "Autumn savings on pet cover";
     private const string LINK_URL = "/pet-insurance";
+    private const string DESCRIPTION_MARKUP = "<p>Cover your cat this autumn for less.</p>";
 
     [Fact]
     public void ManualModeWithNothingAuthored_IsMisconfiguredForNothingAuthored()
@@ -42,6 +44,24 @@ public class ContentPromotionWidgetViewModelTests
 
         Assert.False(viewModel.IsMisconfigured);
         Assert.Equal(MisconfigurationReason.NoDestination, viewModel.MisconfigurationReason);
+    }
+
+    // The description is the one display value that is markup rather than a string, so the
+    // "is there anything to show" test has to look inside it.
+    [Fact]
+    public void OnlyADescriptionWasResolved_IsNotMisconfiguredForNothingAuthored()
+    {
+        var viewModel = new ContentPromotionWidgetViewModel
+        {
+            DisplayValues = new ContentPromotionDisplayValues
+            {
+                DescriptionHtml = new HtmlString(DESCRIPTION_MARKUP)
+            },
+            Link = new LinkViewModel { LinkUrl = LINK_URL }
+        };
+
+        Assert.False(viewModel.IsMisconfigured);
+        Assert.Equal(MisconfigurationReason.None, viewModel.MisconfigurationReason);
     }
 
     [Fact]

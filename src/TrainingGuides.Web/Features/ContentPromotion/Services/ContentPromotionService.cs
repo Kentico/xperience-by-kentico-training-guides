@@ -1,5 +1,8 @@
+using System.Text.Encodings.Web;
+using System.Text.RegularExpressions;
 using CMS.ContentEngine;
 using Kentico.Content.Web.Mvc.Routing;
+using Microsoft.AspNetCore.Html;
 using TrainingGuides.Web.Commerce.Products.Models;
 using TrainingGuides.Web.Commerce.Products.Services;
 using TrainingGuides.Web.Features.ContentPromotion.Models;
@@ -9,7 +12,7 @@ using TrainingGuides.Web.Features.Shared.Services;
 
 namespace TrainingGuides.Web.Features.ContentPromotion.Services;
 
-public class ContentPromotionService(
+public partial class ContentPromotionService(
     IContentItemRetrieverService contentItemRetrieverService,
     IWebPageUrlRetriever webPageUrlRetriever,
     ITaxonomyRetriever taxonomyRetriever,
@@ -132,9 +135,49 @@ public class ContentPromotionService(
             Item = new PromotedItemSource
             {
                 Title = product.ProductSchemaName,
-                Description = product.ProductSchemaDescription
+                Description = product.ProductSchemaDescription,
+                Image = GetProductImage(product)
             }
         };
+
+    /// <summary>
+    /// The product families keep their images in <c>ProductImage</c> content items rather than
+    /// in assets, so they need their own mapping - <see cref="AssetViewModel.GetViewModel"/>
+    /// takes an <see cref="Asset"/>, and nothing in this chain is one.
+    /// </summary>
+    /// <remarks>
+    /// A product page links a parent product, and a parent may carry no images of its own while
+    /// its variants do. The product page and the listing both fall back to a variant image for
+    /// that reason; the card needs only one image, so it takes the first one it can find.
+    /// </remarks>
+    private static AssetViewModel? GetProductImage(IProductSchema product) =>
+        ImagesOf(product)
+            .Concat(VariantsOf(product).SelectMany(ImagesOf))
+            .Select(GetImage)
+            .FirstOrDefault(image => image is not null);
+
+    private static IEnumerable<ProductImage> ImagesOf(IProductSchema product) =>
+        product.ProductSchemaImages ?? [];
+
+    private static IEnumerable<IProductSchema> VariantsOf(IProductSchema product) =>
+        (product as IProductParentSchema)?.ProductParentSchemaVariants?.OfType<IProductSchema>() ?? [];
+
+    /// <summary>
+    /// Mirrors <see cref="GetImage(Asset?)"/>: a product image with no file behind it is no
+    /// image, not an image with an empty source.
+    /// </summary>
+    private static AssetViewModel? GetImage(ProductImage? productImage)
+    {
+        string? url = productImage?.ProductImageAsset?.Url;
+
+        return string.IsNullOrWhiteSpace(url)
+            ? null
+            : new AssetViewModel
+            {
+                FilePath = url,
+                AltText = productImage!.ProductImageAltText ?? string.Empty
+            };
+    }
 
     public async Task<LinkViewModel?> ResolveLink(
         ContentPromotionWidgetProperties properties,
@@ -182,7 +225,7 @@ public class ContentPromotionService(
         {
             IArticleSchema article => await ArticleExtras(article),
             Service service => ServiceExtras(service),
-            IProductPriceSchema variant => await ProductExtras(variant),
+            IProductSchema product => await ProductExtras(product),
             _ => new PromotionExtrasViewModel()
         };
     }
@@ -215,25 +258,28 @@ public class ContentPromotionService(
     };
 
     /// <summary>
-    /// Price lives on <see cref="IProductPriceSchema"/>, which only variants implement, and stock
-    /// is keyed by the variant's content item ID. A parent product or a product page therefore
-    /// has neither, and shows no product extras at all - see spec section 7.2.
+    /// Price and stock are read through the same two rules the product listing uses, so a
+    /// promotion card and a listing tile for the same product never disagree.
     /// </summary>
     /// <remarks>
-    /// The price shown is the catalog price, not the raw <c>ProductPriceSchemaPrice</c> the spec
-    /// names, so that a discounted variant does not advertise two different prices on one page -
-    /// the product widget and listing both render the catalog price. It falls back to the schema
-    /// price whenever no discount applies.
+    /// Only variants carry a price and a stock record of their own, but neither rule needs the
+    /// caller to know that: <c>GetCatalogPrice</c> walks a parent to its first variant, and
+    /// <c>GetListingStockForProduct</c> folds a parent's variants into one state. Both answer
+    /// for a variant, a parent and the parent behind a product page alike.
+    ///
+    /// The price is the catalog price rather than the raw <c>ProductPriceSchemaPrice</c> the
+    /// spec names, so a discounted product does not advertise two different prices on one page.
+    /// It falls back to the schema price whenever no discount applies, and a product with no
+    /// price at all comes back as zero, which the card omits rather than printing "$0.00".
     /// </remarks>
-    private async Task<PromotionExtrasViewModel> ProductExtras(IProductPriceSchema variant)
+    private async Task<PromotionExtrasViewModel> ProductExtras(IProductSchema product)
     {
-        var stockStatus = await productService.GetProductStockStatus(variant as IProductSkuSchema);
+        decimal catalogPrice = await productService.GetCatalogPrice(product);
+        var stockStatus = await productService.GetListingStockForProduct(product);
 
         return new PromotionExtrasViewModel
         {
-            Price = variant is IProductSchema product
-                ? await productService.GetCatalogPrice(product)
-                : variant.ProductPriceSchemaPrice,
+            Price = catalogPrice > 0m ? catalogPrice : null,
             StockStatus = stockStatus == ProductStockEnum.Unknown ? null : stockStatus
         };
     }
@@ -244,7 +290,7 @@ public class ContentPromotionService(
         AssetViewModel? overrideImage = null) => new()
         {
             Title = Resolve(properties, ContentPromotionElement.TITLE, properties.Title, item?.Title),
-            Description = Resolve(properties, ContentPromotionElement.DESCRIPTION, properties.Description, item?.Description),
+            DescriptionHtml = ResolveDescription(properties, item?.Description),
             CallToActionText = Resolve(properties, ContentPromotionElement.CALL_TO_ACTION, properties.CallToActionText, item?.CallToActionText),
             Image = ResolveImage(properties, overrideImage, item?.Image)
         };
@@ -280,6 +326,55 @@ public class ContentPromotionService(
 
         return overrideImage ?? inheritedImage;
     }
+
+    /// <summary>
+    /// The description follows the same hide-override-inherit rule as every other element, but
+    /// its two sources are not the same kind of value. An inherited description is rich text
+    /// authored in the content hub and is passed through as markup; a typed override comes from
+    /// a plain text area, so it is encoded and whatever the author typed shows up literally.
+    /// </summary>
+    /// <remarks>
+    /// The cascade itself is <see cref="Resolve"/>'s, unchanged - only the two candidate values
+    /// are prepared differently before it chooses between them. Preparing the override even when
+    /// it loses costs an encode of a string the editor typed, which is not worth a second
+    /// copy of the ordering rule to avoid.
+    /// </remarks>
+    private static HtmlString ResolveDescription(
+        ContentPromotionWidgetProperties properties,
+        string? inheritedValue) => new(Resolve(
+            properties,
+            ContentPromotionElement.DESCRIPTION,
+            HtmlEncoder.Default.Encode(properties.Description),
+            WithoutAnchors(inheritedValue)));
+
+    /// <summary>
+    /// Unwraps any anchors in an inherited description, keeping their text.
+    /// </summary>
+    /// <remarks>
+    /// The whole card is one stretched link (spec section 6.3). An anchor inside the description
+    /// sits underneath that link, so it cannot be clicked - but it is still reached by keyboard,
+    /// leaving a focus stop that does nothing. A promotion card has exactly one destination, so
+    /// the link is dropped and its text kept rather than the card losing its own clickability.
+    ///
+    /// This is not sanitisation and must not be read as any: the description is rendered as
+    /// markup either way, and the content hub is the trust boundary. It removes one element that
+    /// conflicts with the card's layout, nothing more.
+    /// </remarks>
+    private static string WithoutAnchors(string? description) =>
+        string.IsNullOrWhiteSpace(description)
+            ? string.Empty
+            : AnchorTag().Replace(description, string.Empty);
+
+    /// <summary>
+    /// Matches an opening or closing anchor tag and nothing else. The word boundary after the
+    /// <c>a</c> keeps <c>abbr</c>, <c>article</c> and <c>address</c> out of it, and quoted
+    /// attribute values are matched as units so a legal <c>&gt;</c> inside one does not end the
+    /// tag early and leave the rest of it on the page as text. An anchor written with an
+    /// unquoted attribute value containing <c>&gt;</c>, or one shown as sample text inside a
+    /// <c>code</c> block, is beyond what a pattern can tell apart.
+    /// </summary>
+    [GeneratedRegex("""</?a\b(?:[^>"']|"[^"]*"|'[^']*')*>""", RegexOptions.IgnoreCase | RegexOptions.CultureInvariant)]
+    private static partial Regex AnchorTag();
 
     /// <summary>
     /// Hide beats override, override beats inherit.

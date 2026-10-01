@@ -79,8 +79,39 @@
     margin: 0;
 }
 
+/* The description is rich text from the content hub, so it arrives with blocks of its own -
+   paragraphs, lists, the occasional heading - each carrying Bootstrap's bottom margin. The
+   card owns the spacing between its parts through its own gap, so the block's outer margins
+   are collapsed and only the rhythm between its children is kept. */
 .c-content-promotion__description {
     margin: 0;
+
+    > :first-child {
+        margin-top: 0;
+    }
+
+    > :last-child {
+        margin-bottom: 0;
+    }
+
+    p,
+    ul,
+    ol {
+        margin-bottom: 0.5rem;
+    }
+
+    /* Inherited from the card rather than from Bootstrap's heading scale: a promotion is a
+       summary, and a heading pasted into the source text should not outshout the card title. */
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-size: inherit;
+        font-weight: 600;
+        margin-bottom: 0.25rem;
+    }
 }
 
 .c-content-promotion__extras {
@@ -111,8 +142,31 @@
     font-size: 1.125rem;
 }
 
+/* Price and stock are the only two extras that sit side by side on one line, and the flex gap
+   alone left them reading as a single phrase - "$24.99 In stock". The stock state is given the
+   same pill shape the categories use, which separates it from the price and matches the one
+   badge language the card already has. */
 .c-content-promotion__stock {
+    padding: 0.125rem 0.625rem;
+    border: 1px solid currentcolor;
+    border-radius: 1rem;
     opacity: 0.8;
+}
+
+/* Out of stock is the one state worth saying out loud, and at 0.8 opacity in the card's own
+   text color it read exactly like "In stock". It keeps the pill and takes the brand's
+   attention color, which is the same one the rest of the site uses for emphasis. */
+.c-content-promotion__stock--out-of-stock {
+    color: variables.$color-secondary;
+    opacity: 1;
+}
+
+/* Image overlay and gradient paint their own dark ground, where the attention color does not
+   carry. Both already force light text, so the pill falls back to it. */
+.c-content-promotion--image-overlay .c-content-promotion__stock--out-of-stock,
+.c-content-promotion--gradient .c-content-promotion__stock--out-of-stock {
+    color: variables.$color-light;
+    font-weight: 600;
 }
 
 .c-content-promotion__cta {

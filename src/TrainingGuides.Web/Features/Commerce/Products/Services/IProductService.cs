@@ -117,6 +117,15 @@ public interface IProductService
     Task<ProductStockEnum> GetProductStockStatus(IProductSkuSchema? skuProduct);
 
     /// <summary>
+    /// Determines the stock state to show for a product in a list, where no variant has been
+    /// chosen yet. A product with its own SKU answers for itself; a parent answers with the best
+    /// state any of its variants is in.
+    /// </summary>
+    /// <param name="product">The product whose stock to summarize - a variant or a parent.</param>
+    /// <returns>The stock state, or <see cref="ProductStockEnum.Unknown"/> when nothing is known.</returns>
+    Task<ProductStockEnum> GetListingStockForProduct(IProductSchema product);
+
+    /// <summary>
     /// Retrieves all available product listing filters.
     /// </summary>
     /// <returns>A collection of product listing filter view models.</returns>

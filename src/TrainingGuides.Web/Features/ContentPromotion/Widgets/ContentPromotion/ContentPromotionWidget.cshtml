@@ -58,9 +58,11 @@ else
                     <h3 class="c-content-promotion__title h4">@Model.DisplayValues.Title</h3>
                 }
 
-                @if (!string.IsNullOrWhiteSpace(Model.DisplayValues.Description))
+                @* A div, not a paragraph: the description is rich text and may contain blocks of
+                   its own, which a browser would hoist out of a p element and leave unstyled. *@
+                @if (!string.IsNullOrWhiteSpace(Model.DisplayValues.DescriptionHtml.Value))
                 {
-                    <p class="c-content-promotion__description">@Model.DisplayValues.Description</p>
+                    <div class="c-content-promotion__description">@Model.DisplayValues.DescriptionHtml</div>
                 }
 
                 @* Read-only facts only one content family has. Absent for every other family, and for
@@ -97,16 +99,19 @@ else
 
                         @if (Model.Extras.StockStatus.HasValue)
                         {
-                            <span class="c-content-promotion__stock">
-                                @(Model.Extras.StockStatus.Value switch
-                                {
-                                    ProductStockEnum.OutOfStock => StringLocalizer["Out of stock"].Value,
-                                    ProductStockEnum.LowStock => StringLocalizer["Low stock"].Value,
-                                    ProductStockEnum.PreOrder => StringLocalizer["Pre-order"].Value,
-                                    ProductStockEnum.InStock => StringLocalizer["In stock"].Value,
-                                    _ => string.Empty
-                                })
-                            </span>
+                            @* One switch over the stock state rather than two: the label and the
+                               modifier class always move together. Only out of stock is called
+                               out visually - the rest read as ordinary detail. *@
+                            (string Label, string? Modifier) stock = Model.Extras.StockStatus.Value switch
+                            {
+                                ProductStockEnum.OutOfStock => (StringLocalizer["Out of stock"].Value, "c-content-promotion__stock--out-of-stock"),
+                                ProductStockEnum.LowStock => (StringLocalizer["Low stock"].Value, null),
+                                ProductStockEnum.PreOrder => (StringLocalizer["Pre-order"].Value, null),
+                                ProductStockEnum.InStock => (StringLocalizer["In stock"].Value, null),
+                                _ => (string.Empty, null)
+                            };
+
+                            <span class="c-content-promotion__stock @stock.Modifier">@stock.Label</span>
                         }
                     </div>
                 }

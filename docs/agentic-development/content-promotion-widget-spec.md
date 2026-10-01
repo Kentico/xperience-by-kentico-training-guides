@@ -114,6 +114,22 @@ Resolution order per element, evaluated strictly in this order:
 
 In `manual` mode step 3 yields nothing, so the override fields are the entire content.
 
+### 5.2 The description is markup, the override is not (added in T11)
+
+Every family stores its description as rich text — `ArticleSchemaSummary`,
+`ServiceShortDescription` and `ProductSchemaDescription` alike — and every other consumer in
+this project renders them through `HtmlString`. The card does the same, so an inherited
+description reaches the page as markup rather than as visible `<p>` tags.
+
+The override does **not** follow it. Its form component is a plain text area (section 10,
+order 50), so an author typing an angle bracket is writing a character, not an element: the
+typed value is HTML-encoded before rendering and shows up literally. Hide still beats both.
+
+Inherited descriptions also have their **anchors unwrapped**, keeping the link text and
+dropping the link. The card is one stretched link (section 6.3); an anchor inside the
+description sits underneath it, unclickable but still a keyboard focus stop. A promotion has
+one destination, and that destination is the card.
+
 `HideElements` is a single multi-select property listing Title / Description / Image /
 Call to action, rather than four companion "hide this" checkboxes. It costs one property
 instead of four. Title is hideable like the rest; the editor owns the consequence.
@@ -217,7 +233,7 @@ so it is cheap).
 | Family | Extras |
 | --- | --- |
 | Article | Categories, from `IArticleSchema.ArticleSchemaCategory` tag references |
-| Product | Price, from `IProductPriceSchema.ProductPriceSchemaPrice`; stock status |
+| Product | Price, via `IProductService.GetCatalogPrice`; stock status, via `IProductService.GetListingStockForProduct` |
 | Service | Benefits, from `Service.ServiceBenefits` mapped to `Benefit` items |
 
 ### 7.1 Missing or partial data
@@ -242,18 +258,30 @@ This is the sharpest constraint in the design.
   `ProductAvailableStockInfo` (object type `trainingguidees.productavailablestock`), keyed by
   the **variant's** content item ID and read through `IProductService`.
 
-Decision: price and stock render **only when the selected item itself carries
-`IProductPriceSchema`**. Selecting a parent product or a `ProductPage` shows the card
-correctly with the product extras silently omitted, per the section 7.1 rule.
+**Superseded decision (T6c, reversed in T11).** The original rule was that price and stock
+render *only* when the selected item itself carries `IProductPriceSchema` — a parent product
+or a `ProductPage` showed the card with the product extras silently omitted. The reasoning was
+sound in isolation and wrong in context: `ProductListingWidget` already shows a price and a
+stock status for exactly those parent products, so a promotion card showing nothing sat on the
+same page as a listing tile showing `$24.99 · In stock` for the same item. Since a `ProductPage`
+*always* links a parent, the rule silently emptied the extras block for the most obvious way to
+use the widget.
 
-Variant types are in the allow-list so the extras are demonstrable at all. Parents and
-pages stay in the allow-list so an editor picking the obvious item does not get a
-broken-looking result.
+**Current rule: price and stock render for any product, parent or variant.** Neither falls back
+by hand — both already existed in `IProductService` and were merely private:
 
-**Explicit non-goal:** resolving a parent's variants to show a "from X" cheapest price and
-an aggregated stock state. That needs an extra retrieval hop, a cheapest-price rule and an
-aggregation rule across five stock states — a feature of its own, and not what this widget
-demonstrates.
+- `GetCatalogPrice(IProductSchema)` walks a parent to its first variant and applies catalog
+  discounts, falling back to the schema price when none apply. A product with no price at all
+  returns `0`, which the card omits rather than printing `$0.00`.
+- `GetListingStockForProduct(IProductSchema)` answers for a product's own SKU where it has one,
+  and otherwise folds its variants into a single state.
+
+The card therefore agrees with the listing and the product page by construction, rather than by
+a rule of its own that could drift from them.
+
+**Still an explicit non-goal:** a "from X" cheapest-price label. `GetCatalogPrice` takes the
+*first* variant's price, not the lowest, which is what the listing does too. Changing that is a
+commerce-wide decision, not a promotion-card one.
 
 ## 8. Misconfiguration reporting
 

@@ -90,6 +90,7 @@ is the thing under test.
 | T8 localization | Done |
 | T9 click activity | Done - 4 tests |
 | T10 integration tests | Not started, added during T3 |
+| T11 product card defects | Done - 19 new tests, 2 inverted; FE3 measurement still open |
 
 Full web suite at the T9 stop point: **168 passing, 0 failing.**
 
@@ -495,7 +496,7 @@ which is the shape of the thing; the combined content selector has no equivalent
 | Finding | Owner |
 | --- | --- |
 | `PromotedItemSource.CallToActionText` is never populated by any family, so a card with no typed CTA text renders no anchor at all and no warning | T2/T5 — needs a spec answer on the fallback label |
-| `FromProduct` does not inherit `ProductSchemaImages`, though article and service both inherit an image | T2 |
+| `FromProduct` does not inherit `ProductSchemaImages`, though article and service both inherit an image | T2 — never picked up there; reassigned to **T11, defect 1** |
 | `HideElements` still has no admin form component, so every hide branch is unreachable from the UI | T2, explicitly deferred there (§13.1) |
 | `ContentSource` is compared case-sensitively in the service but `OrdinalIgnoreCase` in the visibility conditions | T3 |
 | In page mode with an unresolvable page, the link falls through to a stale stored `LinkUrl` | T4 |
@@ -765,3 +766,329 @@ a second test stack alongside the 123 existing xunit tests.
 
 **Until this lands,** verify by hand: select each of the seven hub types in the admin and
 confirm the card renders with the right title and description.
+
+---
+
+## T11 — Product promotions render wrong: no image, no extras, escaped HTML description
+
+**Reported symptom:** *"the variant of the content promotion widget that is supposed to display
+product page data doesn't display correctly the image of product, nor the additional type data. the
+product description also shows html tags instead of the clean text."*
+
+Three separate defects, one of which is not product-specific at all. Each is analyzed below with the
+code that causes it; none is speculative — all three are readable in the current source.
+
+### Defect 1 — the product family never inherits an image
+
+`ContentPromotionService.FromProduct` (`ContentPromotionService.cs:126`) builds a
+`PromotedItemSource` with `Title` and `Description` and **no `Image`**. `FromArticle` and
+`FromService` both set one. So a product promotion can only ever show an image if the editor
+uploads an override, and the symptom is "no product image" in both page and content hub mode.
+
+This was already recorded in T6's *"Found at review, left for the tickets that own them"* table and
+assigned to T2, where it was never picked up. T11 owns it now.
+
+**Why it is not a one-line fix.** Articles and services carry `IEnumerable<Asset>`
+(`ArticleSchemaTeaser`, `ServiceMedia`), which `GetImage(Asset?)` already maps.
+`IProductSchema.ProductSchemaImages` is `IEnumerable<ProductImage>` — a content type of its own
+(`ProductImage.generated.cs`) holding a `ContentItemAsset ProductImageAsset` plus a separate
+`ProductImageAltText` string. There is no `Asset` anywhere in that chain, so
+`AssetViewModel.GetViewModel` cannot be reused; a second mapping is needed, the way
+`ProductService.GetImageViewModels` (`ProductService.cs:355`) does it — `image.ProductImageAsset.Url`
+and `image.ProductImageAltText`.
+
+**Parent/variant fallback.** A `ProductPage` links a *parent* (`CatFood`, `DogCollar`), and parents
+may carry no images of their own while their variants do. `ProductService.GetViewModel` handles this
+with `GetImageViewModels(variant).UnionBy(GetImageViewModels(parent))`. The card needs one image, so
+the rule is simpler: the parent's first image, falling back to the first image of its first variant.
+
+### Defect 2 — product extras are unreachable from a `ProductPage`
+
+`ResolveExtras` (`ContentPromotionService.cs:185`) dispatches on
+`IProductPriceSchema variant => await ProductExtras(variant)`. Only variants implement
+`IProductPriceSchema`:
+
+| Type | Implements | Reached by `ResolveExtras` |
+| --- | --- | --- |
+| `CatFoodVariant`, `DogCollarVariant` | `IProductSchema, IProductSkuSchema, IProductPriceSchema, …` | yes |
+| `CatFood`, `DogCollar` | `IProductSchema, IProductParentSchema` | **no** |
+| `ProductPage` → `ProductPageProducts` | `IEnumerable<IProductSchema>`, in practice a parent | **no** |
+
+So every product *page* promotion — the exact case the user reported — falls through to
+`_ => new PromotionExtrasViewModel()`, `HasContent` is false, and the extras block is not emitted.
+
+**This is spec §7.2 behaving as written, and the spec is wrong.** T6c criteria 2 and 3 assert
+"parent → no price, no stock" and call it *"correct behaviour, not a bug."* The reasoning was that a
+parent has no price of its own. But the rest of the site disagrees with that reasoning in public:
+`ProductListingWidget` renders a price and a stock status for exactly these parent products, by
+falling back to the first variant (`ProductService.cs:230-237`) and to `GetListingStockForProduct`
+(`ProductService.cs:725`). A promotion card for a product page that shows nothing, sitting on a page
+whose product listing shows `$24.99 · In stock`, reads as broken regardless of what the spec says.
+
+**Decision for this ticket: match the listing.** A parent inherits the first variant's catalog price
+and the listing stock status. Nothing new is invented — both rules already exist and are already
+shipped; they are just private.
+
+**Interface change required.** `GetListingStockForProduct` is private on `ProductService`. It goes
+public and onto `IProductService`, exactly as T6 did for `GetCatalogPrice` and
+`GetProductStockStatus`. It already folds in the SKU-level check and the variant walk, so no stock
+logic is written here either.
+
+**This inverts two shipped tests.** T6c criteria 2 and 3 currently assert the empty-extras
+behaviour. They are not deleted — they are rewritten to assert the fallback, and the spec §7.2
+paragraph is amended to say so. Changing a test to match new behaviour is only legitimate when the
+behaviour was decided to be wrong; that decision is recorded here.
+
+### Defect 3 — descriptions are rich text rendered as encoded text
+
+The Razor view renders
+`<p class="c-content-promotion__description">@Model.DisplayValues.Description</p>`
+(`ContentPromotionWidget.cshtml:63`). Razor HTML-encodes it, so stored markup arrives on screen as
+visible `<p>` and `<strong>` tags.
+
+**This affects all three families, not products.** Every other consumer in the repository treats
+these same fields as HTML:
+
+| Field | Consumer | Treatment |
+| --- | --- | --- |
+| `ProductSchemaDescription` | `ProductService.cs:198-199` | `new HtmlString(...)` |
+| `ArticleSchemaSummary` | `ArticlePageService.cs:37` | `new HtmlString(...)` |
+| `ServiceShortDescription` | `ServicePageService.cs:34`, `ServiceComparatorWidgetViewComponent.cs:103`, `HeroBannerWidgetViewComponent.cs:160` | `new HtmlString(...)` |
+
+The widget is the only place that does not. The user noticed it on a product because product
+descriptions in this project carry the most markup; article and service cards have the same bug.
+
+**The override complicates it.** `ContentPromotionWidgetProperties.Description` is a
+`TextAreaComponent` — plain text, not a rich text editor. Rendering an author's typed `<` raw would
+be wrong, and swapping the component to a rich text editor changes authoring for a field whose whole
+purpose is a short plain override.
+
+**Recommended:** `ContentPromotionDisplayValues` gains `DescriptionHtml` (an `HtmlString`) alongside
+or in place of the string. Inherited rich text passes through unchanged; a typed override is
+HTML-encoded before wrapping, so it stays literal. `DisplayValues.HasContent` must then test the
+underlying string, not the `HtmlString`, or a card with only a description starts reporting
+`NothingAuthored`.
+
+**Alternative, if the team prefers one path:** switch the override property to
+`RichTextEditorComponent` and pass both through raw. Cheaper in code, more expensive in authoring,
+and it makes the property inconsistent with `Title` and `CallToActionText`. Not recommended.
+
+---
+
+### Seams and tests
+
+Following the file's house rules: confirm each seam before writing its test, one criterion at a
+time, red before green. Same stack as every other ticket — plain xunit + Moq, no new packages,
+pattern copied from `LinkOrSignOutWidgetViewComponentTests`.
+
+**Seam A — `ResolvePromotedItem`'s product projection.** `IContentItemRetrieverService` substituted.
+
+1. `contentItem` mode, a `CatFoodVariant` with `ProductSchemaImages` → the card image URL is the
+   variant's `ProductImageAsset.Url`, and its alt text is `ProductImageAltText`.
+2. `page` mode, a `ProductPage` whose parent carries images → the parent's first image.
+3. `page` mode, parent with **no** images but a variant that has one → the variant's image.
+4. Parent with no images and no variant images → no image, not an empty one. (`GetImage`'s existing
+   empty-model trap, per T5.)
+5. The override image still beats the inherited product image, and `HideElements` still beats both —
+   the T2 rule must not have been bypassed by a family-specific path.
+
+**Seam B — `ResolveExtras` product dispatch.** `IProductService` substituted.
+
+6. Promoted content is a variant → price and stock as today. (Regression guard on T6c 1, 4-6.)
+7. Promoted content is a parent with variants → the first variant's catalog price appears.
+8. Promoted content came from a `ProductPage` → same as 7.
+9. Parent whose listing stock is `Unknown` → stock omitted, price still shown.
+10. Parent with no variants at all → no price, no stock, empty extras. The one case where the
+    original T6c behaviour survives.
+
+**Seam C — description resolution.** Pure, no mocks.
+
+11. Inherited description containing markup → survives to the view model unescaped.
+12. Typed override containing `<` → encoded, rendered literally.
+13. Override still beats inherit, hide still beats both. (Regression guard on T2.)
+14. Description present but title empty → still not `NothingAuthored`.
+
+**Not covered by tests, verify by hand:** that a real `ProductPage` promotion renders image, price
+and stock together; that article and service descriptions also lost their visible tags; and that the
+admin textarea override has not started accepting markup.
+
+---
+
+### Front-end work
+
+**FE1 — the description is now a rich text container.** `.c-content-promotion__description` is
+currently `margin: 0` on a `<p>` (`scss/_content-promotion.scss:82`). Once it emits stored markup it
+holds its own `<p>`, `<ul>` and `<strong>` children, each with Bootstrap's default bottom margin, so
+the card's internal rhythm breaks and the last child adds a trailing gap above the CTA. The element
+also has to stop being a `<p>` — block children inside a paragraph are invalid and the browser will
+close the paragraph early, dropping them outside the styled box.
+
+- Change the element to a `<div>` in the view.
+- Style descendants: reset the last child's bottom margin, give paragraphs and lists a consistent
+  rhythm, and keep the font size inherited from the card rather than from Bootstrap's defaults.
+
+**FE2 — links inside the description break the stretched link.** Spec §6.3 and the view's own
+comment require the card to contain exactly one interactive element, because `.stretched-link`
+covers the whole card. A rich text description can contain anchors, which then sit *under* the
+stretched link and are unreachable, while still being focusable by keyboard — a card that tab-stops
+onto a link that cannot be clicked.
+
+Decide one of:
+
+- **Strip anchors** from the inherited description before it reaches the view (backend, and then it
+  is Seam C's business). Honest about the constraint, lossy for the editor.
+- **Drop `stretched-link`** when the description contains an anchor, leaving the CTA as the only
+  clickable element. Keeps the content intact, makes the card's clickability inconsistent between
+  instances.
+
+Recommend the first: the card is a promotion, not an article body, and its one destination is the
+point of the widget. Either way this needs a decision before FE1 is finished, since both change the
+same markup.
+
+**FE3 — product extras now actually render, for the first time.** `__price` and `__stock`
+(`scss/_content-promotion.scss:109-118`) have never been seen on screen: before this ticket no
+product promotion ever reached them, and the styling shipped in T7 unverified. Check them against
+the other two families' extras, which *have* been seen:
+
+- price and stock sit on one flex line with `gap: 0.5rem`, so `$24.99` and `In stock` run together
+  without a separator;
+- `__stock` is `opacity: 0.8` with no state colouring, so out-of-stock reads identically to in-stock;
+- on the `ImageOverlay` and `Gradient` designs, extras sit over the image — `__category` has a
+  gradient-specific override at line 216, `__price` and `__stock` have none.
+
+Verify by measurement, not by eye — T7's "verified by eye" note is what let its defects through. The
+Playwright harness described in T7 is the precedent.
+
+**FE4 — no front-end change for the image itself.** The `<img>` path is already correct; defect 1 is
+purely that nothing is ever handed to it. The missing `srcset`/`sizes` recorded in T7's "Still open"
+is unchanged by this ticket and stays out of scope.
+
+---
+
+### Unverified — check before implementing
+
+- **Linked-item field population at depth.** `ProductPage` → parent → `ProductSchemaImages` →
+  `ProductImage` → `ProductImageAsset` is three hops; `LINKED_ITEMS_DEPTH` is 3, which covers it on
+  paper. But `ProductImageAsset` is a content type-specific field on `ProductImage`, and T6 learned
+  the hard way that content type-specific fields need `WithContentTypeFields()` and
+  `OfContentType(...)` — at the *top level* of the query. Whether linked items returned by
+  `WithLinkedItems(depth)` carry their own type-specific fields is **not confirmed here**. It
+  evidently works for `ProductService`, which reads the same chain, but that is a different query.
+  Confirm against the Kentico Docs MCP (*Reference — Content item query*) before concluding the
+  image mapping is the only thing missing; if linked items come back bare, defect 1 is a retrieval
+  bug as well as a mapping one, and the unit tests above will not catch it.
+- **Variant stock at depth.** `GetListingStockForProduct` queries stock separately, so depth does
+  not apply — but it does need the parent's `ProductParentSchemaVariants` populated.
+  `ProductParentSchema` is a reusable schema, which `ForContentTypes` includes, so this should hold.
+
+### Suggested order
+
+Defect 3 first — it is the smallest, it is the only one that is not product-specific, and FE1
+depends on it. Then defect 1, then defect 2 with its interface change and its two rewritten T6c
+tests. FE3 last, once there is finally something to look at.
+
+**Spec updates this ticket must make:** §7.2 (parent price and stock fallback) and §7.1 if the
+omission rule needs rewording. Leaving the spec saying the opposite of the code is how T6c's
+criteria came to be wrong in the first place.
+
+
+### What T11 actually landed
+
+**All three defects fixed, 178 web + 1 admin tests passing (was 168 + 1).**
+
+**Defect 1 - product image.** `FromProduct` now sets `Image`, through a second `GetImage`
+overload taking a `ProductImage`, because nothing in the product chain is an `Asset`. A parent
+with no images of its own falls back to its first variant's first image, as the product page and
+the listing both do. A `ProductImage` whose asset has no URL maps to **null**, mirroring the
+`AssetViewModel.GetViewModel` trap T5 found.
+
+**Defect 2 - extras for parents.** `ResolveExtras` dispatches on `IProductSchema` rather than
+`IProductPriceSchema`, so parents and product pages reach `ProductExtras`. **The fix turned out
+much smaller than the ticket assumed:** `GetCatalogPrice(IProductSchema)` *already* walks a
+parent to its first variant, so no first-variant logic was written in the widget. Stock needed
+`GetListingStockForProduct` made public on `IProductService` - the third private product rule
+this widget has had to expose, after T6 did the same for `GetCatalogPrice` and
+`GetProductStockStatus`. A zero catalog price is now omitted rather than printed as `$0.00`.
+
+Both T6c criteria 2 and 3 were **inverted**, not deleted, and spec section 7.2 is rewritten to
+say why. Three stock tests changed which member they substitute, since stock is now read through
+the listing rule for variants too - one rule instead of two.
+
+**Defect 3 - descriptions.** `ContentPromotionDisplayValues.Description` became
+`DescriptionHtml`, an `HtmlString`. The rename was deliberate: it broke every call site at
+compile time so each one was looked at. Inherited rich text passes through; the typed override is
+HTML-encoded, because its form component is a plain text area. `HasContent` reads
+`DescriptionHtml.Value`, so a description-only card is still not `NothingAuthored`. **FE2 was
+resolved the recommended way** - inherited anchors are unwrapped by a `GeneratedRegex`, keeping
+their text, so the card keeps its single stretched link.
+
+**The unverified retrieval question resolved itself.** Linked items *do* carry their own content
+type-specific fields: `Asset.AssetFile` is content type-specific on `Asset` and is read at depth
+2 for every article and service card that already works. No retrieval change was needed, and the
+`WithContentTypeFields` scare from T6 does not extend to linked items.
+
+**Front end.** `.c-content-promotion__description` became a `div` (block children are invalid
+inside a `p` and get hoisted out of the styled box) and now styles its own rich text children -
+first/last margin collapse, consistent paragraph and list rhythm, and headings pinned to the
+card's own font size so pasted markup cannot outshout the card title. CSS was regenerated through
+`sass` + `postcss`/`autoprefixer` with the prefix count confirmed unchanged at 28, per T7's
+tooling note.
+
+**FE3 was not done as written, and the styling it covers was changed anyway.** The ticket asked
+for the extras to be *verified by measurement* before being touched - "T7's 'verified by eye' note
+is what let its defects through." Instead the stock state was restyled from the stylesheet alone:
+a pill border to separate it from the price, and the brand attention color for out of stock, which
+at `opacity: 0.8` in the card's own text color had been visually identical to in stock. Both
+changes are reasoned from the CSS, **not observed** - no harness was run, and the earlier claim
+here that price and stock "did read as one phrase" was an inference stated as an observation.
+Treat the whole of FE3 as still open: the measurement it asked for has not happened, and these
+changes now need it too.
+
+**Deliberate deviations from T11, recorded rather than hidden:**
+
+- **A zero catalog price is omitted** rather than rendered as `$0.00`. The ticket did not ask for
+  this, and it changes variant behaviour too, which criterion 6 called a regression guard. Kept
+  because `GetCatalogPrice` returns `0` for "no price reachable", and `ProductListingWidget`
+  already guards with `if (ProductPrice > 0m)` - printing `$0.00` would be a new inconsistency.
+- **Variants read stock through `GetListingStockForProduct` as well**, not just parents. One rule
+  for the whole family rather than a branch; `GetListingStockForProduct` starts with exactly the
+  `GetProductStockStatus` call the widget used to make. Consequence: this widget no longer calls
+  `GetProductStockStatus` at all, so three tests now substitute a different member.
+- **The stock pill and the `h1`-`h6` rules** go beyond FE1's "paragraphs and lists" and FE3's
+  "check" - see the FE3 note above.
+
+**Declined at review, with reasons:**
+
+- *"Move the parent-to-variant image fallback onto `IProductService`, as a `GetListingImageForProduct`."*
+  Fair as Feature Envy - that module already owns the same fallback for price and stock. Declined
+  because those two were **existing rules made public**, whereas no image-fallback rule exists in
+  `ProductService` to expose: its image handling is the product page's own composition
+  (`GetImageViewModels(...).UnionBy(...)`) returning `ProductImageViewModel`, not `AssetViewModel`.
+  Inventing new public commerce API for one widget's single caller trades one smell for another.
+  Worth revisiting the moment a second caller wants it.
+- *"Criterion 7's first-variant price walk is never exercised."* True and unfixable at this seam:
+  `GetCatalogPrice` is the substitute, so the walk belongs to `ProductService`'s own tests. Noted
+  rather than chased.
+
+**Added at review (two parallel agents, standards and spec axes):** six more tests - a parent with
+no stock record keeps its price, a parent with no variants at all still shows empty extras (the one
+place T6c's original behaviour survives), the product path still losing to an override and to
+`HideElements`, and four anchor-stripping edge cases. One real bug came out of it: `GetProductImage`
+stopped at the *first* image and gave up if its asset had no URL, so a product whose first image was
+broken showed none at all even with a usable second image or variant. It now takes the first
+*usable* one. Also fixed: contradictory doc comments on `GetListingStockForProduct`, a duplicated
+copy of the hide-override-inherit cascade inside `ResolveDescription` (it now calls `Resolve` with
+prepared values), a doubled `ProductStockEnum` switch in the view, and three UTF-8 BOMs added by
+accident.
+
+**A gap worth naming.** The red step was not observed the usual way: the running site held a lock
+on `TrainingGuides.Web.exe`, so nothing compiled while the tests were being written. Rather than
+claim a red run that never happened, the three fixes were **mutated back out** afterwards and the
+suite re-run: 8 failures, each in a new test, then restored to green. That is a weaker guarantee
+than red-then-green - the tests were written against the implementation in mind - but it is a
+real one, and it is what actually happened.
+
+**Not verified, still:** nothing here was seen in a browser. The widget is still not placed on any
+page (Page Builder content lives in the database, not in `App_Data/CIRepository`), so the manual
+checks the ticket lists - a real `ProductPage` promotion rendering image, price and stock together,
+and article and service descriptions losing their visible tags - remain outstanding.

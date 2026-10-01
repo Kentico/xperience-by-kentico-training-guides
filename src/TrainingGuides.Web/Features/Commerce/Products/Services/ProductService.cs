@@ -717,12 +717,8 @@ public class ProductService(IContentItemRetrieverService contentItemRetrieverSer
         return models;
     }
 
-    /// <summary>
-    /// Gets the listing stock status for a product, considering the stocks of all variants if applicable.
-    /// </summary>
-    /// <param name="product">Product to check stock for</param>
-    /// <returns>The stock status of the product, or the highest stock status from among its variants</returns>
-    private async Task<ProductStockEnum> GetListingStockForProduct(IProductSchema product)
+    /// <inheritdoc/>
+    public async Task<ProductStockEnum> GetListingStockForProduct(IProductSchema product)
     {
         if (product is IProductSkuSchema skuProduct)
         {
