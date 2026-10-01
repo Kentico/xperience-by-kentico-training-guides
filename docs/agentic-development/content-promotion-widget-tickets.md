@@ -1088,7 +1088,9 @@ suite re-run: 8 failures, each in a new test, then restored to green. That is a 
 than red-then-green - the tests were written against the implementation in mind - but it is a
 real one, and it is what actually happened.
 
-**Not verified, still:** nothing here was seen in a browser. The widget is still not placed on any
-page (Page Builder content lives in the database, not in `App_Data/CIRepository`), so the manual
-checks the ticket lists - a real `ProductPage` promotion rendering image, price and stock together,
-and article and service descriptions losing their visible tags - remain outstanding.
+**Manual checks.** Price and stock on a real `ProductPage` promotion are **confirmed by the
+reporter** - defect 2's fix is verified in the running site, not only in tests. Still outstanding:
+the product image, article and service descriptions losing their visible tags, and the FE3
+measurement above. Note that the widget is not placed on any page in source control - Page Builder
+content lives in the database, not in `App_Data/CIRepository` - so these can only be checked in a
+running instance.
