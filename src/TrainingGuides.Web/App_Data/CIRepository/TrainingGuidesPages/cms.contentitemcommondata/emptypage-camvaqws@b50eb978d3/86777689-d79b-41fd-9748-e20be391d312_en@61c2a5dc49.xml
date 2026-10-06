@@ -13,7 +13,7 @@
   <ContentItemCommonDataFirstPublishedWhen>2026-10-06 15:22:13Z</ContentItemCommonDataFirstPublishedWhen>
   <ContentItemCommonDataGUID>86777689-d79b-41fd-9748-e20be391d312</ContentItemCommonDataGUID>
   <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
-  <ContentItemCommonDataLastPublishedWhen>2026-10-06 15:22:39Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataLastPublishedWhen>2026-10-06 15:26:58Z</ContentItemCommonDataLastPublishedWhen>
   <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
   <ContentItemCommonDataVisualBuilderTemplateConfiguration>
 <![CDATA[
@@ -129,7 +129,7 @@
   <ContentItemReferences>
     <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>1e492d02-829c-4c8b-a94f-a1a2e4f9da44</ContentItemReferenceGroupGUID>
-      <ContentItemReferenceGUID>aa9e02e5-cfb3-423d-9bcb-7ef147d4dab2</ContentItemReferenceGUID>
+      <ContentItemReferenceGUID>4b2317ae-baae-45da-865c-fba5fd147beb</ContentItemReferenceGUID>
       <ContentItemReferenceSourceCommonDataID>
         <GUID>86777689-d79b-41fd-9748-e20be391d312</GUID>
         <ObjectType>cms.contentitemcommondata</ObjectType>

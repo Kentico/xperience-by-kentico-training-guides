@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.webpageurlpath>
-  <WebPageUrlPath>empty-page</WebPageUrlPath>
+  <WebPageUrlPath>content-promotion-example</WebPageUrlPath>
   <WebPageUrlPathContentLanguageID>
     <CodeName>en</CodeName>
     <GUID>e81b5172-f240-4041-88b1-653089984e29</GUID>
@@ -8,7 +8,7 @@
   </WebPageUrlPathContentLanguageID>
   <WebPageUrlPathGUID>8608b414-8597-4e7a-a842-7b5ccafce395</WebPageUrlPathGUID>
   <WebPageUrlPathHash>
-    <![CDATA[A8E0F0440D5EF923CA034D4519F1D78417A75D7BE772C02C913E123130B23A22]]>
+    <![CDATA[0BF21615F70297F9151674DB111CE90B1A24231452DA6EED5020B6D8F191970E]]>
   </WebPageUrlPathHash>
   <WebPageUrlPathIsCanonical>True</WebPageUrlPathIsCanonical>
   <WebPageUrlPathIsDraft>False</WebPageUrlPathIsDraft>
