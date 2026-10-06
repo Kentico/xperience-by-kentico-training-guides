@@ -1,4 +1,5 @@
 ﻿@using Kentico.PageBuilder.Web.Mvc
+@using TrainingGuides.Web.Commerce.Products.Helpers
 @using TrainingGuides.Web.Commerce.Products.Models
 @using TrainingGuides.Web.Features.ContentPromotion.Models
 @using TrainingGuides.Web.Features.ContentPromotion.Widgets.ContentPromotion
@@ -90,7 +91,7 @@ else
 
                         @if (Model.Extras.Price.HasValue)
                         {
-                            <span class="c-content-promotion__price">$@Model.Extras.Price.Value.ToString("n2")</span>
+                            <span class="c-content-promotion__price">@PriceFormatter.Format(Model.Extras.Price.Value)</span>
                         }
 
                         @if (Model.Extras.StockStatus.HasValue)
