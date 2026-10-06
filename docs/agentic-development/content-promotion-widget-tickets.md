@@ -94,7 +94,15 @@ is the thing under test.
 | T12 CTA editor notices | Done — 2 tests, notice only (no fallback label) |
 | T13 remove page selector workaround | Done — 2 drift guard tests; 4 workaround tests removed |
 | T14 HideElements form component | Done — 6 tests |
-| T15–T21 pre-publish review fixes | Not started, raised at code review 2026-10-06 — see [Pre-publish code review](#pre-publish-code-review) |
+| T15 cached retrieval | Done — 2 link-target tests repointed; retriever itself still untested (T10) |
+| T16 link and source-mode leftovers | Done — 3 tests |
+| T17 price formatting | Done — 3 tests |
+| T18 activity endpoint | Done — 1 test |
+| T19 click logger script | Done — no automated tests; exercised in headless Chrome |
+| T20 service and model cleanup | Done — no new tests; 1 obsolete test removed |
+| T21 comment pass | Done |
+
+Pre-publish fixes T12–T21 are listed in [Pre-publish code review](#pre-publish-code-review). Manual checks still to run: [Manual verification after T12–T21](#manual-verification-after-t12t21).
 
 Full web suite at the T9 stop point: **168 passing, 0 failing.**
 
@@ -1188,6 +1196,14 @@ Retrieval correctness belongs to **T10** — this ticket makes T10 more urgent, 
 issues no content queries for it. Publishing a change to the promoted item still updates the card
 (cache dependency works).
 
+**Implemented (T15 done).** Verified against the Kentico Docs MCP (*Reference - ContentRetriever
+API*): the content hub lookup uses `RetrieveContentOfContentTypesByGuids`, the selected page uses
+`RetrievePagesOfContentTypes` with a `ContentItemGUID` condition and a matching
+`cacheItemNameSuffix`, and the link target uses a new `RetrieveWebPageForUrlByContentItemGuid`
+(`RetrieveAllPages`, `IncludeContentTypeFields = false`, no linked items). The private
+`RetrieveWebPages` helper lost the content type branch that only this widget used. Not changed:
+price calculation still runs once per product card - it is the main remaining per-render cost.
+
 ---
 
 ### T16 — Link and source-mode correctness leftovers
@@ -1206,6 +1222,10 @@ Two findings from the T6 *left for the tickets that own them* table that were ne
 2. Content hub mode, no target page, `LinkUrl` set → link is `LinkUrl` (regression guard).
 3. `ContentSource = "MANUAL"` behaves like `manual`; `"ContentItem"` like `contentItem`.
 
+**Implemented (T16 done).** Both rules go through
+`ContentPromotionWidgetProperties.IsContentSource`, which `IsElementHidden` (T14) now also uses.
+Criterion 2 already had a test (`ResolveLink_ContentItemSourceWithTypedUrlOnly_LinksToTypedUrl`).
+
 ---
 
 ### T17 — Culture-aware price formatting
@@ -1223,6 +1243,20 @@ explicit culture.
 
 **Manual check:** the same product shows the identical price string in the listing and in a
 promotion card, in each site language.
+
+**Implemented (T17 done).** `PriceFormatter.Format` in `Features/Commerce/Products/Helpers`, used by
+`ProductListingWidget` and the promotion card. Decision: keep the listing's behaviour (current
+culture's currency format). Tests cover en-US and es-MX; fr-FR was left out because its space
+characters differ between ICU versions. **Not changed, still inconsistent:** `ProductWidget`, the
+service comparator and `ServiceFeatureValueTagHelper` still print `$` plus `n2`.
+
+**Open issue found at review.** The Spanish content language's culture format is **es-ES**, not
+es-MX as assumed when the decision was made. With es-ES, the currency format prints a **€** sign, so
+on Spanish pages the listing (already, before T17) and now the promotion card show prices with a
+euro sign, while `ProductWidget` shows `$`. Fix: make `PriceFormatter` use one fixed store
+currency (for example en-US) and move `ProductWidget`, the service comparator and
+`ServiceFeatureValueTagHelper` onto it. Needs a decision, because it changes the listing's output
+on Spanish pages.
 
 ---
 
@@ -1246,6 +1280,10 @@ promotion card, in each site language.
 1. A 250-character tracking value → the logged `ActivityTitle` fits the column limit.
 2. Existing T9 criteria stay green.
 
+**Implemented (T18 done).** Column lengths confirmed against the local database: `ActivityTitle` and
+`ActivityValue` are both `nvarchar(250)`. The title is truncated; the value is still refused when
+too long, because reports group by it.
+
 ---
 
 ### T19 — Click logger script
@@ -1262,6 +1300,11 @@ promotion card, in each site language.
 
 **No automated tests** (no JS test stack). **Manual check:** left-, middle- and Ctrl-click each log
 exactly one activity with consent granted, and none without.
+
+**Implemented (T19 done).** The endpoint comes from `Url.Action` on the controller's route into a
+`data-tracking-url` attribute. Exercised in headless Chrome with stubbed `sendBeacon` and `fetch`:
+click, Ctrl+click and middle click each send one beacon; right click, unrelated links and an empty
+tracking value send nothing; a refused beacon falls back to a keepalive `fetch`.
 
 ---
 
@@ -1288,6 +1331,13 @@ exactly one activity with consent granted, and none without.
 
 **Seam:** none new — all existing tests stay green.
 
+**Implemented (T20 done).** AngleSharp is pinned at **1.8.1**, the version Kentico already brings in
+transitively, so no resolved package version changed. A description without anchors is returned
+untouched; one with anchors is re-serialized by the parser. Removed: `ContentFamily` (test
+assertions now check the type of `PromotedContent`) and `PromotedItemSource.CallToActionText` (its
+inherit test removed). `GetCatalogPrice(IProductSchema)` gained an optional cancellation token.
+**Decided not to do:** the status enum (one flag left after T13) and the `BuildCard` deep module.
+
 ---
 
 ### T21 — Comment pass for public readers
@@ -1302,3 +1352,81 @@ reader of the published repo cannot see.
   schema price, rich text vs encoded override); aim for roughly half the current volume.
 
 **No automated tests.** Run `dotnet format` and the full web suite afterwards.
+
+**Implemented (T21 done).** C#, Razor and test comments only - the SCSS comments were left, because
+changing them means regenerating the compiled CSS. The service went from 89 comment lines to 48.
+Also corrected `PromotionExtrasViewModel`'s price and stock comments, which still described the
+behaviour before T11.
+
+---
+
+## Manual verification after T12–T21
+
+None of the following is covered by automated tests. Restart the site first: Razor views are not
+compiled at runtime in this project. Hard-refresh the browser so the new script and stylesheet load.
+
+### Editor warnings (T12)
+
+- [ ] A promotion with a destination and an empty call to action field shows the orange
+      "no call to action text" box below the card in Page Builder edit mode.
+- [ ] With the call to action hidden through **Hide elements**, the box says the call to action is
+      hidden.
+- [ ] With no destination at all, the "no destination" box still shows.
+- [ ] The box sits below the card for the standard, image overlay, gradient and split designs.
+- [ ] Visitors (live site, and preview) see the card without any box.
+- [ ] With reduced motion turned on in the operating system, the light sweep does not play.
+- [ ] On the Spanish site, all three messages and the "Only editors see this" label are translated.
+
+### Selectors (T13)
+
+- [ ] The page selector reaches an article page, a product page under `/Store` and a service page
+      under `/Products`.
+- [ ] The content item selector offers general articles, services, cat food, dog collars and both
+      variant types - no interviews.
+- [ ] Any existing promotion saved with an interview or a section page selected shows the
+      "could not be loaded" notice in edit mode, and nothing on the live site.
+
+### Hide elements (T14)
+
+- [ ] The **Hide elements** field shows Title, Description, Image and Call to action, and search
+      narrows them.
+- [ ] Its label, explanation and placeholder are translated in the English, Spanish and French
+      admin; the four option names stay English.
+- [ ] Hiding each element removes it from the card; the selection survives save and reopen.
+- [ ] The field is not shown in manual mode. With elements hidden in page mode, switching to manual
+      and typing values shows all of them.
+
+### Content retrieval and caching (T15, T16, T20)
+
+- [ ] Page mode and content item mode still render the right title, description, image and extras
+      for an article, a service, a parent product (cat food, dog collar) and a variant.
+- [ ] A link target page (content item or manual mode) links to the right URL.
+- [ ] With SQL tracing or Xperience debug on, a second load of the page runs no content queries for
+      the widget.
+- [ ] Publishing a change to the promoted item updates the card on the next load; changing the link
+      target page's URL updates the card's link.
+- [ ] Preview mode shows unpublished changes to the promoted item.
+- [ ] On the Spanish site, an item that has no Spanish version behaves as language fallback settings
+      dictate (the retrieval API changed, so confirm rather than assume).
+- [ ] Page mode with the selected page unpublished shows "could not be loaded", even if a link URL
+      was typed in before switching to page mode.
+- [ ] A description with links in the content hub shows the link text without links; a description
+      without links renders exactly as before.
+
+### Prices (T17)
+
+- [ ] The same product shows the same price string in the product listing and on a promotion card,
+      in each site language - including a product with a catalog discount.
+- [ ] On a Spanish page, check which currency sign the listing, the card and the product page show
+      (expected today: euro sign on the listing and card, dollar sign on the product page - see the
+      open issue under T17).
+
+### Click tracking (T18, T19)
+
+- [ ] The card's link has a non-empty `data-tracking-url` attribute, on the live site and in Page
+      Builder preview.
+- [ ] With consent granted: a left click, a Ctrl+click and a middle click each log exactly one
+      "Content promotion click" activity in contact management. A right click logs nothing.
+- [ ] The browser's network tab shows the beacon going to `/contentpromotionclick`.
+- [ ] With consent withheld, nothing is logged and no tracking script is loaded.
+- [ ] A tracking value of around 240 characters is logged with its full value and a shortened title.
