@@ -395,10 +395,13 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  /* Above the stretched link's overlay so the text stays selectable, but deliberately NOT
-     position: relative - that would make this the overlay's containing block and shrink the
-     clickable surface to the text column. Every design makes this a flex or grid item, which
-     is enough for z-index on its own. */
+  /* Above the image overlay's scrim (z-index 1), so the text stays readable on that design.
+     Deliberately NOT position: relative - that would make this the stretched link's containing
+     block and shrink the clickable surface to the text column. Every design makes this a flex
+     or grid item, which is enough for z-index on its own.
+     The stretched link's overlay is painted inside this stacking context, so it covers the
+     text as well: the whole card, text included, is the link, and its text cannot be selected
+     with the mouse. A card without call to action text has no link and stays plain text. */
   z-index: 2;
 }
 
@@ -427,8 +430,6 @@
    are collapsed and only the rhythm between its children is kept. */
 .c-content-promotion__description {
   margin: 0;
-  /* Inherited from the card rather than from Bootstrap's heading scale: a promotion is a
-     summary, and a heading pasted into the source text should not outshout the card title. */
 }
 .c-content-promotion__description > :first-child {
   margin-top: 0;
@@ -440,6 +441,10 @@
 .c-content-promotion__description ul,
 .c-content-promotion__description ol {
   margin-bottom: 0.5rem;
+}
+.c-content-promotion__description {
+  /* Inherited from the card rather than from Bootstrap's heading scale: a promotion is a
+     summary, and a heading pasted into the source text should not outshout the card title. */
 }
 .c-content-promotion__description h1,
 .c-content-promotion__description h2,
@@ -2403,6 +2408,4 @@
 }
 .c-section .container.bg-card .bg-1 {
   background: #fff;
-}
-
-/*# sourceMappingURL=styles.css.map */
+}/*# sourceMappingURL=styles.css.map */
