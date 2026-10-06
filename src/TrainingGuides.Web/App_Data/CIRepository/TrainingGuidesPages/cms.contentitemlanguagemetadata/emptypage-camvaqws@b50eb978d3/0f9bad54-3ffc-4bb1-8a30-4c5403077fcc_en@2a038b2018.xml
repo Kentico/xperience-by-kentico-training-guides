@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.contentitemlanguagemetadata>
   <ContentItemLanguageMetadataContentItemID>
-    <CodeName>Test-t1n5l1fs</CodeName>
-    <GUID>abcc9a33-0409-4f19-95b1-ac90fb3737ca</GUID>
+    <CodeName>EmptyPage-camvaqws</CodeName>
+    <GUID>82a3dff8-1072-48b1-9a2f-1a8e1eeab0cf</GUID>
     <ObjectType>cms.contentitem</ObjectType>
   </ContentItemLanguageMetadataContentItemID>
   <ContentItemLanguageMetadataContentLanguageID>
@@ -15,9 +15,9 @@
     <GUID>6415b8ce-8072-4bcd-8e48-9d7178b826b7</GUID>
     <ObjectType>cms.user</ObjectType>
   </ContentItemLanguageMetadataCreatedByUserID>
-  <ContentItemLanguageMetadataCreatedWhen>2026-09-29 02:24:05Z</ContentItemLanguageMetadataCreatedWhen>
-  <ContentItemLanguageMetadataDisplayName>Test</ContentItemLanguageMetadataDisplayName>
-  <ContentItemLanguageMetadataGUID>91475deb-0fa6-4abc-83ff-a0f99f737d00</ContentItemLanguageMetadataGUID>
+  <ContentItemLanguageMetadataCreatedWhen>2026-10-06 13:35:55Z</ContentItemLanguageMetadataCreatedWhen>
+  <ContentItemLanguageMetadataDisplayName>Content promotion</ContentItemLanguageMetadataDisplayName>
+  <ContentItemLanguageMetadataGUID>0f9bad54-3ffc-4bb1-8a30-4c5403077fcc</ContentItemLanguageMetadataGUID>
   <ContentItemLanguageMetadataHasImageAsset>False</ContentItemLanguageMetadataHasImageAsset>
   <ContentItemLanguageMetadataLatestVersionStatus>2</ContentItemLanguageMetadataLatestVersionStatus>
   <ContentItemLanguageMetadataModifiedByUserID>

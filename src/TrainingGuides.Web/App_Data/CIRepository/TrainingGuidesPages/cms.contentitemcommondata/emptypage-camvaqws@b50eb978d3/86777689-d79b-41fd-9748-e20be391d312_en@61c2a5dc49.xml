@@ -10,9 +10,11 @@
     <GUID>e81b5172-f240-4041-88b1-653089984e29</GUID>
     <ObjectType>cms.contentlanguage</ObjectType>
   </ContentItemCommonDataContentLanguageID>
+  <ContentItemCommonDataFirstPublishedWhen>2026-10-06 15:22:13Z</ContentItemCommonDataFirstPublishedWhen>
   <ContentItemCommonDataGUID>86777689-d79b-41fd-9748-e20be391d312</ContentItemCommonDataGUID>
   <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
-  <ContentItemCommonDataVersionStatus>0</ContentItemCommonDataVersionStatus>
+  <ContentItemCommonDataLastPublishedWhen>2026-10-06 15:22:39Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
   <ContentItemCommonDataVisualBuilderTemplateConfiguration>
 <![CDATA[
 {
@@ -81,7 +83,7 @@
                         "columnLayout": "TwoColumnEven",
                         "textAlignment": "Center",
                         "cornerStyle": "Round",
-                        "callToActionStyle": "Medium"
+                        "callToActionStyle": "Dark"
                       },
                       "fieldIdentifiers": {
                         "contentSource": "ba6d1e63-9105-4edf-bcab-4db408468242",
@@ -127,7 +129,7 @@
   <ContentItemReferences>
     <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>1e492d02-829c-4c8b-a94f-a1a2e4f9da44</ContentItemReferenceGroupGUID>
-      <ContentItemReferenceGUID>512ef0f0-f2d5-47fa-977b-4583a396b453</ContentItemReferenceGUID>
+      <ContentItemReferenceGUID>aa9e02e5-cfb3-423d-9bcb-7ef147d4dab2</ContentItemReferenceGUID>
       <ContentItemReferenceSourceCommonDataID>
         <GUID>86777689-d79b-41fd-9748-e20be391d312</GUID>
         <ObjectType>cms.contentitemcommondata</ObjectType>

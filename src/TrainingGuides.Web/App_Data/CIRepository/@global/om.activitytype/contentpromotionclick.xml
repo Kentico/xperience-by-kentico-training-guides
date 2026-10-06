@@ -1,6 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <om.activitytype>
-  <ActivityTypeDescription>The visitor clicked a content promotion card. The activity value is the tracking value configured on the widget instance.</ActivityTypeDescription>
+  <ActivityTypeDescription>
+    <![CDATA[The visitor clicked a content promotion card. The activity value is the tracking value configured on the widget instance.]]>
+  </ActivityTypeDescription>
   <ActivityTypeDisplayName>Content promotion click</ActivityTypeDisplayName>
   <ActivityTypeEnabled>True</ActivityTypeEnabled>
   <ActivityTypeIsCustom>True</ActivityTypeIsCustom>
