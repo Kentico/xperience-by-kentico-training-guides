@@ -1,0 +1,5 @@
+node_modules/
+test-results/
+playwright-report/
+# Signed-in admin session written by auth.setup.ts. It holds a live auth cookie - never commit it.
+playwright/.auth/

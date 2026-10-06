@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpageitem>
+  <WebPageItemContentItemID>
+    <CodeName>EmptyPage-camvaqws</CodeName>
+    <GUID>82a3dff8-1072-48b1-9a2f-1a8e1eeab0cf</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </WebPageItemContentItemID>
+  <WebPageItemGUID>8d4ac8e8-fd7d-48ff-a1cb-860b36f5da36</WebPageItemGUID>
+  <WebPageItemName>EmptyPage-camvaqws</WebPageItemName>
+  <WebPageItemOrder>1</WebPageItemOrder>
+  <WebPageItemParentID>
+    <CodeName>ContentPages-hgihq7ai</CodeName>
+    <GUID>d8a96d08-b9ea-4794-9700-30b43a123fb9</GUID>
+    <ObjectType>cms.webpageitem</ObjectType>
+  </WebPageItemParentID>
+  <WebPageItemTreePath>/Content_pages/Empty_page</WebPageItemTreePath>
+  <WebPageItemWebsiteChannelID>
+    <GUID>fdba40fe-1ece-4821-9d57-eaa1d89e13b1</GUID>
+    <ObjectType>cms.websitechannel</ObjectType>
+    <Parent>
+      <CodeName>TrainingGuidesPages</CodeName>
+      <GUID>5ba9c1e8-b61e-4570-b666-87a9b92bbe3b</GUID>
+      <ObjectType>cms.channel</ObjectType>
+    </Parent>
+  </WebPageItemWebsiteChannelID>
+</cms.webpageitem>

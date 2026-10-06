@@ -1,0 +1,151 @@
+﻿@using Kentico.PageBuilder.Web.Mvc
+@using TrainingGuides.Web.Commerce.Products.Helpers
+@using TrainingGuides.Web.Commerce.Products.Models
+@using TrainingGuides.Web.Features.ContentPromotion.Models
+@using TrainingGuides.Web.Features.ContentPromotion.Widgets.ContentPromotion
+
+@model ContentPromotionWidgetViewModel?
+
+@{
+    bool editMode = Context.Kentico().PageBuilder().EditMode;
+    var reason = Model?.MisconfigurationReason ?? MisconfigurationReason.NothingAuthored;
+}
+
+@if (Model is null || Model.IsMisconfigured)
+{
+    @* The public sees nothing at all - only the editor is told what is wrong. *@
+    if (editMode)
+    {
+        <tg-page-builder-content>
+            <div class="c-card md bg-1 u-border-02 text-center">
+                @if (reason == MisconfigurationReason.ItemCouldNotBeLoaded)
+                {
+                    <tg-configure-widget-instructions message="@StringLocalizer["The selected item could not be loaded. It may be unpublished, deleted, or missing a translation in this language."]"/>
+                }
+                else
+                {
+                    <tg-configure-widget-instructions message="@StringLocalizer["This promotion has nothing to show yet. Select an item, or type in a title and description."]"/>
+                }
+            </div>
+        </tg-page-builder-content>
+    }
+}
+else
+{
+    @* Container queries size the card to its widget zone, not the viewport. An element cannot be
+       its own container, hence the wrapper. *@
+    <div class="c-content-promotion-wrapper">
+        <div class="@Model.CardCssClasses">
+            @if (Model.DisplayValues.Image is not null)
+            {
+                <div class="c-content-promotion__media">
+                    <tg-styled-image
+                        corner-style="@Model.CornerStyle"
+                        class="@Model.ImageCssClasses"
+                        src="@Url.Content(Model.DisplayValues.Image.FilePath)"
+                        alt="@Model.DisplayValues.Image.AltText">
+                    </tg-styled-image>
+                </div>
+            }
+
+            <div class="@Model.ContentCssClasses">
+                @if (!string.IsNullOrWhiteSpace(Model.DisplayValues.Title))
+                {
+                    <h3 class="c-content-promotion__title h4">@Model.DisplayValues.Title</h3>
+                }
+
+                @* A div, because the rich text description can contain block elements. *@
+                @if (!string.IsNullOrWhiteSpace(Model.DisplayValues.DescriptionHtml.Value))
+                {
+                    <div class="c-content-promotion__description">@Model.DisplayValues.DescriptionHtml</div>
+                }
+
+                @* Family-specific facts. Never interactive: the stretched link covers the card. *@
+                @if (Model.Extras.HasContent)
+                {
+                    <div class="c-content-promotion__extras">
+                        @if (Model.Extras.Categories.Any())
+                        {
+                            <ul class="c-content-promotion__categories list-unstyled d-flex flex-wrap gap-2">
+                                @foreach (string category in Model.Extras.Categories)
+                                {
+                                    <li class="c-content-promotion__category">@category</li>
+                                }
+                            </ul>
+                        }
+
+                        @if (Model.Extras.Benefits.Any())
+                        {
+                            <ul class="c-content-promotion__benefits">
+                                @foreach (var benefit in Model.Extras.Benefits)
+                                {
+                                    <li class="c-content-promotion__benefit">@benefit</li>
+                                }
+                            </ul>
+                        }
+
+                        @if (Model.Extras.Price.HasValue)
+                        {
+                            <span class="c-content-promotion__price">@PriceFormatter.Format(Model.Extras.Price.Value)</span>
+                        }
+
+                        @if (Model.Extras.StockStatus.HasValue)
+                        {
+                            @* Label and modifier class move together. Only out of stock is highlighted. *@
+                            (string Label, string? Modifier) stock = Model.Extras.StockStatus.Value switch
+                            {
+                                ProductStockEnum.OutOfStock => (StringLocalizer["Out of stock"].Value, "c-content-promotion__stock--out-of-stock"),
+                                ProductStockEnum.LowStock => (StringLocalizer["Low stock"].Value, null),
+                                ProductStockEnum.PreOrder => (StringLocalizer["Pre-order"].Value, null),
+                                ProductStockEnum.InStock => (StringLocalizer["In stock"].Value, null),
+                                _ => (string.Empty, null)
+                            };
+
+                            <span class="c-content-promotion__stock @stock.Modifier">@stock.Label</span>
+                        }
+                    </div>
+                }
+
+                @* The card's only interactive element. "stretched-link" makes the whole card its hit
+                   area: one anchor, one accessible name, one place for click tracking. *@
+                @if (Model.Link is not null && !string.IsNullOrWhiteSpace(Model.DisplayValues.CallToActionText))
+                {
+                    <a href="@Url.Content(Model.Link.LinkUrl)"
+                       class="c-content-promotion__cta stretched-link js-content-promotion-link @Model.CallToActionCssClasses"
+                       data-tracking-value="@Model.TrackingValue"
+                       data-tracking-url="@Url.Action(nameof(ContentPromotionActivityController.LogClick), "ContentPromotionActivity")"
+                       target="@(Model.Link.OpenInNewTab ? "_blank" : null)"
+                       rel="@(Model.Link.OpenInNewTab ? "noopener noreferrer" : null)">
+                        @Model.DisplayValues.CallToActionText
+                    </a>
+                }
+            </div>
+        </div>
+
+        @* Visitors still see the card; only editors get the warning. It sits below the card so no
+           card design or layout can restyle it. *@
+        @if (editMode)
+        {
+            string? warning = reason switch
+            {
+                MisconfigurationReason.NoDestination => StringLocalizer["This promotion has no destination. Choose a link target page or type in a link URL."].Value,
+                MisconfigurationReason.CallToActionMissing => StringLocalizer["This promotion has no call to action text, so visitors cannot click it. Type in a call to action."].Value,
+                MisconfigurationReason.CallToActionHidden => StringLocalizer["The call to action is hidden, so visitors cannot click this promotion."].Value,
+                _ => null
+            };
+
+            if (warning is not null)
+            {
+                <tg-page-builder-content>
+                    <div class="c-content-promotion__warning" role="note">
+                        <span class="c-content-promotion__warning-icon" aria-hidden="true">!</span>
+                        <div class="c-content-promotion__warning-body">
+                            <span class="c-content-promotion__warning-label">@StringLocalizer["Only editors see this"]</span>
+                            <tg-configure-widget-instructions message="@warning"/>
+                        </div>
+                    </div>
+                </tg-page-builder-content>
+            }
+        }
+    </div>
+}

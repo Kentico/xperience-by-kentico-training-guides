@@ -8,11 +8,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="AngleSharp" />
     <PackageReference Include="AspNetCore.Unobtrusive.Ajax" />
     <PackageReference Include="Enums.NET" />
     <PackageReference Include="kentico.xperience.admin" />
     <PackageReference Include="kentico.xperience.azurestorage" />
     <PackageReference Include="kentico.xperience.imageprocessing" />
+    <PackageReference Include="kentico.xperience.managementapi" />
     <PackageReference Include="kentico.xperience.webapp" />
   </ItemGroup>
 

@@ -1,4 +1,4 @@
-﻿using CMS.ContentEngine;
+using CMS.ContentEngine;
 using Kentico.Content.Web.Mvc;
 using TrainingGuides.Web.Features.Shared.OptionProviders.OrderBy;
 
@@ -264,4 +264,54 @@ public interface IContentItemRetrieverService
         int depth = 2,
         bool includeSecuredItems = true,
         string? languageName = null);
+
+    /// <summary>
+    /// Retrieves a web page item by Guid, with the content type-specific fields of the named
+    /// content types included. Use this overload rather than the one above whenever the caller
+    /// reads fields the page itself declares, such as its linked content item.
+    /// </summary>
+    /// <param name="pageContentItemGuid">The GUID of the web page item</param>
+    /// <param name="contentTypeNames">The content types the page may be. Required: content type-specific
+    /// fields cannot be selected by a query that has not been limited to specific content types.</param>
+    /// <param name="depth">The maximum level of recursively linked content items that should be included in the results. Default value is 2.</param>
+    /// <param name="includeSecuredItems">If true, secured items will be included in the results.</param>
+    /// <param name="languageName">The language to query. If null, the language will be inferred from the URL of the current request.</param>
+    /// <returns><see cref="IWebPageFieldsSource"/> object containing generic <see cref="WebPageFields"/> for the item</returns>
+    Task<IWebPageFieldsSource?> RetrieveWebPageByContentItemGuid(
+        Guid pageContentItemGuid,
+        IEnumerable<string> contentTypeNames,
+        int depth = 2,
+        bool includeSecuredItems = true,
+        string? languageName = null);
+
+    /// <summary>
+    /// Retrieves a web page item of any content type by Guid, with only the data needed to build its
+    /// URL: no content type-specific fields and no linked items. Cached.
+    /// </summary>
+    /// <param name="pageContentItemGuid">The content item GUID of the web page item</param>
+    /// <param name="includeSecuredItems">If true, secured items will be included in the results.</param>
+    /// <param name="languageName">The language to query. If null, the language will be inferred from the URL of the current request.</param>
+    /// <returns><see cref="IWebPageFieldsSource"/> object for the page, or null if it does not exist</returns>
+    Task<IWebPageFieldsSource?> RetrieveWebPageForUrlByContentItemGuid(
+        Guid pageContentItemGuid,
+        bool includeSecuredItems = true,
+        string? languageName = null);
+
+    /// <summary>
+    /// Retrieves a reusable content item by Guid without knowing which of several content types it is.
+    /// </summary>
+    /// <param name="contentItemGuid">The GUID of the content item</param>
+    /// <param name="contentTypeNames">The content types the item may be. Required: content type-specific
+    /// fields cannot be selected by a query that has not been limited to specific content types.</param>
+    /// <param name="depth">The maximum level of recursively linked content items that should be included in the results.</param>
+    /// <param name="includeSecuredItems">If true, secured items will be included in the results.</param>
+    /// <param name="languageName">The language to query. If null, the language will be inferred from the URL of the current request.</param>
+    /// <returns><see cref="IContentItemFieldsSource"/> object for the item, or null if it does not exist</returns>
+    Task<IContentItemFieldsSource?> RetrieveContentItemByGuid(
+        Guid contentItemGuid,
+        IEnumerable<string> contentTypeNames,
+        int depth = 1,
+        bool includeSecuredItems = true,
+        string? languageName = null);
+
 }

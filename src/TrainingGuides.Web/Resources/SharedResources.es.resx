@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -267,5 +267,35 @@
 
   <data name="Submit" xml:space="preserve">
     <value>Enviar</value>
+  </data>
+  <data name="The selected item could not be loaded. It may be unpublished, deleted, or missing a translation in this language." xml:space="preserve">
+    <value>No se pudo cargar el elemento seleccionado. Puede que no esté publicado, que se haya eliminado o que no tenga traducción en este idioma.</value>
+  </data>
+  <data name="This promotion has nothing to show yet. Select an item, or type in a title and description." xml:space="preserve">
+    <value>Esta promoción todavía no tiene nada que mostrar. Seleccione un elemento o escriba un título y una descripción.</value>
+  </data>
+  <data name="This promotion has no destination. Choose a link target page or type in a link URL." xml:space="preserve">
+    <value>Esta promoción no tiene destino. Elija una página de destino o escriba una URL de enlace.</value>
+  </data>
+  <data name="This promotion has no call to action text, so visitors cannot click it. Type in a call to action." xml:space="preserve">
+    <value>Esta promoción no tiene texto de llamada a la acción, por lo que los visitantes no pueden hacer clic en ella. Escriba una llamada a la acción.</value>
+  </data>
+  <data name="Only editors see this" xml:space="preserve">
+    <value>Solo los editores ven esto</value>
+  </data>
+  <data name="The call to action is hidden, so visitors cannot click this promotion." xml:space="preserve">
+    <value>La llamada a la acción está oculta, por lo que los visitantes no pueden hacer clic en esta promoción.</value>
+  </data>
+  <data name="Out of stock" xml:space="preserve">
+    <value>Agotado</value>
+  </data>
+  <data name="Low stock" xml:space="preserve">
+    <value>Pocas existencias</value>
+  </data>
+  <data name="Pre-order" xml:space="preserve">
+    <value>Reserva anticipada</value>
+  </data>
+  <data name="In stock" xml:space="preserve">
+    <value>En existencia</value>
   </data>
 </root>

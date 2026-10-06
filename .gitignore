@@ -365,3 +365,9 @@ FodyWeavers.xsd
 src/TrainingGuides.Web/.config/dotnet-tools.json
 src/TrainingGuides.Web/License/
 .vscode/settings.json
+
+# AI assistant local state (agent config itself is committed; per-user state is not)
+.claude/settings.local.json
+
+# Playwright MCP working folder (screenshots, snapshots, console logs)
+.playwright-mcp/

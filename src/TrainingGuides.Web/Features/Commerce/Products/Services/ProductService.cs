@@ -296,7 +296,7 @@ public class ProductService(IContentItemRetrieverService contentItemRetrieverSer
                     .Contains(tag.TagGUID))
                 .Select(tag => tag.TagTitle));
 
-    private async Task<ProductStockEnum> GetProductStockStatus(IProductSkuSchema? skuProduct)
+    public async Task<ProductStockEnum> GetProductStockStatus(IProductSkuSchema? skuProduct)
     {
         if (skuProduct is null)
         {
@@ -717,12 +717,8 @@ public class ProductService(IContentItemRetrieverService contentItemRetrieverSer
         return models;
     }
 
-    /// <summary>
-    /// Gets the listing stock status for a product, considering the stocks of all variants if applicable.
-    /// </summary>
-    /// <param name="product">Product to check stock for</param>
-    /// <returns>The stock status of the product, or the highest stock status from among its variants</returns>
-    private async Task<ProductStockEnum> GetListingStockForProduct(IProductSchema product)
+    /// <inheritdoc/>
+    public async Task<ProductStockEnum> GetListingStockForProduct(IProductSchema product)
     {
         if (product is IProductSkuSchema skuProduct)
         {
@@ -816,11 +812,11 @@ public class ProductService(IContentItemRetrieverService contentItemRetrieverSer
             }).ToList() ?? []
         };
     }
-    private async Task<decimal> GetCatalogPrice(IProductSchema product)
+    public async Task<decimal> GetCatalogPrice(IProductSchema product, CancellationToken cancellationToken = default)
     {
         if (product is IProductPriceSchema pricedProduct)
         {
-            return await GetCatalogPrice((product as IContentItemFieldsSource)?.SystemFields.ContentItemID ?? 0)
+            return await GetCatalogPrice((product as IContentItemFieldsSource)?.SystemFields.ContentItemID ?? 0, cancellationToken)
                 ?? pricedProduct.ProductPriceSchemaPrice;
         }
         else if (product is IProductParentSchema parentProduct)
@@ -828,7 +824,7 @@ public class ProductService(IContentItemRetrieverService contentItemRetrieverSer
             var firstVariant = GetFirstVariant(parentProduct);
             if (firstVariant is IProductPriceSchema pricedVariant)
             {
-                return await GetCatalogPrice((firstVariant as IContentItemFieldsSource)?.SystemFields.ContentItemID ?? 0)
+                return await GetCatalogPrice((firstVariant as IContentItemFieldsSource)?.SystemFields.ContentItemID ?? 0, cancellationToken)
                     ?? pricedVariant.ProductPriceSchemaPrice;
             }
         }
@@ -837,7 +833,7 @@ public class ProductService(IContentItemRetrieverService contentItemRetrieverSer
             var parent = await GetVariantParent(product);
             if (parent is IProductPriceSchema pricedParent)
             {
-                return await GetCatalogPrice((parent as IContentItemFieldsSource)?.SystemFields.ContentItemID ?? 0)
+                return await GetCatalogPrice((parent as IContentItemFieldsSource)?.SystemFields.ContentItemID ?? 0, cancellationToken)
                     ?? pricedParent.ProductPriceSchemaPrice;
             }
         }
