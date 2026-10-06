@@ -918,8 +918,8 @@ public class ContentPromotionServiceTests
     {
         var targetPage = new ArticlePage();
         contentItemRetrieverServiceMock
-            .Setup(x => x.RetrieveWebPageByContentItemGuid(
-                targetGuid, It.IsAny<int>(), It.IsAny<bool>(), It.IsAny<string?>()))
+            .Setup(x => x.RetrieveWebPageForUrlByContentItemGuid(
+                targetGuid, It.IsAny<bool>(), It.IsAny<string?>()))
             .ReturnsAsync(targetPage);
         webPageUrlRetrieverMock
             .Setup(x => x.Retrieve(targetPage, It.IsAny<CancellationToken>()))
@@ -955,8 +955,8 @@ public class ContentPromotionServiceTests
     {
         var targetPage = new ArticlePage();
         contentItemRetrieverServiceMock
-            .Setup(x => x.RetrieveWebPageByContentItemGuid(
-                targetGuid, It.IsAny<int>(), It.IsAny<bool>(), It.IsAny<string?>()))
+            .Setup(x => x.RetrieveWebPageForUrlByContentItemGuid(
+                targetGuid, It.IsAny<bool>(), It.IsAny<string?>()))
             .ReturnsAsync(targetPage);
         webPageUrlRetrieverMock
             .Setup(x => x.Retrieve(targetPage, It.IsAny<CancellationToken>()))

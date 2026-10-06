@@ -205,7 +205,7 @@ public partial class ContentPromotionService(
 
         return targetGuid == Guid.Empty
             ? null
-            : await contentItemRetrieverService.RetrieveWebPageByContentItemGuid(targetGuid, LINKED_ITEMS_DEPTH);
+            : await contentItemRetrieverService.RetrieveWebPageForUrlByContentItemGuid(targetGuid);
     }
 
     public async Task<PromotionExtrasViewModel> ResolveExtras(

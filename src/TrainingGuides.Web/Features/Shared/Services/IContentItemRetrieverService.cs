@@ -285,6 +285,19 @@ public interface IContentItemRetrieverService
         string? languageName = null);
 
     /// <summary>
+    /// Retrieves a web page item of any content type by Guid, with only the data needed to build its
+    /// URL: no content type-specific fields and no linked items. Cached.
+    /// </summary>
+    /// <param name="pageContentItemGuid">The content item GUID of the web page item</param>
+    /// <param name="includeSecuredItems">If true, secured items will be included in the results.</param>
+    /// <param name="languageName">The language to query. If null, the language will be inferred from the URL of the current request.</param>
+    /// <returns><see cref="IWebPageFieldsSource"/> object for the page, or null if it does not exist</returns>
+    Task<IWebPageFieldsSource?> RetrieveWebPageForUrlByContentItemGuid(
+        Guid pageContentItemGuid,
+        bool includeSecuredItems = true,
+        string? languageName = null);
+
+    /// <summary>
     /// Retrieves a reusable content item by Guid without knowing which of several content types it is.
     /// </summary>
     /// <param name="contentItemGuid">The GUID of the content item</param>
