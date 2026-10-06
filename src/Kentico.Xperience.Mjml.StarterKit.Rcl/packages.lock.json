@@ -42,11 +42,6 @@
           "Microsoft.JSInterop": "10.0.12"
         }
       },
-      "AngleSharp": {
-        "type": "Transitive",
-        "resolved": "1.8.1",
-        "contentHash": "fTLPBxwYK5zmt+ernY3GL1kFBDA/2Cl72hpNnMHeNceZNJ/AT7Km9CXFaMHybuEFhXDy2Dv7Bjkez5G0Z4Io4g=="
-      },
       "AngleSharp.Css": {
         "type": "Transitive",
         "resolved": "1.0.2",
@@ -912,6 +907,12 @@
         "dependencies": {
           "System.IO.Hashing": "8.0.0"
         }
+      },
+      "AngleSharp": {
+        "type": "CentralTransitive",
+        "requested": "[1.8.1, )",
+        "resolved": "1.8.1",
+        "contentHash": "fTLPBxwYK5zmt+ernY3GL1kFBDA/2Cl72hpNnMHeNceZNJ/AT7Km9CXFaMHybuEFhXDy2Dv7Bjkez5G0Z4Io4g=="
       },
       "Kentico.Xperience.Core": {
         "type": "CentralTransitive",

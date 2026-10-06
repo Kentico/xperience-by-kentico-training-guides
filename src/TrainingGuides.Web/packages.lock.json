@@ -2,6 +2,12 @@
   "version": 2,
   "dependencies": {
     "net10.0": {
+      "AngleSharp": {
+        "type": "Direct",
+        "requested": "[1.8.1, )",
+        "resolved": "1.8.1",
+        "contentHash": "fTLPBxwYK5zmt+ernY3GL1kFBDA/2Cl72hpNnMHeNceZNJ/AT7Km9CXFaMHybuEFhXDy2Dv7Bjkez5G0Z4Io4g=="
+      },
       "AspNetCore.Unobtrusive.Ajax": {
         "type": "Direct",
         "requested": "[2.0.0, )",
@@ -92,11 +98,6 @@
         "requested": "[10.0.12, )",
         "resolved": "10.0.12",
         "contentHash": "+sIBo9AMBZH46qHWHQdfzcGMt+RuBaPYrUMOAM9VjA7MQ9QtIez3lq1C3E05+Yroa94KKt3DSWaxmCI4H28a9Q=="
-      },
-      "AngleSharp": {
-        "type": "Transitive",
-        "resolved": "1.8.1",
-        "contentHash": "fTLPBxwYK5zmt+ernY3GL1kFBDA/2Cl72hpNnMHeNceZNJ/AT7Km9CXFaMHybuEFhXDy2Dv7Bjkez5G0Z4Io4g=="
       },
       "AngleSharp.Css": {
         "type": "Transitive",

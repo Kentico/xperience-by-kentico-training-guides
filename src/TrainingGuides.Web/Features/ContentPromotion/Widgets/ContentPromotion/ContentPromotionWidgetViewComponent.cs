@@ -1,4 +1,3 @@
-using CMS.Helpers;
 using Kentico.PageBuilder.Web.Mvc;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ViewComponents;
@@ -58,13 +57,13 @@ public class ContentPromotionWidgetViewComponent(
                 promotedItem.Item,
                 await contentPromotionService.ResolveOverrideImage(properties)),
             Link = await contentPromotionService.ResolveLink(properties, promotedItem.Page),
-            Extras = await contentPromotionService.ResolveExtras(properties, promotedItem),
-            TrackingValue = properties.TrackingValue ?? string.Empty,
-            CornerStyle = properties.CornerStyle ?? string.Empty,
-            CardCssClasses = GetCardCssClasses(properties).Join(" "),
-            ContentCssClasses = GetContentCssClasses(properties).Join(" "),
+            Extras = await contentPromotionService.ResolveExtras(properties, promotedItem, HttpContext?.RequestAborted ?? CancellationToken.None),
+            TrackingValue = properties.TrackingValue,
+            CornerStyle = properties.CornerStyle,
+            CardCssClasses = string.Join(" ", GetCardCssClasses(properties)),
+            ContentCssClasses = string.Join(" ", GetContentCssClasses(properties)),
             ImageCssClasses = IMAGE_BASE_CLASS,
-            CallToActionCssClasses = GetCallToActionCssClasses(properties).Join(" ")
+            CallToActionCssClasses = string.Join(" ", GetCallToActionCssClasses(properties))
         };
     }
 
@@ -87,12 +86,12 @@ public class ContentPromotionWidgetViewComponent(
         {
             cssClasses.AddRange(
                 componentStyleEnumService.GetColorSchemeClasses(
-                    componentStyleEnumService.GetColorScheme(properties.ColorScheme ?? string.Empty)));
+                    componentStyleEnumService.GetColorScheme(properties.ColorScheme)));
         }
 
         cssClasses.AddRange(
             componentStyleEnumService.GetCornerStyleClasses(
-                componentStyleEnumService.GetCornerStyle(properties.CornerStyle ?? string.Empty)));
+                componentStyleEnumService.GetCornerStyle(properties.CornerStyle)));
 
         return [.. cssClasses.Where(cssClass => !string.IsNullOrWhiteSpace(cssClass))];
     }
@@ -119,7 +118,7 @@ public class ContentPromotionWidgetViewComponent(
 
         cssClasses.AddRange(
             componentStyleEnumService.GetColorSchemeClasses(
-                componentStyleEnumService.GetLinkStyle(properties.CallToActionStyle ?? string.Empty)));
+                componentStyleEnumService.GetLinkStyle(properties.CallToActionStyle)));
 
         return [.. cssClasses.Where(cssClass => !string.IsNullOrWhiteSpace(cssClass))];
     }

@@ -28,11 +28,6 @@
           "System.IO.Hashing": "10.0.12"
         }
       },
-      "AngleSharp": {
-        "type": "Transitive",
-        "resolved": "1.8.1",
-        "contentHash": "fTLPBxwYK5zmt+ernY3GL1kFBDA/2Cl72hpNnMHeNceZNJ/AT7Km9CXFaMHybuEFhXDy2Dv7Bjkez5G0Z4Io4g=="
-      },
       "Azure.Core": {
         "type": "Transitive",
         "resolved": "1.47.1",
@@ -448,6 +443,12 @@
         "type": "Transitive",
         "resolved": "9.0.13",
         "contentHash": "t8S9IDpjJKsLpLkeBdW8cWtcPyYqrGu93Dej1RO6WwuL/lkFSqWlan3rMJfortqz1mRIh+sys2AFsSA6jWJ3Jg=="
+      },
+      "AngleSharp": {
+        "type": "CentralTransitive",
+        "requested": "[1.8.1, )",
+        "resolved": "1.8.1",
+        "contentHash": "fTLPBxwYK5zmt+ernY3GL1kFBDA/2Cl72hpNnMHeNceZNJ/AT7Km9CXFaMHybuEFhXDy2Dv7Bjkez5G0Z4Io4g=="
       }
     }
   }

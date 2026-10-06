@@ -12,7 +12,5 @@ public class PromotedItemSource
 
     public string Description { get; set; } = string.Empty;
 
-    public string CallToActionText { get; set; } = string.Empty;
-
     public AssetViewModel? Image { get; set; }
 }

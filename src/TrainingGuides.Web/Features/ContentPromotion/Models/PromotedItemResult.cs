@@ -1,13 +1,11 @@
 namespace TrainingGuides.Web.Features.ContentPromotion.Models;
 
 /// <summary>
-/// The outcome of resolving the widget's selection: the normalized item and its family.
+/// The outcome of resolving the widget's selection: the normalized item and where it came from.
 /// </summary>
 public class PromotedItemResult
 {
     public PromotedItemSource? Item { get; set; }
-
-    public ContentFamily Family { get; set; } = ContentFamily.None;
 
     /// <summary>
     /// True when the editor selected something that could not be loaded - unpublished,

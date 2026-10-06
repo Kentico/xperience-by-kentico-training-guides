@@ -107,7 +107,7 @@ public interface IProductService
     /// </summary>
     /// <param name="product">The product whose price to read.</param>
     /// <returns>The discounted price, or the product's own list price when no discount applies.</returns>
-    Task<decimal> GetCatalogPrice(IProductSchema product);
+    Task<decimal> GetCatalogPrice(IProductSchema product, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Determines the stock state of a product SKU.

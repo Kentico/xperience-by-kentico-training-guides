@@ -812,11 +812,11 @@ public class ProductService(IContentItemRetrieverService contentItemRetrieverSer
             }).ToList() ?? []
         };
     }
-    public async Task<decimal> GetCatalogPrice(IProductSchema product)
+    public async Task<decimal> GetCatalogPrice(IProductSchema product, CancellationToken cancellationToken = default)
     {
         if (product is IProductPriceSchema pricedProduct)
         {
-            return await GetCatalogPrice((product as IContentItemFieldsSource)?.SystemFields.ContentItemID ?? 0)
+            return await GetCatalogPrice((product as IContentItemFieldsSource)?.SystemFields.ContentItemID ?? 0, cancellationToken)
                 ?? pricedProduct.ProductPriceSchemaPrice;
         }
         else if (product is IProductParentSchema parentProduct)
@@ -824,7 +824,7 @@ public class ProductService(IContentItemRetrieverService contentItemRetrieverSer
             var firstVariant = GetFirstVariant(parentProduct);
             if (firstVariant is IProductPriceSchema pricedVariant)
             {
-                return await GetCatalogPrice((firstVariant as IContentItemFieldsSource)?.SystemFields.ContentItemID ?? 0)
+                return await GetCatalogPrice((firstVariant as IContentItemFieldsSource)?.SystemFields.ContentItemID ?? 0, cancellationToken)
                     ?? pricedVariant.ProductPriceSchemaPrice;
             }
         }
@@ -833,7 +833,7 @@ public class ProductService(IContentItemRetrieverService contentItemRetrieverSer
             var parent = await GetVariantParent(product);
             if (parent is IProductPriceSchema pricedParent)
             {
-                return await GetCatalogPrice((parent as IContentItemFieldsSource)?.SystemFields.ContentItemID ?? 0)
+                return await GetCatalogPrice((parent as IContentItemFieldsSource)?.SystemFields.ContentItemID ?? 0, cancellationToken)
                     ?? pricedParent.ProductPriceSchemaPrice;
             }
         }

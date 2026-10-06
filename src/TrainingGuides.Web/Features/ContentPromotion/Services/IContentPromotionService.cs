@@ -31,7 +31,8 @@ public interface IContentPromotionService
     /// </summary>
     Task<PromotionExtrasViewModel> ResolveExtras(
         ContentPromotionWidgetProperties properties,
-        PromotedItemResult promotedItem);
+        PromotedItemResult promotedItem,
+        CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Builds the card's destination. Returns null when the widget has no destination at all,

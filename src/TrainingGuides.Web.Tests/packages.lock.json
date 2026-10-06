@@ -50,11 +50,6 @@
         "resolved": "2.8.2",
         "contentHash": "vm1tbfXhFmjFMUmS4M0J0ASXz3/U5XvXBa6DOQUL3fEz4Vt6YPhv+ESCarx6M6D+9kJkJYZKCNvJMas1+nVfmQ=="
       },
-      "AngleSharp": {
-        "type": "Transitive",
-        "resolved": "1.8.1",
-        "contentHash": "fTLPBxwYK5zmt+ernY3GL1kFBDA/2Cl72hpNnMHeNceZNJ/AT7Km9CXFaMHybuEFhXDy2Dv7Bjkez5G0Z4Io4g=="
-      },
       "AngleSharp.Css": {
         "type": "Transitive",
         "resolved": "1.0.2",
@@ -1335,6 +1330,7 @@
       "trainingguides.web": {
         "type": "Project",
         "dependencies": {
+          "AngleSharp": "[1.8.1, )",
           "AspNetCore.Unobtrusive.Ajax": "[2.0.0, )",
           "Enums.NET": "[4.0.2, )",
           "Kentico.Xperience.Mjml.StarterKit.Rcl": "[1.0.0, )",
@@ -1346,6 +1342,12 @@
           "kentico.xperience.managementapi": "[31.9.1, )",
           "kentico.xperience.webapp": "[31.9.1, )"
         }
+      },
+      "AngleSharp": {
+        "type": "CentralTransitive",
+        "requested": "[1.8.1, )",
+        "resolved": "1.8.1",
+        "contentHash": "fTLPBxwYK5zmt+ernY3GL1kFBDA/2Cl72hpNnMHeNceZNJ/AT7Km9CXFaMHybuEFhXDy2Dv7Bjkez5G0Z4Io4g=="
       },
       "AspNetCore.Unobtrusive.Ajax": {
         "type": "CentralTransitive",

@@ -12,12 +12,12 @@ public class PromotionExtrasViewModel
     /// <summary>
     /// Article family: the display names of the item's categories.
     /// </summary>
-    public IEnumerable<string> Categories { get; set; } = [];
+    public IReadOnlyList<string> Categories { get; set; } = [];
 
     /// <summary>
     /// Service family: the descriptions of the service's benefits.
     /// </summary>
-    public IEnumerable<string> Benefits { get; set; } = [];
+    public IReadOnlyList<string> Benefits { get; set; } = [];
 
     /// <summary>
     /// Product family: the price of the selected variant. Null whenever the selected item
@@ -33,8 +33,8 @@ public class PromotionExtrasViewModel
     public ProductStockEnum? StockStatus { get; set; }
 
     public bool HasContent =>
-        Categories.Any()
-        || Benefits.Any()
+        Categories.Count > 0
+        || Benefits.Count > 0
         || Price.HasValue
         || StockStatus.HasValue;
 }

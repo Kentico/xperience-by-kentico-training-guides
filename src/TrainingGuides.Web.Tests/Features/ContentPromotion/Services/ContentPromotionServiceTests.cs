@@ -20,7 +20,6 @@ public class ContentPromotionServiceTests
     private const string WIDGET_DESCRIPTION = "Cover your cat this autumn for less.";
     private const string ITEM_DESCRIPTION = "Comprehensive cover for cats and dogs.";
     private const string WIDGET_CALL_TO_ACTION = "Get a quote";
-    private const string ITEM_CALL_TO_ACTION = "Read more";
     private const string WIDGET_IMAGE_PATH = "/assets/promo-autumn.jpg";
     private const string WIDGET_IMAGE_ALT = "Cat wearing an autumn scarf";
     private const string ITEM_IMAGE_PATH = "/assets/pet-insurance.jpg";
@@ -74,7 +73,7 @@ public class ContentPromotionServiceTests
             .ReturnsAsync(ProductStockEnum.Unknown);
 
         productServiceMock
-            .Setup(x => x.GetCatalogPrice(It.IsAny<IProductSchema>()))
+            .Setup(x => x.GetCatalogPrice(It.IsAny<IProductSchema>(), It.IsAny<CancellationToken>()))
             .ReturnsAsync(VARIANT_PRICE);
 
         contentPromotionService = new ContentPromotionService(
@@ -271,16 +270,13 @@ public class ContentPromotionServiceTests
     }
 
     [Fact]
-    public void ResolveDisplayValues_CallToActionOverriddenAndItemHasCallToAction_UsesOverride()
+    public void ResolveDisplayValues_CallToActionTyped_UsesIt()
     {
         var properties = new ContentPromotionWidgetProperties
         {
             CallToActionText = WIDGET_CALL_TO_ACTION
         };
-        var item = new PromotedItemSource
-        {
-            CallToActionText = ITEM_CALL_TO_ACTION
-        };
+        var item = new PromotedItemSource { Title = ITEM_TITLE };
 
         var result = contentPromotionService.ResolveDisplayValues(properties, item);
 
@@ -382,20 +378,6 @@ public class ContentPromotionServiceTests
     }
 
     [Fact]
-    public void ResolveDisplayValues_CallToActionNotOverridden_InheritsItemCallToAction()
-    {
-        var properties = new ContentPromotionWidgetProperties();
-        var item = new PromotedItemSource
-        {
-            CallToActionText = ITEM_CALL_TO_ACTION
-        };
-
-        var result = contentPromotionService.ResolveDisplayValues(properties, item);
-
-        Assert.Equal(ITEM_CALL_TO_ACTION, result.CallToActionText);
-    }
-
-    [Fact]
     public void ResolveDisplayValues_CallToActionHiddenAndOverridden_ReturnsEmptyCallToAction()
     {
         var properties = new ContentPromotionWidgetProperties
@@ -403,10 +385,7 @@ public class ContentPromotionServiceTests
             CallToActionText = WIDGET_CALL_TO_ACTION,
             HideElements = [ContentPromotionElement.CALL_TO_ACTION]
         };
-        var item = new PromotedItemSource
-        {
-            CallToActionText = ITEM_CALL_TO_ACTION
-        };
+        var item = new PromotedItemSource { Title = ITEM_TITLE };
 
         var result = contentPromotionService.ResolveDisplayValues(properties, item);
 
@@ -418,20 +397,20 @@ public class ContentPromotionServiceTests
     {
         var properties = new ContentPromotionWidgetProperties
         {
+            CallToActionText = WIDGET_CALL_TO_ACTION,
             HideElements = [ContentPromotionElement.DESCRIPTION]
         };
         var item = new PromotedItemSource
         {
             Title = ITEM_TITLE,
-            Description = ITEM_DESCRIPTION,
-            CallToActionText = ITEM_CALL_TO_ACTION
+            Description = ITEM_DESCRIPTION
         };
 
         var result = contentPromotionService.ResolveDisplayValues(properties, item);
 
         Assert.Equal(ITEM_TITLE, result.Title);
         Assert.Equal(string.Empty, result.DescriptionHtml.Value);
-        Assert.Equal(ITEM_CALL_TO_ACTION, result.CallToActionText);
+        Assert.Equal(WIDGET_CALL_TO_ACTION, result.CallToActionText);
     }
 
     [Fact]
@@ -520,7 +499,7 @@ public class ContentPromotionServiceTests
 
         var result = await contentPromotionService.ResolvePromotedItem(properties);
 
-        Assert.Equal(ContentFamily.Article, result.Family);
+        Assert.IsAssignableFrom<IArticleSchema>(result.PromotedContent);
         Assert.Equal(ITEM_TITLE, result.Item?.Title);
         Assert.Equal(ITEM_DESCRIPTION, result.Item?.Description);
     }
@@ -546,7 +525,7 @@ public class ContentPromotionServiceTests
 
         var result = await contentPromotionService.ResolvePromotedItem(properties);
 
-        Assert.Equal(ContentFamily.Article, result.Family);
+        Assert.IsAssignableFrom<IArticleSchema>(result.PromotedContent);
         Assert.Equal(ITEM_TITLE, result.Item?.Title);
         Assert.Equal(ITEM_DESCRIPTION, result.Item?.Description);
     }
@@ -578,7 +557,7 @@ public class ContentPromotionServiceTests
 
         var result = await contentPromotionService.ResolvePromotedItem(properties);
 
-        Assert.Equal(ContentFamily.Product, result.Family);
+        Assert.IsAssignableFrom<IProductSchema>(result.PromotedContent);
         Assert.Equal(ITEM_TITLE, result.Item?.Title);
         Assert.Equal(ITEM_DESCRIPTION, result.Item?.Description);
     }
@@ -808,7 +787,7 @@ public class ContentPromotionServiceTests
 
         var result = await contentPromotionService.ResolvePromotedItem(properties);
 
-        Assert.Equal(ContentFamily.Product, result.Family);
+        Assert.IsAssignableFrom<IProductSchema>(result.PromotedContent);
         Assert.Equal(ITEM_TITLE, result.Item?.Title);
     }
 
@@ -839,7 +818,7 @@ public class ContentPromotionServiceTests
 
         var result = await contentPromotionService.ResolvePromotedItem(properties);
 
-        Assert.Equal(ContentFamily.Service, result.Family);
+        Assert.IsType<Service>(result.PromotedContent);
         Assert.Equal(ITEM_TITLE, result.Item?.Title);
         Assert.Equal(ITEM_DESCRIPTION, result.Item?.Description);
     }
@@ -854,7 +833,7 @@ public class ContentPromotionServiceTests
 
         var result = await contentPromotionService.ResolvePromotedItem(properties);
 
-        Assert.Equal(ContentFamily.None, result.Family);
+        Assert.Null(result.PromotedContent);
         Assert.Null(result.Item);
         contentItemRetrieverServiceMock.VerifyNoOtherCalls();
     }
@@ -869,7 +848,7 @@ public class ContentPromotionServiceTests
 
         var result = await contentPromotionService.ResolvePromotedItem(properties);
 
-        Assert.Equal(ContentFamily.None, result.Family);
+        Assert.Null(result.PromotedContent);
         Assert.Null(result.Item);
         Assert.False(result.SelectionFailed);
     }
@@ -890,7 +869,7 @@ public class ContentPromotionServiceTests
 
         var result = await contentPromotionService.ResolvePromotedItem(properties);
 
-        Assert.Equal(ContentFamily.None, result.Family);
+        Assert.Null(result.PromotedContent);
         Assert.Null(result.Item);
         Assert.True(result.SelectionFailed);
     }
@@ -1123,7 +1102,7 @@ public class ContentPromotionServiceTests
         var result = await contentPromotionService.ResolvePromotedItem(properties);
 
         Assert.True(result.SelectionFailed);
-        Assert.Equal(ContentFamily.None, result.Family);
+        Assert.Null(result.PromotedContent);
     }
 
     [Fact]
@@ -1148,7 +1127,6 @@ public class ContentPromotionServiceTests
         var properties = new ContentPromotionWidgetProperties { ShowExtras = true };
         var promotedItem = new PromotedItemResult
         {
-            Family = ContentFamily.Article,
             PromotedContent = article
         };
 
@@ -1163,7 +1141,6 @@ public class ContentPromotionServiceTests
         var properties = new ContentPromotionWidgetProperties { ShowExtras = true };
         var promotedItem = new PromotedItemResult
         {
-            Family = ContentFamily.Article,
             PromotedContent = new GeneralArticle { ArticleSchemaCategory = [] }
         };
 
@@ -1187,7 +1164,6 @@ public class ContentPromotionServiceTests
         var properties = new ContentPromotionWidgetProperties { ShowExtras = false };
         var promotedItem = new PromotedItemResult
         {
-            Family = ContentFamily.Article,
             PromotedContent = article
         };
 
@@ -1211,7 +1187,6 @@ public class ContentPromotionServiceTests
         var properties = new ContentPromotionWidgetProperties { ShowExtras = true };
         var promotedItem = new PromotedItemResult
         {
-            Family = ContentFamily.Service,
             PromotedContent = service
         };
 
@@ -1226,7 +1201,6 @@ public class ContentPromotionServiceTests
         var properties = new ContentPromotionWidgetProperties { ShowExtras = true };
         var promotedItem = new PromotedItemResult
         {
-            Family = ContentFamily.Service,
             PromotedContent = new Service { ServiceBenefits = [] }
         };
 
@@ -1241,7 +1215,6 @@ public class ContentPromotionServiceTests
         var properties = new ContentPromotionWidgetProperties { ShowExtras = true };
         var promotedItem = new PromotedItemResult
         {
-            Family = ContentFamily.Product,
             PromotedContent = new CatFoodVariant { ProductPriceSchemaPrice = VARIANT_PRICE }
         };
 
@@ -1254,13 +1227,12 @@ public class ContentPromotionServiceTests
     public async Task ResolveExtras_VariantHasACatalogDiscount_ReturnsTheDiscountedPrice()
     {
         productServiceMock
-            .Setup(x => x.GetCatalogPrice(It.IsAny<IProductSchema>()))
+            .Setup(x => x.GetCatalogPrice(It.IsAny<IProductSchema>(), It.IsAny<CancellationToken>()))
             .ReturnsAsync(DISCOUNTED_PRICE);
 
         var properties = new ContentPromotionWidgetProperties { ShowExtras = true };
         var promotedItem = new PromotedItemResult
         {
-            Family = ContentFamily.Product,
             PromotedContent = new CatFoodVariant { ProductPriceSchemaPrice = VARIANT_PRICE }
         };
 
@@ -1278,7 +1250,6 @@ public class ContentPromotionServiceTests
         var properties = new ContentPromotionWidgetProperties { ShowExtras = true };
         var promotedItem = new PromotedItemResult
         {
-            Family = ContentFamily.Product,
             PromotedContent = new CatFood()
         };
 
@@ -1297,7 +1268,6 @@ public class ContentPromotionServiceTests
         var properties = new ContentPromotionWidgetProperties { ShowExtras = true };
         var promotedItem = new PromotedItemResult
         {
-            Family = ContentFamily.Product,
             PromotedContent = new CatFood()
         };
 
@@ -1310,13 +1280,12 @@ public class ContentPromotionServiceTests
     public async Task ResolveExtras_ProductHasNoCatalogPrice_OmitsThePriceRatherThanShowingZero()
     {
         productServiceMock
-            .Setup(x => x.GetCatalogPrice(It.IsAny<IProductSchema>()))
+            .Setup(x => x.GetCatalogPrice(It.IsAny<IProductSchema>(), It.IsAny<CancellationToken>()))
             .ReturnsAsync(0m);
 
         var properties = new ContentPromotionWidgetProperties { ShowExtras = true };
         var promotedItem = new PromotedItemResult
         {
-            Family = ContentFamily.Product,
             PromotedContent = new CatFood()
         };
 
@@ -1362,7 +1331,6 @@ public class ContentPromotionServiceTests
         var properties = new ContentPromotionWidgetProperties { ShowExtras = true };
         var promotedItem = new PromotedItemResult
         {
-            Family = ContentFamily.Product,
             PromotedContent = new CatFood()
         };
 
@@ -1378,7 +1346,7 @@ public class ContentPromotionServiceTests
     public async Task ResolveExtras_ParentProductHasNoVariantsAtAll_ReturnsEmptyExtras()
     {
         productServiceMock
-            .Setup(x => x.GetCatalogPrice(It.IsAny<IProductSchema>()))
+            .Setup(x => x.GetCatalogPrice(It.IsAny<IProductSchema>(), It.IsAny<CancellationToken>()))
             .ReturnsAsync(0m);
 
         productServiceMock
@@ -1388,7 +1356,6 @@ public class ContentPromotionServiceTests
         var properties = new ContentPromotionWidgetProperties { ShowExtras = true };
         var promotedItem = new PromotedItemResult
         {
-            Family = ContentFamily.Product,
             PromotedContent = new CatFood { ProductParentSchemaVariants = [] }
         };
 
@@ -1409,7 +1376,6 @@ public class ContentPromotionServiceTests
         var properties = new ContentPromotionWidgetProperties { ShowExtras = true };
         var promotedItem = new PromotedItemResult
         {
-            Family = ContentFamily.Product,
             PromotedContent = new CatFoodVariant { ProductPriceSchemaPrice = VARIANT_PRICE }
         };
 
@@ -1428,7 +1394,6 @@ public class ContentPromotionServiceTests
         var properties = new ContentPromotionWidgetProperties { ShowExtras = true };
         var promotedItem = new PromotedItemResult
         {
-            Family = ContentFamily.Product,
             PromotedContent = new CatFoodVariant { ProductPriceSchemaPrice = VARIANT_PRICE }
         };
 
@@ -1447,7 +1412,6 @@ public class ContentPromotionServiceTests
         var properties = new ContentPromotionWidgetProperties { ShowExtras = true };
         var promotedItem = new PromotedItemResult
         {
-            Family = ContentFamily.Product,
             PromotedContent = new CatFoodVariant { ProductPriceSchemaPrice = VARIANT_PRICE }
         };
 
