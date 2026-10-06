@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Html;
 using TrainingGuides.Web.Commerce.Products.Models;
 
 namespace TrainingGuides.Web.Features.ContentPromotion.Models;
@@ -14,9 +15,9 @@ public class PromotionExtrasViewModel
     public IReadOnlyList<string> Categories { get; set; } = [];
 
     /// <summary>
-    /// Service family: the descriptions of the service's benefits.
+    /// Service family: the descriptions of the service's benefits, as markup - they are rich text.
     /// </summary>
-    public IReadOnlyList<string> Benefits { get; set; } = [];
+    public IReadOnlyList<HtmlString> Benefits { get; set; } = [];
 
     /// <summary>
     /// Product family: the catalog price. For a parent product, the price of its first variant.

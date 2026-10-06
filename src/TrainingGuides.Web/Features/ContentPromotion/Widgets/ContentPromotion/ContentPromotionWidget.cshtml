@@ -77,7 +77,7 @@ else
                         @if (Model.Extras.Benefits.Any())
                         {
                             <ul class="c-content-promotion__benefits">
-                                @foreach (string benefit in Model.Extras.Benefits)
+                                @foreach (var benefit in Model.Extras.Benefits)
                                 {
                                     <li class="c-content-promotion__benefit">@benefit</li>
                                 }

@@ -1,6 +1,7 @@
 using CMS.ContentEngine;
 using CMS.Websites;
 using Kentico.Content.Web.Mvc.Routing;
+using Microsoft.AspNetCore.Html;
 using Moq;
 using TrainingGuides.Web.Commerce.Products.Models;
 using TrainingGuides.Web.Commerce.Products.Services;
@@ -1192,7 +1193,42 @@ public class ContentPromotionServiceTests
 
         var result = await contentPromotionService.ResolveExtras(properties, promotedItem);
 
-        Assert.Equal([FIRST_BENEFIT, SECOND_BENEFIT], result.Benefits);
+        Assert.Equal([FIRST_BENEFIT, SECOND_BENEFIT], result.Benefits.Select(benefit => benefit.Value));
+    }
+
+    // Benefit descriptions are rich text, like the item descriptions. Treated as plain strings, the
+    // view encodes them and the editor's tags show up on the card.
+    [Fact]
+    public async Task ResolveExtras_BenefitDescriptionIsRichText_PassesItThroughAsMarkup()
+    {
+        const string RICH_TEXT_BENEFIT = "<p>Flexible terms</p>";
+        var properties = new ContentPromotionWidgetProperties { ShowExtras = true };
+        var promotedItem = new PromotedItemResult
+        {
+            PromotedContent = new Service { ServiceBenefits = [new Benefit { BenefitDescription = RICH_TEXT_BENEFIT }] }
+        };
+
+        var result = await contentPromotionService.ResolveExtras(properties, promotedItem);
+
+        Assert.IsType<HtmlString>(Assert.Single(result.Benefits));
+        Assert.Equal(RICH_TEXT_BENEFIT, result.Benefits[0].Value);
+    }
+
+    // Benefits sit inside the card's stretched link like the description, so the same rule applies.
+    [Fact]
+    public async Task ResolveExtras_BenefitDescriptionContainsAnchors_KeepsTheirTextAndDropsTheLinks()
+    {
+        var properties = new ContentPromotionWidgetProperties { ShowExtras = true };
+        var promotedItem = new PromotedItemResult
+        {
+            PromotedContent = new Service { ServiceBenefits = [new Benefit { BenefitDescription = LINKED_DESCRIPTION }] }
+        };
+
+        var result = await contentPromotionService.ResolveExtras(properties, promotedItem);
+
+        string benefit = Assert.Single(result.Benefits).Value!;
+        Assert.DoesNotContain("</a>", benefit);
+        Assert.Contains(LINK_TEXT, benefit);
     }
 
     [Fact]

@@ -475,6 +475,16 @@
   padding-left: 1.125rem;
 }
 
+/* Benefit descriptions are rich text, so each list item usually holds a paragraph with Bootstrap's
+   bottom margin. The list owns the spacing, so the item's own outer margins are dropped. */
+.c-content-promotion__benefit > :first-child {
+  margin-top: 0;
+}
+
+.c-content-promotion__benefit > :last-child {
+  margin-bottom: 0;
+}
+
 .c-content-promotion__price {
   font-weight: 600;
   font-size: 1.125rem;

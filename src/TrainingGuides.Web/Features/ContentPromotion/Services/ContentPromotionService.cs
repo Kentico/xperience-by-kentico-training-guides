@@ -348,6 +348,7 @@ public class ContentPromotionService(
             .. (service.ServiceBenefits ?? [])
                 .Select(benefit => benefit.BenefitDescription)
                 .Where(description => !string.IsNullOrWhiteSpace(description))
+                .Select(description => new HtmlString(WithoutAnchors(description)))
         ]
     };
 
