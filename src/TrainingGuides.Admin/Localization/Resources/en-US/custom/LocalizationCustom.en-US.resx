@@ -265,7 +265,7 @@
     <value>Call to action text</value>
   </data>
   <data name="TrainingGuides.ContentPromotionWidget.CallToActionText.ExplanationText" xml:space="preserve">
-    <value>Leave empty to use the call to action of the selected content item.</value>
+    <value>Shown on the button. Visitors can click the card only when this has text. Without it, the card has no link.</value>
   </data>
   <data name="TrainingGuides.ContentPromotionWidget.LinkTargetPage.Label" xml:space="preserve">
     <value>Link target</value>

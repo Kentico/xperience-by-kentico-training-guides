@@ -376,7 +376,7 @@
     <value>Texte de l'appel à l'action</value>
   </data>
   <data name="TrainingGuides.ContentPromotionWidget.CallToActionText.ExplanationText" xml:space="preserve">
-    <value>Laissez vide pour utiliser l'appel à l'action de l'élément de contenu sélectionné.</value>
+    <value>Affiché sur le bouton. Les visiteurs ne peuvent cliquer sur la carte que si ce champ contient du texte. Sans texte, la carte n'a pas de lien.</value>
   </data>
   <data name="TrainingGuides.ContentPromotionWidget.LinkTargetPage.Label" xml:space="preserve">
     <value>Cible du lien</value>

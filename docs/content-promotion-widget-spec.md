@@ -114,6 +114,10 @@ Resolution order per element, evaluated strictly in this order:
 
 In `manual` mode step 3 yields nothing, so the override fields are the entire content.
 
+The **call to action never inherits**. None of the promoted content types has a call-to-action
+field, so step 3 always yields nothing for it, in every mode: the CTA text comes from the widget
+property or not at all. Leaving it empty therefore produces a card without a link (section 6.2).
+
 ### 5.2 The description is markup, the override is not (added in T11)
 
 Every family stores its description as rich text — `ArticleSchemaSummary`,
@@ -192,20 +196,40 @@ uses it. `LinkUrl` carries both `[VisibleIfNotEqualTo(ContentSource, page)]` and
 `[VisibleIfEmpty(nameof(LinkTargetPage))]`, which AND together. The `LinkType` radio
 fallback is not needed and the property count stays at 20.
 
-### 6.2 No destination
+### 6.2 No link
 
-Content hub or manual mode with neither a link target nor a URL:
+The card links only when it has **both** a destination and call-to-action text that is not
+hidden. Otherwise the CTA anchor is not rendered, and since it is the card's only anchor
+(section 6.3), the card is not clickable. Three cases lead there:
 
-- Public visitors: the card renders, the call to action is omitted, the card is not clickable.
-- Edit mode: the card renders plus an editor-only notice explaining why the CTA is absent.
+| Case | When |
+| --- | --- |
+| No destination | Content hub or manual mode with neither a link target nor a URL |
+| No call to action text | A destination, but the CTA text property is empty |
+| Call to action hidden | A destination, but `HideElements` contains Call to action |
+
+In every case:
+
+- Public visitors: the card renders as plain content, with no link and no CTA button.
+- Edit mode: the card renders plus an editor-only notice naming the cause (section 8).
 
 Silent degradation is the worst outcome for a reference site whose audience is learners.
 
+**Changed in T12: notice only, no fallback label.** The original plan rendered a localized
+fallback CTA text whenever a destination existed, so such a card was always clickable. T12
+replaced that with the two CTA notices above. A card without CTA text stays unclickable, and the
+editor is told why. The CTA property's explanation text says so in the form.
+
 ### 6.3 Clickable surface
 
-The whole card is clickable **and** a visible call-to-action button is rendered. This is
-one anchor in the DOM — the CTA anchor — expanded to the card surface with a stretched-link
-overlay (an `::after` covering the card, with the card positioned relative).
+When the card links (section 6.2), the whole card is clickable **and** a visible
+call-to-action button is rendered. This is one anchor in the DOM — the CTA anchor — expanded
+to the card surface with a stretched-link overlay (an `::after` covering the card, with the
+card positioned relative).
+
+The overlay covers the text as well: a click anywhere on the card, including the title and
+description, follows the link, and that text cannot be selected with the mouse. The content
+column's `z-index` keeps the text above the image overlay design's scrim, not above the link.
 
 One anchor means one accessible name and one place to attach click tracking. It also means
 the card must contain **no other interactive elements**; the extras block in section 7 is
@@ -292,17 +316,26 @@ commerce-wide decision, not a promotion-card one.
 ## 8. Misconfiguration reporting
 
 The shared `IWidgetViewModel` contract exposes a single `bool IsMisconfigured`, which cannot
-distinguish this widget's three distinct states:
+distinguish this widget's five distinct states:
 
-| State | Public output | Edit mode |
+| State (`MisconfigurationReason`) | Public output | Edit mode |
 | --- | --- | --- |
-| Manual mode, nothing authored | Nothing | Notice: add content or select an item |
-| Selection broken or unpublished | Nothing | Notice: the selected item could not be loaded |
-| Selected, but no destination | Card without CTA | Notice: choose a link target or URL |
+| Manual mode, nothing authored (`NothingAuthored`) | Nothing | Notice: add content or select an item |
+| Selection broken or unpublished (`ItemCouldNotBeLoaded`) | Nothing | Notice: the selected item could not be loaded |
+| Content, but no destination (`NoDestination`) | Card, no link | Warning: choose a link target or URL |
+| Destination, but no CTA text (`CallToActionMissing`, T12) | Card, no link | Warning: type in a call to action |
+| Destination, but CTA hidden (`CallToActionHidden`, T12) | Card, no link | Warning: the call to action is hidden |
+
+Only the first two are misconfigurations (`IsMisconfigured` is true) and hide the widget from
+the public. The other three are warnings: visitors still see the card, without a link
+(section 6.2), and only editors see the warning, under the card.
 
 The view model implements `IsMisconfigured` to satisfy the interface, and **adds** a
 `MisconfigurationReason` enum that the edit-mode block renders. Additive — the contract
 holds and no existing widget changes.
+
+The notices render only in Page Builder edit mode. A published page opens read-only, so an
+editor sees the warnings after creating a new version of the page, not before.
 
 No hard validation attributes. A conditional-required rule (title required only in manual
 mode) is more machinery than the failure mode justifies, and required-field errors mid-edit
@@ -404,7 +437,7 @@ to all three cultures:
 to `src/TrainingGuides.Web/Resources/SharedResources.es.resx`.
 
 **Known gap, accepted deliberately:** there is no `SharedResources.fr.resx` in this project,
-so rendered strings (CTA fallback text, stock status labels, extras headings) are localized
+so rendered strings (stock status labels and the editor notices) are localized
 to Spanish only, while property labels are localized to Spanish and French. Creating a French
 front-end resource that no other feature populates would be a half-empty file — worse than a
 consistent gap. Revisit if French front-end localization is added project-wide.

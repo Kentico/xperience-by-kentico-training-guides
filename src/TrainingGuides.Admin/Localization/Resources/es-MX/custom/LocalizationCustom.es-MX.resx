@@ -376,7 +376,7 @@
     <value>Texto de la llamada a la acción</value>
   </data>
   <data name="TrainingGuides.ContentPromotionWidget.CallToActionText.ExplanationText" xml:space="preserve">
-    <value>Déjelo vacío para usar la llamada a la acción del elemento de contenido seleccionado.</value>
+    <value>Se muestra en el botón. Los visitantes solo pueden hacer clic en la tarjeta cuando este campo tiene texto. Sin texto, la tarjeta no tiene enlace.</value>
   </data>
   <data name="TrainingGuides.ContentPromotionWidget.LinkTargetPage.Label" xml:space="preserve">
     <value>Destino del enlace</value>
