@@ -579,7 +579,7 @@ pixels, and the Page Builder canvas is narrower than the window around it.
 
 After: the ratio is always exactly what is declared, one designed step, and the image tops out at
 **1200×514 in a 647px card** instead of 1200×576 in a 709px card.
-$$
+
 #### A regression introduced, then caught by re-measuring
 
 Removing `max-height` stripped the ceiling that commit `df084d19` added to stop the image taking
