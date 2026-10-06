@@ -92,7 +92,8 @@ is the thing under test.
 | T10 integration tests | Not started, added during T3 |
 | T11 product card defects | Not started, reported after T9 |
 | T12 CTA editor notices | Done — 2 tests, notice only (no fallback label) |
-| T13–T21 pre-publish review fixes | Not started, raised at code review 2026-10-06 — see [Pre-publish code review](#pre-publish-code-review) |
+| T13 remove page selector workaround | Done — 2 drift guard tests; 4 workaround tests removed |
+| T14–T21 pre-publish review fixes | Not started, raised at code review 2026-10-06 — see [Pre-publish code review](#pre-publish-code-review) |
 
 Full web suite at the T9 stop point: **168 passing, 0 failing.**
 
@@ -1108,6 +1109,15 @@ the "report to Kentico" heading. Update spec references to `UnsupportedPageType`
 
 **Manual check:** in the admin, select a `ProductPage` under `/Store` and a `ServicePage` under
 `/Products` with the narrowed selector — both must be reachable.
+
+**Implemented (T13 done).** The selector narrowing itself landed with the 31.9.1 update
+(`76dd29d8`). This ticket removed everything else listed above, and added
+`ContentPromotionContentTypesTests`. The guard reads the selector's content type names from
+attribute metadata (`GetCustomAttributesData`), because the attribute's own
+`AllowedContentItemTypeIdentifiers` holds GUIDs resolved from those names and cannot be compared
+without a database. A widget saved earlier with a container page selected now reports
+`ItemCouldNotBeLoaded`, because retrieval no longer names container types. The manual check above
+has not been run.
 
 ---
 

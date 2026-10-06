@@ -18,17 +18,18 @@ public class ContentPromotionWidgetProperties : IWidgetProperties
         Order = 10)]
     public string ContentSource { get; set; } = ContentPromotionSource.PAGE;
 
-    // Restricts the selector to page types the widget can retrieve and promote.
+    // Restricts the selector to page types the widget can retrieve and promote. Keep in step with
+    // ContentPromotionContentTypes.PAGES, which retrieval uses - an attribute argument must be a
+    // compile-time constant, so the array cannot be shared. ContentPromotionContentTypesTests
+    // fails when the two drift apart.
     [ContentItemSelectorComponent(
         [
             ArticlePage.CONTENT_TYPE_NAME,
             ProductPage.CONTENT_TYPE_NAME,
-            ServicePage.CONTENT_TYPE_NAME,
+            ServicePage.CONTENT_TYPE_NAME
         ],
         Label = "{$TrainingGuides.ContentPromotionWidget.SelectedPage.Label$}",
         ExplanationText = "{$TrainingGuides.ContentPromotionWidget.SelectedPage.ExplanationText$}",
-        // Keep in step with ContentPromotionContentTypes.PAGES, which retrieval uses. An attribute
-        // argument must be a compile-time constant, so the array cannot be shared directly.
         MaximumItems = 1,
         Order = 20)]
     [VisibleIfEqualTo(nameof(ContentSource), ContentPromotionSource.PAGE, StringComparison.OrdinalIgnoreCase)]

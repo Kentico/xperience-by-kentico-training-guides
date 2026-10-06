@@ -52,7 +52,6 @@ public class ContentPromotionWidgetViewComponent(
         return new ContentPromotionWidgetViewModel
         {
             SelectionFailed = promotedItem.SelectionFailed,
-            SelectionUnsupported = promotedItem.SelectionUnsupported,
             CallToActionHidden = properties.HideElements.Contains(ContentPromotionElement.CALL_TO_ACTION),
             DisplayValues = contentPromotionService.ResolveDisplayValues(
                 properties,

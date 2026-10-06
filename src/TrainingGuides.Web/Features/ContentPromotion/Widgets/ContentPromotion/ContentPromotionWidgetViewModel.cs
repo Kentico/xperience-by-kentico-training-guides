@@ -54,11 +54,6 @@ public class ContentPromotionWidgetViewModel : IWidgetViewModel
     public string TrackingValue { get; set; } = string.Empty;
 
     /// <summary>
-    /// True when the editor selected a page that loaded but holds nothing promotable.
-    /// </summary>
-    public bool SelectionUnsupported { get; set; }
-
-    /// <summary>
     /// True when the editor selected an item that could not be loaded. Distinct from having
     /// selected nothing, which is a valid authoring state in manual mode.
     /// </summary>
@@ -74,11 +69,6 @@ public class ContentPromotionWidgetViewModel : IWidgetViewModel
     {
         get
         {
-            if (SelectionUnsupported)
-            {
-                return MisconfigurationReason.UnsupportedPageType;
-            }
-
             if (SelectionFailed)
             {
                 return MisconfigurationReason.ItemCouldNotBeLoaded;
@@ -111,6 +101,5 @@ public class ContentPromotionWidgetViewModel : IWidgetViewModel
     /// </summary>
     public bool IsMisconfigured => MisconfigurationReason
         is MisconfigurationReason.NothingAuthored
-        or MisconfigurationReason.ItemCouldNotBeLoaded
-        or MisconfigurationReason.UnsupportedPageType;
+        or MisconfigurationReason.ItemCouldNotBeLoaded;
 }

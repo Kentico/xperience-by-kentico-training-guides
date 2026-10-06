@@ -271,9 +271,6 @@
   <data name="The selected item could not be loaded. It may be unpublished, deleted, or missing a translation in this language." xml:space="preserve">
     <value>No se pudo cargar el elemento seleccionado. Puede que no esté publicado, que se haya eliminado o que no tenga traducción en este idioma.</value>
   </data>
-  <data name="That page has nothing to promote. Section pages are listed only so you can navigate the tree - pick an article, product or service page underneath one." xml:space="preserve">
-    <value>Esa página no tiene nada que promocionar. Las páginas de sección aparecen solo para que pueda recorrer el árbol: elija una página de artículo, producto o servicio dentro de una de ellas.</value>
-  </data>
   <data name="This promotion has nothing to show yet. Select an item, or type in a title and description." xml:space="preserve">
     <value>Esta promoción todavía no tiene nada que mostrar. Seleccione un elemento o escriba un título y una descripción.</value>
   </data>

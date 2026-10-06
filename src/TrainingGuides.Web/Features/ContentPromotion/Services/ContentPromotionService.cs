@@ -61,17 +61,13 @@ public partial class ContentPromotionService(
             IArticleSchema article => FromArticle(article),
             Service service => FromService(service),
             IProductSchema product => FromProduct(product),
-            // Container pages are offered by the selector only so the tree can be walked - see the
-            // note on the SelectedPage property. Selecting one is a mistake worth naming, not a
-            // load failure.
-            EmptyPage or StoreSection => new PromotedItemResult { SelectionUnsupported = true },
             _ => new PromotedItemResult()
         };
 
         // Retrieval succeeded but nothing usable came back - an unsupported content type, or a
         // page whose linked content item is missing. The editor did select something, so this
         // is a broken selection rather than an empty one.
-        result.SelectionFailed = result.Item is null && !result.SelectionUnsupported;
+        result.SelectionFailed = result.Item is null;
 
         // Kept so the link rules can reuse the page that was already retrieved, instead of
         // querying for the same page a second time.

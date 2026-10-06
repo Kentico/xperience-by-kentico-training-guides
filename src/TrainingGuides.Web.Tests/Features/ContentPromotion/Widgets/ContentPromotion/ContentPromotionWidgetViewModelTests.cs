@@ -109,30 +109,4 @@ public class ContentPromotionWidgetViewModelTests
         Assert.False(viewModel.IsMisconfigured);
         Assert.Equal(MisconfigurationReason.CallToActionHidden, viewModel.MisconfigurationReason);
     }
-
-    [Fact]
-    public void MisconfigurationReason_SelectionUnsupported_ReportsTheUnsupportedPageType()
-    {
-        var model = new ContentPromotionWidgetViewModel
-        {
-            SelectionUnsupported = true
-        };
-
-        Assert.Equal(MisconfigurationReason.UnsupportedPageType, model.MisconfigurationReason);
-        Assert.True(model.IsMisconfigured);
-    }
-
-    [Fact]
-    public void MisconfigurationReason_SelectionUnsupported_WinsOverNothingAuthored()
-    {
-        // A container page resolves no values at all, so both states are true at once. The editor
-        // needs to be told the page choice is wrong, not that they typed nothing in.
-        var model = new ContentPromotionWidgetViewModel
-        {
-            SelectionUnsupported = true,
-            SelectionFailed = false
-        };
-
-        Assert.Equal(MisconfigurationReason.UnsupportedPageType, model.MisconfigurationReason);
-    }
 }

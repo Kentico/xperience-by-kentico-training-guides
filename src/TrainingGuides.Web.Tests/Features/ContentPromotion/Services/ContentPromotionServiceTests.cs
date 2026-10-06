@@ -1347,27 +1347,4 @@ public class ContentPromotionServiceTests
         Assert.Null(result.StockStatus);
         Assert.Equal(VARIANT_PRICE, result.Price);
     }
-
-    [Theory]
-    [InlineData(typeof(EmptyPage))]
-    [InlineData(typeof(StoreSection))]
-    public async Task ResolvePromotedItem_SelectionIsAContainerPage_ReportsAnUnsupportedSelection(Type pageType)
-    {
-        contentItemRetrieverServiceMock
-            .Setup(x => x.RetrieveWebPageByContentItemGuid(
-                selectedGuid, It.IsAny<IEnumerable<string>>(), It.IsAny<int>(), It.IsAny<bool>(), It.IsAny<string?>()))
-            .ReturnsAsync((IWebPageFieldsSource?)Activator.CreateInstance(pageType));
-
-        var properties = new ContentPromotionWidgetProperties
-        {
-            ContentSource = ContentPromotionSource.PAGE,
-            SelectedPage = [new ContentItemReference { Identifier = selectedGuid }]
-        };
-
-        var result = await contentPromotionService.ResolvePromotedItem(properties);
-
-        Assert.True(result.SelectionUnsupported);
-        Assert.False(result.SelectionFailed);
-        Assert.Null(result.Item);
-    }
 }

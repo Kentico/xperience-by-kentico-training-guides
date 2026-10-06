@@ -24,12 +24,6 @@ public enum MisconfigurationReason
     ItemCouldNotBeLoaded,
 
     /// <summary>
-    /// The editor selected a page that loaded fine but holds nothing promotable - a section or
-    /// container page, which the selector offers only so the content tree can be navigated.
-    /// </summary>
-    UnsupportedPageType,
-
-    /// <summary>
     /// The card has content but nowhere to link to. A warning rather than a misconfiguration:
     /// the public still sees a valid card, so only edit mode reacts to this.
     /// </summary>
