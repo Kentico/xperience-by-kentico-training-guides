@@ -11,6 +11,7 @@ public class ContentPromotionWidgetViewModelTests
     private const string TITLE = "Autumn savings on pet cover";
     private const string LINK_URL = "/pet-insurance";
     private const string DESCRIPTION_MARKUP = "<p>Cover your cat this autumn for less.</p>";
+    private const string CALL_TO_ACTION = "Get a quote";
 
     [Fact]
     public void ManualModeWithNothingAuthored_IsMisconfiguredForNothingAuthored()
@@ -55,7 +56,8 @@ public class ContentPromotionWidgetViewModelTests
         {
             DisplayValues = new ContentPromotionDisplayValues
             {
-                DescriptionHtml = new HtmlString(DESCRIPTION_MARKUP)
+                DescriptionHtml = new HtmlString(DESCRIPTION_MARKUP),
+                CallToActionText = CALL_TO_ACTION
             },
             Link = new LinkViewModel { LinkUrl = LINK_URL }
         };
@@ -69,12 +71,43 @@ public class ContentPromotionWidgetViewModelTests
     {
         var viewModel = new ContentPromotionWidgetViewModel
         {
-            DisplayValues = new ContentPromotionDisplayValues { Title = TITLE },
+            DisplayValues = new ContentPromotionDisplayValues { Title = TITLE, CallToActionText = CALL_TO_ACTION },
             Link = new LinkViewModel { LinkUrl = LINK_URL }
         };
 
         Assert.False(viewModel.IsMisconfigured);
         Assert.Equal(MisconfigurationReason.None, viewModel.MisconfigurationReason);
+    }
+
+    // The card has somewhere to go but no anchor to get there - the view renders the anchor only
+    // when there is call to action text. The public still sees the card, so it is a warning.
+    [Fact]
+    public void DestinationButNoCallToActionText_IsNotMisconfiguredAndReportsCallToActionMissing()
+    {
+        var viewModel = new ContentPromotionWidgetViewModel
+        {
+            DisplayValues = new ContentPromotionDisplayValues { Title = TITLE },
+            Link = new LinkViewModel { LinkUrl = LINK_URL }
+        };
+
+        Assert.False(viewModel.IsMisconfigured);
+        Assert.Equal(MisconfigurationReason.CallToActionMissing, viewModel.MisconfigurationReason);
+    }
+
+    // Hiding the call to action is a deliberate editor choice, so the notice names that choice
+    // rather than asking for text the editor has chosen not to show.
+    [Fact]
+    public void DestinationButCallToActionHidden_IsNotMisconfiguredAndReportsCallToActionHidden()
+    {
+        var viewModel = new ContentPromotionWidgetViewModel
+        {
+            DisplayValues = new ContentPromotionDisplayValues { Title = TITLE },
+            Link = new LinkViewModel { LinkUrl = LINK_URL },
+            CallToActionHidden = true
+        };
+
+        Assert.False(viewModel.IsMisconfigured);
+        Assert.Equal(MisconfigurationReason.CallToActionHidden, viewModel.MisconfigurationReason);
     }
 
     [Fact]

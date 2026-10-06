@@ -91,7 +91,8 @@ is the thing under test.
 | T9 click activity | Done - 4 tests |
 | T10 integration tests | Not started, added during T3 |
 | T11 product card defects | Not started, reported after T9 |
-| T12–T21 pre-publish review fixes | Not started, raised at code review 2026-10-06 — see [Pre-publish code review](#pre-publish-code-review) |
+| T12 CTA editor notices | Done — 2 tests, notice only (no fallback label) |
+| T13–T21 pre-publish review fixes | Not started, raised at code review 2026-10-06 — see [Pre-publish code review](#pre-publish-code-review) |
 
 Full web suite at the T9 stop point: **168 passing, 0 failing.**
 
@@ -1035,9 +1036,21 @@ tracking, and `MisconfigurationReason.None`, so edit mode shows no notice. Hidin
 `HideElements` produces the same card. Spec §6.2 calls silent degradation "the worst outcome", and
 §13 / the localization section already anticipate "CTA fallback text".
 
-**Decision recorded here:** use a localized fallback label (for example "Learn more") when a
-destination exists and no CTA text resolves. Hiding the CTA explicitly is an editor choice and
-keeps the card unclickable, but edit mode must say so.
+**Decision (2026-10-06): notice only, no fallback label.** The public card stays as it is; the
+editor is told in edit mode. Two new warnings — not misconfigurations, the public still sees the
+card — in `MisconfigurationReason`: `CallToActionMissing` (destination, no CTA text) and
+`CallToActionHidden` (destination, CTA hidden). The view model gets a `CallToActionHidden` flag set
+by the view component from `HideElements`, because the resolved text is empty either way.
+
+**Implemented (T12 done).** Seam: `ContentPromotionWidgetViewModel.MisconfigurationReason` only.
+Tests: `DestinationButNoCallToActionText_…ReportsCallToActionMissing` and
+`DestinationButCallToActionHidden_…ReportsCallToActionHidden`. The `FullyConfigured` and
+`OnlyADescriptionWasResolved` fixtures now carry CTA text — a link with no CTA text is no longer
+"fully configured". Spanish strings added to `SharedResources.es.resx`. `CallToActionHidden` is
+only reachable once T14 gives `HideElements` a form component. `PromotedItemSource.CallToActionText`
+is left for T20.
+
+The fallback-label plan below is kept for reference and was **not** implemented.
 
 **Seam:** `IContentPromotionService.ResolveDisplayValues` (pure) and
 `ContentPromotionWidgetViewModel.MisconfigurationReason` (pure).

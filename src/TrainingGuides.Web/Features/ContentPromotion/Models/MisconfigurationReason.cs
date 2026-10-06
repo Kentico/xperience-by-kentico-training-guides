@@ -33,5 +33,17 @@ public enum MisconfigurationReason
     /// The card has content but nowhere to link to. A warning rather than a misconfiguration:
     /// the public still sees a valid card, so only edit mode reacts to this.
     /// </summary>
-    NoDestination
+    NoDestination,
+
+    /// <summary>
+    /// The card has a destination but no call to action text, so no anchor renders and the card
+    /// cannot be clicked. A warning, like <see cref="NoDestination"/>.
+    /// </summary>
+    CallToActionMissing,
+
+    /// <summary>
+    /// The card has a destination but the editor hid the call to action, so the card cannot be
+    /// clicked. A warning: hiding it is a valid choice, but its consequence is not obvious.
+    /// </summary>
+    CallToActionHidden
 }

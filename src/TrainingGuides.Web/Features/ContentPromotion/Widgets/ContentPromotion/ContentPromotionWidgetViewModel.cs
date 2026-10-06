@@ -64,6 +64,12 @@ public class ContentPromotionWidgetViewModel : IWidgetViewModel
     /// </summary>
     public bool SelectionFailed { get; set; }
 
+    /// <summary>
+    /// True when the editor hid the call to action. The resolved text is empty either way, so
+    /// this is what tells a deliberate hide apart from text that was never provided.
+    /// </summary>
+    public bool CallToActionHidden { get; set; }
+
     public MisconfigurationReason MisconfigurationReason
     {
         get
@@ -83,8 +89,18 @@ public class ContentPromotionWidgetViewModel : IWidgetViewModel
                 return MisconfigurationReason.NothingAuthored;
             }
 
-            return Link is null
-                ? MisconfigurationReason.NoDestination
+            if (Link is null)
+            {
+                return MisconfigurationReason.NoDestination;
+            }
+
+            if (CallToActionHidden)
+            {
+                return MisconfigurationReason.CallToActionHidden;
+            }
+
+            return string.IsNullOrWhiteSpace(DisplayValues.CallToActionText)
+                ? MisconfigurationReason.CallToActionMissing
                 : MisconfigurationReason.None;
         }
     }
