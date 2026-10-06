@@ -24,6 +24,7 @@ Instructions for AI coding assistants working in this repository. Tool-agnostic 
 | `src/TrainingGuides.Admin/` | Admin UI customizations — custom pages, extenders, localization. |
 | `src/TrainingGuides.Web.Tests/` | Unit tests for the web project, mirroring the `Features/` structure. |
 | `src/TrainingGuides.Admin.Tests/` | Unit tests for admin customizations. |
+| `tests/` | Playwright end-to-end tests, grouped by feature. See `docs/E2E-Testing.md`. |
 | `src/Directory.Packages.props` | Central package version management — change package versions here, not in individual `.csproj` files. |
 | `src/.editorconfig` | Authoritative formatting and analyzer rules. |
 | `scripts/` | PowerShell helpers for CI restore/store, code generation, publishing. |
@@ -38,6 +39,7 @@ Run from the repository root unless noted. Scripts are PowerShell.
 | Run site | `dotnet run --project src/TrainingGuides.Web` |
 | Run web tests | `dotnet test src/TrainingGuides.Web.Tests` |
 | Run admin tests | `dotnet test src/TrainingGuides.Admin.Tests` |
+| Run end-to-end tests (from `tests/`, needs the `E2E:AdminPassword` user secret) | `npm test` |
 | Restore CI data into the database | `./scripts/CIRestore.ps1` |
 | Store database objects into CI files | `./scripts/CIStore.ps1` |
 | Regenerate content type code | `./scripts/GenerateCodeFiles.ps1` |
@@ -118,6 +120,7 @@ Full instructions: <https://docs.kentico.com/documentation/developers-and-admins
 ## Validation of changes
 
 - Always build the solution and run the relevant tests after making changes.
+- End-to-end tests: read `docs/E2E-Testing.md` before writing one or changing a flow under `tests/e2e/`, then run the suite.
 - If you touched SCSS, confirm the compiled CSS in `wwwroot/assets/css` was regenerated and is consistent with the source.
 - If you touched the content model, regenerate entity code and store CI data.
 - Always validate user-facing changes for content, layout, styling and localization correctness before committing.
