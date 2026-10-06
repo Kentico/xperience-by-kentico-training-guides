@@ -130,8 +130,14 @@ public class ContentPromotionWidgetProperties : IWidgetProperties
     /// what the editor typed for a reason they cannot see.
     /// </summary>
     public bool IsElementHidden(string element) =>
-        !string.Equals(ContentSource, ContentPromotionSource.MANUAL, StringComparison.OrdinalIgnoreCase)
-        && HideElements.Contains(element);
+        !IsContentSource(ContentPromotionSource.MANUAL) && HideElements.Contains(element);
+
+    /// <summary>
+    /// Compares the content source the way the form's visibility conditions do - ignoring case - so
+    /// the server and the form never disagree about which mode the widget is in.
+    /// </summary>
+    public bool IsContentSource(string source) =>
+        string.Equals(ContentSource, source, StringComparison.OrdinalIgnoreCase);
 
     // Advanced styling. Everything below hides behind the one toggle, so the form stays short
     // for the editors who only want a card.

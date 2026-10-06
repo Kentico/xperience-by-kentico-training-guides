@@ -24,12 +24,12 @@ public partial class ContentPromotionService(
 
     public async Task<PromotedItemResult> ResolvePromotedItem(ContentPromotionWidgetProperties properties)
     {
-        if (properties.ContentSource == ContentPromotionSource.MANUAL)
+        if (properties.IsContentSource(ContentPromotionSource.MANUAL))
         {
             return new PromotedItemResult();
         }
 
-        bool fromContentHub = properties.ContentSource == ContentPromotionSource.CONTENT_ITEM;
+        bool fromContentHub = properties.IsContentSource(ContentPromotionSource.CONTENT_ITEM);
 
         var selectedGuid = (fromContentHub ? properties.SelectedContentItem : properties.SelectedPage)
             .Select(selected => selected.Identifier)
@@ -179,16 +179,18 @@ public partial class ContentPromotionService(
         ContentPromotionWidgetProperties properties,
         IWebPageFieldsSource? selectedPage)
     {
-        var destinationPage = properties.ContentSource == ContentPromotionSource.PAGE
+        bool pageMode = properties.IsContentSource(ContentPromotionSource.PAGE);
+
+        var destinationPage = pageMode
             ? selectedPage
             : await RetrieveLinkTargetPage(properties);
 
         // A link target page wins over a typed URL. The form hides the URL input once a page
-        // is selected, but hiding a field does not clear its stored value, so both can still
-        // arrive here.
+        // is selected, and in page mode altogether, but hiding a field does not clear its stored
+        // value - so a typed URL only counts where the editor can see it.
         string url = destinationPage is not null
             ? (await webPageUrlRetriever.Retrieve(destinationPage)).RelativePath
-            : properties.LinkUrl;
+            : pageMode ? string.Empty : properties.LinkUrl;
 
         return string.IsNullOrWhiteSpace(url)
             ? null

@@ -913,6 +913,59 @@ public class ContentPromotionServiceTests
         Assert.Equal(PAGE_RELATIVE_URL, result?.LinkUrl);
     }
 
+    // The form's visibility conditions compare the source ignoring case, so the server must too -
+    // otherwise the form and the card disagree about which mode the widget is in.
+    [Fact]
+    public async Task ResolvePromotedItem_SourceInDifferentCase_IsTreatedAsThatSource()
+    {
+        var item = new GeneralArticle { ArticleSchemaTitle = ITEM_TITLE, ArticleSchemaSummary = ITEM_DESCRIPTION };
+        contentItemRetrieverServiceMock
+            .Setup(x => x.RetrieveContentItemByGuid(
+                selectedGuid, It.IsAny<IEnumerable<string>>(), It.IsAny<int>(), It.IsAny<bool>(), It.IsAny<string?>()))
+            .ReturnsAsync(item);
+
+        var properties = new ContentPromotionWidgetProperties
+        {
+            ContentSource = "ContentItem",
+            SelectedContentItem = [new ContentItemReference { Identifier = selectedGuid }]
+        };
+
+        var result = await contentPromotionService.ResolvePromotedItem(properties);
+
+        Assert.Equal(ITEM_TITLE, result.Item?.Title);
+    }
+
+    [Fact]
+    public async Task ResolvePromotedItem_ManualSourceInDifferentCase_RetrievesNothing()
+    {
+        var properties = new ContentPromotionWidgetProperties
+        {
+            ContentSource = "MANUAL",
+            SelectedPage = [new ContentItemReference { Identifier = selectedGuid }]
+        };
+
+        var result = await contentPromotionService.ResolvePromotedItem(properties);
+
+        Assert.Null(result.Item);
+        Assert.False(result.SelectionFailed);
+    }
+
+    // The link URL field is hidden in page mode, but a value typed before switching to page mode is
+    // still stored. When the selected page cannot be loaded, that value must not become the link.
+    [Fact]
+    public async Task ResolveLink_PageSourceWithUnresolvablePage_IgnoresAStoredLinkUrl()
+    {
+        var properties = new ContentPromotionWidgetProperties
+        {
+            ContentSource = ContentPromotionSource.PAGE,
+            LinkUrl = EXTERNAL_URL
+        };
+
+        var result = await contentPromotionService.ResolveLink(properties, null);
+
+        Assert.Null(result);
+    }
+
     [Fact]
     public async Task ResolveLink_ContentItemSourceWithLinkTargetPage_LinksToTargetPage()
     {
