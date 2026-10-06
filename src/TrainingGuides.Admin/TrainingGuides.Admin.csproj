@@ -9,7 +9,7 @@
     <PackageReference Include="Kentico.Xperience.Admin" />
     <PackageReference Include="Kentico.Xperience.Core" />
   </ItemGroup>
-  
+
   <ItemGroup>
     <AssemblyAttribute Include="CMS.AssemblyDiscoverableAttribute">
     </AssemblyAttribute>
@@ -49,9 +49,5 @@
     <EmbeddedResource Update="Localization\Resources\fr-FR\system\LocalizationServer.fr-FR.resx">
       <LogicalName>TrainingGuides.Admin.Localization.Resources.LocalizationServer.fr-FR.resources</LogicalName>
     </EmbeddedResource>
-    <EmbeddedResource Update="Localization\Resources\fr-FR\custom\LocalizationCustom.fr-FR.resx">
-      <LogicalName>TrainingGuides.Admin.Localization.Resources.LocalizationCustom.fr-FR.resources</LogicalName>
-    </EmbeddedResource>
   </ItemGroup>
-
 </Project>
