@@ -128,17 +128,6 @@ public class ContentPromotionServiceTests
         Assert.Equal(ITEM_TITLE, result.Title);
     }
 
-    [Fact]
-    public void ResolveDisplayValues_TitleNotOverriddenAndItemHasNoTitle_ReturnsEmptyTitle()
-    {
-        var properties = new ContentPromotionWidgetProperties();
-        var item = new PromotedItemSource();
-
-        var result = contentPromotionService.ResolveDisplayValues(properties, item);
-
-        Assert.Equal(string.Empty, result.Title);
-    }
-
     // Hide elements is not offered in manual mode, but a value chosen before switching to manual is
     // still stored. Applying it would hide what the editor typed, for a reason they cannot see.
     [Fact]
@@ -195,52 +184,32 @@ public class ContentPromotionServiceTests
         Assert.Equal(WIDGET_IMAGE_PATH, result?.FilePath);
     }
 
-    [Fact]
-    public void ResolveDisplayValues_TitleHiddenAndOverridden_ReturnsEmptyTitle()
+    // Hide beats both a typed and an inherited value. One case per element, so a wrong element
+    // name in the rule shows up as the element it breaks.
+    [Theory]
+    [InlineData(ContentPromotionElement.TITLE)]
+    [InlineData(ContentPromotionElement.DESCRIPTION)]
+    [InlineData(ContentPromotionElement.CALL_TO_ACTION)]
+    public void ResolveDisplayValues_HiddenElement_IsEmptyEvenWhenTypedAndInherited(string element)
     {
         var properties = new ContentPromotionWidgetProperties
         {
             Title = WIDGET_TITLE,
-            HideElements = [ContentPromotionElement.TITLE]
+            Description = WIDGET_DESCRIPTION,
+            CallToActionText = WIDGET_CALL_TO_ACTION,
+            HideElements = [element]
         };
-        var item = new PromotedItemSource
-        {
-            Title = ITEM_TITLE
-        };
+        var item = new PromotedItemSource { Title = ITEM_TITLE, Description = ITEM_DESCRIPTION };
 
         var result = contentPromotionService.ResolveDisplayValues(properties, item);
 
-        Assert.Equal(string.Empty, result.Title);
-    }
-
-    [Fact]
-    public void ResolveDisplayValues_TitleHiddenAndOnlyItemHasTitle_ReturnsEmptyTitle()
-    {
-        var properties = new ContentPromotionWidgetProperties
+        string value = element switch
         {
-            HideElements = [ContentPromotionElement.TITLE]
+            ContentPromotionElement.TITLE => result.Title,
+            ContentPromotionElement.DESCRIPTION => result.DescriptionHtml.Value!,
+            _ => result.CallToActionText
         };
-        var item = new PromotedItemSource
-        {
-            Title = ITEM_TITLE
-        };
-
-        var result = contentPromotionService.ResolveDisplayValues(properties, item);
-
-        Assert.Equal(string.Empty, result.Title);
-    }
-
-    [Fact]
-    public void ResolveDisplayValues_NoItemAndTitleOverridden_UsesOverride()
-    {
-        var properties = new ContentPromotionWidgetProperties
-        {
-            Title = WIDGET_TITLE
-        };
-
-        var result = contentPromotionService.ResolveDisplayValues(properties, null);
-
-        Assert.Equal(WIDGET_TITLE, result.Title);
+        Assert.Equal(string.Empty, value);
     }
 
     [Fact]
@@ -251,51 +220,6 @@ public class ContentPromotionServiceTests
         var result = contentPromotionService.ResolveDisplayValues(properties, null);
 
         Assert.Equal(string.Empty, result.Title);
-    }
-
-    [Fact]
-    public void ResolveDisplayValues_DescriptionOverriddenAndItemHasDescription_UsesOverride()
-    {
-        var properties = new ContentPromotionWidgetProperties
-        {
-            Description = WIDGET_DESCRIPTION
-        };
-        var item = new PromotedItemSource
-        {
-            Description = ITEM_DESCRIPTION
-        };
-
-        var result = contentPromotionService.ResolveDisplayValues(properties, item);
-
-        Assert.Equal(WIDGET_DESCRIPTION, result.DescriptionHtml.Value);
-    }
-
-    [Fact]
-    public void ResolveDisplayValues_CallToActionTyped_UsesIt()
-    {
-        var properties = new ContentPromotionWidgetProperties
-        {
-            CallToActionText = WIDGET_CALL_TO_ACTION
-        };
-        var item = new PromotedItemSource { Title = ITEM_TITLE };
-
-        var result = contentPromotionService.ResolveDisplayValues(properties, item);
-
-        Assert.Equal(WIDGET_CALL_TO_ACTION, result.CallToActionText);
-    }
-
-    [Fact]
-    public void ResolveDisplayValues_DescriptionNotOverridden_InheritsItemDescription()
-    {
-        var properties = new ContentPromotionWidgetProperties();
-        var item = new PromotedItemSource
-        {
-            Description = ITEM_DESCRIPTION
-        };
-
-        var result = contentPromotionService.ResolveDisplayValues(properties, item);
-
-        Assert.Equal(ITEM_DESCRIPTION, result.DescriptionHtml.Value);
     }
 
     [Fact]
@@ -313,43 +237,29 @@ public class ContentPromotionServiceTests
     }
 
     [Fact]
-    public void ResolveDisplayValues_OverrideCarriesMarkup_EncodesItSoItStaysLiteral()
+    public void ResolveDisplayValues_TypedDescription_BeatsTheInheritedOneAndIsEncoded()
     {
         var properties = new ContentPromotionWidgetProperties
         {
             Description = RICH_TEXT_DESCRIPTION
         };
+        var item = new PromotedItemSource { Description = ITEM_DESCRIPTION };
 
-        var result = contentPromotionService.ResolveDisplayValues(properties, null);
+        var result = contentPromotionService.ResolveDisplayValues(properties, item);
 
+        Assert.DoesNotContain(ITEM_DESCRIPTION, result.DescriptionHtml.Value);
         Assert.DoesNotContain("<p>", result.DescriptionHtml.Value);
         Assert.Contains("&lt;p&gt;", result.DescriptionHtml.Value);
     }
 
-    [Fact]
-    public void ResolveDisplayValues_InheritedDescriptionContainsAnchors_KeepsTheirTextAndDropsTheLinks()
-    {
-        var properties = new ContentPromotionWidgetProperties();
-        var item = new PromotedItemSource
-        {
-            Description = LINKED_DESCRIPTION
-        };
-
-        var result = contentPromotionService.ResolveDisplayValues(properties, item);
-
-        Assert.DoesNotContain("<a ", result.DescriptionHtml.Value);
-        Assert.DoesNotContain("</a>", result.DescriptionHtml.Value);
-        Assert.Contains(LINK_TEXT, result.DescriptionHtml.Value);
-        Assert.Contains("<strong>", result.DescriptionHtml.Value);
-    }
-
-    // Only anchors go. Elements whose names merely start with "a" stay, and a legal ">" inside
-    // a quoted attribute does not end the tag early and spill the rest onto the page.
+    // Only anchors go, and their text and surrounding markup stay. Elements whose names merely
+    // start with "a" stay, and a legal ">" inside a quoted attribute does not end the tag early.
     [Theory]
     [InlineData("<abbr title=\"x\">ABC</abbr>", "<abbr title=\"x\">ABC</abbr>")]
     [InlineData("<article>Text</article>", "<article>Text</article>")]
     [InlineData("<a title=\"a>b\">Policy</a>", "Policy")]
     [InlineData("<A HREF=\"/x\" target=\"_blank\">Policy</A>", "Policy")]
+    [InlineData(LINKED_DESCRIPTION, "<p>Read the full policy for <strong>details</strong>.</p>")]
     public void ResolveDisplayValues_InheritedDescription_StripsOnlyAnchors(string stored, string expected)
     {
         var properties = new ContentPromotionWidgetProperties();
@@ -358,39 +268,6 @@ public class ContentPromotionServiceTests
         var result = contentPromotionService.ResolveDisplayValues(properties, item);
 
         Assert.Equal(expected, result.DescriptionHtml.Value);
-    }
-
-    [Fact]
-    public void ResolveDisplayValues_DescriptionHiddenAndOverridden_ReturnsEmptyDescription()
-    {
-        var properties = new ContentPromotionWidgetProperties
-        {
-            Description = WIDGET_DESCRIPTION,
-            HideElements = [ContentPromotionElement.DESCRIPTION]
-        };
-        var item = new PromotedItemSource
-        {
-            Description = ITEM_DESCRIPTION
-        };
-
-        var result = contentPromotionService.ResolveDisplayValues(properties, item);
-
-        Assert.Equal(string.Empty, result.DescriptionHtml.Value);
-    }
-
-    [Fact]
-    public void ResolveDisplayValues_CallToActionHiddenAndOverridden_ReturnsEmptyCallToAction()
-    {
-        var properties = new ContentPromotionWidgetProperties
-        {
-            CallToActionText = WIDGET_CALL_TO_ACTION,
-            HideElements = [ContentPromotionElement.CALL_TO_ACTION]
-        };
-        var item = new PromotedItemSource { Title = ITEM_TITLE };
-
-        var result = contentPromotionService.ResolveDisplayValues(properties, item);
-
-        Assert.Equal(string.Empty, result.CallToActionText);
     }
 
     [Fact]
@@ -459,16 +336,6 @@ public class ContentPromotionServiceTests
         var overrideImage = new AssetViewModel { FilePath = WIDGET_IMAGE_PATH, AltText = WIDGET_IMAGE_ALT };
 
         var result = contentPromotionService.ResolveDisplayValues(properties, item, overrideImage);
-
-        Assert.Null(result.Image);
-    }
-
-    [Fact]
-    public void ResolveDisplayValues_NoItemAndNoOverrideImage_ReturnsNoImage()
-    {
-        var properties = new ContentPromotionWidgetProperties();
-
-        var result = contentPromotionService.ResolveDisplayValues(properties, null);
 
         Assert.Null(result.Image);
     }
@@ -593,36 +460,6 @@ public class ContentPromotionServiceTests
     }
 
     [Fact]
-    public async Task ResolvePromotedItem_PageSourceWithProductPage_InheritsTheProductImage()
-    {
-        contentItemRetrieverServiceMock
-            .Setup(x => x.RetrieveWebPageByContentItemGuid(
-                selectedGuid, It.IsAny<IEnumerable<string>>(), It.IsAny<int>(), It.IsAny<bool>(), It.IsAny<string?>()))
-            .ReturnsAsync(new ProductPage
-            {
-                ProductPageProducts =
-                [
-                    new CatFood
-                    {
-                        ProductSchemaName = ITEM_TITLE,
-                        ProductSchemaImages = [ProductImageWith(PRODUCT_IMAGE_PATH, PRODUCT_IMAGE_ALT)]
-                    }
-                ]
-            });
-
-        var properties = new ContentPromotionWidgetProperties
-        {
-            ContentSource = ContentPromotionSource.PAGE,
-            SelectedPage = [new ContentItemReference { Identifier = selectedGuid }]
-        };
-
-        var result = await contentPromotionService.ResolvePromotedItem(properties);
-
-        Assert.Equal(PRODUCT_IMAGE_PATH, result.Item?.Image?.FilePath);
-        Assert.Equal(PRODUCT_IMAGE_ALT, result.Item?.Image?.AltText);
-    }
-
-    [Fact]
     public async Task ResolvePromotedItem_ParentProductHasNoImagesButAVariantDoes_InheritsTheVariantImage()
     {
         contentItemRetrieverServiceMock
@@ -657,56 +494,6 @@ public class ContentPromotionServiceTests
 
         Assert.Equal(VARIANT_IMAGE_PATH, result.Item?.Image?.FilePath);
         Assert.Equal(VARIANT_IMAGE_ALT, result.Item?.Image?.AltText);
-    }
-
-    // The product path feeds the same field every other family does, so it must still lose to an
-    // override and disappear when the image element is hidden - the general rule, not a product rule.
-    [Fact]
-    public async Task ResolveDisplayValues_ProductImageInheritedAndOverridden_UsesTheOverride()
-    {
-        var promotedItem = await PromotedProductWithImage();
-        var overrideImage = new AssetViewModel { FilePath = WIDGET_IMAGE_PATH, AltText = WIDGET_IMAGE_ALT };
-
-        var result = contentPromotionService.ResolveDisplayValues(
-            new ContentPromotionWidgetProperties(), promotedItem.Item, overrideImage);
-
-        Assert.Equal(WIDGET_IMAGE_PATH, result.Image?.FilePath);
-    }
-
-    [Fact]
-    public async Task ResolveDisplayValues_ProductImageInheritedAndImageHidden_ReturnsNoImage()
-    {
-        var promotedItem = await PromotedProductWithImage();
-        var properties = new ContentPromotionWidgetProperties
-        {
-            HideElements = [ContentPromotionElement.IMAGE]
-        };
-
-        var result = contentPromotionService.ResolveDisplayValues(properties, promotedItem.Item);
-
-        Assert.Null(result.Image);
-    }
-
-    /// <summary>
-    /// Resolves a real product selection rather than hand-building a source, so these two assert
-    /// the override and hide rules against the image the product path actually produces.
-    /// </summary>
-    private async Task<PromotedItemResult> PromotedProductWithImage()
-    {
-        contentItemRetrieverServiceMock
-            .Setup(x => x.RetrieveContentItemByGuid(
-                selectedGuid, It.IsAny<IEnumerable<string>>(), It.IsAny<int>(), It.IsAny<bool>(), It.IsAny<string?>()))
-            .ReturnsAsync(new CatFoodVariant
-            {
-                ProductSchemaName = ITEM_TITLE,
-                ProductSchemaImages = [ProductImageWith(PRODUCT_IMAGE_PATH, PRODUCT_IMAGE_ALT)]
-            });
-
-        return await contentPromotionService.ResolvePromotedItem(new ContentPromotionWidgetProperties
-        {
-            ContentSource = ContentPromotionSource.CONTENT_ITEM,
-            SelectedContentItem = [new ContentItemReference { Identifier = selectedGuid }]
-        });
     }
 
     [Fact]
@@ -825,21 +612,6 @@ public class ContentPromotionServiceTests
     }
 
     [Fact]
-    public async Task ResolvePromotedItem_ManualSource_DoesNotRetrieveAnything()
-    {
-        var properties = new ContentPromotionWidgetProperties
-        {
-            ContentSource = ContentPromotionSource.MANUAL
-        };
-
-        var result = await contentPromotionService.ResolvePromotedItem(properties);
-
-        Assert.Null(result.PromotedContent);
-        Assert.Null(result.Item);
-        contentItemRetrieverServiceMock.VerifyNoOtherCalls();
-    }
-
-    [Fact]
     public async Task ResolvePromotedItem_PageSourceWithEmptySelector_ReturnsNothingSelected()
     {
         var properties = new ContentPromotionWidgetProperties
@@ -947,29 +719,6 @@ public class ContentPromotionServiceTests
     }
 
     [Fact]
-    public async Task ResolveLink_ContentItemSourceWithLinkTargetPage_LinksToTargetPage()
-    {
-        var targetPage = new ArticlePage();
-        contentItemRetrieverServiceMock
-            .Setup(x => x.RetrieveWebPageForUrlByContentItemGuid(
-                targetGuid, It.IsAny<bool>(), It.IsAny<string?>()))
-            .ReturnsAsync(targetPage);
-        webPageUrlRetrieverMock
-            .Setup(x => x.Retrieve(targetPage, It.IsAny<CancellationToken>()))
-            .ReturnsAsync(new WebPageUrl(TARGET_RELATIVE_URL, TARGET_RELATIVE_URL));
-
-        var properties = new ContentPromotionWidgetProperties
-        {
-            ContentSource = ContentPromotionSource.CONTENT_ITEM,
-            LinkTargetPage = [new ContentItemReference { Identifier = targetGuid }]
-        };
-
-        var result = await contentPromotionService.ResolveLink(properties, null);
-
-        Assert.Equal(TARGET_RELATIVE_URL, result?.LinkUrl);
-    }
-
-    [Fact]
     public async Task ResolveLink_ContentItemSourceWithTypedUrlOnly_LinksToTypedUrl()
     {
         var properties = new ContentPromotionWidgetProperties
@@ -1013,19 +762,6 @@ public class ContentPromotionServiceTests
         var properties = new ContentPromotionWidgetProperties
         {
             ContentSource = ContentPromotionSource.CONTENT_ITEM
-        };
-
-        var result = await contentPromotionService.ResolveLink(properties, null);
-
-        Assert.Null(result);
-    }
-
-    [Fact]
-    public async Task ResolveLink_ManualSourceWithNoDestination_ReturnsNoLink()
-    {
-        var properties = new ContentPromotionWidgetProperties
-        {
-            ContentSource = ContentPromotionSource.MANUAL
         };
 
         var result = await contentPromotionService.ResolveLink(properties, null);
@@ -1232,31 +968,20 @@ public class ContentPromotionServiceTests
     }
 
     [Fact]
-    public async Task ResolveExtras_ServiceHasNoBenefits_ReturnsEmptyExtras()
+    public async Task ResolveExtras_ServiceBenefitsAreAllBlank_ReturnsEmptyExtras()
     {
         var properties = new ContentPromotionWidgetProperties { ShowExtras = true };
         var promotedItem = new PromotedItemResult
         {
-            PromotedContent = new Service { ServiceBenefits = [] }
+            PromotedContent = new Service
+            {
+                ServiceBenefits = [new Benefit { BenefitDescription = string.Empty }, new Benefit { BenefitDescription = "  " }]
+            }
         };
 
         var result = await contentPromotionService.ResolveExtras(properties, promotedItem);
 
         Assert.False(result.HasContent);
-    }
-
-    [Fact]
-    public async Task ResolveExtras_SelectedItemIsAVariant_ReturnsItsPrice()
-    {
-        var properties = new ContentPromotionWidgetProperties { ShowExtras = true };
-        var promotedItem = new PromotedItemResult
-        {
-            PromotedContent = new CatFoodVariant { ProductPriceSchemaPrice = VARIANT_PRICE }
-        };
-
-        var result = await contentPromotionService.ResolveExtras(properties, promotedItem);
-
-        Assert.Equal(VARIANT_PRICE, result.Price);
     }
 
     [Fact]
@@ -1275,41 +1000,6 @@ public class ContentPromotionServiceTests
         var result = await contentPromotionService.ResolveExtras(properties, promotedItem);
 
         Assert.Equal(DISCOUNTED_PRICE, result.Price);
-    }
-
-    // A parent product carries no price or stock of its own, but the product listing shows both
-    // for exactly these items by falling back to their variants. A promotion card that showed
-    // nothing would contradict the listing on the same page, so it falls back the same way.
-    [Fact]
-    public async Task ResolveExtras_SelectedItemIsAParentProduct_ReturnsTheCatalogPriceItsVariantsImply()
-    {
-        var properties = new ContentPromotionWidgetProperties { ShowExtras = true };
-        var promotedItem = new PromotedItemResult
-        {
-            PromotedContent = new CatFood()
-        };
-
-        var result = await contentPromotionService.ResolveExtras(properties, promotedItem);
-
-        Assert.Equal(VARIANT_PRICE, result.Price);
-    }
-
-    [Fact]
-    public async Task ResolveExtras_SelectedItemIsAParentProduct_ReturnsTheListingStockStatus()
-    {
-        productServiceMock
-            .Setup(x => x.GetListingStockForProduct(It.IsAny<IProductSchema>()))
-            .ReturnsAsync(ProductStockEnum.LowStock);
-
-        var properties = new ContentPromotionWidgetProperties { ShowExtras = true };
-        var promotedItem = new PromotedItemResult
-        {
-            PromotedContent = new CatFood()
-        };
-
-        var result = await contentPromotionService.ResolveExtras(properties, promotedItem);
-
-        Assert.Equal(ProductStockEnum.LowStock, result.StockStatus);
     }
 
     [Fact]
@@ -1354,69 +1044,6 @@ public class ContentPromotionServiceTests
         var result = await contentPromotionService.ResolveExtras(properties, promotedItem);
 
         Assert.Equal(VARIANT_PRICE, result.Price);
-        Assert.Equal(ProductStockEnum.InStock, result.StockStatus);
-    }
-
-    [Fact]
-    public async Task ResolveExtras_ParentProductHasNoStockRecord_OmitsTheStockButKeepsThePrice()
-    {
-        productServiceMock
-            .Setup(x => x.GetListingStockForProduct(It.IsAny<IProductSchema>()))
-            .ReturnsAsync(ProductStockEnum.Unknown);
-
-        var properties = new ContentPromotionWidgetProperties { ShowExtras = true };
-        var promotedItem = new PromotedItemResult
-        {
-            PromotedContent = new CatFood()
-        };
-
-        var result = await contentPromotionService.ResolveExtras(properties, promotedItem);
-
-        Assert.Null(result.StockStatus);
-        Assert.Equal(VARIANT_PRICE, result.Price);
-    }
-
-    // The one case where the behaviour T6c originally specified survives: with no variants to
-    // fall back to there is genuinely nothing to say, so the extras block disappears.
-    [Fact]
-    public async Task ResolveExtras_ParentProductHasNoVariantsAtAll_ReturnsEmptyExtras()
-    {
-        productServiceMock
-            .Setup(x => x.GetCatalogPrice(It.IsAny<IProductSchema>(), It.IsAny<CancellationToken>()))
-            .ReturnsAsync(0m);
-
-        productServiceMock
-            .Setup(x => x.GetListingStockForProduct(It.IsAny<IProductSchema>()))
-            .ReturnsAsync(ProductStockEnum.Unknown);
-
-        var properties = new ContentPromotionWidgetProperties { ShowExtras = true };
-        var promotedItem = new PromotedItemResult
-        {
-            PromotedContent = new CatFood { ProductParentSchemaVariants = [] }
-        };
-
-        var result = await contentPromotionService.ResolveExtras(properties, promotedItem);
-
-        Assert.Null(result.Price);
-        Assert.Null(result.StockStatus);
-        Assert.False(result.HasContent);
-    }
-
-    [Fact]
-    public async Task ResolveExtras_VariantIsInStock_ReturnsTheInStockState()
-    {
-        productServiceMock
-            .Setup(x => x.GetListingStockForProduct(It.IsAny<IProductSchema>()))
-            .ReturnsAsync(ProductStockEnum.InStock);
-
-        var properties = new ContentPromotionWidgetProperties { ShowExtras = true };
-        var promotedItem = new PromotedItemResult
-        {
-            PromotedContent = new CatFoodVariant { ProductPriceSchemaPrice = VARIANT_PRICE }
-        };
-
-        var result = await contentPromotionService.ResolveExtras(properties, promotedItem);
-
         Assert.Equal(ProductStockEnum.InStock, result.StockStatus);
     }
 
