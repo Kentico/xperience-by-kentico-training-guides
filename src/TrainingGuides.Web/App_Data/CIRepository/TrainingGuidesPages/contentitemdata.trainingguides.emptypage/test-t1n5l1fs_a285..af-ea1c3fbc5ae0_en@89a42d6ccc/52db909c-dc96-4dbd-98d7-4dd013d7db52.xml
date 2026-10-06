@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.emptypage>
+  <ContentItemDataCommonDataID>
+    <GUID>a2859fda-1f42-4a18-bdaf-ea1c3fbc5ae0</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>Test-t1n5l1fs</CodeName>
+      <GUID>abcc9a33-0409-4f19-95b1-ac90fb3737ca</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>52db909c-dc96-4dbd-98d7-4dd013d7db52</ContentItemDataGUID>
+</contentitemdata.trainingguides.emptypage>

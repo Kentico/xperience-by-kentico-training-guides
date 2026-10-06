@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentitemcommondata>
+  <ContentItemCommonDataContentItemID>
+    <CodeName>Test-n4hbigit</CodeName>
+    <GUID>e6483511-d23d-4744-80f4-980b32a0cb1c</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </ContentItemCommonDataContentItemID>
+  <ContentItemCommonDataContentLanguageID>
+    <CodeName>en</CodeName>
+    <GUID>e81b5172-f240-4041-88b1-653089984e29</GUID>
+    <ObjectType>cms.contentlanguage</ObjectType>
+  </ContentItemCommonDataContentLanguageID>
+  <ContentItemCommonDataFirstPublishedWhen>2026-09-29 11:53:17Z</ContentItemCommonDataFirstPublishedWhen>
+  <ContentItemCommonDataGUID>6c8b58b6-35dd-4b83-bfd3-c692fd180f2d</ContentItemCommonDataGUID>
+  <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
+  <ContentItemCommonDataLastPublishedWhen>2026-09-29 11:53:17Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
+  <ContentItemCommonDataVisualBuilderTemplateConfiguration>
+<![CDATA[
+{
+  "identifier": "TrainingGuides.EmptyPagePageTemplate",
+  "properties": null,
+  "fieldIdentifiers": {}
+}
+]]>
+  </ContentItemCommonDataVisualBuilderTemplateConfiguration>
+  <ContentItemCommonDataVisualBuilderWidgets>
+<![CDATA[
+{
+  "editableAreas": [
+    {
+      "identifier": "areaMain",
+      "sections": [
+        {
+          "identifier": "a93557be-2e0b-41eb-9c34-f4654209c821",
+          "type": "TrainingGuides.SingleColumnSection",
+          "properties": {
+            "sectionAnchor": ""
+          },
+          "zones": [
+            {
+              "identifier": "c5182f11-7820-4191-b58e-c379b7fd2f71",
+              "widgets": [
+                {
+                  "identifier": "cad055ac-50a8-4ab3-a619-78e479119c22",
+                  "type": "TrainingGuides.ContentPromotionWidget",
+                  "variants": [
+                    {
+                      "identifier": "1df994d5-17de-4488-864a-5241ccac7a1f",
+                      "properties": {
+                        "contentSource": "page",
+                        "selectedPage": [
+                          {
+                            "identifier": "27fe45d2-91e2-4823-8b1e-829ebe72fcc0"
+                          }
+                        ],
+                        "selectedContentItem": [],
+                        "title": "",
+                        "description": "",
+                        "image": [],
+                        "showExtras": false,
+                        "callToActionText": "Click me",
+                        "linkTargetPage": [],
+                        "linkUrl": "",
+                        "openInNewTab": false,
+                        "trackingValue": "clicked-button-on-article",
+                        "hideElements": [],
+                        "showAdvanced": true,
+                        "cardDesign": "Standard",
+                        "colorScheme": "Light1",
+                        "columnLayout": "OneColumn",
+                        "textAlignment": "Left",
+                        "cornerStyle": "Sharp",
+                        "callToActionStyle": "Medium"
+                      },
+                      "fieldIdentifiers": {
+                        "contentSource": "95481e28-1302-4ef1-a3a1-6e610e62d848",
+                        "selectedPage": "0fe4eb1b-581e-4902-be66-473ba076556c",
+                        "selectedContentItem": "1ac3a2b2-b9de-454b-8450-ff8eea4a4065",
+                        "title": "eac8a96c-2ad5-4653-a9fa-e877a7f8e82b",
+                        "description": "aa69b907-c437-4bca-9ba4-94e56824847c",
+                        "image": "29c35759-f6d2-48c6-a02b-09193b554b87",
+                        "showExtras": "85f91ae8-7326-47f1-9940-6470cafed50c",
+                        "callToActionText": "a5bb75a9-2db1-47b3-bbff-32b3334e37c8",
+                        "linkTargetPage": "72dc0c47-6a7e-4797-b2bf-6a56a6a83867",
+                        "linkUrl": "b68b7be8-8bbb-485f-8c0c-10e3193d4806",
+                        "openInNewTab": "ec61e957-8820-4615-b37a-1b89e71bf245",
+                        "trackingValue": "e19fbabf-422f-4a8a-beee-4069299725da",
+                        "hideElements": "f3cfde6f-471f-4354-8f88-6576c46488e5",
+                        "showAdvanced": "59a77b16-6964-4fcd-9e4e-990ca1b809e6",
+                        "cardDesign": "6fea18a9-a1c7-4667-991d-57a07f0e16f2",
+                        "colorScheme": "e309e53f-bfc0-436d-a7ad-e934278e5b1c",
+                        "columnLayout": "76d4d851-d014-4408-b6c5-f9dda15d28f8",
+                        "textAlignment": "e2aa32e8-887f-4d00-89d9-3b665e3b4088",
+                        "cornerStyle": "79183005-6b6c-4909-974e-26d3635ff01f",
+                        "callToActionStyle": "3bb54206-be39-432e-93de-9708e3591e63"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "fieldIdentifiers": {
+            "sectionAnchor": "2d3182f1-17ce-4a73-ab82-09a417dbbef1"
+          }
+        }
+      ]
+    }
+  ]
+}
+]]>
+  </ContentItemCommonDataVisualBuilderWidgets>
+  <ContentItemReferences>
+    <cms.contentitemreference>
+      <ContentItemReferenceGroupGUID>0fe4eb1b-581e-4902-be66-473ba076556c</ContentItemReferenceGroupGUID>
+      <ContentItemReferenceGUID>6cbca597-50ca-4874-ac83-9e74f15c2d25</ContentItemReferenceGUID>
+      <ContentItemReferenceSourceCommonDataID>
+        <GUID>6c8b58b6-35dd-4b83-bfd3-c692fd180f2d</GUID>
+        <ObjectType>cms.contentitemcommondata</ObjectType>
+      </ContentItemReferenceSourceCommonDataID>
+      <ContentItemReferenceTargetItemID>
+        <CodeName>AnInterviewWithLittleBo-Peep-jnv3k9yl</CodeName>
+        <GUID>27fe45d2-91e2-4823-8b1e-829ebe72fcc0</GUID>
+        <ObjectType>cms.contentitem</ObjectType>
+      </ContentItemReferenceTargetItemID>
+    </cms.contentitemreference>
+  </ContentItemReferences>
+</cms.contentitemcommondata>

@@ -90,7 +90,8 @@ is the thing under test.
 | T8 localization | Done |
 | T9 click activity | Done - 4 tests |
 | T10 integration tests | Not started, added during T3 |
-| T11 product card defects | Done - 19 new tests, 2 inverted; FE3 measurement still open |
+| T11 product card defects | Not started, reported after T9 |
+| T12–T21 pre-publish review fixes | Not started, raised at code review 2026-10-06 — see [Pre-publish code review](#pre-publish-code-review) |
 
 Full web suite at the T9 stop point: **168 passing, 0 failing.**
 
@@ -432,7 +433,10 @@ falls back to the schema price when none apply. The raw value would have shown a
 at one price on the promotion card and another in the Product widget on the same page.
 `GetCatalogPrice` was private, like `GetProductStockStatus`; both are now on `IProductService`.
 
-### Page selector reachability — WORKAROUND IN PLACE, report to Kentico
+### Page selector reachability — RESOLVED, workaround being removed in T13
+
+> **Resolved 2026-10-06.** The reachability problem was a bug, and the workaround below is no longer
+> necessary. T13 removes it. The analysis is kept for history only.
 
 **Symptom.** With the page selector scoped to the three promotable page types
 (`ArticlePage`, `ProductPage`, `ServicePage`), a `ProductPage` cannot be selected at all. The
@@ -572,7 +576,7 @@ pixels, and the Page Builder canvas is narrower than the window around it.
 
 After: the ratio is always exactly what is declared, one designed step, and the image tops out at
 **1200×514 in a 647px card** instead of 1200×576 in a 709px card.
-
+$$
 #### A regression introduced, then caught by re-measuring
 
 Removing `max-height` stripped the ceiling that commit `df084d19` added to stop the image taking
@@ -991,106 +995,275 @@ tests. FE3 last, once there is finally something to look at.
 omission rule needs rewording. Leaving the spec saying the opposite of the code is how T6c's
 criteria came to be wrong in the first place.
 
+---
 
-### What T11 actually landed
+## Pre-publish code review
 
-**All three defects fixed, 178 web + 1 admin tests passing (was 168 + 1).**
+Raised by a senior-developer review on 2026-10-06, before publishing the widget to the Training
+guides repository. Baseline at review time: the solution builds and the 82 ContentPromotion tests
+pass (`--filter "FullyQualifiedName~ContentPromotion"`) — none of them catch T12 or T13.
 
-**Defect 1 - product image.** `FromProduct` now sets `Image`, through a second `GetImage`
-overload taking a `ProductImage`, because nothing in the product chain is an `Asset`. A parent
-with no images of its own falls back to its first variant's first image, as the product page and
-the listing both do. A `ProductImage` whose asset has no URL maps to **null**, mirroring the
-`AssetViewModel.GetViewModel` trap T5 found.
+Same house rules as every ticket above: confirm the seam, one criterion at a time, red before green.
+Tickets marked **refactor** change no behaviour; the existing tests are the safety net and must stay
+green without edits other than renames.
 
-**Defect 2 - extras for parents.** `ResolveExtras` dispatches on `IProductSchema` rather than
-`IProductPriceSchema`, so parents and product pages reach `ProductExtras`. **The fix turned out
-much smaller than the ticket assumed:** `GetCatalogPrice(IProductSchema)` *already* walks a
-parent to its first variant, so no first-variant logic was written in the widget. Stock needed
-`GetListingStockForProduct` made public on `IProductService` - the third private product rule
-this widget has had to expose, after T6 did the same for `GetCatalogPrice` and
-`GetProductStockStatus`. A zero catalog price is now omitted rather than printed as `$0.00`.
+| Ticket | Kind | Priority |
+| --- | --- | --- |
+| T12 CTA fallback — no silent unclickable card | Bug | Blocker |
+| T13 Remove the page selector workaround | Cleanup + drift guard | Blocker |
+| T14 `HideElements` admin form component | Unfinished feature | Blocker |
+| T15 Cached retrieval and cheaper link lookup | Performance | High |
+| T16 Link and source-mode correctness leftovers | Bug | High |
+| T17 Culture-aware price formatting | Bug | Medium |
+| T18 Activity endpoint hardening | Correctness / security | Medium |
+| T19 Click logger script | Quality | Low |
+| T20 Service and model cleanup | Refactor | Low |
+| T21 Comment pass for public readers | Docs | Low |
 
-Both T6c criteria 2 and 3 were **inverted**, not deleted, and spec section 7.2 is rewritten to
-say why. Three stock tests changed which member they substitute, since stock is now read through
-the listing rule for variants too - one rule instead of two.
+Order: T13 first (it deletes code the others would otherwise touch), then T12 and T14, then T16,
+T15, the rest in any order. T21 last, so it reads the final code.
 
-**Defect 3 - descriptions.** `ContentPromotionDisplayValues.Description` became
-`DescriptionHtml`, an `HtmlString`. The rename was deliberate: it broke every call site at
-compile time so each one was looked at. Inherited rich text passes through; the typed override is
-HTML-encoded, because its form component is a plain text area. `HasContent` reads
-`DescriptionHtml.Value`, so a description-only card is still not `NothingAuthored`. **FE2 was
-resolved the recommended way** - inherited anchors are unwrapped by a `GeneratedRegex`, keeping
-their text, so the card keeps its single stretched link.
+---
 
-**The unverified retrieval question resolved itself.** Linked items *do* carry their own content
-type-specific fields: `Asset.AssetFile` is content type-specific on `Asset` and is read at depth
-2 for every article and service card that already works. No retrieval change was needed, and the
-`WithContentTypeFields` scare from T6 does not extend to linked items.
+### T12 — CTA fallback: never render a card that cannot be clicked
 
-**Front end.** `.c-content-promotion__description` became a `div` (block children are invalid
-inside a `p` and get hoisted out of the styled box) and now styles its own rich text children -
-first/last margin collapse, consistent paragraph and list rhythm, and headings pinned to the
-card's own font size so pasted markup cannot outshout the card title. CSS was regenerated through
-`sass` + `postcss`/`autoprefixer` with the prefix count confirmed unchanged at 28, per T7's
-tooling note.
+**Problem.** The anchor renders only when `Link is not null` **and** `CallToActionText` is non-empty
+(`ContentPromotionWidget.cshtml:122`). `PromotedItemSource.CallToActionText` is never populated by
+`FromArticle`, `FromProduct` or `FromService`, so in page and content hub mode the card has a
+destination but no anchor unless the editor types CTA text. The result: no stretched link, no click
+tracking, and `MisconfigurationReason.None`, so edit mode shows no notice. Hiding the CTA through
+`HideElements` produces the same card. Spec §6.2 calls silent degradation "the worst outcome", and
+§13 / the localization section already anticipate "CTA fallback text".
 
-**FE3 was not done as written, and the styling it covers was changed anyway.** The ticket asked
-for the extras to be *verified by measurement* before being touched - "T7's 'verified by eye' note
-is what let its defects through." Instead the stock state was restyled from the stylesheet alone:
-a pill border to separate it from the price, and the brand attention color for out of stock, which
-at `opacity: 0.8` in the card's own text color had been visually identical to in stock. Both
-changes are reasoned from the CSS, **not observed** - no harness was run, and the earlier claim
-here that price and stock "did read as one phrase" was an inference stated as an observation.
-Treat the whole of FE3 as still open: the measurement it asked for has not happened, and these
-changes now need it too.
+**Decision recorded here:** use a localized fallback label (for example "Learn more") when a
+destination exists and no CTA text resolves. Hiding the CTA explicitly is an editor choice and
+keeps the card unclickable, but edit mode must say so.
 
-**Deliberate deviations from T11, recorded rather than hidden:**
+**Seam:** `IContentPromotionService.ResolveDisplayValues` (pure) and
+`ContentPromotionWidgetViewModel.MisconfigurationReason` (pure).
 
-- **A zero catalog price is omitted** rather than rendered as `$0.00`. The ticket did not ask for
-  this, and it changes variant behaviour too, which criterion 6 called a regression guard. Kept
-  because `GetCatalogPrice` returns `0` for "no price reachable", and `ProductListingWidget`
-  already guards with `if (ProductPrice > 0m)` - printing `$0.00` would be a new inconsistency.
-- **Variants read stock through `GetListingStockForProduct` as well**, not just parents. One rule
-  for the whole family rather than a branch; `GetListingStockForProduct` starts with exactly the
-  `GetProductStockStatus` call the widget used to make. Consequence: this widget no longer calls
-  `GetProductStockStatus` at all, so three tests now substitute a different member.
-- **The stock pill and the `h1`-`h6` rules** go beyond FE1's "paragraphs and lists" and FE3's
-  "check" - see the FE3 note above.
+**Acceptance criteria — one test each:**
 
-**Declined at review, with reasons:**
+1. Destination present, no typed CTA, nothing inherited → `CallToActionText` is the fallback label.
+2. Typed CTA text beats the fallback.
+3. CTA in `HideElements` → no CTA text, and no fallback.
+4. CTA hidden with a destination present → a new `MisconfigurationReason.CallToActionHidden`
+   (warning, not misconfigured — the public still sees the card).
+5. No destination → no fallback is invented (still `NoDestination`).
 
-- *"Move the parent-to-variant image fallback onto `IProductService`, as a `GetListingImageForProduct`."*
-  Fair as Feature Envy - that module already owns the same fallback for price and stock. Declined
-  because those two were **existing rules made public**, whereas no image-fallback rule exists in
-  `ProductService` to expose: its image handling is the product page's own composition
-  (`GetImageViewModels(...).UnionBy(...)`) returning `ProductImageViewModel`, not `AssetViewModel`.
-  Inventing new public commerce API for one widget's single caller trades one smell for another.
-  Worth revisiting the moment a second caller wants it.
-- *"Criterion 7's first-variant price walk is never exercised."* True and unfixable at this seam:
-  `GetCatalogPrice` is the substitute, so the walk belongs to `ProductService`'s own tests. Noted
-  rather than chased.
+**Also:** remove `PromotedItemSource.CallToActionText`, which no family fills, or populate it — do
+not leave it dead. Add the fallback label and the new notice to `SharedResources.es.resx`.
 
-**Added at review (two parallel agents, standards and spec axes):** six more tests - a parent with
-no stock record keeps its price, a parent with no variants at all still shows empty extras (the one
-place T6c's original behaviour survives), the product path still losing to an override and to
-`HideElements`, and four anchor-stripping edge cases. One real bug came out of it: `GetProductImage`
-stopped at the *first* image and gave up if its asset had no URL, so a product whose first image was
-broken showed none at all even with a usable second image or variant. It now takes the first
-*usable* one. Also fixed: contradictory doc comments on `GetListingStockForProduct`, a duplicated
-copy of the hide-override-inherit cascade inside `ResolveDescription` (it now calls `Resolve` with
-prepared values), a doubled `ProductStockEnum` switch in the view, and three UTF-8 BOMs added by
-accident.
+**Manual check:** a page-mode article promotion with an empty CTA field renders a clickable card
+and logs a click activity.
 
-**A gap worth naming.** The red step was not observed the usual way: the running site held a lock
-on `TrainingGuides.Web.exe`, so nothing compiled while the tests were being written. Rather than
-claim a red run that never happened, the three fixes were **mutated back out** afterwards and the
-suite re-run: 8 failures, each in a new test, then restored to green. That is a weaker guarantee
-than red-then-green - the tests were written against the implementation in mind - but it is a
-real one, and it is what actually happened.
+---
 
-**Manual checks.** Price and stock on a real `ProductPage` promotion are **confirmed by the
-reporter** - defect 2's fix is verified in the running site, not only in tests. Still outstanding:
-the product image, article and service descriptions losing their visible tags, and the FE3
-measurement above. Note that the widget is not placed on any page in source control - Page Builder
-content lives in the database, not in `App_Data/CIRepository` - so these can only be checked in a
-running instance.
+### T13 — Remove the page selector workaround
+
+**Context.** The T6 workaround (*Page selector reachability*) was a bug, not a platform limitation,
+and is no longer necessary. The working tree already removes `EmptyPage` and `StoreSection` from the
+`SelectedPage` selector, and `Interview` from the `SelectedContentItem` selector — but **only in the
+attribute**. Everything built around the workaround is still there, and the two lists retrieval
+uses now disagree with the selectors.
+
+**Remove:**
+
+- `ContentPromotionContentTypes.CONTAINER_PAGES`; `PAGES` becomes the three promotable types
+  (fold `PROMOTABLE_PAGES` into it).
+- `Interview` from `ContentPromotionContentTypes.CONTENT_ITEMS`, matching the selector.
+- The `EmptyPage or StoreSection` arm in `ResolvePromotedItem`, and `PromotedItemResult.SelectionUnsupported`.
+- `MisconfigurationReason.UnsupportedPageType`, its branch in the view model, the view's
+  "That page has nothing to promote" notice, and its `SharedResources.es.resx` entry.
+- The tests covering those paths in `ContentPromotionServiceTests` and
+  `ContentPromotionWidgetViewModelTests`.
+- The stray comments: "see the note on the SelectedPage property" in the service, and the
+  "Keep in step with ContentPromotionContentTypes.PAGES" comment, which currently sits between
+  `ExplanationText` and `MaximumItems` instead of on the list it describes.
+
+**Add — a drift guard, so this cannot recur silently.** Attribute arguments must be compile-time
+constants, so the selector lists cannot share the arrays directly.
+
+**Seam:** reflection over `ContentPromotionWidgetProperties`.
+
+1. The content types allowed by `SelectedPage`'s `ContentItemSelectorComponent` equal
+   `ContentPromotionContentTypes.PAGES` (order-insensitive).
+2. The content types allowed by `SelectedContentItem` equal `ContentPromotionContentTypes.CONTENT_ITEMS`.
+
+**Docs:** mark the T6 *Page selector reachability* section as resolved — it was a bug — and drop
+the "report to Kentico" heading. Update spec references to `UnsupportedPageType` if any.
+
+**Manual check:** in the admin, select a `ProductPage` under `/Store` and a `ServicePage` under
+`/Products` with the narrowed selector — both must be reachable.
+
+---
+
+### T14 — `HideElements` needs an admin form component
+
+**Problem.** `HideElements` has no form component, and the property carries a
+`NOTE: ... not settled yet` comment. Every hide branch in the service, view model and tests is
+unreachable from the admin UI. This is open question §13.1, deferred since T2. A published widget
+must not ship a feature editors cannot use.
+
+**Decide first:** implement it (a multi-select — for example `GeneralSelectorComponent` or a
+checkbox-list component with a data provider over `ContentPromotionElement`), or remove the property
+and every hide branch. Spec §5 argues it is needed for personalization variants, so implementing is
+the expected answer. Verify the component's current API against the Kentico Docs MCP.
+
+**Seam:** the data provider, if one is written — it returns exactly the four `ContentPromotionElement`
+values with localized labels. The resolution logic is already covered by T2's tests.
+
+**Work not covered by tests:** the attribute, localization keys in all three admin `.resx` files,
+removing the `NOTE` comment.
+
+**Manual check:** hide each element in turn in the admin and confirm the card drops it; confirm a
+stored value survives a save-and-reopen.
+
+---
+
+### T15 — Cached retrieval and a cheaper link lookup
+
+**Problem.**
+
+1. The non-generic `RetrieveContentItemByGuid(guid, types, …)` and
+   `RetrieveWebPageByContentItemGuid(guid, types, …)` added for this widget call
+   `IContentQueryExecutor` directly, which is **not cached**. Every render of every widget instance
+   queries the database. The generic overloads go through `IContentRetriever`, which caches.
+2. `RetrieveLinkTargetPage` retrieves the link target with `LINKED_ITEMS_DEPTH` (3) only to build a
+   URL — linked items are never read.
+3. Worst case, one card makes about seven sequential I/O calls (item, override image, link page,
+   URL, taxonomy, price calculation, stock), including the full `IPriceCalculationService` pipeline.
+
+**Do:**
+
+- Move both non-generic methods onto `IContentRetriever` (`RetrieveContentOfContentTypes` /
+  `RetrievePagesOfContentTypes` with a `Where` on `ContentItemGUID`), so results are cached with
+  correct dependency keys. **Unverified:** these method names and signatures come from the comment at
+  `ContentItemRetrieverService.cs:380`, not from the docs — confirm against the Kentico Docs MCP,
+  including whether they return content type-specific fields without `WithContentTypeFields()`.
+- Retrieve the link target at depth 0 with no content type fields.
+- Do **not** parallelise with `Task.WhenAll` — Kentico data APIs in one request scope are not meant
+  for concurrent use.
+- Note the per-card cost of price calculation in the guide text, or cache the extras.
+
+**Seam:** existing service tests stay green; assert the depth passed for the link target is 0.
+Retrieval correctness belongs to **T10** — this ticket makes T10 more urgent, not optional.
+
+**Manual check:** with SQL profiling or Xperience debug on, a second load of a page with the widget
+issues no content queries for it. Publishing a change to the promoted item still updates the card
+(cache dependency works).
+
+---
+
+### T16 — Link and source-mode correctness leftovers
+
+Two findings from the T6 *left for the tickets that own them* table that were never closed.
+
+1. **Stale `LinkUrl` in page mode.** In page mode with an unresolvable page, `ResolveLink` falls
+   through to `properties.LinkUrl` — a value hidden in page mode but still stored from an earlier
+   content hub or manual configuration. The card then links somewhere the editor cannot see.
+2. **Case-sensitive source comparison.** `ResolvePromotedItem` and `ResolveLink` compare
+   `ContentSource` with `==`, while the visibility conditions use `OrdinalIgnoreCase`.
+
+**Seam:** `ResolveLink` and `ResolvePromotedItem`.
+
+1. Page mode, page resolves to null, `LinkUrl` stored → link is null.
+2. Content hub mode, no target page, `LinkUrl` set → link is `LinkUrl` (regression guard).
+3. `ContentSource = "MANUAL"` behaves like `manual`; `"ContentItem"` like `contentItem`.
+
+---
+
+### T17 — Culture-aware price formatting
+
+**Problem.** The view prints `$@Model.Extras.Price.Value.ToString("n2")`
+(`ContentPromotionWidget.cshtml:97`): a hard-coded dollar sign plus the current culture's number
+format, so es-MX and fr-FR get a dollar sign with local separators. `ProductListingWidget` uses
+`ToString("C")`, so the card and the listing can disagree — which T6 promised would not happen.
+
+**Do:** format the price the same way the listing does. Better, move the formatting into one shared
+helper used by both, so they cannot drift.
+
+**Work not covered by tests:** the view change. If a shared helper is extracted, test it with an
+explicit culture.
+
+**Manual check:** the same product shows the identical price string in the listing and in a
+promotion card, in each site language.
+
+---
+
+### T18 — Activity endpoint hardening
+
+**Problems in `ContentPromotionActivityController`:**
+
+1. `ActivityTitle` is `"Content promotion click - " + value`, up to 276 characters, while only the
+   value is capped at 250. **Unverified:** check the `OM_Activity.ActivityTitle` column length; if
+   it is 250, cap or truncate the title.
+2. `requestModel?.` is redundant — MVC model binding always creates a complex-type parameter. Add
+   `[FromForm]` to make the binding source explicit.
+3. It uses a classic constructor while the rest of the feature uses primary constructors.
+4. Like `/pagelike`, it is an anonymous POST without antiforgery. A `sendBeacon` form post is a
+   CORS simple request, so another site can forge click activities for a consenting visitor. Low
+   impact and consistent with the existing pattern — but the remarks block should state it, not
+   only argue for anonymous access.
+
+**Seam:** the controller action.
+
+1. A 250-character tracking value → the logged `ActivityTitle` fits the column limit.
+2. Existing T9 criteria stay green.
+
+---
+
+### T19 — Click logger script
+
+**Problems in `wwwroot/assets/js/ContentPromotionActivityLogger.js`:**
+
+- `handleContentPromotionClick` is a global function — wrap the script in an IIFE.
+- It binds per-element on `load`. Use one delegated `document` listener with
+  `event.target.closest(".js-content-promotion-link")`.
+- Middle-click and Ctrl+click fire `auxclick`, not `click`, so they are not tracked.
+- The `sendBeacon` return value is ignored; a refused beacon should fall back to `fetch`.
+- The endpoint path is duplicated between the script and the controller route — consider emitting
+  it into a `data-` attribute from the view.
+
+**No automated tests** (no JS test stack). **Manual check:** left-, middle- and Ctrl-click each log
+exactly one activity with consent granted, and none without.
+
+---
+
+### T20 — Service and model cleanup (refactor)
+
+- `ContentFamily` / `PromotedItemResult.Family` is set and never read. Remove it, or use it to drive
+  `ResolveExtras` instead of a second type switch.
+- `PromotedItemResult` encodes state as flags (`SelectionFailed`, and until T13 `SelectionUnsupported`)
+  that `ResolvePromotedItem` derives from each other. Replace with one status enum.
+- `ContentPromotionContentTypes` exposes `public static readonly string[]` — any caller can mutate it.
+  Use `ImmutableArray<string>` or `IReadOnlyList<string>`.
+- `PromotionExtrasViewModel.Categories` / `Benefits` are `IEnumerable<string>` but always lists, and
+  `HasContent` and the view enumerate them repeatedly — use `IReadOnlyList<string>`.
+- `.Join(" ")` from `CMS.Helpers` → `string.Join`. Drop `?? string.Empty` on non-nullable properties.
+- Pass `HttpContext.RequestAborted` down to `GetCatalogPrice`, which already accepts a token.
+- Group `ContentPromotionService` members: public API first, then the `From*` mappers together
+  (`FromService` currently sits after `ResolveDisplayValues`), then helpers.
+- **Decide:** `WithoutAnchors` edits HTML with a regex. Readers of a training repo will copy it.
+  Either switch to an HTML parser (AngleSharp or HtmlAgilityPack — a new package, add it in
+  `Directory.Packages.props`) or keep the regex with its limits stated, as now.
+- **Optional:** `IContentPromotionService` takes `ContentPromotionWidgetProperties` (a widget-layer
+  type) and exposes five steps the view component must call in order. A single
+  `BuildCard(properties)` would be a deeper module; weigh it against the tests that target each step.
+
+**Seam:** none new — all existing tests stay green.
+
+---
+
+### T21 — Comment pass for public readers
+
+The feature's comments are far denser than the rest of the repository, and some point at things a
+reader of the published repo cannot see.
+
+- Remove or link references to "spec section 6.3", "spec section 7.1" and "the spec names".
+- Cut comments that argue with rejected alternatives instead of explaining the code — for example
+  the `ResolveDescription` remarks on "a second copy of the ordering rule".
+- Keep the *why* comments that a learner needs (stretched-link single anchor, catalog price vs
+  schema price, rich text vs encoded override); aim for roughly half the current volume.
+
+**No automated tests.** Run `dotnet format` and the full web suite afterwards.
