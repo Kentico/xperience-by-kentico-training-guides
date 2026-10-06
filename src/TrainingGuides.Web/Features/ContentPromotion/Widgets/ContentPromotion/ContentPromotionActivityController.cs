@@ -10,38 +10,31 @@ namespace TrainingGuides.Web.Features.ContentPromotion.Widgets.ContentPromotion;
 /// </summary>
 /// <remarks>
 /// <para>
-/// This endpoint is deliberately left open to anonymous visitors. The Kentico guidance on securing
-/// custom endpoints is about endpoints that read or write confidential data, perform privileged
-/// actions, or need to identify the user; restricting this one to signed-in administration users
-/// would mean it never fires for the public visitors it exists to measure. It accepts one opaque
-/// string, writes no content, and returns nothing about the site.
+/// Open to anonymous visitors on purpose: it exists to measure public visitors, accepts one opaque
+/// string, writes no content and returns nothing about the site. It enforces the consent gate and
+/// caps the value's length.
 /// </para>
 /// <para>
-/// What it does enforce is the consent gate and a cap on the value's length, so a caller cannot use
-/// it to write unbounded data into the activity log.
+/// Like <c>/pagelike</c>, it has no antiforgery token - <c>navigator.sendBeacon</c> cannot send one.
+/// A beacon form post is a CORS simple request, so another site can make a consenting visitor's
+/// browser log a click they did not make. The impact is a spurious activity on that visitor's
+/// contact; weigh that before copying this pattern for anything with consequences.
 /// </para>
 /// </remarks>
-public class ContentPromotionActivityController : Controller
+public class ContentPromotionActivityController(
+    ICustomActivityLogger customActivityLogger,
+    ICookieConsentService cookieConsentService) : Controller
 {
     /// <summary>
-    /// Matches the column the activity value is stored in, so an over-long value is refused here
-    /// rather than truncated by the database.
+    /// The length of the activity title and value columns (nvarchar(250)), so nothing logged here is
+    /// truncated by the database.
     /// </summary>
-    private const int MAX_TRACKING_VALUE_LENGTH = 250;
+    private const int ACTIVITY_COLUMN_LENGTH = 250;
 
-    private readonly ICustomActivityLogger customActivityLogger;
-    private readonly ICookieConsentService cookieConsentService;
-
-    public ContentPromotionActivityController(
-        ICustomActivityLogger customActivityLogger,
-        ICookieConsentService cookieConsentService)
-    {
-        this.customActivityLogger = customActivityLogger;
-        this.cookieConsentService = cookieConsentService;
-    }
+    private const string ACTIVITY_TITLE_PREFIX = "Content promotion click - ";
 
     [HttpPost("/contentpromotionclick")]
-    public IActionResult LogClick(ContentPromotionClickRequestModel requestModel)
+    public IActionResult LogClick([FromForm] ContentPromotionClickRequestModel requestModel)
     {
         // Every branch below answers with success. A visitor who withheld consent, and a widget
         // with no tracking value configured, are both ordinary states - answering with an error
@@ -51,16 +44,20 @@ public class ContentPromotionActivityController : Controller
             return Ok();
         }
 
-        string trackingValue = requestModel?.TrackingValue ?? string.Empty;
+        string trackingValue = requestModel.TrackingValue;
 
-        if (string.IsNullOrWhiteSpace(trackingValue) || trackingValue.Length > MAX_TRACKING_VALUE_LENGTH)
+        if (string.IsNullOrWhiteSpace(trackingValue) || trackingValue.Length > ACTIVITY_COLUMN_LENGTH)
         {
             return Ok();
         }
 
+        // The value is refused rather than shortened, because it is what reports group by. The title
+        // is only a label, so it is the one that gives way.
+        string title = ACTIVITY_TITLE_PREFIX + trackingValue;
+
         var activityData = new CustomActivityData()
         {
-            ActivityTitle = $"Content promotion click - {trackingValue}",
+            ActivityTitle = title.Length > ACTIVITY_COLUMN_LENGTH ? title[..ACTIVITY_COLUMN_LENGTH] : title,
             ActivityValue = trackingValue
         };
 

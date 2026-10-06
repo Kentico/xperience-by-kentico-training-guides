@@ -40,6 +40,22 @@ public class ContentPromotionActivityControllerTests
         Assert.IsType<OkResult>(result);
     }
 
+    // ActivityTitle and ActivityValue are both nvarchar(250). The value is capped at that length, so
+    // the title - which adds a prefix to it - must not be allowed to outgrow its column.
+    [Fact]
+    public void LongestAcceptedTrackingValue_LogsATitleThatFitsItsColumn()
+    {
+        string longestValue = new('x', 250);
+
+        controller.LogClick(new ContentPromotionClickRequestModel { TrackingValue = longestValue });
+
+        customActivityLoggerMock.Verify(
+            x => x.Log(
+                ContentPromotionWidgetViewComponent.ACTIVITY_IDENTIFIER,
+                It.Is<CustomActivityData>(data => data.ActivityValue == longestValue && data.ActivityTitle.Length <= 250)),
+            Times.Once);
+    }
+
     /// <summary>
     /// A visitor who withheld consent is a perfectly normal visitor. Answering with an error
     /// would put a console error on their screen for behaving exactly as intended.
