@@ -246,6 +246,15 @@
   <data name="TrainingGuides.ContentPromotionWidget.Image.ExplanationText" xml:space="preserve">
     <value>Leave empty to use the image of the selected content item. Alt text comes from the selected asset.</value>
   </data>
+  <data name="TrainingGuides.ContentPromotionWidget.HideElements.Label" xml:space="preserve">
+    <value>Hide elements</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.HideElements.ExplanationText" xml:space="preserve">
+    <value>Choose parts of the promoted item not to show on the card. Hiding the call to action leaves the card unclickable.</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.HideElements.Placeholder" xml:space="preserve">
+    <value>Nothing hidden</value>
+  </data>
   <data name="TrainingGuides.ContentPromotionWidget.ShowExtras.Label" xml:space="preserve">
     <value>Show type-specific extras</value>
   </data>

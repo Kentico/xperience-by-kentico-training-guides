@@ -357,6 +357,15 @@
   <data name="TrainingGuides.ContentPromotionWidget.Image.ExplanationText" xml:space="preserve">
     <value>Laissez vide pour utiliser l'image de l'élément de contenu sélectionné. Le texte alternatif provient de la ressource sélectionnée.</value>
   </data>
+  <data name="TrainingGuides.ContentPromotionWidget.HideElements.Label" xml:space="preserve">
+    <value>Masquer des éléments</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.HideElements.ExplanationText" xml:space="preserve">
+    <value>Choisissez les parties de l'élément promu à ne pas afficher sur la carte. Masquer l'appel à l'action rend la carte non cliquable.</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.HideElements.Placeholder" xml:space="preserve">
+    <value>Rien de masqué</value>
+  </data>
   <data name="TrainingGuides.ContentPromotionWidget.ShowExtras.Label" xml:space="preserve">
     <value>Afficher les extras propres au type</value>
   </data>

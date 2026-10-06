@@ -139,6 +139,62 @@ public class ContentPromotionServiceTests
         Assert.Equal(string.Empty, result.Title);
     }
 
+    // Hide elements is not offered in manual mode, but a value chosen before switching to manual is
+    // still stored. Applying it would hide what the editor typed, for a reason they cannot see.
+    [Fact]
+    public void ResolveDisplayValues_ManualModeWithStoredHiddenElements_ShowsEveryTypedValue()
+    {
+        var properties = new ContentPromotionWidgetProperties
+        {
+            ContentSource = ContentPromotionSource.MANUAL,
+            Title = WIDGET_TITLE,
+            Description = WIDGET_DESCRIPTION,
+            CallToActionText = WIDGET_CALL_TO_ACTION,
+            HideElements =
+            [
+                ContentPromotionElement.TITLE,
+                ContentPromotionElement.DESCRIPTION,
+                ContentPromotionElement.IMAGE,
+                ContentPromotionElement.CALL_TO_ACTION
+            ]
+        };
+        var overrideImage = new AssetViewModel { FilePath = WIDGET_IMAGE_PATH, AltText = WIDGET_IMAGE_ALT };
+
+        var result = contentPromotionService.ResolveDisplayValues(properties, null, overrideImage);
+
+        Assert.Equal(WIDGET_TITLE, result.Title);
+        Assert.Equal(WIDGET_DESCRIPTION, result.DescriptionHtml.Value);
+        Assert.Equal(WIDGET_CALL_TO_ACTION, result.CallToActionText);
+        Assert.Equal(WIDGET_IMAGE_PATH, result.Image?.FilePath);
+    }
+
+    [Fact]
+    public async Task ResolveOverrideImage_ManualModeWithStoredHiddenImage_StillResolvesTheImage()
+    {
+        var imageGuid = Guid.NewGuid();
+        contentItemRetrieverServiceMock
+            .Setup(x => x.RetrieveContentItemByGuid<Asset>(imageGuid, It.IsAny<int>(), It.IsAny<bool>(), It.IsAny<string?>()))
+            .ReturnsAsync(new Asset
+            {
+                AssetAltText = WIDGET_IMAGE_ALT,
+                AssetFile = new ContentItemAsset
+                {
+                    Url = WIDGET_IMAGE_PATH,
+                    Metadata = new ContentItemAssetMetadata { Name = "promo-autumn.jpg" }
+                }
+            });
+        var properties = new ContentPromotionWidgetProperties
+        {
+            ContentSource = ContentPromotionSource.MANUAL,
+            Image = [new ContentItemReference { Identifier = imageGuid }],
+            HideElements = [ContentPromotionElement.IMAGE]
+        };
+
+        var result = await contentPromotionService.ResolveOverrideImage(properties);
+
+        Assert.Equal(WIDGET_IMAGE_PATH, result?.FilePath);
+    }
+
     [Fact]
     public void ResolveDisplayValues_TitleHiddenAndOverridden_ReturnsEmptyTitle()
     {

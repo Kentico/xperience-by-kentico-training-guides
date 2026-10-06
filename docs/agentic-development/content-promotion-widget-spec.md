@@ -137,9 +137,15 @@ instead of four. Title is hideable like the rest; the editor owns the consequenc
 Without it, "empty means inherit" would make suppression inexpressible — a personalization
 variant could never say "show this promo with no description".
 
-**Open implementation detail:** the admin form component for a checkbox-list multi-select
-must be confirmed against the Kentico Docs MCP before coding. Do not assume
-`MultipleChoiceComponent` exists with that shape.
+**Form component (settled in T14):** `GeneralSelectorComponent` with `HideElementsDataProvider`.
+The admin form component reference has no checkbox-list multi-select; the general selector is the
+documented multi-select for a fixed set of values, and returns `IEnumerable<string>` — the type the
+property already had, so stored values carry over. Option labels are English, like every other
+option provider in the project; the property label, explanation and placeholder are localized.
+
+**Manual mode ignores `HideElements`.** The field is hidden there, but a value chosen before switching
+to manual is still stored. Applying it would hide what the editor typed for a reason they cannot see,
+so `ContentPromotionWidgetProperties.IsElementHidden` returns false in manual mode.
 
 ### 5.1 Image override
 
@@ -363,7 +369,7 @@ hides behind one toggle. The advanced block starts at Order 140, stepping by 10,
 | 40 | `Title` | Text input | always |
 | 50 | `Description` | Text area | always |
 | 60 | `Image` | Content item selector, `Asset`, max 1 | always |
-| 70 | `HideElements` | Multi-select (component to be verified) | source is not `manual` |
+| 70 | `HideElements` | General selector, `HideElementsDataProvider` | source is not `manual` |
 | 80 | `ShowExtras` | Checkbox | source is not `manual` |
 | 90 | `CallToActionText` | Text input | always |
 | 100 | `LinkTargetPage` | Content item selector, page allow-list, max 1 | source is not `page` |
@@ -416,7 +422,7 @@ consistent gap. Revisit if French front-end localization is added project-wide.
 
 Per AGENTS.md, verify rather than rely on recalled API shapes:
 
-1. The admin form component for a checkbox-list multi-select (section 5, `HideElements`).
+1. ~~The admin form component for a checkbox-list multi-select (section 5, `HideElements`).~~ Settled in T14: `GeneralSelectorComponent`.
 2. Retrieving taxonomy tag display names for article categories from `TagReference` values.
 3. The current `IProductService` surface for reading stock status by content item ID.
 4. Custom activity type creation and the current `ICustomActivityLogger` contract.

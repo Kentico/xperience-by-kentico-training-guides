@@ -93,7 +93,8 @@ is the thing under test.
 | T11 product card defects | Not started, reported after T9 |
 | T12 CTA editor notices | Done — 2 tests, notice only (no fallback label) |
 | T13 remove page selector workaround | Done — 2 drift guard tests; 4 workaround tests removed |
-| T14–T21 pre-publish review fixes | Not started, raised at code review 2026-10-06 — see [Pre-publish code review](#pre-publish-code-review) |
+| T14 HideElements form component | Done — 6 tests |
+| T15–T21 pre-publish review fixes | Not started, raised at code review 2026-10-06 — see [Pre-publish code review](#pre-publish-code-review) |
 
 Full web suite at the T9 stop point: **168 passing, 0 failing.**
 
@@ -726,7 +727,7 @@ Contact management; repeat with consent withheld and confirm nothing is logged.
 
 | Question | Blocks | Spec ref |
 | --- | --- | --- |
-| Admin form component for a checkbox-list multi-select | T2 implementation (not its tests) | §5, §13.1 |
+| ~~Admin form component for a checkbox-list multi-select~~ | ~~T2 implementation~~ — settled in T14 | §5, §13.1 |
 | ~~Tag display-name resolution from `TagReference`~~ | ~~T6a~~ — settled, see T6 | §13.2 |
 | ~~`IProductService` stock-by-content-item-ID surface~~ | ~~T6c~~ — settled, see T6 | §13.3 |
 | Custom activity type creation + `ICustomActivityLogger` contract | T9 implementation | §13.4 |
@@ -1141,6 +1142,17 @@ removing the `NOTE` comment.
 
 **Manual check:** hide each element in turn in the admin and confirm the card drops it; confirm a
 stored value survives a save-and-reopen.
+
+**Implemented (T14 done).** `GeneralSelectorComponent` with a new `HideElementsDataProvider`, at
+order 70, visible when the source is not manual — confirmed against the admin UI form component
+reference, which has no checkbox-list multi-select. Decided with the user: manual mode ignores a
+stored `HideElements`, through `ContentPromotionWidgetProperties.IsElementHidden`, which every hide
+check (display values, override image, the CTA-hidden notice) now goes through. Tests: four on the
+provider (all four elements offered, search by visible text, stored values valid with their text,
+unknown stored values invalid) and two on manual mode (`ResolveDisplayValues`,
+`ResolveOverrideImage`). Option labels are English, matching the project's other option providers;
+label, explanation and placeholder are localized in en-US, es-MX and fr-FR. The manual check above
+has not been run.
 
 ---
 

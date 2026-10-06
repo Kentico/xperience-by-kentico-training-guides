@@ -115,10 +115,23 @@ public class ContentPromotionWidgetProperties : IWidgetProperties
         Order = 130)]
     public string TrackingValue { get; set; } = string.Empty;
 
-    // NOTE: the admin form component for this property is not settled yet. The resolution
-    // logic only needs the selected element names, so it is deliberately left as a plain
-    // collection until the component is confirmed against the Kentico docs.
+    [GeneralSelectorComponent(
+        dataProviderType: typeof(HideElementsDataProvider),
+        Label = "{$TrainingGuides.ContentPromotionWidget.HideElements.Label$}",
+        ExplanationText = "{$TrainingGuides.ContentPromotionWidget.HideElements.ExplanationText$}",
+        Placeholder = "{$TrainingGuides.ContentPromotionWidget.HideElements.Placeholder$}",
+        Order = 70)]
+    [VisibleIfNotEqualTo(nameof(ContentSource), ContentPromotionSource.MANUAL, StringComparison.OrdinalIgnoreCase)]
     public IEnumerable<string> HideElements { get; set; } = [];
+
+    /// <summary>
+    /// True when the element is hidden. In manual mode nothing is: the field is not offered there,
+    /// but a value chosen before switching to manual is still stored, and applying it would hide
+    /// what the editor typed for a reason they cannot see.
+    /// </summary>
+    public bool IsElementHidden(string element) =>
+        !string.Equals(ContentSource, ContentPromotionSource.MANUAL, StringComparison.OrdinalIgnoreCase)
+        && HideElements.Contains(element);
 
     // Advanced styling. Everything below hides behind the one toggle, so the form stays short
     // for the editors who only want a card.

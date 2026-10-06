@@ -84,7 +84,7 @@ public partial class ContentPromotionService(
     public async Task<AssetViewModel?> ResolveOverrideImage(ContentPromotionWidgetProperties properties)
     {
         // A hidden image element throws the result away, so do not pay for the query at all.
-        if (properties.HideElements.Contains(ContentPromotionElement.IMAGE))
+        if (properties.IsElementHidden(ContentPromotionElement.IMAGE))
         {
             return null;
         }
@@ -315,7 +315,7 @@ public partial class ContentPromotionService(
         AssetViewModel? overrideImage,
         AssetViewModel? inheritedImage)
     {
-        if (properties.HideElements.Contains(ContentPromotionElement.IMAGE))
+        if (properties.IsElementHidden(ContentPromotionElement.IMAGE))
         {
             return null;
         }
@@ -381,7 +381,7 @@ public partial class ContentPromotionService(
         string overrideValue,
         string? inheritedValue)
     {
-        if (properties.HideElements.Contains(element))
+        if (properties.IsElementHidden(element))
         {
             return string.Empty;
         }
