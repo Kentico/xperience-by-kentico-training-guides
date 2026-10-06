@@ -121,6 +121,7 @@ else
                     <a href="@Url.Content(Model.Link.LinkUrl)"
                        class="c-content-promotion__cta stretched-link js-content-promotion-link @Model.CallToActionCssClasses"
                        data-tracking-value="@Model.TrackingValue"
+                       data-tracking-url="@Url.Action(nameof(ContentPromotionActivityController.LogClick), "ContentPromotionActivity")"
                        target="@(Model.Link.OpenInNewTab ? "_blank" : null)"
                        rel="@(Model.Link.OpenInNewTab ? "noopener noreferrer" : null)">
                         @Model.DisplayValues.CallToActionText
