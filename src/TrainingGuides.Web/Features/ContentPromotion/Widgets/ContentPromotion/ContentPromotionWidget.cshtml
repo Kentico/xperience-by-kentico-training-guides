@@ -130,25 +130,33 @@ else
                     </a>
                 }
             </div>
-
-            @* A card visitors cannot click still renders for the public - the editor gets the warning. *@
-            @if (editMode)
-            {
-                string? warning = reason switch
-                {
-                    MisconfigurationReason.NoDestination => StringLocalizer["This promotion has no destination. Choose a link target page or type in a link URL."].Value,
-                    MisconfigurationReason.CallToActionMissing => StringLocalizer["This promotion has no call to action text, so visitors cannot click it. Type in a call to action."].Value,
-                    MisconfigurationReason.CallToActionHidden => StringLocalizer["The call to action is hidden, so visitors cannot click this promotion."].Value,
-                    _ => null
-                };
-
-                if (warning is not null)
-                {
-                    <tg-page-builder-content>
-                        <tg-configure-widget-instructions message="@warning"/>
-                    </tg-page-builder-content>
-                }
-            }
         </div>
+
+        @* A card visitors cannot click still renders for the public - the editor gets the warning.
+           It sits below the card rather than inside it, so no card design or column layout can
+           restyle or squeeze it. *@
+        @if (editMode)
+        {
+            string? warning = reason switch
+            {
+                MisconfigurationReason.NoDestination => StringLocalizer["This promotion has no destination. Choose a link target page or type in a link URL."].Value,
+                MisconfigurationReason.CallToActionMissing => StringLocalizer["This promotion has no call to action text, so visitors cannot click it. Type in a call to action."].Value,
+                MisconfigurationReason.CallToActionHidden => StringLocalizer["The call to action is hidden, so visitors cannot click this promotion."].Value,
+                _ => null
+            };
+
+            if (warning is not null)
+            {
+                <tg-page-builder-content>
+                    <div class="c-content-promotion__warning" role="note">
+                        <span class="c-content-promotion__warning-icon" aria-hidden="true">!</span>
+                        <div class="c-content-promotion__warning-body">
+                            <span class="c-content-promotion__warning-label">@StringLocalizer["Only editors see this"]</span>
+                            <tg-configure-widget-instructions message="@warning"/>
+                        </div>
+                    </div>
+                </tg-page-builder-content>
+            }
+        }
     </div>
 }

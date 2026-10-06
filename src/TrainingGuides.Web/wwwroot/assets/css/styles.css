@@ -525,6 +525,82 @@
   border: 1px solid currentcolor !important;
 }
 
+/* Editor-only warning for a card visitors cannot click. It sits below the card, outside every card
+   design, so it carries its own colors. A solid, square block in the brand's attention color is the
+   one shape nothing else on the page uses, so it cannot be mistaken for content. The fill is that
+   color darkened: white text on the raw orange is under 4.5:1. */
+.c-content-promotion__warning {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+  padding: 1rem 1.125rem;
+  border: 2px solid #7a2808;
+  border-radius: 0;
+  background: #a3360b;
+  box-shadow: 0 4px 16px rgba(30, 26, 27, 0.25);
+  color: white;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  line-height: 1.45;
+  text-align: left;
+  /* A single sweep of light when the warning appears, so it is noticed among the page's
+     widgets without nagging. Behind the text: the negative z-index stays inside the isolated
+     stacking context and paints above the background. Kept faint so the white text never
+     loses its contrast while the band passes under it. */
+}
+.c-content-promotion__warning::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(110deg, transparent 30%, rgba(255, 255, 255, 0.3) 50%, transparent 70%);
+  transform: translateX(-100%);
+  animation: c-content-promotion-warning-sheen 1.6s ease-out 0.4s 1 both;
+  pointer-events: none;
+}
+.c-content-promotion__warning p {
+  margin: 0;
+}
+
+.c-content-promotion__warning-icon {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  background: white;
+  color: #a3360b;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.c-content-promotion__warning-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.c-content-promotion__warning-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+@keyframes c-content-promotion-warning-sheen {
+  to {
+    transform: translateX(100%);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .c-content-promotion__warning::after {
+    display: none;
+  }
+}
 /* Column layout - how the card splits between image and text. A card has two regions, so the
    three-column options land on the even split (see GetColumnLayoutClass). Single column until
    the card itself is wide enough in every case: a split card is unreadable in a narrow column,

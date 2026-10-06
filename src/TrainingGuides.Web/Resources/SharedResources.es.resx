@@ -283,6 +283,9 @@
   <data name="This promotion has no call to action text, so visitors cannot click it. Type in a call to action." xml:space="preserve">
     <value>Esta promoción no tiene texto de llamada a la acción, por lo que los visitantes no pueden hacer clic en ella. Escriba una llamada a la acción.</value>
   </data>
+  <data name="Only editors see this" xml:space="preserve">
+    <value>Solo los editores ven esto</value>
+  </data>
   <data name="The call to action is hidden, so visitors cannot click this promotion." xml:space="preserve">
     <value>La llamada a la acción está oculta, por lo que los visitantes no pueden hacer clic en esta promoción.</value>
   </data>
