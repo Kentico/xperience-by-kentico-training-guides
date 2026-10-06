@@ -18,10 +18,8 @@ public class ContentPromotionWidgetProperties : IWidgetProperties
         Order = 10)]
     public string ContentSource { get; set; } = ContentPromotionSource.PAGE;
 
-    // Restricts the selector to page types the widget can retrieve and promote. Keep in step with
-    // ContentPromotionContentTypes.PAGES, which retrieval uses - an attribute argument must be a
-    // compile-time constant, so the array cannot be shared. ContentPromotionContentTypesTests
-    // fails when the two drift apart.
+    // Must match ContentPromotionContentTypes.PAGES, which retrieval uses. Attribute arguments must
+    // be constants, so the list cannot be shared; ContentPromotionContentTypesTests checks it.
     [ContentItemSelectorComponent(
         [
             ArticlePage.CONTENT_TYPE_NAME,
@@ -125,22 +123,19 @@ public class ContentPromotionWidgetProperties : IWidgetProperties
     public IEnumerable<string> HideElements { get; set; } = [];
 
     /// <summary>
-    /// True when the element is hidden. In manual mode nothing is: the field is not offered there,
-    /// but a value chosen before switching to manual is still stored, and applying it would hide
-    /// what the editor typed for a reason they cannot see.
+    /// True when the element is hidden. Never in manual mode: the field is not shown there, so a
+    /// value stored earlier must not hide what the editor typed.
     /// </summary>
     public bool IsElementHidden(string element) =>
         !IsContentSource(ContentPromotionSource.MANUAL) && HideElements.Contains(element);
 
     /// <summary>
-    /// Compares the content source the way the form's visibility conditions do - ignoring case - so
-    /// the server and the form never disagree about which mode the widget is in.
+    /// Compares the content source ignoring case, as the form's visibility conditions do.
     /// </summary>
     public bool IsContentSource(string source) =>
         string.Equals(ContentSource, source, StringComparison.OrdinalIgnoreCase);
 
-    // Advanced styling. Everything below hides behind the one toggle, so the form stays short
-    // for the editors who only want a card.
+    // Advanced styling, behind one toggle so the form stays short.
     [CheckBoxComponent(
         Label = "{$TrainingGuides.ContentPromotionWidget.ShowAdvanced.Label$}",
         Order = 140)]
@@ -153,8 +148,7 @@ public class ContentPromotionWidgetProperties : IWidgetProperties
         Order = 150)]
     public string CardDesign { get; set; } = nameof(CardDesignOption.Standard);
 
-    // Image overlay and gradient paint their own background, so a color scheme on top of them
-    // would only fight it. The two conditions AND together.
+    // Image overlay and gradient paint their own background. Both conditions must hold.
     [VisibleIfTrue(nameof(ShowAdvanced))]
     [VisibleIfNotEqualTo(nameof(CardDesign), nameof(CardDesignOption.ImageOverlay), StringComparison.OrdinalIgnoreCase)]
     [VisibleIfNotEqualTo(nameof(CardDesign), nameof(CardDesignOption.Gradient), StringComparison.OrdinalIgnoreCase)]

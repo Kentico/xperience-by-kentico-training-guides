@@ -13,7 +13,7 @@ namespace TrainingGuides.Web.Tests.Features.ContentPromotion.Widgets.ContentProm
 
 /// <summary>
 /// Covers the one styling rule with real branching - whether the chosen color scheme reaches the
-/// card. Every other styling decision is verified by eye, per the widget spec section 2.
+/// card. Every other styling decision is checked by eye.
 /// </summary>
 public class ContentPromotionWidgetViewComponentTests
 {

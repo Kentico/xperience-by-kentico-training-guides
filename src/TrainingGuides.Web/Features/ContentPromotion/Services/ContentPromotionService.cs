@@ -41,8 +41,7 @@ public class ContentPromotionService(
             return new PromotedItemResult();
         }
 
-        // Both calls name the content types the matching selector offered. That is what lets the
-        // query return content type-specific fields at all - see IContentItemRetrieverService.
+        // Naming the selector's content types is what makes their type-specific fields available.
         object? item = fromContentHub
             ? await contentItemRetrieverService.RetrieveContentItemByGuid(
                 selectedGuid, ContentPromotionContentTypes.CONTENT_ITEMS, LINKED_ITEMS_DEPTH)
@@ -65,13 +64,11 @@ public class ContentPromotionService(
             _ => new PromotedItemResult()
         };
 
-        // Retrieval succeeded but nothing usable came back - an unsupported content type, or a
-        // page whose linked content item is missing. The editor did select something, so this
-        // is a broken selection rather than an empty one.
+        // Something was selected, so nothing usable coming back (for example, a page whose linked
+        // item is missing) is a broken selection, not an empty one.
         result.SelectionFailed = result.Item is null;
 
-        // Kept so the link rules can reuse the page that was already retrieved, instead of
-        // querying for the same page a second time.
+        // Lets the link rules reuse the page instead of retrieving it again.
         result.Page = item as IWebPageFieldsSource;
 
         return result;
@@ -88,14 +85,9 @@ public class ContentPromotionService(
             Image = ResolveImage(properties, overrideImage, item?.Image)
         };
 
-    /// <summary>
-    /// Turns the widget's image override into a view model. Kept out of the resolution rules
-    /// because it needs content retrieval, and kept out of the view component so that "an empty
-    /// asset means no image" is decided in one place.
-    /// </summary>
     public async Task<AssetViewModel?> ResolveOverrideImage(ContentPromotionWidgetProperties properties)
     {
-        // A hidden image element throws the result away, so do not pay for the query at all.
+        // A hidden image would be thrown away, so skip the query.
         if (properties.IsElementHidden(ContentPromotionElement.IMAGE))
         {
             return null;
@@ -118,9 +110,8 @@ public class ContentPromotionService(
             ? selectedPage
             : await RetrieveLinkTargetPage(properties);
 
-        // A link target page wins over a typed URL. The form hides the URL input once a page
-        // is selected, and in page mode altogether, but hiding a field does not clear its stored
-        // value - so a typed URL only counts where the editor can see it.
+        // A target page wins over a typed URL. Hiding a form field does not clear its stored value,
+        // so a typed URL only counts where the form shows it - never in page mode.
         string url = destinationPage is not null
             ? (await webPageUrlRetriever.Retrieve(destinationPage)).RelativePath
             : pageMode ? string.Empty : properties.LinkUrl;
@@ -153,7 +144,7 @@ public class ContentPromotionService(
         };
     }
 
-    // Mapping each content family onto the normalized card values.
+    // Content family mappers
 
     private static PromotedItemResult FromArticle(IArticleSchema? article) => article is null
         ? new PromotedItemResult()
@@ -194,12 +185,11 @@ public class ContentPromotionService(
             }
         };
 
-    // Images.
+    // Images
 
     /// <summary>
-    /// <see cref="AssetViewModel.GetViewModel"/> returns an empty model rather than null for a
-    /// missing asset, which would read as "there is an image" everywhere downstream - the card
-    /// would then render an <c>img</c> with no source.
+    /// Returns null for a missing asset. <see cref="AssetViewModel.GetViewModel"/> returns an empty
+    /// model instead, which would render an <c>img</c> with no source.
     /// </summary>
     private static AssetViewModel? GetImage(Asset? asset)
     {
@@ -209,15 +199,9 @@ public class ContentPromotionService(
     }
 
     /// <summary>
-    /// The product families keep their images in <c>ProductImage</c> content items rather than
-    /// in assets, so they need their own mapping - <see cref="AssetViewModel.GetViewModel"/>
-    /// takes an <see cref="Asset"/>, and nothing in this chain is one.
+    /// The first image of the product or, when a parent product has none of its own, of its
+    /// variants - the same fallback the product page and listing use.
     /// </summary>
-    /// <remarks>
-    /// A product page links a parent product, and a parent may carry no images of its own while
-    /// its variants do. The product page and the listing both fall back to a variant image for
-    /// that reason; the card needs only one image, so it takes the first one it can find.
-    /// </remarks>
     private static AssetViewModel? GetProductImage(IProductSchema product) =>
         ImagesOf(product)
             .Concat(VariantsOf(product).SelectMany(ImagesOf))
@@ -231,8 +215,8 @@ public class ContentPromotionService(
         (product as IProductParentSchema)?.ProductParentSchemaVariants?.OfType<IProductSchema>() ?? [];
 
     /// <summary>
-    /// Mirrors <see cref="GetImage(Asset?)"/>: a product image with no file behind it is no
-    /// image, not an image with an empty source.
+    /// Products keep images in <c>ProductImage</c> items rather than assets. Like
+    /// <see cref="GetImage(Asset?)"/>, an image with no file behind it is no image.
     /// </summary>
     private static AssetViewModel? GetImage(ProductImage? productImage)
     {
@@ -247,11 +231,8 @@ public class ContentPromotionService(
             };
     }
 
-    // Resolution rules.
+    // Resolution rules: hide beats override, override beats inherit
 
-    /// <summary>
-    /// Hide beats override, override beats inherit.
-    /// </summary>
     private static string Resolve(
         ContentPromotionWidgetProperties properties,
         string element,
@@ -269,17 +250,10 @@ public class ContentPromotionService(
     }
 
     /// <summary>
-    /// The description follows the same hide-override-inherit rule as every other element, but
-    /// its two sources are not the same kind of value. An inherited description is rich text
-    /// authored in the content hub and is passed through as markup; a typed override comes from
-    /// a plain text area, so it is encoded and whatever the author typed shows up literally.
+    /// Same rule as the other elements, but the two sources differ: an inherited description is
+    /// rich text and stays markup, while the typed override comes from a plain text area and is
+    /// encoded, so whatever the editor typed shows up literally.
     /// </summary>
-    /// <remarks>
-    /// The cascade itself is <see cref="Resolve"/>'s, unchanged - only the two candidate values
-    /// are prepared differently before it chooses between them. Preparing the override even when
-    /// it loses costs an encode of a string the editor typed, which is not worth a second
-    /// copy of the ordering rule to avoid.
-    /// </remarks>
     private static HtmlString ResolveDescription(
         ContentPromotionWidgetProperties properties,
         string? inheritedValue) => new(Resolve(
@@ -292,16 +266,9 @@ public class ContentPromotionService(
     /// Unwraps any anchors in an inherited description, keeping their text.
     /// </summary>
     /// <remarks>
-    /// The whole card is one stretched link. An anchor inside the description sits underneath that
-    /// link, so it cannot be clicked - but it is still reached by keyboard, leaving a focus stop that
-    /// does nothing. A promotion has exactly one destination, so the link is dropped and its text kept.
-    ///
-    /// This is not sanitisation and must not be read as any: the description is rendered as markup
-    /// either way, and the content hub is the trust boundary.
-    ///
-    /// The markup is parsed rather than matched with a pattern, so attribute values containing
-    /// <c>&gt;</c> and elements such as <c>abbr</c> are handled the way a browser would. Parsing
-    /// re-serializes the markup, so a description with no anchor is returned untouched.
+    /// The whole card is one stretched link, so an anchor inside it cannot be clicked but is still a
+    /// keyboard focus stop. This is not sanitisation - the content hub is the trust boundary. A
+    /// description with no anchor is returned untouched, because parsing re-serializes the markup.
     /// </remarks>
     private static string WithoutAnchors(string? description)
     {
@@ -329,9 +296,7 @@ public class ContentPromotionService(
     }
 
     /// <summary>
-    /// The image override arrives already resolved, because turning the selected asset
-    /// reference into an <see cref="AssetViewModel"/> needs content retrieval, which does
-    /// not belong in this rule.
+    /// The override arrives already resolved, because resolving it needs content retrieval.
     /// </summary>
     private static AssetViewModel? ResolveImage(
         ContentPromotionWidgetProperties properties,
@@ -346,7 +311,7 @@ public class ContentPromotionService(
         return overrideImage ?? inheritedImage;
     }
 
-    // Link and extras lookups.
+    // Link and extras lookups
 
     private async Task<IWebPageFieldsSource?> RetrieveLinkTargetPage(ContentPromotionWidgetProperties properties)
     {
@@ -387,19 +352,13 @@ public class ContentPromotionService(
     };
 
     /// <summary>
-    /// Price and stock are read through the same two rules the product listing uses, so a
-    /// promotion card and a listing tile for the same product never disagree.
+    /// Price and stock come from the same two rules the product listing uses, so the card and the
+    /// listing never disagree. Both work for a variant and for a parent product.
     /// </summary>
     /// <remarks>
-    /// Only variants carry a price and a stock record of their own, but neither rule needs the
-    /// caller to know that: <c>GetCatalogPrice</c> walks a parent to its first variant, and
-    /// <c>GetListingStockForProduct</c> folds a parent's variants into one state. Both answer
-    /// for a variant, a parent and the parent behind a product page alike.
-    ///
-    /// The price is the catalog price rather than the raw <c>ProductPriceSchemaPrice</c> the
-    /// spec names, so a discounted product does not advertise two different prices on one page.
-    /// It falls back to the schema price whenever no discount applies, and a product with no
-    /// price at all comes back as zero, which the card omits rather than printing "$0.00".
+    /// The price is the catalog price, after any discount, not the raw schema price - otherwise a
+    /// discounted product would show two prices on one page. No price comes back as zero, which the
+    /// card omits rather than showing a zero price.
     /// </remarks>
     private async Task<PromotionExtrasViewModel> ProductExtras(IProductSchema product, CancellationToken cancellationToken)
     {

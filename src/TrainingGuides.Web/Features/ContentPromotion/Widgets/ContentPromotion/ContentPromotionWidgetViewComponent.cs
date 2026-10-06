@@ -79,9 +79,8 @@ public class ContentPromotionWidgetViewComponent(
             GetColumnLayoutClass(properties)
         ];
 
-        // Image overlay and gradient paint their own background. The color scheme property is
-        // hidden for both in the admin UI, but a previously chosen value is still stored on the
-        // widget, so the design - not the stored value - decides whether it is applied.
+        // The color scheme field is hidden for these designs, but a value chosen earlier is still
+        // stored, so the design decides whether it applies.
         if (!PaintsOwnBackground(cardDesign))
         {
             cssClasses.AddRange(
@@ -145,8 +144,7 @@ public class ContentPromotionWidgetViewComponent(
     };
 
     /// <summary>
-    /// A card has two regions - image and text - so the three-column options lay out the same as
-    /// two even columns rather than inventing a third region that has nothing to put in it.
+    /// A card has two regions - image and text - so the three-column options use the even split.
     /// </summary>
     private static string GetColumnLayoutClass(ContentPromotionWidgetProperties properties) =>
         properties.ColumnLayout switch

@@ -3,9 +3,8 @@ using TrainingGuides.Web.Commerce.Products.Models;
 namespace TrainingGuides.Web.Features.ContentPromotion.Models;
 
 /// <summary>
-/// The read-only, never overridable block of facts that only one content family has.
-/// Every member is empty when the family has nothing to show, which is a valid state -
-/// the block simply disappears (spec section 7.1).
+/// Read-only facts that only one content family has. Empty is a valid state: the block is
+/// simply not rendered.
 /// </summary>
 public class PromotionExtrasViewModel
 {
@@ -20,15 +19,14 @@ public class PromotionExtrasViewModel
     public IReadOnlyList<string> Benefits { get; set; } = [];
 
     /// <summary>
-    /// Product family: the price of the selected variant. Null whenever the selected item
-    /// does not carry a price of its own - a parent product or a product page.
+    /// Product family: the catalog price. For a parent product, the price of its first variant.
+    /// Null when the product has no price.
     /// </summary>
     public decimal? Price { get; set; }
 
     /// <summary>
-    /// Product family: the stock state of the selected variant. Null when no stock record
-    /// exists. Zero stock is <see cref="ProductStockEnum.OutOfStock"/> rather than null,
-    /// because out of stock is worth saying out loud.
+    /// Product family: the stock state, folded across variants for a parent product. Null when no
+    /// stock record exists; zero stock is <see cref="ProductStockEnum.OutOfStock"/>.
     /// </summary>
     public ProductStockEnum? StockStatus { get; set; }
 

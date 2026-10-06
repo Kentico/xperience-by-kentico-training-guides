@@ -32,9 +32,8 @@
 }
 else
 {
-    @* The card sizes itself to the widget zone, not to the viewport - a three-column section
-       on a wide screen hands each card only a few hundred pixels. This wrapper exists so the
-       card can query the space it was actually given: an element cannot be its own container. *@
+    @* Container queries size the card to its widget zone, not the viewport. An element cannot be
+       its own container, hence the wrapper. *@
     <div class="c-content-promotion-wrapper">
         <div class="@Model.CardCssClasses">
             @if (Model.DisplayValues.Image is not null)
@@ -55,17 +54,13 @@ else
                     <h3 class="c-content-promotion__title h4">@Model.DisplayValues.Title</h3>
                 }
 
-                @* A div, not a paragraph: the description is rich text and may contain blocks of
-                   its own, which a browser would hoist out of a p element and leave unstyled. *@
+                @* A div, because the rich text description can contain block elements. *@
                 @if (!string.IsNullOrWhiteSpace(Model.DisplayValues.DescriptionHtml.Value))
                 {
                     <div class="c-content-promotion__description">@Model.DisplayValues.DescriptionHtml</div>
                 }
 
-                @* Read-only facts only one content family has. Absent for every other family, and for
-                   an item of the right family that happens to have none of them. Never interactive -
-                   the card carries a single anchor stretched across it, and a second clickable element
-                   inside that anchor's hit area would be unreachable. *@
+                @* Family-specific facts. Never interactive: the stretched link covers the card. *@
                 @if (Model.Extras.HasContent)
                 {
                     <div class="c-content-promotion__extras">
@@ -96,9 +91,7 @@ else
 
                         @if (Model.Extras.StockStatus.HasValue)
                         {
-                            @* One switch over the stock state rather than two: the label and the
-                               modifier class always move together. Only out of stock is called
-                               out visually - the rest read as ordinary detail. *@
+                            @* Label and modifier class move together. Only out of stock is highlighted. *@
                             (string Label, string? Modifier) stock = Model.Extras.StockStatus.Value switch
                             {
                                 ProductStockEnum.OutOfStock => (StringLocalizer["Out of stock"].Value, "c-content-promotion__stock--out-of-stock"),
@@ -113,9 +106,8 @@ else
                     </div>
                 }
 
-                @* The card's only interactive element. "stretched-link" expands its hit area over the
-                   whole card, so the visible button and the clickable surface are one anchor with one
-                   accessible name and one place to hang click tracking. *@
+                @* The card's only interactive element. "stretched-link" makes the whole card its hit
+                   area: one anchor, one accessible name, one place for click tracking. *@
                 @if (Model.Link is not null && !string.IsNullOrWhiteSpace(Model.DisplayValues.CallToActionText))
                 {
                     <a href="@Url.Content(Model.Link.LinkUrl)"
@@ -130,9 +122,8 @@ else
             </div>
         </div>
 
-        @* A card visitors cannot click still renders for the public - the editor gets the warning.
-           It sits below the card rather than inside it, so no card design or column layout can
-           restyle or squeeze it. *@
+        @* Visitors still see the card; only editors get the warning. It sits below the card so no
+           card design or layout can restyle it. *@
         @if (editMode)
         {
             string? warning = reason switch

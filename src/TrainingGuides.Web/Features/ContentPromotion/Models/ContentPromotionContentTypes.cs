@@ -1,11 +1,9 @@
 namespace TrainingGuides.Web.Features.ContentPromotion.Models;
 
 /// <summary>
-/// The content types the widget's two selectors offer. Retrieval has to name the same types the
-/// selector offered - a content item query cannot select content type-specific fields without
-/// being limited to specific content types. The selector attributes cannot read these arrays, so
-/// ContentPromotionContentTypesTests keeps the two in step. Read-only, so no caller can change what
-/// another one retrieves.
+/// The content types the widget's two selectors offer. Retrieval names the same types, because a
+/// query only returns content type-specific fields for named types. The selector attributes cannot
+/// read these lists, so ContentPromotionContentTypesTests keeps the two in step.
 /// </summary>
 public static class ContentPromotionContentTypes
 {

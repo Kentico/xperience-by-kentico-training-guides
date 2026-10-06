@@ -659,7 +659,7 @@ public class ContentPromotionServiceTests
     }
 
     // The product path feeds the same field every other family does, so it must still lose to an
-    // override and disappear when the image element is hidden - T2's rule, not a product rule.
+    // override and disappear when the image element is hidden - the general rule, not a product rule.
     [Fact]
     public async Task ResolveDisplayValues_ProductImageInheritedAndOverridden_UsesTheOverride()
     {

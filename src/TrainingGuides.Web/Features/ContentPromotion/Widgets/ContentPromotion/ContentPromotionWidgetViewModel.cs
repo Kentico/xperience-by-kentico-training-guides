@@ -16,15 +16,14 @@ public class ContentPromotionWidgetViewModel : IWidgetViewModel
     public LinkViewModel? Link { get; set; }
 
     /// <summary>
-    /// The read-only facts specific to the promoted item's content family. Always present,
-    /// and empty whenever there is nothing to show - extras never affect whether the card
-    /// itself is considered configured.
+    /// Facts specific to the promoted item's content family. Never affects whether the card is
+    /// considered configured.
     /// </summary>
     public PromotionExtrasViewModel Extras { get; set; } = new();
 
     /// <summary>
-    /// Every class on the card's outer element - base, design, color scheme, corner style and
-    /// column layout, already resolved. Computed in the view component so the view stays dumb.
+    /// Every class on the card's outer element, computed in the view component so the view stays
+    /// free of styling logic.
     /// </summary>
     public string CardCssClasses { get; set; } = string.Empty;
 
@@ -54,8 +53,7 @@ public class ContentPromotionWidgetViewModel : IWidgetViewModel
     public string TrackingValue { get; set; } = string.Empty;
 
     /// <summary>
-    /// True when the editor selected an item that could not be loaded. Distinct from having
-    /// selected nothing, which is a valid authoring state in manual mode.
+    /// True when the editor selected an item that could not be loaded.
     /// </summary>
     public bool SelectionFailed { get; set; }
 

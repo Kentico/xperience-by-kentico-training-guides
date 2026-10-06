@@ -11,11 +11,8 @@ public class ContentPromotionDisplayValues
     public string Title { get; set; } = string.Empty;
 
     /// <summary>
-    /// The description as markup. Every content family stores its description as rich text and
-    /// every other consumer in the project renders it with <see cref="HtmlString"/>, so the card
-    /// does the same - rendering it as a plain string shows the editor's tags on screen. The
-    /// typed override arrives here already encoded, because its form component is a plain text
-    /// area and an author typing a stray angle bracket is not writing markup.
+    /// The description as markup: inherited descriptions are rich text. A typed override arrives
+    /// already encoded, because it comes from a plain text area.
     /// </summary>
     public HtmlString DescriptionHtml { get; set; } = HtmlString.Empty;
 
@@ -24,8 +21,7 @@ public class ContentPromotionDisplayValues
     public AssetViewModel? Image { get; set; }
 
     /// <summary>
-    /// True when at least one element survives to be rendered. Everything hidden, or nothing
-    /// resolved and nothing typed in, leaves the card with nothing to show.
+    /// True when at least one element is left to render.
     /// </summary>
     public bool HasContent =>
         !string.IsNullOrWhiteSpace(Title)
