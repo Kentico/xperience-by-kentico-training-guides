@@ -76,7 +76,7 @@ public class ResponsiveImageTagHelper : TagHelper
             output.Attributes.SetAttribute("sizes", Sizes);
         }
 
-        // Scale variants keep the original's aspect ratio, so its dimensions reserve the right space
+        // Scaled variants keep the original's aspect ratio, so its dimensions reserve the right space
         SetDimensions(output, Asset.Metadata.Width, Asset.Metadata.Height);
     }
 
