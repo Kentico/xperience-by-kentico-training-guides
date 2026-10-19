@@ -7,8 +7,8 @@ namespace TrainingGuides.Web.Features.ResponsiveImages;
 
 /// <summary>
 /// Renders an <c>img</c> element for an image asset. Without a fixed variant, the image gets
-/// a <c>srcset</c> of the <see cref="ImageVariants.WidthLadder"/> variants with <c>w</c> descriptors,
-/// so the browser downloads the smallest file that fills the slot described by <see cref="Sizes"/>.
+/// a <c>srcset</c> of the <see cref="ImageVariants.WidthSeries"/> variants with <c>w</c> descriptors,
+/// so the browser downloads the smallest file that fills the image area described by <see cref="Sizes"/>.
 /// Renders nothing when the asset is missing or isn't an image.
 /// </summary>
 [HtmlTargetElement("tg-responsive-image", TagStructure = TagStructure.WithoutEndTag)]
@@ -33,7 +33,7 @@ public class ResponsiveImageTagHelper : TagHelper
     public string? Variant { get; set; }
 
     /// <summary>
-    /// The rendered width of the image slot per breakpoint, in the HTML <c>sizes</c> syntax.
+    /// The rendered width of the image area per breakpoint, in the HTML <c>sizes</c> syntax.
     /// </summary>
     public string Sizes { get; set; } = "100vw";
 
@@ -81,19 +81,19 @@ public class ResponsiveImageTagHelper : TagHelper
     }
 
     /// <summary>
-    /// Lists the width ladder variants of an asset that are no wider than the original, narrowest first.
-    /// The original closes the list when the ladder goes past its width and no rung has that width already,
-    /// so the largest candidate is never upscaled and no width descriptor appears twice in the list.
+    /// Lists the width series variants of an asset that are no wider than the original, narrowest first.
+    /// The original closes the list when the series goes past its width and no variant in the series has that
+    /// width already, so the largest candidate is never upscaled and no width descriptor appears twice in the list.
     /// </summary>
     /// <param name="asset">The image asset.</param>
-    /// <returns>The URL and actual width of each candidate; empty when the asset has none of the ladder variants.</returns>
+    /// <returns>The URL and actual width of each candidate; empty when the asset has none of the series variants.</returns>
     private static List<(string Url, int Width)> GetWidthCandidates(ContentItemAsset asset)
     {
         int originalWidth = asset.Metadata.Width ?? int.MaxValue;
         var candidates = new List<(string Url, int Width)>();
-        bool ladderExceedsOriginal = false;
+        bool seriesExceedsOriginal = false;
 
-        foreach (string variant in ImageVariants.WidthLadder)
+        foreach (string variant in ImageVariants.WidthSeries)
         {
             if (!TryGetVariant(asset, variant, out string? url, out var metadata) || metadata.Width is not int width)
             {
@@ -102,15 +102,15 @@ public class ResponsiveImageTagHelper : TagHelper
 
             if (width > originalWidth)
             {
-                ladderExceedsOriginal = true;
+                seriesExceedsOriginal = true;
                 continue;
             }
 
             candidates.Add((url, width));
         }
 
-        // A rung stored at exactly the original's width already closes the list, and srcset forbids repeating a descriptor
-        if (ladderExceedsOriginal && (candidates.Count == 0 || candidates[^1].Width < originalWidth))
+        // A series variant stored at exactly the original's width already closes the list, and srcset forbids repeating a descriptor
+        if (seriesExceedsOriginal && (candidates.Count == 0 || candidates[^1].Width < originalWidth))
         {
             candidates.Add((asset.Url, originalWidth));
         }

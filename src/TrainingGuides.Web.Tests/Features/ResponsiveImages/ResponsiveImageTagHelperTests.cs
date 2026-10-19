@@ -72,12 +72,12 @@ public class ResponsiveImageTagHelperTests
     }
 
     [Fact]
-    public void Process_RendersLadderNarrowestFirst()
+    public void Process_RendersSeriesNarrowestFirst()
     {
         // Arrange
         var tagHelper = new ResponsiveImageTagHelper
         {
-            Asset = CreateAsset(3000, 2000, LadderVariants()),
+            Asset = CreateAsset(3000, 2000, SeriesVariants()),
             Sizes = "(min-width: 768px) 50vw, 100vw"
         };
 
@@ -100,10 +100,10 @@ public class ResponsiveImageTagHelperTests
     }
 
     [Fact]
-    public void Process_DropsUpscaledRungsAndClosesWithOriginal()
+    public void Process_DropsUpscaledWidthsAndClosesWithOriginal()
     {
         // Arrange
-        var tagHelper = new ResponsiveImageTagHelper { Asset = CreateAsset(1433, 955, LadderVariants()) };
+        var tagHelper = new ResponsiveImageTagHelper { Asset = CreateAsset(1433, 955, SeriesVariants()) };
 
         // Act
         var output = Process(tagHelper);
@@ -119,10 +119,10 @@ public class ResponsiveImageTagHelperTests
     }
 
     [Fact]
-    public void Process_ClosesWithRung_WhenOriginalMatchesRungWidth()
+    public void Process_ClosesWithSeriesVariant_WhenOriginalMatchesItsWidth()
     {
         // Arrange
-        var tagHelper = new ResponsiveImageTagHelper { Asset = CreateAsset(1920, 1280, LadderVariants()) };
+        var tagHelper = new ResponsiveImageTagHelper { Asset = CreateAsset(1920, 1280, SeriesVariants()) };
 
         // Act
         var output = Process(tagHelper);
@@ -139,12 +139,12 @@ public class ResponsiveImageTagHelperTests
     }
 
     [Fact]
-    public void Process_ClosesWithOriginalOnly_WhenEveryRungIsWider()
+    public void Process_ClosesWithOriginalOnly_WhenEverySeriesVariantIsWider()
     {
         // Arrange
         var tagHelper = new ResponsiveImageTagHelper
         {
-            Asset = CreateAsset(400, 267, LadderVariants()),
+            Asset = CreateAsset(400, 267, SeriesVariants()),
             Sizes = "50vw"
         };
 
@@ -165,7 +165,7 @@ public class ResponsiveImageTagHelperTests
         // Arrange
         var tagHelper = new ResponsiveImageTagHelper
         {
-            Asset = CreateAsset(3000, 2000, [.. LadderVariants(), (ImageVariants.CARD_800X600, 800, 600)]),
+            Asset = CreateAsset(3000, 2000, [.. SeriesVariants(), (ImageVariants.CARD_800X600, 800, 600)]),
             Variant = ImageVariants.CARD_800X600
         };
 
@@ -181,12 +181,12 @@ public class ResponsiveImageTagHelperTests
     }
 
     [Fact]
-    public void Process_FallsBackToLadder_WhenVariantIsUnknown()
+    public void Process_FallsBackToSeries_WhenVariantIsUnknown()
     {
         // Arrange
         var tagHelper = new ResponsiveImageTagHelper
         {
-            Asset = CreateAsset(3000, 2000, [.. LadderVariants(), (ImageVariants.CARD_800X600, 800, 600)]),
+            Asset = CreateAsset(3000, 2000, [.. SeriesVariants(), (ImageVariants.CARD_800X600, 800, 600)]),
             Variant = "RetiredHero"
         };
 
@@ -202,12 +202,12 @@ public class ResponsiveImageTagHelperTests
 
     // VariantUrls is case-sensitive, so a wrong-case code name finds no URL even though Metadata.Variants ignores case
     [Fact]
-    public void Process_FallsBackToLadder_WhenVariantCaseDiffers()
+    public void Process_FallsBackToSeries_WhenVariantCaseDiffers()
     {
         // Arrange
         var tagHelper = new ResponsiveImageTagHelper
         {
-            Asset = CreateAsset(3000, 2000, [.. LadderVariants(), (ImageVariants.CARD_800X600, 800, 600)]),
+            Asset = CreateAsset(3000, 2000, [.. SeriesVariants(), (ImageVariants.CARD_800X600, 800, 600)]),
             Variant = "card800x600"
         };
 
@@ -225,7 +225,7 @@ public class ResponsiveImageTagHelperTests
     public void Process_OmitsDimensions_WhenMetadataHasNoSize()
     {
         // Arrange
-        var tagHelper = new ResponsiveImageTagHelper { Asset = CreateAsset(null, null, LadderVariants()) };
+        var tagHelper = new ResponsiveImageTagHelper { Asset = CreateAsset(null, null, SeriesVariants()) };
 
         // Act
         var output = Process(tagHelper);
@@ -277,9 +277,9 @@ public class ResponsiveImageTagHelperTests
     }
 
     /// <summary>
-    /// Creates the scale variants of the width ladder, each stored at its nominal width in a 3:2 aspect ratio.
+    /// Creates the scale variants of the width series, each stored at its nominal width in a 3:2 aspect ratio.
     /// </summary>
-    private static (string Name, int? W, int? H)[] LadderVariants() =>
+    private static (string Name, int? W, int? H)[] SeriesVariants() =>
     [
         (ImageVariants.SCALE_W480, 480, 320),
         (ImageVariants.SCALE_W828, 828, 552),

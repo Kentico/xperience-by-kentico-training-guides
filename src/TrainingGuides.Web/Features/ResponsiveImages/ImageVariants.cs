@@ -40,7 +40,7 @@ public static class ImageVariants
     /// <summary>
     /// Code names of the scaled variants, narrowest first.
     /// </summary>
-    public static readonly IReadOnlyList<string> WidthLadder =
+    public static readonly IReadOnlyList<string> WidthSeries =
     [
         SCALE_W480,
         SCALE_W828,
