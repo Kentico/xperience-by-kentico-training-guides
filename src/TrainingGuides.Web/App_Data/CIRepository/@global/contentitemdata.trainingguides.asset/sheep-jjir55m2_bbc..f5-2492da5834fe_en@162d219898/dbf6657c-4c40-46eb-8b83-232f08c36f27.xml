@@ -3,7 +3,7 @@
   <AssetAltText>Picture of a sheep</AssetAltText>
   <AssetDescription>Sheep</AssetDescription>
   <AssetFile>
-    <![CDATA[{"Identifier":"8b69ef60-8664-4452-bb2b-dd11a7a9e171","Name":"sheep-photo-by-rod-long-small.jpg","Extension":".jpg","Size":268720,"LastModified":"2024-08-27T13:19:36.135655Z"}]]>
+    <![CDATA[{"Identifier":"8b69ef60-8664-4452-bb2b-dd11a7a9e171","Name":"sheep-photo-by-rod-long-small.jpg","Extension":".jpg","Size":268720,"Width":1072,"Height":715,"LastModified":"2024-08-27T13:19:36.135655Z"}]]>
   </AssetFile>
   <AssetUseInternalOnly>False</AssetUseInternalOnly>
   <ContentItemDataCommonDataID>
