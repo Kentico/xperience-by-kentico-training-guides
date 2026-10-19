@@ -1,30 +1,16 @@
 using System.Collections.ObjectModel;
 using System.Text.Json;
 using CMS.ContentEngine;
-using CMS.Core;
 using Microsoft.AspNetCore.Razor.TagHelpers;
-using Moq;
 using TrainingGuides.Web.Features.ResponsiveImages;
 using Xunit;
 
 namespace TrainingGuides.Web.Tests.Features.ResponsiveImages;
 
-public class ResponsiveImageTagHelperTests : IClassFixture<ResponsiveImageTagHelperTests.ServiceContainerFixture>
+[Collection(ServiceContainerCollection.NAME)]
+public class ResponsiveImageTagHelperTests
 {
     private const string ORIGINAL_URL = "~/getContentAsset/item/field/photo.jpg";
-
-    /// <summary>
-    /// Initializes the service container with a settings service, because <c>ImageHelper.IsImage</c> reads the image extension setting through it.
-    /// </summary>
-    public sealed class ServiceContainerFixture
-    {
-        public ServiceContainerFixture()
-        {
-            // CMS.Core.Service is qualified because TrainingGuides.Service is a content type
-            CMS.Core.Service.Use<IAppSettingsService>(new Mock<IAppSettingsService>().Object);
-            CMS.Core.Service.InitializeContainer();
-        }
-    }
 
     [Fact]
     public void Process_SuppressesOutput_WhenAssetIsNull()
@@ -153,6 +139,27 @@ public class ResponsiveImageTagHelperTests : IClassFixture<ResponsiveImageTagHel
     }
 
     [Fact]
+    public void Process_ClosesWithOriginalOnly_WhenEveryRungIsWider()
+    {
+        // Arrange
+        var tagHelper = new ResponsiveImageTagHelper
+        {
+            Asset = CreateAsset(400, 267, LadderVariants()),
+            Sizes = "50vw"
+        };
+
+        // Act
+        var output = Process(tagHelper);
+
+        // Assert
+        Assert.Equal($"{ORIGINAL_URL} 400w", GetAttribute(output, "srcset"));
+        Assert.Equal(ORIGINAL_URL, GetAttribute(output, "src"));
+        Assert.Equal("50vw", GetAttribute(output, "sizes"));
+        Assert.Equal("400", GetAttribute(output, "width"));
+        Assert.Equal("267", GetAttribute(output, "height"));
+    }
+
+    [Fact]
     public void Process_RendersFixedVariant_WhenAssetHasIt()
     {
         // Arrange
@@ -237,6 +244,25 @@ public class ResponsiveImageTagHelperTests : IClassFixture<ResponsiveImageTagHel
     }
 
     [Fact]
+    public void Process_OmitsDimensions_WhenFixedVariantHasNoSize()
+    {
+        // Arrange
+        var tagHelper = new ResponsiveImageTagHelper
+        {
+            Asset = CreateAsset(3000, 2000, [(ImageVariants.CARD_800X600, null, null)]),
+            Variant = ImageVariants.CARD_800X600
+        };
+
+        // Act
+        var output = Process(tagHelper);
+
+        // Assert
+        Assert.Equal(VariantUrl(ImageVariants.CARD_800X600), GetAttribute(output, "src"));
+        Assert.Null(GetAttribute(output, "width"));
+        Assert.Null(GetAttribute(output, "height"));
+    }
+
+    [Fact]
     public void Process_AlwaysRendersAltAndLoading()
     {
         // Arrange
@@ -253,7 +279,7 @@ public class ResponsiveImageTagHelperTests : IClassFixture<ResponsiveImageTagHel
     /// <summary>
     /// Creates the scale variants of the width ladder, each stored at its nominal width in a 3:2 aspect ratio.
     /// </summary>
-    private static (string Name, int W, int H)[] LadderVariants() =>
+    private static (string Name, int? W, int? H)[] LadderVariants() =>
     [
         (ImageVariants.SCALE_W480, 480, 320),
         (ImageVariants.SCALE_W828, 828, 552),
@@ -266,7 +292,7 @@ public class ResponsiveImageTagHelperTests : IClassFixture<ResponsiveImageTagHel
     /// <summary>
     /// Creates an asset whose original has the given size, with a URL and stored metadata for each variant.
     /// </summary>
-    private static ContentItemAsset CreateAsset(int? width, int? height, (string Name, int W, int H)[]? variants = null, string extension = ".jpg")
+    private static ContentItemAsset CreateAsset(int? width, int? height, (string Name, int? W, int? H)[]? variants = null, string extension = ".jpg")
     {
         variants ??= [];
 
@@ -284,7 +310,7 @@ public class ResponsiveImageTagHelperTests : IClassFixture<ResponsiveImageTagHel
     /// because <see cref="ContentItemAssetMetadata.Variants"/> has no public setter.
     /// The <c>Variants</c> property is left out of the JSON when <paramref name="variants"/> is <c>null</c>.
     /// </summary>
-    private static ContentItemAssetMetadata CreateMetadata(int? width, int? height, (string Name, int W, int H)[]? variants = null, string extension = ".jpg")
+    private static ContentItemAssetMetadata CreateMetadata(int? width, int? height, (string Name, int? W, int? H)[]? variants = null, string extension = ".jpg")
     {
         var stored = new Dictionary<string, object?>
         {

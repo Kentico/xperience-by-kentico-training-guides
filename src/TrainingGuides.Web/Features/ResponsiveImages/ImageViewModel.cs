@@ -13,7 +13,7 @@ public record ImageViewModel(ContentItemAsset Asset, string AltText)
     /// Creates an image view model from an Asset content item.
     /// </summary>
     /// <param name="asset">The Asset content item, or <c>null</c>.</param>
-    /// <returns>The view model, or <c>null</c> when there is no asset or file.</returns>
+    /// <returns>The view model, or <c>null</c> when there is no asset or file; alternative text missing on the item becomes an empty string.</returns>
     public static ImageViewModel? GetViewModel(Asset? asset) => asset?.AssetFile is null
         ? null
         : new(asset.AssetFile, asset.AssetAltText ?? string.Empty);
