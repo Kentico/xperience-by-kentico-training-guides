@@ -14,26 +14,25 @@ using TrainingGuides.Web.Features.Shared.Services;
 namespace TrainingGuides.Web.Features.ResponsiveImages.ImageWidget;
 
 /// <summary>
-/// Shows the picked image asset, responsive or in the picked image variant.
+/// Retrieves the selected image asset and passes it to the widget view with the chosen variant.
 /// </summary>
 /// <param name="contentItemRetrieverService">
-/// Retrieves the picked Asset content item.
+/// Service used to retrieve the selected Asset content item.
 /// </param>
 public class ImageWidgetViewComponent(
     IContentItemRetrieverService contentItemRetrieverService) : ViewComponent
 {
     /// <summary>
-    /// Identifier of the widget.
+    /// Unique identifier for the "Image" widget.
     /// </summary>
     public const string IDENTIFIER = "TrainingGuides.ImageWidget";
 
     /// <summary>
-    /// Retrieves the picked Asset content item and maps its file, its alternative
-    /// text and the picked image variant.
+    /// Loads the selected Asset content item and builds the widget view model.
     /// </summary>
-    /// <param name="properties">The widget properties.</param>
+    /// <param name="properties">The configured widget properties.</param>
     /// <returns>
-    /// The widget view; its model is misconfigured when there is no image to show.
+    /// The widget view; the model is marked misconfigured when no valid image is selected.
     /// </returns>
     public async Task<IViewComponentResult> InvokeAsync(ImageWidgetProperties properties)
     {

@@ -5,20 +5,19 @@ using Kentico.Xperience.Admin.Base.FormAnnotations;
 namespace TrainingGuides.Web.Features.ResponsiveImages.ImageWidget;
 
 /// <summary>
-/// Properties of the "Image" widget: the image and the image variant
-/// to show it in.
+/// Configuration properties for the "Image" widget.
 /// </summary>
 public class ImageWidgetProperties : IWidgetProperties
 {
     /// <summary>
-    /// The picked Asset content item, at most one.
+    /// Reference to the selected Asset content item.
     /// </summary>
     [ContentItemSelectorComponent(Asset.CONTENT_TYPE_NAME,
         Label = "Image", MaximumItems = 1, Order = 10)]
     public IEnumerable<ContentItemReference> Image { get; set; } = [];
 
     /// <summary>
-    /// Code name of the picked image variant, or <c>null</c> for the responsive image.
+    /// Code name of the selected image variant, or <c>null</c> for the responsive width series.
     /// </summary>
     [DropDownComponent(Label = "Image variant",
         DataProviderType = typeof(ImageVariantOptionsProvider),

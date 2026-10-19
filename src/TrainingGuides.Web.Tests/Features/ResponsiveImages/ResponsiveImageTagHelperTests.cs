@@ -17,14 +17,13 @@ public class ResponsiveImageTagHelperTests
     private const string ORIGINAL_URL = "~/getContentAsset/item/field/photo.jpg";
 
     /// <summary>
-    /// A URL helper factory whose helpers return content paths unchanged.
+    /// URL helper factory that returns content paths unchanged.
     /// </summary>
     private readonly IUrlHelperFactory unchangedUrlHelperFactory =
         CreateUrlHelperFactory(url => url);
 
     /// <summary>
-    /// A URL helper factory whose helpers resolve <c>~/</c> against the <c>/base</c>
-    /// path base.
+    /// URL helper factory that resolves <c>~/</c> against the <c>/base</c> path base.
     /// </summary>
     private readonly IUrlHelperFactory pathBaseUrlHelperFactory =
         CreateUrlHelperFactory(url => url.Replace("~/", "/base/"));
@@ -377,8 +376,7 @@ public class ResponsiveImageTagHelperTests
     }
 
     /// <summary>
-    /// Creates a URL helper factory whose helpers resolve content paths with
-    /// <paramref name="resolve"/>.
+    /// Creates a URL helper factory that resolves content paths with <paramref name="resolve"/>.
     /// </summary>
     private static IUrlHelperFactory CreateUrlHelperFactory(Func<string, string> resolve)
     {
@@ -394,7 +392,7 @@ public class ResponsiveImageTagHelperTests
     }
 
     /// <summary>
-    /// Creates the scale variants of the width series, each stored at its nominal width in a 3:2 aspect ratio.
+    /// Returns the Scaled width-series variants stored at a 3:2 aspect ratio.
     /// </summary>
     private static (string Name, int? W, int? H)[] SeriesVariants() =>
     [
@@ -407,7 +405,7 @@ public class ResponsiveImageTagHelperTests
     ];
 
     /// <summary>
-    /// Creates an asset whose original has the given size, with a URL and stored metadata for each variant.
+    /// Creates an asset with the specified original dimensions, variant URLs, and variant metadata.
     /// </summary>
     private static ContentItemAsset CreateAsset(int? width, int? height, (string Name, int? W, int? H)[]? variants = null, string extension = ".jpg")
     {
@@ -423,9 +421,8 @@ public class ResponsiveImageTagHelperTests
     }
 
     /// <summary>
-    /// Deserializes asset metadata from JSON shaped like the value stored in a content item, as the product does,
-    /// because <see cref="ContentItemAssetMetadata.Variants"/> has no public setter.
-    /// The <c>Variants</c> property is left out of the JSON when <paramref name="variants"/> is <c>null</c>.
+    /// Deserializes <see cref="ContentItemAssetMetadata"/> from JSON because
+    /// <see cref="ContentItemAssetMetadata.Variants"/> has no public setter.
     /// </summary>
     private static ContentItemAssetMetadata CreateMetadata(int? width, int? height, (string Name, int? W, int? H)[]? variants = null, string extension = ".jpg")
     {

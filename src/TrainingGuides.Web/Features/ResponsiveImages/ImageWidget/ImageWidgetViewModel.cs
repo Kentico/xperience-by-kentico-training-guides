@@ -5,23 +5,22 @@ using TrainingGuides.Web.Features.Shared.Models;
 namespace TrainingGuides.Web.Features.ResponsiveImages.ImageWidget;
 
 /// <summary>
-/// The image and image variant shown by the "Image" widget.
+/// View model for the "Image" widget.
 /// </summary>
 public class ImageWidgetViewModel : IWidgetViewModel
 {
     /// <summary>
-    /// The image, or <c>null</c> when no asset is picked, the asset item isn't found
-    /// or it has no file.
+    /// The selected image and its alt text, or <c>null</c> when no valid asset is available.
     /// </summary>
     public ImageViewModel? Image { get; set; }
 
     /// <summary>
-    /// Code name of the picked image variant, or <c>null</c> for the responsive image.
+    /// Code name of the selected image variant, or <c>null</c> for the responsive width series.
     /// </summary>
     public string? ImageVariant { get; set; }
 
     /// <summary>
-    /// <c>true</c> when there is no image or the picked file isn't an image.
+    /// Indicates whether the widget lacks a valid image file to render.
     /// </summary>
     [MemberNotNullWhen(false, nameof(Image))]
     public bool IsMisconfigured =>

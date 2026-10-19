@@ -4,19 +4,19 @@ using TrainingGuides.Web.Features.Shared.Services;
 namespace TrainingGuides.Web.Features.ResponsiveImages;
 
 /// <summary>
-/// Shows the teaser image of the current article page, rendered with the framework's image tag helpers
-/// and with the responsive image tag helper.
+/// Renders the current article page's teaser image using both the built-in Xperience
+/// image tag helpers and the custom responsive image tag helper.
 /// </summary>
-/// <param name="contentItemRetrieverService">Retrieves the current page.</param>
+/// <param name="contentItemRetrieverService">Service used to retrieve the current page.</param>
 public class ImageVariantsShowcaseViewComponent(IContentItemRetrieverService contentItemRetrieverService) : ViewComponent
 {
-    // The page links the article and the article links the teaser Asset, so the asset is two levels deep
+    // Level 0: ArticlePage -> Level 1: article item -> Level 2: teaser Asset item.
     private const int TEASER_ASSET_DEPTH = 2;
 
     /// <summary>
-    /// Retrieves the current article page and maps its article's title and teaser image.
+    /// Retrieves the current article page and maps its title and teaser image.
     /// </summary>
-    /// <returns>The showcase view.</returns>
+    /// <returns>The showcase view result.</returns>
     public async Task<IViewComponentResult> InvokeAsync()
     {
         var articlePage = await contentItemRetrieverService.RetrieveCurrentPage<ArticlePage>(TEASER_ASSET_DEPTH);

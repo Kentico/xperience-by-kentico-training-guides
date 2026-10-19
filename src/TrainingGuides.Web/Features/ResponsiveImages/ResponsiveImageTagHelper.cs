@@ -10,21 +10,18 @@ using Microsoft.AspNetCore.Razor.TagHelpers;
 namespace TrainingGuides.Web.Features.ResponsiveImages;
 
 /// <summary>
-/// Renders an <c>img</c> element for an image asset. Without a fixed variant, the image gets
-/// a <c>srcset</c> of the <see cref="ImageVariants.WidthSeries"/> variants with <c>w</c> descriptors,
-/// so the browser downloads the smallest file that fills the image area described by <see cref="Sizes"/>.
-/// Renders nothing when the asset is missing or isn't an image.
-/// Every URL it writes is resolved with <see cref="IUrlHelper.Content"/>
-/// and starts with the request's path base.
+/// Renders an <c>img</c> element for a <see cref="ContentItemAsset"/> using the responsive
+/// <see cref="ImageVariants.WidthSeries"/> variants or a single <see cref="Variant"/> override.
+/// Suppresses output when the asset is <c>null</c> or is not a supported image format.
 /// </summary>
-/// <param name="urlHelperFactory">Creates the URL helper for the asset URLs.</param>
+/// <param name="urlHelperFactory">Factory used to resolve app-relative asset URLs.</param>
 [HtmlTargetElement("tg-responsive-image", TagStructure = TagStructure.WithoutEndTag)]
 public class ResponsiveImageTagHelper(IUrlHelperFactory urlHelperFactory) : TagHelper
 {
     private const string IMG_TAG = "img";
 
     /// <summary>
-    /// The context of the view that renders the tag, set by Razor.
+    /// View context injected by Razor for resolving application-relative URLs.
     /// </summary>
     [ViewContext]
     [HtmlAttributeNotBound]
@@ -36,23 +33,23 @@ public class ResponsiveImageTagHelper(IUrlHelperFactory urlHelperFactory) : TagH
     public ContentItemAsset? Asset { get; set; }
 
     /// <summary>
-    /// Alternative text, always rendered; an empty value marks the image as decorative.
+    /// Alternative text for the image; defaults to an empty string for decorative images.
     /// </summary>
     public string Alt { get; set; } = string.Empty;
 
     /// <summary>
-    /// Code name of a variant that replaces the responsive <c>srcset</c> with that one variant and its dimensions.
-    /// When the asset has no such variant, the responsive <c>srcset</c> is rendered instead.
+    /// Optional variant code name to render as a single fixed image. Falls back to the
+    /// responsive <c>srcset</c> when <c>null</c> or when the asset lacks the variant.
     /// </summary>
     public string? Variant { get; set; }
 
     /// <summary>
-    /// The rendered width of the image area per breakpoint, in the HTML <c>sizes</c> syntax.
+    /// The HTML <c>sizes</c> attribute describing the rendered image width per breakpoint.
     /// </summary>
     public string Sizes { get; set; } = "100vw";
 
     /// <summary>
-    /// The HTML <c>loading</c> value: <c>lazy</c> below the fold, <c>eager</c> for the main image of a page.
+    /// The HTML <c>loading</c> attribute (<c>lazy</c> by default, or <c>eager</c> above the fold).
     /// </summary>
     public string Loading { get; set; } = "lazy";
 
@@ -70,8 +67,8 @@ public class ResponsiveImageTagHelper(IUrlHelperFactory urlHelperFactory) : TagH
         output.Attributes.SetAttribute("alt", Alt);
         output.Attributes.SetAttribute("loading", Loading);
 
-        // Page Builder and preview resolve "~/" only in the first URL of a srcset.
-        // Every URL is resolved here, before it is written.
+        // Page Builder and preview only expand "~/" at the start of an attribute value,
+        // so resolve every candidate URL before joining srcset.
         var urlHelper = urlHelperFactory.GetUrlHelper(ViewContext);
 
         if (TryGetVariant(Asset, Variant, out string? variantUrl, out var variantMetadata))
@@ -97,17 +94,16 @@ public class ResponsiveImageTagHelper(IUrlHelperFactory urlHelperFactory) : TagH
             output.Attributes.SetAttribute("sizes", Sizes);
         }
 
-        // Scaled variants keep the original's aspect ratio, so its dimensions reserve the right space
+        // Scaled variants preserve the original aspect ratio.
         SetDimensions(output, Asset.Metadata.Width, Asset.Metadata.Height);
     }
 
     /// <summary>
-    /// Lists the width series variants of an asset that are no wider than the original, narrowest first.
-    /// The original closes the list when the series goes past its width and no variant in the series has that
-    /// width already, so the largest candidate is never upscaled and no width descriptor appears twice in the list.
+    /// Collects width-series variants that do not exceed the original image width, ordered
+    /// from narrowest to widest, and appends the original image when wider variants were skipped.
     /// </summary>
-    /// <param name="asset">The image asset.</param>
-    /// <returns>The URL and actual width of each candidate; empty when the asset has none of the series variants.</returns>
+    /// <param name="asset">The source image asset.</param>
+    /// <returns>Candidate URLs and pixel widths, or an empty list if none are available.</returns>
     private static List<(string Url, int Width)> GetWidthCandidates(ContentItemAsset asset)
     {
         int originalWidth = asset.Metadata.Width ?? int.MaxValue;
@@ -130,7 +126,8 @@ public class ResponsiveImageTagHelper(IUrlHelperFactory urlHelperFactory) : TagH
             candidates.Add((url, width));
         }
 
-        // A series variant stored at exactly the original's width already closes the list, and srcset forbids repeating a descriptor
+        // Append the original only when its width is not already covered by the last variant,
+        // since HTML srcset forbids duplicate width descriptors.
         if (seriesExceedsOriginal && (candidates.Count == 0 || candidates[^1].Width < originalWidth))
         {
             candidates.Add((asset.Url, originalWidth));
@@ -140,13 +137,15 @@ public class ResponsiveImageTagHelper(IUrlHelperFactory urlHelperFactory) : TagH
     }
 
     /// <summary>
-    /// Looks up a variant's URL and metadata by its exact, case-sensitive code name.
+    /// Looks up a variant's URL and dimension metadata by its exact, case-sensitive code name.
     /// </summary>
-    /// <param name="asset">The image asset.</param>
-    /// <param name="codeName">The variant code name, or <c>null</c>.</param>
-    /// <param name="url">The variant URL when found.</param>
-    /// <param name="metadata">The variant's stored metadata, including its actual size, when found.</param>
-    /// <returns><c>true</c> when the asset has the variant; <c>false</c> for no code name, an asset without variants or an unknown code name.</returns>
+    /// <param name="asset">The source image asset.</param>
+    /// <param name="codeName">The variant code name to look up.</param>
+    /// <param name="url">When this method returns, contains the variant URL if found.</param>
+    /// <param name="metadata">When this method returns, contains the variant metadata if found.</param>
+    /// <returns>
+    /// <c>true</c> if the asset contains both a URL and metadata for <paramref name="codeName"/>.
+    /// </returns>
     private static bool TryGetVariant(
         ContentItemAsset asset,
         string? codeName,
@@ -156,18 +155,18 @@ public class ResponsiveImageTagHelper(IUrlHelperFactory urlHelperFactory) : TagH
         url = null;
         metadata = null;
 
-        // Both dictionaries are null for an asset without variants, such as an SVG
+        // Both dictionaries are null when an asset has no variants, such as an SVG.
         return !string.IsNullOrEmpty(codeName)
             && asset.VariantUrls?.TryGetValue(codeName, out url) == true
             && asset.Metadata.Variants?.TryGetValue(codeName, out metadata) == true;
     }
 
     /// <summary>
-    /// Renders <c>width</c> and <c>height</c> when both are known.
+    /// Writes <c>width</c> and <c>height</c> attributes when both dimensions are positive.
     /// </summary>
-    /// <param name="output">The tag helper output.</param>
-    /// <param name="width">The width in pixels, or <c>null</c>.</param>
-    /// <param name="height">The height in pixels, or <c>null</c>.</param>
+    /// <param name="output">The tag helper output to modify.</param>
+    /// <param name="width">Width in pixels, or <c>null</c>.</param>
+    /// <param name="height">Height in pixels, or <c>null</c>.</param>
     private static void SetDimensions(TagHelperOutput output, int? width, int? height)
     {
         if (width > 0 && height > 0)

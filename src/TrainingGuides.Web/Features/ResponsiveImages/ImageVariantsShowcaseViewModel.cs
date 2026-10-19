@@ -1,7 +1,7 @@
 namespace TrainingGuides.Web.Features.ResponsiveImages;
 
 /// <summary>
-/// The current article's title and teaser image, shown by each block of the image variants showcase.
+/// View model for the image variants showcase component.
 /// </summary>
 public class ImageVariantsShowcaseViewModel
 {
@@ -11,7 +11,7 @@ public class ImageVariantsShowcaseViewModel
     public string Title { get; set; } = string.Empty;
 
     /// <summary>
-    /// The teaser image, or <c>null</c> when the page has no article or the article has no teaser.
+    /// The teaser image and alt text, or <c>null</c> when no teaser asset is available.
     /// </summary>
     public ImageViewModel? Image { get; set; }
 }
