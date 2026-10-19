@@ -29,7 +29,6 @@ public class ImageVariantsShowcaseViewComponentTests
 
     private static ArticlePage BuildArticlePage(IEnumerable<Asset> teaser) => new()
     {
-        ArticlePageContent = [],
         ArticlePageArticleContent = [new GeneralArticle()
         {
             ArticleSchemaTitle = ARTICLE_TITLE,
@@ -76,7 +75,7 @@ public class ImageVariantsShowcaseViewComponentTests
     public async Task Invoke_ReturnsNullImage_WhenPageHasNoArticle()
     {
         // Arrange
-        SetupCurrentPage(new ArticlePage { ArticlePageContent = [], ArticlePageArticleContent = [] });
+        SetupCurrentPage(new ArticlePage { ArticlePageArticleContent = [] });
 
         // Act
         var model = await InvokeAndGetModel();
