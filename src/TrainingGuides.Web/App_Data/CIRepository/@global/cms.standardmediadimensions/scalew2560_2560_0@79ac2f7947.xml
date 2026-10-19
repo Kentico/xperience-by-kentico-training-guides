@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.standardmediadimensions>
+  <StandardMediaDimensionsDisplayName>Responsive XXL</StandardMediaDimensionsDisplayName>
+  <StandardMediaDimensionsGUID>d8f4c8a1-398f-4c3e-9f7c-1d4b8e97e90c</StandardMediaDimensionsGUID>
+  <StandardMediaDimensionsHeight>0</StandardMediaDimensionsHeight>
+  <StandardMediaDimensionsName>ScaleW2560</StandardMediaDimensionsName>
+  <StandardMediaDimensionsTransformationType>Scale</StandardMediaDimensionsTransformationType>
+  <StandardMediaDimensionsWidth>2560</StandardMediaDimensionsWidth>
+</cms.standardmediadimensions>

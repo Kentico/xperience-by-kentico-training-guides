@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.standardmediadimensions>
+  <StandardMediaDimensionsDisplayName>Hero, phones</StandardMediaDimensionsDisplayName>
+  <StandardMediaDimensionsGUID>d40af903-21d5-4ccc-9172-dc530aa695ce</StandardMediaDimensionsGUID>
+  <StandardMediaDimensionsHeight>828</StandardMediaDimensionsHeight>
+  <StandardMediaDimensionsName>HeroMobile828x828</StandardMediaDimensionsName>
+  <StandardMediaDimensionsTransformationType>SmartCrop</StandardMediaDimensionsTransformationType>
+  <StandardMediaDimensionsWidth>828</StandardMediaDimensionsWidth>
+</cms.standardmediadimensions>

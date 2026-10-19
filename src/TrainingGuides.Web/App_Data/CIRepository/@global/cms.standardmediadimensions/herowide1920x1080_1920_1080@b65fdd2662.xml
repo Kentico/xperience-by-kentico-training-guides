@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.standardmediadimensions>
+  <StandardMediaDimensionsDisplayName>Hero, wide screens</StandardMediaDimensionsDisplayName>
+  <StandardMediaDimensionsGUID>711af9ff-1817-4f26-8cb8-ae9ad2366f0a</StandardMediaDimensionsGUID>
+  <StandardMediaDimensionsHeight>1080</StandardMediaDimensionsHeight>
+  <StandardMediaDimensionsName>HeroWide1920x1080</StandardMediaDimensionsName>
+  <StandardMediaDimensionsTransformationType>SmartCrop</StandardMediaDimensionsTransformationType>
+  <StandardMediaDimensionsWidth>1920</StandardMediaDimensionsWidth>
+</cms.standardmediadimensions>
