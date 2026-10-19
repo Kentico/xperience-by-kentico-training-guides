@@ -34,6 +34,7 @@
 
     <section class="mt-4">
         <h2 class="h4">Building block: responsive image</h2>
-        <tg-responsive-image asset="@image.Asset" alt="@image.AltText" sizes="100vw" class="img-fluid" />
+        <tg-responsive-image asset="@image.Asset" alt="@image.AltText"
+            sizes="(min-width: 1400px) 1296px, (min-width: 1200px) 1116px, (min-width: 992px) 936px, (min-width: 768px) 696px, (min-width: 576px) 516px, calc(100vw - 24px)" class="img-fluid" />
     </section>
 }

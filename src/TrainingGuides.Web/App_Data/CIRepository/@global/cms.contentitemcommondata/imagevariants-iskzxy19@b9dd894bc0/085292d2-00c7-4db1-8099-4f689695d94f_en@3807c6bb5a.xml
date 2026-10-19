@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentitemcommondata>
+  <ArticleSchemaSummary>
+    <![CDATA[Shows the teaser image rendered with image variants.]]>
+  </ArticleSchemaSummary>
+  <ArticleSchemaTeaser>
+    <![CDATA[[{"Identifier":"f10c1c58-15ca-401d-8214-77b9f0e8a7eb"}]]]>
+  </ArticleSchemaTeaser>
+  <ArticleSchemaTitle>Image variants</ArticleSchemaTitle>
+  <ContentItemCommonDataContentItemID>
+    <CodeName>ImageVariants-iskzxy19</CodeName>
+    <GUID>d63f8bf3-1719-4ccf-a0df-e761992b87b4</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </ContentItemCommonDataContentItemID>
+  <ContentItemCommonDataContentLanguageID>
+    <CodeName>en</CodeName>
+    <GUID>e81b5172-f240-4041-88b1-653089984e29</GUID>
+    <ObjectType>cms.contentlanguage</ObjectType>
+  </ContentItemCommonDataContentLanguageID>
+  <ContentItemCommonDataFirstPublishedWhen>2026-10-19 09:43:47Z</ContentItemCommonDataFirstPublishedWhen>
+  <ContentItemCommonDataGUID>085292d2-00c7-4db1-8099-4f689695d94f</ContentItemCommonDataGUID>
+  <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
+  <ContentItemCommonDataLastPublishedWhen>2026-10-19 09:43:47Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
+  <ContentItemReferences>
+    <cms.contentitemreference>
+      <ContentItemReferenceGroupGUID>a66eef38-b296-4172-9f69-dda2e1840fec</ContentItemReferenceGroupGUID>
+      <ContentItemReferenceGUID>e52f5d9d-e905-4c22-89a5-59981b7cf11c</ContentItemReferenceGUID>
+      <ContentItemReferenceSourceCommonDataID>
+        <GUID>085292d2-00c7-4db1-8099-4f689695d94f</GUID>
+        <ObjectType>cms.contentitemcommondata</ObjectType>
+      </ContentItemReferenceSourceCommonDataID>
+      <ContentItemReferenceTargetItemID>
+        <CodeName>News-wqzh8wm8</CodeName>
+        <GUID>f10c1c58-15ca-401d-8214-77b9f0e8a7eb</GUID>
+        <ObjectType>cms.contentitem</ObjectType>
+      </ContentItemReferenceTargetItemID>
+    </cms.contentitemreference>
+  </ContentItemReferences>
+</cms.contentitemcommondata>
