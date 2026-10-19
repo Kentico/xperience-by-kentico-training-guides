@@ -1,6 +1,10 @@
 using System.Diagnostics.CodeAnalysis;
 using CMS.ContentEngine;
 using CMS.Helpers;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Mvc.Routing;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 
 namespace TrainingGuides.Web.Features.ResponsiveImages;
@@ -10,11 +14,21 @@ namespace TrainingGuides.Web.Features.ResponsiveImages;
 /// a <c>srcset</c> of the <see cref="ImageVariants.WidthSeries"/> variants with <c>w</c> descriptors,
 /// so the browser downloads the smallest file that fills the image area described by <see cref="Sizes"/>.
 /// Renders nothing when the asset is missing or isn't an image.
+/// Every URL it writes is resolved with <see cref="IUrlHelper.Content"/>
+/// and starts with the request's path base.
 /// </summary>
+/// <param name="urlHelperFactory">Creates the URL helper for the asset URLs.</param>
 [HtmlTargetElement("tg-responsive-image", TagStructure = TagStructure.WithoutEndTag)]
-public class ResponsiveImageTagHelper : TagHelper
+public class ResponsiveImageTagHelper(IUrlHelperFactory urlHelperFactory) : TagHelper
 {
     private const string IMG_TAG = "img";
+
+    /// <summary>
+    /// The context of the view that renders the tag, set by Razor.
+    /// </summary>
+    [ViewContext]
+    [HtmlAttributeNotBound]
+    public ViewContext ViewContext { get; set; } = null!;
 
     /// <summary>
     /// The image asset to render.
@@ -56,9 +70,13 @@ public class ResponsiveImageTagHelper : TagHelper
         output.Attributes.SetAttribute("alt", Alt);
         output.Attributes.SetAttribute("loading", Loading);
 
+        // Page Builder and preview resolve "~/" only in the first URL of a srcset.
+        // Every URL is resolved here, before it is written.
+        var urlHelper = urlHelperFactory.GetUrlHelper(ViewContext);
+
         if (TryGetVariant(Asset, Variant, out string? variantUrl, out var variantMetadata))
         {
-            output.Attributes.SetAttribute("src", variantUrl);
+            output.Attributes.SetAttribute("src", urlHelper.Content(variantUrl));
             SetDimensions(output, variantMetadata.Width, variantMetadata.Height);
             return;
         }
@@ -67,12 +85,15 @@ public class ResponsiveImageTagHelper : TagHelper
 
         if (candidates.Count == 0)
         {
-            output.Attributes.SetAttribute("src", Asset.Url);
+            output.Attributes.SetAttribute("src", urlHelper.Content(Asset.Url));
         }
         else
         {
-            output.Attributes.SetAttribute("src", candidates[^1].Url);
-            output.Attributes.SetAttribute("srcset", string.Join(", ", candidates.Select(candidate => $"{candidate.Url} {candidate.Width}w")));
+            string srcset = string.Join(", ", candidates.Select(
+                candidate => $"{urlHelper.Content(candidate.Url)} {candidate.Width}w"));
+
+            output.Attributes.SetAttribute("src", urlHelper.Content(candidates[^1].Url));
+            output.Attributes.SetAttribute("srcset", srcset);
             output.Attributes.SetAttribute("sizes", Sizes);
         }
 

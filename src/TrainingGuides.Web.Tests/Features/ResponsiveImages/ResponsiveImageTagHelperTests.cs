@@ -1,7 +1,11 @@
 using System.Collections.ObjectModel;
 using System.Text.Json;
 using CMS.ContentEngine;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Mvc.Routing;
 using Microsoft.AspNetCore.Razor.TagHelpers;
+using Moq;
 using TrainingGuides.Web.Features.ResponsiveImages;
 using Xunit;
 
@@ -12,11 +16,13 @@ public class ResponsiveImageTagHelperTests
 {
     private const string ORIGINAL_URL = "~/getContentAsset/item/field/photo.jpg";
 
+    private readonly IUrlHelperFactory unchangedUrls = CreateUrlHelperFactory(url => url);
+
     [Fact]
     public void Process_SuppressesOutput_WhenAssetIsNull()
     {
         // Arrange
-        var tagHelper = new ResponsiveImageTagHelper { Asset = null };
+        var tagHelper = new ResponsiveImageTagHelper(unchangedUrls) { Asset = null };
 
         // Act
         var output = Process(tagHelper);
@@ -29,7 +35,7 @@ public class ResponsiveImageTagHelperTests
     public void Process_SuppressesOutput_WhenAssetIsNotAnImage()
     {
         // Arrange
-        var tagHelper = new ResponsiveImageTagHelper { Asset = CreateAsset(null, null, extension: ".pdf") };
+        var tagHelper = new ResponsiveImageTagHelper(unchangedUrls) { Asset = CreateAsset(null, null, extension: ".pdf") };
 
         // Act
         var output = Process(tagHelper);
@@ -42,7 +48,7 @@ public class ResponsiveImageTagHelperTests
     public void Process_RendersOriginal_WhenAssetHasNoVariants()
     {
         // Arrange
-        var tagHelper = new ResponsiveImageTagHelper { Asset = CreateAsset(1433, 955) };
+        var tagHelper = new ResponsiveImageTagHelper(unchangedUrls) { Asset = CreateAsset(1433, 955) };
 
         // Act
         var output = Process(tagHelper);
@@ -61,7 +67,7 @@ public class ResponsiveImageTagHelperTests
     {
         // Arrange
         var asset = new ContentItemAsset { Url = ORIGINAL_URL, Metadata = CreateMetadata(1433, 955) };
-        var tagHelper = new ResponsiveImageTagHelper { Asset = asset };
+        var tagHelper = new ResponsiveImageTagHelper(unchangedUrls) { Asset = asset };
 
         // Act
         var output = Process(tagHelper);
@@ -75,7 +81,7 @@ public class ResponsiveImageTagHelperTests
     public void Process_RendersSeriesNarrowestFirst()
     {
         // Arrange
-        var tagHelper = new ResponsiveImageTagHelper
+        var tagHelper = new ResponsiveImageTagHelper(unchangedUrls)
         {
             Asset = CreateAsset(3000, 2000, SeriesVariants()),
             Sizes = "(min-width: 768px) 50vw, 100vw"
@@ -103,7 +109,7 @@ public class ResponsiveImageTagHelperTests
     public void Process_DropsUpscaledWidthsAndClosesWithOriginal()
     {
         // Arrange
-        var tagHelper = new ResponsiveImageTagHelper { Asset = CreateAsset(1433, 955, SeriesVariants()) };
+        var tagHelper = new ResponsiveImageTagHelper(unchangedUrls) { Asset = CreateAsset(1433, 955, SeriesVariants()) };
 
         // Act
         var output = Process(tagHelper);
@@ -122,7 +128,7 @@ public class ResponsiveImageTagHelperTests
     public void Process_ClosesWithSeriesVariant_WhenOriginalMatchesItsWidth()
     {
         // Arrange
-        var tagHelper = new ResponsiveImageTagHelper { Asset = CreateAsset(1920, 1280, SeriesVariants()) };
+        var tagHelper = new ResponsiveImageTagHelper(unchangedUrls) { Asset = CreateAsset(1920, 1280, SeriesVariants()) };
 
         // Act
         var output = Process(tagHelper);
@@ -142,7 +148,7 @@ public class ResponsiveImageTagHelperTests
     public void Process_ClosesWithOriginalOnly_WhenEverySeriesVariantIsWider()
     {
         // Arrange
-        var tagHelper = new ResponsiveImageTagHelper
+        var tagHelper = new ResponsiveImageTagHelper(unchangedUrls)
         {
             Asset = CreateAsset(400, 267, SeriesVariants()),
             Sizes = "50vw"
@@ -163,7 +169,7 @@ public class ResponsiveImageTagHelperTests
     public void Process_RendersFixedVariant_WhenAssetHasIt()
     {
         // Arrange
-        var tagHelper = new ResponsiveImageTagHelper
+        var tagHelper = new ResponsiveImageTagHelper(unchangedUrls)
         {
             Asset = CreateAsset(3000, 2000, [.. SeriesVariants(), (ImageVariants.CARD_800X600, 800, 600)]),
             Variant = ImageVariants.CARD_800X600
@@ -184,7 +190,7 @@ public class ResponsiveImageTagHelperTests
     public void Process_FallsBackToSeries_WhenVariantIsUnknown()
     {
         // Arrange
-        var tagHelper = new ResponsiveImageTagHelper
+        var tagHelper = new ResponsiveImageTagHelper(unchangedUrls)
         {
             Asset = CreateAsset(3000, 2000, [.. SeriesVariants(), (ImageVariants.CARD_800X600, 800, 600)]),
             Variant = "RetiredHero"
@@ -205,7 +211,7 @@ public class ResponsiveImageTagHelperTests
     public void Process_FallsBackToSeries_WhenVariantCaseDiffers()
     {
         // Arrange
-        var tagHelper = new ResponsiveImageTagHelper
+        var tagHelper = new ResponsiveImageTagHelper(unchangedUrls)
         {
             Asset = CreateAsset(3000, 2000, [.. SeriesVariants(), (ImageVariants.CARD_800X600, 800, 600)]),
             Variant = "card800x600"
@@ -225,7 +231,7 @@ public class ResponsiveImageTagHelperTests
     public void Process_OmitsDimensions_WhenMetadataHasNoSize()
     {
         // Arrange
-        var tagHelper = new ResponsiveImageTagHelper { Asset = CreateAsset(null, null, SeriesVariants()) };
+        var tagHelper = new ResponsiveImageTagHelper(unchangedUrls) { Asset = CreateAsset(null, null, SeriesVariants()) };
 
         // Act
         var output = Process(tagHelper);
@@ -247,7 +253,7 @@ public class ResponsiveImageTagHelperTests
     public void Process_OmitsDimensions_WhenFixedVariantHasNoSize()
     {
         // Arrange
-        var tagHelper = new ResponsiveImageTagHelper
+        var tagHelper = new ResponsiveImageTagHelper(unchangedUrls)
         {
             Asset = CreateAsset(3000, 2000, [(ImageVariants.CARD_800X600, null, null)]),
             Variant = ImageVariants.CARD_800X600
@@ -266,7 +272,7 @@ public class ResponsiveImageTagHelperTests
     public void Process_AlwaysRendersAltAndLoading()
     {
         // Arrange
-        var tagHelper = new ResponsiveImageTagHelper { Asset = CreateAsset(null, null) };
+        var tagHelper = new ResponsiveImageTagHelper(unchangedUrls) { Asset = CreateAsset(null, null) };
 
         // Act
         var output = Process(tagHelper);
@@ -275,6 +281,89 @@ public class ResponsiveImageTagHelperTests
         Assert.Equal(string.Empty, GetAttribute(output, "alt"));
         Assert.Equal("lazy", GetAttribute(output, "loading"));
     }
+
+    [Fact]
+    public void Process_ResolvesSrcAndEverySrcsetUrl_WhenRenderingSeries()
+    {
+        // Arrange
+        var tagHelper = new ResponsiveImageTagHelper(PathBaseUrls())
+        {
+            Asset = CreateAsset(1433, 955, SeriesVariants())
+        };
+
+        // Act
+        var output = Process(tagHelper);
+
+        // Assert
+        Assert.Equal(
+            $"{WithPathBase(VariantUrl(ImageVariants.SCALE_W480))} 480w, "
+            + $"{WithPathBase(VariantUrl(ImageVariants.SCALE_W828))} 828w, "
+            + $"{WithPathBase(VariantUrl(ImageVariants.SCALE_W1280))} 1280w, "
+            + $"{WithPathBase(ORIGINAL_URL)} 1433w",
+            GetAttribute(output, "srcset"));
+        Assert.Equal(WithPathBase(ORIGINAL_URL), GetAttribute(output, "src"));
+    }
+
+    [Fact]
+    public void Process_ResolvesSrc_WhenRenderingFixedVariant()
+    {
+        // Arrange
+        var tagHelper = new ResponsiveImageTagHelper(PathBaseUrls())
+        {
+            Asset = CreateAsset(3000, 2000, [(ImageVariants.CARD_800X600, 800, 600)]),
+            Variant = ImageVariants.CARD_800X600
+        };
+
+        // Act
+        var output = Process(tagHelper);
+
+        // Assert
+        string expected = WithPathBase(VariantUrl(ImageVariants.CARD_800X600));
+        Assert.Equal(expected, GetAttribute(output, "src"));
+    }
+
+    [Fact]
+    public void Process_ResolvesSrc_WhenRenderingOriginal()
+    {
+        // Arrange
+        var tagHelper = new ResponsiveImageTagHelper(PathBaseUrls())
+        {
+            Asset = CreateAsset(1433, 955)
+        };
+
+        // Act
+        var output = Process(tagHelper);
+
+        // Assert
+        Assert.Equal(WithPathBase(ORIGINAL_URL), GetAttribute(output, "src"));
+    }
+
+    /// <summary>
+    /// Creates a URL helper factory whose helpers resolve content paths with
+    /// <paramref name="resolve"/>.
+    /// </summary>
+    private static IUrlHelperFactory CreateUrlHelperFactory(Func<string, string> resolve)
+    {
+        var urlHelper = new Mock<IUrlHelper>();
+        urlHelper.Setup(helper => helper.Content(It.IsAny<string>()))
+            .Returns((string? path) => resolve(path!));
+
+        var factory = new Mock<IUrlHelperFactory>();
+        factory.Setup(f => f.GetUrlHelper(It.IsAny<ActionContext>()))
+            .Returns(urlHelper.Object);
+
+        return factory.Object;
+    }
+
+    /// <summary>
+    /// Creates a URL helper factory that resolves application-relative paths against
+    /// the <c>/base</c> path base.
+    /// </summary>
+    private static IUrlHelperFactory PathBaseUrls() =>
+        CreateUrlHelperFactory(WithPathBase);
+
+    private static string WithPathBase(string url) =>
+        url.StartsWith("~/", StringComparison.Ordinal) ? "/base/" + url[2..] : url;
 
     /// <summary>
     /// Creates the scale variants of the width series, each stored at its nominal width in a 3:2 aspect ratio.
@@ -340,6 +429,7 @@ public class ResponsiveImageTagHelperTests
             [],
             (_, _) => Task.FromResult<TagHelperContent>(new DefaultTagHelperContent()));
 
+        tagHelper.ViewContext = new ViewContext();
         tagHelper.Process(context, output);
 
         return output;

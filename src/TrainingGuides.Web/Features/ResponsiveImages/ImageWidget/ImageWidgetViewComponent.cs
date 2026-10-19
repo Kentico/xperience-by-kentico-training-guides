@@ -9,7 +9,7 @@ using TrainingGuides.Web.Features.Shared.Services;
     name: "Image",
     propertiesType: typeof(ImageWidgetProperties),
     Description = "Displays an image as a responsive image or in a picked image variant.",
-    IconClass = "xp-picture")]
+    IconClass = "icon-picture")]
 
 namespace TrainingGuides.Web.Features.ResponsiveImages.ImageWidget;
 
