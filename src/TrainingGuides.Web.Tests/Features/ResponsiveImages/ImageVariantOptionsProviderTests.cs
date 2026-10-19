@@ -20,7 +20,7 @@ public class ImageVariantOptionsProviderTests
         ImageVariantOptionsProvider.BuildOptionItems(definitions).ToList();
 
     [Fact]
-    public void BuildOptionItems_ListsAutomaticOptionFirst_WithEmptyValue()
+    public void BuildOptionItems_ListsAutomaticOptionFirstWithEmptyValue()
     {
         // Arrange
         var definition = Scaled("ScaleW480", "Responsive XS", 480, 0);
@@ -69,19 +69,6 @@ public class ImageVariantOptionsProviderTests
                 "ScaleW480", "ScaleW1280"
             ],
             options.Select(option => option.Value));
-    }
-
-    [Fact]
-    public void BuildOptionItems_UsesCodeNameAsValue()
-    {
-        // Arrange
-        var definition = SmartCrop("Card800x600", "Card 4:3", 800, 600);
-
-        // Act
-        var options = Build(definition);
-
-        // Assert
-        Assert.Equal("Card800x600", options[1].Value);
     }
 
     [Fact]

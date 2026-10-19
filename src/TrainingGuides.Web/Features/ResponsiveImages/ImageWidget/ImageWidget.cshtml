@@ -2,12 +2,6 @@
 
 @model ImageWidgetViewModel
 
-@{
-    string sizes = "(min-width: 1400px) 1296px, (min-width: 1200px) 1116px, "
-        + "(min-width: 992px) 936px, (min-width: 768px) 696px, "
-        + "(min-width: 576px) 516px, calc(100vw - 24px)";
-}
-
 @if (Model.IsMisconfigured)
 {
     <tg-page-builder-content>
@@ -18,6 +12,10 @@
 }
 else
 {
-    <tg-responsive-image asset="@Model.Image!.Asset" alt="@Model.Image.AltText"
+    string sizes = "(min-width: 1400px) 1296px, (min-width: 1200px) 1116px, "
+        + "(min-width: 992px) 936px, (min-width: 768px) 696px, "
+        + "(min-width: 576px) 516px, calc(100vw - 24px)";
+
+    <tg-responsive-image asset="@Model.Image.Asset" alt="@Model.Image.AltText"
         variant="@Model.ImageVariant" sizes="@sizes" class="img-fluid" />
 }

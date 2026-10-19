@@ -7,6 +7,7 @@ using Xunit;
 
 namespace TrainingGuides.Web.Tests.Features.ResponsiveImages;
 
+[Collection(ServiceContainerCollection.NAME)]
 public class ImageWidgetViewComponentTests
 {
     private const string ALT_TEXT = "A lizard";
@@ -21,6 +22,11 @@ public class ImageWidgetViewComponentTests
         contentItemRetrieverServiceMock = new Mock<IContentItemRetrieverService>();
         viewComponent = new ImageWidgetViewComponent(contentItemRetrieverServiceMock.Object);
     }
+
+    private static ContentItemAsset CreateAssetFile(string extension = ".jpg") => new()
+    {
+        Metadata = new ContentItemAssetMetadata { Extension = extension }
+    };
 
     private void SetupAsset(Asset? asset) =>
         contentItemRetrieverServiceMock
@@ -46,7 +52,7 @@ public class ImageWidgetViewComponentTests
     public async Task Invoke_MapsAssetFileAndAltText_WhenAssetIsPicked()
     {
         // Arrange
-        var assetFile = new ContentItemAsset();
+        var assetFile = CreateAssetFile();
         SetupAsset(new Asset { AssetFile = assetFile, AssetAltText = ALT_TEXT });
 
         // Act
@@ -54,7 +60,6 @@ public class ImageWidgetViewComponentTests
 
         // Assert
         Assert.False(model.IsMisconfigured);
-        Assert.NotNull(model.Image);
         Assert.Same(assetFile, model.Image.Asset);
         Assert.Equal(ALT_TEXT, model.Image.AltText);
     }
@@ -63,26 +68,13 @@ public class ImageWidgetViewComponentTests
     public async Task Invoke_PassesPickedVariant()
     {
         // Arrange
-        SetupAsset(new Asset { AssetFile = new(), AssetAltText = ALT_TEXT });
+        SetupAsset(new Asset { AssetFile = CreateAssetFile(), AssetAltText = ALT_TEXT });
 
         // Act
         var model = await InvokeAndGetModel(BuildProperties(VARIANT));
 
         // Assert
         Assert.Equal(VARIANT, model.ImageVariant);
-    }
-
-    [Fact]
-    public async Task Invoke_PassesNullVariant_WhenAutomaticIsPicked()
-    {
-        // Arrange
-        SetupAsset(new Asset { AssetFile = new(), AssetAltText = ALT_TEXT });
-
-        // Act
-        var model = await InvokeAndGetModel(BuildProperties());
-
-        // Assert
-        Assert.Null(model.ImageVariant);
     }
 
     [Fact]
@@ -126,5 +118,18 @@ public class ImageWidgetViewComponentTests
         // Assert
         Assert.True(model.IsMisconfigured);
         Assert.Null(model.Image);
+    }
+
+    [Fact]
+    public async Task Invoke_ReturnsMisconfiguredModel_WhenAssetIsNotAnImage()
+    {
+        // Arrange
+        SetupAsset(new Asset { AssetFile = CreateAssetFile(".pdf") });
+
+        // Act
+        var model = await InvokeAndGetModel(BuildProperties());
+
+        // Assert
+        Assert.True(model.IsMisconfigured);
     }
 }

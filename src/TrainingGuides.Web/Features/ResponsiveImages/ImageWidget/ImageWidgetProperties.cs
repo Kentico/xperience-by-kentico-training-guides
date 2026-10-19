@@ -24,8 +24,8 @@ public class ImageWidgetProperties : IWidgetProperties
         DataProviderType = typeof(ImageVariantOptionsProvider),
         Placeholder = ImageVariantOptionsProvider.AUTOMATIC_OPTION_TEXT,
         ExplanationText = "With Automatic, the browser downloads the size that fits "
-            + "each screen. With a variant, the image always has that variant's crop "
-            + "and size.",
+            + "each screen. With a variant, the image has that variant's crop and size "
+            + "on every screen. An image that lacks the variant shows as Automatic.",
         Order = 20)]
     public string? ImageVariant { get; set; }
 }

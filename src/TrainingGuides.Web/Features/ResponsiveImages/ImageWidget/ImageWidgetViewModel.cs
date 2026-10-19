@@ -1,3 +1,5 @@
+using System.Diagnostics.CodeAnalysis;
+using CMS.Helpers;
 using TrainingGuides.Web.Features.Shared.Models;
 
 namespace TrainingGuides.Web.Features.ResponsiveImages.ImageWidget;
@@ -18,6 +20,10 @@ public class ImageWidgetViewModel : IWidgetViewModel
     /// </summary>
     public string? ImageVariant { get; set; }
 
-    /// <inheritdoc/>
-    public bool IsMisconfigured => Image is null;
+    /// <summary>
+    /// <c>true</c> when there is no image or the picked file isn't an image.
+    /// </summary>
+    [MemberNotNullWhen(false, nameof(Image))]
+    public bool IsMisconfigured =>
+        Image is null || !ImageHelper.IsImage(Image.Asset.Metadata.Extension);
 }
