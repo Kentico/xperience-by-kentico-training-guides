@@ -83,7 +83,7 @@ public class ResponsiveImageTagHelper : TagHelper
     /// <summary>
     /// Lists the width ladder variants of an asset that are no wider than the original, narrowest first.
     /// The original closes the list when the ladder goes past its width and no rung has that width already,
-    /// so the largest candidate is never upscaled and no width descriptor repeats.
+    /// so the largest candidate is never upscaled and no width descriptor appears twice in the list.
     /// </summary>
     /// <param name="asset">The image asset.</param>
     /// <returns>The URL and actual width of each candidate; empty when the asset has none of the ladder variants.</returns>
