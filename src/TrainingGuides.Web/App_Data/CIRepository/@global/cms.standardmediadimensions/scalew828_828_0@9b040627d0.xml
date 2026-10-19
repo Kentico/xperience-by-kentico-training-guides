@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.standardmediadimensions>
+  <StandardMediaDimensionsDisplayName>Responsive S</StandardMediaDimensionsDisplayName>
+  <StandardMediaDimensionsGUID>001efbd6-d72f-48e2-965e-82bc9a4599ff</StandardMediaDimensionsGUID>
+  <StandardMediaDimensionsHeight>0</StandardMediaDimensionsHeight>
+  <StandardMediaDimensionsName>ScaleW828</StandardMediaDimensionsName>
+  <StandardMediaDimensionsTransformationType>Scale</StandardMediaDimensionsTransformationType>
+  <StandardMediaDimensionsWidth>828</StandardMediaDimensionsWidth>
+</cms.standardmediadimensions>

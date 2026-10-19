@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.standardmediadimensions>
+  <StandardMediaDimensionsDisplayName>Responsive M</StandardMediaDimensionsDisplayName>
+  <StandardMediaDimensionsGUID>4dda2993-c6a8-4299-bb77-6725d5a2c3c8</StandardMediaDimensionsGUID>
+  <StandardMediaDimensionsHeight>0</StandardMediaDimensionsHeight>
+  <StandardMediaDimensionsName>ScaleW1280</StandardMediaDimensionsName>
+  <StandardMediaDimensionsTransformationType>Scale</StandardMediaDimensionsTransformationType>
+  <StandardMediaDimensionsWidth>1280</StandardMediaDimensionsWidth>
+</cms.standardmediadimensions>

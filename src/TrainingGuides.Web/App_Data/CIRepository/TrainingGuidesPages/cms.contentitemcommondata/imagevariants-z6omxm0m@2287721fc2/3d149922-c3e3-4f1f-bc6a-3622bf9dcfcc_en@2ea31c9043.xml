@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentitemcommondata>
+  <ContentItemCommonDataContentItemID>
+    <CodeName>ImageVariants-z6omxm0m</CodeName>
+    <GUID>34cad58f-011b-4f1e-b392-6c3ddaf8b328</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </ContentItemCommonDataContentItemID>
+  <ContentItemCommonDataContentLanguageID>
+    <CodeName>en</CodeName>
+    <GUID>e81b5172-f240-4041-88b1-653089984e29</GUID>
+    <ObjectType>cms.contentlanguage</ObjectType>
+  </ContentItemCommonDataContentLanguageID>
+  <ContentItemCommonDataFirstPublishedWhen>2026-10-19 09:44:05Z</ContentItemCommonDataFirstPublishedWhen>
+  <ContentItemCommonDataGUID>3d149922-c3e3-4f1f-bc6a-3622bf9dcfcc</ContentItemCommonDataGUID>
+  <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
+  <ContentItemCommonDataLastPublishedWhen>2026-10-19 17:24:58Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
+  <ContentItemCommonDataVisualBuilderTemplateConfiguration>
+<![CDATA[
+{
+  "identifier": "TrainingGuides.ImageVariantsShowcasePageTemplate",
+  "properties": null,
+  "fieldIdentifiers": {}
+}
+]]>
+  </ContentItemCommonDataVisualBuilderTemplateConfiguration>
+  <ContentItemCommonDataVisualBuilderWidgets>
+<![CDATA[
+{
+  "editableAreas": [
+    {
+      "identifier": "areaMain",
+      "sections": [
+        {
+          "identifier": "a9cf1982-230e-4596-ab30-8b058066b19f",
+          "type": "TrainingGuides.SingleColumnSection",
+          "properties": {
+            "sectionAnchor": ""
+          },
+          "zones": [
+            {
+              "identifier": "ac61332b-2d51-4a16-8720-6bb95617837f",
+              "widgets": [
+                {
+                  "identifier": "2e29722c-83ec-4898-ba06-47dac33eab5d",
+                  "type": "TrainingGuides.ImageWidget",
+                  "variants": [
+                    {
+                      "identifier": "48a89992-a984-402a-b28d-cac41e3c78b5",
+                      "properties": {
+                        "image": [
+                          {
+                            "identifier": "5957bfb8-679d-44d7-9a11-6ce586926503"
+                          }
+                        ],
+                        "imageVariant": null
+                      },
+                      "fieldIdentifiers": {
+                        "image": "dc677c07-8a19-4b26-95c3-068010c06ef0",
+                        "imageVariant": "a6e2beab-c30b-4ec5-8cdf-75cd65434143"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "identifier": "0731936e-0554-4aa5-bf5a-a47521f96066",
+                  "type": "TrainingGuides.ImageWidget",
+                  "variants": [
+                    {
+                      "identifier": "83bb8533-a5c3-4c68-b7fd-1b6cd34a50d2",
+                      "properties": {
+                        "image": [
+                          {
+                            "identifier": "5957bfb8-679d-44d7-9a11-6ce586926503"
+                          }
+                        ],
+                        "imageVariant": "Card800x600"
+                      },
+                      "fieldIdentifiers": {
+                        "image": "9e4332ea-675c-4f72-ad02-b806e1e75d8a",
+                        "imageVariant": "736184cf-ed4c-4ed0-b296-90b754ebba69"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "fieldIdentifiers": {
+            "sectionAnchor": "b1873c9e-1e87-4a27-a8a1-c3d8511392c1"
+          }
+        }
+      ]
+    }
+  ]
+}
+]]>
+  </ContentItemCommonDataVisualBuilderWidgets>
+  <ContentItemReferences>
+    <cms.contentitemreference>
+      <ContentItemReferenceGroupGUID>dc677c07-8a19-4b26-95c3-068010c06ef0</ContentItemReferenceGroupGUID>
+      <ContentItemReferenceGUID>9f4e5612-ad4f-422a-a217-2f234687f66f</ContentItemReferenceGUID>
+      <ContentItemReferenceSourceCommonDataID>
+        <GUID>3d149922-c3e3-4f1f-bc6a-3622bf9dcfcc</GUID>
+        <ObjectType>cms.contentitemcommondata</ObjectType>
+      </ContentItemReferenceSourceCommonDataID>
+      <ContentItemReferenceTargetItemID>
+        <CodeName>Pasta-1qy41r16</CodeName>
+        <GUID>5957bfb8-679d-44d7-9a11-6ce586926503</GUID>
+        <ObjectType>cms.contentitem</ObjectType>
+      </ContentItemReferenceTargetItemID>
+    </cms.contentitemreference>
+    <cms.contentitemreference>
+      <ContentItemReferenceGroupGUID>9e4332ea-675c-4f72-ad02-b806e1e75d8a</ContentItemReferenceGroupGUID>
+      <ContentItemReferenceGUID>0dcea20d-ced9-42fa-b1cf-e4157ec4f510</ContentItemReferenceGUID>
+      <ContentItemReferenceSourceCommonDataID>
+        <GUID>3d149922-c3e3-4f1f-bc6a-3622bf9dcfcc</GUID>
+        <ObjectType>cms.contentitemcommondata</ObjectType>
+      </ContentItemReferenceSourceCommonDataID>
+      <ContentItemReferenceTargetItemID>
+        <CodeName>Pasta-1qy41r16</CodeName>
+        <GUID>5957bfb8-679d-44d7-9a11-6ce586926503</GUID>
+        <ObjectType>cms.contentitem</ObjectType>
+      </ContentItemReferenceTargetItemID>
+    </cms.contentitemreference>
+    <cms.contentitemreference>
+      <ContentItemReferenceGroupGUID>b660d800-8f44-4311-af7d-f5073bda6ab3</ContentItemReferenceGroupGUID>
+      <ContentItemReferenceGUID>945b59da-e36b-48e3-a5c9-432ee48aa4f1</ContentItemReferenceGUID>
+      <ContentItemReferenceSourceCommonDataID>
+        <GUID>3d149922-c3e3-4f1f-bc6a-3622bf9dcfcc</GUID>
+        <ObjectType>cms.contentitemcommondata</ObjectType>
+      </ContentItemReferenceSourceCommonDataID>
+      <ContentItemReferenceTargetItemID>
+        <CodeName>ImageVariants-iskzxy19</CodeName>
+        <GUID>d63f8bf3-1719-4ccf-a0df-e761992b87b4</GUID>
+        <ObjectType>cms.contentitem</ObjectType>
+      </ContentItemReferenceTargetItemID>
+    </cms.contentitemreference>
+  </ContentItemReferences>
+</cms.contentitemcommondata>

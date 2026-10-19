@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.standardmediadimensions>
+  <StandardMediaDimensionsDisplayName>Responsive XS</StandardMediaDimensionsDisplayName>
+  <StandardMediaDimensionsGUID>9f4b1838-2033-46f1-93b2-4a77b378bd11</StandardMediaDimensionsGUID>
+  <StandardMediaDimensionsHeight>0</StandardMediaDimensionsHeight>
+  <StandardMediaDimensionsName>ScaleW480</StandardMediaDimensionsName>
+  <StandardMediaDimensionsTransformationType>Scale</StandardMediaDimensionsTransformationType>
+  <StandardMediaDimensionsWidth>480</StandardMediaDimensionsWidth>
+</cms.standardmediadimensions>
