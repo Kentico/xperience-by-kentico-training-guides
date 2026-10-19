@@ -82,7 +82,8 @@ public class ResponsiveImageTagHelper : TagHelper
 
     /// <summary>
     /// Lists the width ladder variants of an asset that are no wider than the original, narrowest first.
-    /// The original closes the list when the ladder goes past its width, so the largest candidate is never upscaled.
+    /// The original closes the list when the ladder goes past its width and no rung has that width already,
+    /// so the largest candidate is never upscaled and no width descriptor repeats.
     /// </summary>
     /// <param name="asset">The image asset.</param>
     /// <returns>The URL and actual width of each candidate; empty when the asset has none of the ladder variants.</returns>
@@ -108,7 +109,8 @@ public class ResponsiveImageTagHelper : TagHelper
             candidates.Add((url, width));
         }
 
-        if (ladderExceedsOriginal)
+        // A rung stored at exactly the original's width already closes the list, and srcset forbids repeating a descriptor
+        if (ladderExceedsOriginal && (candidates.Count == 0 || candidates[^1].Width < originalWidth))
         {
             candidates.Add((asset.Url, originalWidth));
         }

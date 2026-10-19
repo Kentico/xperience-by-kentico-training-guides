@@ -1,5 +1,5 @@
 using System.Collections.ObjectModel;
-using System.Reflection;
+using System.Text.Json;
 using CMS.ContentEngine;
 using CMS.Core;
 using Microsoft.AspNetCore.Razor.TagHelpers;
@@ -9,16 +9,21 @@ using Xunit;
 
 namespace TrainingGuides.Web.Tests.Features.ResponsiveImages;
 
-public class ResponsiveImageTagHelperTests
+public class ResponsiveImageTagHelperTests : IClassFixture<ResponsiveImageTagHelperTests.ServiceContainerFixture>
 {
     private const string ORIGINAL_URL = "~/getContentAsset/item/field/photo.jpg";
 
-    // ImageHelper.IsImage reads the image extension setting through the service container, so the tests register a settings service.
-    // CMS.Core.Service is qualified because TrainingGuides.Service is a content type.
-    static ResponsiveImageTagHelperTests()
+    /// <summary>
+    /// Initializes the service container with a settings service, because <c>ImageHelper.IsImage</c> reads the image extension setting through it.
+    /// </summary>
+    public sealed class ServiceContainerFixture
     {
-        CMS.Core.Service.Use<IAppSettingsService>(new Mock<IAppSettingsService>().Object);
-        CMS.Core.Service.InitializeContainer();
+        public ServiceContainerFixture()
+        {
+            // CMS.Core.Service is qualified because TrainingGuides.Service is a content type
+            CMS.Core.Service.Use<IAppSettingsService>(new Mock<IAppSettingsService>().Object);
+            CMS.Core.Service.InitializeContainer();
+        }
     }
 
     [Fact]
@@ -69,9 +74,7 @@ public class ResponsiveImageTagHelperTests
     public void Process_RendersOriginal_WhenAssetHasNoVariantDictionaries()
     {
         // Arrange
-        var asset = CreateAsset(1433, 955);
-        asset.VariantUrls = null!;
-        SetVariantMetadata(asset, null);
+        var asset = new ContentItemAsset { Url = ORIGINAL_URL, Metadata = CreateMetadata(1433, 955) };
         var tagHelper = new ResponsiveImageTagHelper { Asset = asset };
 
         // Act
@@ -130,6 +133,26 @@ public class ResponsiveImageTagHelperTests
     }
 
     [Fact]
+    public void Process_ClosesWithRung_WhenOriginalMatchesRungWidth()
+    {
+        // Arrange
+        var tagHelper = new ResponsiveImageTagHelper { Asset = CreateAsset(1920, 1280, LadderVariants()) };
+
+        // Act
+        var output = Process(tagHelper);
+
+        // Assert
+        Assert.Equal(
+            $"{VariantUrl(ImageVariants.SCALE_W480)} 480w, "
+            + $"{VariantUrl(ImageVariants.SCALE_W828)} 828w, "
+            + $"{VariantUrl(ImageVariants.SCALE_W1280)} 1280w, "
+            + $"{VariantUrl(ImageVariants.SCALE_W1600)} 1600w, "
+            + $"{VariantUrl(ImageVariants.SCALE_W1920)} 1920w",
+            GetAttribute(output, "srcset"));
+        Assert.Equal(VariantUrl(ImageVariants.SCALE_W1920), GetAttribute(output, "src"));
+    }
+
+    [Fact]
     public void Process_RendersFixedVariant_WhenAssetHasIt()
     {
         // Arrange
@@ -150,16 +173,35 @@ public class ResponsiveImageTagHelperTests
         Assert.Null(GetAttribute(output, "sizes"));
     }
 
-    [Theory]
-    [InlineData("RetiredHero")]
-    [InlineData("card800x600")]
-    public void Process_FallsBackToLadder_WhenVariantIsUnknown(string variant)
+    [Fact]
+    public void Process_FallsBackToLadder_WhenVariantIsUnknown()
     {
         // Arrange
         var tagHelper = new ResponsiveImageTagHelper
         {
             Asset = CreateAsset(3000, 2000, [.. LadderVariants(), (ImageVariants.CARD_800X600, 800, 600)]),
-            Variant = variant
+            Variant = "RetiredHero"
+        };
+
+        // Act
+        var output = Process(tagHelper);
+
+        // Assert
+        Assert.StartsWith($"{VariantUrl(ImageVariants.SCALE_W480)} 480w, ", GetAttribute(output, "srcset"));
+        Assert.Equal(VariantUrl(ImageVariants.SCALE_W2560), GetAttribute(output, "src"));
+        Assert.Equal("3000", GetAttribute(output, "width"));
+        Assert.Equal("2000", GetAttribute(output, "height"));
+    }
+
+    // VariantUrls is case-sensitive, so a wrong-case code name finds no URL even though Metadata.Variants ignores case
+    [Fact]
+    public void Process_FallsBackToLadder_WhenVariantCaseDiffers()
+    {
+        // Arrange
+        var tagHelper = new ResponsiveImageTagHelper
+        {
+            Asset = CreateAsset(3000, 2000, [.. LadderVariants(), (ImageVariants.CARD_800X600, 800, 600)]),
+            Variant = "card800x600"
         };
 
         // Act
@@ -228,31 +270,39 @@ public class ResponsiveImageTagHelperTests
     {
         variants ??= [];
 
-        var asset = new ContentItemAsset
+        return new ContentItemAsset
         {
             Url = ORIGINAL_URL,
-            Metadata = new ContentItemAssetMetadata { Extension = extension, Width = width, Height = height },
+            Metadata = CreateMetadata(width, height, variants, extension),
             VariantUrls = new ReadOnlyDictionary<string, string>(
                 variants.ToDictionary(variant => variant.Name, variant => VariantUrl(variant.Name)))
         };
-
-        SetVariantMetadata(
-            asset,
-            new ReadOnlyDictionary<string, ContentItemAssetVariantMetadata>(
-                variants.ToDictionary(
-                    variant => variant.Name,
-                    variant => new ContentItemAssetVariantMetadata { Width = variant.W, Height = variant.H })));
-
-        return asset;
     }
 
     /// <summary>
-    /// Sets <see cref="ContentItemAssetMetadata.Variants"/>, whose setter is internal to the Xperience assembly.
+    /// Deserializes asset metadata from JSON shaped like the value stored in a content item, as the product does,
+    /// because <see cref="ContentItemAssetMetadata.Variants"/> has no public setter.
+    /// The <c>Variants</c> property is left out of the JSON when <paramref name="variants"/> is <c>null</c>.
     /// </summary>
-    private static void SetVariantMetadata(ContentItemAsset asset, ReadOnlyDictionary<string, ContentItemAssetVariantMetadata>? variantMetadata) =>
-        typeof(ContentItemAssetMetadata)
-            .GetProperty(nameof(ContentItemAssetMetadata.Variants), BindingFlags.Instance | BindingFlags.Public)!
-            .SetValue(asset.Metadata, variantMetadata);
+    private static ContentItemAssetMetadata CreateMetadata(int? width, int? height, (string Name, int W, int H)[]? variants = null, string extension = ".jpg")
+    {
+        var stored = new Dictionary<string, object?>
+        {
+            ["Name"] = "photo.jpg",
+            ["Extension"] = extension,
+            ["Width"] = width,
+            ["Height"] = height
+        };
+
+        if (variants is not null)
+        {
+            stored["Variants"] = variants.ToDictionary(
+                variant => variant.Name,
+                variant => new { Name = $"photo_{variant.Name}.jpg", Extension = ".jpg", Width = variant.W, Height = variant.H });
+        }
+
+        return JsonSerializer.Deserialize<ContentItemAssetMetadata>(JsonSerializer.Serialize(stored))!;
+    }
 
     private static string VariantUrl(string name) => $"~/getContentAsset/item/field/{name}/photo_{name}.jpg";
 
