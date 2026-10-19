@@ -16,13 +16,27 @@ public class ResponsiveImageTagHelperTests
 {
     private const string ORIGINAL_URL = "~/getContentAsset/item/field/photo.jpg";
 
-    private readonly IUrlHelperFactory unchangedUrls = CreateUrlHelperFactory(url => url);
+    /// <summary>
+    /// A URL helper factory whose helpers return content paths unchanged.
+    /// </summary>
+    private readonly IUrlHelperFactory unchangedUrlHelperFactory =
+        CreateUrlHelperFactory(url => url);
+
+    /// <summary>
+    /// A URL helper factory whose helpers resolve <c>~/</c> against the <c>/base</c>
+    /// path base.
+    /// </summary>
+    private readonly IUrlHelperFactory pathBaseUrlHelperFactory =
+        CreateUrlHelperFactory(url => url.Replace("~/", "/base/"));
 
     [Fact]
     public void Process_SuppressesOutput_WhenAssetIsNull()
     {
         // Arrange
-        var tagHelper = new ResponsiveImageTagHelper(unchangedUrls) { Asset = null };
+        var tagHelper = new ResponsiveImageTagHelper(unchangedUrlHelperFactory)
+        {
+            Asset = null
+        };
 
         // Act
         var output = Process(tagHelper);
@@ -35,7 +49,10 @@ public class ResponsiveImageTagHelperTests
     public void Process_SuppressesOutput_WhenAssetIsNotAnImage()
     {
         // Arrange
-        var tagHelper = new ResponsiveImageTagHelper(unchangedUrls) { Asset = CreateAsset(null, null, extension: ".pdf") };
+        var tagHelper = new ResponsiveImageTagHelper(unchangedUrlHelperFactory)
+        {
+            Asset = CreateAsset(null, null, extension: ".pdf")
+        };
 
         // Act
         var output = Process(tagHelper);
@@ -48,7 +65,10 @@ public class ResponsiveImageTagHelperTests
     public void Process_RendersOriginal_WhenAssetHasNoVariants()
     {
         // Arrange
-        var tagHelper = new ResponsiveImageTagHelper(unchangedUrls) { Asset = CreateAsset(1433, 955) };
+        var tagHelper = new ResponsiveImageTagHelper(unchangedUrlHelperFactory)
+        {
+            Asset = CreateAsset(1433, 955)
+        };
 
         // Act
         var output = Process(tagHelper);
@@ -67,7 +87,10 @@ public class ResponsiveImageTagHelperTests
     {
         // Arrange
         var asset = new ContentItemAsset { Url = ORIGINAL_URL, Metadata = CreateMetadata(1433, 955) };
-        var tagHelper = new ResponsiveImageTagHelper(unchangedUrls) { Asset = asset };
+        var tagHelper = new ResponsiveImageTagHelper(unchangedUrlHelperFactory)
+        {
+            Asset = asset
+        };
 
         // Act
         var output = Process(tagHelper);
@@ -81,7 +104,7 @@ public class ResponsiveImageTagHelperTests
     public void Process_RendersSeriesNarrowestFirst()
     {
         // Arrange
-        var tagHelper = new ResponsiveImageTagHelper(unchangedUrls)
+        var tagHelper = new ResponsiveImageTagHelper(unchangedUrlHelperFactory)
         {
             Asset = CreateAsset(3000, 2000, SeriesVariants()),
             Sizes = "(min-width: 768px) 50vw, 100vw"
@@ -109,7 +132,10 @@ public class ResponsiveImageTagHelperTests
     public void Process_DropsUpscaledWidthsAndClosesWithOriginal()
     {
         // Arrange
-        var tagHelper = new ResponsiveImageTagHelper(unchangedUrls) { Asset = CreateAsset(1433, 955, SeriesVariants()) };
+        var tagHelper = new ResponsiveImageTagHelper(unchangedUrlHelperFactory)
+        {
+            Asset = CreateAsset(1433, 955, SeriesVariants())
+        };
 
         // Act
         var output = Process(tagHelper);
@@ -128,7 +154,10 @@ public class ResponsiveImageTagHelperTests
     public void Process_ClosesWithSeriesVariant_WhenOriginalMatchesItsWidth()
     {
         // Arrange
-        var tagHelper = new ResponsiveImageTagHelper(unchangedUrls) { Asset = CreateAsset(1920, 1280, SeriesVariants()) };
+        var tagHelper = new ResponsiveImageTagHelper(unchangedUrlHelperFactory)
+        {
+            Asset = CreateAsset(1920, 1280, SeriesVariants())
+        };
 
         // Act
         var output = Process(tagHelper);
@@ -148,7 +177,7 @@ public class ResponsiveImageTagHelperTests
     public void Process_ClosesWithOriginalOnly_WhenEverySeriesVariantIsWider()
     {
         // Arrange
-        var tagHelper = new ResponsiveImageTagHelper(unchangedUrls)
+        var tagHelper = new ResponsiveImageTagHelper(unchangedUrlHelperFactory)
         {
             Asset = CreateAsset(400, 267, SeriesVariants()),
             Sizes = "50vw"
@@ -169,7 +198,7 @@ public class ResponsiveImageTagHelperTests
     public void Process_RendersFixedVariant_WhenAssetHasIt()
     {
         // Arrange
-        var tagHelper = new ResponsiveImageTagHelper(unchangedUrls)
+        var tagHelper = new ResponsiveImageTagHelper(unchangedUrlHelperFactory)
         {
             Asset = CreateAsset(3000, 2000, [.. SeriesVariants(), (ImageVariants.CARD_800X600, 800, 600)]),
             Variant = ImageVariants.CARD_800X600
@@ -190,7 +219,7 @@ public class ResponsiveImageTagHelperTests
     public void Process_FallsBackToSeries_WhenVariantIsUnknown()
     {
         // Arrange
-        var tagHelper = new ResponsiveImageTagHelper(unchangedUrls)
+        var tagHelper = new ResponsiveImageTagHelper(unchangedUrlHelperFactory)
         {
             Asset = CreateAsset(3000, 2000, [.. SeriesVariants(), (ImageVariants.CARD_800X600, 800, 600)]),
             Variant = "RetiredHero"
@@ -211,7 +240,7 @@ public class ResponsiveImageTagHelperTests
     public void Process_FallsBackToSeries_WhenVariantCaseDiffers()
     {
         // Arrange
-        var tagHelper = new ResponsiveImageTagHelper(unchangedUrls)
+        var tagHelper = new ResponsiveImageTagHelper(unchangedUrlHelperFactory)
         {
             Asset = CreateAsset(3000, 2000, [.. SeriesVariants(), (ImageVariants.CARD_800X600, 800, 600)]),
             Variant = "card800x600"
@@ -231,7 +260,10 @@ public class ResponsiveImageTagHelperTests
     public void Process_OmitsDimensions_WhenMetadataHasNoSize()
     {
         // Arrange
-        var tagHelper = new ResponsiveImageTagHelper(unchangedUrls) { Asset = CreateAsset(null, null, SeriesVariants()) };
+        var tagHelper = new ResponsiveImageTagHelper(unchangedUrlHelperFactory)
+        {
+            Asset = CreateAsset(null, null, SeriesVariants())
+        };
 
         // Act
         var output = Process(tagHelper);
@@ -253,7 +285,7 @@ public class ResponsiveImageTagHelperTests
     public void Process_OmitsDimensions_WhenFixedVariantHasNoSize()
     {
         // Arrange
-        var tagHelper = new ResponsiveImageTagHelper(unchangedUrls)
+        var tagHelper = new ResponsiveImageTagHelper(unchangedUrlHelperFactory)
         {
             Asset = CreateAsset(3000, 2000, [(ImageVariants.CARD_800X600, null, null)]),
             Variant = ImageVariants.CARD_800X600
@@ -272,7 +304,10 @@ public class ResponsiveImageTagHelperTests
     public void Process_AlwaysRendersAltAndLoading()
     {
         // Arrange
-        var tagHelper = new ResponsiveImageTagHelper(unchangedUrls) { Asset = CreateAsset(null, null) };
+        var tagHelper = new ResponsiveImageTagHelper(unchangedUrlHelperFactory)
+        {
+            Asset = CreateAsset(null, null)
+        };
 
         // Act
         var output = Process(tagHelper);
@@ -286,7 +321,7 @@ public class ResponsiveImageTagHelperTests
     public void Process_ResolvesSrcAndEverySrcsetUrl_WhenRenderingSeries()
     {
         // Arrange
-        var tagHelper = new ResponsiveImageTagHelper(PathBaseUrls())
+        var tagHelper = new ResponsiveImageTagHelper(pathBaseUrlHelperFactory)
         {
             Asset = CreateAsset(1433, 955, SeriesVariants())
         };
@@ -296,19 +331,20 @@ public class ResponsiveImageTagHelperTests
 
         // Assert
         Assert.Equal(
-            $"{WithPathBase(VariantUrl(ImageVariants.SCALE_W480))} 480w, "
-            + $"{WithPathBase(VariantUrl(ImageVariants.SCALE_W828))} 828w, "
-            + $"{WithPathBase(VariantUrl(ImageVariants.SCALE_W1280))} 1280w, "
-            + $"{WithPathBase(ORIGINAL_URL)} 1433w",
+            "/base/getContentAsset/item/field/ScaleW480/photo_ScaleW480.jpg 480w, "
+            + "/base/getContentAsset/item/field/ScaleW828/photo_ScaleW828.jpg 828w, "
+            + "/base/getContentAsset/item/field/ScaleW1280/photo_ScaleW1280.jpg 1280w, "
+            + "/base/getContentAsset/item/field/photo.jpg 1433w",
             GetAttribute(output, "srcset"));
-        Assert.Equal(WithPathBase(ORIGINAL_URL), GetAttribute(output, "src"));
+        Assert.Equal(
+            "/base/getContentAsset/item/field/photo.jpg", GetAttribute(output, "src"));
     }
 
     [Fact]
     public void Process_ResolvesSrc_WhenRenderingFixedVariant()
     {
         // Arrange
-        var tagHelper = new ResponsiveImageTagHelper(PathBaseUrls())
+        var tagHelper = new ResponsiveImageTagHelper(pathBaseUrlHelperFactory)
         {
             Asset = CreateAsset(3000, 2000, [(ImageVariants.CARD_800X600, 800, 600)]),
             Variant = ImageVariants.CARD_800X600
@@ -318,15 +354,16 @@ public class ResponsiveImageTagHelperTests
         var output = Process(tagHelper);
 
         // Assert
-        string expected = WithPathBase(VariantUrl(ImageVariants.CARD_800X600));
-        Assert.Equal(expected, GetAttribute(output, "src"));
+        Assert.Equal(
+            "/base/getContentAsset/item/field/Card800x600/photo_Card800x600.jpg",
+            GetAttribute(output, "src"));
     }
 
     [Fact]
     public void Process_ResolvesSrc_WhenRenderingOriginal()
     {
         // Arrange
-        var tagHelper = new ResponsiveImageTagHelper(PathBaseUrls())
+        var tagHelper = new ResponsiveImageTagHelper(pathBaseUrlHelperFactory)
         {
             Asset = CreateAsset(1433, 955)
         };
@@ -335,7 +372,8 @@ public class ResponsiveImageTagHelperTests
         var output = Process(tagHelper);
 
         // Assert
-        Assert.Equal(WithPathBase(ORIGINAL_URL), GetAttribute(output, "src"));
+        Assert.Equal(
+            "/base/getContentAsset/item/field/photo.jpg", GetAttribute(output, "src"));
     }
 
     /// <summary>
@@ -354,16 +392,6 @@ public class ResponsiveImageTagHelperTests
 
         return factory.Object;
     }
-
-    /// <summary>
-    /// Creates a URL helper factory that resolves application-relative paths against
-    /// the <c>/base</c> path base.
-    /// </summary>
-    private static IUrlHelperFactory PathBaseUrls() =>
-        CreateUrlHelperFactory(WithPathBase);
-
-    private static string WithPathBase(string url) =>
-        url.StartsWith("~/", StringComparison.Ordinal) ? "/base/" + url[2..] : url;
 
     /// <summary>
     /// Creates the scale variants of the width series, each stored at its nominal width in a 3:2 aspect ratio.
