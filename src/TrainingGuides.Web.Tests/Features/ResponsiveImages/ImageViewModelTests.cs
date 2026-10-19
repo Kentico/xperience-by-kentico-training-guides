@@ -34,11 +34,7 @@ public class ImageViewModelTests
     {
         // Arrange
         var assetFile = new ContentItemAsset();
-        var asset = new Asset
-        {
-            AssetFile = assetFile,
-            AssetAltText = "A lizard"
-        };
+        var asset = new Asset { AssetFile = assetFile, AssetAltText = "A lizard" };
 
         // Act
         var viewModel = ImageViewModel.GetViewModel(asset);
@@ -53,11 +49,7 @@ public class ImageViewModelTests
     public void GetViewModel_UsesEmptyAltText_WhenAltTextIsNull()
     {
         // Arrange
-        var asset = new Asset
-        {
-            AssetFile = new ContentItemAsset(),
-            AssetAltText = null
-        };
+        var asset = new Asset { AssetFile = new ContentItemAsset(), AssetAltText = null };
 
         // Act
         var viewModel = ImageViewModel.GetViewModel(asset);

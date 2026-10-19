@@ -7,16 +7,9 @@
     <section class="mt-4">
         <h2 class="h4">Primitives: art direction</h2>
         <picture>
-            <source media="(max-width: 575.98px)"
-                kxp-img="@image.Asset"
-                kxp-img-variant="@ImageVariants.HERO_MOBILE_828X828"
-                kxp-img-dimensions="true" />
-            <img kxp-img="@image.Asset"
-                kxp-img-variant="@ImageVariants.HERO_WIDE_1920X1080"
-                kxp-img-dimensions="true"
-                alt="@image.AltText"
-                loading="eager"
-                class="img-fluid" />
+            <source media="(max-width: 575.98px)" kxp-img="@image.Asset" kxp-img-variant="@ImageVariants.HERO_MOBILE_828X828" kxp-img-dimensions="true" />
+            <img kxp-img="@image.Asset" kxp-img-variant="@ImageVariants.HERO_WIDE_1920X1080" kxp-img-dimensions="true"
+                alt="@image.AltText" loading="eager" class="img-fluid" />
         </picture>
     </section>
 
@@ -27,12 +20,8 @@
                 <div class="c-post-thumbnail default">
                     <div class="c-card bg-1 u-border-01">
                         <div class="c-card_img">
-                            <img kxp-img="@image.Asset"
-                                kxp-img-variant="@ImageVariants.CARD_800X600"
-                                kxp-img-dimensions="true"
-                                alt="@image.AltText"
-                                loading="lazy"
-                                class="img-fluid" />
+                            <img kxp-img="@image.Asset" kxp-img-variant="@ImageVariants.CARD_800X600" kxp-img-dimensions="true"
+                                alt="@image.AltText" loading="lazy" class="img-fluid" />
                         </div>
                         <div class="c-card_body">
                             <h3 class="h4 mb-0">@Model.Title</h3>
@@ -45,14 +34,7 @@
 
     <section class="mt-4">
         <h2 class="h4">Building block: responsive image</h2>
-        <tg-responsive-image asset="@image.Asset"
-            alt="@image.AltText"
-            sizes="(min-width: 1400px) 1296px,
-                (min-width: 1200px) 1116px,
-                (min-width: 992px) 936px,
-                (min-width: 768px) 696px,
-                (min-width: 576px) 516px,
-                calc(100vw - 24px)"
-            class="img-fluid" />
+        <tg-responsive-image asset="@image.Asset" alt="@image.AltText"
+            sizes="(min-width: 1400px) 1296px, (min-width: 1200px) 1116px, (min-width: 992px) 936px, (min-width: 768px) 696px, (min-width: 576px) 516px, calc(100vw - 24px)" class="img-fluid" />
     </section>
 }

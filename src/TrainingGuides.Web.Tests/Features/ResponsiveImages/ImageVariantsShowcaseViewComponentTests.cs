@@ -13,40 +13,33 @@ public class ImageVariantsShowcaseViewComponentTests
     private const string ARTICLE_TITLE = "Title";
     private const string ALT_TEXT = "A lizard";
 
-    private readonly Mock<IContentItemRetrieverService> retrieverServiceMock;
+    private readonly Mock<IContentItemRetrieverService> contentItemRetrieverServiceMock;
     private readonly ImageVariantsShowcaseViewComponent viewComponent;
 
     public ImageVariantsShowcaseViewComponentTests()
     {
-        retrieverServiceMock = new Mock<IContentItemRetrieverService>();
-        viewComponent =
-            new ImageVariantsShowcaseViewComponent(retrieverServiceMock.Object);
+        contentItemRetrieverServiceMock = new Mock<IContentItemRetrieverService>();
+        viewComponent = new ImageVariantsShowcaseViewComponent(contentItemRetrieverServiceMock.Object);
     }
 
     private void SetupCurrentPage(ArticlePage? articlePage) =>
-        retrieverServiceMock
-            .Setup(x => x.RetrieveCurrentPage<ArticlePage>(
-                TEASER_ASSET_DEPTH,
-                It.IsAny<bool>(),
-                It.IsAny<string?>()))
+        contentItemRetrieverServiceMock
+            .Setup(x => x.RetrieveCurrentPage<ArticlePage>(TEASER_ASSET_DEPTH, It.IsAny<bool>(), It.IsAny<string?>()))
             .ReturnsAsync(articlePage);
 
-    private static ArticlePage BuildArticlePage(IEnumerable<Asset> teaser) =>
-        new()
+    private static ArticlePage BuildArticlePage(IEnumerable<Asset> teaser) => new()
+    {
+        ArticlePageArticleContent = [new GeneralArticle()
         {
-            ArticlePageArticleContent = [new GeneralArticle()
-            {
-                ArticleSchemaTitle = ARTICLE_TITLE,
-                ArticleSchemaTeaser = teaser
-            }]
-        };
+            ArticleSchemaTitle = ARTICLE_TITLE,
+            ArticleSchemaTeaser = teaser
+        }]
+    };
 
     private async Task<ImageVariantsShowcaseViewModel> InvokeAndGetModel()
     {
-        var result = Assert.IsType<ViewViewComponentResult>(
-            await viewComponent.InvokeAsync());
-        return Assert.IsType<ImageVariantsShowcaseViewModel>(
-            result.ViewData?.Model);
+        var result = Assert.IsType<ViewViewComponentResult>(await viewComponent.InvokeAsync());
+        return Assert.IsType<ImageVariantsShowcaseViewModel>(result.ViewData?.Model);
     }
 
     [Fact]
@@ -54,8 +47,7 @@ public class ImageVariantsShowcaseViewComponentTests
     {
         // Arrange
         var assetFile = new ContentItemAsset();
-        SetupCurrentPage(BuildArticlePage(
-            [new Asset { AssetFile = assetFile, AssetAltText = ALT_TEXT }]));
+        SetupCurrentPage(BuildArticlePage([new Asset { AssetFile = assetFile, AssetAltText = ALT_TEXT }]));
 
         // Act
         var model = await InvokeAndGetModel();

@@ -10,8 +10,7 @@ namespace TrainingGuides.Web.Tests.Features.ResponsiveImages;
 [Collection(ServiceContainerCollection.NAME)]
 public class ResponsiveImageTagHelperTests
 {
-    private const string ORIGINAL_URL =
-        "~/getContentAsset/item/field/photo.jpg";
+    private const string ORIGINAL_URL = "~/getContentAsset/item/field/photo.jpg";
 
     [Fact]
     public void Process_SuppressesOutput_WhenAssetIsNull()
@@ -30,10 +29,7 @@ public class ResponsiveImageTagHelperTests
     public void Process_SuppressesOutput_WhenAssetIsNotAnImage()
     {
         // Arrange
-        var tagHelper = new ResponsiveImageTagHelper
-        {
-            Asset = CreateAsset(null, null, extension: ".pdf")
-        };
+        var tagHelper = new ResponsiveImageTagHelper { Asset = CreateAsset(null, null, extension: ".pdf") };
 
         // Act
         var output = Process(tagHelper);
@@ -46,10 +42,7 @@ public class ResponsiveImageTagHelperTests
     public void Process_RendersOriginal_WhenAssetHasNoVariants()
     {
         // Arrange
-        var tagHelper = new ResponsiveImageTagHelper
-        {
-            Asset = CreateAsset(1433, 955)
-        };
+        var tagHelper = new ResponsiveImageTagHelper { Asset = CreateAsset(1433, 955) };
 
         // Act
         var output = Process(tagHelper);
@@ -67,11 +60,7 @@ public class ResponsiveImageTagHelperTests
     public void Process_RendersOriginal_WhenAssetHasNoVariantDictionaries()
     {
         // Arrange
-        var asset = new ContentItemAsset
-        {
-            Url = ORIGINAL_URL,
-            Metadata = CreateMetadata(1433, 955)
-        };
+        var asset = new ContentItemAsset { Url = ORIGINAL_URL, Metadata = CreateMetadata(1433, 955) };
         var tagHelper = new ResponsiveImageTagHelper { Asset = asset };
 
         // Act
@@ -104,12 +93,8 @@ public class ResponsiveImageTagHelperTests
             + $"{VariantUrl(ImageVariants.SCALE_W1920)} 1920w, "
             + $"{VariantUrl(ImageVariants.SCALE_W2560)} 2560w",
             GetAttribute(output, "srcset"));
-        Assert.Equal(
-            VariantUrl(ImageVariants.SCALE_W2560),
-            GetAttribute(output, "src"));
-        Assert.Equal(
-            "(min-width: 768px) 50vw, 100vw",
-            GetAttribute(output, "sizes"));
+        Assert.Equal(VariantUrl(ImageVariants.SCALE_W2560), GetAttribute(output, "src"));
+        Assert.Equal("(min-width: 768px) 50vw, 100vw", GetAttribute(output, "sizes"));
         Assert.Equal("3000", GetAttribute(output, "width"));
         Assert.Equal("2000", GetAttribute(output, "height"));
     }
@@ -118,10 +103,7 @@ public class ResponsiveImageTagHelperTests
     public void Process_DropsUpscaledWidthsAndClosesWithOriginal()
     {
         // Arrange
-        var tagHelper = new ResponsiveImageTagHelper
-        {
-            Asset = CreateAsset(1433, 955, SeriesVariants())
-        };
+        var tagHelper = new ResponsiveImageTagHelper { Asset = CreateAsset(1433, 955, SeriesVariants()) };
 
         // Act
         var output = Process(tagHelper);
@@ -140,10 +122,7 @@ public class ResponsiveImageTagHelperTests
     public void Process_ClosesWithSeriesVariant_WhenOriginalMatchesItsWidth()
     {
         // Arrange
-        var tagHelper = new ResponsiveImageTagHelper
-        {
-            Asset = CreateAsset(1920, 1280, SeriesVariants())
-        };
+        var tagHelper = new ResponsiveImageTagHelper { Asset = CreateAsset(1920, 1280, SeriesVariants()) };
 
         // Act
         var output = Process(tagHelper);
@@ -156,9 +135,7 @@ public class ResponsiveImageTagHelperTests
             + $"{VariantUrl(ImageVariants.SCALE_W1600)} 1600w, "
             + $"{VariantUrl(ImageVariants.SCALE_W1920)} 1920w",
             GetAttribute(output, "srcset"));
-        Assert.Equal(
-            VariantUrl(ImageVariants.SCALE_W1920),
-            GetAttribute(output, "src"));
+        Assert.Equal(VariantUrl(ImageVariants.SCALE_W1920), GetAttribute(output, "src"));
     }
 
     [Fact]
@@ -188,10 +165,7 @@ public class ResponsiveImageTagHelperTests
         // Arrange
         var tagHelper = new ResponsiveImageTagHelper
         {
-            Asset = CreateAsset(
-                3000,
-                2000,
-                [.. SeriesVariants(), (ImageVariants.CARD_800X600, 800, 600)]),
+            Asset = CreateAsset(3000, 2000, [.. SeriesVariants(), (ImageVariants.CARD_800X600, 800, 600)]),
             Variant = ImageVariants.CARD_800X600
         };
 
@@ -199,9 +173,7 @@ public class ResponsiveImageTagHelperTests
         var output = Process(tagHelper);
 
         // Assert
-        Assert.Equal(
-            VariantUrl(ImageVariants.CARD_800X600),
-            GetAttribute(output, "src"));
+        Assert.Equal(VariantUrl(ImageVariants.CARD_800X600), GetAttribute(output, "src"));
         Assert.Equal("800", GetAttribute(output, "width"));
         Assert.Equal("600", GetAttribute(output, "height"));
         Assert.Null(GetAttribute(output, "srcset"));
@@ -214,10 +186,7 @@ public class ResponsiveImageTagHelperTests
         // Arrange
         var tagHelper = new ResponsiveImageTagHelper
         {
-            Asset = CreateAsset(
-                3000,
-                2000,
-                [.. SeriesVariants(), (ImageVariants.CARD_800X600, 800, 600)]),
+            Asset = CreateAsset(3000, 2000, [.. SeriesVariants(), (ImageVariants.CARD_800X600, 800, 600)]),
             Variant = "RetiredHero"
         };
 
@@ -225,28 +194,20 @@ public class ResponsiveImageTagHelperTests
         var output = Process(tagHelper);
 
         // Assert
-        Assert.StartsWith(
-            $"{VariantUrl(ImageVariants.SCALE_W480)} 480w, ",
-            GetAttribute(output, "srcset"));
-        Assert.Equal(
-            VariantUrl(ImageVariants.SCALE_W2560),
-            GetAttribute(output, "src"));
+        Assert.StartsWith($"{VariantUrl(ImageVariants.SCALE_W480)} 480w, ", GetAttribute(output, "srcset"));
+        Assert.Equal(VariantUrl(ImageVariants.SCALE_W2560), GetAttribute(output, "src"));
         Assert.Equal("3000", GetAttribute(output, "width"));
         Assert.Equal("2000", GetAttribute(output, "height"));
     }
 
-    // VariantUrls is case-sensitive, so a wrong-case code name finds no URL
-    // even though Metadata.Variants ignores case
+    // VariantUrls is case-sensitive, so a wrong-case code name finds no URL even though Metadata.Variants ignores case
     [Fact]
     public void Process_FallsBackToSeries_WhenVariantCaseDiffers()
     {
         // Arrange
         var tagHelper = new ResponsiveImageTagHelper
         {
-            Asset = CreateAsset(
-                3000,
-                2000,
-                [.. SeriesVariants(), (ImageVariants.CARD_800X600, 800, 600)]),
+            Asset = CreateAsset(3000, 2000, [.. SeriesVariants(), (ImageVariants.CARD_800X600, 800, 600)]),
             Variant = "card800x600"
         };
 
@@ -254,12 +215,8 @@ public class ResponsiveImageTagHelperTests
         var output = Process(tagHelper);
 
         // Assert
-        Assert.StartsWith(
-            $"{VariantUrl(ImageVariants.SCALE_W480)} 480w, ",
-            GetAttribute(output, "srcset"));
-        Assert.Equal(
-            VariantUrl(ImageVariants.SCALE_W2560),
-            GetAttribute(output, "src"));
+        Assert.StartsWith($"{VariantUrl(ImageVariants.SCALE_W480)} 480w, ", GetAttribute(output, "srcset"));
+        Assert.Equal(VariantUrl(ImageVariants.SCALE_W2560), GetAttribute(output, "src"));
         Assert.Equal("3000", GetAttribute(output, "width"));
         Assert.Equal("2000", GetAttribute(output, "height"));
     }
@@ -268,10 +225,7 @@ public class ResponsiveImageTagHelperTests
     public void Process_OmitsDimensions_WhenMetadataHasNoSize()
     {
         // Arrange
-        var tagHelper = new ResponsiveImageTagHelper
-        {
-            Asset = CreateAsset(null, null, SeriesVariants())
-        };
+        var tagHelper = new ResponsiveImageTagHelper { Asset = CreateAsset(null, null, SeriesVariants()) };
 
         // Act
         var output = Process(tagHelper);
@@ -295,10 +249,7 @@ public class ResponsiveImageTagHelperTests
         // Arrange
         var tagHelper = new ResponsiveImageTagHelper
         {
-            Asset = CreateAsset(
-                3000,
-                2000,
-                [(ImageVariants.CARD_800X600, null, null)]),
+            Asset = CreateAsset(3000, 2000, [(ImageVariants.CARD_800X600, null, null)]),
             Variant = ImageVariants.CARD_800X600
         };
 
@@ -306,9 +257,7 @@ public class ResponsiveImageTagHelperTests
         var output = Process(tagHelper);
 
         // Assert
-        Assert.Equal(
-            VariantUrl(ImageVariants.CARD_800X600),
-            GetAttribute(output, "src"));
+        Assert.Equal(VariantUrl(ImageVariants.CARD_800X600), GetAttribute(output, "src"));
         Assert.Null(GetAttribute(output, "width"));
         Assert.Null(GetAttribute(output, "height"));
     }
@@ -317,10 +266,7 @@ public class ResponsiveImageTagHelperTests
     public void Process_AlwaysRendersAltAndLoading()
     {
         // Arrange
-        var tagHelper = new ResponsiveImageTagHelper
-        {
-            Asset = CreateAsset(null, null)
-        };
+        var tagHelper = new ResponsiveImageTagHelper { Asset = CreateAsset(null, null) };
 
         // Act
         var output = Process(tagHelper);
@@ -331,8 +277,7 @@ public class ResponsiveImageTagHelperTests
     }
 
     /// <summary>
-    /// Creates the scale variants of the width series, each stored at its
-    /// nominal width in a 3:2 aspect ratio.
+    /// Creates the scale variants of the width series, each stored at its nominal width in a 3:2 aspect ratio.
     /// </summary>
     private static (string Name, int? W, int? H)[] SeriesVariants() =>
     [
@@ -345,14 +290,9 @@ public class ResponsiveImageTagHelperTests
     ];
 
     /// <summary>
-    /// Creates an asset whose original has the given size, with a URL and
-    /// stored metadata for each variant.
+    /// Creates an asset whose original has the given size, with a URL and stored metadata for each variant.
     /// </summary>
-    private static ContentItemAsset CreateAsset(
-        int? width,
-        int? height,
-        (string Name, int? W, int? H)[]? variants = null,
-        string extension = ".jpg")
+    private static ContentItemAsset CreateAsset(int? width, int? height, (string Name, int? W, int? H)[]? variants = null, string extension = ".jpg")
     {
         variants ??= [];
 
@@ -361,24 +301,16 @@ public class ResponsiveImageTagHelperTests
             Url = ORIGINAL_URL,
             Metadata = CreateMetadata(width, height, variants, extension),
             VariantUrls = new ReadOnlyDictionary<string, string>(
-                variants.ToDictionary(
-                    variant => variant.Name,
-                    variant => VariantUrl(variant.Name)))
+                variants.ToDictionary(variant => variant.Name, variant => VariantUrl(variant.Name)))
         };
     }
 
     /// <summary>
-    /// Deserializes asset metadata from JSON shaped like the value stored in
-    /// a content item, as the product does, because
-    /// <see cref="ContentItemAssetMetadata.Variants"/> has no public setter.
-    /// The <c>Variants</c> property is left out of the JSON when
-    /// <paramref name="variants"/> is <c>null</c>.
+    /// Deserializes asset metadata from JSON shaped like the value stored in a content item, as the product does,
+    /// because <see cref="ContentItemAssetMetadata.Variants"/> has no public setter.
+    /// The <c>Variants</c> property is left out of the JSON when <paramref name="variants"/> is <c>null</c>.
     /// </summary>
-    private static ContentItemAssetMetadata CreateMetadata(
-        int? width,
-        int? height,
-        (string Name, int? W, int? H)[]? variants = null,
-        string extension = ".jpg")
+    private static ContentItemAssetMetadata CreateMetadata(int? width, int? height, (string Name, int? W, int? H)[]? variants = null, string extension = ".jpg")
     {
         var stored = new Dictionary<string, object?>
         {
@@ -392,33 +324,21 @@ public class ResponsiveImageTagHelperTests
         {
             stored["Variants"] = variants.ToDictionary(
                 variant => variant.Name,
-                variant => new
-                {
-                    Name = $"photo_{variant.Name}.jpg",
-                    Extension = ".jpg",
-                    Width = variant.W,
-                    Height = variant.H
-                });
+                variant => new { Name = $"photo_{variant.Name}.jpg", Extension = ".jpg", Width = variant.W, Height = variant.H });
         }
 
-        return JsonSerializer.Deserialize<ContentItemAssetMetadata>(
-            JsonSerializer.Serialize(stored))!;
+        return JsonSerializer.Deserialize<ContentItemAssetMetadata>(JsonSerializer.Serialize(stored))!;
     }
 
-    private static string VariantUrl(string name) =>
-        $"~/getContentAsset/item/field/{name}/photo_{name}.jpg";
+    private static string VariantUrl(string name) => $"~/getContentAsset/item/field/{name}/photo_{name}.jpg";
 
     private static TagHelperOutput Process(ResponsiveImageTagHelper tagHelper)
     {
-        var context = new TagHelperContext(
-            [],
-            new Dictionary<object, object>(),
-            "unique-id");
+        var context = new TagHelperContext([], new Dictionary<object, object>(), "unique-id");
         var output = new TagHelperOutput(
             "tg-responsive-image",
             [],
-            (_, _) => Task.FromResult<TagHelperContent>(
-                new DefaultTagHelperContent()));
+            (_, _) => Task.FromResult<TagHelperContent>(new DefaultTagHelperContent()));
 
         tagHelper.Process(context, output);
 
@@ -426,7 +346,5 @@ public class ResponsiveImageTagHelperTests
     }
 
     private static string? GetAttribute(TagHelperOutput output, string name) =>
-        output.Attributes.TryGetAttribute(name, out var attribute)
-            ? attribute.Value?.ToString()
-            : null;
+        output.Attributes.TryGetAttribute(name, out var attribute) ? attribute.Value?.ToString() : null;
 }
