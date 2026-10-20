@@ -1,3 +1,4 @@
+using CMS.Core;
 using Kentico.Xperience.Admin.Base.FormAnnotations;
 using Kentico.Xperience.Admin.Base.Forms;
 using TrainingGuides.Web.Features.ContentPromotion.Models;
@@ -7,34 +8,51 @@ namespace TrainingGuides.Web.Features.ContentPromotion.Widgets.ContentPromotion;
 /// <summary>
 /// Offers the card elements an editor can hide. Values are the stored
 /// <see cref="ContentPromotionElement"/> names, so the selector and the resolution rules share one
-/// list.
+/// list. Texts are resource strings resolved in the editor's admin UI language.
 /// </summary>
-public class HideElementsDataProvider : IGeneralSelectorDataProvider
+public class HideElementsDataProvider(ILocalizationService localizationService) : IGeneralSelectorDataProvider
 {
-    private static readonly ObjectSelectorListItem<string>[] elements =
+    private const string RESOURCE_KEY_PREFIX = "TrainingGuides.ContentPromotionWidget.HideElements.Options.";
+
+    private static readonly (string Value, string ResourceKey)[] elements =
     [
-        Item(ContentPromotionElement.TITLE, "Title"),
-        Item(ContentPromotionElement.DESCRIPTION, "Description"),
-        Item(ContentPromotionElement.IMAGE, "Image"),
-        Item(ContentPromotionElement.CALL_TO_ACTION, "Call to action")
+        (ContentPromotionElement.TITLE, RESOURCE_KEY_PREFIX + "Title"),
+        (ContentPromotionElement.DESCRIPTION, RESOURCE_KEY_PREFIX + "Description"),
+        (ContentPromotionElement.IMAGE, RESOURCE_KEY_PREFIX + "Image"),
+        (ContentPromotionElement.CALL_TO_ACTION, RESOURCE_KEY_PREFIX + "CallToAction")
     ];
 
-    public Task<PagedSelectListItems<string>> GetItemsAsync(string searchTerm, int pageIndex, CancellationToken cancellationToken) =>
-        Task.FromResult(new PagedSelectListItems<string>
+    public Task<PagedSelectListItems<string>> GetItemsAsync(string searchTerm, int pageIndex, CancellationToken cancellationToken)
+    {
+        var items = GetLocalizedItems();
+
+        return Task.FromResult(new PagedSelectListItems<string>
         {
             Items = string.IsNullOrWhiteSpace(searchTerm)
-                ? elements
-                : elements.Where(element => element.Text.Contains(searchTerm, StringComparison.OrdinalIgnoreCase)),
+                ? items
+                : items.Where(item => item.Text.Contains(searchTerm, StringComparison.OrdinalIgnoreCase)),
             NextPageAvailable = false
         });
+    }
 
     public Task<IEnumerable<ObjectSelectorListItem<string>>> GetSelectedItemsAsync(
         IEnumerable<string> selectedValues,
-        CancellationToken cancellationToken) =>
-        Task.FromResult((selectedValues ?? []).Select(value =>
-            elements.FirstOrDefault(element => element.Value == value)
-                ?? new ObjectSelectorListItem<string> { Value = value, Text = value, IsValid = false }));
+        CancellationToken cancellationToken)
+    {
+        var items = GetLocalizedItems();
 
-    private static ObjectSelectorListItem<string> Item(string value, string text) =>
-        new() { Value = value, Text = text, IsValid = true };
+        return Task.FromResult((selectedValues ?? []).Select(value =>
+            items.FirstOrDefault(item => item.Value == value)
+                ?? new ObjectSelectorListItem<string> { Value = value, Text = value, IsValid = false }));
+    }
+
+    private List<ObjectSelectorListItem<string>> GetLocalizedItems() =>
+    [
+        .. elements.Select(element => new ObjectSelectorListItem<string>
+        {
+            Value = element.Value,
+            Text = localizationService.GetString(element.ResourceKey),
+            IsValid = true
+        })
+    ];
 }

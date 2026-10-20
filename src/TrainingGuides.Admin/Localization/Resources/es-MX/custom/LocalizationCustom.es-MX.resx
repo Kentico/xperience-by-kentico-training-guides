@@ -366,6 +366,18 @@
   <data name="TrainingGuides.ContentPromotionWidget.HideElements.Placeholder" xml:space="preserve">
     <value>Nada oculto</value>
   </data>
+  <data name="TrainingGuides.ContentPromotionWidget.HideElements.Options.Title" xml:space="preserve">
+    <value>Título</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.HideElements.Options.Description" xml:space="preserve">
+    <value>Descripción</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.HideElements.Options.Image" xml:space="preserve">
+    <value>Imagen</value>
+  </data>
+  <data name="TrainingGuides.ContentPromotionWidget.HideElements.Options.CallToAction" xml:space="preserve">
+    <value>Llamada a la acción</value>
+  </data>
   <data name="TrainingGuides.ContentPromotionWidget.ShowExtras.Label" xml:space="preserve">
     <value>Mostrar extras propios del tipo</value>
   </data>
