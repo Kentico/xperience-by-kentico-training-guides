@@ -142,11 +142,11 @@
 
 /* Benefit descriptions are rich text, so each list item usually holds a paragraph with Bootstrap's
    bottom margin. The list owns the spacing, so the item's own outer margins are dropped. */
-.c-content-promotion__benefit > :first-child {
+.c-content-promotion__benefit> :first-child {
     margin-top: 0;
 }
 
-.c-content-promotion__benefit > :last-child {
+.c-content-promotion__benefit> :last-child {
     margin-bottom: 0;
 }
 
@@ -204,8 +204,8 @@
    design, so it carries its own colors. A solid, square block in the brand's attention color is the
    one shape nothing else on the page uses, so it cannot be mistaken for content. The fill is that
    color darkened: white text on the raw orange is under 4.5:1. */
-$warning-bg: #a3360b; // $color-secondary at 18% less lightness
-$warning-border: #7a2808;
+$warning-bg: variables.$warning-bg; // $color-secondary at 18% less lightness
+$warning-border: variables.$warning-border;
 
 .c-content-promotion__warning {
     position: relative;
@@ -301,6 +301,7 @@ $warning-border: #7a2808;
 }
 
 @container (min-width: 34rem) {
+
     .c-content-promotion--split-even .c-content-promotion__media,
     .c-content-promotion--split-lg-sm .c-content-promotion__media,
     .c-content-promotion--split-sm-lg .c-content-promotion__media {
