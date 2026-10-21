@@ -21,6 +21,7 @@ public static class ContentPromotionContentTypes
         CatFood.CONTENT_TYPE_NAME,
         DogCollar.CONTENT_TYPE_NAME,
         CatFoodVariant.CONTENT_TYPE_NAME,
-        DogCollarVariant.CONTENT_TYPE_NAME
+        DogCollarVariant.CONTENT_TYPE_NAME,
+        Interview.CONTENT_TYPE_NAME
     ];
 }

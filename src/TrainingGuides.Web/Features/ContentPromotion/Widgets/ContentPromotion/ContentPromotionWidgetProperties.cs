@@ -40,7 +40,8 @@ public class ContentPromotionWidgetProperties : IWidgetProperties
             CatFood.CONTENT_TYPE_NAME,
             DogCollar.CONTENT_TYPE_NAME,
             CatFoodVariant.CONTENT_TYPE_NAME,
-            DogCollarVariant.CONTENT_TYPE_NAME
+            DogCollarVariant.CONTENT_TYPE_NAME,
+            Interview.CONTENT_TYPE_NAME
         ],
         Label = "{$TrainingGuides.ContentPromotionWidget.SelectedContentItem.Label$}",
         MaximumItems = 1,
