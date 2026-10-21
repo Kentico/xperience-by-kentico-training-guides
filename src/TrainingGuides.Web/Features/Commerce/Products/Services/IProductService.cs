@@ -110,13 +110,6 @@ public interface IProductService
     Task<decimal> GetCatalogPrice(IProductSchema product, CancellationToken cancellationToken = default);
 
     /// <summary>
-    /// Determines the stock state of a product SKU.
-    /// </summary>
-    /// <param name="skuProduct">The SKU whose stock to read. Parent products and pages do not carry one.</param>
-    /// <returns>The stock state, or <see cref="ProductStockEnum.Unknown"/> when no stock record exists.</returns>
-    Task<ProductStockEnum> GetProductStockStatus(IProductSkuSchema? skuProduct);
-
-    /// <summary>
     /// Determines the stock state to show for a product in a list, where no variant has been
     /// chosen yet. A product with its own SKU answers for itself; a parent answers with the best
     /// state any of its variants is in.

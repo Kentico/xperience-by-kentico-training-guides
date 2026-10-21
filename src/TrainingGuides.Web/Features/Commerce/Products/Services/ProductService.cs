@@ -296,7 +296,7 @@ public class ProductService(IContentItemRetrieverService contentItemRetrieverSer
                     .Contains(tag.TagGUID))
                 .Select(tag => tag.TagTitle));
 
-    public async Task<ProductStockEnum> GetProductStockStatus(IProductSkuSchema? skuProduct)
+    private async Task<ProductStockEnum> GetProductStockStatus(IProductSkuSchema? skuProduct)
     {
         if (skuProduct is null)
         {
