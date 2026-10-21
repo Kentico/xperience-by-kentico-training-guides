@@ -8,32 +8,32 @@ namespace TrainingGuides.Web.Features.ContentPromotion.Models;
 /// </summary>
 public enum CardDesignOption
 {
-    [Description("Standard card")]
+    [Description("{$TrainingGuides.Options.CardDesign.Standard$}")]
     Standard = 0,
 
     /// <summary>
     /// Text sits on top of the image, which becomes the card background. Paints its own
     /// background, so the color scheme property does not apply.
     /// </summary>
-    [Description("Image overlay")]
+    [Description("{$TrainingGuides.Options.CardDesign.ImageOverlay$}")]
     ImageOverlay = 1,
 
     /// <summary>
     /// A brand gradient behind the text. Paints its own background, so the color scheme
     /// property does not apply.
     /// </summary>
-    [Description("Gradient")]
+    [Description("{$TrainingGuides.Options.CardDesign.Gradient$}")]
     Gradient = 2,
 
     /// <summary>
     /// An oversized, centered card for a single prominent promotion.
     /// </summary>
-    [Description("Spotlight")]
+    [Description("{$TrainingGuides.Options.CardDesign.Spotlight$}")]
     Spotlight = 3,
 
     /// <summary>
     /// A tall card with the image locked to a portrait aspect ratio.
     /// </summary>
-    [Description("Portrait")]
+    [Description("{$TrainingGuides.Options.CardDesign.Portrait$}")]
     Portrait = 4
 }

@@ -144,8 +144,10 @@ variant could never say "show this promo with no description".
 **Form component (settled in T14):** `GeneralSelectorComponent` with `HideElementsDataProvider`.
 The admin form component reference has no checkbox-list multi-select; the general selector is the
 documented multi-select for a fixed set of values, and returns `IEnumerable<string>` — the type the
-property already had, so stored values carry over. Option labels are English, like every other
-option provider in the project; the property label, explanation and placeholder are localized.
+property already had, so stored values carry over. The property label, explanation and placeholder
+are localized, and so are the option labels: the provider resolves
+`TrainingGuides.ContentPromotionWidget.HideElements.Options.*` through `ILocalizationService`, and
+search matches the localized text.
 
 **Manual mode ignores `HideElements`.** The field is hidden there, but a value chosen before switching
 to manual is still stored. Applying it would hide what the editor typed for a reason they cannot see,
@@ -360,7 +362,12 @@ not a reuse of an existing pattern.
 
 ### 9.2 Reused infrastructure
 
-- `DropdownEnumOptionProvider<T>` for every dropdown
+- `DropdownEnumOptionProvider<T>` for every dropdown. It passes each `[Description]` through
+  `ILocalizationService.LocalizeString`, so a description may be a `{$resource.key$}` expression.
+  Only the enums unique to this widget use one (`CardDesignOption`, `TextAlignmentOption`, keys
+  `TrainingGuides.Options.{Enum}.{Member}`). The shared enums below keep their English
+  descriptions, because localizing them would change the Service widget, sections, page
+  templates and email builder components too
 - `ColorSchemeOption`, `CornerStyleOption`, `ColumnLayoutOption` — existing shared enums
 - `LinkStyleOption` for the CTA style — it already ships both button variants
   (`Dark`, `Medium`, `Light1`-`Light3`) and plain-link variants
