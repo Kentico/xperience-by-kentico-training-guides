@@ -109,11 +109,14 @@ public class ContentPromotionService(
             ? selectedPage
             : await RetrieveLinkTargetPage(properties);
 
-        // A target page wins over a typed URL. Hiding a form field does not clear its stored value,
-        // so a typed URL only counts where the form shows it - never in page mode.
+        // A target page wins over a typed URL, even one that cannot be loaded. Hiding a form field does
+        // not clear its stored value, so a typed URL only counts where the form shows it - never in
+        // page mode and never once a target page is selected.
+        bool typedUrlDisplayed = !pageMode && !properties.LinkTargetPage.Any();
+
         string url = destinationPage is not null
             ? (await webPageUrlRetriever.Retrieve(destinationPage)).RelativePath
-            : pageMode ? string.Empty : properties.LinkUrl;
+            : typedUrlDisplayed ? properties.LinkUrl : string.Empty;
 
         return string.IsNullOrWhiteSpace(url)
             ? null

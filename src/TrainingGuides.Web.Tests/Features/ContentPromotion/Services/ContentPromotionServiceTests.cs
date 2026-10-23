@@ -756,6 +756,28 @@ public class ContentPromotionServiceTests
         Assert.Equal(TARGET_RELATIVE_URL, result?.LinkUrl);
     }
 
+    // A selected target page wins even when it cannot be loaded, so the typed URL stored alongside it
+    // must not take over.
+    [Fact]
+    public async Task ResolveLink_UnresolvableTargetPageAndTypedUrlStored_IgnoresTheTypedUrl()
+    {
+        contentItemRetrieverServiceMock
+            .Setup(x => x.RetrieveWebPageForUrlByContentItemGuid(
+                targetGuid, It.IsAny<bool>(), It.IsAny<string?>()))
+            .ReturnsAsync((IWebPageFieldsSource?)null);
+
+        var properties = new ContentPromotionWidgetProperties
+        {
+            ContentSource = ContentPromotionSource.CONTENT_ITEM,
+            LinkTargetPage = [new ContentItemReference { Identifier = targetGuid }],
+            LinkUrl = EXTERNAL_URL
+        };
+
+        var result = await contentPromotionService.ResolveLink(properties, null);
+
+        Assert.Null(result);
+    }
+
     [Fact]
     public async Task ResolveLink_ContentItemSourceWithNoDestination_ReturnsNoLink()
     {
