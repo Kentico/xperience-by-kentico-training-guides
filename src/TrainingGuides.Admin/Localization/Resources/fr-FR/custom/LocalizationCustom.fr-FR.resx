@@ -435,28 +435,4 @@
   <data name="TrainingGuides.ContentPromotionWidget.CallToActionStyle.Label" xml:space="preserve">
     <value>Style de l'appel à l'action</value>
   </data>
-  <data name="TrainingGuides.Options.CardDesign.Standard" xml:space="preserve">
-    <value>Carte standard</value>
-  </data>
-  <data name="TrainingGuides.Options.CardDesign.ImageOverlay" xml:space="preserve">
-    <value>Superposition sur l'image</value>
-  </data>
-  <data name="TrainingGuides.Options.CardDesign.Gradient" xml:space="preserve">
-    <value>Dégradé</value>
-  </data>
-  <data name="TrainingGuides.Options.CardDesign.Spotlight" xml:space="preserve">
-    <value>Mise en avant</value>
-  </data>
-  <data name="TrainingGuides.Options.CardDesign.Portrait" xml:space="preserve">
-    <value>Portrait</value>
-  </data>
-  <data name="TrainingGuides.Options.TextAlignment.Left" xml:space="preserve">
-    <value>À gauche</value>
-  </data>
-  <data name="TrainingGuides.Options.TextAlignment.Center" xml:space="preserve">
-    <value>Centré</value>
-  </data>
-  <data name="TrainingGuides.Options.TextAlignment.Right" xml:space="preserve">
-    <value>À droite</value>
-  </data>
 </root>

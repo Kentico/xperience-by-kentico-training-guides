@@ -362,12 +362,7 @@ not a reuse of an existing pattern.
 
 ### 9.2 Reused infrastructure
 
-- `DropdownEnumOptionProvider<T>` for every dropdown. It passes each `[Description]` through
-  `ILocalizationService.LocalizeString`, so a description may be a `{$resource.key$}` expression.
-  Only the enums unique to this widget use one (`CardDesignOption`, `TextAlignmentOption`, keys
-  `TrainingGuides.Options.{Enum}.{Member}`). The shared enums below keep their English
-  descriptions, because localizing them would change the Service widget, sections, page
-  templates and email builder components too
+- `DropdownEnumOptionProvider<T>` for every dropdown
 - `ColorSchemeOption`, `CornerStyleOption`, `ColumnLayoutOption` — existing shared enums
 - `LinkStyleOption` for the CTA style — it already ships both button variants
   (`Dark`, `Medium`, `Light1`-`Light3`) and plain-link variants

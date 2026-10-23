@@ -1,5 +1,3 @@
-using System.ComponentModel;
-
 namespace TrainingGuides.Web.Features.Shared.OptionProviders.TextAlignment;
 
 /// <summary>
@@ -11,12 +9,7 @@ namespace TrainingGuides.Web.Features.Shared.OptionProviders.TextAlignment;
 /// </remarks>
 public enum TextAlignmentOption
 {
-    [Description("{$TrainingGuides.Options.TextAlignment.Left$}")]
     Left = 0,
-
-    [Description("{$TrainingGuides.Options.TextAlignment.Center$}")]
     Center = 1,
-
-    [Description("{$TrainingGuides.Options.TextAlignment.Right$}")]
     Right = 2
 }
