@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.trainingguides.emptypage>
+  <ContentItemDataCommonDataID>
+    <GUID>86777689-d79b-41fd-9748-e20be391d312</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>EmptyPage-camvaqws</CodeName>
+      <GUID>82a3dff8-1072-48b1-9a2f-1a8e1eeab0cf</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>e788fdd1-7fcf-47e3-8e1b-e456a1f04505</ContentItemDataGUID>
+</contentitemdata.trainingguides.emptypage>

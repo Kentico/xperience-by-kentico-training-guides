@@ -16,6 +16,7 @@ using TrainingGuides.Web.Features.Shared.Services;
 using TrainingGuides.Web.Features.Shared.OptionProviders;
 using TrainingGuides.Web.OneTimeCode;
 using TrainingGuides.Web.Features.ContactImport;
+using TrainingGuides.Web.Features.ContentPromotion.Services;
 using TrainingGuides.Web.Commerce.Products.Services;
 using TrainingGuides.Web.Features.Commerce.Products.Services;
 using CMS.Commerce;
@@ -46,6 +47,7 @@ public static class ServiceCollectionExtensions
         services.AddScoped<IMembershipService, MembershipService>();
         services.AddScoped<IGuidesRoleService, GuidesRoleService>();
         services.AddScoped<IProductService, ProductService>();
+        services.AddScoped<IContentPromotionService, ContentPromotionService>();
         services.AddScoped<IHeadTagStoreService, HeadTagStoreService>();
         services.AddScoped<IComponentModelMapper<ImageWidgetModel>, ImageEmailWidgetModelMapper>();
         services.AddScoped<IComponentModelMapper<ProductWidgetModel>, ProductEmailWidgetModelMapper>();

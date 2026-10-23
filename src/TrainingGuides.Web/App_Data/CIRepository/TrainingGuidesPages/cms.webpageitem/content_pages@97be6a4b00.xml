@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpageitem>
+  <WebPageItemContentItemID>
+    <CodeName>ContentPages-hgihq7ai</CodeName>
+    <GUID>8c4c9a22-3106-441a-b0fb-4c471afa27bb</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </WebPageItemContentItemID>
+  <WebPageItemGUID>d8a96d08-b9ea-4794-9700-30b43a123fb9</WebPageItemGUID>
+  <WebPageItemName>ContentPages-hgihq7ai</WebPageItemName>
+  <WebPageItemOrder>13</WebPageItemOrder>
+  <WebPageItemTreePath>/Content_pages</WebPageItemTreePath>
+  <WebPageItemWebsiteChannelID>
+    <GUID>fdba40fe-1ece-4821-9d57-eaa1d89e13b1</GUID>
+    <ObjectType>cms.websitechannel</ObjectType>
+    <Parent>
+      <CodeName>TrainingGuidesPages</CodeName>
+      <GUID>5ba9c1e8-b61e-4570-b666-87a9b92bbe3b</GUID>
+      <ObjectType>cms.channel</ObjectType>
+    </Parent>
+  </WebPageItemWebsiteChannelID>
+</cms.webpageitem>

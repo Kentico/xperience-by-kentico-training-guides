@@ -48,6 +48,7 @@
         @include mixins.button-mixin(variables.$color-light);
     }
 
+    &.tg-bg-light-2,
     &.tg-bg-light-2:hover {
         @include mixins.button-mixin(variables.$color-light-secondary);
     }
