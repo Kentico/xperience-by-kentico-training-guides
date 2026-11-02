@@ -18,6 +18,10 @@
       "args": [
         "@playwright/mcp@latest"
       ]
+    },
+    "kentico-docs-mcp": {
+      "type": "http",
+      "url": "https://docs.kentico.com/mcp"
     }
   }
 }

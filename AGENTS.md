@@ -5,7 +5,7 @@ Instructions for AI coding assistants working in this repository. Tool-agnostic 
 ## Project overview
 
 - **Name:** TrainingGuides
-- **Stack:** Xperience by Kentico 31.9.0, .NET 10 (SDK `10.0.100`, see `src/global.json`), ASP.NET Core MVC + Razor views, SCSS compiled to CSS, unit tests on the `CMS.Tests` base, MJML starter kit for emails.
+- **Stack:** Xperience by Kentico 31.9.1, .NET 10 (SDK `10.0.100`, see `src/global.json`), ASP.NET Core MVC + Razor views, SCSS compiled to CSS, unit tests on the `CMS.Tests` base, MJML starter kit for emails.
 - **Purpose:** Reference/demo site backing the Kentico Training Guides — each feature folder demonstrates one Xperience capability (Page Builder widgets, commerce, membership, data protection, personalization, email builder).
 - **Running app URL:** <https://localhost:53415> (see `src/TrainingGuides.Web/Properties/launchSettings.json`). The admin UI is at `/admin`.
 

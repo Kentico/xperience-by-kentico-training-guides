@@ -371,3 +371,6 @@ src/TrainingGuides.Web/License/
 
 # Playwright MCP working folder (screenshots, snapshots, console logs)
 .playwright-mcp/
+
+# Local task notes for deferred work (kept out of the repo)
+docs/tasks/
