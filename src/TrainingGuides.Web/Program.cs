@@ -11,6 +11,7 @@ using Kentico.OnlineMarketing.Web.Mvc;
 using Kentico.PageBuilder.Web.Mvc;
 using Kentico.Web.Mvc;
 using Kentico.Xperience.Admin.Base;
+using Kentico.Xperience.ManagementApi;
 using Kentico.Xperience.Mjml;
 using Kentico.Xperience.Mjml.StarterKit.Rcl;
 using Microsoft.AspNetCore.Identity;
@@ -161,6 +162,24 @@ builder.Services.AddAuthorization();
 
 builder.Services.AddAuthentication();
 
+// Management API - powers the Xperience Management MCP server.
+// Local development only: it provides basic authentication and no per-operation authorization,
+// so it must never be enabled for production or any publicly reachable instance.
+// Opt in by supplying a secret of at least 32 characters, either as the "ManagementApiSecret"
+// configuration value (user secrets are already set up for this project) or as the
+// MANAGEMENT_API_SECRET environment variable, which is also what the MCP server reads.
+// Registered after the authentication and authorization services it builds on.
+string? managementApiSecret = builder.Environment.IsDevelopment()
+    ? builder.Configuration["ManagementApiSecret"] ?? builder.Configuration["MANAGEMENT_API_SECRET"]
+    : null;
+
+bool managementApiEnabled = !string.IsNullOrWhiteSpace(managementApiSecret);
+
+if (managementApiEnabled)
+{
+    builder.Services.AddKenticoManagementApi(options => options.Secret = managementApiSecret!);
+}
+
 builder.Services.AddUnobtrusiveAjax();
 
 builder.Services.AddTrainingGuidesServices();
@@ -186,6 +205,12 @@ app.UseStaticFiles();
 
 app.UseCookiePolicy();
 app.UseAuthentication();
+
+if (managementApiEnabled)
+{
+    app.UseKenticoManagementApi();
+}
+
 app.UseKentico();
 app.UseAuthorization();
 

@@ -1,4 +1,4 @@
-﻿using CMS.ContentEngine;
+using CMS.ContentEngine;
 using CMS.DataEngine;
 using CMS.Websites.Routing;
 using Kentico.Content.Web.Mvc;
@@ -212,6 +212,34 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
     }
 
     /// <inheritdoc />
+    public async Task<IContentItemFieldsSource?> RetrieveContentItemByGuid(
+        Guid contentItemGuid,
+        IEnumerable<string> contentTypeNames,
+        int depth = 1,
+        bool includeSecuredItems = true,
+        string? languageName = null)
+    {
+        // Naming the content types is what makes the content type-specific fields available on an
+        // item whose type is not known in advance. Going through IContentRetriever also caches the
+        // result, with cache dependencies on the item collected automatically.
+        var parameters = new RetrieveContentOfContentTypesParameters
+        {
+            LinkedItemsMaxLevel = depth,
+            LanguageName = languageName ?? preferredLanguageRetriever.Get(),
+            IsForPreview = webSiteChannelContext.IsPreview,
+            IncludeSecuredItems = includeSecuredItems
+        };
+
+        var items = await contentRetriever.RetrieveContentOfContentTypesByGuids<IContentItemFieldsSource>(
+            contentTypeNames,
+            [contentItemGuid],
+            parameters);
+
+        return items.FirstOrDefault();
+    }
+
+
+    /// <inheritdoc />
     public async Task<IEnumerable<T>> RetrieveReusableContentItemsFromSmartFolder<T>(
         Guid smartFolderGuid,
         OrderByOption orderBy,
@@ -370,6 +398,59 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
         return pages.FirstOrDefault();
     }
 
+    /// <inheritdoc />
+    public async Task<IWebPageFieldsSource?> RetrieveWebPageByContentItemGuid(
+        Guid pageContentItemGuid,
+        IEnumerable<string> contentTypeNames,
+        int depth = 2,
+        bool includeSecuredItems = true,
+        string? languageName = null)
+    {
+        var parameters = new RetrievePagesOfContentTypesParameters
+        {
+            LinkedItemsMaxLevel = depth,
+            LanguageName = languageName ?? preferredLanguageRetriever.Get(),
+            IsForPreview = webSiteChannelContext.IsPreview,
+            IncludeSecuredItems = includeSecuredItems
+        };
+
+        // The where condition changes the query, so the cache key needs a suffix that tells this
+        // page apart from every other one retrieved with the same content types.
+        var pages = await contentRetriever.RetrievePagesOfContentTypes<IWebPageFieldsSource>(
+            contentTypeNames,
+            parameters,
+            query => query.Where(where => where.WhereEquals(nameof(ContentItemFields.ContentItemGUID), pageContentItemGuid)),
+            new RetrievalCacheSettings(cacheItemNameSuffix: $"{nameof(ContentItemFields.ContentItemGUID)}|{pageContentItemGuid}"),
+            configureModel: null);
+
+        return pages.FirstOrDefault();
+    }
+
+    /// <inheritdoc />
+    public async Task<IWebPageFieldsSource?> RetrieveWebPageForUrlByContentItemGuid(
+        Guid pageContentItemGuid,
+        bool includeSecuredItems = true,
+        string? languageName = null)
+    {
+        // Only the URL is needed, so no content type is named, no content type fields are read and
+        // no linked items are loaded. URL path data is included by default.
+        var parameters = new RetrieveAllPagesParameters
+        {
+            IncludeContentTypeFields = false,
+            LanguageName = languageName ?? preferredLanguageRetriever.Get(),
+            IsForPreview = webSiteChannelContext.IsPreview,
+            IncludeSecuredItems = includeSecuredItems
+        };
+
+        var pages = await contentRetriever.RetrieveAllPages<IWebPageFieldsSource>(
+            parameters,
+            query => query.Where(where => where.WhereEquals(nameof(ContentItemFields.ContentItemGUID), pageContentItemGuid)),
+            new RetrievalCacheSettings(cacheItemNameSuffix: $"{nameof(ContentItemFields.ContentItemGUID)}|{pageContentItemGuid}"),
+            configureModel: null);
+
+        return pages.FirstOrDefault();
+    }
+
 
     private async Task<IEnumerable<IWebPageFieldsSource>> RetrieveWebPages(
         Action<ContentQueryParameters> parameters,
@@ -379,8 +460,8 @@ public class ContentItemRetrieverService : IContentItemRetrieverService
     {
         var builder = new ContentItemQueryBuilder()
             .ForContentTypes(query => query
-            .WithLinkedItems(depth, options => options.IncludeWebPageData(true))
-            .ForWebsite(webSiteChannelContext.WebsiteChannelName))
+                .WithLinkedItems(depth, options => options.IncludeWebPageData(true))
+                .ForWebsite(webSiteChannelContext.WebsiteChannelName))
         .Parameters(parameters)
         .InLanguage(languageName ?? preferredLanguageRetriever.Get());
 

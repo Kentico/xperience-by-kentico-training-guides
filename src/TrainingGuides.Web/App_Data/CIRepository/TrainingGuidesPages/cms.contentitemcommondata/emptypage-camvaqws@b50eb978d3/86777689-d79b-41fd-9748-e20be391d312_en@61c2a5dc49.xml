@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentitemcommondata>
+  <ContentItemCommonDataContentItemID>
+    <CodeName>EmptyPage-camvaqws</CodeName>
+    <GUID>82a3dff8-1072-48b1-9a2f-1a8e1eeab0cf</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </ContentItemCommonDataContentItemID>
+  <ContentItemCommonDataContentLanguageID>
+    <CodeName>en</CodeName>
+    <GUID>e81b5172-f240-4041-88b1-653089984e29</GUID>
+    <ObjectType>cms.contentlanguage</ObjectType>
+  </ContentItemCommonDataContentLanguageID>
+  <ContentItemCommonDataFirstPublishedWhen>2026-10-06 15:22:13Z</ContentItemCommonDataFirstPublishedWhen>
+  <ContentItemCommonDataGUID>86777689-d79b-41fd-9748-e20be391d312</ContentItemCommonDataGUID>
+  <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
+  <ContentItemCommonDataLastPublishedWhen>2026-10-06 15:26:58Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
+  <ContentItemCommonDataVisualBuilderTemplateConfiguration>
+<![CDATA[
+{
+  "identifier": "TrainingGuides.GeneralPageTemplate",
+  "properties": {
+    "colorScheme": "TransparentDark",
+    "cornerStyle": "Round",
+    "columnLayout": "OneColumn"
+  },
+  "fieldIdentifiers": {
+    "colorScheme": "e1bb6cef-33dc-45ab-b16c-74ac786439a6",
+    "cornerStyle": "5f9a8ab0-5c6a-4bb2-b57b-39eb890f15f1",
+    "columnLayout": "e5da1c40-f920-4891-ba81-fe4a2607b35c"
+  }
+}
+]]>
+  </ContentItemCommonDataVisualBuilderTemplateConfiguration>
+  <ContentItemCommonDataVisualBuilderWidgets>
+<![CDATA[
+{
+  "editableAreas": [
+    {
+      "identifier": "areaMain",
+      "sections": [
+        {
+          "identifier": "9b0b0191-8354-4458-b917-8d11480d5385",
+          "type": "TrainingGuides.GeneralSection",
+          "properties": {
+            "sectionAnchor": "",
+            "colorScheme": "TransparentDark",
+            "cornerStyle": "Round",
+            "columnLayout": "OneColumn"
+          },
+          "zones": [
+            {
+              "identifier": "1a55d843-3320-41ee-a37d-ca02c7f6a81c",
+              "name": "zoneMain",
+              "widgets": [
+                {
+                  "identifier": "5a78cea1-2374-4f26-a7f2-26f16626a320",
+                  "type": "TrainingGuides.ContentPromotionWidget",
+                  "variants": [
+                    {
+                      "identifier": "6a7d90a7-a2aa-47ac-a6a9-8ba5c752ec4f",
+                      "properties": {
+                        "contentSource": "page",
+                        "selectedPage": [
+                          {
+                            "identifier": "82600b91-1df6-4008-a003-f4ffffbfe697"
+                          }
+                        ],
+                        "selectedContentItem": [],
+                        "title": "",
+                        "description": "",
+                        "image": [],
+                        "showExtras": false,
+                        "callToActionText": "Find out more",
+                        "linkTargetPage": [],
+                        "linkUrl": "",
+                        "openInNewTab": false,
+                        "trackingValue": "interview-jack-trott",
+                        "hideElements": [],
+                        "showAdvanced": true,
+                        "cardDesign": "Gradient",
+                        "colorScheme": "Light1",
+                        "columnLayout": "TwoColumnEven",
+                        "textAlignment": "Center",
+                        "cornerStyle": "Round",
+                        "callToActionStyle": "Dark"
+                      },
+                      "fieldIdentifiers": {
+                        "contentSource": "ba6d1e63-9105-4edf-bcab-4db408468242",
+                        "selectedPage": "1e492d02-829c-4c8b-a94f-a1a2e4f9da44",
+                        "selectedContentItem": "b3d2b8fb-164e-454d-9dc9-92d00b71ae62",
+                        "title": "bfce876d-b27b-4567-985c-3f9adfc7eea0",
+                        "description": "9489168d-3a17-40c6-b700-316739aeb23f",
+                        "image": "6f2dbff5-5d7e-4d27-b2e4-41f2e7d56b82",
+                        "showExtras": "143e5292-d09d-433d-8758-242950c524a3",
+                        "callToActionText": "85c9b892-ec1f-4657-921e-82792ccb25f7",
+                        "linkTargetPage": "5308afba-3c10-4333-9a40-ae5df493eec4",
+                        "linkUrl": "732c54a4-25c2-455a-b0f0-0591ff8fefae",
+                        "openInNewTab": "71c4914c-a4dd-481a-bad2-84cfd6fb922c",
+                        "trackingValue": "ba2d944d-77e0-4e8d-85d0-b775bf94d2f7",
+                        "hideElements": "864b8575-69f0-4a08-b5f1-914ed84b4311",
+                        "showAdvanced": "3c574adf-1312-4d11-ab97-88f77f0dec82",
+                        "cardDesign": "122fcbc7-bf27-47c9-83d5-4f9457424a0f",
+                        "colorScheme": "255549cc-cf64-4441-bd12-3295d070edac",
+                        "columnLayout": "c418376a-a218-4dcb-8e28-45a24753565f",
+                        "textAlignment": "512a6d3e-ba14-48a1-8967-5c9a1e4a98d6",
+                        "cornerStyle": "5c6ce094-dc7b-456f-9e4e-53ecdcc20f1f",
+                        "callToActionStyle": "0d2bd20c-9987-4844-a65b-70fad3d211fc"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "fieldIdentifiers": {
+            "sectionAnchor": "b297178d-5797-4c19-ac2c-a372894ae8da",
+            "colorScheme": "966794e1-3240-42a9-8f07-584d0074fc59",
+            "cornerStyle": "7866f97b-4838-4b8a-a060-3d7f5c61c855",
+            "columnLayout": "5c3aef18-11b9-476d-8301-5b5ded503fbf"
+          }
+        }
+      ]
+    }
+  ]
+}
+]]>
+  </ContentItemCommonDataVisualBuilderWidgets>
+  <ContentItemReferences>
+    <cms.contentitemreference>
+      <ContentItemReferenceGroupGUID>1e492d02-829c-4c8b-a94f-a1a2e4f9da44</ContentItemReferenceGroupGUID>
+      <ContentItemReferenceGUID>4b2317ae-baae-45da-865c-fba5fd147beb</ContentItemReferenceGUID>
+      <ContentItemReferenceSourceCommonDataID>
+        <GUID>86777689-d79b-41fd-9748-e20be391d312</GUID>
+        <ObjectType>cms.contentitemcommondata</ObjectType>
+      </ContentItemReferenceSourceCommonDataID>
+      <ContentItemReferenceTargetItemID>
+        <CodeName>BeanPlantCultivation_AnInterviewWithJackTrott-r2dn92hl</CodeName>
+        <GUID>82600b91-1df6-4008-a003-f4ffffbfe697</GUID>
+        <ObjectType>cms.contentitem</ObjectType>
+      </ContentItemReferenceTargetItemID>
+    </cms.contentitemreference>
+  </ContentItemReferences>
+</cms.contentitemcommondata>
