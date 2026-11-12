@@ -1,4 +1,5 @@
 import { expect, test as base } from '@playwright/test';
+import { findLoggedActivity } from '../admin/contactActivities';
 import { type CreatedPage, createEmptyPage, deletePagePermanently, publishOpenPage } from '../admin/websiteChannelPages';
 import { ContentPromotionEditor, type ManualPromotion } from './contentPromotionEditor';
 
@@ -11,7 +12,18 @@ const test = base.extend<{ testPage: CreatedPage }>({
   },
 });
 
-test('an editor publishes a manual promotion and a visitor clicks it', async ({ page, browser, baseURL, testPage }) => {
+/** The project's video setting, applied to a context the test creates itself. Off unless video is on. */
+function visitorVideoOptions(): { dir: string; size?: { width: number; height: number } } | undefined {
+  const video = test.info().project.use.video;
+  const mode = typeof video === 'string' ? video : video?.mode;
+  if (!mode || mode === 'off') {
+    return undefined;
+  }
+
+  return { dir: test.info().outputPath('visitor-video'), size: typeof video === 'object' ? video.size : undefined };
+}
+
+test('an editor publishes a manual promotion, a visitor clicks it and the click is logged', async ({ page, browser, baseURL, testPage }) => {
   const editor = new ContentPromotionEditor(page);
   const promotion: ManualPromotion = {
     title: 'Talk to an adviser',
@@ -50,7 +62,13 @@ test('an editor publishes a manual promotion and a visitor clicks it', async ({ 
   });
 
   // A fresh context with no cookies: an anonymous visitor, not the signed-in editor.
-  const visitorContext = await browser.newContext({ baseURL, ignoreHTTPSErrors: true, storageState: { cookies: [], origins: [] } });
+  // Playwright records video only for the test's own page, so the visitor asks for it explicitly.
+  const visitorContext = await browser.newContext({
+    baseURL,
+    ignoreHTTPSErrors: true,
+    storageState: { cookies: [], origins: [] },
+    recordVideo: visitorVideoOptions(),
+  });
   const visitor = await visitorContext.newPage();
   const card = visitor.locator('.c-content-promotion');
 
@@ -85,6 +103,18 @@ test('an editor publishes a manual promotion and a visitor clicks it', async ({ 
       await expect(visitor).toHaveURL(promotion.linkUrl);
     });
   } finally {
+    // The video is written when its context closes.
     await visitorContext.close();
+    const videoPath = await visitor.video()?.path();
+    if (videoPath) {
+      await test.info().attach('visitor video', { path: videoPath, contentType: 'video/webm' });
+    }
   }
+
+  await test.step('the click shows in the activity log', async () => {
+    const activity = await findLoggedActivity(page, promotion.trackingValue);
+
+    await expect(activity.getByRole('cell', { name: `Content promotion click - ${promotion.trackingValue}`, exact: true })).toBeVisible();
+    await expect(activity.getByRole('cell', { name: 'Content promotion click', exact: true })).toBeVisible();
+  });
 });

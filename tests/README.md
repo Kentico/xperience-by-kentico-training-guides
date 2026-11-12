@@ -6,7 +6,8 @@ administration, Page Builder and the live site. They complement the unit tests i
 
 The first suite covers the content promotion widget: an editor adds it to a new page, configures
 it in manual mode and publishes the page, then a visitor sees the card, gives cookie consent and
-clicks it, which logs the click activity.
+clicks it. Back in the administration, the editor finds the logged click in Contact management →
+Activities.
 
 ## Layout
 
@@ -21,6 +22,7 @@ tests/
     ├── shared/config.ts         # every environment variable, with defaults
     ├── admin/                   # signing in, plus page lifecycle any admin test can reuse
     │   ├── auth.setup.ts
+    │   ├── contactActivities.ts
     │   └── websiteChannelPages.ts
     └── content-promotion/
         ├── contentPromotionEditor.ts
@@ -116,6 +118,13 @@ These were found by exploring the UI with the Playwright MCP and are not visible
   after that.
 - **Click tracking uses `navigator.sendBeacon`.** `page.waitForRequest` still sees it (resource
   type `ping`), so the request body can be asserted.
+- **The Activities listing searches on Enter**, not as you type. A logged activity may also take a
+  moment to appear, so repeat the search until the row shows up (`expect(...).toPass()`).
+- **"Contact management" is linked twice** under Digital marketing (the application list and a
+  tile). Scope the click to `getByTestId('application-list')`.
+- **Video covers only the test's own `page`.** A context the test creates itself, like the visitor's,
+  needs `recordVideo` passed to `browser.newContext`. The spec does that whenever the project's
+  `video` option is on, and attaches the visitor's video to the report.
 
 ## Adding a test
 

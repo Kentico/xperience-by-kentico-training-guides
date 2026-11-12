@@ -24,7 +24,8 @@ Instructions for AI coding assistants working in this repository. Tool-agnostic 
 | `src/TrainingGuides.Admin/` | Admin UI customizations — custom pages, extenders, localization. |
 | `src/TrainingGuides.Web.Tests/` | Unit tests for the web project, mirroring the `Features/` structure. |
 | `src/TrainingGuides.Admin.Tests/` | Unit tests for admin customizations. |
-| `tests/` | Playwright end-to-end tests, grouped by feature. See `docs/E2E-Testing.md`. |
+| `tests/` | Playwright end-to-end tests, grouped by feature. See `tests/README.md`. |
+| `docs/` | Specifications, example deliverables and follow-up tasks from agentic development. See `docs/README.md`. |
 | `src/Directory.Packages.props` | Central package version management — change package versions here, not in individual `.csproj` files. |
 | `src/.editorconfig` | Authoritative formatting and analyzer rules. |
 | `scripts/` | PowerShell helpers for CI restore/store, code generation, publishing. |
@@ -120,7 +121,7 @@ Full instructions: <https://docs.kentico.com/documentation/developers-and-admins
 ## Validation of changes
 
 - Always build the solution and run the relevant tests after making changes.
-- End-to-end tests: read `docs/E2E-Testing.md` before writing one or changing a flow under `tests/e2e/`, then run the suite.
+- End-to-end tests: read `tests/README.md` before writing one or changing a flow under `tests/e2e/`, then run the suite.
 - If you touched SCSS, confirm the compiled CSS in `wwwroot/assets/css` was regenerated and is consistent with the source.
 - If you touched the content model, regenerate entity code and store CI data.
 - Always validate user-facing changes for content, layout, styling and localization correctness before committing.
