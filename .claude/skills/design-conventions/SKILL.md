@@ -58,6 +58,11 @@ Compilation is driven by the **Live Sass Compile** VS Code extension, configured
 
 ## Brand, typography and imagery guidelines
 
+> [!NOTE]
+> This is an example of a design section. The TODO placeholder has been intentionally preserved to show how the agent identifies areas that cannot yet be fully documented and need to be revisited once the required design guidelines are available.
+
+---
+
 > **TODO** — not documented yet. This repository has no committed brand, typography, spacing-scale, imagery or accessibility specification, so none is asserted here.
 >
 > If you have a design system or brand guideline to follow, add it to this section (or link it), covering: design direction, brand colors and logo usage, typographic scale, layout and spacing rules, the component inventory, imagery treatment, and the accessibility standard the site targets. Until then, follow the patterns already present in the SCSS partials rather than inventing new ones.
