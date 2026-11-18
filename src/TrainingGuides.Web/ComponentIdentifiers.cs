@@ -2,7 +2,12 @@
 using TrainingGuides.Web.Features.Activities.Widgets.PageLike;
 using TrainingGuides.Web.Features.Articles.EmailWidgets;
 using TrainingGuides.Web.Features.Articles.Widgets.ArticleList;
+using TrainingGuides.Web.Features.Commerce.Products.Widgets.ProductListing;
+using TrainingGuides.Web.Features.Commerce.Products.Widgets.ProductWidget;
+using TrainingGuides.Web.Features.ContentPromotion.Widgets.ContentPromotion;
 using TrainingGuides.Web.Features.DataProtection.Widgets.CookiePreferences;
+using TrainingGuides.Web.Features.FinancialServices.Widgets.Service;
+using TrainingGuides.Web.Features.FinancialServices.Widgets.ServiceComparator;
 using TrainingGuides.Web.Features.Gallery.Widgets.GalleryWidget;
 using TrainingGuides.Web.Features.Html.Widgets.HtmlCode;
 using TrainingGuides.Web.Features.LandingPages.Widgets.CallToAction;
@@ -12,15 +17,11 @@ using TrainingGuides.Web.Features.Membership.Widgets.LinkOrSignOut;
 using TrainingGuides.Web.Features.Membership.Widgets.Registration;
 using TrainingGuides.Web.Features.Membership.Widgets.ResetPassword;
 using TrainingGuides.Web.Features.Membership.Widgets.SignIn;
-using TrainingGuides.Web.Features.FinancialServices.Widgets.Service;
-using TrainingGuides.Web.Features.FinancialServices.Widgets.ServiceComparator;
 using TrainingGuides.Web.Features.Shared.EmailBuilder.Sections;
 using TrainingGuides.Web.Features.Shared.Sections.FormColumn;
 using TrainingGuides.Web.Features.Shared.Sections.General;
 using TrainingGuides.Web.Features.Shared.Sections.SingleColumn;
 using TrainingGuides.Web.Features.Videos.Widgets.VideoEmbed;
-using TrainingGuides.Web.Features.Commerce.Products.Widgets.ProductWidget;
-using TrainingGuides.Web.Features.Commerce.Products.Widgets.ProductListing;
 
 namespace TrainingGuides.Web;
 
@@ -53,6 +54,7 @@ public static class ComponentIdentifiers
         public const string LINK_OR_SIGN_OUT = LinkOrSignOutWidgetViewComponent.IDENTIFIER;
         public const string REGISTRATION = RegistrationWidgetViewComponent.IDENTIFIER;
         public const string RESET_PASSWORD = ResetPasswordWidgetViewComponent.IDENTIFIER;
+        public const string CONTENT_PROMOTION = ContentPromotionWidgetViewComponent.IDENTIFIER;
     }
 
     public static class EmailBuilderSections

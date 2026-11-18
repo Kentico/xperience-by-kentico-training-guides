@@ -6,6 +6,8 @@ $color-light-secondary: #efe6f9;
 $color-light-secondary-hover: #ebd8ff;
 $color-light-tertiary: #ebf5ff;
 $color-dark: #1e1a1b;
+$color-dark-secondary: #a3360b; // $color-secondary at 18% less lightness
+$color-darker-secondary: #7a2808; // $color-secondary at 36% less lightness
 
 $body-bg: $color-light;
 $body-color: $color-dark;
@@ -46,3 +48,6 @@ $hero-color-light: $color-light;
 $circles-hero-small-bg: $color-secondary;
 $circles-hero-medium-bg: $color-primary;
 $circles-hero-big-outline: $color-dark;
+
+$warning-bg: $color-dark-secondary;
+$warning-border: $color-darker-secondary;

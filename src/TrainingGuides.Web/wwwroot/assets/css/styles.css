@@ -195,7 +195,7 @@
   padding: 0.9375rem 2rem !important;
   text-transform: uppercase !important;
 }
-.btn.tg-bg-light-2:hover {
+.btn.tg-bg-light-2, .btn.tg-bg-light-2:hover {
   background-color: #efe6f9 !important;
   color: white !important;
   border: none !important;
@@ -340,6 +340,417 @@
 
 .c-card-anchor:hover .c-card.bg-1 {
   background-color: #ebd8ff;
+}
+
+/* Content promotion widget.
+
+   The card carries a single anchor, stretched over the whole surface with Bootstrap's
+   .stretched-link, so the card needs a positioned ancestor for that overlay to attach to.
+   Nothing else inside the card is interactive. */
+.c-content-promotion {
+  position: relative;
+  overflow: hidden;
+  gap: 1rem;
+}
+
+/* The card's width comes from the widget zone it sits in, which is almost never the viewport -
+   a three-column section on a wide screen hands each card only a few hundred pixels, and the
+   Page Builder canvas is narrower than the window it is shown in. Every breakpoint below
+   therefore queries this wrapper rather than the viewport, so the card reacts to the space it
+   was actually given and looks the same in the administration interface as on the live site. */
+.c-content-promotion-wrapper {
+  container-type: inline-size;
+}
+
+/* The media box carries its own proportions. Without them the box auto-sizes to the source
+   image, object-fit: cover has nothing to crop against, and a tall photo drives the card far
+   past the space the section gives it. Same shape as .c-card.home .c-card_img in _card.scss:
+   a sized box plus an image that covers it. */
+.c-content-promotion__media {
+  margin: 0;
+  overflow: hidden;
+  aspect-ratio: 16/9;
+}
+
+/* A wide card gets a wider crop rather than a taller image - 16/9 on a 1200px card is 675px of
+   photo before the title even starts. Stepping the ratio, rather than capping the height, keeps
+   the box at a ratio the design actually declares: a max-height silently wins over aspect-ratio
+   once the card passes the width where the two disagree, so the same photo was cropped one way
+   below that width and another way above it, with a visible jump in between. */
+@container (min-width: 60rem) {
+  .c-content-promotion__media {
+    aspect-ratio: 21/9;
+  }
+}
+.c-content-promotion__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.c-content-promotion__content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  /* Above the image overlay's scrim (z-index 1), so the text stays readable on that design.
+     Deliberately NOT position: relative - that would make this the stretched link's containing
+     block and shrink the clickable surface to the text column. Every design makes this a flex
+     or grid item, which is enough for z-index on its own.
+     The stretched link's overlay is painted inside this stacking context, so it covers the
+     text as well: the whole card, text included, is the link, and its text cannot be selected
+     with the mouse. A card without call to action text has no link and stays plain text. */
+  z-index: 2;
+}
+
+.c-content-promotion__content.align-left {
+  text-align: left;
+  align-items: flex-start;
+}
+
+.c-content-promotion__content.align-center {
+  text-align: center;
+  align-items: center;
+}
+
+.c-content-promotion__content.align-right {
+  text-align: right;
+  align-items: flex-end;
+}
+
+.c-content-promotion__title {
+  margin: 0;
+}
+
+/* The description is rich text from the content hub, so it arrives with blocks of its own -
+   paragraphs, lists, the occasional heading - each carrying Bootstrap's bottom margin. The
+   card owns the spacing between its parts through its own gap, so the block's outer margins
+   are collapsed and only the rhythm between its children is kept. */
+.c-content-promotion__description {
+  margin: 0;
+}
+.c-content-promotion__description > :first-child {
+  margin-top: 0;
+}
+.c-content-promotion__description > :last-child {
+  margin-bottom: 0;
+}
+.c-content-promotion__description p,
+.c-content-promotion__description ul,
+.c-content-promotion__description ol {
+  margin-bottom: 0.5rem;
+}
+.c-content-promotion__description {
+  /* Inherited from the card rather than from Bootstrap's heading scale: a promotion is a
+     summary, and a heading pasted into the source text should not outshout the card title. */
+}
+.c-content-promotion__description h1,
+.c-content-promotion__description h2,
+.c-content-promotion__description h3,
+.c-content-promotion__description h4,
+.c-content-promotion__description h5,
+.c-content-promotion__description h6 {
+  font-size: inherit;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.c-content-promotion__extras {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.c-content-promotion__categories {
+  margin: 0;
+}
+
+.c-content-promotion__category {
+  padding: 0.125rem 0.625rem;
+  border: 1px solid currentcolor;
+  border-radius: 1rem;
+}
+
+.c-content-promotion__benefits {
+  margin: 0;
+  padding-left: 1.125rem;
+}
+
+/* Benefit descriptions are rich text, so each list item usually holds a paragraph with Bootstrap's
+   bottom margin. The list owns the spacing, so the item's own outer margins are dropped. */
+.c-content-promotion__benefit > :first-child {
+  margin-top: 0;
+}
+
+.c-content-promotion__benefit > :last-child {
+  margin-bottom: 0;
+}
+
+.c-content-promotion__price {
+  font-weight: 600;
+  font-size: 1.125rem;
+}
+
+/* Price and stock are the only two extras that sit side by side on one line, and the flex gap
+   alone left them reading as a single phrase - "$24.99 In stock". The stock state is given the
+   same pill shape the categories use, which separates it from the price and matches the one
+   badge language the card already has. */
+.c-content-promotion__stock {
+  padding: 0.125rem 0.625rem;
+  border: 1px solid currentcolor;
+  border-radius: 1rem;
+  opacity: 0.8;
+}
+
+/* Out of stock is the one state worth saying out loud, and at 0.8 opacity in the card's own
+   text color it read exactly like "In stock". It keeps the pill and takes the brand's
+   attention color, which is the same one the rest of the site uses for emphasis. */
+.c-content-promotion__stock--out-of-stock {
+  color: #f0561a;
+  opacity: 1;
+}
+
+/* Image overlay and gradient paint their own dark ground, where the attention color does not
+   carry. Both already force light text, so the pill falls back to it. */
+.c-content-promotion--image-overlay .c-content-promotion__stock--out-of-stock,
+.c-content-promotion--gradient .c-content-promotion__stock--out-of-stock {
+  color: white;
+  font-weight: 600;
+}
+
+.c-content-promotion__cta {
+  margin-top: 0.5rem;
+  align-self: inherit;
+}
+
+/* Two call to action styles leave the pill with no visible edge: the "Plain link" options resolve
+   to .tg-bg-none, whose button-mixin sets background-color: none - not a color, so the declaration
+   is dropped - and "Button, light 1" paints the pill white, which is invisible on the light card
+   backgrounds it is most often paired with. Either way the anchor keeps the pill's padding and
+   radius with nothing drawn around it, and on a card whose whole surface is already clickable that
+   reads as a stray line of text rather than as the one thing to press. Outlining it restores the
+   edge the background would otherwise have given. !important only because the mixin sets border
+   with it. */
+.c-content-promotion__cta.tg-bg-none,
+.c-content-promotion__cta.tg-bg-light-1 {
+  border: 1px solid currentcolor !important;
+}
+
+/* Editor-only warning for a card visitors cannot click. It sits below the card, outside every card
+   design, so it carries its own colors. A solid, square block in the brand's attention color is the
+   one shape nothing else on the page uses, so it cannot be mistaken for content. The fill is that
+   color darkened: white text on the raw orange is under 4.5:1. */
+.c-content-promotion__warning {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+  padding: 1rem 1.125rem;
+  border: 2px solid #7a2808;
+  border-radius: 0;
+  background: #a3360b;
+  box-shadow: 0 4px 16px rgba(30, 26, 27, 0.25);
+  color: white;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  line-height: 1.45;
+  text-align: left;
+  /* A single sweep of light when the warning appears, so it is noticed among the page's
+     widgets without nagging. Behind the text: the negative z-index stays inside the isolated
+     stacking context and paints above the background. Kept faint so the white text never
+     loses its contrast while the band passes under it. */
+}
+.c-content-promotion__warning::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(110deg, transparent 30%, rgba(255, 255, 255, 0.3) 50%, transparent 70%);
+  transform: translateX(-100%);
+  animation: c-content-promotion-warning-sheen 1.6s ease-out 0.4s 1 both;
+  pointer-events: none;
+}
+.c-content-promotion__warning p {
+  margin: 0;
+}
+
+.c-content-promotion__warning-icon {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  background: white;
+  color: #a3360b;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.c-content-promotion__warning-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.c-content-promotion__warning-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+@keyframes c-content-promotion-warning-sheen {
+  to {
+    transform: translateX(100%);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .c-content-promotion__warning::after {
+    display: none;
+  }
+}
+/* Column layout - how the card splits between image and text. A card has two regions, so the
+   three-column options land on the even split (see GetColumnLayoutClass). Single column until
+   the card itself is wide enough in every case: a split card is unreadable in a narrow column,
+   whatever the viewport happens to be. */
+.c-content-promotion--stacked {
+  display: flex;
+  flex-direction: column;
+}
+
+.c-content-promotion--split-even,
+.c-content-promotion--split-lg-sm,
+.c-content-promotion--split-sm-lg {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+}
+
+@container (min-width: 34rem) {
+  .c-content-promotion--split-even .c-content-promotion__media,
+  .c-content-promotion--split-lg-sm .c-content-promotion__media,
+  .c-content-promotion--split-sm-lg .c-content-promotion__media {
+    aspect-ratio: 4/3;
+  }
+  .c-content-promotion--split-even {
+    grid-template-columns: 1fr 1fr;
+  }
+  .c-content-promotion--split-lg-sm {
+    grid-template-columns: 2fr 1fr;
+  }
+  .c-content-promotion--split-sm-lg {
+    grid-template-columns: 1fr 2fr;
+  }
+}
+/* Image overlay - the image becomes the card background and the text sits on top of it. Paints
+   its own background, so no color scheme is applied (see PaintsOwnBackground). The scrim is a
+   flat-color ::before, following the overlays in _article.scss and _section.scss. */
+/* Unlike gradient, this design overrides the column layout deliberately: the image is the card
+   background, so there is no image column to sit beside the text. */
+.c-content-promotion--image-overlay {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 20rem;
+  color: white;
+}
+
+.c-content-promotion--image-overlay .c-content-promotion__media {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  aspect-ratio: auto;
+}
+
+.c-content-promotion--image-overlay::before {
+  content: "";
+  display: block;
+  position: absolute;
+  inset: 0;
+  background: #1e1a1b;
+  opacity: 0.45;
+  z-index: 1;
+}
+
+.c-content-promotion--image-overlay .c-content-promotion__content {
+  justify-content: flex-end;
+}
+
+/* Gradient - the only gradient in this project. Runs between the two brand colors, which keeps
+   it recognizable rather than decorative. Paints its own background, so no color scheme. */
+/* No display here on purpose: the column layout class owns that, and setting it again would
+   silently drop every split layout back to a single column. */
+.c-content-promotion--gradient {
+  background: linear-gradient(135deg, #8107c1 0%, #f0561a 100%);
+  color: white;
+}
+
+.c-content-promotion--gradient .c-content-promotion__category {
+  border-color: white;
+}
+
+/* Spotlight - one prominent promotion, centered and given room. Extra room alone reads as a
+   slightly roomier standard card, so the design also lifts off the page: the two-layer shadow is
+   the one already used for the sticky header in _header.scss - a broad soft cast plus a tight
+   contact shadow - tinted from $color-dark rather than introducing a second elevation language.
+   The card's own border-radius carries the shadow, so every corner style stays correct. */
+.c-content-promotion--spotlight {
+  box-shadow: 0 8px 32px rgba(30, 26, 27, 0.18), 0 0 8px rgba(30, 26, 27, 0.04);
+}
+
+.c-content-promotion--spotlight .c-content-promotion__content {
+  max-width: 44rem;
+  margin: 0 auto;
+}
+
+.c-content-promotion--spotlight .c-content-promotion__title {
+  font-size: 2rem;
+}
+
+/* Qualified with .c-card so this outranks .c-card.md, which the view component always puts on the
+   card and which would otherwise win on specificity (0,2,0 against 0,1,0) and hold the padding at
+   1.5rem - the reason spotlight has never actually had the room this rule asks for. Matching .c-card
+   rather than .c-card.md keeps that true if the size class the widget emits ever changes. */
+@container (min-width: 34rem) {
+  .c-content-promotion--spotlight.c-card {
+    padding: 3rem 2rem;
+  }
+}
+/* Portrait - the image is locked to a portrait ratio so a row of these cards lines up. */
+.c-content-promotion--portrait .c-content-promotion__media {
+  aspect-ratio: 3/4;
+}
+
+/* Portrait is the one design whose height grows faster than the card does, so it is the one that
+   still needs a ceiling - 3/4 on a full-width card is a 1600px image. Capping the width rather
+   than the height keeps the box exactly 3:4 at every size, which is the whole point of a design
+   named for its proportions; the image simply stops growing and centers once the card outgrows
+   it. 27rem lands the ceiling at the same 36rem of height the old max-height enforced, and the
+   cap is unconditional because the card width it bites at has nothing to do with any breakpoint. */
+.c-content-promotion--portrait .c-content-promotion__media {
+  max-width: 27rem;
+  margin-inline: auto;
+}
+
+/* The capped media is centered, so the text has to be capped and centered with it - otherwise
+   the copy starts at the card's padding edge, left of the image it sits under. Stacked only: a
+   split card puts image and text in separate columns on purpose, and there is nothing to line
+   the text up with. */
+.c-content-promotion--portrait.c-content-promotion--stacked .c-content-promotion__content {
+  width: 100%;
+  max-width: 27rem;
+  margin-inline: auto;
+}
+
+.c-content-promotion--portrait .c-content-promotion__image {
+  height: 100%;
 }
 
 .xpcookiebanner {

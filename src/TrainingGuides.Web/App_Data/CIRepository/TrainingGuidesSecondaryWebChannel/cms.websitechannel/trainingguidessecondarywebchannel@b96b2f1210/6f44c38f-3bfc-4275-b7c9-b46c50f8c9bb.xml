@@ -8,6 +8,7 @@
   <WebsiteChannelDefaultCookieLevel>1000</WebsiteChannelDefaultCookieLevel>
   <WebsiteChannelDomain>127.1.2.3</WebsiteChannelDomain>
   <WebsiteChannelGUID>6f44c38f-3bfc-4275-b7c9-b46c50f8c9bb</WebsiteChannelGUID>
+  <WebsiteChannelLanguageRoutingMode>0</WebsiteChannelLanguageRoutingMode>
   <WebsiteChannelPrimaryContentLanguageID>
     <CodeName>en</CodeName>
     <GUID>e81b5172-f240-4041-88b1-653089984e29</GUID>
