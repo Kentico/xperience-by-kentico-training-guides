@@ -13,7 +13,7 @@
   <ContentItemCommonDataFirstPublishedWhen>2024-02-05 17:57:39Z</ContentItemCommonDataFirstPublishedWhen>
   <ContentItemCommonDataGUID>2bc61792-947f-4750-92a3-11a3f0b2e1a1</ContentItemCommonDataGUID>
   <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
-  <ContentItemCommonDataLastPublishedWhen>2026-02-19 17:49:14Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataLastPublishedWhen>2026-11-18 09:52:33Z</ContentItemCommonDataLastPublishedWhen>
   <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
   <ContentItemCommonDataVisualBuilderTemplateConfiguration>
 <![CDATA[
@@ -310,6 +310,80 @@
           "fieldIdentifiers": {
             "sectionAnchor": "61d9d55a-1fe3-4e93-959c-107552e8f1d6"
           }
+        },
+        {
+          "identifier": "9fa52356-963c-4848-bfda-f201abf9abab",
+          "type": "TrainingGuides.SingleColumnSection",
+          "properties": {
+            "sectionAnchor": ""
+          },
+          "zones": [
+            {
+              "identifier": "a38dbb85-929c-492e-8f77-c745f9e13420",
+              "widgets": [
+                {
+                  "identifier": "b025377a-1af5-481e-b9fa-46554847aaf6",
+                  "type": "TrainingGuides.ContentPromotionWidget",
+                  "variants": [
+                    {
+                      "identifier": "df31b07a-44cb-45b2-9bb5-22ccc1518460",
+                      "properties": {
+                        "contentSource": "page",
+                        "selectedPage": [
+                          {
+                            "identifier": "82600b91-1df6-4008-a003-f4ffffbfe697"
+                          }
+                        ],
+                        "selectedContentItem": [],
+                        "title": "",
+                        "description": "",
+                        "image": [],
+                        "showExtras": false,
+                        "callToActionText": "Find out more",
+                        "linkTargetPage": [],
+                        "linkUrl": "",
+                        "openInNewTab": false,
+                        "trackingValue": "button-click",
+                        "hideElements": [],
+                        "showAdvanced": true,
+                        "cardDesign": "Standard",
+                        "colorScheme": "Dark1",
+                        "columnLayout": "TwoColumnEven",
+                        "textAlignment": "Left",
+                        "cornerStyle": "VeryRound",
+                        "callToActionStyle": "Medium"
+                      },
+                      "fieldIdentifiers": {
+                        "contentSource": "b0bc992d-2ef0-47dc-8dcb-34c7f69cfa81",
+                        "selectedPage": "adfead94-5c3d-4aa1-a9ff-9cc418637d0e",
+                        "selectedContentItem": "97668e76-6a1e-4eac-88ba-89051933e319",
+                        "title": "1e124af9-4fc3-4470-bcd5-d472e94d1d80",
+                        "description": "70d6d4b9-8b5f-4986-85e0-ed905e569df4",
+                        "image": "b99b8456-1785-4198-94bc-379e0c9de034",
+                        "showExtras": "d171dd8e-5186-47fa-8dd8-6143a85a6fdd",
+                        "callToActionText": "eb5a40b1-0f30-4df7-b525-cedd2f505a8d",
+                        "linkTargetPage": "39851175-6606-475b-b550-d7db21a884f6",
+                        "linkUrl": "e9a0bd4d-454f-4792-82be-d0c066ff16b3",
+                        "openInNewTab": "c3cc9a7c-e680-4867-84bc-86122de92ca7",
+                        "trackingValue": "3cf3d5e6-77d3-4b77-9ff6-9b651db25b4d",
+                        "hideElements": "189fad1a-776c-4216-ad93-2877fdbf3f30",
+                        "showAdvanced": "07fd6618-6783-452a-8814-94b5977a1b88",
+                        "cardDesign": "21c680d1-0f3d-4166-a841-c44d971ee670",
+                        "colorScheme": "75467d57-8270-4cce-bcb4-8811d08afa81",
+                        "columnLayout": "5e7d0b47-d454-4bcf-8a19-8061e2666dfb",
+                        "textAlignment": "6e874e5f-a64d-4fea-a646-6b7cb076af17",
+                        "cornerStyle": "d3dab9c6-6890-44bb-af8c-b7c3f7a516b4",
+                        "callToActionStyle": "dc6ad1a1-383e-4e5c-8bed-bc5e61fe0190"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "fieldIdentifiers": {
+            "sectionAnchor": "b0b25af1-81d4-459f-abaf-d8c197f9e1e7"
+          }
         }
       ]
     }
@@ -320,7 +394,7 @@
   <ContentItemReferences>
     <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>d8d852f2-1c7a-4a6d-bb7d-61c507347d9b</ContentItemReferenceGroupGUID>
-      <ContentItemReferenceGUID>04b980f3-f1ef-4d8d-a62a-5ebfce8076cb</ContentItemReferenceGUID>
+      <ContentItemReferenceGUID>e597fcd6-d14b-4a51-a6a2-201f0dbde9bb</ContentItemReferenceGUID>
       <ContentItemReferenceSourceCommonDataID>
         <GUID>2bc61792-947f-4750-92a3-11a3f0b2e1a1</GUID>
         <ObjectType>cms.contentitemcommondata</ObjectType>
@@ -332,8 +406,21 @@
       </ContentItemReferenceTargetItemID>
     </cms.contentitemreference>
     <cms.contentitemreference>
+      <ContentItemReferenceGroupGUID>adfead94-5c3d-4aa1-a9ff-9cc418637d0e</ContentItemReferenceGroupGUID>
+      <ContentItemReferenceGUID>3f242723-a559-43ba-80dd-615cad63b4a5</ContentItemReferenceGUID>
+      <ContentItemReferenceSourceCommonDataID>
+        <GUID>2bc61792-947f-4750-92a3-11a3f0b2e1a1</GUID>
+        <ObjectType>cms.contentitemcommondata</ObjectType>
+      </ContentItemReferenceSourceCommonDataID>
+      <ContentItemReferenceTargetItemID>
+        <CodeName>BeanPlantCultivation_AnInterviewWithJackTrott-r2dn92hl</CodeName>
+        <GUID>82600b91-1df6-4008-a003-f4ffffbfe697</GUID>
+        <ObjectType>cms.contentitem</ObjectType>
+      </ContentItemReferenceTargetItemID>
+    </cms.contentitemreference>
+    <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>e637ae72-0060-4aaa-86b8-cf9f6a00393d</ContentItemReferenceGroupGUID>
-      <ContentItemReferenceGUID>622da861-9973-40a2-aa30-82b8908f4446</ContentItemReferenceGUID>
+      <ContentItemReferenceGUID>78052cb1-ff01-4305-8fed-62b120a5bfcc</ContentItemReferenceGUID>
       <ContentItemReferenceSourceCommonDataID>
         <GUID>2bc61792-947f-4750-92a3-11a3f0b2e1a1</GUID>
         <ObjectType>cms.contentitemcommondata</ObjectType>
@@ -346,7 +433,7 @@
     </cms.contentitemreference>
     <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>e637ae72-0060-4aaa-86b8-cf9f6a00393d</ContentItemReferenceGroupGUID>
-      <ContentItemReferenceGUID>efc12c39-3318-42fb-a717-f0e912946993</ContentItemReferenceGUID>
+      <ContentItemReferenceGUID>350a9b1f-db4c-46cd-b6d1-6e1b3ba03f61</ContentItemReferenceGUID>
       <ContentItemReferenceSourceCommonDataID>
         <GUID>2bc61792-947f-4750-92a3-11a3f0b2e1a1</GUID>
         <ObjectType>cms.contentitemcommondata</ObjectType>
@@ -359,7 +446,7 @@
     </cms.contentitemreference>
     <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>73ff6341-f3b5-4098-86e0-e88e1a5ec1f7</ContentItemReferenceGroupGUID>
-      <ContentItemReferenceGUID>3c9dd2f8-948a-4970-8d0d-6ae4e7f5c39e</ContentItemReferenceGUID>
+      <ContentItemReferenceGUID>e6386243-f38b-44c5-895b-9fcf470f5973</ContentItemReferenceGUID>
       <ContentItemReferenceSourceCommonDataID>
         <GUID>2bc61792-947f-4750-92a3-11a3f0b2e1a1</GUID>
         <ObjectType>cms.contentitemcommondata</ObjectType>
@@ -372,7 +459,7 @@
     </cms.contentitemreference>
     <cms.contentitemreference>
       <ContentItemReferenceGroupGUID>2c515840-51cc-463d-9ecc-fd9fa557f731</ContentItemReferenceGroupGUID>
-      <ContentItemReferenceGUID>ee8acb33-6466-41e6-8ead-3df45ed47bcb</ContentItemReferenceGUID>
+      <ContentItemReferenceGUID>cbc2bd32-359f-4b5e-a9c7-10c98c9df03e</ContentItemReferenceGUID>
       <ContentItemReferenceSourceCommonDataID>
         <GUID>2bc61792-947f-4750-92a3-11a3f0b2e1a1</GUID>
         <ObjectType>cms.contentitemcommondata</ObjectType>
