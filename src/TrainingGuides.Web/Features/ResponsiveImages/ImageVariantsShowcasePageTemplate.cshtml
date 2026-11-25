@@ -1,0 +1,19 @@
+@using TrainingGuides.Web.Features.Articles
+
+@model TemplateViewModel
+
+@{
+    var templateModel = Model.GetTemplateModel<ArticlePageViewModel>();
+}
+
+<div class="c-card md bg-1 u-border-02">
+    <div class="c-post_body">
+        <h1>
+            @templateModel.Title
+        </h1>
+    </div>
+</div>
+<vc:image-variants-showcase />
+<div>
+    <editable-area area-identifier="areaMain" />
+</div>

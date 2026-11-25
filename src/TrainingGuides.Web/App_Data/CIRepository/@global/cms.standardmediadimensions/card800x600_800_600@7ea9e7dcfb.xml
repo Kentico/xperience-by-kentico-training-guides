@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.standardmediadimensions>
+  <StandardMediaDimensionsDisplayName>Card 4:3</StandardMediaDimensionsDisplayName>
+  <StandardMediaDimensionsGUID>7d2ac5a0-3243-4fd4-b9b2-33f3e2a61164</StandardMediaDimensionsGUID>
+  <StandardMediaDimensionsHeight>600</StandardMediaDimensionsHeight>
+  <StandardMediaDimensionsName>Card800x600</StandardMediaDimensionsName>
+  <StandardMediaDimensionsTransformationType>SmartCrop</StandardMediaDimensionsTransformationType>
+  <StandardMediaDimensionsWidth>800</StandardMediaDimensionsWidth>
+</cms.standardmediadimensions>

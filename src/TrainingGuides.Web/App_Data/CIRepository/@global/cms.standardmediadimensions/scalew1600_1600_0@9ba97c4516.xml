@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.standardmediadimensions>
+  <StandardMediaDimensionsDisplayName>Responsive L</StandardMediaDimensionsDisplayName>
+  <StandardMediaDimensionsGUID>2b498d12-bd1c-46be-bf30-e677f2c42bbe</StandardMediaDimensionsGUID>
+  <StandardMediaDimensionsHeight>0</StandardMediaDimensionsHeight>
+  <StandardMediaDimensionsName>ScaleW1600</StandardMediaDimensionsName>
+  <StandardMediaDimensionsTransformationType>Scale</StandardMediaDimensionsTransformationType>
+  <StandardMediaDimensionsWidth>1600</StandardMediaDimensionsWidth>
+</cms.standardmediadimensions>

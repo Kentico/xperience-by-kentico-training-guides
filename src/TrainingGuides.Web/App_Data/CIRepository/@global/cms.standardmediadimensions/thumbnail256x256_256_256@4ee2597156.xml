@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.standardmediadimensions>
+  <StandardMediaDimensionsDisplayName>Thumbnail</StandardMediaDimensionsDisplayName>
+  <StandardMediaDimensionsGUID>e800b0d4-af63-496d-934c-c0ba9a927c3a</StandardMediaDimensionsGUID>
+  <StandardMediaDimensionsHeight>256</StandardMediaDimensionsHeight>
+  <StandardMediaDimensionsName>Thumbnail256x256</StandardMediaDimensionsName>
+  <StandardMediaDimensionsTransformationType>SmartCrop</StandardMediaDimensionsTransformationType>
+  <StandardMediaDimensionsWidth>256</StandardMediaDimensionsWidth>
+</cms.standardmediadimensions>

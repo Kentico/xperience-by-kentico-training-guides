@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentitemcommondata>
+  <ArticleSchemaSummary>
+    <![CDATA[Shows the teaser image rendered with image variants.]]>
+  </ArticleSchemaSummary>
+  <ArticleSchemaTeaser>
+    <![CDATA[[{"Identifier":"5957bfb8-679d-44d7-9a11-6ce586926503"}]]]>
+  </ArticleSchemaTeaser>
+  <ArticleSchemaTitle>Image variants</ArticleSchemaTitle>
+  <ContentItemCommonDataContentItemID>
+    <CodeName>ImageVariants-iskzxy19</CodeName>
+    <GUID>d63f8bf3-1719-4ccf-a0df-e761992b87b4</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </ContentItemCommonDataContentItemID>
+  <ContentItemCommonDataContentLanguageID>
+    <CodeName>en</CodeName>
+    <GUID>e81b5172-f240-4041-88b1-653089984e29</GUID>
+    <ObjectType>cms.contentlanguage</ObjectType>
+  </ContentItemCommonDataContentLanguageID>
+  <ContentItemCommonDataFirstPublishedWhen>2026-10-19 09:43:47Z</ContentItemCommonDataFirstPublishedWhen>
+  <ContentItemCommonDataGUID>085292d2-00c7-4db1-8099-4f689695d94f</ContentItemCommonDataGUID>
+  <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
+  <ContentItemCommonDataLastPublishedWhen>2026-10-19 09:57:27Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
+  <ContentItemReferences>
+    <cms.contentitemreference>
+      <ContentItemReferenceGroupGUID>a66eef38-b296-4172-9f69-dda2e1840fec</ContentItemReferenceGroupGUID>
+      <ContentItemReferenceGUID>2d490d4b-d9ca-437f-9540-b41647b76756</ContentItemReferenceGUID>
+      <ContentItemReferenceSourceCommonDataID>
+        <GUID>085292d2-00c7-4db1-8099-4f689695d94f</GUID>
+        <ObjectType>cms.contentitemcommondata</ObjectType>
+      </ContentItemReferenceSourceCommonDataID>
+      <ContentItemReferenceTargetItemID>
+        <CodeName>Pasta-1qy41r16</CodeName>
+        <GUID>5957bfb8-679d-44d7-9a11-6ce586926503</GUID>
+        <ObjectType>cms.contentitem</ObjectType>
+      </ContentItemReferenceTargetItemID>
+    </cms.contentitemreference>
+  </ContentItemReferences>
+</cms.contentitemcommondata>
